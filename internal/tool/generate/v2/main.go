@@ -578,6 +578,26 @@ func (classDB ClassDB) generateObjectPackage(class gdjson.Class, singleton bool,
 					}
 					ancestor = classDB[ancestor.Inherits]
 				}
+
+				// Pass 3: ancestor properties → *Extension[T] forwarders.
+				// Each ancestor property gets a getter on this leaf's
+				// *Extension[T] (and a setter where the property has
+				// one), delegating through the As<Ancestor>() chain.
+				ancestor = classDB[class.Inherits]
+				for ancestor.Name != "" && ancestor.Name != "Object" {
+					if ancestor.IsSingleton || ancestor.Name == "RefCounted" {
+						ancestor = classDB[ancestor.Inherits]
+						continue
+					}
+					for _, prop := range ancestor.Properties {
+						classDB.promotedPropertyAccessor(file, class, ancestor, propRef{
+							Name: prop.Name, Type: prop.Type,
+							Setter: prop.Setter, Getter: prop.Getter,
+							Index: prop.Index,
+						}, methodEmitted)
+					}
+					ancestor = classDB[ancestor.Inherits]
+				}
 			}
 		}
 		for _, self := range []string{"class", "Instance"} {

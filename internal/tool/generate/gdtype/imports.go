@@ -134,6 +134,50 @@ func ImportsForClass(class gdjson.Class) iter.Seq[string] {
 						imports[pkg] = true
 					}
 				}
+				// gogogd-fork: promoted-property type imports. Each
+				// ancestor property becomes a getter/setter forwarder
+				// on the leaf's *Extension[T]. Pull imports for the
+				// property type via the matching getter/setter method.
+				// Skip relocated accessors (same skip as
+				// promotedPropertyAccessor in prop.go).
+				for _, prop := range ancestor.Properties {
+					if prop.Getter != "" {
+						if _, reloc := gdjson.Relocations[ancestor.Name+"."+prop.Getter]; reloc {
+							continue
+						}
+					}
+					if prop.Setter != "" {
+						if _, reloc := gdjson.Relocations[ancestor.Name+"."+prop.Setter]; reloc {
+							continue
+						}
+					}
+					if prop.Getter != "" {
+						for _, m := range ancestor.Methods {
+							if m.Name == prop.Getter {
+								for pkg := range importsForEngineType(class, "", m.ReturnValue.Type) {
+									imports[pkg] = true
+								}
+								break
+							}
+						}
+					}
+					if prop.Setter != "" {
+						for _, m := range ancestor.Methods {
+							if m.Name == prop.Setter {
+								idx := 0
+								if prop.Index != nil {
+									idx = 1
+								}
+								if idx < len(m.Arguments) {
+									for pkg := range importsForEngineType(class, ancestor.Name+"."+prop.Setter+"."+prop.Name, m.Arguments[idx].Type) {
+										imports[pkg] = true
+									}
+								}
+								break
+							}
+						}
+					}
+				}
 				ancestor = ClassDB[ancestor.Inherits]
 			}
 		}

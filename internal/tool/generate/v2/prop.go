@@ -35,6 +35,101 @@ func (classDB ClassDB) new(file io.Writer, class gdjson.Class) {
 	fmt.Fprintf(file, "}\n")
 }
 
+// propRef is the minimal subset of a class property we use during
+// promotion. The upstream Property type is an anonymous struct inside
+// gdjson.Class — we can't import it by name, so we extract just what
+// we need.
+type propRef struct {
+	Name   string
+	Type   string
+	Setter string
+	Getter string
+	Index  *int
+}
+
+// promotedPropertyAccessor emits getter (and setter where applicable)
+// forwarders on the leaf's *Extension[T] for a property defined on an
+// ancestor class. Skips emission if the leaf already has a same-named
+// method/property on *Extension[T].
+//
+// Each forwarder delegates through the AsAncestor() chain. The setter
+// forwarder returns *Extension[T] (the leaf's) for chaining consistency.
+func (classDB ClassDB) promotedPropertyAccessor(file io.Writer, leafClass gdjson.Class, ancestor gdjson.Class, prop propRef, alreadyEmitted map[string]bool) {
+	getterName := convertName(prop.Name)
+	setterName := "Set" + getterName
+
+	// Resolve the property type the same way the original `properties`
+	// function does: start with a lookup using prop.Name, then refine
+	// using the getter or setter method's return/arg type when available.
+	// This ensures Distinctions-driven renames (e.g. int → RenderPriority
+	// for Material.render_priority) match correctly.
+	// Skip if the getter or setter is relocated to another class — those
+	// don't get emitted on the source Instance, so the leaf can't forward
+	// to them. Mirrors the same skip in `properties`.
+	if prop.Getter != "" {
+		if _, reloc := gdjson.Relocations[ancestor.Name+"."+prop.Getter]; reloc {
+			return
+		}
+	}
+	if prop.Setter != "" {
+		if _, reloc := gdjson.Relocations[ancestor.Name+"."+prop.Setter]; reloc {
+			return
+		}
+	}
+
+	ptype := classDB.convertTypeSimple(ancestor, ancestor.Name+"."+prop.Name, "", prop.Type)
+	var hasGetter, hasSetter bool
+	if prop.Getter != "" {
+		for _, m := range ancestor.Methods {
+			if m.Name == prop.Getter {
+				ptype = classDB.convertTypeSimple(ancestor, ancestor.Name+"."+prop.Getter+".", m.ReturnValue.Meta, m.ReturnValue.Type)
+				hasGetter = true
+				break
+			}
+		}
+	}
+	if prop.Setter != "" {
+		for _, m := range ancestor.Methods {
+			if m.Name == prop.Setter {
+				idx := 0
+				if prop.Index != nil {
+					idx = 1
+				}
+				if idx >= len(m.Arguments) {
+					break
+				}
+				ptype = classDB.convertTypeSimple(ancestor, ancestor.Name+"."+prop.Setter+"."+prop.Name, m.Arguments[idx].Meta, m.Arguments[idx].Type)
+				hasSetter = true
+				break
+			}
+		}
+	}
+	ptype = qualifyForLeaf(ptype, ancestor.Name, leafClass.Name)
+	if !hasGetter && !hasSetter {
+		return
+	}
+
+	if hasGetter {
+		key := getterName + "::*Extension[T]"
+		if !alreadyEmitted[key] {
+			alreadyEmitted[key] = true
+			fmt.Fprintf(file, "\n// %s is promoted from [%s.Instance.%s].\n", getterName, ancestor.Name, getterName)
+			fmt.Fprintf(file, "func (o *Extension[T]) %s() %s { return o.Super().As%s().%s() }\n",
+				getterName, ptype, ancestor.Name, getterName)
+		}
+	}
+	if hasSetter {
+		key := setterName + "::*Extension[T]"
+		if !alreadyEmitted[key] {
+			alreadyEmitted[key] = true
+			fmt.Fprintf(file, "\n// %s is promoted from [%s.Instance.%s].\n", setterName, ancestor.Name, setterName)
+			fmt.Fprintf(file, "func (o *Extension[T]) %s(value %s) *Extension[T] {\n", setterName, ptype)
+			fmt.Fprintf(file, "\to.Super().As%s().%s(value)\n", ancestor.Name, setterName)
+			fmt.Fprintf(file, "\treturn o\n}\n")
+		}
+	}
+}
+
 func (classDB ClassDB) properties(file io.Writer, class gdjson.Class, singleton bool) {
 	if len(class.Properties) == 0 {
 		return
@@ -95,6 +190,13 @@ func (classDB ClassDB) properties(file io.Writer, class gdjson.Class, singleton 
 			}
 			fmt.Fprintf(file, "\t\treturn %s(%s)\n", ptype, gdtype.Name(expert).ConvertToGo(val, ptype))
 			fmt.Fprintf(file, "}\n")
+			// gogogd-fork: also expose the property getter on *Extension[T]
+			// so users who embed Foo.Extension[T] can call p.Foo() directly
+			// without going through p.Super().Foo().
+			if !singleton {
+				fmt.Fprintf(file, "\nfunc (o *Extension[T]) %s() %s { return o.Super().%s() }\n",
+					convertName(prop.Name), ptype, convertName(prop.Name))
+			}
 		}
 
 		if prop.Setter != "" {
@@ -154,6 +256,14 @@ func (classDB ClassDB) properties(file io.Writer, class gdjson.Class, singleton 
 				fmt.Fprintf(file, "\treturn self\n")
 			}
 			fmt.Fprintf(file, "}\n")
+			// gogogd-fork: also expose the property setter on
+			// *Extension[T]. Returns *Extension[T] for chaining (the
+			// leaf's, not the parent's).
+			if !singleton {
+				fmt.Fprintf(file, "\nfunc (o *Extension[T]) Set%s(value %s) *Extension[T] {\n", convertName(prop.Name), ptype)
+				fmt.Fprintf(file, "\to.Super().Set%s(value)\n", convertName(prop.Name))
+				fmt.Fprintf(file, "\treturn o\n}\n")
+			}
 		}
 	}
 }
