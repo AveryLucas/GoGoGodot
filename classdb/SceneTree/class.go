@@ -827,6 +827,78 @@ func (o *Extension[T]) AsSceneTree() Instance { return o.Super() }
 func (o class) AsMainLoop() MainLoop.Advanced { return *(*MainLoop.Advanced)(ie.As(&o)) }
 func (o *Extension[T]) AsMainLoop() MainLoop.Instance { return o.Super().AsMainLoop() }
 func (o Instance) AsMainLoop() MainLoop.Instance { return *(*MainLoop.Instance)(ie.As(&o)) }
+func (o *Extension[T]) OnTreeChanged(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("tree_changed"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+func (o *Extension[T]) OnSceneChanged(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("scene_changed"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+func (o *Extension[T]) OnTreeProcessModeChanged(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("tree_process_mode_changed"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+func (o *Extension[T]) OnNodeAdded(cb func(node Node.Instance), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("node_added"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+func (o *Extension[T]) OnNodeRemoved(cb func(node Node.Instance), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("node_removed"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+func (o *Extension[T]) OnNodeRenamed(cb func(node Node.Instance), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("node_renamed"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+func (o *Extension[T]) OnNodeConfigurationWarningChanged(cb func(node Node.Instance), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("node_configuration_warning_changed"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+func (o *Extension[T]) OnProcessFrame(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("process_frame"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+func (o *Extension[T]) OnPhysicsFrame(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("physics_frame"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
 
 // OnOnRequestPermissionsResult is promoted from [MainLoop.Instance.OnOnRequestPermissionsResult].
 func (self Instance) OnOnRequestPermissionsResult(cb func(permission string, granted bool), flags ...Signal.Flags) Instance {
@@ -836,6 +908,16 @@ func (self Instance) OnOnRequestPermissionsResult(cb func(permission string, gra
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("on_request_permissions_result"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+
+// OnOnRequestPermissionsResult is promoted from [MainLoop.Instance.OnOnRequestPermissionsResult].
+func (o *Extension[T]) OnOnRequestPermissionsResult(cb func(permission string, granted bool), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("on_request_permissions_result"), gd.NewCallable(cb), int64(flags_together))
+	return o
 }
 func (o *Extension[T]) HasGroup(name string) bool {
 	return o.Super().HasGroup(name)

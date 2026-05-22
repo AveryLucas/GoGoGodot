@@ -333,6 +333,16 @@ func (self Instance) OnChanged(cb func(), flags ...Signal.Flags) Instance {
 	return self
 }
 
+// OnChanged is promoted from [Resource.Instance.OnChanged].
+func (o *Extension[T]) OnChanged(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("changed"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+
 // OnSetupLocalToSceneRequested is promoted from [Resource.Instance.OnSetupLocalToSceneRequested].
 func (self Instance) OnSetupLocalToSceneRequested(cb func(), flags ...Signal.Flags) Instance {
 	var flags_together Signal.Flags
@@ -341,6 +351,16 @@ func (self Instance) OnSetupLocalToSceneRequested(cb func(), flags ...Signal.Fla
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("setup_local_to_scene_requested"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+
+// OnSetupLocalToSceneRequested is promoted from [Resource.Instance.OnSetupLocalToSceneRequested].
+func (o *Extension[T]) OnSetupLocalToSceneRequested(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("setup_local_to_scene_requested"), gd.NewCallable(cb), int64(flags_together))
+	return o
 }
 func (o *Extension[T]) SetAdditionalRotation(rotation Angle.Radians) *Extension[T] {
 	o.Super().SetAdditionalRotation(rotation)
@@ -537,54 +557,84 @@ func (o *Extension[T]) EmitChanged() {
 }
 
 // Enabled is promoted from [SkeletonModification2D.Instance.Enabled].
+func (self Instance) Enabled() bool { return self.AsSkeletonModification2D().Enabled() }
 func (o *Extension[T]) Enabled() bool { return o.Super().AsSkeletonModification2D().Enabled() }
 
 // SetEnabled is promoted from [SkeletonModification2D.Instance.SetEnabled].
+func (self Instance) SetEnabled(value bool) Instance {
+	self.AsSkeletonModification2D().SetEnabled(value)
+	return self
+}
 func (o *Extension[T]) SetEnabled(value bool) *Extension[T] {
 	o.Super().AsSkeletonModification2D().SetEnabled(value)
 	return o
 }
 
 // ExecutionMode is promoted from [SkeletonModification2D.Instance.ExecutionMode].
+func (self Instance) ExecutionMode() int { return self.AsSkeletonModification2D().ExecutionMode() }
 func (o *Extension[T]) ExecutionMode() int { return o.Super().AsSkeletonModification2D().ExecutionMode() }
 
 // SetExecutionMode is promoted from [SkeletonModification2D.Instance.SetExecutionMode].
+func (self Instance) SetExecutionMode(value int) Instance {
+	self.AsSkeletonModification2D().SetExecutionMode(value)
+	return self
+}
 func (o *Extension[T]) SetExecutionMode(value int) *Extension[T] {
 	o.Super().AsSkeletonModification2D().SetExecutionMode(value)
 	return o
 }
 
 // ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (self Instance) ResourceLocalToScene() bool { return self.AsResource().ResourceLocalToScene() }
 func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
 
 // SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (self Instance) SetResourceLocalToScene(value bool) Instance {
+	self.AsResource().SetResourceLocalToScene(value)
+	return self
+}
 func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
 	o.Super().AsResource().SetResourceLocalToScene(value)
 	return o
 }
 
 // ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (self Instance) ResourcePath() string { return self.AsResource().ResourcePath() }
 func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
 
 // SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (self Instance) SetResourcePath(value string) Instance {
+	self.AsResource().SetResourcePath(value)
+	return self
+}
 func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
 	o.Super().AsResource().SetResourcePath(value)
 	return o
 }
 
 // ResourceName is promoted from [Resource.Instance.ResourceName].
+func (self Instance) ResourceName() string { return self.AsResource().ResourceName() }
 func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
 
 // SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (self Instance) SetResourceName(value string) Instance {
+	self.AsResource().SetResourceName(value)
+	return self
+}
 func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
 	o.Super().AsResource().SetResourceName(value)
 	return o
 }
 
 // ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (self Instance) ResourceSceneUniqueId() string { return self.AsResource().ResourceSceneUniqueId() }
 func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
 
 // SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (self Instance) SetResourceSceneUniqueId(value string) Instance {
+	self.AsResource().SetResourceSceneUniqueId(value)
+	return self
+}
 func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
 	o.Super().AsResource().SetResourceSceneUniqueId(value)
 	return o

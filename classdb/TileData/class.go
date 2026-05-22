@@ -742,6 +742,14 @@ return Signal.Via(gd.SignalProxy{}, pointers.Pack(gd.NewSignalOf(self.AsObject()
 func (o class) AsTileData() Advanced { return Advanced(o) }
 func (o Instance) AsTileData() Instance { return o }
 func (o *Extension[T]) AsTileData() Instance { return o.Super() }
+func (o *Extension[T]) OnChanged(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("changed"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
 func (o *Extension[T]) SetOccluderPolygonsCount(layer_id int, polygons_count int) *Extension[T] {
 	o.Super().SetOccluderPolygonsCount(layer_id, polygons_count)
 	return o

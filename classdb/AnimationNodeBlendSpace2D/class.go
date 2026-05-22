@@ -490,6 +490,14 @@ func (o Instance) AsResource() Resource.Instance { return *(*Resource.Instance)(
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) OnTrianglesUpdated(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("triangles_updated"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
 
 // OnTreeChanged is promoted from [AnimationNode.Instance.OnTreeChanged].
 func (self Instance) OnTreeChanged(cb func(), flags ...Signal.Flags) Instance {
@@ -499,6 +507,16 @@ func (self Instance) OnTreeChanged(cb func(), flags ...Signal.Flags) Instance {
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("tree_changed"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+
+// OnTreeChanged is promoted from [AnimationNode.Instance.OnTreeChanged].
+func (o *Extension[T]) OnTreeChanged(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("tree_changed"), gd.NewCallable(cb), int64(flags_together))
+	return o
 }
 
 // OnAnimationNodeRenamed is promoted from [AnimationNode.Instance.OnAnimationNodeRenamed].
@@ -511,6 +529,16 @@ func (self Instance) OnAnimationNodeRenamed(cb func(object_id int, old_name stri
 	return self
 }
 
+// OnAnimationNodeRenamed is promoted from [AnimationNode.Instance.OnAnimationNodeRenamed].
+func (o *Extension[T]) OnAnimationNodeRenamed(cb func(object_id int, old_name string, new_name string), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("animation_node_renamed"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+
 // OnAnimationNodeRemoved is promoted from [AnimationNode.Instance.OnAnimationNodeRemoved].
 func (self Instance) OnAnimationNodeRemoved(cb func(object_id int, name string), flags ...Signal.Flags) Instance {
 	var flags_together Signal.Flags
@@ -519,6 +547,16 @@ func (self Instance) OnAnimationNodeRemoved(cb func(object_id int, name string),
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("animation_node_removed"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+
+// OnAnimationNodeRemoved is promoted from [AnimationNode.Instance.OnAnimationNodeRemoved].
+func (o *Extension[T]) OnAnimationNodeRemoved(cb func(object_id int, name string), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("animation_node_removed"), gd.NewCallable(cb), int64(flags_together))
+	return o
 }
 
 // OnChanged is promoted from [Resource.Instance.OnChanged].
@@ -531,6 +569,16 @@ func (self Instance) OnChanged(cb func(), flags ...Signal.Flags) Instance {
 	return self
 }
 
+// OnChanged is promoted from [Resource.Instance.OnChanged].
+func (o *Extension[T]) OnChanged(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("changed"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+
 // OnSetupLocalToSceneRequested is promoted from [Resource.Instance.OnSetupLocalToSceneRequested].
 func (self Instance) OnSetupLocalToSceneRequested(cb func(), flags ...Signal.Flags) Instance {
 	var flags_together Signal.Flags
@@ -539,6 +587,16 @@ func (self Instance) OnSetupLocalToSceneRequested(cb func(), flags ...Signal.Fla
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("setup_local_to_scene_requested"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+
+// OnSetupLocalToSceneRequested is promoted from [Resource.Instance.OnSetupLocalToSceneRequested].
+func (o *Extension[T]) OnSetupLocalToSceneRequested(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("setup_local_to_scene_requested"), gd.NewCallable(cb), int64(flags_together))
+	return o
 }
 func (o *Extension[T]) SetBlendPointPosition(point int, pos Vector2.XY) *Extension[T] {
 	o.Super().SetBlendPointPosition(point, pos)
@@ -789,45 +847,70 @@ func (o *Extension[T]) EmitChanged() {
 }
 
 // FilterEnabled is promoted from [AnimationNode.Instance.FilterEnabled].
+func (self Instance) FilterEnabled() bool { return self.AsAnimationNode().FilterEnabled() }
 func (o *Extension[T]) FilterEnabled() bool { return o.Super().AsAnimationNode().FilterEnabled() }
 
 // SetFilterEnabled is promoted from [AnimationNode.Instance.SetFilterEnabled].
+func (self Instance) SetFilterEnabled(value bool) Instance {
+	self.AsAnimationNode().SetFilterEnabled(value)
+	return self
+}
 func (o *Extension[T]) SetFilterEnabled(value bool) *Extension[T] {
 	o.Super().AsAnimationNode().SetFilterEnabled(value)
 	return o
 }
 
 // ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (self Instance) ResourceLocalToScene() bool { return self.AsResource().ResourceLocalToScene() }
 func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
 
 // SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (self Instance) SetResourceLocalToScene(value bool) Instance {
+	self.AsResource().SetResourceLocalToScene(value)
+	return self
+}
 func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
 	o.Super().AsResource().SetResourceLocalToScene(value)
 	return o
 }
 
 // ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (self Instance) ResourcePath() string { return self.AsResource().ResourcePath() }
 func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
 
 // SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (self Instance) SetResourcePath(value string) Instance {
+	self.AsResource().SetResourcePath(value)
+	return self
+}
 func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
 	o.Super().AsResource().SetResourcePath(value)
 	return o
 }
 
 // ResourceName is promoted from [Resource.Instance.ResourceName].
+func (self Instance) ResourceName() string { return self.AsResource().ResourceName() }
 func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
 
 // SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (self Instance) SetResourceName(value string) Instance {
+	self.AsResource().SetResourceName(value)
+	return self
+}
 func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
 	o.Super().AsResource().SetResourceName(value)
 	return o
 }
 
 // ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (self Instance) ResourceSceneUniqueId() string { return self.AsResource().ResourceSceneUniqueId() }
 func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
 
 // SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (self Instance) SetResourceSceneUniqueId(value string) Instance {
+	self.AsResource().SetResourceSceneUniqueId(value)
+	return self
+}
 func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
 	o.Super().AsResource().SetResourceSceneUniqueId(value)
 	return o

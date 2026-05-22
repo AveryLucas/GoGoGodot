@@ -204,27 +204,42 @@ func (o *Extension[T]) SetBlendShape(blend_shape BlendShapeEntry, weight Float.X
 }
 
 // Type is promoted from [XRTracker.Instance.Type].
+func (self Instance) Type() XRTracker.Type { return self.AsXRTracker().Type() }
 func (o *Extension[T]) Type() XRTracker.Type { return o.Super().AsXRTracker().Type() }
 
 // SetType is promoted from [XRTracker.Instance.SetType].
+func (self Instance) SetType(value XRTracker.Type) Instance {
+	self.AsXRTracker().SetType(value)
+	return self
+}
 func (o *Extension[T]) SetType(value XRTracker.Type) *Extension[T] {
 	o.Super().AsXRTracker().SetType(value)
 	return o
 }
 
 // Name is promoted from [XRTracker.Instance.Name].
+func (self Instance) Name() string { return self.AsXRTracker().Name() }
 func (o *Extension[T]) Name() string { return o.Super().AsXRTracker().Name() }
 
 // SetName is promoted from [XRTracker.Instance.SetName].
+func (self Instance) SetName(value string) Instance {
+	self.AsXRTracker().SetName(value)
+	return self
+}
 func (o *Extension[T]) SetName(value string) *Extension[T] {
 	o.Super().AsXRTracker().SetName(value)
 	return o
 }
 
 // Description is promoted from [XRTracker.Instance.Description].
+func (self Instance) Description() string { return self.AsXRTracker().Description() }
 func (o *Extension[T]) Description() string { return o.Super().AsXRTracker().Description() }
 
 // SetDescription is promoted from [XRTracker.Instance.SetDescription].
+func (self Instance) SetDescription(value string) Instance {
+	self.AsXRTracker().SetDescription(value)
+	return self
+}
 func (o *Extension[T]) SetDescription(value string) *Extension[T] {
 	o.Super().AsXRTracker().SetDescription(value)
 	return o

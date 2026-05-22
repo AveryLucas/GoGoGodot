@@ -162,6 +162,16 @@ func (self Instance) OnFinished(cb func(), flags ...Signal.Flags) Instance {
 	return self
 }
 
+// OnFinished is promoted from [Tweener.Instance.OnFinished].
+func (o *Extension[T]) OnFinished(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("finished"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+
 func (self class) Virtual(name string) reflect.Value {
 	switch name {
 	default: return gd.VirtualByName(Tweener.Advanced(self.AsTweener()), name)

@@ -312,6 +312,16 @@ func (self Instance) OnSizeChanged(cb func(), flags ...Signal.Flags) Instance {
 	return self
 }
 
+// OnSizeChanged is promoted from [Viewport.Instance.OnSizeChanged].
+func (o *Extension[T]) OnSizeChanged(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("size_changed"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+
 // OnGuiFocusChanged is promoted from [Viewport.Instance.OnGuiFocusChanged].
 func (self Instance) OnGuiFocusChanged(cb func(node Control.Instance), flags ...Signal.Flags) Instance {
 	var flags_together Signal.Flags
@@ -320,6 +330,16 @@ func (self Instance) OnGuiFocusChanged(cb func(node Control.Instance), flags ...
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("gui_focus_changed"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+
+// OnGuiFocusChanged is promoted from [Viewport.Instance.OnGuiFocusChanged].
+func (o *Extension[T]) OnGuiFocusChanged(cb func(node Control.Instance), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("gui_focus_changed"), gd.NewCallable(cb), int64(flags_together))
+	return o
 }
 
 // OnReady is promoted from [Node.Instance.OnReady].
@@ -332,6 +352,16 @@ func (self Instance) OnReady(cb func(), flags ...Signal.Flags) Instance {
 	return self
 }
 
+// OnReady is promoted from [Node.Instance.OnReady].
+func (o *Extension[T]) OnReady(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("ready"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+
 // OnRenamed is promoted from [Node.Instance.OnRenamed].
 func (self Instance) OnRenamed(cb func(), flags ...Signal.Flags) Instance {
 	var flags_together Signal.Flags
@@ -340,6 +370,16 @@ func (self Instance) OnRenamed(cb func(), flags ...Signal.Flags) Instance {
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("renamed"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+
+// OnRenamed is promoted from [Node.Instance.OnRenamed].
+func (o *Extension[T]) OnRenamed(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("renamed"), gd.NewCallable(cb), int64(flags_together))
+	return o
 }
 
 // OnTreeEntered is promoted from [Node.Instance.OnTreeEntered].
@@ -352,6 +392,16 @@ func (self Instance) OnTreeEntered(cb func(), flags ...Signal.Flags) Instance {
 	return self
 }
 
+// OnTreeEntered is promoted from [Node.Instance.OnTreeEntered].
+func (o *Extension[T]) OnTreeEntered(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("tree_entered"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+
 // OnTreeExiting is promoted from [Node.Instance.OnTreeExiting].
 func (self Instance) OnTreeExiting(cb func(), flags ...Signal.Flags) Instance {
 	var flags_together Signal.Flags
@@ -360,6 +410,16 @@ func (self Instance) OnTreeExiting(cb func(), flags ...Signal.Flags) Instance {
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("tree_exiting"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+
+// OnTreeExiting is promoted from [Node.Instance.OnTreeExiting].
+func (o *Extension[T]) OnTreeExiting(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("tree_exiting"), gd.NewCallable(cb), int64(flags_together))
+	return o
 }
 
 // OnTreeExited is promoted from [Node.Instance.OnTreeExited].
@@ -372,6 +432,16 @@ func (self Instance) OnTreeExited(cb func(), flags ...Signal.Flags) Instance {
 	return self
 }
 
+// OnTreeExited is promoted from [Node.Instance.OnTreeExited].
+func (o *Extension[T]) OnTreeExited(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("tree_exited"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+
 // OnChildEnteredTree is promoted from [Node.Instance.OnChildEnteredTree].
 func (self Instance) OnChildEnteredTree(cb func(node Node.Instance), flags ...Signal.Flags) Instance {
 	var flags_together Signal.Flags
@@ -380,6 +450,16 @@ func (self Instance) OnChildEnteredTree(cb func(node Node.Instance), flags ...Si
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("child_entered_tree"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+
+// OnChildEnteredTree is promoted from [Node.Instance.OnChildEnteredTree].
+func (o *Extension[T]) OnChildEnteredTree(cb func(node Node.Instance), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("child_entered_tree"), gd.NewCallable(cb), int64(flags_together))
+	return o
 }
 
 // OnChildExitingTree is promoted from [Node.Instance.OnChildExitingTree].
@@ -392,6 +472,16 @@ func (self Instance) OnChildExitingTree(cb func(node Node.Instance), flags ...Si
 	return self
 }
 
+// OnChildExitingTree is promoted from [Node.Instance.OnChildExitingTree].
+func (o *Extension[T]) OnChildExitingTree(cb func(node Node.Instance), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("child_exiting_tree"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+
 // OnChildOrderChanged is promoted from [Node.Instance.OnChildOrderChanged].
 func (self Instance) OnChildOrderChanged(cb func(), flags ...Signal.Flags) Instance {
 	var flags_together Signal.Flags
@@ -400,6 +490,16 @@ func (self Instance) OnChildOrderChanged(cb func(), flags ...Signal.Flags) Insta
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("child_order_changed"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+
+// OnChildOrderChanged is promoted from [Node.Instance.OnChildOrderChanged].
+func (o *Extension[T]) OnChildOrderChanged(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("child_order_changed"), gd.NewCallable(cb), int64(flags_together))
+	return o
 }
 
 // OnReplacingBy is promoted from [Node.Instance.OnReplacingBy].
@@ -412,6 +512,16 @@ func (self Instance) OnReplacingBy(cb func(node Node.Instance), flags ...Signal.
 	return self
 }
 
+// OnReplacingBy is promoted from [Node.Instance.OnReplacingBy].
+func (o *Extension[T]) OnReplacingBy(cb func(node Node.Instance), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("replacing_by"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+
 // OnEditorDescriptionChanged is promoted from [Node.Instance.OnEditorDescriptionChanged].
 func (self Instance) OnEditorDescriptionChanged(cb func(node Node.Instance), flags ...Signal.Flags) Instance {
 	var flags_together Signal.Flags
@@ -422,6 +532,16 @@ func (self Instance) OnEditorDescriptionChanged(cb func(node Node.Instance), fla
 	return self
 }
 
+// OnEditorDescriptionChanged is promoted from [Node.Instance.OnEditorDescriptionChanged].
+func (o *Extension[T]) OnEditorDescriptionChanged(cb func(node Node.Instance), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("editor_description_changed"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+
 // OnEditorStateChanged is promoted from [Node.Instance.OnEditorStateChanged].
 func (self Instance) OnEditorStateChanged(cb func(), flags ...Signal.Flags) Instance {
 	var flags_together Signal.Flags
@@ -430,6 +550,16 @@ func (self Instance) OnEditorStateChanged(cb func(), flags ...Signal.Flags) Inst
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("editor_state_changed"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+
+// OnEditorStateChanged is promoted from [Node.Instance.OnEditorStateChanged].
+func (o *Extension[T]) OnEditorStateChanged(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("editor_state_changed"), gd.NewCallable(cb), int64(flags_together))
+	return o
 }
 
 // FindWorld2d is promoted from [Viewport.Instance.FindWorld2d].
@@ -1455,570 +1585,886 @@ func (o *Extension[T]) NotifyThreadSafe(what int) {
 }
 
 // Disable3d is promoted from [Viewport.Instance.Disable3d].
+func (self Instance) Disable3d() bool { return self.AsViewport().Disable3d() }
 func (o *Extension[T]) Disable3d() bool { return o.Super().AsViewport().Disable3d() }
 
 // SetDisable3d is promoted from [Viewport.Instance.SetDisable3d].
+func (self Instance) SetDisable3d(value bool) Instance {
+	self.AsViewport().SetDisable3d(value)
+	return self
+}
 func (o *Extension[T]) SetDisable3d(value bool) *Extension[T] {
 	o.Super().AsViewport().SetDisable3d(value)
 	return o
 }
 
 // UseXr is promoted from [Viewport.Instance.UseXr].
+func (self Instance) UseXr() bool { return self.AsViewport().UseXr() }
 func (o *Extension[T]) UseXr() bool { return o.Super().AsViewport().UseXr() }
 
 // SetUseXr is promoted from [Viewport.Instance.SetUseXr].
+func (self Instance) SetUseXr(value bool) Instance {
+	self.AsViewport().SetUseXr(value)
+	return self
+}
 func (o *Extension[T]) SetUseXr(value bool) *Extension[T] {
 	o.Super().AsViewport().SetUseXr(value)
 	return o
 }
 
 // OwnWorld3d is promoted from [Viewport.Instance.OwnWorld3d].
+func (self Instance) OwnWorld3d() bool { return self.AsViewport().OwnWorld3d() }
 func (o *Extension[T]) OwnWorld3d() bool { return o.Super().AsViewport().OwnWorld3d() }
 
 // SetOwnWorld3d is promoted from [Viewport.Instance.SetOwnWorld3d].
+func (self Instance) SetOwnWorld3d(value bool) Instance {
+	self.AsViewport().SetOwnWorld3d(value)
+	return self
+}
 func (o *Extension[T]) SetOwnWorld3d(value bool) *Extension[T] {
 	o.Super().AsViewport().SetOwnWorld3d(value)
 	return o
 }
 
 // World3d is promoted from [Viewport.Instance.World3d].
+func (self Instance) World3d() World3D.Instance { return self.AsViewport().World3d() }
 func (o *Extension[T]) World3d() World3D.Instance { return o.Super().AsViewport().World3d() }
 
 // SetWorld3d is promoted from [Viewport.Instance.SetWorld3d].
+func (self Instance) SetWorld3d(value World3D.Instance) Instance {
+	self.AsViewport().SetWorld3d(value)
+	return self
+}
 func (o *Extension[T]) SetWorld3d(value World3D.Instance) *Extension[T] {
 	o.Super().AsViewport().SetWorld3d(value)
 	return o
 }
 
 // World2d is promoted from [Viewport.Instance.World2d].
+func (self Instance) World2d() World2D.Instance { return self.AsViewport().World2d() }
 func (o *Extension[T]) World2d() World2D.Instance { return o.Super().AsViewport().World2d() }
 
 // SetWorld2d is promoted from [Viewport.Instance.SetWorld2d].
+func (self Instance) SetWorld2d(value World2D.Instance) Instance {
+	self.AsViewport().SetWorld2d(value)
+	return self
+}
 func (o *Extension[T]) SetWorld2d(value World2D.Instance) *Extension[T] {
 	o.Super().AsViewport().SetWorld2d(value)
 	return o
 }
 
 // TransparentBg is promoted from [Viewport.Instance.TransparentBg].
+func (self Instance) TransparentBg() bool { return self.AsViewport().TransparentBg() }
 func (o *Extension[T]) TransparentBg() bool { return o.Super().AsViewport().TransparentBg() }
 
 // SetTransparentBg is promoted from [Viewport.Instance.SetTransparentBg].
+func (self Instance) SetTransparentBg(value bool) Instance {
+	self.AsViewport().SetTransparentBg(value)
+	return self
+}
 func (o *Extension[T]) SetTransparentBg(value bool) *Extension[T] {
 	o.Super().AsViewport().SetTransparentBg(value)
 	return o
 }
 
 // HandleInputLocally is promoted from [Viewport.Instance.HandleInputLocally].
+func (self Instance) HandleInputLocally() bool { return self.AsViewport().HandleInputLocally() }
 func (o *Extension[T]) HandleInputLocally() bool { return o.Super().AsViewport().HandleInputLocally() }
 
 // SetHandleInputLocally is promoted from [Viewport.Instance.SetHandleInputLocally].
+func (self Instance) SetHandleInputLocally(value bool) Instance {
+	self.AsViewport().SetHandleInputLocally(value)
+	return self
+}
 func (o *Extension[T]) SetHandleInputLocally(value bool) *Extension[T] {
 	o.Super().AsViewport().SetHandleInputLocally(value)
 	return o
 }
 
 // Snap2dTransformsToPixel is promoted from [Viewport.Instance.Snap2dTransformsToPixel].
+func (self Instance) Snap2dTransformsToPixel() bool { return self.AsViewport().Snap2dTransformsToPixel() }
 func (o *Extension[T]) Snap2dTransformsToPixel() bool { return o.Super().AsViewport().Snap2dTransformsToPixel() }
 
 // SetSnap2dTransformsToPixel is promoted from [Viewport.Instance.SetSnap2dTransformsToPixel].
+func (self Instance) SetSnap2dTransformsToPixel(value bool) Instance {
+	self.AsViewport().SetSnap2dTransformsToPixel(value)
+	return self
+}
 func (o *Extension[T]) SetSnap2dTransformsToPixel(value bool) *Extension[T] {
 	o.Super().AsViewport().SetSnap2dTransformsToPixel(value)
 	return o
 }
 
 // Snap2dVerticesToPixel is promoted from [Viewport.Instance.Snap2dVerticesToPixel].
+func (self Instance) Snap2dVerticesToPixel() bool { return self.AsViewport().Snap2dVerticesToPixel() }
 func (o *Extension[T]) Snap2dVerticesToPixel() bool { return o.Super().AsViewport().Snap2dVerticesToPixel() }
 
 // SetSnap2dVerticesToPixel is promoted from [Viewport.Instance.SetSnap2dVerticesToPixel].
+func (self Instance) SetSnap2dVerticesToPixel(value bool) Instance {
+	self.AsViewport().SetSnap2dVerticesToPixel(value)
+	return self
+}
 func (o *Extension[T]) SetSnap2dVerticesToPixel(value bool) *Extension[T] {
 	o.Super().AsViewport().SetSnap2dVerticesToPixel(value)
 	return o
 }
 
 // Msaa2d is promoted from [Viewport.Instance.Msaa2d].
+func (self Instance) Msaa2d() Viewport.MSAA { return self.AsViewport().Msaa2d() }
 func (o *Extension[T]) Msaa2d() Viewport.MSAA { return o.Super().AsViewport().Msaa2d() }
 
 // SetMsaa2d is promoted from [Viewport.Instance.SetMsaa2d].
+func (self Instance) SetMsaa2d(value Viewport.MSAA) Instance {
+	self.AsViewport().SetMsaa2d(value)
+	return self
+}
 func (o *Extension[T]) SetMsaa2d(value Viewport.MSAA) *Extension[T] {
 	o.Super().AsViewport().SetMsaa2d(value)
 	return o
 }
 
 // Msaa3d is promoted from [Viewport.Instance.Msaa3d].
+func (self Instance) Msaa3d() Viewport.MSAA { return self.AsViewport().Msaa3d() }
 func (o *Extension[T]) Msaa3d() Viewport.MSAA { return o.Super().AsViewport().Msaa3d() }
 
 // SetMsaa3d is promoted from [Viewport.Instance.SetMsaa3d].
+func (self Instance) SetMsaa3d(value Viewport.MSAA) Instance {
+	self.AsViewport().SetMsaa3d(value)
+	return self
+}
 func (o *Extension[T]) SetMsaa3d(value Viewport.MSAA) *Extension[T] {
 	o.Super().AsViewport().SetMsaa3d(value)
 	return o
 }
 
 // ScreenSpaceAa is promoted from [Viewport.Instance.ScreenSpaceAa].
+func (self Instance) ScreenSpaceAa() Viewport.ScreenSpaceAA { return self.AsViewport().ScreenSpaceAa() }
 func (o *Extension[T]) ScreenSpaceAa() Viewport.ScreenSpaceAA { return o.Super().AsViewport().ScreenSpaceAa() }
 
 // SetScreenSpaceAa is promoted from [Viewport.Instance.SetScreenSpaceAa].
+func (self Instance) SetScreenSpaceAa(value Viewport.ScreenSpaceAA) Instance {
+	self.AsViewport().SetScreenSpaceAa(value)
+	return self
+}
 func (o *Extension[T]) SetScreenSpaceAa(value Viewport.ScreenSpaceAA) *Extension[T] {
 	o.Super().AsViewport().SetScreenSpaceAa(value)
 	return o
 }
 
 // UseTaa is promoted from [Viewport.Instance.UseTaa].
+func (self Instance) UseTaa() bool { return self.AsViewport().UseTaa() }
 func (o *Extension[T]) UseTaa() bool { return o.Super().AsViewport().UseTaa() }
 
 // SetUseTaa is promoted from [Viewport.Instance.SetUseTaa].
+func (self Instance) SetUseTaa(value bool) Instance {
+	self.AsViewport().SetUseTaa(value)
+	return self
+}
 func (o *Extension[T]) SetUseTaa(value bool) *Extension[T] {
 	o.Super().AsViewport().SetUseTaa(value)
 	return o
 }
 
 // UseDebanding is promoted from [Viewport.Instance.UseDebanding].
+func (self Instance) UseDebanding() bool { return self.AsViewport().UseDebanding() }
 func (o *Extension[T]) UseDebanding() bool { return o.Super().AsViewport().UseDebanding() }
 
 // SetUseDebanding is promoted from [Viewport.Instance.SetUseDebanding].
+func (self Instance) SetUseDebanding(value bool) Instance {
+	self.AsViewport().SetUseDebanding(value)
+	return self
+}
 func (o *Extension[T]) SetUseDebanding(value bool) *Extension[T] {
 	o.Super().AsViewport().SetUseDebanding(value)
 	return o
 }
 
 // UseOcclusionCulling is promoted from [Viewport.Instance.UseOcclusionCulling].
+func (self Instance) UseOcclusionCulling() bool { return self.AsViewport().UseOcclusionCulling() }
 func (o *Extension[T]) UseOcclusionCulling() bool { return o.Super().AsViewport().UseOcclusionCulling() }
 
 // SetUseOcclusionCulling is promoted from [Viewport.Instance.SetUseOcclusionCulling].
+func (self Instance) SetUseOcclusionCulling(value bool) Instance {
+	self.AsViewport().SetUseOcclusionCulling(value)
+	return self
+}
 func (o *Extension[T]) SetUseOcclusionCulling(value bool) *Extension[T] {
 	o.Super().AsViewport().SetUseOcclusionCulling(value)
 	return o
 }
 
 // MeshLodThreshold is promoted from [Viewport.Instance.MeshLodThreshold].
+func (self Instance) MeshLodThreshold() Float.X { return self.AsViewport().MeshLodThreshold() }
 func (o *Extension[T]) MeshLodThreshold() Float.X { return o.Super().AsViewport().MeshLodThreshold() }
 
 // SetMeshLodThreshold is promoted from [Viewport.Instance.SetMeshLodThreshold].
+func (self Instance) SetMeshLodThreshold(value Float.X) Instance {
+	self.AsViewport().SetMeshLodThreshold(value)
+	return self
+}
 func (o *Extension[T]) SetMeshLodThreshold(value Float.X) *Extension[T] {
 	o.Super().AsViewport().SetMeshLodThreshold(value)
 	return o
 }
 
 // DebugDraw is promoted from [Viewport.Instance.DebugDraw].
+func (self Instance) DebugDraw() Viewport.DebugDraw { return self.AsViewport().DebugDraw() }
 func (o *Extension[T]) DebugDraw() Viewport.DebugDraw { return o.Super().AsViewport().DebugDraw() }
 
 // SetDebugDraw is promoted from [Viewport.Instance.SetDebugDraw].
+func (self Instance) SetDebugDraw(value Viewport.DebugDraw) Instance {
+	self.AsViewport().SetDebugDraw(value)
+	return self
+}
 func (o *Extension[T]) SetDebugDraw(value Viewport.DebugDraw) *Extension[T] {
 	o.Super().AsViewport().SetDebugDraw(value)
 	return o
 }
 
 // UseHdr2d is promoted from [Viewport.Instance.UseHdr2d].
+func (self Instance) UseHdr2d() bool { return self.AsViewport().UseHdr2d() }
 func (o *Extension[T]) UseHdr2d() bool { return o.Super().AsViewport().UseHdr2d() }
 
 // SetUseHdr2d is promoted from [Viewport.Instance.SetUseHdr2d].
+func (self Instance) SetUseHdr2d(value bool) Instance {
+	self.AsViewport().SetUseHdr2d(value)
+	return self
+}
 func (o *Extension[T]) SetUseHdr2d(value bool) *Extension[T] {
 	o.Super().AsViewport().SetUseHdr2d(value)
 	return o
 }
 
 // Scaling3dMode is promoted from [Viewport.Instance.Scaling3dMode].
+func (self Instance) Scaling3dMode() Viewport.Scaling3DMode { return self.AsViewport().Scaling3dMode() }
 func (o *Extension[T]) Scaling3dMode() Viewport.Scaling3DMode { return o.Super().AsViewport().Scaling3dMode() }
 
 // SetScaling3dMode is promoted from [Viewport.Instance.SetScaling3dMode].
+func (self Instance) SetScaling3dMode(value Viewport.Scaling3DMode) Instance {
+	self.AsViewport().SetScaling3dMode(value)
+	return self
+}
 func (o *Extension[T]) SetScaling3dMode(value Viewport.Scaling3DMode) *Extension[T] {
 	o.Super().AsViewport().SetScaling3dMode(value)
 	return o
 }
 
 // Scaling3dScale is promoted from [Viewport.Instance.Scaling3dScale].
+func (self Instance) Scaling3dScale() Float.X { return self.AsViewport().Scaling3dScale() }
 func (o *Extension[T]) Scaling3dScale() Float.X { return o.Super().AsViewport().Scaling3dScale() }
 
 // SetScaling3dScale is promoted from [Viewport.Instance.SetScaling3dScale].
+func (self Instance) SetScaling3dScale(value Float.X) Instance {
+	self.AsViewport().SetScaling3dScale(value)
+	return self
+}
 func (o *Extension[T]) SetScaling3dScale(value Float.X) *Extension[T] {
 	o.Super().AsViewport().SetScaling3dScale(value)
 	return o
 }
 
 // TextureMipmapBias is promoted from [Viewport.Instance.TextureMipmapBias].
+func (self Instance) TextureMipmapBias() Float.X { return self.AsViewport().TextureMipmapBias() }
 func (o *Extension[T]) TextureMipmapBias() Float.X { return o.Super().AsViewport().TextureMipmapBias() }
 
 // SetTextureMipmapBias is promoted from [Viewport.Instance.SetTextureMipmapBias].
+func (self Instance) SetTextureMipmapBias(value Float.X) Instance {
+	self.AsViewport().SetTextureMipmapBias(value)
+	return self
+}
 func (o *Extension[T]) SetTextureMipmapBias(value Float.X) *Extension[T] {
 	o.Super().AsViewport().SetTextureMipmapBias(value)
 	return o
 }
 
 // AnisotropicFilteringLevel is promoted from [Viewport.Instance.AnisotropicFilteringLevel].
+func (self Instance) AnisotropicFilteringLevel() Viewport.AnisotropicFiltering { return self.AsViewport().AnisotropicFilteringLevel() }
 func (o *Extension[T]) AnisotropicFilteringLevel() Viewport.AnisotropicFiltering { return o.Super().AsViewport().AnisotropicFilteringLevel() }
 
 // SetAnisotropicFilteringLevel is promoted from [Viewport.Instance.SetAnisotropicFilteringLevel].
+func (self Instance) SetAnisotropicFilteringLevel(value Viewport.AnisotropicFiltering) Instance {
+	self.AsViewport().SetAnisotropicFilteringLevel(value)
+	return self
+}
 func (o *Extension[T]) SetAnisotropicFilteringLevel(value Viewport.AnisotropicFiltering) *Extension[T] {
 	o.Super().AsViewport().SetAnisotropicFilteringLevel(value)
 	return o
 }
 
 // FsrSharpness is promoted from [Viewport.Instance.FsrSharpness].
+func (self Instance) FsrSharpness() Float.X { return self.AsViewport().FsrSharpness() }
 func (o *Extension[T]) FsrSharpness() Float.X { return o.Super().AsViewport().FsrSharpness() }
 
 // SetFsrSharpness is promoted from [Viewport.Instance.SetFsrSharpness].
+func (self Instance) SetFsrSharpness(value Float.X) Instance {
+	self.AsViewport().SetFsrSharpness(value)
+	return self
+}
 func (o *Extension[T]) SetFsrSharpness(value Float.X) *Extension[T] {
 	o.Super().AsViewport().SetFsrSharpness(value)
 	return o
 }
 
 // VrsMode is promoted from [Viewport.Instance.VrsMode].
+func (self Instance) VrsMode() Viewport.VRSMode { return self.AsViewport().VrsMode() }
 func (o *Extension[T]) VrsMode() Viewport.VRSMode { return o.Super().AsViewport().VrsMode() }
 
 // SetVrsMode is promoted from [Viewport.Instance.SetVrsMode].
+func (self Instance) SetVrsMode(value Viewport.VRSMode) Instance {
+	self.AsViewport().SetVrsMode(value)
+	return self
+}
 func (o *Extension[T]) SetVrsMode(value Viewport.VRSMode) *Extension[T] {
 	o.Super().AsViewport().SetVrsMode(value)
 	return o
 }
 
 // VrsUpdateMode is promoted from [Viewport.Instance.VrsUpdateMode].
+func (self Instance) VrsUpdateMode() Viewport.VRSUpdateMode { return self.AsViewport().VrsUpdateMode() }
 func (o *Extension[T]) VrsUpdateMode() Viewport.VRSUpdateMode { return o.Super().AsViewport().VrsUpdateMode() }
 
 // SetVrsUpdateMode is promoted from [Viewport.Instance.SetVrsUpdateMode].
+func (self Instance) SetVrsUpdateMode(value Viewport.VRSUpdateMode) Instance {
+	self.AsViewport().SetVrsUpdateMode(value)
+	return self
+}
 func (o *Extension[T]) SetVrsUpdateMode(value Viewport.VRSUpdateMode) *Extension[T] {
 	o.Super().AsViewport().SetVrsUpdateMode(value)
 	return o
 }
 
 // VrsTexture is promoted from [Viewport.Instance.VrsTexture].
+func (self Instance) VrsTexture() Texture2D.Instance { return self.AsViewport().VrsTexture() }
 func (o *Extension[T]) VrsTexture() Texture2D.Instance { return o.Super().AsViewport().VrsTexture() }
 
 // SetVrsTexture is promoted from [Viewport.Instance.SetVrsTexture].
+func (self Instance) SetVrsTexture(value Texture2D.Instance) Instance {
+	self.AsViewport().SetVrsTexture(value)
+	return self
+}
 func (o *Extension[T]) SetVrsTexture(value Texture2D.Instance) *Extension[T] {
 	o.Super().AsViewport().SetVrsTexture(value)
 	return o
 }
 
 // CanvasItemDefaultTextureFilter is promoted from [Viewport.Instance.CanvasItemDefaultTextureFilter].
+func (self Instance) CanvasItemDefaultTextureFilter() Viewport.DefaultCanvasItemTextureFilter { return self.AsViewport().CanvasItemDefaultTextureFilter() }
 func (o *Extension[T]) CanvasItemDefaultTextureFilter() Viewport.DefaultCanvasItemTextureFilter { return o.Super().AsViewport().CanvasItemDefaultTextureFilter() }
 
 // SetCanvasItemDefaultTextureFilter is promoted from [Viewport.Instance.SetCanvasItemDefaultTextureFilter].
+func (self Instance) SetCanvasItemDefaultTextureFilter(value Viewport.DefaultCanvasItemTextureFilter) Instance {
+	self.AsViewport().SetCanvasItemDefaultTextureFilter(value)
+	return self
+}
 func (o *Extension[T]) SetCanvasItemDefaultTextureFilter(value Viewport.DefaultCanvasItemTextureFilter) *Extension[T] {
 	o.Super().AsViewport().SetCanvasItemDefaultTextureFilter(value)
 	return o
 }
 
 // CanvasItemDefaultTextureRepeat is promoted from [Viewport.Instance.CanvasItemDefaultTextureRepeat].
+func (self Instance) CanvasItemDefaultTextureRepeat() Viewport.DefaultCanvasItemTextureRepeat { return self.AsViewport().CanvasItemDefaultTextureRepeat() }
 func (o *Extension[T]) CanvasItemDefaultTextureRepeat() Viewport.DefaultCanvasItemTextureRepeat { return o.Super().AsViewport().CanvasItemDefaultTextureRepeat() }
 
 // SetCanvasItemDefaultTextureRepeat is promoted from [Viewport.Instance.SetCanvasItemDefaultTextureRepeat].
+func (self Instance) SetCanvasItemDefaultTextureRepeat(value Viewport.DefaultCanvasItemTextureRepeat) Instance {
+	self.AsViewport().SetCanvasItemDefaultTextureRepeat(value)
+	return self
+}
 func (o *Extension[T]) SetCanvasItemDefaultTextureRepeat(value Viewport.DefaultCanvasItemTextureRepeat) *Extension[T] {
 	o.Super().AsViewport().SetCanvasItemDefaultTextureRepeat(value)
 	return o
 }
 
 // AudioListenerEnable2d is promoted from [Viewport.Instance.AudioListenerEnable2d].
+func (self Instance) AudioListenerEnable2d() bool { return self.AsViewport().AudioListenerEnable2d() }
 func (o *Extension[T]) AudioListenerEnable2d() bool { return o.Super().AsViewport().AudioListenerEnable2d() }
 
 // SetAudioListenerEnable2d is promoted from [Viewport.Instance.SetAudioListenerEnable2d].
+func (self Instance) SetAudioListenerEnable2d(value bool) Instance {
+	self.AsViewport().SetAudioListenerEnable2d(value)
+	return self
+}
 func (o *Extension[T]) SetAudioListenerEnable2d(value bool) *Extension[T] {
 	o.Super().AsViewport().SetAudioListenerEnable2d(value)
 	return o
 }
 
 // AudioListenerEnable3d is promoted from [Viewport.Instance.AudioListenerEnable3d].
+func (self Instance) AudioListenerEnable3d() bool { return self.AsViewport().AudioListenerEnable3d() }
 func (o *Extension[T]) AudioListenerEnable3d() bool { return o.Super().AsViewport().AudioListenerEnable3d() }
 
 // SetAudioListenerEnable3d is promoted from [Viewport.Instance.SetAudioListenerEnable3d].
+func (self Instance) SetAudioListenerEnable3d(value bool) Instance {
+	self.AsViewport().SetAudioListenerEnable3d(value)
+	return self
+}
 func (o *Extension[T]) SetAudioListenerEnable3d(value bool) *Extension[T] {
 	o.Super().AsViewport().SetAudioListenerEnable3d(value)
 	return o
 }
 
 // PhysicsObjectPicking is promoted from [Viewport.Instance.PhysicsObjectPicking].
+func (self Instance) PhysicsObjectPicking() bool { return self.AsViewport().PhysicsObjectPicking() }
 func (o *Extension[T]) PhysicsObjectPicking() bool { return o.Super().AsViewport().PhysicsObjectPicking() }
 
 // SetPhysicsObjectPicking is promoted from [Viewport.Instance.SetPhysicsObjectPicking].
+func (self Instance) SetPhysicsObjectPicking(value bool) Instance {
+	self.AsViewport().SetPhysicsObjectPicking(value)
+	return self
+}
 func (o *Extension[T]) SetPhysicsObjectPicking(value bool) *Extension[T] {
 	o.Super().AsViewport().SetPhysicsObjectPicking(value)
 	return o
 }
 
 // PhysicsObjectPickingSort is promoted from [Viewport.Instance.PhysicsObjectPickingSort].
+func (self Instance) PhysicsObjectPickingSort() bool { return self.AsViewport().PhysicsObjectPickingSort() }
 func (o *Extension[T]) PhysicsObjectPickingSort() bool { return o.Super().AsViewport().PhysicsObjectPickingSort() }
 
 // SetPhysicsObjectPickingSort is promoted from [Viewport.Instance.SetPhysicsObjectPickingSort].
+func (self Instance) SetPhysicsObjectPickingSort(value bool) Instance {
+	self.AsViewport().SetPhysicsObjectPickingSort(value)
+	return self
+}
 func (o *Extension[T]) SetPhysicsObjectPickingSort(value bool) *Extension[T] {
 	o.Super().AsViewport().SetPhysicsObjectPickingSort(value)
 	return o
 }
 
 // PhysicsObjectPickingFirstOnly is promoted from [Viewport.Instance.PhysicsObjectPickingFirstOnly].
+func (self Instance) PhysicsObjectPickingFirstOnly() bool { return self.AsViewport().PhysicsObjectPickingFirstOnly() }
 func (o *Extension[T]) PhysicsObjectPickingFirstOnly() bool { return o.Super().AsViewport().PhysicsObjectPickingFirstOnly() }
 
 // SetPhysicsObjectPickingFirstOnly is promoted from [Viewport.Instance.SetPhysicsObjectPickingFirstOnly].
+func (self Instance) SetPhysicsObjectPickingFirstOnly(value bool) Instance {
+	self.AsViewport().SetPhysicsObjectPickingFirstOnly(value)
+	return self
+}
 func (o *Extension[T]) SetPhysicsObjectPickingFirstOnly(value bool) *Extension[T] {
 	o.Super().AsViewport().SetPhysicsObjectPickingFirstOnly(value)
 	return o
 }
 
 // GuiDisableInput is promoted from [Viewport.Instance.GuiDisableInput].
+func (self Instance) GuiDisableInput() bool { return self.AsViewport().GuiDisableInput() }
 func (o *Extension[T]) GuiDisableInput() bool { return o.Super().AsViewport().GuiDisableInput() }
 
 // SetGuiDisableInput is promoted from [Viewport.Instance.SetGuiDisableInput].
+func (self Instance) SetGuiDisableInput(value bool) Instance {
+	self.AsViewport().SetGuiDisableInput(value)
+	return self
+}
 func (o *Extension[T]) SetGuiDisableInput(value bool) *Extension[T] {
 	o.Super().AsViewport().SetGuiDisableInput(value)
 	return o
 }
 
 // GuiSnapControlsToPixels is promoted from [Viewport.Instance.GuiSnapControlsToPixels].
+func (self Instance) GuiSnapControlsToPixels() bool { return self.AsViewport().GuiSnapControlsToPixels() }
 func (o *Extension[T]) GuiSnapControlsToPixels() bool { return o.Super().AsViewport().GuiSnapControlsToPixels() }
 
 // SetGuiSnapControlsToPixels is promoted from [Viewport.Instance.SetGuiSnapControlsToPixels].
+func (self Instance) SetGuiSnapControlsToPixels(value bool) Instance {
+	self.AsViewport().SetGuiSnapControlsToPixels(value)
+	return self
+}
 func (o *Extension[T]) SetGuiSnapControlsToPixels(value bool) *Extension[T] {
 	o.Super().AsViewport().SetGuiSnapControlsToPixels(value)
 	return o
 }
 
 // GuiEmbedSubwindows is promoted from [Viewport.Instance.GuiEmbedSubwindows].
+func (self Instance) GuiEmbedSubwindows() bool { return self.AsViewport().GuiEmbedSubwindows() }
 func (o *Extension[T]) GuiEmbedSubwindows() bool { return o.Super().AsViewport().GuiEmbedSubwindows() }
 
 // SetGuiEmbedSubwindows is promoted from [Viewport.Instance.SetGuiEmbedSubwindows].
+func (self Instance) SetGuiEmbedSubwindows(value bool) Instance {
+	self.AsViewport().SetGuiEmbedSubwindows(value)
+	return self
+}
 func (o *Extension[T]) SetGuiEmbedSubwindows(value bool) *Extension[T] {
 	o.Super().AsViewport().SetGuiEmbedSubwindows(value)
 	return o
 }
 
 // GuiDragThreshold is promoted from [Viewport.Instance.GuiDragThreshold].
+func (self Instance) GuiDragThreshold() int { return self.AsViewport().GuiDragThreshold() }
 func (o *Extension[T]) GuiDragThreshold() int { return o.Super().AsViewport().GuiDragThreshold() }
 
 // SetGuiDragThreshold is promoted from [Viewport.Instance.SetGuiDragThreshold].
+func (self Instance) SetGuiDragThreshold(value int) Instance {
+	self.AsViewport().SetGuiDragThreshold(value)
+	return self
+}
 func (o *Extension[T]) SetGuiDragThreshold(value int) *Extension[T] {
 	o.Super().AsViewport().SetGuiDragThreshold(value)
 	return o
 }
 
 // SdfOversize is promoted from [Viewport.Instance.SdfOversize].
+func (self Instance) SdfOversize() Viewport.SDFOversize { return self.AsViewport().SdfOversize() }
 func (o *Extension[T]) SdfOversize() Viewport.SDFOversize { return o.Super().AsViewport().SdfOversize() }
 
 // SetSdfOversize is promoted from [Viewport.Instance.SetSdfOversize].
+func (self Instance) SetSdfOversize(value Viewport.SDFOversize) Instance {
+	self.AsViewport().SetSdfOversize(value)
+	return self
+}
 func (o *Extension[T]) SetSdfOversize(value Viewport.SDFOversize) *Extension[T] {
 	o.Super().AsViewport().SetSdfOversize(value)
 	return o
 }
 
 // SdfScale is promoted from [Viewport.Instance.SdfScale].
+func (self Instance) SdfScale() Viewport.SDFScale { return self.AsViewport().SdfScale() }
 func (o *Extension[T]) SdfScale() Viewport.SDFScale { return o.Super().AsViewport().SdfScale() }
 
 // SetSdfScale is promoted from [Viewport.Instance.SetSdfScale].
+func (self Instance) SetSdfScale(value Viewport.SDFScale) Instance {
+	self.AsViewport().SetSdfScale(value)
+	return self
+}
 func (o *Extension[T]) SetSdfScale(value Viewport.SDFScale) *Extension[T] {
 	o.Super().AsViewport().SetSdfScale(value)
 	return o
 }
 
 // PositionalShadowAtlasSize is promoted from [Viewport.Instance.PositionalShadowAtlasSize].
+func (self Instance) PositionalShadowAtlasSize() int { return self.AsViewport().PositionalShadowAtlasSize() }
 func (o *Extension[T]) PositionalShadowAtlasSize() int { return o.Super().AsViewport().PositionalShadowAtlasSize() }
 
 // SetPositionalShadowAtlasSize is promoted from [Viewport.Instance.SetPositionalShadowAtlasSize].
+func (self Instance) SetPositionalShadowAtlasSize(value int) Instance {
+	self.AsViewport().SetPositionalShadowAtlasSize(value)
+	return self
+}
 func (o *Extension[T]) SetPositionalShadowAtlasSize(value int) *Extension[T] {
 	o.Super().AsViewport().SetPositionalShadowAtlasSize(value)
 	return o
 }
 
 // PositionalShadowAtlas16Bits is promoted from [Viewport.Instance.PositionalShadowAtlas16Bits].
+func (self Instance) PositionalShadowAtlas16Bits() bool { return self.AsViewport().PositionalShadowAtlas16Bits() }
 func (o *Extension[T]) PositionalShadowAtlas16Bits() bool { return o.Super().AsViewport().PositionalShadowAtlas16Bits() }
 
 // SetPositionalShadowAtlas16Bits is promoted from [Viewport.Instance.SetPositionalShadowAtlas16Bits].
+func (self Instance) SetPositionalShadowAtlas16Bits(value bool) Instance {
+	self.AsViewport().SetPositionalShadowAtlas16Bits(value)
+	return self
+}
 func (o *Extension[T]) SetPositionalShadowAtlas16Bits(value bool) *Extension[T] {
 	o.Super().AsViewport().SetPositionalShadowAtlas16Bits(value)
 	return o
 }
 
 // PositionalShadowAtlasQuad0 is promoted from [Viewport.Instance.PositionalShadowAtlasQuad0].
+func (self Instance) PositionalShadowAtlasQuad0() Viewport.PositionalShadowAtlasQuadrantSubdiv { return self.AsViewport().PositionalShadowAtlasQuad0() }
 func (o *Extension[T]) PositionalShadowAtlasQuad0() Viewport.PositionalShadowAtlasQuadrantSubdiv { return o.Super().AsViewport().PositionalShadowAtlasQuad0() }
 
 // SetPositionalShadowAtlasQuad0 is promoted from [Viewport.Instance.SetPositionalShadowAtlasQuad0].
+func (self Instance) SetPositionalShadowAtlasQuad0(value Viewport.PositionalShadowAtlasQuadrantSubdiv) Instance {
+	self.AsViewport().SetPositionalShadowAtlasQuad0(value)
+	return self
+}
 func (o *Extension[T]) SetPositionalShadowAtlasQuad0(value Viewport.PositionalShadowAtlasQuadrantSubdiv) *Extension[T] {
 	o.Super().AsViewport().SetPositionalShadowAtlasQuad0(value)
 	return o
 }
 
 // PositionalShadowAtlasQuad1 is promoted from [Viewport.Instance.PositionalShadowAtlasQuad1].
+func (self Instance) PositionalShadowAtlasQuad1() Viewport.PositionalShadowAtlasQuadrantSubdiv { return self.AsViewport().PositionalShadowAtlasQuad1() }
 func (o *Extension[T]) PositionalShadowAtlasQuad1() Viewport.PositionalShadowAtlasQuadrantSubdiv { return o.Super().AsViewport().PositionalShadowAtlasQuad1() }
 
 // SetPositionalShadowAtlasQuad1 is promoted from [Viewport.Instance.SetPositionalShadowAtlasQuad1].
+func (self Instance) SetPositionalShadowAtlasQuad1(value Viewport.PositionalShadowAtlasQuadrantSubdiv) Instance {
+	self.AsViewport().SetPositionalShadowAtlasQuad1(value)
+	return self
+}
 func (o *Extension[T]) SetPositionalShadowAtlasQuad1(value Viewport.PositionalShadowAtlasQuadrantSubdiv) *Extension[T] {
 	o.Super().AsViewport().SetPositionalShadowAtlasQuad1(value)
 	return o
 }
 
 // PositionalShadowAtlasQuad2 is promoted from [Viewport.Instance.PositionalShadowAtlasQuad2].
+func (self Instance) PositionalShadowAtlasQuad2() Viewport.PositionalShadowAtlasQuadrantSubdiv { return self.AsViewport().PositionalShadowAtlasQuad2() }
 func (o *Extension[T]) PositionalShadowAtlasQuad2() Viewport.PositionalShadowAtlasQuadrantSubdiv { return o.Super().AsViewport().PositionalShadowAtlasQuad2() }
 
 // SetPositionalShadowAtlasQuad2 is promoted from [Viewport.Instance.SetPositionalShadowAtlasQuad2].
+func (self Instance) SetPositionalShadowAtlasQuad2(value Viewport.PositionalShadowAtlasQuadrantSubdiv) Instance {
+	self.AsViewport().SetPositionalShadowAtlasQuad2(value)
+	return self
+}
 func (o *Extension[T]) SetPositionalShadowAtlasQuad2(value Viewport.PositionalShadowAtlasQuadrantSubdiv) *Extension[T] {
 	o.Super().AsViewport().SetPositionalShadowAtlasQuad2(value)
 	return o
 }
 
 // PositionalShadowAtlasQuad3 is promoted from [Viewport.Instance.PositionalShadowAtlasQuad3].
+func (self Instance) PositionalShadowAtlasQuad3() Viewport.PositionalShadowAtlasQuadrantSubdiv { return self.AsViewport().PositionalShadowAtlasQuad3() }
 func (o *Extension[T]) PositionalShadowAtlasQuad3() Viewport.PositionalShadowAtlasQuadrantSubdiv { return o.Super().AsViewport().PositionalShadowAtlasQuad3() }
 
 // SetPositionalShadowAtlasQuad3 is promoted from [Viewport.Instance.SetPositionalShadowAtlasQuad3].
+func (self Instance) SetPositionalShadowAtlasQuad3(value Viewport.PositionalShadowAtlasQuadrantSubdiv) Instance {
+	self.AsViewport().SetPositionalShadowAtlasQuad3(value)
+	return self
+}
 func (o *Extension[T]) SetPositionalShadowAtlasQuad3(value Viewport.PositionalShadowAtlasQuadrantSubdiv) *Extension[T] {
 	o.Super().AsViewport().SetPositionalShadowAtlasQuad3(value)
 	return o
 }
 
 // CanvasTransform is promoted from [Viewport.Instance.CanvasTransform].
+func (self Instance) CanvasTransform() Transform2D.OriginXY { return self.AsViewport().CanvasTransform() }
 func (o *Extension[T]) CanvasTransform() Transform2D.OriginXY { return o.Super().AsViewport().CanvasTransform() }
 
 // SetCanvasTransform is promoted from [Viewport.Instance.SetCanvasTransform].
+func (self Instance) SetCanvasTransform(value Transform2D.OriginXY) Instance {
+	self.AsViewport().SetCanvasTransform(value)
+	return self
+}
 func (o *Extension[T]) SetCanvasTransform(value Transform2D.OriginXY) *Extension[T] {
 	o.Super().AsViewport().SetCanvasTransform(value)
 	return o
 }
 
 // GlobalCanvasTransform is promoted from [Viewport.Instance.GlobalCanvasTransform].
+func (self Instance) GlobalCanvasTransform() Transform2D.OriginXY { return self.AsViewport().GlobalCanvasTransform() }
 func (o *Extension[T]) GlobalCanvasTransform() Transform2D.OriginXY { return o.Super().AsViewport().GlobalCanvasTransform() }
 
 // SetGlobalCanvasTransform is promoted from [Viewport.Instance.SetGlobalCanvasTransform].
+func (self Instance) SetGlobalCanvasTransform(value Transform2D.OriginXY) Instance {
+	self.AsViewport().SetGlobalCanvasTransform(value)
+	return self
+}
 func (o *Extension[T]) SetGlobalCanvasTransform(value Transform2D.OriginXY) *Extension[T] {
 	o.Super().AsViewport().SetGlobalCanvasTransform(value)
 	return o
 }
 
 // CanvasCullMask is promoted from [Viewport.Instance.CanvasCullMask].
+func (self Instance) CanvasCullMask() int { return self.AsViewport().CanvasCullMask() }
 func (o *Extension[T]) CanvasCullMask() int { return o.Super().AsViewport().CanvasCullMask() }
 
 // SetCanvasCullMask is promoted from [Viewport.Instance.SetCanvasCullMask].
+func (self Instance) SetCanvasCullMask(value int) Instance {
+	self.AsViewport().SetCanvasCullMask(value)
+	return self
+}
 func (o *Extension[T]) SetCanvasCullMask(value int) *Extension[T] {
 	o.Super().AsViewport().SetCanvasCullMask(value)
 	return o
 }
 
 // Oversampling is promoted from [Viewport.Instance.Oversampling].
+func (self Instance) Oversampling() bool { return self.AsViewport().Oversampling() }
 func (o *Extension[T]) Oversampling() bool { return o.Super().AsViewport().Oversampling() }
 
 // SetOversampling is promoted from [Viewport.Instance.SetOversampling].
+func (self Instance) SetOversampling(value bool) Instance {
+	self.AsViewport().SetOversampling(value)
+	return self
+}
 func (o *Extension[T]) SetOversampling(value bool) *Extension[T] {
 	o.Super().AsViewport().SetOversampling(value)
 	return o
 }
 
 // OversamplingOverride is promoted from [Viewport.Instance.OversamplingOverride].
+func (self Instance) OversamplingOverride() Float.X { return self.AsViewport().OversamplingOverride() }
 func (o *Extension[T]) OversamplingOverride() Float.X { return o.Super().AsViewport().OversamplingOverride() }
 
 // SetOversamplingOverride is promoted from [Viewport.Instance.SetOversamplingOverride].
+func (self Instance) SetOversamplingOverride(value Float.X) Instance {
+	self.AsViewport().SetOversamplingOverride(value)
+	return self
+}
 func (o *Extension[T]) SetOversamplingOverride(value Float.X) *Extension[T] {
 	o.Super().AsViewport().SetOversamplingOverride(value)
 	return o
 }
 
 // Name is promoted from [Node.Instance.Name].
+func (self Instance) Name() string { return self.AsNode().Name() }
 func (o *Extension[T]) Name() string { return o.Super().AsNode().Name() }
 
 // SetName is promoted from [Node.Instance.SetName].
+func (self Instance) SetName(value string) Instance {
+	self.AsNode().SetName(value)
+	return self
+}
 func (o *Extension[T]) SetName(value string) *Extension[T] {
 	o.Super().AsNode().SetName(value)
 	return o
 }
 
 // UniqueNameInOwner is promoted from [Node.Instance.UniqueNameInOwner].
+func (self Instance) UniqueNameInOwner() bool { return self.AsNode().UniqueNameInOwner() }
 func (o *Extension[T]) UniqueNameInOwner() bool { return o.Super().AsNode().UniqueNameInOwner() }
 
 // SetUniqueNameInOwner is promoted from [Node.Instance.SetUniqueNameInOwner].
+func (self Instance) SetUniqueNameInOwner(value bool) Instance {
+	self.AsNode().SetUniqueNameInOwner(value)
+	return self
+}
 func (o *Extension[T]) SetUniqueNameInOwner(value bool) *Extension[T] {
 	o.Super().AsNode().SetUniqueNameInOwner(value)
 	return o
 }
 
 // SceneFilePath is promoted from [Node.Instance.SceneFilePath].
+func (self Instance) SceneFilePath() string { return self.AsNode().SceneFilePath() }
 func (o *Extension[T]) SceneFilePath() string { return o.Super().AsNode().SceneFilePath() }
 
 // SetSceneFilePath is promoted from [Node.Instance.SetSceneFilePath].
+func (self Instance) SetSceneFilePath(value string) Instance {
+	self.AsNode().SetSceneFilePath(value)
+	return self
+}
 func (o *Extension[T]) SetSceneFilePath(value string) *Extension[T] {
 	o.Super().AsNode().SetSceneFilePath(value)
 	return o
 }
 
 // Owner is promoted from [Node.Instance.Owner].
+func (self Instance) Owner() Node.Instance { return self.AsNode().Owner() }
 func (o *Extension[T]) Owner() Node.Instance { return o.Super().AsNode().Owner() }
 
 // SetOwner is promoted from [Node.Instance.SetOwner].
+func (self Instance) SetOwner(value Node.Instance) Instance {
+	self.AsNode().SetOwner(value)
+	return self
+}
 func (o *Extension[T]) SetOwner(value Node.Instance) *Extension[T] {
 	o.Super().AsNode().SetOwner(value)
 	return o
 }
 
 // Multiplayer is promoted from [Node.Instance.Multiplayer].
+func (self Instance) Multiplayer() MultiplayerAPI.Instance { return self.AsNode().Multiplayer() }
 func (o *Extension[T]) Multiplayer() MultiplayerAPI.Instance { return o.Super().AsNode().Multiplayer() }
 
 // ProcessMode is promoted from [Node.Instance.ProcessMode].
+func (self Instance) ProcessMode() Node.ProcessMode { return self.AsNode().ProcessMode() }
 func (o *Extension[T]) ProcessMode() Node.ProcessMode { return o.Super().AsNode().ProcessMode() }
 
 // SetProcessMode is promoted from [Node.Instance.SetProcessMode].
+func (self Instance) SetProcessMode(value Node.ProcessMode) Instance {
+	self.AsNode().SetProcessMode(value)
+	return self
+}
 func (o *Extension[T]) SetProcessMode(value Node.ProcessMode) *Extension[T] {
 	o.Super().AsNode().SetProcessMode(value)
 	return o
 }
 
 // ProcessPriority is promoted from [Node.Instance.ProcessPriority].
+func (self Instance) ProcessPriority() int { return self.AsNode().ProcessPriority() }
 func (o *Extension[T]) ProcessPriority() int { return o.Super().AsNode().ProcessPriority() }
 
 // SetProcessPriority is promoted from [Node.Instance.SetProcessPriority].
+func (self Instance) SetProcessPriority(value int) Instance {
+	self.AsNode().SetProcessPriority(value)
+	return self
+}
 func (o *Extension[T]) SetProcessPriority(value int) *Extension[T] {
 	o.Super().AsNode().SetProcessPriority(value)
 	return o
 }
 
 // ProcessPhysicsPriority is promoted from [Node.Instance.ProcessPhysicsPriority].
+func (self Instance) ProcessPhysicsPriority() int { return self.AsNode().ProcessPhysicsPriority() }
 func (o *Extension[T]) ProcessPhysicsPriority() int { return o.Super().AsNode().ProcessPhysicsPriority() }
 
 // SetProcessPhysicsPriority is promoted from [Node.Instance.SetProcessPhysicsPriority].
+func (self Instance) SetProcessPhysicsPriority(value int) Instance {
+	self.AsNode().SetProcessPhysicsPriority(value)
+	return self
+}
 func (o *Extension[T]) SetProcessPhysicsPriority(value int) *Extension[T] {
 	o.Super().AsNode().SetProcessPhysicsPriority(value)
 	return o
 }
 
 // ProcessThreadGroup is promoted from [Node.Instance.ProcessThreadGroup].
+func (self Instance) ProcessThreadGroup() Node.ProcessThreadGroup { return self.AsNode().ProcessThreadGroup() }
 func (o *Extension[T]) ProcessThreadGroup() Node.ProcessThreadGroup { return o.Super().AsNode().ProcessThreadGroup() }
 
 // SetProcessThreadGroup is promoted from [Node.Instance.SetProcessThreadGroup].
+func (self Instance) SetProcessThreadGroup(value Node.ProcessThreadGroup) Instance {
+	self.AsNode().SetProcessThreadGroup(value)
+	return self
+}
 func (o *Extension[T]) SetProcessThreadGroup(value Node.ProcessThreadGroup) *Extension[T] {
 	o.Super().AsNode().SetProcessThreadGroup(value)
 	return o
 }
 
 // ProcessThreadGroupOrder is promoted from [Node.Instance.ProcessThreadGroupOrder].
+func (self Instance) ProcessThreadGroupOrder() int { return self.AsNode().ProcessThreadGroupOrder() }
 func (o *Extension[T]) ProcessThreadGroupOrder() int { return o.Super().AsNode().ProcessThreadGroupOrder() }
 
 // SetProcessThreadGroupOrder is promoted from [Node.Instance.SetProcessThreadGroupOrder].
+func (self Instance) SetProcessThreadGroupOrder(value int) Instance {
+	self.AsNode().SetProcessThreadGroupOrder(value)
+	return self
+}
 func (o *Extension[T]) SetProcessThreadGroupOrder(value int) *Extension[T] {
 	o.Super().AsNode().SetProcessThreadGroupOrder(value)
 	return o
 }
 
 // ProcessThreadMessages is promoted from [Node.Instance.ProcessThreadMessages].
+func (self Instance) ProcessThreadMessages() Node.ProcessThreadMessages { return self.AsNode().ProcessThreadMessages() }
 func (o *Extension[T]) ProcessThreadMessages() Node.ProcessThreadMessages { return o.Super().AsNode().ProcessThreadMessages() }
 
 // SetProcessThreadMessages is promoted from [Node.Instance.SetProcessThreadMessages].
+func (self Instance) SetProcessThreadMessages(value Node.ProcessThreadMessages) Instance {
+	self.AsNode().SetProcessThreadMessages(value)
+	return self
+}
 func (o *Extension[T]) SetProcessThreadMessages(value Node.ProcessThreadMessages) *Extension[T] {
 	o.Super().AsNode().SetProcessThreadMessages(value)
 	return o
 }
 
 // PhysicsInterpolationMode is promoted from [Node.Instance.PhysicsInterpolationMode].
+func (self Instance) PhysicsInterpolationMode() Node.PhysicsInterpolationMode { return self.AsNode().PhysicsInterpolationMode() }
 func (o *Extension[T]) PhysicsInterpolationMode() Node.PhysicsInterpolationMode { return o.Super().AsNode().PhysicsInterpolationMode() }
 
 // SetPhysicsInterpolationMode is promoted from [Node.Instance.SetPhysicsInterpolationMode].
+func (self Instance) SetPhysicsInterpolationMode(value Node.PhysicsInterpolationMode) Instance {
+	self.AsNode().SetPhysicsInterpolationMode(value)
+	return self
+}
 func (o *Extension[T]) SetPhysicsInterpolationMode(value Node.PhysicsInterpolationMode) *Extension[T] {
 	o.Super().AsNode().SetPhysicsInterpolationMode(value)
 	return o
 }
 
 // AutoTranslateMode is promoted from [Node.Instance.AutoTranslateMode].
+func (self Instance) AutoTranslateMode() Node.AutoTranslateMode { return self.AsNode().AutoTranslateMode() }
 func (o *Extension[T]) AutoTranslateMode() Node.AutoTranslateMode { return o.Super().AsNode().AutoTranslateMode() }
 
 // SetAutoTranslateMode is promoted from [Node.Instance.SetAutoTranslateMode].
+func (self Instance) SetAutoTranslateMode(value Node.AutoTranslateMode) Instance {
+	self.AsNode().SetAutoTranslateMode(value)
+	return self
+}
 func (o *Extension[T]) SetAutoTranslateMode(value Node.AutoTranslateMode) *Extension[T] {
 	o.Super().AsNode().SetAutoTranslateMode(value)
 	return o
 }
 
 // EditorDescription is promoted from [Node.Instance.EditorDescription].
+func (self Instance) EditorDescription() string { return self.AsNode().EditorDescription() }
 func (o *Extension[T]) EditorDescription() string { return o.Super().AsNode().EditorDescription() }
 
 // SetEditorDescription is promoted from [Node.Instance.SetEditorDescription].
+func (self Instance) SetEditorDescription(value string) Instance {
+	self.AsNode().SetEditorDescription(value)
+	return self
+}
 func (o *Extension[T]) SetEditorDescription(value string) *Extension[T] {
 	o.Super().AsNode().SetEditorDescription(value)
 	return o

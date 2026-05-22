@@ -734,6 +734,16 @@ func (self Instance) OnChanged(cb func(), flags ...Signal.Flags) Instance {
 	return self
 }
 
+// OnChanged is promoted from [Resource.Instance.OnChanged].
+func (o *Extension[T]) OnChanged(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("changed"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+
 // OnSetupLocalToSceneRequested is promoted from [Resource.Instance.OnSetupLocalToSceneRequested].
 func (self Instance) OnSetupLocalToSceneRequested(cb func(), flags ...Signal.Flags) Instance {
 	var flags_together Signal.Flags
@@ -742,6 +752,16 @@ func (self Instance) OnSetupLocalToSceneRequested(cb func(), flags ...Signal.Fla
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("setup_local_to_scene_requested"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+
+// OnSetupLocalToSceneRequested is promoted from [Resource.Instance.OnSetupLocalToSceneRequested].
+func (o *Extension[T]) OnSetupLocalToSceneRequested(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("setup_local_to_scene_requested"), gd.NewCallable(cb), int64(flags_together))
+	return o
 }
 func (o *Extension[T]) SetBorderWidthAll(width int) *Extension[T] {
 	o.Super().SetBorderWidthAll(width)
@@ -916,72 +936,112 @@ func (o *Extension[T]) EmitChanged() {
 }
 
 // ContentMarginLeft is promoted from [StyleBox.Instance.ContentMarginLeft].
+func (self Instance) ContentMarginLeft() Float.X { return self.AsStyleBox().ContentMarginLeft() }
 func (o *Extension[T]) ContentMarginLeft() Float.X { return o.Super().AsStyleBox().ContentMarginLeft() }
 
 // SetContentMarginLeft is promoted from [StyleBox.Instance.SetContentMarginLeft].
+func (self Instance) SetContentMarginLeft(value Float.X) Instance {
+	self.AsStyleBox().SetContentMarginLeft(value)
+	return self
+}
 func (o *Extension[T]) SetContentMarginLeft(value Float.X) *Extension[T] {
 	o.Super().AsStyleBox().SetContentMarginLeft(value)
 	return o
 }
 
 // ContentMarginTop is promoted from [StyleBox.Instance.ContentMarginTop].
+func (self Instance) ContentMarginTop() Float.X { return self.AsStyleBox().ContentMarginTop() }
 func (o *Extension[T]) ContentMarginTop() Float.X { return o.Super().AsStyleBox().ContentMarginTop() }
 
 // SetContentMarginTop is promoted from [StyleBox.Instance.SetContentMarginTop].
+func (self Instance) SetContentMarginTop(value Float.X) Instance {
+	self.AsStyleBox().SetContentMarginTop(value)
+	return self
+}
 func (o *Extension[T]) SetContentMarginTop(value Float.X) *Extension[T] {
 	o.Super().AsStyleBox().SetContentMarginTop(value)
 	return o
 }
 
 // ContentMarginRight is promoted from [StyleBox.Instance.ContentMarginRight].
+func (self Instance) ContentMarginRight() Float.X { return self.AsStyleBox().ContentMarginRight() }
 func (o *Extension[T]) ContentMarginRight() Float.X { return o.Super().AsStyleBox().ContentMarginRight() }
 
 // SetContentMarginRight is promoted from [StyleBox.Instance.SetContentMarginRight].
+func (self Instance) SetContentMarginRight(value Float.X) Instance {
+	self.AsStyleBox().SetContentMarginRight(value)
+	return self
+}
 func (o *Extension[T]) SetContentMarginRight(value Float.X) *Extension[T] {
 	o.Super().AsStyleBox().SetContentMarginRight(value)
 	return o
 }
 
 // ContentMarginBottom is promoted from [StyleBox.Instance.ContentMarginBottom].
+func (self Instance) ContentMarginBottom() Float.X { return self.AsStyleBox().ContentMarginBottom() }
 func (o *Extension[T]) ContentMarginBottom() Float.X { return o.Super().AsStyleBox().ContentMarginBottom() }
 
 // SetContentMarginBottom is promoted from [StyleBox.Instance.SetContentMarginBottom].
+func (self Instance) SetContentMarginBottom(value Float.X) Instance {
+	self.AsStyleBox().SetContentMarginBottom(value)
+	return self
+}
 func (o *Extension[T]) SetContentMarginBottom(value Float.X) *Extension[T] {
 	o.Super().AsStyleBox().SetContentMarginBottom(value)
 	return o
 }
 
 // ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (self Instance) ResourceLocalToScene() bool { return self.AsResource().ResourceLocalToScene() }
 func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
 
 // SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (self Instance) SetResourceLocalToScene(value bool) Instance {
+	self.AsResource().SetResourceLocalToScene(value)
+	return self
+}
 func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
 	o.Super().AsResource().SetResourceLocalToScene(value)
 	return o
 }
 
 // ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (self Instance) ResourcePath() string { return self.AsResource().ResourcePath() }
 func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
 
 // SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (self Instance) SetResourcePath(value string) Instance {
+	self.AsResource().SetResourcePath(value)
+	return self
+}
 func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
 	o.Super().AsResource().SetResourcePath(value)
 	return o
 }
 
 // ResourceName is promoted from [Resource.Instance.ResourceName].
+func (self Instance) ResourceName() string { return self.AsResource().ResourceName() }
 func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
 
 // SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (self Instance) SetResourceName(value string) Instance {
+	self.AsResource().SetResourceName(value)
+	return self
+}
 func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
 	o.Super().AsResource().SetResourceName(value)
 	return o
 }
 
 // ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (self Instance) ResourceSceneUniqueId() string { return self.AsResource().ResourceSceneUniqueId() }
 func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
 
 // SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (self Instance) SetResourceSceneUniqueId(value string) Instance {
+	self.AsResource().SetResourceSceneUniqueId(value)
+	return self
+}
 func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
 	o.Super().AsResource().SetResourceSceneUniqueId(value)
 	return o

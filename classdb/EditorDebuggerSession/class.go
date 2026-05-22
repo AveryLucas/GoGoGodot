@@ -278,6 +278,38 @@ func (o *Extension[T]) AsEditorDebuggerSession() Instance { return o.Super() }
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) OnStarted(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("started"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+func (o *Extension[T]) OnStopped(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("stopped"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+func (o *Extension[T]) OnBreaked(cb func(can_debug bool), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("breaked"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+func (o *Extension[T]) OnContinued(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("continued"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
 func (o *Extension[T]) IsBreaked() bool {
 	return o.Super().IsBreaked()
 }

@@ -580,9 +580,14 @@ func (o *Extension[T]) GetDouble() Float.X {
 }
 
 // BigEndian is promoted from [StreamPeer.Instance.BigEndian].
+func (self Instance) BigEndian() bool { return self.AsStreamPeer().BigEndian() }
 func (o *Extension[T]) BigEndian() bool { return o.Super().AsStreamPeer().BigEndian() }
 
 // SetBigEndian is promoted from [StreamPeer.Instance.SetBigEndian].
+func (self Instance) SetBigEndian(value bool) Instance {
+	self.AsStreamPeer().SetBigEndian(value)
+	return self
+}
 func (o *Extension[T]) SetBigEndian(value bool) *Extension[T] {
 	o.Super().AsStreamPeer().SetBigEndian(value)
 	return o

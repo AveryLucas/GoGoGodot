@@ -244,9 +244,14 @@ func (o *Extension[T]) GetAvailablePacketCount() int {
 }
 
 // EncodeBufferMaxSize is promoted from [PacketPeer.Instance.EncodeBufferMaxSize].
+func (self Instance) EncodeBufferMaxSize() int { return self.AsPacketPeer().EncodeBufferMaxSize() }
 func (o *Extension[T]) EncodeBufferMaxSize() int { return o.Super().AsPacketPeer().EncodeBufferMaxSize() }
 
 // SetEncodeBufferMaxSize is promoted from [PacketPeer.Instance.SetEncodeBufferMaxSize].
+func (self Instance) SetEncodeBufferMaxSize(value int) Instance {
+	self.AsPacketPeer().SetEncodeBufferMaxSize(value)
+	return self
+}
 func (o *Extension[T]) SetEncodeBufferMaxSize(value int) *Extension[T] {
 	o.Super().AsPacketPeer().SetEncodeBufferMaxSize(value)
 	return o

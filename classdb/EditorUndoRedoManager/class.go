@@ -311,6 +311,22 @@ return Signal.Via(gd.SignalProxy{}, pointers.Pack(gd.NewSignalOf(self.AsObject()
 func (o class) AsEditorUndoRedoManager() Advanced { return Advanced(o) }
 func (o Instance) AsEditorUndoRedoManager() Instance { return o }
 func (o *Extension[T]) AsEditorUndoRedoManager() Instance { return o.Super() }
+func (o *Extension[T]) OnHistoryChanged(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("history_changed"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+func (o *Extension[T]) OnVersionChanged(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("version_changed"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
 func (o *Extension[T]) IsCommittingAction() bool {
 	return o.Super().IsCommittingAction()
 }

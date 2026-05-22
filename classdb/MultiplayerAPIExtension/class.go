@@ -427,6 +427,16 @@ func (self Instance) OnPeerConnected(cb func(id int), flags ...Signal.Flags) Ins
 	return self
 }
 
+// OnPeerConnected is promoted from [MultiplayerAPI.Instance.OnPeerConnected].
+func (o *Extension[T]) OnPeerConnected(cb func(id int), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("peer_connected"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+
 // OnPeerDisconnected is promoted from [MultiplayerAPI.Instance.OnPeerDisconnected].
 func (self Instance) OnPeerDisconnected(cb func(id int), flags ...Signal.Flags) Instance {
 	var flags_together Signal.Flags
@@ -435,6 +445,16 @@ func (self Instance) OnPeerDisconnected(cb func(id int), flags ...Signal.Flags) 
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("peer_disconnected"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+
+// OnPeerDisconnected is promoted from [MultiplayerAPI.Instance.OnPeerDisconnected].
+func (o *Extension[T]) OnPeerDisconnected(cb func(id int), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("peer_disconnected"), gd.NewCallable(cb), int64(flags_together))
+	return o
 }
 
 // OnConnectedToServer is promoted from [MultiplayerAPI.Instance.OnConnectedToServer].
@@ -447,6 +467,16 @@ func (self Instance) OnConnectedToServer(cb func(), flags ...Signal.Flags) Insta
 	return self
 }
 
+// OnConnectedToServer is promoted from [MultiplayerAPI.Instance.OnConnectedToServer].
+func (o *Extension[T]) OnConnectedToServer(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("connected_to_server"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+
 // OnConnectionFailed is promoted from [MultiplayerAPI.Instance.OnConnectionFailed].
 func (self Instance) OnConnectionFailed(cb func(), flags ...Signal.Flags) Instance {
 	var flags_together Signal.Flags
@@ -457,6 +487,16 @@ func (self Instance) OnConnectionFailed(cb func(), flags ...Signal.Flags) Instan
 	return self
 }
 
+// OnConnectionFailed is promoted from [MultiplayerAPI.Instance.OnConnectionFailed].
+func (o *Extension[T]) OnConnectionFailed(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("connection_failed"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+
 // OnServerDisconnected is promoted from [MultiplayerAPI.Instance.OnServerDisconnected].
 func (self Instance) OnServerDisconnected(cb func(), flags ...Signal.Flags) Instance {
 	var flags_together Signal.Flags
@@ -465,6 +505,16 @@ func (self Instance) OnServerDisconnected(cb func(), flags ...Signal.Flags) Inst
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("server_disconnected"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+
+// OnServerDisconnected is promoted from [MultiplayerAPI.Instance.OnServerDisconnected].
+func (o *Extension[T]) OnServerDisconnected(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("server_disconnected"), gd.NewCallable(cb), int64(flags_together))
+	return o
 }
 
 // HasMultiplayerPeer is promoted from [MultiplayerAPI.Instance.HasMultiplayerPeer].
@@ -523,9 +573,8 @@ func (o *Extension[T]) GetPeers() []int32 {
 }
 
 // MultiplayerPeer is promoted from [MultiplayerAPI.Instance.MultiplayerPeer].
+func (self Instance) MultiplayerPeer() MultiplayerPeer.Instance { return self.AsMultiplayerAPI().MultiplayerPeer() }
 func (o *Extension[T]) MultiplayerPeer() MultiplayerPeer.Instance { return o.Super().AsMultiplayerAPI().MultiplayerPeer() }
-
-// SetMultiplayerPeer is promoted from [MultiplayerAPI.Instance.SetMultiplayerPeer].
 func (o *Extension[T]) SetMultiplayerPeer(value MultiplayerPeer.Instance) *Extension[T] {
 	o.Super().AsMultiplayerAPI().SetMultiplayerPeer(value)
 	return o

@@ -365,6 +365,14 @@ return Signal.Via(gd.SignalProxy{}, pointers.Pack(gd.NewSignalOf(self.AsObject()
 func (o class) AsUndoRedo() Advanced { return Advanced(o) }
 func (o Instance) AsUndoRedo() Instance { return o }
 func (o *Extension[T]) AsUndoRedo() Instance { return o.Super() }
+func (o *Extension[T]) OnVersionChanged(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("version_changed"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
 func (o *Extension[T]) IsCommittingAction() bool {
 	return o.Super().IsCommittingAction()
 }

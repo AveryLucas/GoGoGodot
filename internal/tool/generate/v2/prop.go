@@ -110,19 +110,34 @@ func (classDB ClassDB) promotedPropertyAccessor(file io.Writer, leafClass gdjson
 	}
 
 	if hasGetter {
-		key := getterName + "::*Extension[T]"
+		// Promote onto Instance (delegates via AsAncestor()).
+		key := getterName + "::Instance"
 		if !alreadyEmitted[key] {
 			alreadyEmitted[key] = true
 			fmt.Fprintf(file, "\n// %s is promoted from [%s.Instance.%s].\n", getterName, ancestor.Name, getterName)
+			fmt.Fprintf(file, "func (self Instance) %s() %s { return self.As%s().%s() }\n",
+				getterName, ptype, ancestor.Name, getterName)
+		}
+		// Promote onto *Extension[T] (delegates via Super().AsAncestor()).
+		key = getterName + "::*Extension[T]"
+		if !alreadyEmitted[key] {
+			alreadyEmitted[key] = true
 			fmt.Fprintf(file, "func (o *Extension[T]) %s() %s { return o.Super().As%s().%s() }\n",
 				getterName, ptype, ancestor.Name, getterName)
 		}
 	}
 	if hasSetter {
-		key := setterName + "::*Extension[T]"
+		key := setterName + "::Instance"
 		if !alreadyEmitted[key] {
 			alreadyEmitted[key] = true
 			fmt.Fprintf(file, "\n// %s is promoted from [%s.Instance.%s].\n", setterName, ancestor.Name, setterName)
+			fmt.Fprintf(file, "func (self Instance) %s(value %s) Instance {\n", setterName, ptype)
+			fmt.Fprintf(file, "\tself.As%s().%s(value)\n", ancestor.Name, setterName)
+			fmt.Fprintf(file, "\treturn self\n}\n")
+		}
+		key = setterName + "::*Extension[T]"
+		if !alreadyEmitted[key] {
+			alreadyEmitted[key] = true
 			fmt.Fprintf(file, "func (o *Extension[T]) %s(value %s) *Extension[T] {\n", setterName, ptype)
 			fmt.Fprintf(file, "\to.Super().As%s().%s(value)\n", ancestor.Name, setterName)
 			fmt.Fprintf(file, "\treturn o\n}\n")

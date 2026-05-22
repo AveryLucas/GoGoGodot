@@ -173,6 +173,16 @@ func (self Instance) OnChanged(cb func(), flags ...Signal.Flags) Instance {
 	return self
 }
 
+// OnChanged is promoted from [Resource.Instance.OnChanged].
+func (o *Extension[T]) OnChanged(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("changed"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+
 // OnSetupLocalToSceneRequested is promoted from [Resource.Instance.OnSetupLocalToSceneRequested].
 func (self Instance) OnSetupLocalToSceneRequested(cb func(), flags ...Signal.Flags) Instance {
 	var flags_together Signal.Flags
@@ -181,6 +191,16 @@ func (self Instance) OnSetupLocalToSceneRequested(cb func(), flags ...Signal.Fla
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("setup_local_to_scene_requested"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+
+// OnSetupLocalToSceneRequested is promoted from [Resource.Instance.OnSetupLocalToSceneRequested].
+func (o *Extension[T]) OnSetupLocalToSceneRequested(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("setup_local_to_scene_requested"), gd.NewCallable(cb), int64(flags_together))
+	return o
 }
 
 // InspectNativeShaderCode is promoted from [Material.Instance.InspectNativeShaderCode].
@@ -298,1233 +318,1918 @@ func (o *Extension[T]) EmitChanged() {
 }
 
 // Transparency is promoted from [BaseMaterial3D.Instance.Transparency].
+func (self Instance) Transparency() BaseMaterial3D.Transparency { return self.AsBaseMaterial3D().Transparency() }
 func (o *Extension[T]) Transparency() BaseMaterial3D.Transparency { return o.Super().AsBaseMaterial3D().Transparency() }
 
 // SetTransparency is promoted from [BaseMaterial3D.Instance.SetTransparency].
+func (self Instance) SetTransparency(value BaseMaterial3D.Transparency) Instance {
+	self.AsBaseMaterial3D().SetTransparency(value)
+	return self
+}
 func (o *Extension[T]) SetTransparency(value BaseMaterial3D.Transparency) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetTransparency(value)
 	return o
 }
 
 // AlphaScissorThreshold is promoted from [BaseMaterial3D.Instance.AlphaScissorThreshold].
+func (self Instance) AlphaScissorThreshold() Float.X { return self.AsBaseMaterial3D().AlphaScissorThreshold() }
 func (o *Extension[T]) AlphaScissorThreshold() Float.X { return o.Super().AsBaseMaterial3D().AlphaScissorThreshold() }
 
 // SetAlphaScissorThreshold is promoted from [BaseMaterial3D.Instance.SetAlphaScissorThreshold].
+func (self Instance) SetAlphaScissorThreshold(value Float.X) Instance {
+	self.AsBaseMaterial3D().SetAlphaScissorThreshold(value)
+	return self
+}
 func (o *Extension[T]) SetAlphaScissorThreshold(value Float.X) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetAlphaScissorThreshold(value)
 	return o
 }
 
 // AlphaHashScale is promoted from [BaseMaterial3D.Instance.AlphaHashScale].
+func (self Instance) AlphaHashScale() Float.X { return self.AsBaseMaterial3D().AlphaHashScale() }
 func (o *Extension[T]) AlphaHashScale() Float.X { return o.Super().AsBaseMaterial3D().AlphaHashScale() }
 
 // SetAlphaHashScale is promoted from [BaseMaterial3D.Instance.SetAlphaHashScale].
+func (self Instance) SetAlphaHashScale(value Float.X) Instance {
+	self.AsBaseMaterial3D().SetAlphaHashScale(value)
+	return self
+}
 func (o *Extension[T]) SetAlphaHashScale(value Float.X) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetAlphaHashScale(value)
 	return o
 }
 
 // AlphaAntialiasingMode is promoted from [BaseMaterial3D.Instance.AlphaAntialiasingMode].
+func (self Instance) AlphaAntialiasingMode() BaseMaterial3D.AlphaAntiAliasing { return self.AsBaseMaterial3D().AlphaAntialiasingMode() }
 func (o *Extension[T]) AlphaAntialiasingMode() BaseMaterial3D.AlphaAntiAliasing { return o.Super().AsBaseMaterial3D().AlphaAntialiasingMode() }
 
 // SetAlphaAntialiasingMode is promoted from [BaseMaterial3D.Instance.SetAlphaAntialiasingMode].
+func (self Instance) SetAlphaAntialiasingMode(value BaseMaterial3D.AlphaAntiAliasing) Instance {
+	self.AsBaseMaterial3D().SetAlphaAntialiasingMode(value)
+	return self
+}
 func (o *Extension[T]) SetAlphaAntialiasingMode(value BaseMaterial3D.AlphaAntiAliasing) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetAlphaAntialiasingMode(value)
 	return o
 }
 
 // AlphaAntialiasingEdge is promoted from [BaseMaterial3D.Instance.AlphaAntialiasingEdge].
+func (self Instance) AlphaAntialiasingEdge() Float.X { return self.AsBaseMaterial3D().AlphaAntialiasingEdge() }
 func (o *Extension[T]) AlphaAntialiasingEdge() Float.X { return o.Super().AsBaseMaterial3D().AlphaAntialiasingEdge() }
 
 // SetAlphaAntialiasingEdge is promoted from [BaseMaterial3D.Instance.SetAlphaAntialiasingEdge].
+func (self Instance) SetAlphaAntialiasingEdge(value Float.X) Instance {
+	self.AsBaseMaterial3D().SetAlphaAntialiasingEdge(value)
+	return self
+}
 func (o *Extension[T]) SetAlphaAntialiasingEdge(value Float.X) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetAlphaAntialiasingEdge(value)
 	return o
 }
 
 // BlendMode is promoted from [BaseMaterial3D.Instance.BlendMode].
+func (self Instance) BlendMode() BaseMaterial3D.BlendMode { return self.AsBaseMaterial3D().BlendMode() }
 func (o *Extension[T]) BlendMode() BaseMaterial3D.BlendMode { return o.Super().AsBaseMaterial3D().BlendMode() }
 
 // SetBlendMode is promoted from [BaseMaterial3D.Instance.SetBlendMode].
+func (self Instance) SetBlendMode(value BaseMaterial3D.BlendMode) Instance {
+	self.AsBaseMaterial3D().SetBlendMode(value)
+	return self
+}
 func (o *Extension[T]) SetBlendMode(value BaseMaterial3D.BlendMode) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetBlendMode(value)
 	return o
 }
 
 // CullMode is promoted from [BaseMaterial3D.Instance.CullMode].
+func (self Instance) CullMode() BaseMaterial3D.CullMode { return self.AsBaseMaterial3D().CullMode() }
 func (o *Extension[T]) CullMode() BaseMaterial3D.CullMode { return o.Super().AsBaseMaterial3D().CullMode() }
 
 // SetCullMode is promoted from [BaseMaterial3D.Instance.SetCullMode].
+func (self Instance) SetCullMode(value BaseMaterial3D.CullMode) Instance {
+	self.AsBaseMaterial3D().SetCullMode(value)
+	return self
+}
 func (o *Extension[T]) SetCullMode(value BaseMaterial3D.CullMode) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetCullMode(value)
 	return o
 }
 
 // DepthDrawMode is promoted from [BaseMaterial3D.Instance.DepthDrawMode].
+func (self Instance) DepthDrawMode() BaseMaterial3D.DepthDrawMode { return self.AsBaseMaterial3D().DepthDrawMode() }
 func (o *Extension[T]) DepthDrawMode() BaseMaterial3D.DepthDrawMode { return o.Super().AsBaseMaterial3D().DepthDrawMode() }
 
 // SetDepthDrawMode is promoted from [BaseMaterial3D.Instance.SetDepthDrawMode].
+func (self Instance) SetDepthDrawMode(value BaseMaterial3D.DepthDrawMode) Instance {
+	self.AsBaseMaterial3D().SetDepthDrawMode(value)
+	return self
+}
 func (o *Extension[T]) SetDepthDrawMode(value BaseMaterial3D.DepthDrawMode) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetDepthDrawMode(value)
 	return o
 }
 
 // NoDepthTest is promoted from [BaseMaterial3D.Instance.NoDepthTest].
+func (self Instance) NoDepthTest() bool { return self.AsBaseMaterial3D().NoDepthTest() }
 func (o *Extension[T]) NoDepthTest() bool { return o.Super().AsBaseMaterial3D().NoDepthTest() }
 
 // SetNoDepthTest is promoted from [BaseMaterial3D.Instance.SetNoDepthTest].
+func (self Instance) SetNoDepthTest(value bool) Instance {
+	self.AsBaseMaterial3D().SetNoDepthTest(value)
+	return self
+}
 func (o *Extension[T]) SetNoDepthTest(value bool) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetNoDepthTest(value)
 	return o
 }
 
 // DepthTest is promoted from [BaseMaterial3D.Instance.DepthTest].
+func (self Instance) DepthTest() BaseMaterial3D.DepthTest { return self.AsBaseMaterial3D().DepthTest() }
 func (o *Extension[T]) DepthTest() BaseMaterial3D.DepthTest { return o.Super().AsBaseMaterial3D().DepthTest() }
 
 // SetDepthTest is promoted from [BaseMaterial3D.Instance.SetDepthTest].
+func (self Instance) SetDepthTest(value BaseMaterial3D.DepthTest) Instance {
+	self.AsBaseMaterial3D().SetDepthTest(value)
+	return self
+}
 func (o *Extension[T]) SetDepthTest(value BaseMaterial3D.DepthTest) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetDepthTest(value)
 	return o
 }
 
 // ShadingMode is promoted from [BaseMaterial3D.Instance.ShadingMode].
+func (self Instance) ShadingMode() BaseMaterial3D.ShadingMode { return self.AsBaseMaterial3D().ShadingMode() }
 func (o *Extension[T]) ShadingMode() BaseMaterial3D.ShadingMode { return o.Super().AsBaseMaterial3D().ShadingMode() }
 
 // SetShadingMode is promoted from [BaseMaterial3D.Instance.SetShadingMode].
+func (self Instance) SetShadingMode(value BaseMaterial3D.ShadingMode) Instance {
+	self.AsBaseMaterial3D().SetShadingMode(value)
+	return self
+}
 func (o *Extension[T]) SetShadingMode(value BaseMaterial3D.ShadingMode) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetShadingMode(value)
 	return o
 }
 
 // DiffuseMode is promoted from [BaseMaterial3D.Instance.DiffuseMode].
+func (self Instance) DiffuseMode() BaseMaterial3D.DiffuseMode { return self.AsBaseMaterial3D().DiffuseMode() }
 func (o *Extension[T]) DiffuseMode() BaseMaterial3D.DiffuseMode { return o.Super().AsBaseMaterial3D().DiffuseMode() }
 
 // SetDiffuseMode is promoted from [BaseMaterial3D.Instance.SetDiffuseMode].
+func (self Instance) SetDiffuseMode(value BaseMaterial3D.DiffuseMode) Instance {
+	self.AsBaseMaterial3D().SetDiffuseMode(value)
+	return self
+}
 func (o *Extension[T]) SetDiffuseMode(value BaseMaterial3D.DiffuseMode) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetDiffuseMode(value)
 	return o
 }
 
 // SpecularMode is promoted from [BaseMaterial3D.Instance.SpecularMode].
+func (self Instance) SpecularMode() BaseMaterial3D.SpecularMode { return self.AsBaseMaterial3D().SpecularMode() }
 func (o *Extension[T]) SpecularMode() BaseMaterial3D.SpecularMode { return o.Super().AsBaseMaterial3D().SpecularMode() }
 
 // SetSpecularMode is promoted from [BaseMaterial3D.Instance.SetSpecularMode].
+func (self Instance) SetSpecularMode(value BaseMaterial3D.SpecularMode) Instance {
+	self.AsBaseMaterial3D().SetSpecularMode(value)
+	return self
+}
 func (o *Extension[T]) SetSpecularMode(value BaseMaterial3D.SpecularMode) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetSpecularMode(value)
 	return o
 }
 
 // DisableAmbientLight is promoted from [BaseMaterial3D.Instance.DisableAmbientLight].
+func (self Instance) DisableAmbientLight() bool { return self.AsBaseMaterial3D().DisableAmbientLight() }
 func (o *Extension[T]) DisableAmbientLight() bool { return o.Super().AsBaseMaterial3D().DisableAmbientLight() }
 
 // SetDisableAmbientLight is promoted from [BaseMaterial3D.Instance.SetDisableAmbientLight].
+func (self Instance) SetDisableAmbientLight(value bool) Instance {
+	self.AsBaseMaterial3D().SetDisableAmbientLight(value)
+	return self
+}
 func (o *Extension[T]) SetDisableAmbientLight(value bool) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetDisableAmbientLight(value)
 	return o
 }
 
 // DisableFog is promoted from [BaseMaterial3D.Instance.DisableFog].
+func (self Instance) DisableFog() bool { return self.AsBaseMaterial3D().DisableFog() }
 func (o *Extension[T]) DisableFog() bool { return o.Super().AsBaseMaterial3D().DisableFog() }
 
 // SetDisableFog is promoted from [BaseMaterial3D.Instance.SetDisableFog].
+func (self Instance) SetDisableFog(value bool) Instance {
+	self.AsBaseMaterial3D().SetDisableFog(value)
+	return self
+}
 func (o *Extension[T]) SetDisableFog(value bool) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetDisableFog(value)
 	return o
 }
 
 // DisableSpecularOcclusion is promoted from [BaseMaterial3D.Instance.DisableSpecularOcclusion].
+func (self Instance) DisableSpecularOcclusion() bool { return self.AsBaseMaterial3D().DisableSpecularOcclusion() }
 func (o *Extension[T]) DisableSpecularOcclusion() bool { return o.Super().AsBaseMaterial3D().DisableSpecularOcclusion() }
 
 // SetDisableSpecularOcclusion is promoted from [BaseMaterial3D.Instance.SetDisableSpecularOcclusion].
+func (self Instance) SetDisableSpecularOcclusion(value bool) Instance {
+	self.AsBaseMaterial3D().SetDisableSpecularOcclusion(value)
+	return self
+}
 func (o *Extension[T]) SetDisableSpecularOcclusion(value bool) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetDisableSpecularOcclusion(value)
 	return o
 }
 
 // VertexColorUseAsAlbedo is promoted from [BaseMaterial3D.Instance.VertexColorUseAsAlbedo].
+func (self Instance) VertexColorUseAsAlbedo() bool { return self.AsBaseMaterial3D().VertexColorUseAsAlbedo() }
 func (o *Extension[T]) VertexColorUseAsAlbedo() bool { return o.Super().AsBaseMaterial3D().VertexColorUseAsAlbedo() }
 
 // SetVertexColorUseAsAlbedo is promoted from [BaseMaterial3D.Instance.SetVertexColorUseAsAlbedo].
+func (self Instance) SetVertexColorUseAsAlbedo(value bool) Instance {
+	self.AsBaseMaterial3D().SetVertexColorUseAsAlbedo(value)
+	return self
+}
 func (o *Extension[T]) SetVertexColorUseAsAlbedo(value bool) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetVertexColorUseAsAlbedo(value)
 	return o
 }
 
 // VertexColorIsSrgb is promoted from [BaseMaterial3D.Instance.VertexColorIsSrgb].
+func (self Instance) VertexColorIsSrgb() bool { return self.AsBaseMaterial3D().VertexColorIsSrgb() }
 func (o *Extension[T]) VertexColorIsSrgb() bool { return o.Super().AsBaseMaterial3D().VertexColorIsSrgb() }
 
 // SetVertexColorIsSrgb is promoted from [BaseMaterial3D.Instance.SetVertexColorIsSrgb].
+func (self Instance) SetVertexColorIsSrgb(value bool) Instance {
+	self.AsBaseMaterial3D().SetVertexColorIsSrgb(value)
+	return self
+}
 func (o *Extension[T]) SetVertexColorIsSrgb(value bool) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetVertexColorIsSrgb(value)
 	return o
 }
 
 // AlbedoColor is promoted from [BaseMaterial3D.Instance.AlbedoColor].
+func (self Instance) AlbedoColor() Color.RGBA { return self.AsBaseMaterial3D().AlbedoColor() }
 func (o *Extension[T]) AlbedoColor() Color.RGBA { return o.Super().AsBaseMaterial3D().AlbedoColor() }
 
 // SetAlbedoColor is promoted from [BaseMaterial3D.Instance.SetAlbedoColor].
+func (self Instance) SetAlbedoColor(value Color.RGBA) Instance {
+	self.AsBaseMaterial3D().SetAlbedoColor(value)
+	return self
+}
 func (o *Extension[T]) SetAlbedoColor(value Color.RGBA) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetAlbedoColor(value)
 	return o
 }
 
 // AlbedoTexture is promoted from [BaseMaterial3D.Instance.AlbedoTexture].
+func (self Instance) AlbedoTexture() Texture2D.Instance { return self.AsBaseMaterial3D().AlbedoTexture() }
 func (o *Extension[T]) AlbedoTexture() Texture2D.Instance { return o.Super().AsBaseMaterial3D().AlbedoTexture() }
 
 // SetAlbedoTexture is promoted from [BaseMaterial3D.Instance.SetAlbedoTexture].
+func (self Instance) SetAlbedoTexture(value Texture2D.Instance) Instance {
+	self.AsBaseMaterial3D().SetAlbedoTexture(value)
+	return self
+}
 func (o *Extension[T]) SetAlbedoTexture(value Texture2D.Instance) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetAlbedoTexture(value)
 	return o
 }
 
 // AlbedoTextureForceSrgb is promoted from [BaseMaterial3D.Instance.AlbedoTextureForceSrgb].
+func (self Instance) AlbedoTextureForceSrgb() bool { return self.AsBaseMaterial3D().AlbedoTextureForceSrgb() }
 func (o *Extension[T]) AlbedoTextureForceSrgb() bool { return o.Super().AsBaseMaterial3D().AlbedoTextureForceSrgb() }
 
 // SetAlbedoTextureForceSrgb is promoted from [BaseMaterial3D.Instance.SetAlbedoTextureForceSrgb].
+func (self Instance) SetAlbedoTextureForceSrgb(value bool) Instance {
+	self.AsBaseMaterial3D().SetAlbedoTextureForceSrgb(value)
+	return self
+}
 func (o *Extension[T]) SetAlbedoTextureForceSrgb(value bool) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetAlbedoTextureForceSrgb(value)
 	return o
 }
 
 // AlbedoTextureMsdf is promoted from [BaseMaterial3D.Instance.AlbedoTextureMsdf].
+func (self Instance) AlbedoTextureMsdf() bool { return self.AsBaseMaterial3D().AlbedoTextureMsdf() }
 func (o *Extension[T]) AlbedoTextureMsdf() bool { return o.Super().AsBaseMaterial3D().AlbedoTextureMsdf() }
 
 // SetAlbedoTextureMsdf is promoted from [BaseMaterial3D.Instance.SetAlbedoTextureMsdf].
+func (self Instance) SetAlbedoTextureMsdf(value bool) Instance {
+	self.AsBaseMaterial3D().SetAlbedoTextureMsdf(value)
+	return self
+}
 func (o *Extension[T]) SetAlbedoTextureMsdf(value bool) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetAlbedoTextureMsdf(value)
 	return o
 }
 
 // OrmTexture is promoted from [BaseMaterial3D.Instance.OrmTexture].
+func (self Instance) OrmTexture() Texture2D.Instance { return self.AsBaseMaterial3D().OrmTexture() }
 func (o *Extension[T]) OrmTexture() Texture2D.Instance { return o.Super().AsBaseMaterial3D().OrmTexture() }
 
 // SetOrmTexture is promoted from [BaseMaterial3D.Instance.SetOrmTexture].
+func (self Instance) SetOrmTexture(value Texture2D.Instance) Instance {
+	self.AsBaseMaterial3D().SetOrmTexture(value)
+	return self
+}
 func (o *Extension[T]) SetOrmTexture(value Texture2D.Instance) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetOrmTexture(value)
 	return o
 }
 
 // Metallic is promoted from [BaseMaterial3D.Instance.Metallic].
+func (self Instance) Metallic() Float.X { return self.AsBaseMaterial3D().Metallic() }
 func (o *Extension[T]) Metallic() Float.X { return o.Super().AsBaseMaterial3D().Metallic() }
 
 // SetMetallic is promoted from [BaseMaterial3D.Instance.SetMetallic].
+func (self Instance) SetMetallic(value Float.X) Instance {
+	self.AsBaseMaterial3D().SetMetallic(value)
+	return self
+}
 func (o *Extension[T]) SetMetallic(value Float.X) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetMetallic(value)
 	return o
 }
 
 // MetallicSpecular is promoted from [BaseMaterial3D.Instance.MetallicSpecular].
+func (self Instance) MetallicSpecular() Float.X { return self.AsBaseMaterial3D().MetallicSpecular() }
 func (o *Extension[T]) MetallicSpecular() Float.X { return o.Super().AsBaseMaterial3D().MetallicSpecular() }
 
 // SetMetallicSpecular is promoted from [BaseMaterial3D.Instance.SetMetallicSpecular].
+func (self Instance) SetMetallicSpecular(value Float.X) Instance {
+	self.AsBaseMaterial3D().SetMetallicSpecular(value)
+	return self
+}
 func (o *Extension[T]) SetMetallicSpecular(value Float.X) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetMetallicSpecular(value)
 	return o
 }
 
 // MetallicTexture is promoted from [BaseMaterial3D.Instance.MetallicTexture].
+func (self Instance) MetallicTexture() Texture2D.Instance { return self.AsBaseMaterial3D().MetallicTexture() }
 func (o *Extension[T]) MetallicTexture() Texture2D.Instance { return o.Super().AsBaseMaterial3D().MetallicTexture() }
 
 // SetMetallicTexture is promoted from [BaseMaterial3D.Instance.SetMetallicTexture].
+func (self Instance) SetMetallicTexture(value Texture2D.Instance) Instance {
+	self.AsBaseMaterial3D().SetMetallicTexture(value)
+	return self
+}
 func (o *Extension[T]) SetMetallicTexture(value Texture2D.Instance) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetMetallicTexture(value)
 	return o
 }
 
 // MetallicTextureChannel is promoted from [BaseMaterial3D.Instance.MetallicTextureChannel].
+func (self Instance) MetallicTextureChannel() BaseMaterial3D.TextureChannel { return self.AsBaseMaterial3D().MetallicTextureChannel() }
 func (o *Extension[T]) MetallicTextureChannel() BaseMaterial3D.TextureChannel { return o.Super().AsBaseMaterial3D().MetallicTextureChannel() }
 
 // SetMetallicTextureChannel is promoted from [BaseMaterial3D.Instance.SetMetallicTextureChannel].
+func (self Instance) SetMetallicTextureChannel(value BaseMaterial3D.TextureChannel) Instance {
+	self.AsBaseMaterial3D().SetMetallicTextureChannel(value)
+	return self
+}
 func (o *Extension[T]) SetMetallicTextureChannel(value BaseMaterial3D.TextureChannel) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetMetallicTextureChannel(value)
 	return o
 }
 
 // Roughness is promoted from [BaseMaterial3D.Instance.Roughness].
+func (self Instance) Roughness() Float.X { return self.AsBaseMaterial3D().Roughness() }
 func (o *Extension[T]) Roughness() Float.X { return o.Super().AsBaseMaterial3D().Roughness() }
 
 // SetRoughness is promoted from [BaseMaterial3D.Instance.SetRoughness].
+func (self Instance) SetRoughness(value Float.X) Instance {
+	self.AsBaseMaterial3D().SetRoughness(value)
+	return self
+}
 func (o *Extension[T]) SetRoughness(value Float.X) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetRoughness(value)
 	return o
 }
 
 // RoughnessTexture is promoted from [BaseMaterial3D.Instance.RoughnessTexture].
+func (self Instance) RoughnessTexture() Texture2D.Instance { return self.AsBaseMaterial3D().RoughnessTexture() }
 func (o *Extension[T]) RoughnessTexture() Texture2D.Instance { return o.Super().AsBaseMaterial3D().RoughnessTexture() }
 
 // SetRoughnessTexture is promoted from [BaseMaterial3D.Instance.SetRoughnessTexture].
+func (self Instance) SetRoughnessTexture(value Texture2D.Instance) Instance {
+	self.AsBaseMaterial3D().SetRoughnessTexture(value)
+	return self
+}
 func (o *Extension[T]) SetRoughnessTexture(value Texture2D.Instance) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetRoughnessTexture(value)
 	return o
 }
 
 // RoughnessTextureChannel is promoted from [BaseMaterial3D.Instance.RoughnessTextureChannel].
+func (self Instance) RoughnessTextureChannel() BaseMaterial3D.TextureChannel { return self.AsBaseMaterial3D().RoughnessTextureChannel() }
 func (o *Extension[T]) RoughnessTextureChannel() BaseMaterial3D.TextureChannel { return o.Super().AsBaseMaterial3D().RoughnessTextureChannel() }
 
 // SetRoughnessTextureChannel is promoted from [BaseMaterial3D.Instance.SetRoughnessTextureChannel].
+func (self Instance) SetRoughnessTextureChannel(value BaseMaterial3D.TextureChannel) Instance {
+	self.AsBaseMaterial3D().SetRoughnessTextureChannel(value)
+	return self
+}
 func (o *Extension[T]) SetRoughnessTextureChannel(value BaseMaterial3D.TextureChannel) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetRoughnessTextureChannel(value)
 	return o
 }
 
 // EmissionEnabled is promoted from [BaseMaterial3D.Instance.EmissionEnabled].
+func (self Instance) EmissionEnabled() bool { return self.AsBaseMaterial3D().EmissionEnabled() }
 func (o *Extension[T]) EmissionEnabled() bool { return o.Super().AsBaseMaterial3D().EmissionEnabled() }
 
 // SetEmissionEnabled is promoted from [BaseMaterial3D.Instance.SetEmissionEnabled].
+func (self Instance) SetEmissionEnabled(value bool) Instance {
+	self.AsBaseMaterial3D().SetEmissionEnabled(value)
+	return self
+}
 func (o *Extension[T]) SetEmissionEnabled(value bool) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetEmissionEnabled(value)
 	return o
 }
 
 // Emission is promoted from [BaseMaterial3D.Instance.Emission].
+func (self Instance) Emission() Color.RGBA { return self.AsBaseMaterial3D().Emission() }
 func (o *Extension[T]) Emission() Color.RGBA { return o.Super().AsBaseMaterial3D().Emission() }
 
 // SetEmission is promoted from [BaseMaterial3D.Instance.SetEmission].
+func (self Instance) SetEmission(value Color.RGBA) Instance {
+	self.AsBaseMaterial3D().SetEmission(value)
+	return self
+}
 func (o *Extension[T]) SetEmission(value Color.RGBA) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetEmission(value)
 	return o
 }
 
 // EmissionEnergyMultiplier is promoted from [BaseMaterial3D.Instance.EmissionEnergyMultiplier].
+func (self Instance) EmissionEnergyMultiplier() Float.X { return self.AsBaseMaterial3D().EmissionEnergyMultiplier() }
 func (o *Extension[T]) EmissionEnergyMultiplier() Float.X { return o.Super().AsBaseMaterial3D().EmissionEnergyMultiplier() }
 
 // SetEmissionEnergyMultiplier is promoted from [BaseMaterial3D.Instance.SetEmissionEnergyMultiplier].
+func (self Instance) SetEmissionEnergyMultiplier(value Float.X) Instance {
+	self.AsBaseMaterial3D().SetEmissionEnergyMultiplier(value)
+	return self
+}
 func (o *Extension[T]) SetEmissionEnergyMultiplier(value Float.X) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetEmissionEnergyMultiplier(value)
 	return o
 }
 
 // EmissionIntensity is promoted from [BaseMaterial3D.Instance.EmissionIntensity].
+func (self Instance) EmissionIntensity() Float.X { return self.AsBaseMaterial3D().EmissionIntensity() }
 func (o *Extension[T]) EmissionIntensity() Float.X { return o.Super().AsBaseMaterial3D().EmissionIntensity() }
 
 // SetEmissionIntensity is promoted from [BaseMaterial3D.Instance.SetEmissionIntensity].
+func (self Instance) SetEmissionIntensity(value Float.X) Instance {
+	self.AsBaseMaterial3D().SetEmissionIntensity(value)
+	return self
+}
 func (o *Extension[T]) SetEmissionIntensity(value Float.X) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetEmissionIntensity(value)
 	return o
 }
 
 // EmissionOperator is promoted from [BaseMaterial3D.Instance.EmissionOperator].
+func (self Instance) EmissionOperator() BaseMaterial3D.EmissionOperator { return self.AsBaseMaterial3D().EmissionOperator() }
 func (o *Extension[T]) EmissionOperator() BaseMaterial3D.EmissionOperator { return o.Super().AsBaseMaterial3D().EmissionOperator() }
 
 // SetEmissionOperator is promoted from [BaseMaterial3D.Instance.SetEmissionOperator].
+func (self Instance) SetEmissionOperator(value BaseMaterial3D.EmissionOperator) Instance {
+	self.AsBaseMaterial3D().SetEmissionOperator(value)
+	return self
+}
 func (o *Extension[T]) SetEmissionOperator(value BaseMaterial3D.EmissionOperator) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetEmissionOperator(value)
 	return o
 }
 
 // EmissionOnUv2 is promoted from [BaseMaterial3D.Instance.EmissionOnUv2].
+func (self Instance) EmissionOnUv2() bool { return self.AsBaseMaterial3D().EmissionOnUv2() }
 func (o *Extension[T]) EmissionOnUv2() bool { return o.Super().AsBaseMaterial3D().EmissionOnUv2() }
 
 // SetEmissionOnUv2 is promoted from [BaseMaterial3D.Instance.SetEmissionOnUv2].
+func (self Instance) SetEmissionOnUv2(value bool) Instance {
+	self.AsBaseMaterial3D().SetEmissionOnUv2(value)
+	return self
+}
 func (o *Extension[T]) SetEmissionOnUv2(value bool) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetEmissionOnUv2(value)
 	return o
 }
 
 // EmissionTexture is promoted from [BaseMaterial3D.Instance.EmissionTexture].
+func (self Instance) EmissionTexture() Texture2D.Instance { return self.AsBaseMaterial3D().EmissionTexture() }
 func (o *Extension[T]) EmissionTexture() Texture2D.Instance { return o.Super().AsBaseMaterial3D().EmissionTexture() }
 
 // SetEmissionTexture is promoted from [BaseMaterial3D.Instance.SetEmissionTexture].
+func (self Instance) SetEmissionTexture(value Texture2D.Instance) Instance {
+	self.AsBaseMaterial3D().SetEmissionTexture(value)
+	return self
+}
 func (o *Extension[T]) SetEmissionTexture(value Texture2D.Instance) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetEmissionTexture(value)
 	return o
 }
 
 // NormalEnabled is promoted from [BaseMaterial3D.Instance.NormalEnabled].
+func (self Instance) NormalEnabled() bool { return self.AsBaseMaterial3D().NormalEnabled() }
 func (o *Extension[T]) NormalEnabled() bool { return o.Super().AsBaseMaterial3D().NormalEnabled() }
 
 // SetNormalEnabled is promoted from [BaseMaterial3D.Instance.SetNormalEnabled].
+func (self Instance) SetNormalEnabled(value bool) Instance {
+	self.AsBaseMaterial3D().SetNormalEnabled(value)
+	return self
+}
 func (o *Extension[T]) SetNormalEnabled(value bool) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetNormalEnabled(value)
 	return o
 }
 
 // NormalScale is promoted from [BaseMaterial3D.Instance.NormalScale].
+func (self Instance) NormalScale() Float.X { return self.AsBaseMaterial3D().NormalScale() }
 func (o *Extension[T]) NormalScale() Float.X { return o.Super().AsBaseMaterial3D().NormalScale() }
 
 // SetNormalScale is promoted from [BaseMaterial3D.Instance.SetNormalScale].
+func (self Instance) SetNormalScale(value Float.X) Instance {
+	self.AsBaseMaterial3D().SetNormalScale(value)
+	return self
+}
 func (o *Extension[T]) SetNormalScale(value Float.X) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetNormalScale(value)
 	return o
 }
 
 // NormalTexture is promoted from [BaseMaterial3D.Instance.NormalTexture].
+func (self Instance) NormalTexture() Texture2D.Instance { return self.AsBaseMaterial3D().NormalTexture() }
 func (o *Extension[T]) NormalTexture() Texture2D.Instance { return o.Super().AsBaseMaterial3D().NormalTexture() }
 
 // SetNormalTexture is promoted from [BaseMaterial3D.Instance.SetNormalTexture].
+func (self Instance) SetNormalTexture(value Texture2D.Instance) Instance {
+	self.AsBaseMaterial3D().SetNormalTexture(value)
+	return self
+}
 func (o *Extension[T]) SetNormalTexture(value Texture2D.Instance) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetNormalTexture(value)
 	return o
 }
 
 // BentNormalEnabled is promoted from [BaseMaterial3D.Instance.BentNormalEnabled].
+func (self Instance) BentNormalEnabled() bool { return self.AsBaseMaterial3D().BentNormalEnabled() }
 func (o *Extension[T]) BentNormalEnabled() bool { return o.Super().AsBaseMaterial3D().BentNormalEnabled() }
 
 // SetBentNormalEnabled is promoted from [BaseMaterial3D.Instance.SetBentNormalEnabled].
+func (self Instance) SetBentNormalEnabled(value bool) Instance {
+	self.AsBaseMaterial3D().SetBentNormalEnabled(value)
+	return self
+}
 func (o *Extension[T]) SetBentNormalEnabled(value bool) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetBentNormalEnabled(value)
 	return o
 }
 
 // BentNormalTexture is promoted from [BaseMaterial3D.Instance.BentNormalTexture].
+func (self Instance) BentNormalTexture() Texture2D.Instance { return self.AsBaseMaterial3D().BentNormalTexture() }
 func (o *Extension[T]) BentNormalTexture() Texture2D.Instance { return o.Super().AsBaseMaterial3D().BentNormalTexture() }
 
 // SetBentNormalTexture is promoted from [BaseMaterial3D.Instance.SetBentNormalTexture].
+func (self Instance) SetBentNormalTexture(value Texture2D.Instance) Instance {
+	self.AsBaseMaterial3D().SetBentNormalTexture(value)
+	return self
+}
 func (o *Extension[T]) SetBentNormalTexture(value Texture2D.Instance) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetBentNormalTexture(value)
 	return o
 }
 
 // RimEnabled is promoted from [BaseMaterial3D.Instance.RimEnabled].
+func (self Instance) RimEnabled() bool { return self.AsBaseMaterial3D().RimEnabled() }
 func (o *Extension[T]) RimEnabled() bool { return o.Super().AsBaseMaterial3D().RimEnabled() }
 
 // SetRimEnabled is promoted from [BaseMaterial3D.Instance.SetRimEnabled].
+func (self Instance) SetRimEnabled(value bool) Instance {
+	self.AsBaseMaterial3D().SetRimEnabled(value)
+	return self
+}
 func (o *Extension[T]) SetRimEnabled(value bool) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetRimEnabled(value)
 	return o
 }
 
 // Rim is promoted from [BaseMaterial3D.Instance.Rim].
+func (self Instance) Rim() Float.X { return self.AsBaseMaterial3D().Rim() }
 func (o *Extension[T]) Rim() Float.X { return o.Super().AsBaseMaterial3D().Rim() }
 
 // SetRim is promoted from [BaseMaterial3D.Instance.SetRim].
+func (self Instance) SetRim(value Float.X) Instance {
+	self.AsBaseMaterial3D().SetRim(value)
+	return self
+}
 func (o *Extension[T]) SetRim(value Float.X) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetRim(value)
 	return o
 }
 
 // RimTint is promoted from [BaseMaterial3D.Instance.RimTint].
+func (self Instance) RimTint() Float.X { return self.AsBaseMaterial3D().RimTint() }
 func (o *Extension[T]) RimTint() Float.X { return o.Super().AsBaseMaterial3D().RimTint() }
 
 // SetRimTint is promoted from [BaseMaterial3D.Instance.SetRimTint].
+func (self Instance) SetRimTint(value Float.X) Instance {
+	self.AsBaseMaterial3D().SetRimTint(value)
+	return self
+}
 func (o *Extension[T]) SetRimTint(value Float.X) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetRimTint(value)
 	return o
 }
 
 // RimTexture is promoted from [BaseMaterial3D.Instance.RimTexture].
+func (self Instance) RimTexture() Texture2D.Instance { return self.AsBaseMaterial3D().RimTexture() }
 func (o *Extension[T]) RimTexture() Texture2D.Instance { return o.Super().AsBaseMaterial3D().RimTexture() }
 
 // SetRimTexture is promoted from [BaseMaterial3D.Instance.SetRimTexture].
+func (self Instance) SetRimTexture(value Texture2D.Instance) Instance {
+	self.AsBaseMaterial3D().SetRimTexture(value)
+	return self
+}
 func (o *Extension[T]) SetRimTexture(value Texture2D.Instance) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetRimTexture(value)
 	return o
 }
 
 // ClearcoatEnabled is promoted from [BaseMaterial3D.Instance.ClearcoatEnabled].
+func (self Instance) ClearcoatEnabled() bool { return self.AsBaseMaterial3D().ClearcoatEnabled() }
 func (o *Extension[T]) ClearcoatEnabled() bool { return o.Super().AsBaseMaterial3D().ClearcoatEnabled() }
 
 // SetClearcoatEnabled is promoted from [BaseMaterial3D.Instance.SetClearcoatEnabled].
+func (self Instance) SetClearcoatEnabled(value bool) Instance {
+	self.AsBaseMaterial3D().SetClearcoatEnabled(value)
+	return self
+}
 func (o *Extension[T]) SetClearcoatEnabled(value bool) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetClearcoatEnabled(value)
 	return o
 }
 
 // Clearcoat is promoted from [BaseMaterial3D.Instance.Clearcoat].
+func (self Instance) Clearcoat() Float.X { return self.AsBaseMaterial3D().Clearcoat() }
 func (o *Extension[T]) Clearcoat() Float.X { return o.Super().AsBaseMaterial3D().Clearcoat() }
 
 // SetClearcoat is promoted from [BaseMaterial3D.Instance.SetClearcoat].
+func (self Instance) SetClearcoat(value Float.X) Instance {
+	self.AsBaseMaterial3D().SetClearcoat(value)
+	return self
+}
 func (o *Extension[T]) SetClearcoat(value Float.X) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetClearcoat(value)
 	return o
 }
 
 // ClearcoatRoughness is promoted from [BaseMaterial3D.Instance.ClearcoatRoughness].
+func (self Instance) ClearcoatRoughness() Float.X { return self.AsBaseMaterial3D().ClearcoatRoughness() }
 func (o *Extension[T]) ClearcoatRoughness() Float.X { return o.Super().AsBaseMaterial3D().ClearcoatRoughness() }
 
 // SetClearcoatRoughness is promoted from [BaseMaterial3D.Instance.SetClearcoatRoughness].
+func (self Instance) SetClearcoatRoughness(value Float.X) Instance {
+	self.AsBaseMaterial3D().SetClearcoatRoughness(value)
+	return self
+}
 func (o *Extension[T]) SetClearcoatRoughness(value Float.X) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetClearcoatRoughness(value)
 	return o
 }
 
 // ClearcoatTexture is promoted from [BaseMaterial3D.Instance.ClearcoatTexture].
+func (self Instance) ClearcoatTexture() Texture2D.Instance { return self.AsBaseMaterial3D().ClearcoatTexture() }
 func (o *Extension[T]) ClearcoatTexture() Texture2D.Instance { return o.Super().AsBaseMaterial3D().ClearcoatTexture() }
 
 // SetClearcoatTexture is promoted from [BaseMaterial3D.Instance.SetClearcoatTexture].
+func (self Instance) SetClearcoatTexture(value Texture2D.Instance) Instance {
+	self.AsBaseMaterial3D().SetClearcoatTexture(value)
+	return self
+}
 func (o *Extension[T]) SetClearcoatTexture(value Texture2D.Instance) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetClearcoatTexture(value)
 	return o
 }
 
 // AnisotropyEnabled is promoted from [BaseMaterial3D.Instance.AnisotropyEnabled].
+func (self Instance) AnisotropyEnabled() bool { return self.AsBaseMaterial3D().AnisotropyEnabled() }
 func (o *Extension[T]) AnisotropyEnabled() bool { return o.Super().AsBaseMaterial3D().AnisotropyEnabled() }
 
 // SetAnisotropyEnabled is promoted from [BaseMaterial3D.Instance.SetAnisotropyEnabled].
+func (self Instance) SetAnisotropyEnabled(value bool) Instance {
+	self.AsBaseMaterial3D().SetAnisotropyEnabled(value)
+	return self
+}
 func (o *Extension[T]) SetAnisotropyEnabled(value bool) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetAnisotropyEnabled(value)
 	return o
 }
 
 // Anisotropy is promoted from [BaseMaterial3D.Instance.Anisotropy].
+func (self Instance) Anisotropy() Float.X { return self.AsBaseMaterial3D().Anisotropy() }
 func (o *Extension[T]) Anisotropy() Float.X { return o.Super().AsBaseMaterial3D().Anisotropy() }
 
 // SetAnisotropy is promoted from [BaseMaterial3D.Instance.SetAnisotropy].
+func (self Instance) SetAnisotropy(value Float.X) Instance {
+	self.AsBaseMaterial3D().SetAnisotropy(value)
+	return self
+}
 func (o *Extension[T]) SetAnisotropy(value Float.X) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetAnisotropy(value)
 	return o
 }
 
 // AnisotropyFlowmap is promoted from [BaseMaterial3D.Instance.AnisotropyFlowmap].
+func (self Instance) AnisotropyFlowmap() Texture2D.Instance { return self.AsBaseMaterial3D().AnisotropyFlowmap() }
 func (o *Extension[T]) AnisotropyFlowmap() Texture2D.Instance { return o.Super().AsBaseMaterial3D().AnisotropyFlowmap() }
 
 // SetAnisotropyFlowmap is promoted from [BaseMaterial3D.Instance.SetAnisotropyFlowmap].
+func (self Instance) SetAnisotropyFlowmap(value Texture2D.Instance) Instance {
+	self.AsBaseMaterial3D().SetAnisotropyFlowmap(value)
+	return self
+}
 func (o *Extension[T]) SetAnisotropyFlowmap(value Texture2D.Instance) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetAnisotropyFlowmap(value)
 	return o
 }
 
 // AoEnabled is promoted from [BaseMaterial3D.Instance.AoEnabled].
+func (self Instance) AoEnabled() bool { return self.AsBaseMaterial3D().AoEnabled() }
 func (o *Extension[T]) AoEnabled() bool { return o.Super().AsBaseMaterial3D().AoEnabled() }
 
 // SetAoEnabled is promoted from [BaseMaterial3D.Instance.SetAoEnabled].
+func (self Instance) SetAoEnabled(value bool) Instance {
+	self.AsBaseMaterial3D().SetAoEnabled(value)
+	return self
+}
 func (o *Extension[T]) SetAoEnabled(value bool) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetAoEnabled(value)
 	return o
 }
 
 // AoLightAffect is promoted from [BaseMaterial3D.Instance.AoLightAffect].
+func (self Instance) AoLightAffect() Float.X { return self.AsBaseMaterial3D().AoLightAffect() }
 func (o *Extension[T]) AoLightAffect() Float.X { return o.Super().AsBaseMaterial3D().AoLightAffect() }
 
 // SetAoLightAffect is promoted from [BaseMaterial3D.Instance.SetAoLightAffect].
+func (self Instance) SetAoLightAffect(value Float.X) Instance {
+	self.AsBaseMaterial3D().SetAoLightAffect(value)
+	return self
+}
 func (o *Extension[T]) SetAoLightAffect(value Float.X) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetAoLightAffect(value)
 	return o
 }
 
 // AoTexture is promoted from [BaseMaterial3D.Instance.AoTexture].
+func (self Instance) AoTexture() Texture2D.Instance { return self.AsBaseMaterial3D().AoTexture() }
 func (o *Extension[T]) AoTexture() Texture2D.Instance { return o.Super().AsBaseMaterial3D().AoTexture() }
 
 // SetAoTexture is promoted from [BaseMaterial3D.Instance.SetAoTexture].
+func (self Instance) SetAoTexture(value Texture2D.Instance) Instance {
+	self.AsBaseMaterial3D().SetAoTexture(value)
+	return self
+}
 func (o *Extension[T]) SetAoTexture(value Texture2D.Instance) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetAoTexture(value)
 	return o
 }
 
 // AoOnUv2 is promoted from [BaseMaterial3D.Instance.AoOnUv2].
+func (self Instance) AoOnUv2() bool { return self.AsBaseMaterial3D().AoOnUv2() }
 func (o *Extension[T]) AoOnUv2() bool { return o.Super().AsBaseMaterial3D().AoOnUv2() }
 
 // SetAoOnUv2 is promoted from [BaseMaterial3D.Instance.SetAoOnUv2].
+func (self Instance) SetAoOnUv2(value bool) Instance {
+	self.AsBaseMaterial3D().SetAoOnUv2(value)
+	return self
+}
 func (o *Extension[T]) SetAoOnUv2(value bool) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetAoOnUv2(value)
 	return o
 }
 
 // AoTextureChannel is promoted from [BaseMaterial3D.Instance.AoTextureChannel].
+func (self Instance) AoTextureChannel() BaseMaterial3D.TextureChannel { return self.AsBaseMaterial3D().AoTextureChannel() }
 func (o *Extension[T]) AoTextureChannel() BaseMaterial3D.TextureChannel { return o.Super().AsBaseMaterial3D().AoTextureChannel() }
 
 // SetAoTextureChannel is promoted from [BaseMaterial3D.Instance.SetAoTextureChannel].
+func (self Instance) SetAoTextureChannel(value BaseMaterial3D.TextureChannel) Instance {
+	self.AsBaseMaterial3D().SetAoTextureChannel(value)
+	return self
+}
 func (o *Extension[T]) SetAoTextureChannel(value BaseMaterial3D.TextureChannel) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetAoTextureChannel(value)
 	return o
 }
 
 // HeightmapEnabled is promoted from [BaseMaterial3D.Instance.HeightmapEnabled].
+func (self Instance) HeightmapEnabled() bool { return self.AsBaseMaterial3D().HeightmapEnabled() }
 func (o *Extension[T]) HeightmapEnabled() bool { return o.Super().AsBaseMaterial3D().HeightmapEnabled() }
 
 // SetHeightmapEnabled is promoted from [BaseMaterial3D.Instance.SetHeightmapEnabled].
+func (self Instance) SetHeightmapEnabled(value bool) Instance {
+	self.AsBaseMaterial3D().SetHeightmapEnabled(value)
+	return self
+}
 func (o *Extension[T]) SetHeightmapEnabled(value bool) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetHeightmapEnabled(value)
 	return o
 }
 
 // HeightmapScale is promoted from [BaseMaterial3D.Instance.HeightmapScale].
+func (self Instance) HeightmapScale() Float.X { return self.AsBaseMaterial3D().HeightmapScale() }
 func (o *Extension[T]) HeightmapScale() Float.X { return o.Super().AsBaseMaterial3D().HeightmapScale() }
 
 // SetHeightmapScale is promoted from [BaseMaterial3D.Instance.SetHeightmapScale].
+func (self Instance) SetHeightmapScale(value Float.X) Instance {
+	self.AsBaseMaterial3D().SetHeightmapScale(value)
+	return self
+}
 func (o *Extension[T]) SetHeightmapScale(value Float.X) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetHeightmapScale(value)
 	return o
 }
 
 // HeightmapDeepParallax is promoted from [BaseMaterial3D.Instance.HeightmapDeepParallax].
+func (self Instance) HeightmapDeepParallax() bool { return self.AsBaseMaterial3D().HeightmapDeepParallax() }
 func (o *Extension[T]) HeightmapDeepParallax() bool { return o.Super().AsBaseMaterial3D().HeightmapDeepParallax() }
 
 // SetHeightmapDeepParallax is promoted from [BaseMaterial3D.Instance.SetHeightmapDeepParallax].
+func (self Instance) SetHeightmapDeepParallax(value bool) Instance {
+	self.AsBaseMaterial3D().SetHeightmapDeepParallax(value)
+	return self
+}
 func (o *Extension[T]) SetHeightmapDeepParallax(value bool) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetHeightmapDeepParallax(value)
 	return o
 }
 
 // HeightmapMinLayers is promoted from [BaseMaterial3D.Instance.HeightmapMinLayers].
+func (self Instance) HeightmapMinLayers() int { return self.AsBaseMaterial3D().HeightmapMinLayers() }
 func (o *Extension[T]) HeightmapMinLayers() int { return o.Super().AsBaseMaterial3D().HeightmapMinLayers() }
 
 // SetHeightmapMinLayers is promoted from [BaseMaterial3D.Instance.SetHeightmapMinLayers].
+func (self Instance) SetHeightmapMinLayers(value int) Instance {
+	self.AsBaseMaterial3D().SetHeightmapMinLayers(value)
+	return self
+}
 func (o *Extension[T]) SetHeightmapMinLayers(value int) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetHeightmapMinLayers(value)
 	return o
 }
 
 // HeightmapMaxLayers is promoted from [BaseMaterial3D.Instance.HeightmapMaxLayers].
+func (self Instance) HeightmapMaxLayers() int { return self.AsBaseMaterial3D().HeightmapMaxLayers() }
 func (o *Extension[T]) HeightmapMaxLayers() int { return o.Super().AsBaseMaterial3D().HeightmapMaxLayers() }
 
 // SetHeightmapMaxLayers is promoted from [BaseMaterial3D.Instance.SetHeightmapMaxLayers].
+func (self Instance) SetHeightmapMaxLayers(value int) Instance {
+	self.AsBaseMaterial3D().SetHeightmapMaxLayers(value)
+	return self
+}
 func (o *Extension[T]) SetHeightmapMaxLayers(value int) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetHeightmapMaxLayers(value)
 	return o
 }
 
 // HeightmapFlipTangent is promoted from [BaseMaterial3D.Instance.HeightmapFlipTangent].
+func (self Instance) HeightmapFlipTangent() bool { return self.AsBaseMaterial3D().HeightmapFlipTangent() }
 func (o *Extension[T]) HeightmapFlipTangent() bool { return o.Super().AsBaseMaterial3D().HeightmapFlipTangent() }
 
 // SetHeightmapFlipTangent is promoted from [BaseMaterial3D.Instance.SetHeightmapFlipTangent].
+func (self Instance) SetHeightmapFlipTangent(value bool) Instance {
+	self.AsBaseMaterial3D().SetHeightmapFlipTangent(value)
+	return self
+}
 func (o *Extension[T]) SetHeightmapFlipTangent(value bool) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetHeightmapFlipTangent(value)
 	return o
 }
 
 // HeightmapFlipBinormal is promoted from [BaseMaterial3D.Instance.HeightmapFlipBinormal].
+func (self Instance) HeightmapFlipBinormal() bool { return self.AsBaseMaterial3D().HeightmapFlipBinormal() }
 func (o *Extension[T]) HeightmapFlipBinormal() bool { return o.Super().AsBaseMaterial3D().HeightmapFlipBinormal() }
 
 // SetHeightmapFlipBinormal is promoted from [BaseMaterial3D.Instance.SetHeightmapFlipBinormal].
+func (self Instance) SetHeightmapFlipBinormal(value bool) Instance {
+	self.AsBaseMaterial3D().SetHeightmapFlipBinormal(value)
+	return self
+}
 func (o *Extension[T]) SetHeightmapFlipBinormal(value bool) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetHeightmapFlipBinormal(value)
 	return o
 }
 
 // HeightmapTexture is promoted from [BaseMaterial3D.Instance.HeightmapTexture].
+func (self Instance) HeightmapTexture() Texture2D.Instance { return self.AsBaseMaterial3D().HeightmapTexture() }
 func (o *Extension[T]) HeightmapTexture() Texture2D.Instance { return o.Super().AsBaseMaterial3D().HeightmapTexture() }
 
 // SetHeightmapTexture is promoted from [BaseMaterial3D.Instance.SetHeightmapTexture].
+func (self Instance) SetHeightmapTexture(value Texture2D.Instance) Instance {
+	self.AsBaseMaterial3D().SetHeightmapTexture(value)
+	return self
+}
 func (o *Extension[T]) SetHeightmapTexture(value Texture2D.Instance) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetHeightmapTexture(value)
 	return o
 }
 
 // HeightmapFlipTexture is promoted from [BaseMaterial3D.Instance.HeightmapFlipTexture].
+func (self Instance) HeightmapFlipTexture() bool { return self.AsBaseMaterial3D().HeightmapFlipTexture() }
 func (o *Extension[T]) HeightmapFlipTexture() bool { return o.Super().AsBaseMaterial3D().HeightmapFlipTexture() }
 
 // SetHeightmapFlipTexture is promoted from [BaseMaterial3D.Instance.SetHeightmapFlipTexture].
+func (self Instance) SetHeightmapFlipTexture(value bool) Instance {
+	self.AsBaseMaterial3D().SetHeightmapFlipTexture(value)
+	return self
+}
 func (o *Extension[T]) SetHeightmapFlipTexture(value bool) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetHeightmapFlipTexture(value)
 	return o
 }
 
 // SubsurfScatterEnabled is promoted from [BaseMaterial3D.Instance.SubsurfScatterEnabled].
+func (self Instance) SubsurfScatterEnabled() bool { return self.AsBaseMaterial3D().SubsurfScatterEnabled() }
 func (o *Extension[T]) SubsurfScatterEnabled() bool { return o.Super().AsBaseMaterial3D().SubsurfScatterEnabled() }
 
 // SetSubsurfScatterEnabled is promoted from [BaseMaterial3D.Instance.SetSubsurfScatterEnabled].
+func (self Instance) SetSubsurfScatterEnabled(value bool) Instance {
+	self.AsBaseMaterial3D().SetSubsurfScatterEnabled(value)
+	return self
+}
 func (o *Extension[T]) SetSubsurfScatterEnabled(value bool) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetSubsurfScatterEnabled(value)
 	return o
 }
 
 // SubsurfScatterStrength is promoted from [BaseMaterial3D.Instance.SubsurfScatterStrength].
+func (self Instance) SubsurfScatterStrength() Float.X { return self.AsBaseMaterial3D().SubsurfScatterStrength() }
 func (o *Extension[T]) SubsurfScatterStrength() Float.X { return o.Super().AsBaseMaterial3D().SubsurfScatterStrength() }
 
 // SetSubsurfScatterStrength is promoted from [BaseMaterial3D.Instance.SetSubsurfScatterStrength].
+func (self Instance) SetSubsurfScatterStrength(value Float.X) Instance {
+	self.AsBaseMaterial3D().SetSubsurfScatterStrength(value)
+	return self
+}
 func (o *Extension[T]) SetSubsurfScatterStrength(value Float.X) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetSubsurfScatterStrength(value)
 	return o
 }
 
 // SubsurfScatterSkinMode is promoted from [BaseMaterial3D.Instance.SubsurfScatterSkinMode].
+func (self Instance) SubsurfScatterSkinMode() bool { return self.AsBaseMaterial3D().SubsurfScatterSkinMode() }
 func (o *Extension[T]) SubsurfScatterSkinMode() bool { return o.Super().AsBaseMaterial3D().SubsurfScatterSkinMode() }
 
 // SetSubsurfScatterSkinMode is promoted from [BaseMaterial3D.Instance.SetSubsurfScatterSkinMode].
+func (self Instance) SetSubsurfScatterSkinMode(value bool) Instance {
+	self.AsBaseMaterial3D().SetSubsurfScatterSkinMode(value)
+	return self
+}
 func (o *Extension[T]) SetSubsurfScatterSkinMode(value bool) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetSubsurfScatterSkinMode(value)
 	return o
 }
 
 // SubsurfScatterTexture is promoted from [BaseMaterial3D.Instance.SubsurfScatterTexture].
+func (self Instance) SubsurfScatterTexture() Texture2D.Instance { return self.AsBaseMaterial3D().SubsurfScatterTexture() }
 func (o *Extension[T]) SubsurfScatterTexture() Texture2D.Instance { return o.Super().AsBaseMaterial3D().SubsurfScatterTexture() }
 
 // SetSubsurfScatterTexture is promoted from [BaseMaterial3D.Instance.SetSubsurfScatterTexture].
+func (self Instance) SetSubsurfScatterTexture(value Texture2D.Instance) Instance {
+	self.AsBaseMaterial3D().SetSubsurfScatterTexture(value)
+	return self
+}
 func (o *Extension[T]) SetSubsurfScatterTexture(value Texture2D.Instance) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetSubsurfScatterTexture(value)
 	return o
 }
 
 // SubsurfScatterTransmittanceEnabled is promoted from [BaseMaterial3D.Instance.SubsurfScatterTransmittanceEnabled].
+func (self Instance) SubsurfScatterTransmittanceEnabled() bool { return self.AsBaseMaterial3D().SubsurfScatterTransmittanceEnabled() }
 func (o *Extension[T]) SubsurfScatterTransmittanceEnabled() bool { return o.Super().AsBaseMaterial3D().SubsurfScatterTransmittanceEnabled() }
 
 // SetSubsurfScatterTransmittanceEnabled is promoted from [BaseMaterial3D.Instance.SetSubsurfScatterTransmittanceEnabled].
+func (self Instance) SetSubsurfScatterTransmittanceEnabled(value bool) Instance {
+	self.AsBaseMaterial3D().SetSubsurfScatterTransmittanceEnabled(value)
+	return self
+}
 func (o *Extension[T]) SetSubsurfScatterTransmittanceEnabled(value bool) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetSubsurfScatterTransmittanceEnabled(value)
 	return o
 }
 
 // SubsurfScatterTransmittanceColor is promoted from [BaseMaterial3D.Instance.SubsurfScatterTransmittanceColor].
+func (self Instance) SubsurfScatterTransmittanceColor() Color.RGBA { return self.AsBaseMaterial3D().SubsurfScatterTransmittanceColor() }
 func (o *Extension[T]) SubsurfScatterTransmittanceColor() Color.RGBA { return o.Super().AsBaseMaterial3D().SubsurfScatterTransmittanceColor() }
 
 // SetSubsurfScatterTransmittanceColor is promoted from [BaseMaterial3D.Instance.SetSubsurfScatterTransmittanceColor].
+func (self Instance) SetSubsurfScatterTransmittanceColor(value Color.RGBA) Instance {
+	self.AsBaseMaterial3D().SetSubsurfScatterTransmittanceColor(value)
+	return self
+}
 func (o *Extension[T]) SetSubsurfScatterTransmittanceColor(value Color.RGBA) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetSubsurfScatterTransmittanceColor(value)
 	return o
 }
 
 // SubsurfScatterTransmittanceTexture is promoted from [BaseMaterial3D.Instance.SubsurfScatterTransmittanceTexture].
+func (self Instance) SubsurfScatterTransmittanceTexture() Texture2D.Instance { return self.AsBaseMaterial3D().SubsurfScatterTransmittanceTexture() }
 func (o *Extension[T]) SubsurfScatterTransmittanceTexture() Texture2D.Instance { return o.Super().AsBaseMaterial3D().SubsurfScatterTransmittanceTexture() }
 
 // SetSubsurfScatterTransmittanceTexture is promoted from [BaseMaterial3D.Instance.SetSubsurfScatterTransmittanceTexture].
+func (self Instance) SetSubsurfScatterTransmittanceTexture(value Texture2D.Instance) Instance {
+	self.AsBaseMaterial3D().SetSubsurfScatterTransmittanceTexture(value)
+	return self
+}
 func (o *Extension[T]) SetSubsurfScatterTransmittanceTexture(value Texture2D.Instance) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetSubsurfScatterTransmittanceTexture(value)
 	return o
 }
 
 // SubsurfScatterTransmittanceDepth is promoted from [BaseMaterial3D.Instance.SubsurfScatterTransmittanceDepth].
+func (self Instance) SubsurfScatterTransmittanceDepth() Float.X { return self.AsBaseMaterial3D().SubsurfScatterTransmittanceDepth() }
 func (o *Extension[T]) SubsurfScatterTransmittanceDepth() Float.X { return o.Super().AsBaseMaterial3D().SubsurfScatterTransmittanceDepth() }
 
 // SetSubsurfScatterTransmittanceDepth is promoted from [BaseMaterial3D.Instance.SetSubsurfScatterTransmittanceDepth].
+func (self Instance) SetSubsurfScatterTransmittanceDepth(value Float.X) Instance {
+	self.AsBaseMaterial3D().SetSubsurfScatterTransmittanceDepth(value)
+	return self
+}
 func (o *Extension[T]) SetSubsurfScatterTransmittanceDepth(value Float.X) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetSubsurfScatterTransmittanceDepth(value)
 	return o
 }
 
 // SubsurfScatterTransmittanceBoost is promoted from [BaseMaterial3D.Instance.SubsurfScatterTransmittanceBoost].
+func (self Instance) SubsurfScatterTransmittanceBoost() Float.X { return self.AsBaseMaterial3D().SubsurfScatterTransmittanceBoost() }
 func (o *Extension[T]) SubsurfScatterTransmittanceBoost() Float.X { return o.Super().AsBaseMaterial3D().SubsurfScatterTransmittanceBoost() }
 
 // SetSubsurfScatterTransmittanceBoost is promoted from [BaseMaterial3D.Instance.SetSubsurfScatterTransmittanceBoost].
+func (self Instance) SetSubsurfScatterTransmittanceBoost(value Float.X) Instance {
+	self.AsBaseMaterial3D().SetSubsurfScatterTransmittanceBoost(value)
+	return self
+}
 func (o *Extension[T]) SetSubsurfScatterTransmittanceBoost(value Float.X) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetSubsurfScatterTransmittanceBoost(value)
 	return o
 }
 
 // BacklightEnabled is promoted from [BaseMaterial3D.Instance.BacklightEnabled].
+func (self Instance) BacklightEnabled() bool { return self.AsBaseMaterial3D().BacklightEnabled() }
 func (o *Extension[T]) BacklightEnabled() bool { return o.Super().AsBaseMaterial3D().BacklightEnabled() }
 
 // SetBacklightEnabled is promoted from [BaseMaterial3D.Instance.SetBacklightEnabled].
+func (self Instance) SetBacklightEnabled(value bool) Instance {
+	self.AsBaseMaterial3D().SetBacklightEnabled(value)
+	return self
+}
 func (o *Extension[T]) SetBacklightEnabled(value bool) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetBacklightEnabled(value)
 	return o
 }
 
 // Backlight is promoted from [BaseMaterial3D.Instance.Backlight].
+func (self Instance) Backlight() Color.RGBA { return self.AsBaseMaterial3D().Backlight() }
 func (o *Extension[T]) Backlight() Color.RGBA { return o.Super().AsBaseMaterial3D().Backlight() }
 
 // SetBacklight is promoted from [BaseMaterial3D.Instance.SetBacklight].
+func (self Instance) SetBacklight(value Color.RGBA) Instance {
+	self.AsBaseMaterial3D().SetBacklight(value)
+	return self
+}
 func (o *Extension[T]) SetBacklight(value Color.RGBA) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetBacklight(value)
 	return o
 }
 
 // BacklightTexture is promoted from [BaseMaterial3D.Instance.BacklightTexture].
+func (self Instance) BacklightTexture() Texture2D.Instance { return self.AsBaseMaterial3D().BacklightTexture() }
 func (o *Extension[T]) BacklightTexture() Texture2D.Instance { return o.Super().AsBaseMaterial3D().BacklightTexture() }
 
 // SetBacklightTexture is promoted from [BaseMaterial3D.Instance.SetBacklightTexture].
+func (self Instance) SetBacklightTexture(value Texture2D.Instance) Instance {
+	self.AsBaseMaterial3D().SetBacklightTexture(value)
+	return self
+}
 func (o *Extension[T]) SetBacklightTexture(value Texture2D.Instance) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetBacklightTexture(value)
 	return o
 }
 
 // RefractionEnabled is promoted from [BaseMaterial3D.Instance.RefractionEnabled].
+func (self Instance) RefractionEnabled() bool { return self.AsBaseMaterial3D().RefractionEnabled() }
 func (o *Extension[T]) RefractionEnabled() bool { return o.Super().AsBaseMaterial3D().RefractionEnabled() }
 
 // SetRefractionEnabled is promoted from [BaseMaterial3D.Instance.SetRefractionEnabled].
+func (self Instance) SetRefractionEnabled(value bool) Instance {
+	self.AsBaseMaterial3D().SetRefractionEnabled(value)
+	return self
+}
 func (o *Extension[T]) SetRefractionEnabled(value bool) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetRefractionEnabled(value)
 	return o
 }
 
 // RefractionScale is promoted from [BaseMaterial3D.Instance.RefractionScale].
+func (self Instance) RefractionScale() Float.X { return self.AsBaseMaterial3D().RefractionScale() }
 func (o *Extension[T]) RefractionScale() Float.X { return o.Super().AsBaseMaterial3D().RefractionScale() }
 
 // SetRefractionScale is promoted from [BaseMaterial3D.Instance.SetRefractionScale].
+func (self Instance) SetRefractionScale(value Float.X) Instance {
+	self.AsBaseMaterial3D().SetRefractionScale(value)
+	return self
+}
 func (o *Extension[T]) SetRefractionScale(value Float.X) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetRefractionScale(value)
 	return o
 }
 
 // RefractionTexture is promoted from [BaseMaterial3D.Instance.RefractionTexture].
+func (self Instance) RefractionTexture() Texture2D.Instance { return self.AsBaseMaterial3D().RefractionTexture() }
 func (o *Extension[T]) RefractionTexture() Texture2D.Instance { return o.Super().AsBaseMaterial3D().RefractionTexture() }
 
 // SetRefractionTexture is promoted from [BaseMaterial3D.Instance.SetRefractionTexture].
+func (self Instance) SetRefractionTexture(value Texture2D.Instance) Instance {
+	self.AsBaseMaterial3D().SetRefractionTexture(value)
+	return self
+}
 func (o *Extension[T]) SetRefractionTexture(value Texture2D.Instance) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetRefractionTexture(value)
 	return o
 }
 
 // RefractionTextureChannel is promoted from [BaseMaterial3D.Instance.RefractionTextureChannel].
+func (self Instance) RefractionTextureChannel() BaseMaterial3D.TextureChannel { return self.AsBaseMaterial3D().RefractionTextureChannel() }
 func (o *Extension[T]) RefractionTextureChannel() BaseMaterial3D.TextureChannel { return o.Super().AsBaseMaterial3D().RefractionTextureChannel() }
 
 // SetRefractionTextureChannel is promoted from [BaseMaterial3D.Instance.SetRefractionTextureChannel].
+func (self Instance) SetRefractionTextureChannel(value BaseMaterial3D.TextureChannel) Instance {
+	self.AsBaseMaterial3D().SetRefractionTextureChannel(value)
+	return self
+}
 func (o *Extension[T]) SetRefractionTextureChannel(value BaseMaterial3D.TextureChannel) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetRefractionTextureChannel(value)
 	return o
 }
 
 // DetailEnabled is promoted from [BaseMaterial3D.Instance.DetailEnabled].
+func (self Instance) DetailEnabled() bool { return self.AsBaseMaterial3D().DetailEnabled() }
 func (o *Extension[T]) DetailEnabled() bool { return o.Super().AsBaseMaterial3D().DetailEnabled() }
 
 // SetDetailEnabled is promoted from [BaseMaterial3D.Instance.SetDetailEnabled].
+func (self Instance) SetDetailEnabled(value bool) Instance {
+	self.AsBaseMaterial3D().SetDetailEnabled(value)
+	return self
+}
 func (o *Extension[T]) SetDetailEnabled(value bool) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetDetailEnabled(value)
 	return o
 }
 
 // DetailMask is promoted from [BaseMaterial3D.Instance.DetailMask].
+func (self Instance) DetailMask() Texture2D.Instance { return self.AsBaseMaterial3D().DetailMask() }
 func (o *Extension[T]) DetailMask() Texture2D.Instance { return o.Super().AsBaseMaterial3D().DetailMask() }
 
 // SetDetailMask is promoted from [BaseMaterial3D.Instance.SetDetailMask].
+func (self Instance) SetDetailMask(value Texture2D.Instance) Instance {
+	self.AsBaseMaterial3D().SetDetailMask(value)
+	return self
+}
 func (o *Extension[T]) SetDetailMask(value Texture2D.Instance) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetDetailMask(value)
 	return o
 }
 
 // DetailBlendMode is promoted from [BaseMaterial3D.Instance.DetailBlendMode].
+func (self Instance) DetailBlendMode() BaseMaterial3D.BlendMode { return self.AsBaseMaterial3D().DetailBlendMode() }
 func (o *Extension[T]) DetailBlendMode() BaseMaterial3D.BlendMode { return o.Super().AsBaseMaterial3D().DetailBlendMode() }
 
 // SetDetailBlendMode is promoted from [BaseMaterial3D.Instance.SetDetailBlendMode].
+func (self Instance) SetDetailBlendMode(value BaseMaterial3D.BlendMode) Instance {
+	self.AsBaseMaterial3D().SetDetailBlendMode(value)
+	return self
+}
 func (o *Extension[T]) SetDetailBlendMode(value BaseMaterial3D.BlendMode) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetDetailBlendMode(value)
 	return o
 }
 
 // DetailUvLayer is promoted from [BaseMaterial3D.Instance.DetailUvLayer].
+func (self Instance) DetailUvLayer() BaseMaterial3D.DetailUV { return self.AsBaseMaterial3D().DetailUvLayer() }
 func (o *Extension[T]) DetailUvLayer() BaseMaterial3D.DetailUV { return o.Super().AsBaseMaterial3D().DetailUvLayer() }
 
 // SetDetailUvLayer is promoted from [BaseMaterial3D.Instance.SetDetailUvLayer].
+func (self Instance) SetDetailUvLayer(value BaseMaterial3D.DetailUV) Instance {
+	self.AsBaseMaterial3D().SetDetailUvLayer(value)
+	return self
+}
 func (o *Extension[T]) SetDetailUvLayer(value BaseMaterial3D.DetailUV) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetDetailUvLayer(value)
 	return o
 }
 
 // DetailAlbedo is promoted from [BaseMaterial3D.Instance.DetailAlbedo].
+func (self Instance) DetailAlbedo() Texture2D.Instance { return self.AsBaseMaterial3D().DetailAlbedo() }
 func (o *Extension[T]) DetailAlbedo() Texture2D.Instance { return o.Super().AsBaseMaterial3D().DetailAlbedo() }
 
 // SetDetailAlbedo is promoted from [BaseMaterial3D.Instance.SetDetailAlbedo].
+func (self Instance) SetDetailAlbedo(value Texture2D.Instance) Instance {
+	self.AsBaseMaterial3D().SetDetailAlbedo(value)
+	return self
+}
 func (o *Extension[T]) SetDetailAlbedo(value Texture2D.Instance) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetDetailAlbedo(value)
 	return o
 }
 
 // DetailNormal is promoted from [BaseMaterial3D.Instance.DetailNormal].
+func (self Instance) DetailNormal() Texture2D.Instance { return self.AsBaseMaterial3D().DetailNormal() }
 func (o *Extension[T]) DetailNormal() Texture2D.Instance { return o.Super().AsBaseMaterial3D().DetailNormal() }
 
 // SetDetailNormal is promoted from [BaseMaterial3D.Instance.SetDetailNormal].
+func (self Instance) SetDetailNormal(value Texture2D.Instance) Instance {
+	self.AsBaseMaterial3D().SetDetailNormal(value)
+	return self
+}
 func (o *Extension[T]) SetDetailNormal(value Texture2D.Instance) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetDetailNormal(value)
 	return o
 }
 
 // Uv1Scale is promoted from [BaseMaterial3D.Instance.Uv1Scale].
+func (self Instance) Uv1Scale() Vector3.XYZ { return self.AsBaseMaterial3D().Uv1Scale() }
 func (o *Extension[T]) Uv1Scale() Vector3.XYZ { return o.Super().AsBaseMaterial3D().Uv1Scale() }
 
 // SetUv1Scale is promoted from [BaseMaterial3D.Instance.SetUv1Scale].
+func (self Instance) SetUv1Scale(value Vector3.XYZ) Instance {
+	self.AsBaseMaterial3D().SetUv1Scale(value)
+	return self
+}
 func (o *Extension[T]) SetUv1Scale(value Vector3.XYZ) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetUv1Scale(value)
 	return o
 }
 
 // Uv1Offset is promoted from [BaseMaterial3D.Instance.Uv1Offset].
+func (self Instance) Uv1Offset() Vector3.XYZ { return self.AsBaseMaterial3D().Uv1Offset() }
 func (o *Extension[T]) Uv1Offset() Vector3.XYZ { return o.Super().AsBaseMaterial3D().Uv1Offset() }
 
 // SetUv1Offset is promoted from [BaseMaterial3D.Instance.SetUv1Offset].
+func (self Instance) SetUv1Offset(value Vector3.XYZ) Instance {
+	self.AsBaseMaterial3D().SetUv1Offset(value)
+	return self
+}
 func (o *Extension[T]) SetUv1Offset(value Vector3.XYZ) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetUv1Offset(value)
 	return o
 }
 
 // Uv1Triplanar is promoted from [BaseMaterial3D.Instance.Uv1Triplanar].
+func (self Instance) Uv1Triplanar() bool { return self.AsBaseMaterial3D().Uv1Triplanar() }
 func (o *Extension[T]) Uv1Triplanar() bool { return o.Super().AsBaseMaterial3D().Uv1Triplanar() }
 
 // SetUv1Triplanar is promoted from [BaseMaterial3D.Instance.SetUv1Triplanar].
+func (self Instance) SetUv1Triplanar(value bool) Instance {
+	self.AsBaseMaterial3D().SetUv1Triplanar(value)
+	return self
+}
 func (o *Extension[T]) SetUv1Triplanar(value bool) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetUv1Triplanar(value)
 	return o
 }
 
 // Uv1TriplanarSharpness is promoted from [BaseMaterial3D.Instance.Uv1TriplanarSharpness].
+func (self Instance) Uv1TriplanarSharpness() Float.X { return self.AsBaseMaterial3D().Uv1TriplanarSharpness() }
 func (o *Extension[T]) Uv1TriplanarSharpness() Float.X { return o.Super().AsBaseMaterial3D().Uv1TriplanarSharpness() }
 
 // SetUv1TriplanarSharpness is promoted from [BaseMaterial3D.Instance.SetUv1TriplanarSharpness].
+func (self Instance) SetUv1TriplanarSharpness(value Float.X) Instance {
+	self.AsBaseMaterial3D().SetUv1TriplanarSharpness(value)
+	return self
+}
 func (o *Extension[T]) SetUv1TriplanarSharpness(value Float.X) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetUv1TriplanarSharpness(value)
 	return o
 }
 
 // Uv1WorldTriplanar is promoted from [BaseMaterial3D.Instance.Uv1WorldTriplanar].
+func (self Instance) Uv1WorldTriplanar() bool { return self.AsBaseMaterial3D().Uv1WorldTriplanar() }
 func (o *Extension[T]) Uv1WorldTriplanar() bool { return o.Super().AsBaseMaterial3D().Uv1WorldTriplanar() }
 
 // SetUv1WorldTriplanar is promoted from [BaseMaterial3D.Instance.SetUv1WorldTriplanar].
+func (self Instance) SetUv1WorldTriplanar(value bool) Instance {
+	self.AsBaseMaterial3D().SetUv1WorldTriplanar(value)
+	return self
+}
 func (o *Extension[T]) SetUv1WorldTriplanar(value bool) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetUv1WorldTriplanar(value)
 	return o
 }
 
 // Uv2Scale is promoted from [BaseMaterial3D.Instance.Uv2Scale].
+func (self Instance) Uv2Scale() Vector3.XYZ { return self.AsBaseMaterial3D().Uv2Scale() }
 func (o *Extension[T]) Uv2Scale() Vector3.XYZ { return o.Super().AsBaseMaterial3D().Uv2Scale() }
 
 // SetUv2Scale is promoted from [BaseMaterial3D.Instance.SetUv2Scale].
+func (self Instance) SetUv2Scale(value Vector3.XYZ) Instance {
+	self.AsBaseMaterial3D().SetUv2Scale(value)
+	return self
+}
 func (o *Extension[T]) SetUv2Scale(value Vector3.XYZ) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetUv2Scale(value)
 	return o
 }
 
 // Uv2Offset is promoted from [BaseMaterial3D.Instance.Uv2Offset].
+func (self Instance) Uv2Offset() Vector3.XYZ { return self.AsBaseMaterial3D().Uv2Offset() }
 func (o *Extension[T]) Uv2Offset() Vector3.XYZ { return o.Super().AsBaseMaterial3D().Uv2Offset() }
 
 // SetUv2Offset is promoted from [BaseMaterial3D.Instance.SetUv2Offset].
+func (self Instance) SetUv2Offset(value Vector3.XYZ) Instance {
+	self.AsBaseMaterial3D().SetUv2Offset(value)
+	return self
+}
 func (o *Extension[T]) SetUv2Offset(value Vector3.XYZ) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetUv2Offset(value)
 	return o
 }
 
 // Uv2Triplanar is promoted from [BaseMaterial3D.Instance.Uv2Triplanar].
+func (self Instance) Uv2Triplanar() bool { return self.AsBaseMaterial3D().Uv2Triplanar() }
 func (o *Extension[T]) Uv2Triplanar() bool { return o.Super().AsBaseMaterial3D().Uv2Triplanar() }
 
 // SetUv2Triplanar is promoted from [BaseMaterial3D.Instance.SetUv2Triplanar].
+func (self Instance) SetUv2Triplanar(value bool) Instance {
+	self.AsBaseMaterial3D().SetUv2Triplanar(value)
+	return self
+}
 func (o *Extension[T]) SetUv2Triplanar(value bool) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetUv2Triplanar(value)
 	return o
 }
 
 // Uv2TriplanarSharpness is promoted from [BaseMaterial3D.Instance.Uv2TriplanarSharpness].
+func (self Instance) Uv2TriplanarSharpness() Float.X { return self.AsBaseMaterial3D().Uv2TriplanarSharpness() }
 func (o *Extension[T]) Uv2TriplanarSharpness() Float.X { return o.Super().AsBaseMaterial3D().Uv2TriplanarSharpness() }
 
 // SetUv2TriplanarSharpness is promoted from [BaseMaterial3D.Instance.SetUv2TriplanarSharpness].
+func (self Instance) SetUv2TriplanarSharpness(value Float.X) Instance {
+	self.AsBaseMaterial3D().SetUv2TriplanarSharpness(value)
+	return self
+}
 func (o *Extension[T]) SetUv2TriplanarSharpness(value Float.X) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetUv2TriplanarSharpness(value)
 	return o
 }
 
 // Uv2WorldTriplanar is promoted from [BaseMaterial3D.Instance.Uv2WorldTriplanar].
+func (self Instance) Uv2WorldTriplanar() bool { return self.AsBaseMaterial3D().Uv2WorldTriplanar() }
 func (o *Extension[T]) Uv2WorldTriplanar() bool { return o.Super().AsBaseMaterial3D().Uv2WorldTriplanar() }
 
 // SetUv2WorldTriplanar is promoted from [BaseMaterial3D.Instance.SetUv2WorldTriplanar].
+func (self Instance) SetUv2WorldTriplanar(value bool) Instance {
+	self.AsBaseMaterial3D().SetUv2WorldTriplanar(value)
+	return self
+}
 func (o *Extension[T]) SetUv2WorldTriplanar(value bool) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetUv2WorldTriplanar(value)
 	return o
 }
 
 // TextureFilter is promoted from [BaseMaterial3D.Instance.TextureFilter].
+func (self Instance) TextureFilter() BaseMaterial3D.TextureFilter { return self.AsBaseMaterial3D().TextureFilter() }
 func (o *Extension[T]) TextureFilter() BaseMaterial3D.TextureFilter { return o.Super().AsBaseMaterial3D().TextureFilter() }
 
 // SetTextureFilter is promoted from [BaseMaterial3D.Instance.SetTextureFilter].
+func (self Instance) SetTextureFilter(value BaseMaterial3D.TextureFilter) Instance {
+	self.AsBaseMaterial3D().SetTextureFilter(value)
+	return self
+}
 func (o *Extension[T]) SetTextureFilter(value BaseMaterial3D.TextureFilter) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetTextureFilter(value)
 	return o
 }
 
 // TextureRepeat is promoted from [BaseMaterial3D.Instance.TextureRepeat].
+func (self Instance) TextureRepeat() bool { return self.AsBaseMaterial3D().TextureRepeat() }
 func (o *Extension[T]) TextureRepeat() bool { return o.Super().AsBaseMaterial3D().TextureRepeat() }
 
 // SetTextureRepeat is promoted from [BaseMaterial3D.Instance.SetTextureRepeat].
+func (self Instance) SetTextureRepeat(value bool) Instance {
+	self.AsBaseMaterial3D().SetTextureRepeat(value)
+	return self
+}
 func (o *Extension[T]) SetTextureRepeat(value bool) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetTextureRepeat(value)
 	return o
 }
 
 // DisableReceiveShadows is promoted from [BaseMaterial3D.Instance.DisableReceiveShadows].
+func (self Instance) DisableReceiveShadows() bool { return self.AsBaseMaterial3D().DisableReceiveShadows() }
 func (o *Extension[T]) DisableReceiveShadows() bool { return o.Super().AsBaseMaterial3D().DisableReceiveShadows() }
 
 // SetDisableReceiveShadows is promoted from [BaseMaterial3D.Instance.SetDisableReceiveShadows].
+func (self Instance) SetDisableReceiveShadows(value bool) Instance {
+	self.AsBaseMaterial3D().SetDisableReceiveShadows(value)
+	return self
+}
 func (o *Extension[T]) SetDisableReceiveShadows(value bool) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetDisableReceiveShadows(value)
 	return o
 }
 
 // ShadowToOpacity is promoted from [BaseMaterial3D.Instance.ShadowToOpacity].
+func (self Instance) ShadowToOpacity() bool { return self.AsBaseMaterial3D().ShadowToOpacity() }
 func (o *Extension[T]) ShadowToOpacity() bool { return o.Super().AsBaseMaterial3D().ShadowToOpacity() }
 
 // SetShadowToOpacity is promoted from [BaseMaterial3D.Instance.SetShadowToOpacity].
+func (self Instance) SetShadowToOpacity(value bool) Instance {
+	self.AsBaseMaterial3D().SetShadowToOpacity(value)
+	return self
+}
 func (o *Extension[T]) SetShadowToOpacity(value bool) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetShadowToOpacity(value)
 	return o
 }
 
 // BillboardMode is promoted from [BaseMaterial3D.Instance.BillboardMode].
+func (self Instance) BillboardMode() BaseMaterial3D.BillboardMode { return self.AsBaseMaterial3D().BillboardMode() }
 func (o *Extension[T]) BillboardMode() BaseMaterial3D.BillboardMode { return o.Super().AsBaseMaterial3D().BillboardMode() }
 
 // SetBillboardMode is promoted from [BaseMaterial3D.Instance.SetBillboardMode].
+func (self Instance) SetBillboardMode(value BaseMaterial3D.BillboardMode) Instance {
+	self.AsBaseMaterial3D().SetBillboardMode(value)
+	return self
+}
 func (o *Extension[T]) SetBillboardMode(value BaseMaterial3D.BillboardMode) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetBillboardMode(value)
 	return o
 }
 
 // BillboardKeepScale is promoted from [BaseMaterial3D.Instance.BillboardKeepScale].
+func (self Instance) BillboardKeepScale() bool { return self.AsBaseMaterial3D().BillboardKeepScale() }
 func (o *Extension[T]) BillboardKeepScale() bool { return o.Super().AsBaseMaterial3D().BillboardKeepScale() }
 
 // SetBillboardKeepScale is promoted from [BaseMaterial3D.Instance.SetBillboardKeepScale].
+func (self Instance) SetBillboardKeepScale(value bool) Instance {
+	self.AsBaseMaterial3D().SetBillboardKeepScale(value)
+	return self
+}
 func (o *Extension[T]) SetBillboardKeepScale(value bool) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetBillboardKeepScale(value)
 	return o
 }
 
 // ParticlesAnimHFrames is promoted from [BaseMaterial3D.Instance.ParticlesAnimHFrames].
+func (self Instance) ParticlesAnimHFrames() int { return self.AsBaseMaterial3D().ParticlesAnimHFrames() }
 func (o *Extension[T]) ParticlesAnimHFrames() int { return o.Super().AsBaseMaterial3D().ParticlesAnimHFrames() }
 
 // SetParticlesAnimHFrames is promoted from [BaseMaterial3D.Instance.SetParticlesAnimHFrames].
+func (self Instance) SetParticlesAnimHFrames(value int) Instance {
+	self.AsBaseMaterial3D().SetParticlesAnimHFrames(value)
+	return self
+}
 func (o *Extension[T]) SetParticlesAnimHFrames(value int) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetParticlesAnimHFrames(value)
 	return o
 }
 
 // ParticlesAnimVFrames is promoted from [BaseMaterial3D.Instance.ParticlesAnimVFrames].
+func (self Instance) ParticlesAnimVFrames() int { return self.AsBaseMaterial3D().ParticlesAnimVFrames() }
 func (o *Extension[T]) ParticlesAnimVFrames() int { return o.Super().AsBaseMaterial3D().ParticlesAnimVFrames() }
 
 // SetParticlesAnimVFrames is promoted from [BaseMaterial3D.Instance.SetParticlesAnimVFrames].
+func (self Instance) SetParticlesAnimVFrames(value int) Instance {
+	self.AsBaseMaterial3D().SetParticlesAnimVFrames(value)
+	return self
+}
 func (o *Extension[T]) SetParticlesAnimVFrames(value int) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetParticlesAnimVFrames(value)
 	return o
 }
 
 // ParticlesAnimLoop is promoted from [BaseMaterial3D.Instance.ParticlesAnimLoop].
+func (self Instance) ParticlesAnimLoop() bool { return self.AsBaseMaterial3D().ParticlesAnimLoop() }
 func (o *Extension[T]) ParticlesAnimLoop() bool { return o.Super().AsBaseMaterial3D().ParticlesAnimLoop() }
 
 // SetParticlesAnimLoop is promoted from [BaseMaterial3D.Instance.SetParticlesAnimLoop].
+func (self Instance) SetParticlesAnimLoop(value bool) Instance {
+	self.AsBaseMaterial3D().SetParticlesAnimLoop(value)
+	return self
+}
 func (o *Extension[T]) SetParticlesAnimLoop(value bool) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetParticlesAnimLoop(value)
 	return o
 }
 
 // Grow is promoted from [BaseMaterial3D.Instance.Grow].
+func (self Instance) Grow() bool { return self.AsBaseMaterial3D().Grow() }
 func (o *Extension[T]) Grow() bool { return o.Super().AsBaseMaterial3D().Grow() }
 
 // SetGrow is promoted from [BaseMaterial3D.Instance.SetGrow].
+func (self Instance) SetGrow(value bool) Instance {
+	self.AsBaseMaterial3D().SetGrow(value)
+	return self
+}
 func (o *Extension[T]) SetGrow(value bool) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetGrow(value)
 	return o
 }
 
 // GrowAmount is promoted from [BaseMaterial3D.Instance.GrowAmount].
+func (self Instance) GrowAmount() Float.X { return self.AsBaseMaterial3D().GrowAmount() }
 func (o *Extension[T]) GrowAmount() Float.X { return o.Super().AsBaseMaterial3D().GrowAmount() }
 
 // SetGrowAmount is promoted from [BaseMaterial3D.Instance.SetGrowAmount].
+func (self Instance) SetGrowAmount(value Float.X) Instance {
+	self.AsBaseMaterial3D().SetGrowAmount(value)
+	return self
+}
 func (o *Extension[T]) SetGrowAmount(value Float.X) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetGrowAmount(value)
 	return o
 }
 
 // FixedSize is promoted from [BaseMaterial3D.Instance.FixedSize].
+func (self Instance) FixedSize() bool { return self.AsBaseMaterial3D().FixedSize() }
 func (o *Extension[T]) FixedSize() bool { return o.Super().AsBaseMaterial3D().FixedSize() }
 
 // SetFixedSize is promoted from [BaseMaterial3D.Instance.SetFixedSize].
+func (self Instance) SetFixedSize(value bool) Instance {
+	self.AsBaseMaterial3D().SetFixedSize(value)
+	return self
+}
 func (o *Extension[T]) SetFixedSize(value bool) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetFixedSize(value)
 	return o
 }
 
 // UsePointSize is promoted from [BaseMaterial3D.Instance.UsePointSize].
+func (self Instance) UsePointSize() bool { return self.AsBaseMaterial3D().UsePointSize() }
 func (o *Extension[T]) UsePointSize() bool { return o.Super().AsBaseMaterial3D().UsePointSize() }
 
 // SetUsePointSize is promoted from [BaseMaterial3D.Instance.SetUsePointSize].
+func (self Instance) SetUsePointSize(value bool) Instance {
+	self.AsBaseMaterial3D().SetUsePointSize(value)
+	return self
+}
 func (o *Extension[T]) SetUsePointSize(value bool) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetUsePointSize(value)
 	return o
 }
 
 // PointSize is promoted from [BaseMaterial3D.Instance.PointSize].
+func (self Instance) PointSize() Float.X { return self.AsBaseMaterial3D().PointSize() }
 func (o *Extension[T]) PointSize() Float.X { return o.Super().AsBaseMaterial3D().PointSize() }
 
 // SetPointSize is promoted from [BaseMaterial3D.Instance.SetPointSize].
+func (self Instance) SetPointSize(value Float.X) Instance {
+	self.AsBaseMaterial3D().SetPointSize(value)
+	return self
+}
 func (o *Extension[T]) SetPointSize(value Float.X) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetPointSize(value)
 	return o
 }
 
 // UseParticleTrails is promoted from [BaseMaterial3D.Instance.UseParticleTrails].
+func (self Instance) UseParticleTrails() bool { return self.AsBaseMaterial3D().UseParticleTrails() }
 func (o *Extension[T]) UseParticleTrails() bool { return o.Super().AsBaseMaterial3D().UseParticleTrails() }
 
 // SetUseParticleTrails is promoted from [BaseMaterial3D.Instance.SetUseParticleTrails].
+func (self Instance) SetUseParticleTrails(value bool) Instance {
+	self.AsBaseMaterial3D().SetUseParticleTrails(value)
+	return self
+}
 func (o *Extension[T]) SetUseParticleTrails(value bool) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetUseParticleTrails(value)
 	return o
 }
 
 // UseZClipScale is promoted from [BaseMaterial3D.Instance.UseZClipScale].
+func (self Instance) UseZClipScale() bool { return self.AsBaseMaterial3D().UseZClipScale() }
 func (o *Extension[T]) UseZClipScale() bool { return o.Super().AsBaseMaterial3D().UseZClipScale() }
 
 // SetUseZClipScale is promoted from [BaseMaterial3D.Instance.SetUseZClipScale].
+func (self Instance) SetUseZClipScale(value bool) Instance {
+	self.AsBaseMaterial3D().SetUseZClipScale(value)
+	return self
+}
 func (o *Extension[T]) SetUseZClipScale(value bool) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetUseZClipScale(value)
 	return o
 }
 
 // ZClipScale is promoted from [BaseMaterial3D.Instance.ZClipScale].
+func (self Instance) ZClipScale() Float.X { return self.AsBaseMaterial3D().ZClipScale() }
 func (o *Extension[T]) ZClipScale() Float.X { return o.Super().AsBaseMaterial3D().ZClipScale() }
 
 // SetZClipScale is promoted from [BaseMaterial3D.Instance.SetZClipScale].
+func (self Instance) SetZClipScale(value Float.X) Instance {
+	self.AsBaseMaterial3D().SetZClipScale(value)
+	return self
+}
 func (o *Extension[T]) SetZClipScale(value Float.X) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetZClipScale(value)
 	return o
 }
 
 // UseFovOverride is promoted from [BaseMaterial3D.Instance.UseFovOverride].
+func (self Instance) UseFovOverride() bool { return self.AsBaseMaterial3D().UseFovOverride() }
 func (o *Extension[T]) UseFovOverride() bool { return o.Super().AsBaseMaterial3D().UseFovOverride() }
 
 // SetUseFovOverride is promoted from [BaseMaterial3D.Instance.SetUseFovOverride].
+func (self Instance) SetUseFovOverride(value bool) Instance {
+	self.AsBaseMaterial3D().SetUseFovOverride(value)
+	return self
+}
 func (o *Extension[T]) SetUseFovOverride(value bool) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetUseFovOverride(value)
 	return o
 }
 
 // FovOverride is promoted from [BaseMaterial3D.Instance.FovOverride].
+func (self Instance) FovOverride() Float.X { return self.AsBaseMaterial3D().FovOverride() }
 func (o *Extension[T]) FovOverride() Float.X { return o.Super().AsBaseMaterial3D().FovOverride() }
 
 // SetFovOverride is promoted from [BaseMaterial3D.Instance.SetFovOverride].
+func (self Instance) SetFovOverride(value Float.X) Instance {
+	self.AsBaseMaterial3D().SetFovOverride(value)
+	return self
+}
 func (o *Extension[T]) SetFovOverride(value Float.X) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetFovOverride(value)
 	return o
 }
 
 // ProximityFadeEnabled is promoted from [BaseMaterial3D.Instance.ProximityFadeEnabled].
+func (self Instance) ProximityFadeEnabled() bool { return self.AsBaseMaterial3D().ProximityFadeEnabled() }
 func (o *Extension[T]) ProximityFadeEnabled() bool { return o.Super().AsBaseMaterial3D().ProximityFadeEnabled() }
 
 // SetProximityFadeEnabled is promoted from [BaseMaterial3D.Instance.SetProximityFadeEnabled].
+func (self Instance) SetProximityFadeEnabled(value bool) Instance {
+	self.AsBaseMaterial3D().SetProximityFadeEnabled(value)
+	return self
+}
 func (o *Extension[T]) SetProximityFadeEnabled(value bool) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetProximityFadeEnabled(value)
 	return o
 }
 
 // ProximityFadeDistance is promoted from [BaseMaterial3D.Instance.ProximityFadeDistance].
+func (self Instance) ProximityFadeDistance() Float.X { return self.AsBaseMaterial3D().ProximityFadeDistance() }
 func (o *Extension[T]) ProximityFadeDistance() Float.X { return o.Super().AsBaseMaterial3D().ProximityFadeDistance() }
 
 // SetProximityFadeDistance is promoted from [BaseMaterial3D.Instance.SetProximityFadeDistance].
+func (self Instance) SetProximityFadeDistance(value Float.X) Instance {
+	self.AsBaseMaterial3D().SetProximityFadeDistance(value)
+	return self
+}
 func (o *Extension[T]) SetProximityFadeDistance(value Float.X) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetProximityFadeDistance(value)
 	return o
 }
 
 // MsdfPixelRange is promoted from [BaseMaterial3D.Instance.MsdfPixelRange].
+func (self Instance) MsdfPixelRange() Float.X { return self.AsBaseMaterial3D().MsdfPixelRange() }
 func (o *Extension[T]) MsdfPixelRange() Float.X { return o.Super().AsBaseMaterial3D().MsdfPixelRange() }
 
 // SetMsdfPixelRange is promoted from [BaseMaterial3D.Instance.SetMsdfPixelRange].
+func (self Instance) SetMsdfPixelRange(value Float.X) Instance {
+	self.AsBaseMaterial3D().SetMsdfPixelRange(value)
+	return self
+}
 func (o *Extension[T]) SetMsdfPixelRange(value Float.X) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetMsdfPixelRange(value)
 	return o
 }
 
 // MsdfOutlineSize is promoted from [BaseMaterial3D.Instance.MsdfOutlineSize].
+func (self Instance) MsdfOutlineSize() Float.X { return self.AsBaseMaterial3D().MsdfOutlineSize() }
 func (o *Extension[T]) MsdfOutlineSize() Float.X { return o.Super().AsBaseMaterial3D().MsdfOutlineSize() }
 
 // SetMsdfOutlineSize is promoted from [BaseMaterial3D.Instance.SetMsdfOutlineSize].
+func (self Instance) SetMsdfOutlineSize(value Float.X) Instance {
+	self.AsBaseMaterial3D().SetMsdfOutlineSize(value)
+	return self
+}
 func (o *Extension[T]) SetMsdfOutlineSize(value Float.X) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetMsdfOutlineSize(value)
 	return o
 }
 
 // DistanceFadeMode is promoted from [BaseMaterial3D.Instance.DistanceFadeMode].
+func (self Instance) DistanceFadeMode() BaseMaterial3D.DistanceFadeMode { return self.AsBaseMaterial3D().DistanceFadeMode() }
 func (o *Extension[T]) DistanceFadeMode() BaseMaterial3D.DistanceFadeMode { return o.Super().AsBaseMaterial3D().DistanceFadeMode() }
 
 // SetDistanceFadeMode is promoted from [BaseMaterial3D.Instance.SetDistanceFadeMode].
+func (self Instance) SetDistanceFadeMode(value BaseMaterial3D.DistanceFadeMode) Instance {
+	self.AsBaseMaterial3D().SetDistanceFadeMode(value)
+	return self
+}
 func (o *Extension[T]) SetDistanceFadeMode(value BaseMaterial3D.DistanceFadeMode) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetDistanceFadeMode(value)
 	return o
 }
 
 // DistanceFadeMinDistance is promoted from [BaseMaterial3D.Instance.DistanceFadeMinDistance].
+func (self Instance) DistanceFadeMinDistance() Float.X { return self.AsBaseMaterial3D().DistanceFadeMinDistance() }
 func (o *Extension[T]) DistanceFadeMinDistance() Float.X { return o.Super().AsBaseMaterial3D().DistanceFadeMinDistance() }
 
 // SetDistanceFadeMinDistance is promoted from [BaseMaterial3D.Instance.SetDistanceFadeMinDistance].
+func (self Instance) SetDistanceFadeMinDistance(value Float.X) Instance {
+	self.AsBaseMaterial3D().SetDistanceFadeMinDistance(value)
+	return self
+}
 func (o *Extension[T]) SetDistanceFadeMinDistance(value Float.X) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetDistanceFadeMinDistance(value)
 	return o
 }
 
 // DistanceFadeMaxDistance is promoted from [BaseMaterial3D.Instance.DistanceFadeMaxDistance].
+func (self Instance) DistanceFadeMaxDistance() Float.X { return self.AsBaseMaterial3D().DistanceFadeMaxDistance() }
 func (o *Extension[T]) DistanceFadeMaxDistance() Float.X { return o.Super().AsBaseMaterial3D().DistanceFadeMaxDistance() }
 
 // SetDistanceFadeMaxDistance is promoted from [BaseMaterial3D.Instance.SetDistanceFadeMaxDistance].
+func (self Instance) SetDistanceFadeMaxDistance(value Float.X) Instance {
+	self.AsBaseMaterial3D().SetDistanceFadeMaxDistance(value)
+	return self
+}
 func (o *Extension[T]) SetDistanceFadeMaxDistance(value Float.X) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetDistanceFadeMaxDistance(value)
 	return o
 }
 
 // StencilMode is promoted from [BaseMaterial3D.Instance.StencilMode].
+func (self Instance) StencilMode() BaseMaterial3D.StencilMode { return self.AsBaseMaterial3D().StencilMode() }
 func (o *Extension[T]) StencilMode() BaseMaterial3D.StencilMode { return o.Super().AsBaseMaterial3D().StencilMode() }
 
 // SetStencilMode is promoted from [BaseMaterial3D.Instance.SetStencilMode].
+func (self Instance) SetStencilMode(value BaseMaterial3D.StencilMode) Instance {
+	self.AsBaseMaterial3D().SetStencilMode(value)
+	return self
+}
 func (o *Extension[T]) SetStencilMode(value BaseMaterial3D.StencilMode) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetStencilMode(value)
 	return o
 }
 
 // StencilFlags is promoted from [BaseMaterial3D.Instance.StencilFlags].
+func (self Instance) StencilFlags() int { return self.AsBaseMaterial3D().StencilFlags() }
 func (o *Extension[T]) StencilFlags() int { return o.Super().AsBaseMaterial3D().StencilFlags() }
 
 // SetStencilFlags is promoted from [BaseMaterial3D.Instance.SetStencilFlags].
+func (self Instance) SetStencilFlags(value int) Instance {
+	self.AsBaseMaterial3D().SetStencilFlags(value)
+	return self
+}
 func (o *Extension[T]) SetStencilFlags(value int) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetStencilFlags(value)
 	return o
 }
 
 // StencilCompare is promoted from [BaseMaterial3D.Instance.StencilCompare].
+func (self Instance) StencilCompare() BaseMaterial3D.StencilCompare { return self.AsBaseMaterial3D().StencilCompare() }
 func (o *Extension[T]) StencilCompare() BaseMaterial3D.StencilCompare { return o.Super().AsBaseMaterial3D().StencilCompare() }
 
 // SetStencilCompare is promoted from [BaseMaterial3D.Instance.SetStencilCompare].
+func (self Instance) SetStencilCompare(value BaseMaterial3D.StencilCompare) Instance {
+	self.AsBaseMaterial3D().SetStencilCompare(value)
+	return self
+}
 func (o *Extension[T]) SetStencilCompare(value BaseMaterial3D.StencilCompare) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetStencilCompare(value)
 	return o
 }
 
 // StencilReference is promoted from [BaseMaterial3D.Instance.StencilReference].
+func (self Instance) StencilReference() int { return self.AsBaseMaterial3D().StencilReference() }
 func (o *Extension[T]) StencilReference() int { return o.Super().AsBaseMaterial3D().StencilReference() }
 
 // SetStencilReference is promoted from [BaseMaterial3D.Instance.SetStencilReference].
+func (self Instance) SetStencilReference(value int) Instance {
+	self.AsBaseMaterial3D().SetStencilReference(value)
+	return self
+}
 func (o *Extension[T]) SetStencilReference(value int) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetStencilReference(value)
 	return o
 }
 
 // StencilColor is promoted from [BaseMaterial3D.Instance.StencilColor].
+func (self Instance) StencilColor() Color.RGBA { return self.AsBaseMaterial3D().StencilColor() }
 func (o *Extension[T]) StencilColor() Color.RGBA { return o.Super().AsBaseMaterial3D().StencilColor() }
 
 // SetStencilColor is promoted from [BaseMaterial3D.Instance.SetStencilColor].
+func (self Instance) SetStencilColor(value Color.RGBA) Instance {
+	self.AsBaseMaterial3D().SetStencilColor(value)
+	return self
+}
 func (o *Extension[T]) SetStencilColor(value Color.RGBA) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetStencilColor(value)
 	return o
 }
 
 // StencilOutlineThickness is promoted from [BaseMaterial3D.Instance.StencilOutlineThickness].
+func (self Instance) StencilOutlineThickness() Float.X { return self.AsBaseMaterial3D().StencilOutlineThickness() }
 func (o *Extension[T]) StencilOutlineThickness() Float.X { return o.Super().AsBaseMaterial3D().StencilOutlineThickness() }
 
 // SetStencilOutlineThickness is promoted from [BaseMaterial3D.Instance.SetStencilOutlineThickness].
+func (self Instance) SetStencilOutlineThickness(value Float.X) Instance {
+	self.AsBaseMaterial3D().SetStencilOutlineThickness(value)
+	return self
+}
 func (o *Extension[T]) SetStencilOutlineThickness(value Float.X) *Extension[T] {
 	o.Super().AsBaseMaterial3D().SetStencilOutlineThickness(value)
 	return o
 }
 
 // RenderPriority is promoted from [Material.Instance.RenderPriority].
+func (self Instance) RenderPriority() Material.RenderPriority { return self.AsMaterial().RenderPriority() }
 func (o *Extension[T]) RenderPriority() Material.RenderPriority { return o.Super().AsMaterial().RenderPriority() }
 
 // SetRenderPriority is promoted from [Material.Instance.SetRenderPriority].
+func (self Instance) SetRenderPriority(value Material.RenderPriority) Instance {
+	self.AsMaterial().SetRenderPriority(value)
+	return self
+}
 func (o *Extension[T]) SetRenderPriority(value Material.RenderPriority) *Extension[T] {
 	o.Super().AsMaterial().SetRenderPriority(value)
 	return o
 }
 
 // NextPass is promoted from [Material.Instance.NextPass].
+func (self Instance) NextPass() Material.Instance { return self.AsMaterial().NextPass() }
 func (o *Extension[T]) NextPass() Material.Instance { return o.Super().AsMaterial().NextPass() }
 
 // SetNextPass is promoted from [Material.Instance.SetNextPass].
+func (self Instance) SetNextPass(value Material.Instance) Instance {
+	self.AsMaterial().SetNextPass(value)
+	return self
+}
 func (o *Extension[T]) SetNextPass(value Material.Instance) *Extension[T] {
 	o.Super().AsMaterial().SetNextPass(value)
 	return o
 }
 
 // ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (self Instance) ResourceLocalToScene() bool { return self.AsResource().ResourceLocalToScene() }
 func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
 
 // SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (self Instance) SetResourceLocalToScene(value bool) Instance {
+	self.AsResource().SetResourceLocalToScene(value)
+	return self
+}
 func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
 	o.Super().AsResource().SetResourceLocalToScene(value)
 	return o
 }
 
 // ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (self Instance) ResourcePath() string { return self.AsResource().ResourcePath() }
 func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
 
 // SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (self Instance) SetResourcePath(value string) Instance {
+	self.AsResource().SetResourcePath(value)
+	return self
+}
 func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
 	o.Super().AsResource().SetResourcePath(value)
 	return o
 }
 
 // ResourceName is promoted from [Resource.Instance.ResourceName].
+func (self Instance) ResourceName() string { return self.AsResource().ResourceName() }
 func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
 
 // SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (self Instance) SetResourceName(value string) Instance {
+	self.AsResource().SetResourceName(value)
+	return self
+}
 func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
 	o.Super().AsResource().SetResourceName(value)
 	return o
 }
 
 // ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (self Instance) ResourceSceneUniqueId() string { return self.AsResource().ResourceSceneUniqueId() }
 func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
 
 // SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (self Instance) SetResourceSceneUniqueId(value string) Instance {
+	self.AsResource().SetResourceSceneUniqueId(value)
+	return self
+}
 func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
 	o.Super().AsResource().SetResourceSceneUniqueId(value)
 	return o

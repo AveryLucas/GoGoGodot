@@ -924,6 +924,14 @@ func (o *Extension[T]) AsNode3D() Instance { return o.Super() }
 func (o class) AsNode() Node.Advanced { return *(*Node.Advanced)(ie.As(&o)) }
 func (o *Extension[T]) AsNode() Node.Instance { return o.Super().AsNode() }
 func (o Instance) AsNode() Node.Instance { return *(*Node.Instance)(ie.As(&o)) }
+func (o *Extension[T]) OnVisibilityChanged(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("visibility_changed"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
 
 // OnReady is promoted from [Node.Instance.OnReady].
 func (self Instance) OnReady(cb func(), flags ...Signal.Flags) Instance {
@@ -933,6 +941,16 @@ func (self Instance) OnReady(cb func(), flags ...Signal.Flags) Instance {
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("ready"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+
+// OnReady is promoted from [Node.Instance.OnReady].
+func (o *Extension[T]) OnReady(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("ready"), gd.NewCallable(cb), int64(flags_together))
+	return o
 }
 
 // OnRenamed is promoted from [Node.Instance.OnRenamed].
@@ -945,6 +963,16 @@ func (self Instance) OnRenamed(cb func(), flags ...Signal.Flags) Instance {
 	return self
 }
 
+// OnRenamed is promoted from [Node.Instance.OnRenamed].
+func (o *Extension[T]) OnRenamed(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("renamed"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+
 // OnTreeEntered is promoted from [Node.Instance.OnTreeEntered].
 func (self Instance) OnTreeEntered(cb func(), flags ...Signal.Flags) Instance {
 	var flags_together Signal.Flags
@@ -953,6 +981,16 @@ func (self Instance) OnTreeEntered(cb func(), flags ...Signal.Flags) Instance {
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("tree_entered"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+
+// OnTreeEntered is promoted from [Node.Instance.OnTreeEntered].
+func (o *Extension[T]) OnTreeEntered(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("tree_entered"), gd.NewCallable(cb), int64(flags_together))
+	return o
 }
 
 // OnTreeExiting is promoted from [Node.Instance.OnTreeExiting].
@@ -965,6 +1003,16 @@ func (self Instance) OnTreeExiting(cb func(), flags ...Signal.Flags) Instance {
 	return self
 }
 
+// OnTreeExiting is promoted from [Node.Instance.OnTreeExiting].
+func (o *Extension[T]) OnTreeExiting(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("tree_exiting"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+
 // OnTreeExited is promoted from [Node.Instance.OnTreeExited].
 func (self Instance) OnTreeExited(cb func(), flags ...Signal.Flags) Instance {
 	var flags_together Signal.Flags
@@ -973,6 +1021,16 @@ func (self Instance) OnTreeExited(cb func(), flags ...Signal.Flags) Instance {
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("tree_exited"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+
+// OnTreeExited is promoted from [Node.Instance.OnTreeExited].
+func (o *Extension[T]) OnTreeExited(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("tree_exited"), gd.NewCallable(cb), int64(flags_together))
+	return o
 }
 
 // OnChildEnteredTree is promoted from [Node.Instance.OnChildEnteredTree].
@@ -985,6 +1043,16 @@ func (self Instance) OnChildEnteredTree(cb func(node Node.Instance), flags ...Si
 	return self
 }
 
+// OnChildEnteredTree is promoted from [Node.Instance.OnChildEnteredTree].
+func (o *Extension[T]) OnChildEnteredTree(cb func(node Node.Instance), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("child_entered_tree"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+
 // OnChildExitingTree is promoted from [Node.Instance.OnChildExitingTree].
 func (self Instance) OnChildExitingTree(cb func(node Node.Instance), flags ...Signal.Flags) Instance {
 	var flags_together Signal.Flags
@@ -993,6 +1061,16 @@ func (self Instance) OnChildExitingTree(cb func(node Node.Instance), flags ...Si
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("child_exiting_tree"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+
+// OnChildExitingTree is promoted from [Node.Instance.OnChildExitingTree].
+func (o *Extension[T]) OnChildExitingTree(cb func(node Node.Instance), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("child_exiting_tree"), gd.NewCallable(cb), int64(flags_together))
+	return o
 }
 
 // OnChildOrderChanged is promoted from [Node.Instance.OnChildOrderChanged].
@@ -1005,6 +1083,16 @@ func (self Instance) OnChildOrderChanged(cb func(), flags ...Signal.Flags) Insta
 	return self
 }
 
+// OnChildOrderChanged is promoted from [Node.Instance.OnChildOrderChanged].
+func (o *Extension[T]) OnChildOrderChanged(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("child_order_changed"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+
 // OnReplacingBy is promoted from [Node.Instance.OnReplacingBy].
 func (self Instance) OnReplacingBy(cb func(node Node.Instance), flags ...Signal.Flags) Instance {
 	var flags_together Signal.Flags
@@ -1013,6 +1101,16 @@ func (self Instance) OnReplacingBy(cb func(node Node.Instance), flags ...Signal.
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("replacing_by"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+
+// OnReplacingBy is promoted from [Node.Instance.OnReplacingBy].
+func (o *Extension[T]) OnReplacingBy(cb func(node Node.Instance), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("replacing_by"), gd.NewCallable(cb), int64(flags_together))
+	return o
 }
 
 // OnEditorDescriptionChanged is promoted from [Node.Instance.OnEditorDescriptionChanged].
@@ -1025,6 +1123,16 @@ func (self Instance) OnEditorDescriptionChanged(cb func(node Node.Instance), fla
 	return self
 }
 
+// OnEditorDescriptionChanged is promoted from [Node.Instance.OnEditorDescriptionChanged].
+func (o *Extension[T]) OnEditorDescriptionChanged(cb func(node Node.Instance), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("editor_description_changed"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+
 // OnEditorStateChanged is promoted from [Node.Instance.OnEditorStateChanged].
 func (self Instance) OnEditorStateChanged(cb func(), flags ...Signal.Flags) Instance {
 	var flags_together Signal.Flags
@@ -1033,6 +1141,16 @@ func (self Instance) OnEditorStateChanged(cb func(), flags ...Signal.Flags) Inst
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("editor_state_changed"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+
+// OnEditorStateChanged is promoted from [Node.Instance.OnEditorStateChanged].
+func (o *Extension[T]) OnEditorStateChanged(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("editor_state_changed"), gd.NewCallable(cb), int64(flags_together))
+	return o
 }
 func (o *Extension[T]) GetGlobalTransformInterpolated() Transform3D.BasisOrigin {
 	return o.Super().GetGlobalTransformInterpolated()
@@ -1835,120 +1953,186 @@ func (o *Extension[T]) NotifyThreadSafe(what int) {
 }
 
 // Name is promoted from [Node.Instance.Name].
+func (self Instance) Name() string { return self.AsNode().Name() }
 func (o *Extension[T]) Name() string { return o.Super().AsNode().Name() }
 
 // SetName is promoted from [Node.Instance.SetName].
+func (self Instance) SetName(value string) Instance {
+	self.AsNode().SetName(value)
+	return self
+}
 func (o *Extension[T]) SetName(value string) *Extension[T] {
 	o.Super().AsNode().SetName(value)
 	return o
 }
 
 // UniqueNameInOwner is promoted from [Node.Instance.UniqueNameInOwner].
+func (self Instance) UniqueNameInOwner() bool { return self.AsNode().UniqueNameInOwner() }
 func (o *Extension[T]) UniqueNameInOwner() bool { return o.Super().AsNode().UniqueNameInOwner() }
 
 // SetUniqueNameInOwner is promoted from [Node.Instance.SetUniqueNameInOwner].
+func (self Instance) SetUniqueNameInOwner(value bool) Instance {
+	self.AsNode().SetUniqueNameInOwner(value)
+	return self
+}
 func (o *Extension[T]) SetUniqueNameInOwner(value bool) *Extension[T] {
 	o.Super().AsNode().SetUniqueNameInOwner(value)
 	return o
 }
 
 // SceneFilePath is promoted from [Node.Instance.SceneFilePath].
+func (self Instance) SceneFilePath() string { return self.AsNode().SceneFilePath() }
 func (o *Extension[T]) SceneFilePath() string { return o.Super().AsNode().SceneFilePath() }
 
 // SetSceneFilePath is promoted from [Node.Instance.SetSceneFilePath].
+func (self Instance) SetSceneFilePath(value string) Instance {
+	self.AsNode().SetSceneFilePath(value)
+	return self
+}
 func (o *Extension[T]) SetSceneFilePath(value string) *Extension[T] {
 	o.Super().AsNode().SetSceneFilePath(value)
 	return o
 }
 
 // Owner is promoted from [Node.Instance.Owner].
+func (self Instance) Owner() Node.Instance { return self.AsNode().Owner() }
 func (o *Extension[T]) Owner() Node.Instance { return o.Super().AsNode().Owner() }
 
 // SetOwner is promoted from [Node.Instance.SetOwner].
+func (self Instance) SetOwner(value Node.Instance) Instance {
+	self.AsNode().SetOwner(value)
+	return self
+}
 func (o *Extension[T]) SetOwner(value Node.Instance) *Extension[T] {
 	o.Super().AsNode().SetOwner(value)
 	return o
 }
 
 // Multiplayer is promoted from [Node.Instance.Multiplayer].
+func (self Instance) Multiplayer() MultiplayerAPI.Instance { return self.AsNode().Multiplayer() }
 func (o *Extension[T]) Multiplayer() MultiplayerAPI.Instance { return o.Super().AsNode().Multiplayer() }
 
 // ProcessMode is promoted from [Node.Instance.ProcessMode].
+func (self Instance) ProcessMode() Node.ProcessMode { return self.AsNode().ProcessMode() }
 func (o *Extension[T]) ProcessMode() Node.ProcessMode { return o.Super().AsNode().ProcessMode() }
 
 // SetProcessMode is promoted from [Node.Instance.SetProcessMode].
+func (self Instance) SetProcessMode(value Node.ProcessMode) Instance {
+	self.AsNode().SetProcessMode(value)
+	return self
+}
 func (o *Extension[T]) SetProcessMode(value Node.ProcessMode) *Extension[T] {
 	o.Super().AsNode().SetProcessMode(value)
 	return o
 }
 
 // ProcessPriority is promoted from [Node.Instance.ProcessPriority].
+func (self Instance) ProcessPriority() int { return self.AsNode().ProcessPriority() }
 func (o *Extension[T]) ProcessPriority() int { return o.Super().AsNode().ProcessPriority() }
 
 // SetProcessPriority is promoted from [Node.Instance.SetProcessPriority].
+func (self Instance) SetProcessPriority(value int) Instance {
+	self.AsNode().SetProcessPriority(value)
+	return self
+}
 func (o *Extension[T]) SetProcessPriority(value int) *Extension[T] {
 	o.Super().AsNode().SetProcessPriority(value)
 	return o
 }
 
 // ProcessPhysicsPriority is promoted from [Node.Instance.ProcessPhysicsPriority].
+func (self Instance) ProcessPhysicsPriority() int { return self.AsNode().ProcessPhysicsPriority() }
 func (o *Extension[T]) ProcessPhysicsPriority() int { return o.Super().AsNode().ProcessPhysicsPriority() }
 
 // SetProcessPhysicsPriority is promoted from [Node.Instance.SetProcessPhysicsPriority].
+func (self Instance) SetProcessPhysicsPriority(value int) Instance {
+	self.AsNode().SetProcessPhysicsPriority(value)
+	return self
+}
 func (o *Extension[T]) SetProcessPhysicsPriority(value int) *Extension[T] {
 	o.Super().AsNode().SetProcessPhysicsPriority(value)
 	return o
 }
 
 // ProcessThreadGroup is promoted from [Node.Instance.ProcessThreadGroup].
+func (self Instance) ProcessThreadGroup() Node.ProcessThreadGroup { return self.AsNode().ProcessThreadGroup() }
 func (o *Extension[T]) ProcessThreadGroup() Node.ProcessThreadGroup { return o.Super().AsNode().ProcessThreadGroup() }
 
 // SetProcessThreadGroup is promoted from [Node.Instance.SetProcessThreadGroup].
+func (self Instance) SetProcessThreadGroup(value Node.ProcessThreadGroup) Instance {
+	self.AsNode().SetProcessThreadGroup(value)
+	return self
+}
 func (o *Extension[T]) SetProcessThreadGroup(value Node.ProcessThreadGroup) *Extension[T] {
 	o.Super().AsNode().SetProcessThreadGroup(value)
 	return o
 }
 
 // ProcessThreadGroupOrder is promoted from [Node.Instance.ProcessThreadGroupOrder].
+func (self Instance) ProcessThreadGroupOrder() int { return self.AsNode().ProcessThreadGroupOrder() }
 func (o *Extension[T]) ProcessThreadGroupOrder() int { return o.Super().AsNode().ProcessThreadGroupOrder() }
 
 // SetProcessThreadGroupOrder is promoted from [Node.Instance.SetProcessThreadGroupOrder].
+func (self Instance) SetProcessThreadGroupOrder(value int) Instance {
+	self.AsNode().SetProcessThreadGroupOrder(value)
+	return self
+}
 func (o *Extension[T]) SetProcessThreadGroupOrder(value int) *Extension[T] {
 	o.Super().AsNode().SetProcessThreadGroupOrder(value)
 	return o
 }
 
 // ProcessThreadMessages is promoted from [Node.Instance.ProcessThreadMessages].
+func (self Instance) ProcessThreadMessages() Node.ProcessThreadMessages { return self.AsNode().ProcessThreadMessages() }
 func (o *Extension[T]) ProcessThreadMessages() Node.ProcessThreadMessages { return o.Super().AsNode().ProcessThreadMessages() }
 
 // SetProcessThreadMessages is promoted from [Node.Instance.SetProcessThreadMessages].
+func (self Instance) SetProcessThreadMessages(value Node.ProcessThreadMessages) Instance {
+	self.AsNode().SetProcessThreadMessages(value)
+	return self
+}
 func (o *Extension[T]) SetProcessThreadMessages(value Node.ProcessThreadMessages) *Extension[T] {
 	o.Super().AsNode().SetProcessThreadMessages(value)
 	return o
 }
 
 // PhysicsInterpolationMode is promoted from [Node.Instance.PhysicsInterpolationMode].
+func (self Instance) PhysicsInterpolationMode() Node.PhysicsInterpolationMode { return self.AsNode().PhysicsInterpolationMode() }
 func (o *Extension[T]) PhysicsInterpolationMode() Node.PhysicsInterpolationMode { return o.Super().AsNode().PhysicsInterpolationMode() }
 
 // SetPhysicsInterpolationMode is promoted from [Node.Instance.SetPhysicsInterpolationMode].
+func (self Instance) SetPhysicsInterpolationMode(value Node.PhysicsInterpolationMode) Instance {
+	self.AsNode().SetPhysicsInterpolationMode(value)
+	return self
+}
 func (o *Extension[T]) SetPhysicsInterpolationMode(value Node.PhysicsInterpolationMode) *Extension[T] {
 	o.Super().AsNode().SetPhysicsInterpolationMode(value)
 	return o
 }
 
 // AutoTranslateMode is promoted from [Node.Instance.AutoTranslateMode].
+func (self Instance) AutoTranslateMode() Node.AutoTranslateMode { return self.AsNode().AutoTranslateMode() }
 func (o *Extension[T]) AutoTranslateMode() Node.AutoTranslateMode { return o.Super().AsNode().AutoTranslateMode() }
 
 // SetAutoTranslateMode is promoted from [Node.Instance.SetAutoTranslateMode].
+func (self Instance) SetAutoTranslateMode(value Node.AutoTranslateMode) Instance {
+	self.AsNode().SetAutoTranslateMode(value)
+	return self
+}
 func (o *Extension[T]) SetAutoTranslateMode(value Node.AutoTranslateMode) *Extension[T] {
 	o.Super().AsNode().SetAutoTranslateMode(value)
 	return o
 }
 
 // EditorDescription is promoted from [Node.Instance.EditorDescription].
+func (self Instance) EditorDescription() string { return self.AsNode().EditorDescription() }
 func (o *Extension[T]) EditorDescription() string { return o.Super().AsNode().EditorDescription() }
 
 // SetEditorDescription is promoted from [Node.Instance.SetEditorDescription].
+func (self Instance) SetEditorDescription(value string) Instance {
+	self.AsNode().SetEditorDescription(value)
+	return self
+}
 func (o *Extension[T]) SetEditorDescription(value string) *Extension[T] {
 	o.Super().AsNode().SetEditorDescription(value)
 	return o

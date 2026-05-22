@@ -475,6 +475,16 @@ func (self Instance) OnSessionDescriptionCreated(cb func(atype string, sdp strin
 	return self
 }
 
+// OnSessionDescriptionCreated is promoted from [WebRTCPeerConnection.Instance.OnSessionDescriptionCreated].
+func (o *Extension[T]) OnSessionDescriptionCreated(cb func(atype string, sdp string), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("session_description_created"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+
 // OnIceCandidateCreated is promoted from [WebRTCPeerConnection.Instance.OnIceCandidateCreated].
 func (self Instance) OnIceCandidateCreated(cb func(media string, index int, name string), flags ...Signal.Flags) Instance {
 	var flags_together Signal.Flags
@@ -485,6 +495,16 @@ func (self Instance) OnIceCandidateCreated(cb func(media string, index int, name
 	return self
 }
 
+// OnIceCandidateCreated is promoted from [WebRTCPeerConnection.Instance.OnIceCandidateCreated].
+func (o *Extension[T]) OnIceCandidateCreated(cb func(media string, index int, name string), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("ice_candidate_created"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+
 // OnDataChannelReceived is promoted from [WebRTCPeerConnection.Instance.OnDataChannelReceived].
 func (self Instance) OnDataChannelReceived(cb func(channel WebRTCDataChannel.Instance), flags ...Signal.Flags) Instance {
 	var flags_together Signal.Flags
@@ -493,6 +513,16 @@ func (self Instance) OnDataChannelReceived(cb func(channel WebRTCDataChannel.Ins
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("data_channel_received"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+
+// OnDataChannelReceived is promoted from [WebRTCPeerConnection.Instance.OnDataChannelReceived].
+func (o *Extension[T]) OnDataChannelReceived(cb func(channel WebRTCDataChannel.Instance), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("data_channel_received"), gd.NewCallable(cb), int64(flags_together))
+	return o
 }
 
 // CreateOffer is promoted from [WebRTCPeerConnection.Instance.CreateOffer].

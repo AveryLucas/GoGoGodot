@@ -1805,6 +1805,94 @@ return Signal.Via(gd.SignalProxy{}, pointers.Pack(gd.NewSignalOf(self.AsObject()
 func (o class) AsNode() Advanced { return Advanced(o) }
 func (o Instance) AsNode() Instance { return o }
 func (o *Extension[T]) AsNode() Instance { return o.Super() }
+func (o *Extension[T]) OnReady(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("ready"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+func (o *Extension[T]) OnRenamed(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("renamed"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+func (o *Extension[T]) OnTreeEntered(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("tree_entered"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+func (o *Extension[T]) OnTreeExiting(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("tree_exiting"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+func (o *Extension[T]) OnTreeExited(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("tree_exited"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+func (o *Extension[T]) OnChildEnteredTree(cb func(node Instance), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("child_entered_tree"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+func (o *Extension[T]) OnChildExitingTree(cb func(node Instance), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("child_exiting_tree"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+func (o *Extension[T]) OnChildOrderChanged(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("child_order_changed"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+func (o *Extension[T]) OnReplacingBy(cb func(node Instance), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("replacing_by"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+func (o *Extension[T]) OnEditorDescriptionChanged(cb func(node Instance), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("editor_description_changed"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+func (o *Extension[T]) OnEditorStateChanged(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("editor_state_changed"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
 func (o *Extension[T]) RemoveChild(node Instance) {
 	o.Super().RemoveChild(node)
 }

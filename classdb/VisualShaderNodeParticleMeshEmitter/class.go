@@ -252,6 +252,16 @@ func (self Instance) OnChanged(cb func(), flags ...Signal.Flags) Instance {
 	return self
 }
 
+// OnChanged is promoted from [Resource.Instance.OnChanged].
+func (o *Extension[T]) OnChanged(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("changed"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+
 // OnSetupLocalToSceneRequested is promoted from [Resource.Instance.OnSetupLocalToSceneRequested].
 func (self Instance) OnSetupLocalToSceneRequested(cb func(), flags ...Signal.Flags) Instance {
 	var flags_together Signal.Flags
@@ -260,6 +270,16 @@ func (self Instance) OnSetupLocalToSceneRequested(cb func(), flags ...Signal.Fla
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("setup_local_to_scene_requested"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+
+// OnSetupLocalToSceneRequested is promoted from [Resource.Instance.OnSetupLocalToSceneRequested].
+func (o *Extension[T]) OnSetupLocalToSceneRequested(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("setup_local_to_scene_requested"), gd.NewCallable(cb), int64(flags_together))
+	return o
 }
 
 // GetDefaultInputPort is promoted from [VisualShaderNode.Instance.GetDefaultInputPort].
@@ -397,72 +417,112 @@ func (o *Extension[T]) EmitChanged() {
 }
 
 // Mode2d is promoted from [VisualShaderNodeParticleEmitter.Instance.Mode2d].
+func (self Instance) Mode2d() bool { return self.AsVisualShaderNodeParticleEmitter().Mode2d() }
 func (o *Extension[T]) Mode2d() bool { return o.Super().AsVisualShaderNodeParticleEmitter().Mode2d() }
 
 // SetMode2d is promoted from [VisualShaderNodeParticleEmitter.Instance.SetMode2d].
+func (self Instance) SetMode2d(value bool) Instance {
+	self.AsVisualShaderNodeParticleEmitter().SetMode2d(value)
+	return self
+}
 func (o *Extension[T]) SetMode2d(value bool) *Extension[T] {
 	o.Super().AsVisualShaderNodeParticleEmitter().SetMode2d(value)
 	return o
 }
 
 // OutputPortForPreview is promoted from [VisualShaderNode.Instance.OutputPortForPreview].
+func (self Instance) OutputPortForPreview() int { return self.AsVisualShaderNode().OutputPortForPreview() }
 func (o *Extension[T]) OutputPortForPreview() int { return o.Super().AsVisualShaderNode().OutputPortForPreview() }
 
 // SetOutputPortForPreview is promoted from [VisualShaderNode.Instance.SetOutputPortForPreview].
+func (self Instance) SetOutputPortForPreview(value int) Instance {
+	self.AsVisualShaderNode().SetOutputPortForPreview(value)
+	return self
+}
 func (o *Extension[T]) SetOutputPortForPreview(value int) *Extension[T] {
 	o.Super().AsVisualShaderNode().SetOutputPortForPreview(value)
 	return o
 }
 
 // DefaultInputValues is promoted from [VisualShaderNode.Instance.DefaultInputValues].
+func (self Instance) DefaultInputValues() []any { return self.AsVisualShaderNode().DefaultInputValues() }
 func (o *Extension[T]) DefaultInputValues() []any { return o.Super().AsVisualShaderNode().DefaultInputValues() }
 
 // SetDefaultInputValues is promoted from [VisualShaderNode.Instance.SetDefaultInputValues].
+func (self Instance) SetDefaultInputValues(value []any) Instance {
+	self.AsVisualShaderNode().SetDefaultInputValues(value)
+	return self
+}
 func (o *Extension[T]) SetDefaultInputValues(value []any) *Extension[T] {
 	o.Super().AsVisualShaderNode().SetDefaultInputValues(value)
 	return o
 }
 
 // LinkedParentGraphFrame is promoted from [VisualShaderNode.Instance.LinkedParentGraphFrame].
+func (self Instance) LinkedParentGraphFrame() int { return self.AsVisualShaderNode().LinkedParentGraphFrame() }
 func (o *Extension[T]) LinkedParentGraphFrame() int { return o.Super().AsVisualShaderNode().LinkedParentGraphFrame() }
 
 // SetLinkedParentGraphFrame is promoted from [VisualShaderNode.Instance.SetLinkedParentGraphFrame].
+func (self Instance) SetLinkedParentGraphFrame(value int) Instance {
+	self.AsVisualShaderNode().SetLinkedParentGraphFrame(value)
+	return self
+}
 func (o *Extension[T]) SetLinkedParentGraphFrame(value int) *Extension[T] {
 	o.Super().AsVisualShaderNode().SetLinkedParentGraphFrame(value)
 	return o
 }
 
 // ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (self Instance) ResourceLocalToScene() bool { return self.AsResource().ResourceLocalToScene() }
 func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
 
 // SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (self Instance) SetResourceLocalToScene(value bool) Instance {
+	self.AsResource().SetResourceLocalToScene(value)
+	return self
+}
 func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
 	o.Super().AsResource().SetResourceLocalToScene(value)
 	return o
 }
 
 // ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (self Instance) ResourcePath() string { return self.AsResource().ResourcePath() }
 func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
 
 // SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (self Instance) SetResourcePath(value string) Instance {
+	self.AsResource().SetResourcePath(value)
+	return self
+}
 func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
 	o.Super().AsResource().SetResourcePath(value)
 	return o
 }
 
 // ResourceName is promoted from [Resource.Instance.ResourceName].
+func (self Instance) ResourceName() string { return self.AsResource().ResourceName() }
 func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
 
 // SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (self Instance) SetResourceName(value string) Instance {
+	self.AsResource().SetResourceName(value)
+	return self
+}
 func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
 	o.Super().AsResource().SetResourceName(value)
 	return o
 }
 
 // ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (self Instance) ResourceSceneUniqueId() string { return self.AsResource().ResourceSceneUniqueId() }
 func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
 
 // SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (self Instance) SetResourceSceneUniqueId(value string) Instance {
+	self.AsResource().SetResourceSceneUniqueId(value)
+	return self
+}
 func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
 	o.Super().AsResource().SetResourceSceneUniqueId(value)
 	return o

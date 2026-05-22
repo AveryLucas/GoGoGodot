@@ -403,6 +403,14 @@ func (o *Extension[T]) AsOpenXRSpatialEntityExtension() Instance { return o.Supe
 func (o class) AsOpenXRExtensionWrapper() OpenXRExtensionWrapper.Advanced { return *(*OpenXRExtensionWrapper.Advanced)(ie.As(&o)) }
 func (o *Extension[T]) AsOpenXRExtensionWrapper() OpenXRExtensionWrapper.Instance { return o.Super().AsOpenXRExtensionWrapper() }
 func (o Instance) AsOpenXRExtensionWrapper() OpenXRExtensionWrapper.Instance { return *(*OpenXRExtensionWrapper.Instance)(ie.As(&o)) }
+func (o *Extension[T]) OnSpatialDiscoveryRecommended(cb func(spatial_context RID.Any), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("spatial_discovery_recommended"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
 func (o *Extension[T]) SupportsCapability(capability Capability) bool {
 	return o.Super().SupportsCapability(capability)
 }

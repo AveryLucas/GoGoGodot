@@ -307,6 +307,30 @@ func (o *Extension[T]) AsOpenXRRenderModelExtension() Instance { return o.Super(
 func (o class) AsOpenXRExtensionWrapper() OpenXRExtensionWrapper.Advanced { return *(*OpenXRExtensionWrapper.Advanced)(ie.As(&o)) }
 func (o *Extension[T]) AsOpenXRExtensionWrapper() OpenXRExtensionWrapper.Instance { return o.Super().AsOpenXRExtensionWrapper() }
 func (o Instance) AsOpenXRExtensionWrapper() OpenXRExtensionWrapper.Instance { return *(*OpenXRExtensionWrapper.Instance)(ie.As(&o)) }
+func (o *Extension[T]) OnRenderModelAdded(cb func(render_model RID.Any), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("render_model_added"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+func (o *Extension[T]) OnRenderModelRemoved(cb func(render_model RID.Any), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("render_model_removed"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+func (o *Extension[T]) OnRenderModelTopLevelPathChanged(cb func(render_model RID.Any), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("render_model_top_level_path_changed"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
 func (o *Extension[T]) IsActive() bool {
 	return o.Super().IsActive()
 }

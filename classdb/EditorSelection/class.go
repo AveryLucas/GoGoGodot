@@ -206,6 +206,14 @@ return Signal.Via(gd.SignalProxy{}, pointers.Pack(gd.NewSignalOf(self.AsObject()
 func (o class) AsEditorSelection() Advanced { return Advanced(o) }
 func (o Instance) AsEditorSelection() Instance { return o }
 func (o *Extension[T]) AsEditorSelection() Instance { return o.Super() }
+func (o *Extension[T]) OnSelectionChanged(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("selection_changed"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
 func (o *Extension[T]) Clear() {
 	o.Super().Clear()
 }

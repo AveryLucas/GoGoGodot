@@ -451,6 +451,14 @@ func (o *Extension[T]) AsXRInterface() Instance { return o.Super() }
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) OnPlayAreaChanged(cb func(mode int), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("play_area_changed"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
 func (o *Extension[T]) GetName() string {
 	return o.Super().GetName()
 }

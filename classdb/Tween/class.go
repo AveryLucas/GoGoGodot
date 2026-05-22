@@ -424,6 +424,30 @@ func (o *Extension[T]) AsTween() Instance { return o.Super() }
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) OnStepFinished(cb func(idx int), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("step_finished"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+func (o *Extension[T]) OnLoopFinished(cb func(loop_count int), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("loop_finished"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+func (o *Extension[T]) OnFinished(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("finished"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
 func (o *Extension[T]) TweenInterval(time Float.X) IntervalTweener.Instance {
 	return o.Super().TweenInterval(time)
 }

@@ -483,13 +483,20 @@ func (classDB ClassDB) generateObjectPackage(class gdjson.Class, singleton bool,
 			// only) — broader method promotion can be added in a
 			// follow-up if it pays off.
 			if !singleton {
-				alreadyEmitted := make(map[string]bool)
+				signalEmitted := make(map[string]bool)
+				// Mark leaf's own signals on Instance as already-emitted
+				// (signalCall emits those for Instance receiver).
 				for _, sig := range class.Signals {
-					alreadyEmitted["On"+convertName(sig.Name)] = true
+					signalEmitted["On"+convertName(sig.Name)+"::Instance"] = true
 				}
 				for _, m := range class.Methods {
-					alreadyEmitted[convertName(m.Name)] = true
+					signalEmitted[convertName(m.Name)+"::Instance"] = true
 				}
+				// Emit leaf's own signals on *Extension[T] too.
+				for _, sig := range class.Signals {
+					classDB.promotedSignalCall(file, class, class, sig, "*Extension[T]", "o", signalEmitted)
+				}
+				// Ancestor signals → both Instance and *Extension[T].
 				ancestor := classDB[class.Inherits]
 				for ancestor.Name != "" && ancestor.Name != "Object" {
 					if ancestor.IsSingleton {
@@ -497,7 +504,8 @@ func (classDB ClassDB) generateObjectPackage(class gdjson.Class, singleton bool,
 						continue
 					}
 					for _, sig := range ancestor.Signals {
-						classDB.promotedSignalCall(file, class, ancestor, sig, alreadyEmitted)
+						classDB.promotedSignalCall(file, class, ancestor, sig, "Instance", "self", signalEmitted)
+						classDB.promotedSignalCall(file, class, ancestor, sig, "*Extension[T]", "o", signalEmitted)
 					}
 					ancestor = classDB[ancestor.Inherits]
 				}

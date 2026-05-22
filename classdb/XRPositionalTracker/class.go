@@ -357,6 +357,62 @@ func (o Instance) AsXRTracker() XRTracker.Instance { return *(*XRTracker.Instanc
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) OnPoseChanged(cb func(pose XRPose.Instance), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("pose_changed"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+func (o *Extension[T]) OnPoseLostTracking(cb func(pose XRPose.Instance), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("pose_lost_tracking"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+func (o *Extension[T]) OnButtonPressed(cb func(name string), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("button_pressed"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+func (o *Extension[T]) OnButtonReleased(cb func(name string), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("button_released"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+func (o *Extension[T]) OnInputFloatChanged(cb func(name string, value Float.X), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("input_float_changed"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+func (o *Extension[T]) OnInputVector2Changed(cb func(name string, vector Vector2.XY), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("input_vector2_changed"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+func (o *Extension[T]) OnProfileChanged(cb func(role string), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("profile_changed"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
 func (o *Extension[T]) HasPose(name string) bool {
 	return o.Super().HasPose(name)
 }
@@ -379,27 +435,42 @@ func (o *Extension[T]) SetInput(name string, value any) *Extension[T] {
 }
 
 // Type is promoted from [XRTracker.Instance.Type].
+func (self Instance) Type() XRTracker.Type { return self.AsXRTracker().Type() }
 func (o *Extension[T]) Type() XRTracker.Type { return o.Super().AsXRTracker().Type() }
 
 // SetType is promoted from [XRTracker.Instance.SetType].
+func (self Instance) SetType(value XRTracker.Type) Instance {
+	self.AsXRTracker().SetType(value)
+	return self
+}
 func (o *Extension[T]) SetType(value XRTracker.Type) *Extension[T] {
 	o.Super().AsXRTracker().SetType(value)
 	return o
 }
 
 // Name is promoted from [XRTracker.Instance.Name].
+func (self Instance) Name() string { return self.AsXRTracker().Name() }
 func (o *Extension[T]) Name() string { return o.Super().AsXRTracker().Name() }
 
 // SetName is promoted from [XRTracker.Instance.SetName].
+func (self Instance) SetName(value string) Instance {
+	self.AsXRTracker().SetName(value)
+	return self
+}
 func (o *Extension[T]) SetName(value string) *Extension[T] {
 	o.Super().AsXRTracker().SetName(value)
 	return o
 }
 
 // Description is promoted from [XRTracker.Instance.Description].
+func (self Instance) Description() string { return self.AsXRTracker().Description() }
 func (o *Extension[T]) Description() string { return o.Super().AsXRTracker().Description() }
 
 // SetDescription is promoted from [XRTracker.Instance.SetDescription].
+func (self Instance) SetDescription(value string) Instance {
+	self.AsXRTracker().SetDescription(value)
+	return self
+}
 func (o *Extension[T]) SetDescription(value string) *Extension[T] {
 	o.Super().AsXRTracker().SetDescription(value)
 	return o

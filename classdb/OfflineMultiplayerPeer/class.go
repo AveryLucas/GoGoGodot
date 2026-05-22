@@ -166,6 +166,16 @@ func (self Instance) OnPeerConnected(cb func(id int), flags ...Signal.Flags) Ins
 	return self
 }
 
+// OnPeerConnected is promoted from [MultiplayerPeer.Instance.OnPeerConnected].
+func (o *Extension[T]) OnPeerConnected(cb func(id int), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("peer_connected"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+
 // OnPeerDisconnected is promoted from [MultiplayerPeer.Instance.OnPeerDisconnected].
 func (self Instance) OnPeerDisconnected(cb func(id int), flags ...Signal.Flags) Instance {
 	var flags_together Signal.Flags
@@ -174,6 +184,16 @@ func (self Instance) OnPeerDisconnected(cb func(id int), flags ...Signal.Flags) 
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("peer_disconnected"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+
+// OnPeerDisconnected is promoted from [MultiplayerPeer.Instance.OnPeerDisconnected].
+func (o *Extension[T]) OnPeerDisconnected(cb func(id int), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("peer_disconnected"), gd.NewCallable(cb), int64(flags_together))
+	return o
 }
 
 // SetTargetPeer is promoted from [MultiplayerPeer.Instance.SetTargetPeer].
@@ -319,36 +339,56 @@ func (o *Extension[T]) GetAvailablePacketCount() int {
 }
 
 // RefuseNewConnections is promoted from [MultiplayerPeer.Instance.RefuseNewConnections].
+func (self Instance) RefuseNewConnections() bool { return self.AsMultiplayerPeer().RefuseNewConnections() }
 func (o *Extension[T]) RefuseNewConnections() bool { return o.Super().AsMultiplayerPeer().RefuseNewConnections() }
 
 // SetRefuseNewConnections is promoted from [MultiplayerPeer.Instance.SetRefuseNewConnections].
+func (self Instance) SetRefuseNewConnections(value bool) Instance {
+	self.AsMultiplayerPeer().SetRefuseNewConnections(value)
+	return self
+}
 func (o *Extension[T]) SetRefuseNewConnections(value bool) *Extension[T] {
 	o.Super().AsMultiplayerPeer().SetRefuseNewConnections(value)
 	return o
 }
 
 // TransferMode is promoted from [MultiplayerPeer.Instance.TransferMode].
+func (self Instance) TransferMode() MultiplayerPeer.TransferMode { return self.AsMultiplayerPeer().TransferMode() }
 func (o *Extension[T]) TransferMode() MultiplayerPeer.TransferMode { return o.Super().AsMultiplayerPeer().TransferMode() }
 
 // SetTransferMode is promoted from [MultiplayerPeer.Instance.SetTransferMode].
+func (self Instance) SetTransferMode(value MultiplayerPeer.TransferMode) Instance {
+	self.AsMultiplayerPeer().SetTransferMode(value)
+	return self
+}
 func (o *Extension[T]) SetTransferMode(value MultiplayerPeer.TransferMode) *Extension[T] {
 	o.Super().AsMultiplayerPeer().SetTransferMode(value)
 	return o
 }
 
 // TransferChannel is promoted from [MultiplayerPeer.Instance.TransferChannel].
+func (self Instance) TransferChannel() int { return self.AsMultiplayerPeer().TransferChannel() }
 func (o *Extension[T]) TransferChannel() int { return o.Super().AsMultiplayerPeer().TransferChannel() }
 
 // SetTransferChannel is promoted from [MultiplayerPeer.Instance.SetTransferChannel].
+func (self Instance) SetTransferChannel(value int) Instance {
+	self.AsMultiplayerPeer().SetTransferChannel(value)
+	return self
+}
 func (o *Extension[T]) SetTransferChannel(value int) *Extension[T] {
 	o.Super().AsMultiplayerPeer().SetTransferChannel(value)
 	return o
 }
 
 // EncodeBufferMaxSize is promoted from [PacketPeer.Instance.EncodeBufferMaxSize].
+func (self Instance) EncodeBufferMaxSize() int { return self.AsPacketPeer().EncodeBufferMaxSize() }
 func (o *Extension[T]) EncodeBufferMaxSize() int { return o.Super().AsPacketPeer().EncodeBufferMaxSize() }
 
 // SetEncodeBufferMaxSize is promoted from [PacketPeer.Instance.SetEncodeBufferMaxSize].
+func (self Instance) SetEncodeBufferMaxSize(value int) Instance {
+	self.AsPacketPeer().SetEncodeBufferMaxSize(value)
+	return self
+}
 func (o *Extension[T]) SetEncodeBufferMaxSize(value int) *Extension[T] {
 	o.Super().AsPacketPeer().SetEncodeBufferMaxSize(value)
 	return o

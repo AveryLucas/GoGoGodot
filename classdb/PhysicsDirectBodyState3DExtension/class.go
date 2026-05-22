@@ -1204,84 +1204,94 @@ func (o *Extension[T]) GetSpaceState() PhysicsDirectSpaceState3D.Instance {
 }
 
 // Step is promoted from [PhysicsDirectBodyState3D.Instance.Step].
+func (self Instance) Step() Float.X { return self.AsPhysicsDirectBodyState3D().Step() }
 func (o *Extension[T]) Step() Float.X { return o.Super().AsPhysicsDirectBodyState3D().Step() }
 
 // InverseMass is promoted from [PhysicsDirectBodyState3D.Instance.InverseMass].
+func (self Instance) InverseMass() Float.X { return self.AsPhysicsDirectBodyState3D().InverseMass() }
 func (o *Extension[T]) InverseMass() Float.X { return o.Super().AsPhysicsDirectBodyState3D().InverseMass() }
 
 // TotalAngularDamp is promoted from [PhysicsDirectBodyState3D.Instance.TotalAngularDamp].
+func (self Instance) TotalAngularDamp() Float.X { return self.AsPhysicsDirectBodyState3D().TotalAngularDamp() }
 func (o *Extension[T]) TotalAngularDamp() Float.X { return o.Super().AsPhysicsDirectBodyState3D().TotalAngularDamp() }
 
 // TotalLinearDamp is promoted from [PhysicsDirectBodyState3D.Instance.TotalLinearDamp].
+func (self Instance) TotalLinearDamp() Float.X { return self.AsPhysicsDirectBodyState3D().TotalLinearDamp() }
 func (o *Extension[T]) TotalLinearDamp() Float.X { return o.Super().AsPhysicsDirectBodyState3D().TotalLinearDamp() }
 
 // InverseInertia is promoted from [PhysicsDirectBodyState3D.Instance.InverseInertia].
+func (self Instance) InverseInertia() Vector3.XYZ { return self.AsPhysicsDirectBodyState3D().InverseInertia() }
 func (o *Extension[T]) InverseInertia() Vector3.XYZ { return o.Super().AsPhysicsDirectBodyState3D().InverseInertia() }
 
 // InverseInertiaTensor is promoted from [PhysicsDirectBodyState3D.Instance.InverseInertiaTensor].
+func (self Instance) InverseInertiaTensor() Basis.XYZ { return self.AsPhysicsDirectBodyState3D().InverseInertiaTensor() }
 func (o *Extension[T]) InverseInertiaTensor() Basis.XYZ { return o.Super().AsPhysicsDirectBodyState3D().InverseInertiaTensor() }
 
 // TotalGravity is promoted from [PhysicsDirectBodyState3D.Instance.TotalGravity].
+func (self Instance) TotalGravity() Vector3.XYZ { return self.AsPhysicsDirectBodyState3D().TotalGravity() }
 func (o *Extension[T]) TotalGravity() Vector3.XYZ { return o.Super().AsPhysicsDirectBodyState3D().TotalGravity() }
 
 // CenterOfMass is promoted from [PhysicsDirectBodyState3D.Instance.CenterOfMass].
+func (self Instance) CenterOfMass() Vector3.XYZ { return self.AsPhysicsDirectBodyState3D().CenterOfMass() }
 func (o *Extension[T]) CenterOfMass() Vector3.XYZ { return o.Super().AsPhysicsDirectBodyState3D().CenterOfMass() }
 
 // CenterOfMassLocal is promoted from [PhysicsDirectBodyState3D.Instance.CenterOfMassLocal].
+func (self Instance) CenterOfMassLocal() Vector3.XYZ { return self.AsPhysicsDirectBodyState3D().CenterOfMassLocal() }
 func (o *Extension[T]) CenterOfMassLocal() Vector3.XYZ { return o.Super().AsPhysicsDirectBodyState3D().CenterOfMassLocal() }
 
 // PrincipalInertiaAxes is promoted from [PhysicsDirectBodyState3D.Instance.PrincipalInertiaAxes].
+func (self Instance) PrincipalInertiaAxes() Basis.XYZ { return self.AsPhysicsDirectBodyState3D().PrincipalInertiaAxes() }
 func (o *Extension[T]) PrincipalInertiaAxes() Basis.XYZ { return o.Super().AsPhysicsDirectBodyState3D().PrincipalInertiaAxes() }
 
 // AngularVelocity is promoted from [PhysicsDirectBodyState3D.Instance.AngularVelocity].
+func (self Instance) AngularVelocity() Vector3.XYZ { return self.AsPhysicsDirectBodyState3D().AngularVelocity() }
 func (o *Extension[T]) AngularVelocity() Vector3.XYZ { return o.Super().AsPhysicsDirectBodyState3D().AngularVelocity() }
-
-// SetAngularVelocity is promoted from [PhysicsDirectBodyState3D.Instance.SetAngularVelocity].
 func (o *Extension[T]) SetAngularVelocity(value Vector3.XYZ) *Extension[T] {
 	o.Super().AsPhysicsDirectBodyState3D().SetAngularVelocity(value)
 	return o
 }
 
 // LinearVelocity is promoted from [PhysicsDirectBodyState3D.Instance.LinearVelocity].
+func (self Instance) LinearVelocity() Vector3.XYZ { return self.AsPhysicsDirectBodyState3D().LinearVelocity() }
 func (o *Extension[T]) LinearVelocity() Vector3.XYZ { return o.Super().AsPhysicsDirectBodyState3D().LinearVelocity() }
-
-// SetLinearVelocity is promoted from [PhysicsDirectBodyState3D.Instance.SetLinearVelocity].
 func (o *Extension[T]) SetLinearVelocity(value Vector3.XYZ) *Extension[T] {
 	o.Super().AsPhysicsDirectBodyState3D().SetLinearVelocity(value)
 	return o
 }
 
 // Sleeping is promoted from [PhysicsDirectBodyState3D.Instance.Sleeping].
+func (self Instance) Sleeping() bool { return self.AsPhysicsDirectBodyState3D().Sleeping() }
 func (o *Extension[T]) Sleeping() bool { return o.Super().AsPhysicsDirectBodyState3D().Sleeping() }
 
 // SetSleeping is promoted from [PhysicsDirectBodyState3D.Instance.SetSleeping].
+func (self Instance) SetSleeping(value bool) Instance {
+	self.AsPhysicsDirectBodyState3D().SetSleeping(value)
+	return self
+}
 func (o *Extension[T]) SetSleeping(value bool) *Extension[T] {
 	o.Super().AsPhysicsDirectBodyState3D().SetSleeping(value)
 	return o
 }
 
 // CollisionLayer is promoted from [PhysicsDirectBodyState3D.Instance.CollisionLayer].
+func (self Instance) CollisionLayer() int { return self.AsPhysicsDirectBodyState3D().CollisionLayer() }
 func (o *Extension[T]) CollisionLayer() int { return o.Super().AsPhysicsDirectBodyState3D().CollisionLayer() }
-
-// SetCollisionLayer is promoted from [PhysicsDirectBodyState3D.Instance.SetCollisionLayer].
 func (o *Extension[T]) SetCollisionLayer(value int) *Extension[T] {
 	o.Super().AsPhysicsDirectBodyState3D().SetCollisionLayer(value)
 	return o
 }
 
 // CollisionMask is promoted from [PhysicsDirectBodyState3D.Instance.CollisionMask].
+func (self Instance) CollisionMask() int { return self.AsPhysicsDirectBodyState3D().CollisionMask() }
 func (o *Extension[T]) CollisionMask() int { return o.Super().AsPhysicsDirectBodyState3D().CollisionMask() }
-
-// SetCollisionMask is promoted from [PhysicsDirectBodyState3D.Instance.SetCollisionMask].
 func (o *Extension[T]) SetCollisionMask(value int) *Extension[T] {
 	o.Super().AsPhysicsDirectBodyState3D().SetCollisionMask(value)
 	return o
 }
 
 // Transform is promoted from [PhysicsDirectBodyState3D.Instance.Transform].
+func (self Instance) Transform() Transform3D.BasisOrigin { return self.AsPhysicsDirectBodyState3D().Transform() }
 func (o *Extension[T]) Transform() Transform3D.BasisOrigin { return o.Super().AsPhysicsDirectBodyState3D().Transform() }
-
-// SetTransform is promoted from [PhysicsDirectBodyState3D.Instance.SetTransform].
 func (o *Extension[T]) SetTransform(value Transform3D.BasisOrigin) *Extension[T] {
 	o.Super().AsPhysicsDirectBodyState3D().SetTransform(value)
 	return o

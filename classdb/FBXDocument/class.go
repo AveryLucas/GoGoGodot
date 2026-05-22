@@ -167,6 +167,16 @@ func (self Instance) OnChanged(cb func(), flags ...Signal.Flags) Instance {
 	return self
 }
 
+// OnChanged is promoted from [Resource.Instance.OnChanged].
+func (o *Extension[T]) OnChanged(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("changed"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+
 // OnSetupLocalToSceneRequested is promoted from [Resource.Instance.OnSetupLocalToSceneRequested].
 func (self Instance) OnSetupLocalToSceneRequested(cb func(), flags ...Signal.Flags) Instance {
 	var flags_together Signal.Flags
@@ -175,6 +185,16 @@ func (self Instance) OnSetupLocalToSceneRequested(cb func(), flags ...Signal.Fla
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("setup_local_to_scene_requested"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+
+// OnSetupLocalToSceneRequested is promoted from [Resource.Instance.OnSetupLocalToSceneRequested].
+func (o *Extension[T]) OnSetupLocalToSceneRequested(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("setup_local_to_scene_requested"), gd.NewCallable(cb), int64(flags_together))
+	return o
 }
 
 // GenerateBuffer is promoted from [GLTFDocument.Instance.GenerateBuffer].
@@ -292,90 +312,140 @@ func (o *Extension[T]) EmitChanged() {
 }
 
 // ImageFormat is promoted from [GLTFDocument.Instance.ImageFormat].
+func (self Instance) ImageFormat() string { return self.AsGLTFDocument().ImageFormat() }
 func (o *Extension[T]) ImageFormat() string { return o.Super().AsGLTFDocument().ImageFormat() }
 
 // SetImageFormat is promoted from [GLTFDocument.Instance.SetImageFormat].
+func (self Instance) SetImageFormat(value string) Instance {
+	self.AsGLTFDocument().SetImageFormat(value)
+	return self
+}
 func (o *Extension[T]) SetImageFormat(value string) *Extension[T] {
 	o.Super().AsGLTFDocument().SetImageFormat(value)
 	return o
 }
 
 // LossyQuality is promoted from [GLTFDocument.Instance.LossyQuality].
+func (self Instance) LossyQuality() Float.X { return self.AsGLTFDocument().LossyQuality() }
 func (o *Extension[T]) LossyQuality() Float.X { return o.Super().AsGLTFDocument().LossyQuality() }
 
 // SetLossyQuality is promoted from [GLTFDocument.Instance.SetLossyQuality].
+func (self Instance) SetLossyQuality(value Float.X) Instance {
+	self.AsGLTFDocument().SetLossyQuality(value)
+	return self
+}
 func (o *Extension[T]) SetLossyQuality(value Float.X) *Extension[T] {
 	o.Super().AsGLTFDocument().SetLossyQuality(value)
 	return o
 }
 
 // FallbackImageFormat is promoted from [GLTFDocument.Instance.FallbackImageFormat].
+func (self Instance) FallbackImageFormat() string { return self.AsGLTFDocument().FallbackImageFormat() }
 func (o *Extension[T]) FallbackImageFormat() string { return o.Super().AsGLTFDocument().FallbackImageFormat() }
 
 // SetFallbackImageFormat is promoted from [GLTFDocument.Instance.SetFallbackImageFormat].
+func (self Instance) SetFallbackImageFormat(value string) Instance {
+	self.AsGLTFDocument().SetFallbackImageFormat(value)
+	return self
+}
 func (o *Extension[T]) SetFallbackImageFormat(value string) *Extension[T] {
 	o.Super().AsGLTFDocument().SetFallbackImageFormat(value)
 	return o
 }
 
 // FallbackImageQuality is promoted from [GLTFDocument.Instance.FallbackImageQuality].
+func (self Instance) FallbackImageQuality() Float.X { return self.AsGLTFDocument().FallbackImageQuality() }
 func (o *Extension[T]) FallbackImageQuality() Float.X { return o.Super().AsGLTFDocument().FallbackImageQuality() }
 
 // SetFallbackImageQuality is promoted from [GLTFDocument.Instance.SetFallbackImageQuality].
+func (self Instance) SetFallbackImageQuality(value Float.X) Instance {
+	self.AsGLTFDocument().SetFallbackImageQuality(value)
+	return self
+}
 func (o *Extension[T]) SetFallbackImageQuality(value Float.X) *Extension[T] {
 	o.Super().AsGLTFDocument().SetFallbackImageQuality(value)
 	return o
 }
 
 // RootNodeMode is promoted from [GLTFDocument.Instance.RootNodeMode].
+func (self Instance) RootNodeMode() GLTFDocument.RootNodeMode { return self.AsGLTFDocument().RootNodeMode() }
 func (o *Extension[T]) RootNodeMode() GLTFDocument.RootNodeMode { return o.Super().AsGLTFDocument().RootNodeMode() }
 
 // SetRootNodeMode is promoted from [GLTFDocument.Instance.SetRootNodeMode].
+func (self Instance) SetRootNodeMode(value GLTFDocument.RootNodeMode) Instance {
+	self.AsGLTFDocument().SetRootNodeMode(value)
+	return self
+}
 func (o *Extension[T]) SetRootNodeMode(value GLTFDocument.RootNodeMode) *Extension[T] {
 	o.Super().AsGLTFDocument().SetRootNodeMode(value)
 	return o
 }
 
 // VisibilityMode is promoted from [GLTFDocument.Instance.VisibilityMode].
+func (self Instance) VisibilityMode() GLTFDocument.VisibilityMode { return self.AsGLTFDocument().VisibilityMode() }
 func (o *Extension[T]) VisibilityMode() GLTFDocument.VisibilityMode { return o.Super().AsGLTFDocument().VisibilityMode() }
 
 // SetVisibilityMode is promoted from [GLTFDocument.Instance.SetVisibilityMode].
+func (self Instance) SetVisibilityMode(value GLTFDocument.VisibilityMode) Instance {
+	self.AsGLTFDocument().SetVisibilityMode(value)
+	return self
+}
 func (o *Extension[T]) SetVisibilityMode(value GLTFDocument.VisibilityMode) *Extension[T] {
 	o.Super().AsGLTFDocument().SetVisibilityMode(value)
 	return o
 }
 
 // ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (self Instance) ResourceLocalToScene() bool { return self.AsResource().ResourceLocalToScene() }
 func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
 
 // SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (self Instance) SetResourceLocalToScene(value bool) Instance {
+	self.AsResource().SetResourceLocalToScene(value)
+	return self
+}
 func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
 	o.Super().AsResource().SetResourceLocalToScene(value)
 	return o
 }
 
 // ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (self Instance) ResourcePath() string { return self.AsResource().ResourcePath() }
 func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
 
 // SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (self Instance) SetResourcePath(value string) Instance {
+	self.AsResource().SetResourcePath(value)
+	return self
+}
 func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
 	o.Super().AsResource().SetResourcePath(value)
 	return o
 }
 
 // ResourceName is promoted from [Resource.Instance.ResourceName].
+func (self Instance) ResourceName() string { return self.AsResource().ResourceName() }
 func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
 
 // SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (self Instance) SetResourceName(value string) Instance {
+	self.AsResource().SetResourceName(value)
+	return self
+}
 func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
 	o.Super().AsResource().SetResourceName(value)
 	return o
 }
 
 // ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (self Instance) ResourceSceneUniqueId() string { return self.AsResource().ResourceSceneUniqueId() }
 func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
 
 // SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (self Instance) SetResourceSceneUniqueId(value string) Instance {
+	self.AsResource().SetResourceSceneUniqueId(value)
+	return self
+}
 func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
 	o.Super().AsResource().SetResourceSceneUniqueId(value)
 	return o

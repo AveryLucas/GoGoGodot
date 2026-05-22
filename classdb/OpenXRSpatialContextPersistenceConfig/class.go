@@ -183,9 +183,14 @@ func (o *Extension[T]) GetStructureType() int {
 }
 
 // Next is promoted from [OpenXRStructureBase.Instance.Next].
+func (self Instance) Next() OpenXRStructureBase.Instance { return self.AsOpenXRStructureBase().Next() }
 func (o *Extension[T]) Next() OpenXRStructureBase.Instance { return o.Super().AsOpenXRStructureBase().Next() }
 
 // SetNext is promoted from [OpenXRStructureBase.Instance.SetNext].
+func (self Instance) SetNext(value OpenXRStructureBase.Instance) Instance {
+	self.AsOpenXRStructureBase().SetNext(value)
+	return self
+}
 func (o *Extension[T]) SetNext(value OpenXRStructureBase.Instance) *Extension[T] {
 	o.Super().AsOpenXRStructureBase().SetNext(value)
 	return o

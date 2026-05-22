@@ -208,6 +208,16 @@ func (self Instance) OnVisibilityChanged(cb func(), flags ...Signal.Flags) Insta
 	return self
 }
 
+// OnVisibilityChanged is promoted from [Node3D.Instance.OnVisibilityChanged].
+func (o *Extension[T]) OnVisibilityChanged(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("visibility_changed"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+
 // OnReady is promoted from [Node.Instance.OnReady].
 func (self Instance) OnReady(cb func(), flags ...Signal.Flags) Instance {
 	var flags_together Signal.Flags
@@ -216,6 +226,16 @@ func (self Instance) OnReady(cb func(), flags ...Signal.Flags) Instance {
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("ready"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+
+// OnReady is promoted from [Node.Instance.OnReady].
+func (o *Extension[T]) OnReady(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("ready"), gd.NewCallable(cb), int64(flags_together))
+	return o
 }
 
 // OnRenamed is promoted from [Node.Instance.OnRenamed].
@@ -228,6 +248,16 @@ func (self Instance) OnRenamed(cb func(), flags ...Signal.Flags) Instance {
 	return self
 }
 
+// OnRenamed is promoted from [Node.Instance.OnRenamed].
+func (o *Extension[T]) OnRenamed(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("renamed"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+
 // OnTreeEntered is promoted from [Node.Instance.OnTreeEntered].
 func (self Instance) OnTreeEntered(cb func(), flags ...Signal.Flags) Instance {
 	var flags_together Signal.Flags
@@ -236,6 +266,16 @@ func (self Instance) OnTreeEntered(cb func(), flags ...Signal.Flags) Instance {
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("tree_entered"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+
+// OnTreeEntered is promoted from [Node.Instance.OnTreeEntered].
+func (o *Extension[T]) OnTreeEntered(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("tree_entered"), gd.NewCallable(cb), int64(flags_together))
+	return o
 }
 
 // OnTreeExiting is promoted from [Node.Instance.OnTreeExiting].
@@ -248,6 +288,16 @@ func (self Instance) OnTreeExiting(cb func(), flags ...Signal.Flags) Instance {
 	return self
 }
 
+// OnTreeExiting is promoted from [Node.Instance.OnTreeExiting].
+func (o *Extension[T]) OnTreeExiting(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("tree_exiting"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+
 // OnTreeExited is promoted from [Node.Instance.OnTreeExited].
 func (self Instance) OnTreeExited(cb func(), flags ...Signal.Flags) Instance {
 	var flags_together Signal.Flags
@@ -256,6 +306,16 @@ func (self Instance) OnTreeExited(cb func(), flags ...Signal.Flags) Instance {
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("tree_exited"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+
+// OnTreeExited is promoted from [Node.Instance.OnTreeExited].
+func (o *Extension[T]) OnTreeExited(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("tree_exited"), gd.NewCallable(cb), int64(flags_together))
+	return o
 }
 
 // OnChildEnteredTree is promoted from [Node.Instance.OnChildEnteredTree].
@@ -268,6 +328,16 @@ func (self Instance) OnChildEnteredTree(cb func(node Node.Instance), flags ...Si
 	return self
 }
 
+// OnChildEnteredTree is promoted from [Node.Instance.OnChildEnteredTree].
+func (o *Extension[T]) OnChildEnteredTree(cb func(node Node.Instance), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("child_entered_tree"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+
 // OnChildExitingTree is promoted from [Node.Instance.OnChildExitingTree].
 func (self Instance) OnChildExitingTree(cb func(node Node.Instance), flags ...Signal.Flags) Instance {
 	var flags_together Signal.Flags
@@ -276,6 +346,16 @@ func (self Instance) OnChildExitingTree(cb func(node Node.Instance), flags ...Si
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("child_exiting_tree"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+
+// OnChildExitingTree is promoted from [Node.Instance.OnChildExitingTree].
+func (o *Extension[T]) OnChildExitingTree(cb func(node Node.Instance), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("child_exiting_tree"), gd.NewCallable(cb), int64(flags_together))
+	return o
 }
 
 // OnChildOrderChanged is promoted from [Node.Instance.OnChildOrderChanged].
@@ -288,6 +368,16 @@ func (self Instance) OnChildOrderChanged(cb func(), flags ...Signal.Flags) Insta
 	return self
 }
 
+// OnChildOrderChanged is promoted from [Node.Instance.OnChildOrderChanged].
+func (o *Extension[T]) OnChildOrderChanged(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("child_order_changed"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+
 // OnReplacingBy is promoted from [Node.Instance.OnReplacingBy].
 func (self Instance) OnReplacingBy(cb func(node Node.Instance), flags ...Signal.Flags) Instance {
 	var flags_together Signal.Flags
@@ -296,6 +386,16 @@ func (self Instance) OnReplacingBy(cb func(node Node.Instance), flags ...Signal.
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("replacing_by"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+
+// OnReplacingBy is promoted from [Node.Instance.OnReplacingBy].
+func (o *Extension[T]) OnReplacingBy(cb func(node Node.Instance), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("replacing_by"), gd.NewCallable(cb), int64(flags_together))
+	return o
 }
 
 // OnEditorDescriptionChanged is promoted from [Node.Instance.OnEditorDescriptionChanged].
@@ -308,6 +408,16 @@ func (self Instance) OnEditorDescriptionChanged(cb func(node Node.Instance), fla
 	return self
 }
 
+// OnEditorDescriptionChanged is promoted from [Node.Instance.OnEditorDescriptionChanged].
+func (o *Extension[T]) OnEditorDescriptionChanged(cb func(node Node.Instance), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("editor_description_changed"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+
 // OnEditorStateChanged is promoted from [Node.Instance.OnEditorStateChanged].
 func (self Instance) OnEditorStateChanged(cb func(), flags ...Signal.Flags) Instance {
 	var flags_together Signal.Flags
@@ -316,6 +426,16 @@ func (self Instance) OnEditorStateChanged(cb func(), flags ...Signal.Flags) Inst
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("editor_state_changed"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+
+// OnEditorStateChanged is promoted from [Node.Instance.OnEditorStateChanged].
+func (o *Extension[T]) OnEditorStateChanged(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("editor_state_changed"), gd.NewCallable(cb), int64(flags_together))
+	return o
 }
 
 // SetInstanceShaderParameter is promoted from [GeometryInstance3D.Instance.SetInstanceShaderParameter].
@@ -1455,444 +1575,690 @@ func (o *Extension[T]) NotifyThreadSafe(what int) {
 }
 
 // MaterialOverride is promoted from [GeometryInstance3D.Instance.MaterialOverride].
+func (self Instance) MaterialOverride() Material.Instance { return self.AsGeometryInstance3D().MaterialOverride() }
 func (o *Extension[T]) MaterialOverride() Material.Instance { return o.Super().AsGeometryInstance3D().MaterialOverride() }
 
 // SetMaterialOverride is promoted from [GeometryInstance3D.Instance.SetMaterialOverride].
+func (self Instance) SetMaterialOverride(value Material.Instance) Instance {
+	self.AsGeometryInstance3D().SetMaterialOverride(value)
+	return self
+}
 func (o *Extension[T]) SetMaterialOverride(value Material.Instance) *Extension[T] {
 	o.Super().AsGeometryInstance3D().SetMaterialOverride(value)
 	return o
 }
 
 // MaterialOverlay is promoted from [GeometryInstance3D.Instance.MaterialOverlay].
+func (self Instance) MaterialOverlay() Material.Instance { return self.AsGeometryInstance3D().MaterialOverlay() }
 func (o *Extension[T]) MaterialOverlay() Material.Instance { return o.Super().AsGeometryInstance3D().MaterialOverlay() }
 
 // SetMaterialOverlay is promoted from [GeometryInstance3D.Instance.SetMaterialOverlay].
+func (self Instance) SetMaterialOverlay(value Material.Instance) Instance {
+	self.AsGeometryInstance3D().SetMaterialOverlay(value)
+	return self
+}
 func (o *Extension[T]) SetMaterialOverlay(value Material.Instance) *Extension[T] {
 	o.Super().AsGeometryInstance3D().SetMaterialOverlay(value)
 	return o
 }
 
 // Transparency is promoted from [GeometryInstance3D.Instance.Transparency].
+func (self Instance) Transparency() Float.X { return self.AsGeometryInstance3D().Transparency() }
 func (o *Extension[T]) Transparency() Float.X { return o.Super().AsGeometryInstance3D().Transparency() }
 
 // SetTransparency is promoted from [GeometryInstance3D.Instance.SetTransparency].
+func (self Instance) SetTransparency(value Float.X) Instance {
+	self.AsGeometryInstance3D().SetTransparency(value)
+	return self
+}
 func (o *Extension[T]) SetTransparency(value Float.X) *Extension[T] {
 	o.Super().AsGeometryInstance3D().SetTransparency(value)
 	return o
 }
 
 // CastShadow is promoted from [GeometryInstance3D.Instance.CastShadow].
+func (self Instance) CastShadow() GeometryInstance3D.ShadowCastingSetting { return self.AsGeometryInstance3D().CastShadow() }
 func (o *Extension[T]) CastShadow() GeometryInstance3D.ShadowCastingSetting { return o.Super().AsGeometryInstance3D().CastShadow() }
 
 // SetCastShadow is promoted from [GeometryInstance3D.Instance.SetCastShadow].
+func (self Instance) SetCastShadow(value GeometryInstance3D.ShadowCastingSetting) Instance {
+	self.AsGeometryInstance3D().SetCastShadow(value)
+	return self
+}
 func (o *Extension[T]) SetCastShadow(value GeometryInstance3D.ShadowCastingSetting) *Extension[T] {
 	o.Super().AsGeometryInstance3D().SetCastShadow(value)
 	return o
 }
 
 // ExtraCullMargin is promoted from [GeometryInstance3D.Instance.ExtraCullMargin].
+func (self Instance) ExtraCullMargin() Float.X { return self.AsGeometryInstance3D().ExtraCullMargin() }
 func (o *Extension[T]) ExtraCullMargin() Float.X { return o.Super().AsGeometryInstance3D().ExtraCullMargin() }
 
 // SetExtraCullMargin is promoted from [GeometryInstance3D.Instance.SetExtraCullMargin].
+func (self Instance) SetExtraCullMargin(value Float.X) Instance {
+	self.AsGeometryInstance3D().SetExtraCullMargin(value)
+	return self
+}
 func (o *Extension[T]) SetExtraCullMargin(value Float.X) *Extension[T] {
 	o.Super().AsGeometryInstance3D().SetExtraCullMargin(value)
 	return o
 }
 
 // CustomAabb is promoted from [GeometryInstance3D.Instance.CustomAabb].
+func (self Instance) CustomAabb() AABB.PositionSize { return self.AsGeometryInstance3D().CustomAabb() }
 func (o *Extension[T]) CustomAabb() AABB.PositionSize { return o.Super().AsGeometryInstance3D().CustomAabb() }
 
 // SetCustomAabb is promoted from [GeometryInstance3D.Instance.SetCustomAabb].
+func (self Instance) SetCustomAabb(value AABB.PositionSize) Instance {
+	self.AsGeometryInstance3D().SetCustomAabb(value)
+	return self
+}
 func (o *Extension[T]) SetCustomAabb(value AABB.PositionSize) *Extension[T] {
 	o.Super().AsGeometryInstance3D().SetCustomAabb(value)
 	return o
 }
 
 // LodBias is promoted from [GeometryInstance3D.Instance.LodBias].
+func (self Instance) LodBias() Float.X { return self.AsGeometryInstance3D().LodBias() }
 func (o *Extension[T]) LodBias() Float.X { return o.Super().AsGeometryInstance3D().LodBias() }
 
 // SetLodBias is promoted from [GeometryInstance3D.Instance.SetLodBias].
+func (self Instance) SetLodBias(value Float.X) Instance {
+	self.AsGeometryInstance3D().SetLodBias(value)
+	return self
+}
 func (o *Extension[T]) SetLodBias(value Float.X) *Extension[T] {
 	o.Super().AsGeometryInstance3D().SetLodBias(value)
 	return o
 }
 
 // IgnoreOcclusionCulling is promoted from [GeometryInstance3D.Instance.IgnoreOcclusionCulling].
+func (self Instance) IgnoreOcclusionCulling() bool { return self.AsGeometryInstance3D().IgnoreOcclusionCulling() }
 func (o *Extension[T]) IgnoreOcclusionCulling() bool { return o.Super().AsGeometryInstance3D().IgnoreOcclusionCulling() }
 
 // SetIgnoreOcclusionCulling is promoted from [GeometryInstance3D.Instance.SetIgnoreOcclusionCulling].
+func (self Instance) SetIgnoreOcclusionCulling(value bool) Instance {
+	self.AsGeometryInstance3D().SetIgnoreOcclusionCulling(value)
+	return self
+}
 func (o *Extension[T]) SetIgnoreOcclusionCulling(value bool) *Extension[T] {
 	o.Super().AsGeometryInstance3D().SetIgnoreOcclusionCulling(value)
 	return o
 }
 
 // GiMode is promoted from [GeometryInstance3D.Instance.GiMode].
+func (self Instance) GiMode() GeometryInstance3D.GIMode { return self.AsGeometryInstance3D().GiMode() }
 func (o *Extension[T]) GiMode() GeometryInstance3D.GIMode { return o.Super().AsGeometryInstance3D().GiMode() }
 
 // SetGiMode is promoted from [GeometryInstance3D.Instance.SetGiMode].
+func (self Instance) SetGiMode(value GeometryInstance3D.GIMode) Instance {
+	self.AsGeometryInstance3D().SetGiMode(value)
+	return self
+}
 func (o *Extension[T]) SetGiMode(value GeometryInstance3D.GIMode) *Extension[T] {
 	o.Super().AsGeometryInstance3D().SetGiMode(value)
 	return o
 }
 
 // GiLightmapTexelScale is promoted from [GeometryInstance3D.Instance.GiLightmapTexelScale].
+func (self Instance) GiLightmapTexelScale() Float.X { return self.AsGeometryInstance3D().GiLightmapTexelScale() }
 func (o *Extension[T]) GiLightmapTexelScale() Float.X { return o.Super().AsGeometryInstance3D().GiLightmapTexelScale() }
 
 // SetGiLightmapTexelScale is promoted from [GeometryInstance3D.Instance.SetGiLightmapTexelScale].
+func (self Instance) SetGiLightmapTexelScale(value Float.X) Instance {
+	self.AsGeometryInstance3D().SetGiLightmapTexelScale(value)
+	return self
+}
 func (o *Extension[T]) SetGiLightmapTexelScale(value Float.X) *Extension[T] {
 	o.Super().AsGeometryInstance3D().SetGiLightmapTexelScale(value)
 	return o
 }
 
 // GiLightmapScale is promoted from [GeometryInstance3D.Instance.GiLightmapScale].
+func (self Instance) GiLightmapScale() GeometryInstance3D.LightmapScale { return self.AsGeometryInstance3D().GiLightmapScale() }
 func (o *Extension[T]) GiLightmapScale() GeometryInstance3D.LightmapScale { return o.Super().AsGeometryInstance3D().GiLightmapScale() }
 
 // SetGiLightmapScale is promoted from [GeometryInstance3D.Instance.SetGiLightmapScale].
+func (self Instance) SetGiLightmapScale(value GeometryInstance3D.LightmapScale) Instance {
+	self.AsGeometryInstance3D().SetGiLightmapScale(value)
+	return self
+}
 func (o *Extension[T]) SetGiLightmapScale(value GeometryInstance3D.LightmapScale) *Extension[T] {
 	o.Super().AsGeometryInstance3D().SetGiLightmapScale(value)
 	return o
 }
 
 // VisibilityRangeBegin is promoted from [GeometryInstance3D.Instance.VisibilityRangeBegin].
+func (self Instance) VisibilityRangeBegin() Float.X { return self.AsGeometryInstance3D().VisibilityRangeBegin() }
 func (o *Extension[T]) VisibilityRangeBegin() Float.X { return o.Super().AsGeometryInstance3D().VisibilityRangeBegin() }
 
 // SetVisibilityRangeBegin is promoted from [GeometryInstance3D.Instance.SetVisibilityRangeBegin].
+func (self Instance) SetVisibilityRangeBegin(value Float.X) Instance {
+	self.AsGeometryInstance3D().SetVisibilityRangeBegin(value)
+	return self
+}
 func (o *Extension[T]) SetVisibilityRangeBegin(value Float.X) *Extension[T] {
 	o.Super().AsGeometryInstance3D().SetVisibilityRangeBegin(value)
 	return o
 }
 
 // VisibilityRangeBeginMargin is promoted from [GeometryInstance3D.Instance.VisibilityRangeBeginMargin].
+func (self Instance) VisibilityRangeBeginMargin() Float.X { return self.AsGeometryInstance3D().VisibilityRangeBeginMargin() }
 func (o *Extension[T]) VisibilityRangeBeginMargin() Float.X { return o.Super().AsGeometryInstance3D().VisibilityRangeBeginMargin() }
 
 // SetVisibilityRangeBeginMargin is promoted from [GeometryInstance3D.Instance.SetVisibilityRangeBeginMargin].
+func (self Instance) SetVisibilityRangeBeginMargin(value Float.X) Instance {
+	self.AsGeometryInstance3D().SetVisibilityRangeBeginMargin(value)
+	return self
+}
 func (o *Extension[T]) SetVisibilityRangeBeginMargin(value Float.X) *Extension[T] {
 	o.Super().AsGeometryInstance3D().SetVisibilityRangeBeginMargin(value)
 	return o
 }
 
 // VisibilityRangeEnd is promoted from [GeometryInstance3D.Instance.VisibilityRangeEnd].
+func (self Instance) VisibilityRangeEnd() Float.X { return self.AsGeometryInstance3D().VisibilityRangeEnd() }
 func (o *Extension[T]) VisibilityRangeEnd() Float.X { return o.Super().AsGeometryInstance3D().VisibilityRangeEnd() }
 
 // SetVisibilityRangeEnd is promoted from [GeometryInstance3D.Instance.SetVisibilityRangeEnd].
+func (self Instance) SetVisibilityRangeEnd(value Float.X) Instance {
+	self.AsGeometryInstance3D().SetVisibilityRangeEnd(value)
+	return self
+}
 func (o *Extension[T]) SetVisibilityRangeEnd(value Float.X) *Extension[T] {
 	o.Super().AsGeometryInstance3D().SetVisibilityRangeEnd(value)
 	return o
 }
 
 // VisibilityRangeEndMargin is promoted from [GeometryInstance3D.Instance.VisibilityRangeEndMargin].
+func (self Instance) VisibilityRangeEndMargin() Float.X { return self.AsGeometryInstance3D().VisibilityRangeEndMargin() }
 func (o *Extension[T]) VisibilityRangeEndMargin() Float.X { return o.Super().AsGeometryInstance3D().VisibilityRangeEndMargin() }
 
 // SetVisibilityRangeEndMargin is promoted from [GeometryInstance3D.Instance.SetVisibilityRangeEndMargin].
+func (self Instance) SetVisibilityRangeEndMargin(value Float.X) Instance {
+	self.AsGeometryInstance3D().SetVisibilityRangeEndMargin(value)
+	return self
+}
 func (o *Extension[T]) SetVisibilityRangeEndMargin(value Float.X) *Extension[T] {
 	o.Super().AsGeometryInstance3D().SetVisibilityRangeEndMargin(value)
 	return o
 }
 
 // VisibilityRangeFadeMode is promoted from [GeometryInstance3D.Instance.VisibilityRangeFadeMode].
+func (self Instance) VisibilityRangeFadeMode() GeometryInstance3D.VisibilityRangeFadeMode { return self.AsGeometryInstance3D().VisibilityRangeFadeMode() }
 func (o *Extension[T]) VisibilityRangeFadeMode() GeometryInstance3D.VisibilityRangeFadeMode { return o.Super().AsGeometryInstance3D().VisibilityRangeFadeMode() }
 
 // SetVisibilityRangeFadeMode is promoted from [GeometryInstance3D.Instance.SetVisibilityRangeFadeMode].
+func (self Instance) SetVisibilityRangeFadeMode(value GeometryInstance3D.VisibilityRangeFadeMode) Instance {
+	self.AsGeometryInstance3D().SetVisibilityRangeFadeMode(value)
+	return self
+}
 func (o *Extension[T]) SetVisibilityRangeFadeMode(value GeometryInstance3D.VisibilityRangeFadeMode) *Extension[T] {
 	o.Super().AsGeometryInstance3D().SetVisibilityRangeFadeMode(value)
 	return o
 }
 
 // Layers is promoted from [VisualInstance3D.Instance.Layers].
+func (self Instance) Layers() int { return self.AsVisualInstance3D().Layers() }
 func (o *Extension[T]) Layers() int { return o.Super().AsVisualInstance3D().Layers() }
 
 // SetLayers is promoted from [VisualInstance3D.Instance.SetLayers].
+func (self Instance) SetLayers(value int) Instance {
+	self.AsVisualInstance3D().SetLayers(value)
+	return self
+}
 func (o *Extension[T]) SetLayers(value int) *Extension[T] {
 	o.Super().AsVisualInstance3D().SetLayers(value)
 	return o
 }
 
 // SortingOffset is promoted from [VisualInstance3D.Instance.SortingOffset].
+func (self Instance) SortingOffset() Float.X { return self.AsVisualInstance3D().SortingOffset() }
 func (o *Extension[T]) SortingOffset() Float.X { return o.Super().AsVisualInstance3D().SortingOffset() }
 
 // SetSortingOffset is promoted from [VisualInstance3D.Instance.SetSortingOffset].
+func (self Instance) SetSortingOffset(value Float.X) Instance {
+	self.AsVisualInstance3D().SetSortingOffset(value)
+	return self
+}
 func (o *Extension[T]) SetSortingOffset(value Float.X) *Extension[T] {
 	o.Super().AsVisualInstance3D().SetSortingOffset(value)
 	return o
 }
 
 // SortingUseAabbCenter is promoted from [VisualInstance3D.Instance.SortingUseAabbCenter].
+func (self Instance) SortingUseAabbCenter() bool { return self.AsVisualInstance3D().SortingUseAabbCenter() }
 func (o *Extension[T]) SortingUseAabbCenter() bool { return o.Super().AsVisualInstance3D().SortingUseAabbCenter() }
 
 // SetSortingUseAabbCenter is promoted from [VisualInstance3D.Instance.SetSortingUseAabbCenter].
+func (self Instance) SetSortingUseAabbCenter(value bool) Instance {
+	self.AsVisualInstance3D().SetSortingUseAabbCenter(value)
+	return self
+}
 func (o *Extension[T]) SetSortingUseAabbCenter(value bool) *Extension[T] {
 	o.Super().AsVisualInstance3D().SetSortingUseAabbCenter(value)
 	return o
 }
 
 // Transform is promoted from [Node3D.Instance.Transform].
+func (self Instance) Transform() Transform3D.BasisOrigin { return self.AsNode3D().Transform() }
 func (o *Extension[T]) Transform() Transform3D.BasisOrigin { return o.Super().AsNode3D().Transform() }
 
 // SetTransform is promoted from [Node3D.Instance.SetTransform].
+func (self Instance) SetTransform(value Transform3D.BasisOrigin) Instance {
+	self.AsNode3D().SetTransform(value)
+	return self
+}
 func (o *Extension[T]) SetTransform(value Transform3D.BasisOrigin) *Extension[T] {
 	o.Super().AsNode3D().SetTransform(value)
 	return o
 }
 
 // GlobalTransform is promoted from [Node3D.Instance.GlobalTransform].
+func (self Instance) GlobalTransform() Transform3D.BasisOrigin { return self.AsNode3D().GlobalTransform() }
 func (o *Extension[T]) GlobalTransform() Transform3D.BasisOrigin { return o.Super().AsNode3D().GlobalTransform() }
 
 // SetGlobalTransform is promoted from [Node3D.Instance.SetGlobalTransform].
+func (self Instance) SetGlobalTransform(value Transform3D.BasisOrigin) Instance {
+	self.AsNode3D().SetGlobalTransform(value)
+	return self
+}
 func (o *Extension[T]) SetGlobalTransform(value Transform3D.BasisOrigin) *Extension[T] {
 	o.Super().AsNode3D().SetGlobalTransform(value)
 	return o
 }
 
 // Position is promoted from [Node3D.Instance.Position].
+func (self Instance) Position() Vector3.XYZ { return self.AsNode3D().Position() }
 func (o *Extension[T]) Position() Vector3.XYZ { return o.Super().AsNode3D().Position() }
 
 // SetPosition is promoted from [Node3D.Instance.SetPosition].
+func (self Instance) SetPosition(value Vector3.XYZ) Instance {
+	self.AsNode3D().SetPosition(value)
+	return self
+}
 func (o *Extension[T]) SetPosition(value Vector3.XYZ) *Extension[T] {
 	o.Super().AsNode3D().SetPosition(value)
 	return o
 }
 
 // Rotation is promoted from [Node3D.Instance.Rotation].
+func (self Instance) Rotation() Euler.Radians { return self.AsNode3D().Rotation() }
 func (o *Extension[T]) Rotation() Euler.Radians { return o.Super().AsNode3D().Rotation() }
 
 // SetRotation is promoted from [Node3D.Instance.SetRotation].
+func (self Instance) SetRotation(value Euler.Radians) Instance {
+	self.AsNode3D().SetRotation(value)
+	return self
+}
 func (o *Extension[T]) SetRotation(value Euler.Radians) *Extension[T] {
 	o.Super().AsNode3D().SetRotation(value)
 	return o
 }
 
 // RotationDegrees is promoted from [Node3D.Instance.RotationDegrees].
+func (self Instance) RotationDegrees() Euler.Degrees { return self.AsNode3D().RotationDegrees() }
 func (o *Extension[T]) RotationDegrees() Euler.Degrees { return o.Super().AsNode3D().RotationDegrees() }
 
 // SetRotationDegrees is promoted from [Node3D.Instance.SetRotationDegrees].
+func (self Instance) SetRotationDegrees(value Euler.Degrees) Instance {
+	self.AsNode3D().SetRotationDegrees(value)
+	return self
+}
 func (o *Extension[T]) SetRotationDegrees(value Euler.Degrees) *Extension[T] {
 	o.Super().AsNode3D().SetRotationDegrees(value)
 	return o
 }
 
 // Quaternion is promoted from [Node3D.Instance.Quaternion].
+func (self Instance) Quaternion() Quaternion.IJKX { return self.AsNode3D().Quaternion() }
 func (o *Extension[T]) Quaternion() Quaternion.IJKX { return o.Super().AsNode3D().Quaternion() }
 
 // SetQuaternion is promoted from [Node3D.Instance.SetQuaternion].
+func (self Instance) SetQuaternion(value Quaternion.IJKX) Instance {
+	self.AsNode3D().SetQuaternion(value)
+	return self
+}
 func (o *Extension[T]) SetQuaternion(value Quaternion.IJKX) *Extension[T] {
 	o.Super().AsNode3D().SetQuaternion(value)
 	return o
 }
 
 // Basis is promoted from [Node3D.Instance.Basis].
+func (self Instance) Basis() Basis.XYZ { return self.AsNode3D().Basis() }
 func (o *Extension[T]) Basis() Basis.XYZ { return o.Super().AsNode3D().Basis() }
 
 // SetBasis is promoted from [Node3D.Instance.SetBasis].
+func (self Instance) SetBasis(value Basis.XYZ) Instance {
+	self.AsNode3D().SetBasis(value)
+	return self
+}
 func (o *Extension[T]) SetBasis(value Basis.XYZ) *Extension[T] {
 	o.Super().AsNode3D().SetBasis(value)
 	return o
 }
 
 // Scale is promoted from [Node3D.Instance.Scale].
+func (self Instance) Scale() Vector3.XYZ { return self.AsNode3D().Scale() }
 func (o *Extension[T]) Scale() Vector3.XYZ { return o.Super().AsNode3D().Scale() }
 
 // SetScale is promoted from [Node3D.Instance.SetScale].
+func (self Instance) SetScale(value Vector3.XYZ) Instance {
+	self.AsNode3D().SetScale(value)
+	return self
+}
 func (o *Extension[T]) SetScale(value Vector3.XYZ) *Extension[T] {
 	o.Super().AsNode3D().SetScale(value)
 	return o
 }
 
 // RotationEditMode is promoted from [Node3D.Instance.RotationEditMode].
+func (self Instance) RotationEditMode() Node3D.RotationEditMode { return self.AsNode3D().RotationEditMode() }
 func (o *Extension[T]) RotationEditMode() Node3D.RotationEditMode { return o.Super().AsNode3D().RotationEditMode() }
 
 // SetRotationEditMode is promoted from [Node3D.Instance.SetRotationEditMode].
+func (self Instance) SetRotationEditMode(value Node3D.RotationEditMode) Instance {
+	self.AsNode3D().SetRotationEditMode(value)
+	return self
+}
 func (o *Extension[T]) SetRotationEditMode(value Node3D.RotationEditMode) *Extension[T] {
 	o.Super().AsNode3D().SetRotationEditMode(value)
 	return o
 }
 
 // RotationOrder is promoted from [Node3D.Instance.RotationOrder].
+func (self Instance) RotationOrder() Angle.Order { return self.AsNode3D().RotationOrder() }
 func (o *Extension[T]) RotationOrder() Angle.Order { return o.Super().AsNode3D().RotationOrder() }
 
 // SetRotationOrder is promoted from [Node3D.Instance.SetRotationOrder].
+func (self Instance) SetRotationOrder(value Angle.Order) Instance {
+	self.AsNode3D().SetRotationOrder(value)
+	return self
+}
 func (o *Extension[T]) SetRotationOrder(value Angle.Order) *Extension[T] {
 	o.Super().AsNode3D().SetRotationOrder(value)
 	return o
 }
 
 // TopLevel is promoted from [Node3D.Instance.TopLevel].
+func (self Instance) TopLevel() bool { return self.AsNode3D().TopLevel() }
 func (o *Extension[T]) TopLevel() bool { return o.Super().AsNode3D().TopLevel() }
 
 // SetTopLevel is promoted from [Node3D.Instance.SetTopLevel].
+func (self Instance) SetTopLevel(value bool) Instance {
+	self.AsNode3D().SetTopLevel(value)
+	return self
+}
 func (o *Extension[T]) SetTopLevel(value bool) *Extension[T] {
 	o.Super().AsNode3D().SetTopLevel(value)
 	return o
 }
 
 // GlobalPosition is promoted from [Node3D.Instance.GlobalPosition].
+func (self Instance) GlobalPosition() Vector3.XYZ { return self.AsNode3D().GlobalPosition() }
 func (o *Extension[T]) GlobalPosition() Vector3.XYZ { return o.Super().AsNode3D().GlobalPosition() }
 
 // SetGlobalPosition is promoted from [Node3D.Instance.SetGlobalPosition].
+func (self Instance) SetGlobalPosition(value Vector3.XYZ) Instance {
+	self.AsNode3D().SetGlobalPosition(value)
+	return self
+}
 func (o *Extension[T]) SetGlobalPosition(value Vector3.XYZ) *Extension[T] {
 	o.Super().AsNode3D().SetGlobalPosition(value)
 	return o
 }
 
 // GlobalBasis is promoted from [Node3D.Instance.GlobalBasis].
+func (self Instance) GlobalBasis() Basis.XYZ { return self.AsNode3D().GlobalBasis() }
 func (o *Extension[T]) GlobalBasis() Basis.XYZ { return o.Super().AsNode3D().GlobalBasis() }
 
 // SetGlobalBasis is promoted from [Node3D.Instance.SetGlobalBasis].
+func (self Instance) SetGlobalBasis(value Basis.XYZ) Instance {
+	self.AsNode3D().SetGlobalBasis(value)
+	return self
+}
 func (o *Extension[T]) SetGlobalBasis(value Basis.XYZ) *Extension[T] {
 	o.Super().AsNode3D().SetGlobalBasis(value)
 	return o
 }
 
 // GlobalRotation is promoted from [Node3D.Instance.GlobalRotation].
+func (self Instance) GlobalRotation() Euler.Radians { return self.AsNode3D().GlobalRotation() }
 func (o *Extension[T]) GlobalRotation() Euler.Radians { return o.Super().AsNode3D().GlobalRotation() }
 
 // SetGlobalRotation is promoted from [Node3D.Instance.SetGlobalRotation].
+func (self Instance) SetGlobalRotation(value Euler.Radians) Instance {
+	self.AsNode3D().SetGlobalRotation(value)
+	return self
+}
 func (o *Extension[T]) SetGlobalRotation(value Euler.Radians) *Extension[T] {
 	o.Super().AsNode3D().SetGlobalRotation(value)
 	return o
 }
 
 // GlobalRotationDegrees is promoted from [Node3D.Instance.GlobalRotationDegrees].
+func (self Instance) GlobalRotationDegrees() Euler.Degrees { return self.AsNode3D().GlobalRotationDegrees() }
 func (o *Extension[T]) GlobalRotationDegrees() Euler.Degrees { return o.Super().AsNode3D().GlobalRotationDegrees() }
 
 // SetGlobalRotationDegrees is promoted from [Node3D.Instance.SetGlobalRotationDegrees].
+func (self Instance) SetGlobalRotationDegrees(value Euler.Degrees) Instance {
+	self.AsNode3D().SetGlobalRotationDegrees(value)
+	return self
+}
 func (o *Extension[T]) SetGlobalRotationDegrees(value Euler.Degrees) *Extension[T] {
 	o.Super().AsNode3D().SetGlobalRotationDegrees(value)
 	return o
 }
 
 // Visible is promoted from [Node3D.Instance.Visible].
+func (self Instance) Visible() bool { return self.AsNode3D().Visible() }
 func (o *Extension[T]) Visible() bool { return o.Super().AsNode3D().Visible() }
 
 // SetVisible is promoted from [Node3D.Instance.SetVisible].
+func (self Instance) SetVisible(value bool) Instance {
+	self.AsNode3D().SetVisible(value)
+	return self
+}
 func (o *Extension[T]) SetVisible(value bool) *Extension[T] {
 	o.Super().AsNode3D().SetVisible(value)
 	return o
 }
 
 // VisibilityParent is promoted from [Node3D.Instance.VisibilityParent].
+func (self Instance) VisibilityParent() string { return self.AsNode3D().VisibilityParent() }
 func (o *Extension[T]) VisibilityParent() string { return o.Super().AsNode3D().VisibilityParent() }
 
 // SetVisibilityParent is promoted from [Node3D.Instance.SetVisibilityParent].
+func (self Instance) SetVisibilityParent(value string) Instance {
+	self.AsNode3D().SetVisibilityParent(value)
+	return self
+}
 func (o *Extension[T]) SetVisibilityParent(value string) *Extension[T] {
 	o.Super().AsNode3D().SetVisibilityParent(value)
 	return o
 }
 
 // Name is promoted from [Node.Instance.Name].
+func (self Instance) Name() string { return self.AsNode().Name() }
 func (o *Extension[T]) Name() string { return o.Super().AsNode().Name() }
 
 // SetName is promoted from [Node.Instance.SetName].
+func (self Instance) SetName(value string) Instance {
+	self.AsNode().SetName(value)
+	return self
+}
 func (o *Extension[T]) SetName(value string) *Extension[T] {
 	o.Super().AsNode().SetName(value)
 	return o
 }
 
 // UniqueNameInOwner is promoted from [Node.Instance.UniqueNameInOwner].
+func (self Instance) UniqueNameInOwner() bool { return self.AsNode().UniqueNameInOwner() }
 func (o *Extension[T]) UniqueNameInOwner() bool { return o.Super().AsNode().UniqueNameInOwner() }
 
 // SetUniqueNameInOwner is promoted from [Node.Instance.SetUniqueNameInOwner].
+func (self Instance) SetUniqueNameInOwner(value bool) Instance {
+	self.AsNode().SetUniqueNameInOwner(value)
+	return self
+}
 func (o *Extension[T]) SetUniqueNameInOwner(value bool) *Extension[T] {
 	o.Super().AsNode().SetUniqueNameInOwner(value)
 	return o
 }
 
 // SceneFilePath is promoted from [Node.Instance.SceneFilePath].
+func (self Instance) SceneFilePath() string { return self.AsNode().SceneFilePath() }
 func (o *Extension[T]) SceneFilePath() string { return o.Super().AsNode().SceneFilePath() }
 
 // SetSceneFilePath is promoted from [Node.Instance.SetSceneFilePath].
+func (self Instance) SetSceneFilePath(value string) Instance {
+	self.AsNode().SetSceneFilePath(value)
+	return self
+}
 func (o *Extension[T]) SetSceneFilePath(value string) *Extension[T] {
 	o.Super().AsNode().SetSceneFilePath(value)
 	return o
 }
 
 // Owner is promoted from [Node.Instance.Owner].
+func (self Instance) Owner() Node.Instance { return self.AsNode().Owner() }
 func (o *Extension[T]) Owner() Node.Instance { return o.Super().AsNode().Owner() }
 
 // SetOwner is promoted from [Node.Instance.SetOwner].
+func (self Instance) SetOwner(value Node.Instance) Instance {
+	self.AsNode().SetOwner(value)
+	return self
+}
 func (o *Extension[T]) SetOwner(value Node.Instance) *Extension[T] {
 	o.Super().AsNode().SetOwner(value)
 	return o
 }
 
 // Multiplayer is promoted from [Node.Instance.Multiplayer].
+func (self Instance) Multiplayer() MultiplayerAPI.Instance { return self.AsNode().Multiplayer() }
 func (o *Extension[T]) Multiplayer() MultiplayerAPI.Instance { return o.Super().AsNode().Multiplayer() }
 
 // ProcessMode is promoted from [Node.Instance.ProcessMode].
+func (self Instance) ProcessMode() Node.ProcessMode { return self.AsNode().ProcessMode() }
 func (o *Extension[T]) ProcessMode() Node.ProcessMode { return o.Super().AsNode().ProcessMode() }
 
 // SetProcessMode is promoted from [Node.Instance.SetProcessMode].
+func (self Instance) SetProcessMode(value Node.ProcessMode) Instance {
+	self.AsNode().SetProcessMode(value)
+	return self
+}
 func (o *Extension[T]) SetProcessMode(value Node.ProcessMode) *Extension[T] {
 	o.Super().AsNode().SetProcessMode(value)
 	return o
 }
 
 // ProcessPriority is promoted from [Node.Instance.ProcessPriority].
+func (self Instance) ProcessPriority() int { return self.AsNode().ProcessPriority() }
 func (o *Extension[T]) ProcessPriority() int { return o.Super().AsNode().ProcessPriority() }
 
 // SetProcessPriority is promoted from [Node.Instance.SetProcessPriority].
+func (self Instance) SetProcessPriority(value int) Instance {
+	self.AsNode().SetProcessPriority(value)
+	return self
+}
 func (o *Extension[T]) SetProcessPriority(value int) *Extension[T] {
 	o.Super().AsNode().SetProcessPriority(value)
 	return o
 }
 
 // ProcessPhysicsPriority is promoted from [Node.Instance.ProcessPhysicsPriority].
+func (self Instance) ProcessPhysicsPriority() int { return self.AsNode().ProcessPhysicsPriority() }
 func (o *Extension[T]) ProcessPhysicsPriority() int { return o.Super().AsNode().ProcessPhysicsPriority() }
 
 // SetProcessPhysicsPriority is promoted from [Node.Instance.SetProcessPhysicsPriority].
+func (self Instance) SetProcessPhysicsPriority(value int) Instance {
+	self.AsNode().SetProcessPhysicsPriority(value)
+	return self
+}
 func (o *Extension[T]) SetProcessPhysicsPriority(value int) *Extension[T] {
 	o.Super().AsNode().SetProcessPhysicsPriority(value)
 	return o
 }
 
 // ProcessThreadGroup is promoted from [Node.Instance.ProcessThreadGroup].
+func (self Instance) ProcessThreadGroup() Node.ProcessThreadGroup { return self.AsNode().ProcessThreadGroup() }
 func (o *Extension[T]) ProcessThreadGroup() Node.ProcessThreadGroup { return o.Super().AsNode().ProcessThreadGroup() }
 
 // SetProcessThreadGroup is promoted from [Node.Instance.SetProcessThreadGroup].
+func (self Instance) SetProcessThreadGroup(value Node.ProcessThreadGroup) Instance {
+	self.AsNode().SetProcessThreadGroup(value)
+	return self
+}
 func (o *Extension[T]) SetProcessThreadGroup(value Node.ProcessThreadGroup) *Extension[T] {
 	o.Super().AsNode().SetProcessThreadGroup(value)
 	return o
 }
 
 // ProcessThreadGroupOrder is promoted from [Node.Instance.ProcessThreadGroupOrder].
+func (self Instance) ProcessThreadGroupOrder() int { return self.AsNode().ProcessThreadGroupOrder() }
 func (o *Extension[T]) ProcessThreadGroupOrder() int { return o.Super().AsNode().ProcessThreadGroupOrder() }
 
 // SetProcessThreadGroupOrder is promoted from [Node.Instance.SetProcessThreadGroupOrder].
+func (self Instance) SetProcessThreadGroupOrder(value int) Instance {
+	self.AsNode().SetProcessThreadGroupOrder(value)
+	return self
+}
 func (o *Extension[T]) SetProcessThreadGroupOrder(value int) *Extension[T] {
 	o.Super().AsNode().SetProcessThreadGroupOrder(value)
 	return o
 }
 
 // ProcessThreadMessages is promoted from [Node.Instance.ProcessThreadMessages].
+func (self Instance) ProcessThreadMessages() Node.ProcessThreadMessages { return self.AsNode().ProcessThreadMessages() }
 func (o *Extension[T]) ProcessThreadMessages() Node.ProcessThreadMessages { return o.Super().AsNode().ProcessThreadMessages() }
 
 // SetProcessThreadMessages is promoted from [Node.Instance.SetProcessThreadMessages].
+func (self Instance) SetProcessThreadMessages(value Node.ProcessThreadMessages) Instance {
+	self.AsNode().SetProcessThreadMessages(value)
+	return self
+}
 func (o *Extension[T]) SetProcessThreadMessages(value Node.ProcessThreadMessages) *Extension[T] {
 	o.Super().AsNode().SetProcessThreadMessages(value)
 	return o
 }
 
 // PhysicsInterpolationMode is promoted from [Node.Instance.PhysicsInterpolationMode].
+func (self Instance) PhysicsInterpolationMode() Node.PhysicsInterpolationMode { return self.AsNode().PhysicsInterpolationMode() }
 func (o *Extension[T]) PhysicsInterpolationMode() Node.PhysicsInterpolationMode { return o.Super().AsNode().PhysicsInterpolationMode() }
 
 // SetPhysicsInterpolationMode is promoted from [Node.Instance.SetPhysicsInterpolationMode].
+func (self Instance) SetPhysicsInterpolationMode(value Node.PhysicsInterpolationMode) Instance {
+	self.AsNode().SetPhysicsInterpolationMode(value)
+	return self
+}
 func (o *Extension[T]) SetPhysicsInterpolationMode(value Node.PhysicsInterpolationMode) *Extension[T] {
 	o.Super().AsNode().SetPhysicsInterpolationMode(value)
 	return o
 }
 
 // AutoTranslateMode is promoted from [Node.Instance.AutoTranslateMode].
+func (self Instance) AutoTranslateMode() Node.AutoTranslateMode { return self.AsNode().AutoTranslateMode() }
 func (o *Extension[T]) AutoTranslateMode() Node.AutoTranslateMode { return o.Super().AsNode().AutoTranslateMode() }
 
 // SetAutoTranslateMode is promoted from [Node.Instance.SetAutoTranslateMode].
+func (self Instance) SetAutoTranslateMode(value Node.AutoTranslateMode) Instance {
+	self.AsNode().SetAutoTranslateMode(value)
+	return self
+}
 func (o *Extension[T]) SetAutoTranslateMode(value Node.AutoTranslateMode) *Extension[T] {
 	o.Super().AsNode().SetAutoTranslateMode(value)
 	return o
 }
 
 // EditorDescription is promoted from [Node.Instance.EditorDescription].
+func (self Instance) EditorDescription() string { return self.AsNode().EditorDescription() }
 func (o *Extension[T]) EditorDescription() string { return o.Super().AsNode().EditorDescription() }
 
 // SetEditorDescription is promoted from [Node.Instance.SetEditorDescription].
+func (self Instance) SetEditorDescription(value string) Instance {
+	self.AsNode().SetEditorDescription(value)
+	return self
+}
 func (o *Extension[T]) SetEditorDescription(value string) *Extension[T] {
 	o.Super().AsNode().SetEditorDescription(value)
 	return o

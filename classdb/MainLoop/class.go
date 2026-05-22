@@ -236,6 +236,14 @@ return Signal.Via(gd.SignalProxy{}, pointers.Pack(gd.NewSignalOf(self.AsObject()
 func (o class) AsMainLoop() Advanced { return Advanced(o) }
 func (o Instance) AsMainLoop() Instance { return o }
 func (o *Extension[T]) AsMainLoop() Instance { return o.Super() }
+func (o *Extension[T]) OnOnRequestPermissionsResult(cb func(permission string, granted bool), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("on_request_permissions_result"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

@@ -649,6 +649,94 @@ func (o Instance) AsXRInterface() XRInterface.Instance { return *(*XRInterface.I
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) OnSessionBegun(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("session_begun"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+func (o *Extension[T]) OnSessionStopping(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("session_stopping"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+func (o *Extension[T]) OnSessionSynchronized(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("session_synchronized"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+func (o *Extension[T]) OnSessionFocussed(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("session_focussed"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+func (o *Extension[T]) OnSessionVisible(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("session_visible"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+func (o *Extension[T]) OnSessionLossPending(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("session_loss_pending"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+func (o *Extension[T]) OnInstanceExiting(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("instance_exiting"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+func (o *Extension[T]) OnPoseRecentered(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("pose_recentered"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+func (o *Extension[T]) OnRefreshRateChanged(cb func(refresh_rate Float.X), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("refresh_rate_changed"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+func (o *Extension[T]) OnCpuLevelChanged(cb func(sub_domain int, from_level int, to_level int), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("cpu_level_changed"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+func (o *Extension[T]) OnGpuLevelChanged(cb func(sub_domain int, from_level int, to_level int), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("gpu_level_changed"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
 
 // OnPlayAreaChanged is promoted from [XRInterface.Instance.OnPlayAreaChanged].
 func (self Instance) OnPlayAreaChanged(cb func(mode int), flags ...Signal.Flags) Instance {
@@ -658,6 +746,16 @@ func (self Instance) OnPlayAreaChanged(cb func(mode int), flags ...Signal.Flags)
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("play_area_changed"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+
+// OnPlayAreaChanged is promoted from [XRInterface.Instance.OnPlayAreaChanged].
+func (o *Extension[T]) OnPlayAreaChanged(cb func(mode int), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("play_area_changed"), gd.NewCallable(cb), int64(flags_together))
+	return o
 }
 func (o *Extension[T]) GetSessionState() SessionState {
 	return o.Super().GetSessionState()
@@ -925,36 +1023,56 @@ func (o *Extension[T]) GetSupportedEnvironmentBlendModes() []XRInterface.Environ
 }
 
 // InterfaceIsPrimary is promoted from [XRInterface.Instance.InterfaceIsPrimary].
+func (self Instance) InterfaceIsPrimary() bool { return self.AsXRInterface().InterfaceIsPrimary() }
 func (o *Extension[T]) InterfaceIsPrimary() bool { return o.Super().AsXRInterface().InterfaceIsPrimary() }
 
 // SetInterfaceIsPrimary is promoted from [XRInterface.Instance.SetInterfaceIsPrimary].
+func (self Instance) SetInterfaceIsPrimary(value bool) Instance {
+	self.AsXRInterface().SetInterfaceIsPrimary(value)
+	return self
+}
 func (o *Extension[T]) SetInterfaceIsPrimary(value bool) *Extension[T] {
 	o.Super().AsXRInterface().SetInterfaceIsPrimary(value)
 	return o
 }
 
 // XrPlayAreaMode is promoted from [XRInterface.Instance.XrPlayAreaMode].
+func (self Instance) XrPlayAreaMode() XRInterface.PlayAreaMode { return self.AsXRInterface().XrPlayAreaMode() }
 func (o *Extension[T]) XrPlayAreaMode() XRInterface.PlayAreaMode { return o.Super().AsXRInterface().XrPlayAreaMode() }
 
 // SetXrPlayAreaMode is promoted from [XRInterface.Instance.SetXrPlayAreaMode].
+func (self Instance) SetXrPlayAreaMode(value XRInterface.PlayAreaMode) Instance {
+	self.AsXRInterface().SetXrPlayAreaMode(value)
+	return self
+}
 func (o *Extension[T]) SetXrPlayAreaMode(value XRInterface.PlayAreaMode) *Extension[T] {
 	o.Super().AsXRInterface().SetXrPlayAreaMode(value)
 	return o
 }
 
 // EnvironmentBlendMode is promoted from [XRInterface.Instance.EnvironmentBlendMode].
+func (self Instance) EnvironmentBlendMode() XRInterface.EnvironmentBlendMode { return self.AsXRInterface().EnvironmentBlendMode() }
 func (o *Extension[T]) EnvironmentBlendMode() XRInterface.EnvironmentBlendMode { return o.Super().AsXRInterface().EnvironmentBlendMode() }
 
 // SetEnvironmentBlendMode is promoted from [XRInterface.Instance.SetEnvironmentBlendMode].
+func (self Instance) SetEnvironmentBlendMode(value XRInterface.EnvironmentBlendMode) Instance {
+	self.AsXRInterface().SetEnvironmentBlendMode(value)
+	return self
+}
 func (o *Extension[T]) SetEnvironmentBlendMode(value XRInterface.EnvironmentBlendMode) *Extension[T] {
 	o.Super().AsXRInterface().SetEnvironmentBlendMode(value)
 	return o
 }
 
 // ArIsAnchorDetectionEnabled is promoted from [XRInterface.Instance.ArIsAnchorDetectionEnabled].
+func (self Instance) ArIsAnchorDetectionEnabled() bool { return self.AsXRInterface().ArIsAnchorDetectionEnabled() }
 func (o *Extension[T]) ArIsAnchorDetectionEnabled() bool { return o.Super().AsXRInterface().ArIsAnchorDetectionEnabled() }
 
 // SetArIsAnchorDetectionEnabled is promoted from [XRInterface.Instance.SetArIsAnchorDetectionEnabled].
+func (self Instance) SetArIsAnchorDetectionEnabled(value bool) Instance {
+	self.AsXRInterface().SetArIsAnchorDetectionEnabled(value)
+	return self
+}
 func (o *Extension[T]) SetArIsAnchorDetectionEnabled(value bool) *Extension[T] {
 	o.Super().AsXRInterface().SetArIsAnchorDetectionEnabled(value)
 	return o

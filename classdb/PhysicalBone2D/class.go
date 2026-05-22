@@ -346,6 +346,16 @@ func (self Instance) OnBodyShapeEntered(cb func(body_rid RID.Any, body Node.Inst
 	return self
 }
 
+// OnBodyShapeEntered is promoted from [RigidBody2D.Instance.OnBodyShapeEntered].
+func (o *Extension[T]) OnBodyShapeEntered(cb func(body_rid RID.Any, body Node.Instance, body_shape_index int, local_shape_index int), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("body_shape_entered"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+
 // OnBodyShapeExited is promoted from [RigidBody2D.Instance.OnBodyShapeExited].
 func (self Instance) OnBodyShapeExited(cb func(body_rid RID.Any, body Node.Instance, body_shape_index int, local_shape_index int), flags ...Signal.Flags) Instance {
 	var flags_together Signal.Flags
@@ -354,6 +364,16 @@ func (self Instance) OnBodyShapeExited(cb func(body_rid RID.Any, body Node.Insta
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("body_shape_exited"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+
+// OnBodyShapeExited is promoted from [RigidBody2D.Instance.OnBodyShapeExited].
+func (o *Extension[T]) OnBodyShapeExited(cb func(body_rid RID.Any, body Node.Instance, body_shape_index int, local_shape_index int), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("body_shape_exited"), gd.NewCallable(cb), int64(flags_together))
+	return o
 }
 
 // OnBodyEntered is promoted from [RigidBody2D.Instance.OnBodyEntered].
@@ -366,6 +386,16 @@ func (self Instance) OnBodyEntered(cb func(body Node.Instance), flags ...Signal.
 	return self
 }
 
+// OnBodyEntered is promoted from [RigidBody2D.Instance.OnBodyEntered].
+func (o *Extension[T]) OnBodyEntered(cb func(body Node.Instance), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("body_entered"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+
 // OnBodyExited is promoted from [RigidBody2D.Instance.OnBodyExited].
 func (self Instance) OnBodyExited(cb func(body Node.Instance), flags ...Signal.Flags) Instance {
 	var flags_together Signal.Flags
@@ -374,6 +404,16 @@ func (self Instance) OnBodyExited(cb func(body Node.Instance), flags ...Signal.F
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("body_exited"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+
+// OnBodyExited is promoted from [RigidBody2D.Instance.OnBodyExited].
+func (o *Extension[T]) OnBodyExited(cb func(body Node.Instance), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("body_exited"), gd.NewCallable(cb), int64(flags_together))
+	return o
 }
 
 // OnSleepingStateChanged is promoted from [RigidBody2D.Instance.OnSleepingStateChanged].
@@ -386,6 +426,16 @@ func (self Instance) OnSleepingStateChanged(cb func(), flags ...Signal.Flags) In
 	return self
 }
 
+// OnSleepingStateChanged is promoted from [RigidBody2D.Instance.OnSleepingStateChanged].
+func (o *Extension[T]) OnSleepingStateChanged(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("sleeping_state_changed"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+
 // OnInputEvent is promoted from [CollisionObject2D.Instance.OnInputEvent].
 func (self Instance) OnInputEvent(cb func(viewport Node.Instance, event InputEvent.Instance, shape_idx int), flags ...Signal.Flags) Instance {
 	var flags_together Signal.Flags
@@ -394,6 +444,16 @@ func (self Instance) OnInputEvent(cb func(viewport Node.Instance, event InputEve
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("input_event"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+
+// OnInputEvent is promoted from [CollisionObject2D.Instance.OnInputEvent].
+func (o *Extension[T]) OnInputEvent(cb func(viewport Node.Instance, event InputEvent.Instance, shape_idx int), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("input_event"), gd.NewCallable(cb), int64(flags_together))
+	return o
 }
 
 // OnMouseEntered is promoted from [CollisionObject2D.Instance.OnMouseEntered].
@@ -406,6 +466,16 @@ func (self Instance) OnMouseEntered(cb func(), flags ...Signal.Flags) Instance {
 	return self
 }
 
+// OnMouseEntered is promoted from [CollisionObject2D.Instance.OnMouseEntered].
+func (o *Extension[T]) OnMouseEntered(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("mouse_entered"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+
 // OnMouseExited is promoted from [CollisionObject2D.Instance.OnMouseExited].
 func (self Instance) OnMouseExited(cb func(), flags ...Signal.Flags) Instance {
 	var flags_together Signal.Flags
@@ -414,6 +484,16 @@ func (self Instance) OnMouseExited(cb func(), flags ...Signal.Flags) Instance {
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("mouse_exited"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+
+// OnMouseExited is promoted from [CollisionObject2D.Instance.OnMouseExited].
+func (o *Extension[T]) OnMouseExited(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("mouse_exited"), gd.NewCallable(cb), int64(flags_together))
+	return o
 }
 
 // OnMouseShapeEntered is promoted from [CollisionObject2D.Instance.OnMouseShapeEntered].
@@ -426,6 +506,16 @@ func (self Instance) OnMouseShapeEntered(cb func(shape_idx int), flags ...Signal
 	return self
 }
 
+// OnMouseShapeEntered is promoted from [CollisionObject2D.Instance.OnMouseShapeEntered].
+func (o *Extension[T]) OnMouseShapeEntered(cb func(shape_idx int), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("mouse_shape_entered"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+
 // OnMouseShapeExited is promoted from [CollisionObject2D.Instance.OnMouseShapeExited].
 func (self Instance) OnMouseShapeExited(cb func(shape_idx int), flags ...Signal.Flags) Instance {
 	var flags_together Signal.Flags
@@ -434,6 +524,16 @@ func (self Instance) OnMouseShapeExited(cb func(shape_idx int), flags ...Signal.
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("mouse_shape_exited"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+
+// OnMouseShapeExited is promoted from [CollisionObject2D.Instance.OnMouseShapeExited].
+func (o *Extension[T]) OnMouseShapeExited(cb func(shape_idx int), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("mouse_shape_exited"), gd.NewCallable(cb), int64(flags_together))
+	return o
 }
 
 // OnDraw is promoted from [CanvasItem.Instance.OnDraw].
@@ -446,6 +546,16 @@ func (self Instance) OnDraw(cb func(), flags ...Signal.Flags) Instance {
 	return self
 }
 
+// OnDraw is promoted from [CanvasItem.Instance.OnDraw].
+func (o *Extension[T]) OnDraw(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("draw"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+
 // OnVisibilityChanged is promoted from [CanvasItem.Instance.OnVisibilityChanged].
 func (self Instance) OnVisibilityChanged(cb func(), flags ...Signal.Flags) Instance {
 	var flags_together Signal.Flags
@@ -454,6 +564,16 @@ func (self Instance) OnVisibilityChanged(cb func(), flags ...Signal.Flags) Insta
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("visibility_changed"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+
+// OnVisibilityChanged is promoted from [CanvasItem.Instance.OnVisibilityChanged].
+func (o *Extension[T]) OnVisibilityChanged(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("visibility_changed"), gd.NewCallable(cb), int64(flags_together))
+	return o
 }
 
 // OnHidden is promoted from [CanvasItem.Instance.OnHidden].
@@ -466,6 +586,16 @@ func (self Instance) OnHidden(cb func(), flags ...Signal.Flags) Instance {
 	return self
 }
 
+// OnHidden is promoted from [CanvasItem.Instance.OnHidden].
+func (o *Extension[T]) OnHidden(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("hidden"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+
 // OnItemRectChanged is promoted from [CanvasItem.Instance.OnItemRectChanged].
 func (self Instance) OnItemRectChanged(cb func(), flags ...Signal.Flags) Instance {
 	var flags_together Signal.Flags
@@ -474,6 +604,16 @@ func (self Instance) OnItemRectChanged(cb func(), flags ...Signal.Flags) Instanc
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("item_rect_changed"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+
+// OnItemRectChanged is promoted from [CanvasItem.Instance.OnItemRectChanged].
+func (o *Extension[T]) OnItemRectChanged(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("item_rect_changed"), gd.NewCallable(cb), int64(flags_together))
+	return o
 }
 
 // OnReady is promoted from [Node.Instance.OnReady].
@@ -486,6 +626,16 @@ func (self Instance) OnReady(cb func(), flags ...Signal.Flags) Instance {
 	return self
 }
 
+// OnReady is promoted from [Node.Instance.OnReady].
+func (o *Extension[T]) OnReady(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("ready"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+
 // OnRenamed is promoted from [Node.Instance.OnRenamed].
 func (self Instance) OnRenamed(cb func(), flags ...Signal.Flags) Instance {
 	var flags_together Signal.Flags
@@ -494,6 +644,16 @@ func (self Instance) OnRenamed(cb func(), flags ...Signal.Flags) Instance {
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("renamed"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+
+// OnRenamed is promoted from [Node.Instance.OnRenamed].
+func (o *Extension[T]) OnRenamed(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("renamed"), gd.NewCallable(cb), int64(flags_together))
+	return o
 }
 
 // OnTreeEntered is promoted from [Node.Instance.OnTreeEntered].
@@ -506,6 +666,16 @@ func (self Instance) OnTreeEntered(cb func(), flags ...Signal.Flags) Instance {
 	return self
 }
 
+// OnTreeEntered is promoted from [Node.Instance.OnTreeEntered].
+func (o *Extension[T]) OnTreeEntered(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("tree_entered"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+
 // OnTreeExiting is promoted from [Node.Instance.OnTreeExiting].
 func (self Instance) OnTreeExiting(cb func(), flags ...Signal.Flags) Instance {
 	var flags_together Signal.Flags
@@ -514,6 +684,16 @@ func (self Instance) OnTreeExiting(cb func(), flags ...Signal.Flags) Instance {
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("tree_exiting"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+
+// OnTreeExiting is promoted from [Node.Instance.OnTreeExiting].
+func (o *Extension[T]) OnTreeExiting(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("tree_exiting"), gd.NewCallable(cb), int64(flags_together))
+	return o
 }
 
 // OnTreeExited is promoted from [Node.Instance.OnTreeExited].
@@ -526,6 +706,16 @@ func (self Instance) OnTreeExited(cb func(), flags ...Signal.Flags) Instance {
 	return self
 }
 
+// OnTreeExited is promoted from [Node.Instance.OnTreeExited].
+func (o *Extension[T]) OnTreeExited(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("tree_exited"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+
 // OnChildEnteredTree is promoted from [Node.Instance.OnChildEnteredTree].
 func (self Instance) OnChildEnteredTree(cb func(node Node.Instance), flags ...Signal.Flags) Instance {
 	var flags_together Signal.Flags
@@ -534,6 +724,16 @@ func (self Instance) OnChildEnteredTree(cb func(node Node.Instance), flags ...Si
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("child_entered_tree"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+
+// OnChildEnteredTree is promoted from [Node.Instance.OnChildEnteredTree].
+func (o *Extension[T]) OnChildEnteredTree(cb func(node Node.Instance), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("child_entered_tree"), gd.NewCallable(cb), int64(flags_together))
+	return o
 }
 
 // OnChildExitingTree is promoted from [Node.Instance.OnChildExitingTree].
@@ -546,6 +746,16 @@ func (self Instance) OnChildExitingTree(cb func(node Node.Instance), flags ...Si
 	return self
 }
 
+// OnChildExitingTree is promoted from [Node.Instance.OnChildExitingTree].
+func (o *Extension[T]) OnChildExitingTree(cb func(node Node.Instance), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("child_exiting_tree"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+
 // OnChildOrderChanged is promoted from [Node.Instance.OnChildOrderChanged].
 func (self Instance) OnChildOrderChanged(cb func(), flags ...Signal.Flags) Instance {
 	var flags_together Signal.Flags
@@ -554,6 +764,16 @@ func (self Instance) OnChildOrderChanged(cb func(), flags ...Signal.Flags) Insta
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("child_order_changed"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+
+// OnChildOrderChanged is promoted from [Node.Instance.OnChildOrderChanged].
+func (o *Extension[T]) OnChildOrderChanged(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("child_order_changed"), gd.NewCallable(cb), int64(flags_together))
+	return o
 }
 
 // OnReplacingBy is promoted from [Node.Instance.OnReplacingBy].
@@ -566,6 +786,16 @@ func (self Instance) OnReplacingBy(cb func(node Node.Instance), flags ...Signal.
 	return self
 }
 
+// OnReplacingBy is promoted from [Node.Instance.OnReplacingBy].
+func (o *Extension[T]) OnReplacingBy(cb func(node Node.Instance), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("replacing_by"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+
 // OnEditorDescriptionChanged is promoted from [Node.Instance.OnEditorDescriptionChanged].
 func (self Instance) OnEditorDescriptionChanged(cb func(node Node.Instance), flags ...Signal.Flags) Instance {
 	var flags_together Signal.Flags
@@ -576,6 +806,16 @@ func (self Instance) OnEditorDescriptionChanged(cb func(node Node.Instance), fla
 	return self
 }
 
+// OnEditorDescriptionChanged is promoted from [Node.Instance.OnEditorDescriptionChanged].
+func (o *Extension[T]) OnEditorDescriptionChanged(cb func(node Node.Instance), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("editor_description_changed"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+
 // OnEditorStateChanged is promoted from [Node.Instance.OnEditorStateChanged].
 func (self Instance) OnEditorStateChanged(cb func(), flags ...Signal.Flags) Instance {
 	var flags_together Signal.Flags
@@ -584,6 +824,16 @@ func (self Instance) OnEditorStateChanged(cb func(), flags ...Signal.Flags) Inst
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("editor_state_changed"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+
+// OnEditorStateChanged is promoted from [Node.Instance.OnEditorStateChanged].
+func (o *Extension[T]) OnEditorStateChanged(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("editor_state_changed"), gd.NewCallable(cb), int64(flags_together))
+	return o
 }
 func (o *Extension[T]) GetJoint() Joint2D.Instance {
 	return o.Super().GetJoint()
@@ -2065,609 +2315,948 @@ func (o *Extension[T]) NotifyThreadSafe(what int) {
 }
 
 // Mass is promoted from [RigidBody2D.Instance.Mass].
+func (self Instance) Mass() Float.X { return self.AsRigidBody2D().Mass() }
 func (o *Extension[T]) Mass() Float.X { return o.Super().AsRigidBody2D().Mass() }
 
 // SetMass is promoted from [RigidBody2D.Instance.SetMass].
+func (self Instance) SetMass(value Float.X) Instance {
+	self.AsRigidBody2D().SetMass(value)
+	return self
+}
 func (o *Extension[T]) SetMass(value Float.X) *Extension[T] {
 	o.Super().AsRigidBody2D().SetMass(value)
 	return o
 }
 
 // PhysicsMaterialOverride is promoted from [RigidBody2D.Instance.PhysicsMaterialOverride].
+func (self Instance) PhysicsMaterialOverride() PhysicsMaterial.Instance { return self.AsRigidBody2D().PhysicsMaterialOverride() }
 func (o *Extension[T]) PhysicsMaterialOverride() PhysicsMaterial.Instance { return o.Super().AsRigidBody2D().PhysicsMaterialOverride() }
 
 // SetPhysicsMaterialOverride is promoted from [RigidBody2D.Instance.SetPhysicsMaterialOverride].
+func (self Instance) SetPhysicsMaterialOverride(value PhysicsMaterial.Instance) Instance {
+	self.AsRigidBody2D().SetPhysicsMaterialOverride(value)
+	return self
+}
 func (o *Extension[T]) SetPhysicsMaterialOverride(value PhysicsMaterial.Instance) *Extension[T] {
 	o.Super().AsRigidBody2D().SetPhysicsMaterialOverride(value)
 	return o
 }
 
 // GravityScale is promoted from [RigidBody2D.Instance.GravityScale].
+func (self Instance) GravityScale() Float.X { return self.AsRigidBody2D().GravityScale() }
 func (o *Extension[T]) GravityScale() Float.X { return o.Super().AsRigidBody2D().GravityScale() }
 
 // SetGravityScale is promoted from [RigidBody2D.Instance.SetGravityScale].
+func (self Instance) SetGravityScale(value Float.X) Instance {
+	self.AsRigidBody2D().SetGravityScale(value)
+	return self
+}
 func (o *Extension[T]) SetGravityScale(value Float.X) *Extension[T] {
 	o.Super().AsRigidBody2D().SetGravityScale(value)
 	return o
 }
 
 // CenterOfMassMode is promoted from [RigidBody2D.Instance.CenterOfMassMode].
+func (self Instance) CenterOfMassMode() RigidBody2D.CenterOfMassMode { return self.AsRigidBody2D().CenterOfMassMode() }
 func (o *Extension[T]) CenterOfMassMode() RigidBody2D.CenterOfMassMode { return o.Super().AsRigidBody2D().CenterOfMassMode() }
 
 // SetCenterOfMassMode is promoted from [RigidBody2D.Instance.SetCenterOfMassMode].
+func (self Instance) SetCenterOfMassMode(value RigidBody2D.CenterOfMassMode) Instance {
+	self.AsRigidBody2D().SetCenterOfMassMode(value)
+	return self
+}
 func (o *Extension[T]) SetCenterOfMassMode(value RigidBody2D.CenterOfMassMode) *Extension[T] {
 	o.Super().AsRigidBody2D().SetCenterOfMassMode(value)
 	return o
 }
 
 // CenterOfMass is promoted from [RigidBody2D.Instance.CenterOfMass].
+func (self Instance) CenterOfMass() Vector2.XY { return self.AsRigidBody2D().CenterOfMass() }
 func (o *Extension[T]) CenterOfMass() Vector2.XY { return o.Super().AsRigidBody2D().CenterOfMass() }
 
 // SetCenterOfMass is promoted from [RigidBody2D.Instance.SetCenterOfMass].
+func (self Instance) SetCenterOfMass(value Vector2.XY) Instance {
+	self.AsRigidBody2D().SetCenterOfMass(value)
+	return self
+}
 func (o *Extension[T]) SetCenterOfMass(value Vector2.XY) *Extension[T] {
 	o.Super().AsRigidBody2D().SetCenterOfMass(value)
 	return o
 }
 
 // Inertia is promoted from [RigidBody2D.Instance.Inertia].
+func (self Instance) Inertia() Float.X { return self.AsRigidBody2D().Inertia() }
 func (o *Extension[T]) Inertia() Float.X { return o.Super().AsRigidBody2D().Inertia() }
 
 // SetInertia is promoted from [RigidBody2D.Instance.SetInertia].
+func (self Instance) SetInertia(value Float.X) Instance {
+	self.AsRigidBody2D().SetInertia(value)
+	return self
+}
 func (o *Extension[T]) SetInertia(value Float.X) *Extension[T] {
 	o.Super().AsRigidBody2D().SetInertia(value)
 	return o
 }
 
 // Sleeping is promoted from [RigidBody2D.Instance.Sleeping].
+func (self Instance) Sleeping() bool { return self.AsRigidBody2D().Sleeping() }
 func (o *Extension[T]) Sleeping() bool { return o.Super().AsRigidBody2D().Sleeping() }
 
 // SetSleeping is promoted from [RigidBody2D.Instance.SetSleeping].
+func (self Instance) SetSleeping(value bool) Instance {
+	self.AsRigidBody2D().SetSleeping(value)
+	return self
+}
 func (o *Extension[T]) SetSleeping(value bool) *Extension[T] {
 	o.Super().AsRigidBody2D().SetSleeping(value)
 	return o
 }
 
 // CanSleep is promoted from [RigidBody2D.Instance.CanSleep].
+func (self Instance) CanSleep() bool { return self.AsRigidBody2D().CanSleep() }
 func (o *Extension[T]) CanSleep() bool { return o.Super().AsRigidBody2D().CanSleep() }
 
 // SetCanSleep is promoted from [RigidBody2D.Instance.SetCanSleep].
+func (self Instance) SetCanSleep(value bool) Instance {
+	self.AsRigidBody2D().SetCanSleep(value)
+	return self
+}
 func (o *Extension[T]) SetCanSleep(value bool) *Extension[T] {
 	o.Super().AsRigidBody2D().SetCanSleep(value)
 	return o
 }
 
 // LockRotation is promoted from [RigidBody2D.Instance.LockRotation].
+func (self Instance) LockRotation() bool { return self.AsRigidBody2D().LockRotation() }
 func (o *Extension[T]) LockRotation() bool { return o.Super().AsRigidBody2D().LockRotation() }
 
 // SetLockRotation is promoted from [RigidBody2D.Instance.SetLockRotation].
+func (self Instance) SetLockRotation(value bool) Instance {
+	self.AsRigidBody2D().SetLockRotation(value)
+	return self
+}
 func (o *Extension[T]) SetLockRotation(value bool) *Extension[T] {
 	o.Super().AsRigidBody2D().SetLockRotation(value)
 	return o
 }
 
 // Freeze is promoted from [RigidBody2D.Instance.Freeze].
+func (self Instance) Freeze() bool { return self.AsRigidBody2D().Freeze() }
 func (o *Extension[T]) Freeze() bool { return o.Super().AsRigidBody2D().Freeze() }
 
 // SetFreeze is promoted from [RigidBody2D.Instance.SetFreeze].
+func (self Instance) SetFreeze(value bool) Instance {
+	self.AsRigidBody2D().SetFreeze(value)
+	return self
+}
 func (o *Extension[T]) SetFreeze(value bool) *Extension[T] {
 	o.Super().AsRigidBody2D().SetFreeze(value)
 	return o
 }
 
 // FreezeMode is promoted from [RigidBody2D.Instance.FreezeMode].
+func (self Instance) FreezeMode() RigidBody2D.FreezeMode { return self.AsRigidBody2D().FreezeMode() }
 func (o *Extension[T]) FreezeMode() RigidBody2D.FreezeMode { return o.Super().AsRigidBody2D().FreezeMode() }
 
 // SetFreezeMode is promoted from [RigidBody2D.Instance.SetFreezeMode].
+func (self Instance) SetFreezeMode(value RigidBody2D.FreezeMode) Instance {
+	self.AsRigidBody2D().SetFreezeMode(value)
+	return self
+}
 func (o *Extension[T]) SetFreezeMode(value RigidBody2D.FreezeMode) *Extension[T] {
 	o.Super().AsRigidBody2D().SetFreezeMode(value)
 	return o
 }
 
 // CustomIntegrator is promoted from [RigidBody2D.Instance.CustomIntegrator].
+func (self Instance) CustomIntegrator() bool { return self.AsRigidBody2D().CustomIntegrator() }
 func (o *Extension[T]) CustomIntegrator() bool { return o.Super().AsRigidBody2D().CustomIntegrator() }
 
 // SetCustomIntegrator is promoted from [RigidBody2D.Instance.SetCustomIntegrator].
+func (self Instance) SetCustomIntegrator(value bool) Instance {
+	self.AsRigidBody2D().SetCustomIntegrator(value)
+	return self
+}
 func (o *Extension[T]) SetCustomIntegrator(value bool) *Extension[T] {
 	o.Super().AsRigidBody2D().SetCustomIntegrator(value)
 	return o
 }
 
 // ContinuousCd is promoted from [RigidBody2D.Instance.ContinuousCd].
+func (self Instance) ContinuousCd() RigidBody2D.CCDMode { return self.AsRigidBody2D().ContinuousCd() }
 func (o *Extension[T]) ContinuousCd() RigidBody2D.CCDMode { return o.Super().AsRigidBody2D().ContinuousCd() }
 
 // SetContinuousCd is promoted from [RigidBody2D.Instance.SetContinuousCd].
+func (self Instance) SetContinuousCd(value RigidBody2D.CCDMode) Instance {
+	self.AsRigidBody2D().SetContinuousCd(value)
+	return self
+}
 func (o *Extension[T]) SetContinuousCd(value RigidBody2D.CCDMode) *Extension[T] {
 	o.Super().AsRigidBody2D().SetContinuousCd(value)
 	return o
 }
 
 // ContactMonitor is promoted from [RigidBody2D.Instance.ContactMonitor].
+func (self Instance) ContactMonitor() bool { return self.AsRigidBody2D().ContactMonitor() }
 func (o *Extension[T]) ContactMonitor() bool { return o.Super().AsRigidBody2D().ContactMonitor() }
 
 // SetContactMonitor is promoted from [RigidBody2D.Instance.SetContactMonitor].
+func (self Instance) SetContactMonitor(value bool) Instance {
+	self.AsRigidBody2D().SetContactMonitor(value)
+	return self
+}
 func (o *Extension[T]) SetContactMonitor(value bool) *Extension[T] {
 	o.Super().AsRigidBody2D().SetContactMonitor(value)
 	return o
 }
 
 // MaxContactsReported is promoted from [RigidBody2D.Instance.MaxContactsReported].
+func (self Instance) MaxContactsReported() int { return self.AsRigidBody2D().MaxContactsReported() }
 func (o *Extension[T]) MaxContactsReported() int { return o.Super().AsRigidBody2D().MaxContactsReported() }
 
 // SetMaxContactsReported is promoted from [RigidBody2D.Instance.SetMaxContactsReported].
+func (self Instance) SetMaxContactsReported(value int) Instance {
+	self.AsRigidBody2D().SetMaxContactsReported(value)
+	return self
+}
 func (o *Extension[T]) SetMaxContactsReported(value int) *Extension[T] {
 	o.Super().AsRigidBody2D().SetMaxContactsReported(value)
 	return o
 }
 
 // LinearVelocity is promoted from [RigidBody2D.Instance.LinearVelocity].
+func (self Instance) LinearVelocity() Vector2.XY { return self.AsRigidBody2D().LinearVelocity() }
 func (o *Extension[T]) LinearVelocity() Vector2.XY { return o.Super().AsRigidBody2D().LinearVelocity() }
 
 // SetLinearVelocity is promoted from [RigidBody2D.Instance.SetLinearVelocity].
+func (self Instance) SetLinearVelocity(value Vector2.XY) Instance {
+	self.AsRigidBody2D().SetLinearVelocity(value)
+	return self
+}
 func (o *Extension[T]) SetLinearVelocity(value Vector2.XY) *Extension[T] {
 	o.Super().AsRigidBody2D().SetLinearVelocity(value)
 	return o
 }
 
 // LinearDampMode is promoted from [RigidBody2D.Instance.LinearDampMode].
+func (self Instance) LinearDampMode() RigidBody2D.DampMode { return self.AsRigidBody2D().LinearDampMode() }
 func (o *Extension[T]) LinearDampMode() RigidBody2D.DampMode { return o.Super().AsRigidBody2D().LinearDampMode() }
 
 // SetLinearDampMode is promoted from [RigidBody2D.Instance.SetLinearDampMode].
+func (self Instance) SetLinearDampMode(value RigidBody2D.DampMode) Instance {
+	self.AsRigidBody2D().SetLinearDampMode(value)
+	return self
+}
 func (o *Extension[T]) SetLinearDampMode(value RigidBody2D.DampMode) *Extension[T] {
 	o.Super().AsRigidBody2D().SetLinearDampMode(value)
 	return o
 }
 
 // LinearDamp is promoted from [RigidBody2D.Instance.LinearDamp].
+func (self Instance) LinearDamp() Float.X { return self.AsRigidBody2D().LinearDamp() }
 func (o *Extension[T]) LinearDamp() Float.X { return o.Super().AsRigidBody2D().LinearDamp() }
 
 // SetLinearDamp is promoted from [RigidBody2D.Instance.SetLinearDamp].
+func (self Instance) SetLinearDamp(value Float.X) Instance {
+	self.AsRigidBody2D().SetLinearDamp(value)
+	return self
+}
 func (o *Extension[T]) SetLinearDamp(value Float.X) *Extension[T] {
 	o.Super().AsRigidBody2D().SetLinearDamp(value)
 	return o
 }
 
 // AngularVelocity is promoted from [RigidBody2D.Instance.AngularVelocity].
+func (self Instance) AngularVelocity() Float.X { return self.AsRigidBody2D().AngularVelocity() }
 func (o *Extension[T]) AngularVelocity() Float.X { return o.Super().AsRigidBody2D().AngularVelocity() }
 
 // SetAngularVelocity is promoted from [RigidBody2D.Instance.SetAngularVelocity].
+func (self Instance) SetAngularVelocity(value Float.X) Instance {
+	self.AsRigidBody2D().SetAngularVelocity(value)
+	return self
+}
 func (o *Extension[T]) SetAngularVelocity(value Float.X) *Extension[T] {
 	o.Super().AsRigidBody2D().SetAngularVelocity(value)
 	return o
 }
 
 // AngularDampMode is promoted from [RigidBody2D.Instance.AngularDampMode].
+func (self Instance) AngularDampMode() RigidBody2D.DampMode { return self.AsRigidBody2D().AngularDampMode() }
 func (o *Extension[T]) AngularDampMode() RigidBody2D.DampMode { return o.Super().AsRigidBody2D().AngularDampMode() }
 
 // SetAngularDampMode is promoted from [RigidBody2D.Instance.SetAngularDampMode].
+func (self Instance) SetAngularDampMode(value RigidBody2D.DampMode) Instance {
+	self.AsRigidBody2D().SetAngularDampMode(value)
+	return self
+}
 func (o *Extension[T]) SetAngularDampMode(value RigidBody2D.DampMode) *Extension[T] {
 	o.Super().AsRigidBody2D().SetAngularDampMode(value)
 	return o
 }
 
 // AngularDamp is promoted from [RigidBody2D.Instance.AngularDamp].
+func (self Instance) AngularDamp() Float.X { return self.AsRigidBody2D().AngularDamp() }
 func (o *Extension[T]) AngularDamp() Float.X { return o.Super().AsRigidBody2D().AngularDamp() }
 
 // SetAngularDamp is promoted from [RigidBody2D.Instance.SetAngularDamp].
+func (self Instance) SetAngularDamp(value Float.X) Instance {
+	self.AsRigidBody2D().SetAngularDamp(value)
+	return self
+}
 func (o *Extension[T]) SetAngularDamp(value Float.X) *Extension[T] {
 	o.Super().AsRigidBody2D().SetAngularDamp(value)
 	return o
 }
 
 // ConstantForce is promoted from [RigidBody2D.Instance.ConstantForce].
+func (self Instance) ConstantForce() Vector2.XY { return self.AsRigidBody2D().ConstantForce() }
 func (o *Extension[T]) ConstantForce() Vector2.XY { return o.Super().AsRigidBody2D().ConstantForce() }
 
 // SetConstantForce is promoted from [RigidBody2D.Instance.SetConstantForce].
+func (self Instance) SetConstantForce(value Vector2.XY) Instance {
+	self.AsRigidBody2D().SetConstantForce(value)
+	return self
+}
 func (o *Extension[T]) SetConstantForce(value Vector2.XY) *Extension[T] {
 	o.Super().AsRigidBody2D().SetConstantForce(value)
 	return o
 }
 
 // ConstantTorque is promoted from [RigidBody2D.Instance.ConstantTorque].
+func (self Instance) ConstantTorque() Float.X { return self.AsRigidBody2D().ConstantTorque() }
 func (o *Extension[T]) ConstantTorque() Float.X { return o.Super().AsRigidBody2D().ConstantTorque() }
 
 // SetConstantTorque is promoted from [RigidBody2D.Instance.SetConstantTorque].
+func (self Instance) SetConstantTorque(value Float.X) Instance {
+	self.AsRigidBody2D().SetConstantTorque(value)
+	return self
+}
 func (o *Extension[T]) SetConstantTorque(value Float.X) *Extension[T] {
 	o.Super().AsRigidBody2D().SetConstantTorque(value)
 	return o
 }
 
 // DisableMode is promoted from [CollisionObject2D.Instance.DisableMode].
+func (self Instance) DisableMode() CollisionObject2D.DisableMode { return self.AsCollisionObject2D().DisableMode() }
 func (o *Extension[T]) DisableMode() CollisionObject2D.DisableMode { return o.Super().AsCollisionObject2D().DisableMode() }
 
 // SetDisableMode is promoted from [CollisionObject2D.Instance.SetDisableMode].
+func (self Instance) SetDisableMode(value CollisionObject2D.DisableMode) Instance {
+	self.AsCollisionObject2D().SetDisableMode(value)
+	return self
+}
 func (o *Extension[T]) SetDisableMode(value CollisionObject2D.DisableMode) *Extension[T] {
 	o.Super().AsCollisionObject2D().SetDisableMode(value)
 	return o
 }
 
 // CollisionLayer is promoted from [CollisionObject2D.Instance.CollisionLayer].
+func (self Instance) CollisionLayer() int { return self.AsCollisionObject2D().CollisionLayer() }
 func (o *Extension[T]) CollisionLayer() int { return o.Super().AsCollisionObject2D().CollisionLayer() }
 
 // SetCollisionLayer is promoted from [CollisionObject2D.Instance.SetCollisionLayer].
+func (self Instance) SetCollisionLayer(value int) Instance {
+	self.AsCollisionObject2D().SetCollisionLayer(value)
+	return self
+}
 func (o *Extension[T]) SetCollisionLayer(value int) *Extension[T] {
 	o.Super().AsCollisionObject2D().SetCollisionLayer(value)
 	return o
 }
 
 // CollisionMask is promoted from [CollisionObject2D.Instance.CollisionMask].
+func (self Instance) CollisionMask() int { return self.AsCollisionObject2D().CollisionMask() }
 func (o *Extension[T]) CollisionMask() int { return o.Super().AsCollisionObject2D().CollisionMask() }
 
 // SetCollisionMask is promoted from [CollisionObject2D.Instance.SetCollisionMask].
+func (self Instance) SetCollisionMask(value int) Instance {
+	self.AsCollisionObject2D().SetCollisionMask(value)
+	return self
+}
 func (o *Extension[T]) SetCollisionMask(value int) *Extension[T] {
 	o.Super().AsCollisionObject2D().SetCollisionMask(value)
 	return o
 }
 
 // CollisionPriority is promoted from [CollisionObject2D.Instance.CollisionPriority].
+func (self Instance) CollisionPriority() Float.X { return self.AsCollisionObject2D().CollisionPriority() }
 func (o *Extension[T]) CollisionPriority() Float.X { return o.Super().AsCollisionObject2D().CollisionPriority() }
 
 // SetCollisionPriority is promoted from [CollisionObject2D.Instance.SetCollisionPriority].
+func (self Instance) SetCollisionPriority(value Float.X) Instance {
+	self.AsCollisionObject2D().SetCollisionPriority(value)
+	return self
+}
 func (o *Extension[T]) SetCollisionPriority(value Float.X) *Extension[T] {
 	o.Super().AsCollisionObject2D().SetCollisionPriority(value)
 	return o
 }
 
 // InputPickable is promoted from [CollisionObject2D.Instance.InputPickable].
+func (self Instance) InputPickable() bool { return self.AsCollisionObject2D().InputPickable() }
 func (o *Extension[T]) InputPickable() bool { return o.Super().AsCollisionObject2D().InputPickable() }
 
 // SetInputPickable is promoted from [CollisionObject2D.Instance.SetInputPickable].
+func (self Instance) SetInputPickable(value bool) Instance {
+	self.AsCollisionObject2D().SetInputPickable(value)
+	return self
+}
 func (o *Extension[T]) SetInputPickable(value bool) *Extension[T] {
 	o.Super().AsCollisionObject2D().SetInputPickable(value)
 	return o
 }
 
 // Position is promoted from [Node2D.Instance.Position].
+func (self Instance) Position() Vector2.XY { return self.AsNode2D().Position() }
 func (o *Extension[T]) Position() Vector2.XY { return o.Super().AsNode2D().Position() }
 
 // SetPosition is promoted from [Node2D.Instance.SetPosition].
+func (self Instance) SetPosition(value Vector2.XY) Instance {
+	self.AsNode2D().SetPosition(value)
+	return self
+}
 func (o *Extension[T]) SetPosition(value Vector2.XY) *Extension[T] {
 	o.Super().AsNode2D().SetPosition(value)
 	return o
 }
 
 // Rotation is promoted from [Node2D.Instance.Rotation].
+func (self Instance) Rotation() Angle.Radians { return self.AsNode2D().Rotation() }
 func (o *Extension[T]) Rotation() Angle.Radians { return o.Super().AsNode2D().Rotation() }
 
 // SetRotation is promoted from [Node2D.Instance.SetRotation].
+func (self Instance) SetRotation(value Angle.Radians) Instance {
+	self.AsNode2D().SetRotation(value)
+	return self
+}
 func (o *Extension[T]) SetRotation(value Angle.Radians) *Extension[T] {
 	o.Super().AsNode2D().SetRotation(value)
 	return o
 }
 
 // RotationDegrees is promoted from [Node2D.Instance.RotationDegrees].
+func (self Instance) RotationDegrees() Angle.Degrees { return self.AsNode2D().RotationDegrees() }
 func (o *Extension[T]) RotationDegrees() Angle.Degrees { return o.Super().AsNode2D().RotationDegrees() }
 
 // SetRotationDegrees is promoted from [Node2D.Instance.SetRotationDegrees].
+func (self Instance) SetRotationDegrees(value Angle.Degrees) Instance {
+	self.AsNode2D().SetRotationDegrees(value)
+	return self
+}
 func (o *Extension[T]) SetRotationDegrees(value Angle.Degrees) *Extension[T] {
 	o.Super().AsNode2D().SetRotationDegrees(value)
 	return o
 }
 
 // Scale is promoted from [Node2D.Instance.Scale].
+func (self Instance) Scale() Vector2.XY { return self.AsNode2D().Scale() }
 func (o *Extension[T]) Scale() Vector2.XY { return o.Super().AsNode2D().Scale() }
 
 // SetScale is promoted from [Node2D.Instance.SetScale].
+func (self Instance) SetScale(value Vector2.XY) Instance {
+	self.AsNode2D().SetScale(value)
+	return self
+}
 func (o *Extension[T]) SetScale(value Vector2.XY) *Extension[T] {
 	o.Super().AsNode2D().SetScale(value)
 	return o
 }
 
 // Skew is promoted from [Node2D.Instance.Skew].
+func (self Instance) Skew() Float.X { return self.AsNode2D().Skew() }
 func (o *Extension[T]) Skew() Float.X { return o.Super().AsNode2D().Skew() }
 
 // SetSkew is promoted from [Node2D.Instance.SetSkew].
+func (self Instance) SetSkew(value Float.X) Instance {
+	self.AsNode2D().SetSkew(value)
+	return self
+}
 func (o *Extension[T]) SetSkew(value Float.X) *Extension[T] {
 	o.Super().AsNode2D().SetSkew(value)
 	return o
 }
 
 // SetTransform is promoted from [Node2D.Instance.SetTransform].
+func (self Instance) SetTransform(value Transform2D.OriginXY) Instance {
+	self.AsNode2D().SetTransform(value)
+	return self
+}
 func (o *Extension[T]) SetTransform(value Transform2D.OriginXY) *Extension[T] {
 	o.Super().AsNode2D().SetTransform(value)
 	return o
 }
 
 // GlobalPosition is promoted from [Node2D.Instance.GlobalPosition].
+func (self Instance) GlobalPosition() Vector2.XY { return self.AsNode2D().GlobalPosition() }
 func (o *Extension[T]) GlobalPosition() Vector2.XY { return o.Super().AsNode2D().GlobalPosition() }
 
 // SetGlobalPosition is promoted from [Node2D.Instance.SetGlobalPosition].
+func (self Instance) SetGlobalPosition(value Vector2.XY) Instance {
+	self.AsNode2D().SetGlobalPosition(value)
+	return self
+}
 func (o *Extension[T]) SetGlobalPosition(value Vector2.XY) *Extension[T] {
 	o.Super().AsNode2D().SetGlobalPosition(value)
 	return o
 }
 
 // GlobalRotation is promoted from [Node2D.Instance.GlobalRotation].
+func (self Instance) GlobalRotation() Angle.Radians { return self.AsNode2D().GlobalRotation() }
 func (o *Extension[T]) GlobalRotation() Angle.Radians { return o.Super().AsNode2D().GlobalRotation() }
 
 // SetGlobalRotation is promoted from [Node2D.Instance.SetGlobalRotation].
+func (self Instance) SetGlobalRotation(value Angle.Radians) Instance {
+	self.AsNode2D().SetGlobalRotation(value)
+	return self
+}
 func (o *Extension[T]) SetGlobalRotation(value Angle.Radians) *Extension[T] {
 	o.Super().AsNode2D().SetGlobalRotation(value)
 	return o
 }
 
 // GlobalRotationDegrees is promoted from [Node2D.Instance.GlobalRotationDegrees].
+func (self Instance) GlobalRotationDegrees() Angle.Degrees { return self.AsNode2D().GlobalRotationDegrees() }
 func (o *Extension[T]) GlobalRotationDegrees() Angle.Degrees { return o.Super().AsNode2D().GlobalRotationDegrees() }
 
 // SetGlobalRotationDegrees is promoted from [Node2D.Instance.SetGlobalRotationDegrees].
+func (self Instance) SetGlobalRotationDegrees(value Angle.Degrees) Instance {
+	self.AsNode2D().SetGlobalRotationDegrees(value)
+	return self
+}
 func (o *Extension[T]) SetGlobalRotationDegrees(value Angle.Degrees) *Extension[T] {
 	o.Super().AsNode2D().SetGlobalRotationDegrees(value)
 	return o
 }
 
 // GlobalScale is promoted from [Node2D.Instance.GlobalScale].
+func (self Instance) GlobalScale() Vector2.XY { return self.AsNode2D().GlobalScale() }
 func (o *Extension[T]) GlobalScale() Vector2.XY { return o.Super().AsNode2D().GlobalScale() }
 
 // SetGlobalScale is promoted from [Node2D.Instance.SetGlobalScale].
+func (self Instance) SetGlobalScale(value Vector2.XY) Instance {
+	self.AsNode2D().SetGlobalScale(value)
+	return self
+}
 func (o *Extension[T]) SetGlobalScale(value Vector2.XY) *Extension[T] {
 	o.Super().AsNode2D().SetGlobalScale(value)
 	return o
 }
 
 // GlobalSkew is promoted from [Node2D.Instance.GlobalSkew].
+func (self Instance) GlobalSkew() Float.X { return self.AsNode2D().GlobalSkew() }
 func (o *Extension[T]) GlobalSkew() Float.X { return o.Super().AsNode2D().GlobalSkew() }
 
 // SetGlobalSkew is promoted from [Node2D.Instance.SetGlobalSkew].
+func (self Instance) SetGlobalSkew(value Float.X) Instance {
+	self.AsNode2D().SetGlobalSkew(value)
+	return self
+}
 func (o *Extension[T]) SetGlobalSkew(value Float.X) *Extension[T] {
 	o.Super().AsNode2D().SetGlobalSkew(value)
 	return o
 }
 
 // SetGlobalTransform is promoted from [Node2D.Instance.SetGlobalTransform].
+func (self Instance) SetGlobalTransform(value Transform2D.OriginXY) Instance {
+	self.AsNode2D().SetGlobalTransform(value)
+	return self
+}
 func (o *Extension[T]) SetGlobalTransform(value Transform2D.OriginXY) *Extension[T] {
 	o.Super().AsNode2D().SetGlobalTransform(value)
 	return o
 }
 
 // Visible is promoted from [CanvasItem.Instance.Visible].
+func (self Instance) Visible() bool { return self.AsCanvasItem().Visible() }
 func (o *Extension[T]) Visible() bool { return o.Super().AsCanvasItem().Visible() }
 
 // SetVisible is promoted from [CanvasItem.Instance.SetVisible].
+func (self Instance) SetVisible(value bool) Instance {
+	self.AsCanvasItem().SetVisible(value)
+	return self
+}
 func (o *Extension[T]) SetVisible(value bool) *Extension[T] {
 	o.Super().AsCanvasItem().SetVisible(value)
 	return o
 }
 
 // Modulate is promoted from [CanvasItem.Instance.Modulate].
+func (self Instance) Modulate() Color.RGBA { return self.AsCanvasItem().Modulate() }
 func (o *Extension[T]) Modulate() Color.RGBA { return o.Super().AsCanvasItem().Modulate() }
 
 // SetModulate is promoted from [CanvasItem.Instance.SetModulate].
+func (self Instance) SetModulate(value Color.RGBA) Instance {
+	self.AsCanvasItem().SetModulate(value)
+	return self
+}
 func (o *Extension[T]) SetModulate(value Color.RGBA) *Extension[T] {
 	o.Super().AsCanvasItem().SetModulate(value)
 	return o
 }
 
 // SelfModulate is promoted from [CanvasItem.Instance.SelfModulate].
+func (self Instance) SelfModulate() Color.RGBA { return self.AsCanvasItem().SelfModulate() }
 func (o *Extension[T]) SelfModulate() Color.RGBA { return o.Super().AsCanvasItem().SelfModulate() }
 
 // SetSelfModulate is promoted from [CanvasItem.Instance.SetSelfModulate].
+func (self Instance) SetSelfModulate(value Color.RGBA) Instance {
+	self.AsCanvasItem().SetSelfModulate(value)
+	return self
+}
 func (o *Extension[T]) SetSelfModulate(value Color.RGBA) *Extension[T] {
 	o.Super().AsCanvasItem().SetSelfModulate(value)
 	return o
 }
 
 // ShowBehindParent is promoted from [CanvasItem.Instance.ShowBehindParent].
+func (self Instance) ShowBehindParent() bool { return self.AsCanvasItem().ShowBehindParent() }
 func (o *Extension[T]) ShowBehindParent() bool { return o.Super().AsCanvasItem().ShowBehindParent() }
 
 // SetShowBehindParent is promoted from [CanvasItem.Instance.SetShowBehindParent].
+func (self Instance) SetShowBehindParent(value bool) Instance {
+	self.AsCanvasItem().SetShowBehindParent(value)
+	return self
+}
 func (o *Extension[T]) SetShowBehindParent(value bool) *Extension[T] {
 	o.Super().AsCanvasItem().SetShowBehindParent(value)
 	return o
 }
 
 // TopLevel is promoted from [CanvasItem.Instance.TopLevel].
+func (self Instance) TopLevel() bool { return self.AsCanvasItem().TopLevel() }
 func (o *Extension[T]) TopLevel() bool { return o.Super().AsCanvasItem().TopLevel() }
 
 // SetTopLevel is promoted from [CanvasItem.Instance.SetTopLevel].
+func (self Instance) SetTopLevel(value bool) Instance {
+	self.AsCanvasItem().SetTopLevel(value)
+	return self
+}
 func (o *Extension[T]) SetTopLevel(value bool) *Extension[T] {
 	o.Super().AsCanvasItem().SetTopLevel(value)
 	return o
 }
 
 // ClipChildren is promoted from [CanvasItem.Instance.ClipChildren].
+func (self Instance) ClipChildren() CanvasItem.ClipChildrenMode { return self.AsCanvasItem().ClipChildren() }
 func (o *Extension[T]) ClipChildren() CanvasItem.ClipChildrenMode { return o.Super().AsCanvasItem().ClipChildren() }
 
 // SetClipChildren is promoted from [CanvasItem.Instance.SetClipChildren].
+func (self Instance) SetClipChildren(value CanvasItem.ClipChildrenMode) Instance {
+	self.AsCanvasItem().SetClipChildren(value)
+	return self
+}
 func (o *Extension[T]) SetClipChildren(value CanvasItem.ClipChildrenMode) *Extension[T] {
 	o.Super().AsCanvasItem().SetClipChildren(value)
 	return o
 }
 
 // LightMask is promoted from [CanvasItem.Instance.LightMask].
+func (self Instance) LightMask() int { return self.AsCanvasItem().LightMask() }
 func (o *Extension[T]) LightMask() int { return o.Super().AsCanvasItem().LightMask() }
 
 // SetLightMask is promoted from [CanvasItem.Instance.SetLightMask].
+func (self Instance) SetLightMask(value int) Instance {
+	self.AsCanvasItem().SetLightMask(value)
+	return self
+}
 func (o *Extension[T]) SetLightMask(value int) *Extension[T] {
 	o.Super().AsCanvasItem().SetLightMask(value)
 	return o
 }
 
 // VisibilityLayer is promoted from [CanvasItem.Instance.VisibilityLayer].
+func (self Instance) VisibilityLayer() int { return self.AsCanvasItem().VisibilityLayer() }
 func (o *Extension[T]) VisibilityLayer() int { return o.Super().AsCanvasItem().VisibilityLayer() }
 
 // SetVisibilityLayer is promoted from [CanvasItem.Instance.SetVisibilityLayer].
+func (self Instance) SetVisibilityLayer(value int) Instance {
+	self.AsCanvasItem().SetVisibilityLayer(value)
+	return self
+}
 func (o *Extension[T]) SetVisibilityLayer(value int) *Extension[T] {
 	o.Super().AsCanvasItem().SetVisibilityLayer(value)
 	return o
 }
 
 // ZIndex is promoted from [CanvasItem.Instance.ZIndex].
+func (self Instance) ZIndex() int { return self.AsCanvasItem().ZIndex() }
 func (o *Extension[T]) ZIndex() int { return o.Super().AsCanvasItem().ZIndex() }
 
 // SetZIndex is promoted from [CanvasItem.Instance.SetZIndex].
+func (self Instance) SetZIndex(value int) Instance {
+	self.AsCanvasItem().SetZIndex(value)
+	return self
+}
 func (o *Extension[T]) SetZIndex(value int) *Extension[T] {
 	o.Super().AsCanvasItem().SetZIndex(value)
 	return o
 }
 
 // ZAsRelative is promoted from [CanvasItem.Instance.ZAsRelative].
+func (self Instance) ZAsRelative() bool { return self.AsCanvasItem().ZAsRelative() }
 func (o *Extension[T]) ZAsRelative() bool { return o.Super().AsCanvasItem().ZAsRelative() }
 
 // SetZAsRelative is promoted from [CanvasItem.Instance.SetZAsRelative].
+func (self Instance) SetZAsRelative(value bool) Instance {
+	self.AsCanvasItem().SetZAsRelative(value)
+	return self
+}
 func (o *Extension[T]) SetZAsRelative(value bool) *Extension[T] {
 	o.Super().AsCanvasItem().SetZAsRelative(value)
 	return o
 }
 
 // YSortEnabled is promoted from [CanvasItem.Instance.YSortEnabled].
+func (self Instance) YSortEnabled() bool { return self.AsCanvasItem().YSortEnabled() }
 func (o *Extension[T]) YSortEnabled() bool { return o.Super().AsCanvasItem().YSortEnabled() }
 
 // SetYSortEnabled is promoted from [CanvasItem.Instance.SetYSortEnabled].
+func (self Instance) SetYSortEnabled(value bool) Instance {
+	self.AsCanvasItem().SetYSortEnabled(value)
+	return self
+}
 func (o *Extension[T]) SetYSortEnabled(value bool) *Extension[T] {
 	o.Super().AsCanvasItem().SetYSortEnabled(value)
 	return o
 }
 
 // TextureFilter is promoted from [CanvasItem.Instance.TextureFilter].
+func (self Instance) TextureFilter() CanvasItem.TextureFilter { return self.AsCanvasItem().TextureFilter() }
 func (o *Extension[T]) TextureFilter() CanvasItem.TextureFilter { return o.Super().AsCanvasItem().TextureFilter() }
 
 // SetTextureFilter is promoted from [CanvasItem.Instance.SetTextureFilter].
+func (self Instance) SetTextureFilter(value CanvasItem.TextureFilter) Instance {
+	self.AsCanvasItem().SetTextureFilter(value)
+	return self
+}
 func (o *Extension[T]) SetTextureFilter(value CanvasItem.TextureFilter) *Extension[T] {
 	o.Super().AsCanvasItem().SetTextureFilter(value)
 	return o
 }
 
 // TextureRepeat is promoted from [CanvasItem.Instance.TextureRepeat].
+func (self Instance) TextureRepeat() CanvasItem.TextureRepeat { return self.AsCanvasItem().TextureRepeat() }
 func (o *Extension[T]) TextureRepeat() CanvasItem.TextureRepeat { return o.Super().AsCanvasItem().TextureRepeat() }
 
 // SetTextureRepeat is promoted from [CanvasItem.Instance.SetTextureRepeat].
+func (self Instance) SetTextureRepeat(value CanvasItem.TextureRepeat) Instance {
+	self.AsCanvasItem().SetTextureRepeat(value)
+	return self
+}
 func (o *Extension[T]) SetTextureRepeat(value CanvasItem.TextureRepeat) *Extension[T] {
 	o.Super().AsCanvasItem().SetTextureRepeat(value)
 	return o
 }
 
 // Material is promoted from [CanvasItem.Instance.Material].
+func (self Instance) Material() Material.Instance { return self.AsCanvasItem().Material() }
 func (o *Extension[T]) Material() Material.Instance { return o.Super().AsCanvasItem().Material() }
 
 // SetMaterial is promoted from [CanvasItem.Instance.SetMaterial].
+func (self Instance) SetMaterial(value Material.Instance) Instance {
+	self.AsCanvasItem().SetMaterial(value)
+	return self
+}
 func (o *Extension[T]) SetMaterial(value Material.Instance) *Extension[T] {
 	o.Super().AsCanvasItem().SetMaterial(value)
 	return o
 }
 
 // UseParentMaterial is promoted from [CanvasItem.Instance.UseParentMaterial].
+func (self Instance) UseParentMaterial() bool { return self.AsCanvasItem().UseParentMaterial() }
 func (o *Extension[T]) UseParentMaterial() bool { return o.Super().AsCanvasItem().UseParentMaterial() }
 
 // SetUseParentMaterial is promoted from [CanvasItem.Instance.SetUseParentMaterial].
+func (self Instance) SetUseParentMaterial(value bool) Instance {
+	self.AsCanvasItem().SetUseParentMaterial(value)
+	return self
+}
 func (o *Extension[T]) SetUseParentMaterial(value bool) *Extension[T] {
 	o.Super().AsCanvasItem().SetUseParentMaterial(value)
 	return o
 }
 
 // Name is promoted from [Node.Instance.Name].
+func (self Instance) Name() string { return self.AsNode().Name() }
 func (o *Extension[T]) Name() string { return o.Super().AsNode().Name() }
 
 // SetName is promoted from [Node.Instance.SetName].
+func (self Instance) SetName(value string) Instance {
+	self.AsNode().SetName(value)
+	return self
+}
 func (o *Extension[T]) SetName(value string) *Extension[T] {
 	o.Super().AsNode().SetName(value)
 	return o
 }
 
 // UniqueNameInOwner is promoted from [Node.Instance.UniqueNameInOwner].
+func (self Instance) UniqueNameInOwner() bool { return self.AsNode().UniqueNameInOwner() }
 func (o *Extension[T]) UniqueNameInOwner() bool { return o.Super().AsNode().UniqueNameInOwner() }
 
 // SetUniqueNameInOwner is promoted from [Node.Instance.SetUniqueNameInOwner].
+func (self Instance) SetUniqueNameInOwner(value bool) Instance {
+	self.AsNode().SetUniqueNameInOwner(value)
+	return self
+}
 func (o *Extension[T]) SetUniqueNameInOwner(value bool) *Extension[T] {
 	o.Super().AsNode().SetUniqueNameInOwner(value)
 	return o
 }
 
 // SceneFilePath is promoted from [Node.Instance.SceneFilePath].
+func (self Instance) SceneFilePath() string { return self.AsNode().SceneFilePath() }
 func (o *Extension[T]) SceneFilePath() string { return o.Super().AsNode().SceneFilePath() }
 
 // SetSceneFilePath is promoted from [Node.Instance.SetSceneFilePath].
+func (self Instance) SetSceneFilePath(value string) Instance {
+	self.AsNode().SetSceneFilePath(value)
+	return self
+}
 func (o *Extension[T]) SetSceneFilePath(value string) *Extension[T] {
 	o.Super().AsNode().SetSceneFilePath(value)
 	return o
 }
 
 // Owner is promoted from [Node.Instance.Owner].
+func (self Instance) Owner() Node.Instance { return self.AsNode().Owner() }
 func (o *Extension[T]) Owner() Node.Instance { return o.Super().AsNode().Owner() }
 
 // SetOwner is promoted from [Node.Instance.SetOwner].
+func (self Instance) SetOwner(value Node.Instance) Instance {
+	self.AsNode().SetOwner(value)
+	return self
+}
 func (o *Extension[T]) SetOwner(value Node.Instance) *Extension[T] {
 	o.Super().AsNode().SetOwner(value)
 	return o
 }
 
 // Multiplayer is promoted from [Node.Instance.Multiplayer].
+func (self Instance) Multiplayer() MultiplayerAPI.Instance { return self.AsNode().Multiplayer() }
 func (o *Extension[T]) Multiplayer() MultiplayerAPI.Instance { return o.Super().AsNode().Multiplayer() }
 
 // ProcessMode is promoted from [Node.Instance.ProcessMode].
+func (self Instance) ProcessMode() Node.ProcessMode { return self.AsNode().ProcessMode() }
 func (o *Extension[T]) ProcessMode() Node.ProcessMode { return o.Super().AsNode().ProcessMode() }
 
 // SetProcessMode is promoted from [Node.Instance.SetProcessMode].
+func (self Instance) SetProcessMode(value Node.ProcessMode) Instance {
+	self.AsNode().SetProcessMode(value)
+	return self
+}
 func (o *Extension[T]) SetProcessMode(value Node.ProcessMode) *Extension[T] {
 	o.Super().AsNode().SetProcessMode(value)
 	return o
 }
 
 // ProcessPriority is promoted from [Node.Instance.ProcessPriority].
+func (self Instance) ProcessPriority() int { return self.AsNode().ProcessPriority() }
 func (o *Extension[T]) ProcessPriority() int { return o.Super().AsNode().ProcessPriority() }
 
 // SetProcessPriority is promoted from [Node.Instance.SetProcessPriority].
+func (self Instance) SetProcessPriority(value int) Instance {
+	self.AsNode().SetProcessPriority(value)
+	return self
+}
 func (o *Extension[T]) SetProcessPriority(value int) *Extension[T] {
 	o.Super().AsNode().SetProcessPriority(value)
 	return o
 }
 
 // ProcessPhysicsPriority is promoted from [Node.Instance.ProcessPhysicsPriority].
+func (self Instance) ProcessPhysicsPriority() int { return self.AsNode().ProcessPhysicsPriority() }
 func (o *Extension[T]) ProcessPhysicsPriority() int { return o.Super().AsNode().ProcessPhysicsPriority() }
 
 // SetProcessPhysicsPriority is promoted from [Node.Instance.SetProcessPhysicsPriority].
+func (self Instance) SetProcessPhysicsPriority(value int) Instance {
+	self.AsNode().SetProcessPhysicsPriority(value)
+	return self
+}
 func (o *Extension[T]) SetProcessPhysicsPriority(value int) *Extension[T] {
 	o.Super().AsNode().SetProcessPhysicsPriority(value)
 	return o
 }
 
 // ProcessThreadGroup is promoted from [Node.Instance.ProcessThreadGroup].
+func (self Instance) ProcessThreadGroup() Node.ProcessThreadGroup { return self.AsNode().ProcessThreadGroup() }
 func (o *Extension[T]) ProcessThreadGroup() Node.ProcessThreadGroup { return o.Super().AsNode().ProcessThreadGroup() }
 
 // SetProcessThreadGroup is promoted from [Node.Instance.SetProcessThreadGroup].
+func (self Instance) SetProcessThreadGroup(value Node.ProcessThreadGroup) Instance {
+	self.AsNode().SetProcessThreadGroup(value)
+	return self
+}
 func (o *Extension[T]) SetProcessThreadGroup(value Node.ProcessThreadGroup) *Extension[T] {
 	o.Super().AsNode().SetProcessThreadGroup(value)
 	return o
 }
 
 // ProcessThreadGroupOrder is promoted from [Node.Instance.ProcessThreadGroupOrder].
+func (self Instance) ProcessThreadGroupOrder() int { return self.AsNode().ProcessThreadGroupOrder() }
 func (o *Extension[T]) ProcessThreadGroupOrder() int { return o.Super().AsNode().ProcessThreadGroupOrder() }
 
 // SetProcessThreadGroupOrder is promoted from [Node.Instance.SetProcessThreadGroupOrder].
+func (self Instance) SetProcessThreadGroupOrder(value int) Instance {
+	self.AsNode().SetProcessThreadGroupOrder(value)
+	return self
+}
 func (o *Extension[T]) SetProcessThreadGroupOrder(value int) *Extension[T] {
 	o.Super().AsNode().SetProcessThreadGroupOrder(value)
 	return o
 }
 
 // ProcessThreadMessages is promoted from [Node.Instance.ProcessThreadMessages].
+func (self Instance) ProcessThreadMessages() Node.ProcessThreadMessages { return self.AsNode().ProcessThreadMessages() }
 func (o *Extension[T]) ProcessThreadMessages() Node.ProcessThreadMessages { return o.Super().AsNode().ProcessThreadMessages() }
 
 // SetProcessThreadMessages is promoted from [Node.Instance.SetProcessThreadMessages].
+func (self Instance) SetProcessThreadMessages(value Node.ProcessThreadMessages) Instance {
+	self.AsNode().SetProcessThreadMessages(value)
+	return self
+}
 func (o *Extension[T]) SetProcessThreadMessages(value Node.ProcessThreadMessages) *Extension[T] {
 	o.Super().AsNode().SetProcessThreadMessages(value)
 	return o
 }
 
 // PhysicsInterpolationMode is promoted from [Node.Instance.PhysicsInterpolationMode].
+func (self Instance) PhysicsInterpolationMode() Node.PhysicsInterpolationMode { return self.AsNode().PhysicsInterpolationMode() }
 func (o *Extension[T]) PhysicsInterpolationMode() Node.PhysicsInterpolationMode { return o.Super().AsNode().PhysicsInterpolationMode() }
 
 // SetPhysicsInterpolationMode is promoted from [Node.Instance.SetPhysicsInterpolationMode].
+func (self Instance) SetPhysicsInterpolationMode(value Node.PhysicsInterpolationMode) Instance {
+	self.AsNode().SetPhysicsInterpolationMode(value)
+	return self
+}
 func (o *Extension[T]) SetPhysicsInterpolationMode(value Node.PhysicsInterpolationMode) *Extension[T] {
 	o.Super().AsNode().SetPhysicsInterpolationMode(value)
 	return o
 }
 
 // AutoTranslateMode is promoted from [Node.Instance.AutoTranslateMode].
+func (self Instance) AutoTranslateMode() Node.AutoTranslateMode { return self.AsNode().AutoTranslateMode() }
 func (o *Extension[T]) AutoTranslateMode() Node.AutoTranslateMode { return o.Super().AsNode().AutoTranslateMode() }
 
 // SetAutoTranslateMode is promoted from [Node.Instance.SetAutoTranslateMode].
+func (self Instance) SetAutoTranslateMode(value Node.AutoTranslateMode) Instance {
+	self.AsNode().SetAutoTranslateMode(value)
+	return self
+}
 func (o *Extension[T]) SetAutoTranslateMode(value Node.AutoTranslateMode) *Extension[T] {
 	o.Super().AsNode().SetAutoTranslateMode(value)
 	return o
 }
 
 // EditorDescription is promoted from [Node.Instance.EditorDescription].
+func (self Instance) EditorDescription() string { return self.AsNode().EditorDescription() }
 func (o *Extension[T]) EditorDescription() string { return o.Super().AsNode().EditorDescription() }
 
 // SetEditorDescription is promoted from [Node.Instance.SetEditorDescription].
+func (self Instance) SetEditorDescription(value string) Instance {
+	self.AsNode().SetEditorDescription(value)
+	return self
+}
 func (o *Extension[T]) SetEditorDescription(value string) *Extension[T] {
 	o.Super().AsNode().SetEditorDescription(value)
 	return o

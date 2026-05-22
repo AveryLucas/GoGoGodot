@@ -437,6 +437,16 @@ func (self Instance) OnPlayAreaChanged(cb func(mode int), flags ...Signal.Flags)
 	return self
 }
 
+// OnPlayAreaChanged is promoted from [XRInterface.Instance.OnPlayAreaChanged].
+func (o *Extension[T]) OnPlayAreaChanged(cb func(mode int), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("play_area_changed"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+
 // GetName is promoted from [XRInterface.Instance.GetName].
 func (self Instance) GetName() string {
 	return self.AsXRInterface().GetName()
@@ -638,36 +648,56 @@ func (o *Extension[T]) GetSupportedEnvironmentBlendModes() []XRInterface.Environ
 }
 
 // InterfaceIsPrimary is promoted from [XRInterface.Instance.InterfaceIsPrimary].
+func (self Instance) InterfaceIsPrimary() bool { return self.AsXRInterface().InterfaceIsPrimary() }
 func (o *Extension[T]) InterfaceIsPrimary() bool { return o.Super().AsXRInterface().InterfaceIsPrimary() }
 
 // SetInterfaceIsPrimary is promoted from [XRInterface.Instance.SetInterfaceIsPrimary].
+func (self Instance) SetInterfaceIsPrimary(value bool) Instance {
+	self.AsXRInterface().SetInterfaceIsPrimary(value)
+	return self
+}
 func (o *Extension[T]) SetInterfaceIsPrimary(value bool) *Extension[T] {
 	o.Super().AsXRInterface().SetInterfaceIsPrimary(value)
 	return o
 }
 
 // XrPlayAreaMode is promoted from [XRInterface.Instance.XrPlayAreaMode].
+func (self Instance) XrPlayAreaMode() XRInterface.PlayAreaMode { return self.AsXRInterface().XrPlayAreaMode() }
 func (o *Extension[T]) XrPlayAreaMode() XRInterface.PlayAreaMode { return o.Super().AsXRInterface().XrPlayAreaMode() }
 
 // SetXrPlayAreaMode is promoted from [XRInterface.Instance.SetXrPlayAreaMode].
+func (self Instance) SetXrPlayAreaMode(value XRInterface.PlayAreaMode) Instance {
+	self.AsXRInterface().SetXrPlayAreaMode(value)
+	return self
+}
 func (o *Extension[T]) SetXrPlayAreaMode(value XRInterface.PlayAreaMode) *Extension[T] {
 	o.Super().AsXRInterface().SetXrPlayAreaMode(value)
 	return o
 }
 
 // EnvironmentBlendMode is promoted from [XRInterface.Instance.EnvironmentBlendMode].
+func (self Instance) EnvironmentBlendMode() XRInterface.EnvironmentBlendMode { return self.AsXRInterface().EnvironmentBlendMode() }
 func (o *Extension[T]) EnvironmentBlendMode() XRInterface.EnvironmentBlendMode { return o.Super().AsXRInterface().EnvironmentBlendMode() }
 
 // SetEnvironmentBlendMode is promoted from [XRInterface.Instance.SetEnvironmentBlendMode].
+func (self Instance) SetEnvironmentBlendMode(value XRInterface.EnvironmentBlendMode) Instance {
+	self.AsXRInterface().SetEnvironmentBlendMode(value)
+	return self
+}
 func (o *Extension[T]) SetEnvironmentBlendMode(value XRInterface.EnvironmentBlendMode) *Extension[T] {
 	o.Super().AsXRInterface().SetEnvironmentBlendMode(value)
 	return o
 }
 
 // ArIsAnchorDetectionEnabled is promoted from [XRInterface.Instance.ArIsAnchorDetectionEnabled].
+func (self Instance) ArIsAnchorDetectionEnabled() bool { return self.AsXRInterface().ArIsAnchorDetectionEnabled() }
 func (o *Extension[T]) ArIsAnchorDetectionEnabled() bool { return o.Super().AsXRInterface().ArIsAnchorDetectionEnabled() }
 
 // SetArIsAnchorDetectionEnabled is promoted from [XRInterface.Instance.SetArIsAnchorDetectionEnabled].
+func (self Instance) SetArIsAnchorDetectionEnabled(value bool) Instance {
+	self.AsXRInterface().SetArIsAnchorDetectionEnabled(value)
+	return self
+}
 func (o *Extension[T]) SetArIsAnchorDetectionEnabled(value bool) *Extension[T] {
 	o.Super().AsXRInterface().SetArIsAnchorDetectionEnabled(value)
 	return o

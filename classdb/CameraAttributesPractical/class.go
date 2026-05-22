@@ -409,6 +409,16 @@ func (self Instance) OnChanged(cb func(), flags ...Signal.Flags) Instance {
 	return self
 }
 
+// OnChanged is promoted from [Resource.Instance.OnChanged].
+func (o *Extension[T]) OnChanged(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("changed"), gd.NewCallable(cb), int64(flags_together))
+	return o
+}
+
 // OnSetupLocalToSceneRequested is promoted from [Resource.Instance.OnSetupLocalToSceneRequested].
 func (self Instance) OnSetupLocalToSceneRequested(cb func(), flags ...Signal.Flags) Instance {
 	var flags_together Signal.Flags
@@ -417,6 +427,16 @@ func (self Instance) OnSetupLocalToSceneRequested(cb func(), flags ...Signal.Fla
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("setup_local_to_scene_requested"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+
+// OnSetupLocalToSceneRequested is promoted from [Resource.Instance.OnSetupLocalToSceneRequested].
+func (o *Extension[T]) OnSetupLocalToSceneRequested(cb func(), flags ...Signal.Flags) *Extension[T] {
+	var flags_together Signal.Flags
+	for _, flag := range flags {
+		flags_together |= flag
+	}
+	gd.ObjectConnect(o.AsObject()[0], gd.NewStringName("setup_local_to_scene_requested"), gd.NewCallable(cb), int64(flags_together))
+	return o
 }
 
 // TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
@@ -514,81 +534,126 @@ func (o *Extension[T]) EmitChanged() {
 }
 
 // ExposureSensitivity is promoted from [CameraAttributes.Instance.ExposureSensitivity].
+func (self Instance) ExposureSensitivity() Float.X { return self.AsCameraAttributes().ExposureSensitivity() }
 func (o *Extension[T]) ExposureSensitivity() Float.X { return o.Super().AsCameraAttributes().ExposureSensitivity() }
 
 // SetExposureSensitivity is promoted from [CameraAttributes.Instance.SetExposureSensitivity].
+func (self Instance) SetExposureSensitivity(value Float.X) Instance {
+	self.AsCameraAttributes().SetExposureSensitivity(value)
+	return self
+}
 func (o *Extension[T]) SetExposureSensitivity(value Float.X) *Extension[T] {
 	o.Super().AsCameraAttributes().SetExposureSensitivity(value)
 	return o
 }
 
 // ExposureMultiplier is promoted from [CameraAttributes.Instance.ExposureMultiplier].
+func (self Instance) ExposureMultiplier() Float.X { return self.AsCameraAttributes().ExposureMultiplier() }
 func (o *Extension[T]) ExposureMultiplier() Float.X { return o.Super().AsCameraAttributes().ExposureMultiplier() }
 
 // SetExposureMultiplier is promoted from [CameraAttributes.Instance.SetExposureMultiplier].
+func (self Instance) SetExposureMultiplier(value Float.X) Instance {
+	self.AsCameraAttributes().SetExposureMultiplier(value)
+	return self
+}
 func (o *Extension[T]) SetExposureMultiplier(value Float.X) *Extension[T] {
 	o.Super().AsCameraAttributes().SetExposureMultiplier(value)
 	return o
 }
 
 // AutoExposureEnabled is promoted from [CameraAttributes.Instance.AutoExposureEnabled].
+func (self Instance) AutoExposureEnabled() bool { return self.AsCameraAttributes().AutoExposureEnabled() }
 func (o *Extension[T]) AutoExposureEnabled() bool { return o.Super().AsCameraAttributes().AutoExposureEnabled() }
 
 // SetAutoExposureEnabled is promoted from [CameraAttributes.Instance.SetAutoExposureEnabled].
+func (self Instance) SetAutoExposureEnabled(value bool) Instance {
+	self.AsCameraAttributes().SetAutoExposureEnabled(value)
+	return self
+}
 func (o *Extension[T]) SetAutoExposureEnabled(value bool) *Extension[T] {
 	o.Super().AsCameraAttributes().SetAutoExposureEnabled(value)
 	return o
 }
 
 // AutoExposureScale is promoted from [CameraAttributes.Instance.AutoExposureScale].
+func (self Instance) AutoExposureScale() Float.X { return self.AsCameraAttributes().AutoExposureScale() }
 func (o *Extension[T]) AutoExposureScale() Float.X { return o.Super().AsCameraAttributes().AutoExposureScale() }
 
 // SetAutoExposureScale is promoted from [CameraAttributes.Instance.SetAutoExposureScale].
+func (self Instance) SetAutoExposureScale(value Float.X) Instance {
+	self.AsCameraAttributes().SetAutoExposureScale(value)
+	return self
+}
 func (o *Extension[T]) SetAutoExposureScale(value Float.X) *Extension[T] {
 	o.Super().AsCameraAttributes().SetAutoExposureScale(value)
 	return o
 }
 
 // AutoExposureSpeed is promoted from [CameraAttributes.Instance.AutoExposureSpeed].
+func (self Instance) AutoExposureSpeed() Float.X { return self.AsCameraAttributes().AutoExposureSpeed() }
 func (o *Extension[T]) AutoExposureSpeed() Float.X { return o.Super().AsCameraAttributes().AutoExposureSpeed() }
 
 // SetAutoExposureSpeed is promoted from [CameraAttributes.Instance.SetAutoExposureSpeed].
+func (self Instance) SetAutoExposureSpeed(value Float.X) Instance {
+	self.AsCameraAttributes().SetAutoExposureSpeed(value)
+	return self
+}
 func (o *Extension[T]) SetAutoExposureSpeed(value Float.X) *Extension[T] {
 	o.Super().AsCameraAttributes().SetAutoExposureSpeed(value)
 	return o
 }
 
 // ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (self Instance) ResourceLocalToScene() bool { return self.AsResource().ResourceLocalToScene() }
 func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
 
 // SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (self Instance) SetResourceLocalToScene(value bool) Instance {
+	self.AsResource().SetResourceLocalToScene(value)
+	return self
+}
 func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
 	o.Super().AsResource().SetResourceLocalToScene(value)
 	return o
 }
 
 // ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (self Instance) ResourcePath() string { return self.AsResource().ResourcePath() }
 func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
 
 // SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (self Instance) SetResourcePath(value string) Instance {
+	self.AsResource().SetResourcePath(value)
+	return self
+}
 func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
 	o.Super().AsResource().SetResourcePath(value)
 	return o
 }
 
 // ResourceName is promoted from [Resource.Instance.ResourceName].
+func (self Instance) ResourceName() string { return self.AsResource().ResourceName() }
 func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
 
 // SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (self Instance) SetResourceName(value string) Instance {
+	self.AsResource().SetResourceName(value)
+	return self
+}
 func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
 	o.Super().AsResource().SetResourceName(value)
 	return o
 }
 
 // ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (self Instance) ResourceSceneUniqueId() string { return self.AsResource().ResourceSceneUniqueId() }
 func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
 
 // SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (self Instance) SetResourceSceneUniqueId(value string) Instance {
+	self.AsResource().SetResourceSceneUniqueId(value)
+	return self
+}
 func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
 	o.Super().AsResource().SetResourceSceneUniqueId(value)
 	return o
