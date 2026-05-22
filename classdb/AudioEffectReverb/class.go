@@ -163,15 +163,24 @@ func (self Instance) PredelayMsec() Float.X { //gd:AudioEffectReverb.predelay_ms
 		return Float.X(Float.X(class(self).GetPredelayMsec()))
 }
 
+func (o *Extension[T]) PredelayMsec() Float.X { return o.Super().PredelayMsec() }
+
 // SetPredelayMsec sets the property returned by [GetPredelayMsec]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPredelayMsec(value Float.X) Instance { //gd:AudioEffectReverb.predelay_msec
 	class(self).SetPredelayMsec(float64(value))
 	return self
 }
 
+func (o *Extension[T]) SetPredelayMsec(value Float.X) *Extension[T] {
+	o.Super().SetPredelayMsec(value)
+	return o
+}
+
 func (self Instance) PredelayFeedback() Float.X { //gd:AudioEffectReverb.predelay_feedback
 		return Float.X(Float.X(class(self).GetPredelayFeedback()))
 }
+
+func (o *Extension[T]) PredelayFeedback() Float.X { return o.Super().PredelayFeedback() }
 
 // SetPredelayFeedback sets the property returned by [GetPredelayFeedback]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPredelayFeedback(value Float.X) Instance { //gd:AudioEffectReverb.predelay_feedback
@@ -179,9 +188,16 @@ func (self Instance) SetPredelayFeedback(value Float.X) Instance { //gd:AudioEff
 	return self
 }
 
+func (o *Extension[T]) SetPredelayFeedback(value Float.X) *Extension[T] {
+	o.Super().SetPredelayFeedback(value)
+	return o
+}
+
 func (self Instance) RoomSize() Float.X { //gd:AudioEffectReverb.room_size
 		return Float.X(Float.X(class(self).GetRoomSize()))
 }
+
+func (o *Extension[T]) RoomSize() Float.X { return o.Super().RoomSize() }
 
 // SetRoomSize sets the property returned by [GetRoomSize]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRoomSize(value Float.X) Instance { //gd:AudioEffectReverb.room_size
@@ -189,9 +205,16 @@ func (self Instance) SetRoomSize(value Float.X) Instance { //gd:AudioEffectRever
 	return self
 }
 
+func (o *Extension[T]) SetRoomSize(value Float.X) *Extension[T] {
+	o.Super().SetRoomSize(value)
+	return o
+}
+
 func (self Instance) Damping() Float.X { //gd:AudioEffectReverb.damping
 		return Float.X(Float.X(class(self).GetDamping()))
 }
+
+func (o *Extension[T]) Damping() Float.X { return o.Super().Damping() }
 
 // SetDamping sets the property returned by [GetDamping]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDamping(value Float.X) Instance { //gd:AudioEffectReverb.damping
@@ -199,9 +222,16 @@ func (self Instance) SetDamping(value Float.X) Instance { //gd:AudioEffectReverb
 	return self
 }
 
+func (o *Extension[T]) SetDamping(value Float.X) *Extension[T] {
+	o.Super().SetDamping(value)
+	return o
+}
+
 func (self Instance) Spread() Float.X { //gd:AudioEffectReverb.spread
 		return Float.X(Float.X(class(self).GetSpread()))
 }
+
+func (o *Extension[T]) Spread() Float.X { return o.Super().Spread() }
 
 // SetSpread sets the property returned by [GetSpread]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSpread(value Float.X) Instance { //gd:AudioEffectReverb.spread
@@ -209,9 +239,16 @@ func (self Instance) SetSpread(value Float.X) Instance { //gd:AudioEffectReverb.
 	return self
 }
 
+func (o *Extension[T]) SetSpread(value Float.X) *Extension[T] {
+	o.Super().SetSpread(value)
+	return o
+}
+
 func (self Instance) Hipass() Float.X { //gd:AudioEffectReverb.hipass
 		return Float.X(Float.X(class(self).GetHpf()))
 }
+
+func (o *Extension[T]) Hipass() Float.X { return o.Super().Hipass() }
 
 // SetHipass sets the property returned by [GetHpf]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetHipass(value Float.X) Instance { //gd:AudioEffectReverb.hipass
@@ -219,9 +256,16 @@ func (self Instance) SetHipass(value Float.X) Instance { //gd:AudioEffectReverb.
 	return self
 }
 
+func (o *Extension[T]) SetHipass(value Float.X) *Extension[T] {
+	o.Super().SetHipass(value)
+	return o
+}
+
 func (self Instance) Dry() Float.X { //gd:AudioEffectReverb.dry
 		return Float.X(Float.X(class(self).GetDry()))
 }
+
+func (o *Extension[T]) Dry() Float.X { return o.Super().Dry() }
 
 // SetDry sets the property returned by [GetDry]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDry(value Float.X) Instance { //gd:AudioEffectReverb.dry
@@ -229,14 +273,26 @@ func (self Instance) SetDry(value Float.X) Instance { //gd:AudioEffectReverb.dry
 	return self
 }
 
+func (o *Extension[T]) SetDry(value Float.X) *Extension[T] {
+	o.Super().SetDry(value)
+	return o
+}
+
 func (self Instance) Wet() Float.X { //gd:AudioEffectReverb.wet
 		return Float.X(Float.X(class(self).GetWet()))
 }
+
+func (o *Extension[T]) Wet() Float.X { return o.Super().Wet() }
 
 // SetWet sets the property returned by [GetWet]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetWet(value Float.X) Instance { //gd:AudioEffectReverb.wet
 	class(self).SetWet(float64(value))
 	return self
+}
+
+func (o *Extension[T]) SetWet(value Float.X) *Extension[T] {
+	o.Super().SetWet(value)
+	return o
 }
 
 func (self class) SetPredelayMsec(msec float64)  { //gd:AudioEffectReverb.set_predelay_msec
@@ -428,6 +484,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

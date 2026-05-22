@@ -252,15 +252,24 @@ func (self Instance) MinDomain() Float.X { //gd:Curve.min_domain
 		return Float.X(Float.X(class(self).GetMinDomain()))
 }
 
+func (o *Extension[T]) MinDomain() Float.X { return o.Super().MinDomain() }
+
 // SetMinDomain sets the property returned by [GetMinDomain]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMinDomain(value Float.X) Instance { //gd:Curve.min_domain
 	class(self).SetMinDomain(float64(value))
 	return self
 }
 
+func (o *Extension[T]) SetMinDomain(value Float.X) *Extension[T] {
+	o.Super().SetMinDomain(value)
+	return o
+}
+
 func (self Instance) MaxDomain() Float.X { //gd:Curve.max_domain
 		return Float.X(Float.X(class(self).GetMaxDomain()))
 }
+
+func (o *Extension[T]) MaxDomain() Float.X { return o.Super().MaxDomain() }
 
 // SetMaxDomain sets the property returned by [GetMaxDomain]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMaxDomain(value Float.X) Instance { //gd:Curve.max_domain
@@ -268,9 +277,16 @@ func (self Instance) SetMaxDomain(value Float.X) Instance { //gd:Curve.max_domai
 	return self
 }
 
+func (o *Extension[T]) SetMaxDomain(value Float.X) *Extension[T] {
+	o.Super().SetMaxDomain(value)
+	return o
+}
+
 func (self Instance) MinValue() Float.X { //gd:Curve.min_value
 		return Float.X(Float.X(class(self).GetMinValue()))
 }
+
+func (o *Extension[T]) MinValue() Float.X { return o.Super().MinValue() }
 
 // SetMinValue sets the property returned by [GetMinValue]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMinValue(value Float.X) Instance { //gd:Curve.min_value
@@ -278,9 +294,16 @@ func (self Instance) SetMinValue(value Float.X) Instance { //gd:Curve.min_value
 	return self
 }
 
+func (o *Extension[T]) SetMinValue(value Float.X) *Extension[T] {
+	o.Super().SetMinValue(value)
+	return o
+}
+
 func (self Instance) MaxValue() Float.X { //gd:Curve.max_value
 		return Float.X(Float.X(class(self).GetMaxValue()))
 }
+
+func (o *Extension[T]) MaxValue() Float.X { return o.Super().MaxValue() }
 
 // SetMaxValue sets the property returned by [GetMaxValue]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMaxValue(value Float.X) Instance { //gd:Curve.max_value
@@ -288,9 +311,16 @@ func (self Instance) SetMaxValue(value Float.X) Instance { //gd:Curve.max_value
 	return self
 }
 
+func (o *Extension[T]) SetMaxValue(value Float.X) *Extension[T] {
+	o.Super().SetMaxValue(value)
+	return o
+}
+
 func (self Instance) BakeResolution() int { //gd:Curve.bake_resolution
 		return int(int(class(self).GetBakeResolution()))
 }
+
+func (o *Extension[T]) BakeResolution() int { return o.Super().BakeResolution() }
 
 // SetBakeResolution sets the property returned by [GetBakeResolution]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBakeResolution(value int) Instance { //gd:Curve.bake_resolution
@@ -298,14 +328,26 @@ func (self Instance) SetBakeResolution(value int) Instance { //gd:Curve.bake_res
 	return self
 }
 
+func (o *Extension[T]) SetBakeResolution(value int) *Extension[T] {
+	o.Super().SetBakeResolution(value)
+	return o
+}
+
 func (self Instance) PointCount() int { //gd:Curve.point_count
 		return int(int(class(self).GetPointCount()))
 }
+
+func (o *Extension[T]) PointCount() int { return o.Super().PointCount() }
 
 // SetPointCount sets the property returned by [GetPointCount]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPointCount(value int) Instance { //gd:Curve.point_count
 	class(self).SetPointCount(int64(value))
 	return self
+}
+
+func (o *Extension[T]) SetPointCount(value int) *Extension[T] {
+	o.Super().SetPointCount(value)
+	return o
 }
 
 func (self class) GetPointCount() int64 { //gd:Curve.get_point_count
@@ -650,6 +692,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

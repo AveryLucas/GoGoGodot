@@ -244,10 +244,17 @@ func (self Instance) MaxSteps() int { //gd:UndoRedo.max_steps
 		return int(int(class(self).GetMaxSteps()))
 }
 
+func (o *Extension[T]) MaxSteps() int { return o.Super().MaxSteps() }
+
 // SetMaxSteps sets the property returned by [GetMaxSteps]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMaxSteps(value int) Instance { //gd:UndoRedo.max_steps
 	class(self).SetMaxSteps(int64(value))
 	return self
+}
+
+func (o *Extension[T]) SetMaxSteps(value int) *Extension[T] {
+	o.Super().SetMaxSteps(value)
+	return o
 }
 
 func (self class) CreateAction(name String.Readable, merge_mode MergeMode, backward_undo_ops bool)  { //gd:UndoRedo.create_action

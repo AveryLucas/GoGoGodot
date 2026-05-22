@@ -167,15 +167,24 @@ func (self Instance) CommandOrControlAutoremap() bool { //gd:InputEventWithModif
 		return bool(class(self).IsCommandOrControlAutoremap())
 }
 
+func (o *Extension[T]) CommandOrControlAutoremap() bool { return o.Super().CommandOrControlAutoremap() }
+
 // SetCommandOrControlAutoremap sets the property returned by [IsCommandOrControlAutoremap]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCommandOrControlAutoremap(value bool) Instance { //gd:InputEventWithModifiers.command_or_control_autoremap
 	class(self).SetCommandOrControlAutoremap(value)
 	return self
 }
 
+func (o *Extension[T]) SetCommandOrControlAutoremap(value bool) *Extension[T] {
+	o.Super().SetCommandOrControlAutoremap(value)
+	return o
+}
+
 func (self Instance) AltPressed() bool { //gd:InputEventWithModifiers.alt_pressed
 		return bool(class(self).IsAltPressed())
 }
+
+func (o *Extension[T]) AltPressed() bool { return o.Super().AltPressed() }
 
 // SetAltPressed sets the property returned by [IsAltPressed]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAltPressed(value bool) Instance { //gd:InputEventWithModifiers.alt_pressed
@@ -183,9 +192,16 @@ func (self Instance) SetAltPressed(value bool) Instance { //gd:InputEventWithMod
 	return self
 }
 
+func (o *Extension[T]) SetAltPressed(value bool) *Extension[T] {
+	o.Super().SetAltPressed(value)
+	return o
+}
+
 func (self Instance) ShiftPressed() bool { //gd:InputEventWithModifiers.shift_pressed
 		return bool(class(self).IsShiftPressed())
 }
+
+func (o *Extension[T]) ShiftPressed() bool { return o.Super().ShiftPressed() }
 
 // SetShiftPressed sets the property returned by [IsShiftPressed]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetShiftPressed(value bool) Instance { //gd:InputEventWithModifiers.shift_pressed
@@ -193,9 +209,16 @@ func (self Instance) SetShiftPressed(value bool) Instance { //gd:InputEventWithM
 	return self
 }
 
+func (o *Extension[T]) SetShiftPressed(value bool) *Extension[T] {
+	o.Super().SetShiftPressed(value)
+	return o
+}
+
 func (self Instance) CtrlPressed() bool { //gd:InputEventWithModifiers.ctrl_pressed
 		return bool(class(self).IsCtrlPressed())
 }
+
+func (o *Extension[T]) CtrlPressed() bool { return o.Super().CtrlPressed() }
 
 // SetCtrlPressed sets the property returned by [IsCtrlPressed]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCtrlPressed(value bool) Instance { //gd:InputEventWithModifiers.ctrl_pressed
@@ -203,14 +226,26 @@ func (self Instance) SetCtrlPressed(value bool) Instance { //gd:InputEventWithMo
 	return self
 }
 
+func (o *Extension[T]) SetCtrlPressed(value bool) *Extension[T] {
+	o.Super().SetCtrlPressed(value)
+	return o
+}
+
 func (self Instance) MetaPressed() bool { //gd:InputEventWithModifiers.meta_pressed
 		return bool(class(self).IsMetaPressed())
 }
+
+func (o *Extension[T]) MetaPressed() bool { return o.Super().MetaPressed() }
 
 // SetMetaPressed sets the property returned by [IsMetaPressed]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMetaPressed(value bool) Instance { //gd:InputEventWithModifiers.meta_pressed
 	class(self).SetMetaPressed(value)
 	return self
+}
+
+func (o *Extension[T]) SetMetaPressed(value bool) *Extension[T] {
+	o.Super().SetMetaPressed(value)
+	return o
 }
 
 func (self class) SetCommandOrControlAutoremap(enable bool)  { //gd:InputEventWithModifiers.set_command_or_control_autoremap
@@ -467,6 +502,60 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// WindowId is promoted from [InputEventFromWindow.Instance.WindowId].
+func (o *Extension[T]) WindowId() int { return o.Super().AsInputEventFromWindow().WindowId() }
+
+// SetWindowId is promoted from [InputEventFromWindow.Instance.SetWindowId].
+func (o *Extension[T]) SetWindowId(value int) *Extension[T] {
+	o.Super().AsInputEventFromWindow().SetWindowId(value)
+	return o
+}
+
+// Device is promoted from [InputEvent.Instance.Device].
+func (o *Extension[T]) Device() int { return o.Super().AsInputEvent().Device() }
+
+// SetDevice is promoted from [InputEvent.Instance.SetDevice].
+func (o *Extension[T]) SetDevice(value int) *Extension[T] {
+	o.Super().AsInputEvent().SetDevice(value)
+	return o
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

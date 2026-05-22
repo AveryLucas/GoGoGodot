@@ -161,15 +161,24 @@ func (self Instance) From() Transform2D.OriginXY { //gd:PhysicsTestMotionParamet
 		return Transform2D.OriginXY(class(self).GetFrom())
 }
 
+func (o *Extension[T]) From() Transform2D.OriginXY { return o.Super().From() }
+
 // SetFrom sets the property returned by [GetFrom]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFrom(value Transform2D.OriginXY) Instance { //gd:PhysicsTestMotionParameters2D.from
 	class(self).SetFrom(Transform2D.OriginXY(value))
 	return self
 }
 
+func (o *Extension[T]) SetFrom(value Transform2D.OriginXY) *Extension[T] {
+	o.Super().SetFrom(value)
+	return o
+}
+
 func (self Instance) Motion() Vector2.XY { //gd:PhysicsTestMotionParameters2D.motion
 		return Vector2.XY(class(self).GetMotion())
 }
+
+func (o *Extension[T]) Motion() Vector2.XY { return o.Super().Motion() }
 
 // SetMotion sets the property returned by [GetMotion]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMotion(value Vector2.XY) Instance { //gd:PhysicsTestMotionParameters2D.motion
@@ -177,9 +186,16 @@ func (self Instance) SetMotion(value Vector2.XY) Instance { //gd:PhysicsTestMoti
 	return self
 }
 
+func (o *Extension[T]) SetMotion(value Vector2.XY) *Extension[T] {
+	o.Super().SetMotion(value)
+	return o
+}
+
 func (self Instance) Margin() Float.X { //gd:PhysicsTestMotionParameters2D.margin
 		return Float.X(Float.X(class(self).GetMargin()))
 }
+
+func (o *Extension[T]) Margin() Float.X { return o.Super().Margin() }
 
 // SetMargin sets the property returned by [GetMargin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMargin(value Float.X) Instance { //gd:PhysicsTestMotionParameters2D.margin
@@ -187,9 +203,16 @@ func (self Instance) SetMargin(value Float.X) Instance { //gd:PhysicsTestMotionP
 	return self
 }
 
+func (o *Extension[T]) SetMargin(value Float.X) *Extension[T] {
+	o.Super().SetMargin(value)
+	return o
+}
+
 func (self Instance) CollideSeparationRay() bool { //gd:PhysicsTestMotionParameters2D.collide_separation_ray
 		return bool(class(self).IsCollideSeparationRayEnabled())
 }
+
+func (o *Extension[T]) CollideSeparationRay() bool { return o.Super().CollideSeparationRay() }
 
 // SetCollideSeparationRay sets the property returned by [IsCollideSeparationRayEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCollideSeparationRay(value bool) Instance { //gd:PhysicsTestMotionParameters2D.collide_separation_ray
@@ -197,9 +220,16 @@ func (self Instance) SetCollideSeparationRay(value bool) Instance { //gd:Physics
 	return self
 }
 
+func (o *Extension[T]) SetCollideSeparationRay(value bool) *Extension[T] {
+	o.Super().SetCollideSeparationRay(value)
+	return o
+}
+
 func (self Instance) ExcludeBodies() []RID.Any { //gd:PhysicsTestMotionParameters2D.exclude_bodies
 		return []RID.Any(gd.ArrayAs[[]RID.Any](gd.InternalArray(class(self).GetExcludeBodies())))
 }
+
+func (o *Extension[T]) ExcludeBodies() []RID.Any { return o.Super().ExcludeBodies() }
 
 // SetExcludeBodies sets the property returned by [GetExcludeBodies]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetExcludeBodies(value []RID.Any) Instance { //gd:PhysicsTestMotionParameters2D.exclude_bodies
@@ -207,9 +237,16 @@ func (self Instance) SetExcludeBodies(value []RID.Any) Instance { //gd:PhysicsTe
 	return self
 }
 
+func (o *Extension[T]) SetExcludeBodies(value []RID.Any) *Extension[T] {
+	o.Super().SetExcludeBodies(value)
+	return o
+}
+
 func (self Instance) ExcludeObjects() []int { //gd:PhysicsTestMotionParameters2D.exclude_objects
 		return []int(gd.ArrayAs[[]int](gd.InternalArray(class(self).GetExcludeObjects())))
 }
+
+func (o *Extension[T]) ExcludeObjects() []int { return o.Super().ExcludeObjects() }
 
 // SetExcludeObjects sets the property returned by [GetExcludeObjects]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetExcludeObjects(value []int) Instance { //gd:PhysicsTestMotionParameters2D.exclude_objects
@@ -217,14 +254,26 @@ func (self Instance) SetExcludeObjects(value []int) Instance { //gd:PhysicsTestM
 	return self
 }
 
+func (o *Extension[T]) SetExcludeObjects(value []int) *Extension[T] {
+	o.Super().SetExcludeObjects(value)
+	return o
+}
+
 func (self Instance) RecoveryAsCollision() bool { //gd:PhysicsTestMotionParameters2D.recovery_as_collision
 		return bool(class(self).IsRecoveryAsCollisionEnabled())
 }
+
+func (o *Extension[T]) RecoveryAsCollision() bool { return o.Super().RecoveryAsCollision() }
 
 // SetRecoveryAsCollision sets the property returned by [IsRecoveryAsCollisionEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRecoveryAsCollision(value bool) Instance { //gd:PhysicsTestMotionParameters2D.recovery_as_collision
 	class(self).SetRecoveryAsCollisionEnabled(value)
 	return self
+}
+
+func (o *Extension[T]) SetRecoveryAsCollision(value bool) *Extension[T] {
+	o.Super().SetRecoveryAsCollision(value)
+	return o
 }
 
 func (self class) GetFrom() Transform2D.OriginXY { //gd:PhysicsTestMotionParameters2D.get_from

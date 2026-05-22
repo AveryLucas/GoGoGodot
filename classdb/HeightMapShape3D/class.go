@@ -166,15 +166,24 @@ func (self Instance) MapWidth() int { //gd:HeightMapShape3D.map_width
 		return int(int(class(self).GetMapWidth()))
 }
 
+func (o *Extension[T]) MapWidth() int { return o.Super().MapWidth() }
+
 // SetMapWidth sets the property returned by [GetMapWidth]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMapWidth(value int) Instance { //gd:HeightMapShape3D.map_width
 	class(self).SetMapWidth(int64(value))
 	return self
 }
 
+func (o *Extension[T]) SetMapWidth(value int) *Extension[T] {
+	o.Super().SetMapWidth(value)
+	return o
+}
+
 func (self Instance) MapDepth() int { //gd:HeightMapShape3D.map_depth
 		return int(int(class(self).GetMapDepth()))
 }
+
+func (o *Extension[T]) MapDepth() int { return o.Super().MapDepth() }
 
 // SetMapDepth sets the property returned by [GetMapDepth]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMapDepth(value int) Instance { //gd:HeightMapShape3D.map_depth
@@ -182,14 +191,26 @@ func (self Instance) SetMapDepth(value int) Instance { //gd:HeightMapShape3D.map
 	return self
 }
 
+func (o *Extension[T]) SetMapDepth(value int) *Extension[T] {
+	o.Super().SetMapDepth(value)
+	return o
+}
+
 func (self Instance) MapData() []float32 { //gd:HeightMapShape3D.map_data
 		return []float32(slices.Collect(class(self).GetMapData().Values()))
 }
+
+func (o *Extension[T]) MapData() []float32 { return o.Super().MapData() }
 
 // SetMapData sets the property returned by [GetMapData]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMapData(value []float32) Instance { //gd:HeightMapShape3D.map_data
 	class(self).SetMapData(Packed.New(value...))
 	return self
+}
+
+func (o *Extension[T]) SetMapData(value []float32) *Extension[T] {
+	o.Super().SetMapData(value)
+	return o
 }
 
 func (self class) SetMapWidth(width int64)  { //gd:HeightMapShape3D.set_map_width
@@ -363,6 +384,60 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// CustomSolverBias is promoted from [Shape3D.Instance.CustomSolverBias].
+func (o *Extension[T]) CustomSolverBias() Float.X { return o.Super().AsShape3D().CustomSolverBias() }
+
+// SetCustomSolverBias is promoted from [Shape3D.Instance.SetCustomSolverBias].
+func (o *Extension[T]) SetCustomSolverBias(value Float.X) *Extension[T] {
+	o.Super().AsShape3D().SetCustomSolverBias(value)
+	return o
+}
+
+// Margin is promoted from [Shape3D.Instance.Margin].
+func (o *Extension[T]) Margin() Float.X { return o.Super().AsShape3D().Margin() }
+
+// SetMargin is promoted from [Shape3D.Instance.SetMargin].
+func (o *Extension[T]) SetMargin(value Float.X) *Extension[T] {
+	o.Super().AsShape3D().SetMargin(value)
+	return o
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

@@ -20,6 +20,7 @@ import "graphics.gd/variant/Signal"
 import "graphics.gd/classdb/Animation"
 import "graphics.gd/classdb/AnimationLibrary"
 import "graphics.gd/classdb/AnimationMixer"
+import "graphics.gd/classdb/MultiplayerAPI"
 import "graphics.gd/classdb/Node"
 import "graphics.gd/classdb/Tween"
 import "graphics.gd/variant/Array"
@@ -347,15 +348,24 @@ func (self Instance) CurrentAnimation() string { //gd:AnimationPlayer.current_an
 		return string(class(self).GetCurrentAnimation().String())
 }
 
+func (o *Extension[T]) CurrentAnimation() string { return o.Super().CurrentAnimation() }
+
 // SetCurrentAnimation sets the property returned by [GetCurrentAnimation]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCurrentAnimation(value string) Instance { //gd:AnimationPlayer.current_animation
 	class(self).SetCurrentAnimation(String.Name(String.From(value)))
 	return self
 }
 
+func (o *Extension[T]) SetCurrentAnimation(value string) *Extension[T] {
+	o.Super().SetCurrentAnimation(value)
+	return o
+}
+
 func (self Instance) AssignedAnimation() string { //gd:AnimationPlayer.assigned_animation
 		return string(class(self).GetAssignedAnimation().String())
 }
+
+func (o *Extension[T]) AssignedAnimation() string { return o.Super().AssignedAnimation() }
 
 // SetAssignedAnimation sets the property returned by [GetAssignedAnimation]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAssignedAnimation(value string) Instance { //gd:AnimationPlayer.assigned_animation
@@ -363,9 +373,16 @@ func (self Instance) SetAssignedAnimation(value string) Instance { //gd:Animatio
 	return self
 }
 
+func (o *Extension[T]) SetAssignedAnimation(value string) *Extension[T] {
+	o.Super().SetAssignedAnimation(value)
+	return o
+}
+
 func (self Instance) Autoplay() string { //gd:AnimationPlayer.autoplay
 		return string(class(self).GetAutoplay().String())
 }
+
+func (o *Extension[T]) Autoplay() string { return o.Super().Autoplay() }
 
 // SetAutoplay sets the property returned by [GetAutoplay]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAutoplay(value string) Instance { //gd:AnimationPlayer.autoplay
@@ -373,17 +390,28 @@ func (self Instance) SetAutoplay(value string) Instance { //gd:AnimationPlayer.a
 	return self
 }
 
+func (o *Extension[T]) SetAutoplay(value string) *Extension[T] {
+	o.Super().SetAutoplay(value)
+	return o
+}
+
 func (self Instance) CurrentAnimationLength() Float.X { //gd:AnimationPlayer.current_animation_length
 		return Float.X(Float.X(class(self).GetCurrentAnimationLength()))
 }
+
+func (o *Extension[T]) CurrentAnimationLength() Float.X { return o.Super().CurrentAnimationLength() }
 
 func (self Instance) CurrentAnimationPosition() Float.X { //gd:AnimationPlayer.current_animation_position
 		return Float.X(Float.X(class(self).GetCurrentAnimationPosition()))
 }
 
+func (o *Extension[T]) CurrentAnimationPosition() Float.X { return o.Super().CurrentAnimationPosition() }
+
 func (self Instance) PlaybackAutoCapture() bool { //gd:AnimationPlayer.playback_auto_capture
 		return bool(class(self).IsAutoCapture())
 }
+
+func (o *Extension[T]) PlaybackAutoCapture() bool { return o.Super().PlaybackAutoCapture() }
 
 // SetPlaybackAutoCapture sets the property returned by [IsAutoCapture]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPlaybackAutoCapture(value bool) Instance { //gd:AnimationPlayer.playback_auto_capture
@@ -391,9 +419,16 @@ func (self Instance) SetPlaybackAutoCapture(value bool) Instance { //gd:Animatio
 	return self
 }
 
+func (o *Extension[T]) SetPlaybackAutoCapture(value bool) *Extension[T] {
+	o.Super().SetPlaybackAutoCapture(value)
+	return o
+}
+
 func (self Instance) PlaybackAutoCaptureDuration() Float.X { //gd:AnimationPlayer.playback_auto_capture_duration
 		return Float.X(Float.X(class(self).GetAutoCaptureDuration()))
 }
+
+func (o *Extension[T]) PlaybackAutoCaptureDuration() Float.X { return o.Super().PlaybackAutoCaptureDuration() }
 
 // SetPlaybackAutoCaptureDuration sets the property returned by [GetAutoCaptureDuration]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPlaybackAutoCaptureDuration(value Float.X) Instance { //gd:AnimationPlayer.playback_auto_capture_duration
@@ -401,9 +436,16 @@ func (self Instance) SetPlaybackAutoCaptureDuration(value Float.X) Instance { //
 	return self
 }
 
+func (o *Extension[T]) SetPlaybackAutoCaptureDuration(value Float.X) *Extension[T] {
+	o.Super().SetPlaybackAutoCaptureDuration(value)
+	return o
+}
+
 func (self Instance) PlaybackAutoCaptureTransitionType() Tween.TransitionType { //gd:AnimationPlayer.playback_auto_capture_transition_type
 		return Tween.TransitionType(class(self).GetAutoCaptureTransitionType())
 }
+
+func (o *Extension[T]) PlaybackAutoCaptureTransitionType() Tween.TransitionType { return o.Super().PlaybackAutoCaptureTransitionType() }
 
 // SetPlaybackAutoCaptureTransitionType sets the property returned by [GetAutoCaptureTransitionType]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPlaybackAutoCaptureTransitionType(value Tween.TransitionType) Instance { //gd:AnimationPlayer.playback_auto_capture_transition_type
@@ -411,9 +453,16 @@ func (self Instance) SetPlaybackAutoCaptureTransitionType(value Tween.Transition
 	return self
 }
 
+func (o *Extension[T]) SetPlaybackAutoCaptureTransitionType(value Tween.TransitionType) *Extension[T] {
+	o.Super().SetPlaybackAutoCaptureTransitionType(value)
+	return o
+}
+
 func (self Instance) PlaybackAutoCaptureEaseType() Tween.EaseType { //gd:AnimationPlayer.playback_auto_capture_ease_type
 		return Tween.EaseType(class(self).GetAutoCaptureEaseType())
 }
+
+func (o *Extension[T]) PlaybackAutoCaptureEaseType() Tween.EaseType { return o.Super().PlaybackAutoCaptureEaseType() }
 
 // SetPlaybackAutoCaptureEaseType sets the property returned by [GetAutoCaptureEaseType]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPlaybackAutoCaptureEaseType(value Tween.EaseType) Instance { //gd:AnimationPlayer.playback_auto_capture_ease_type
@@ -421,9 +470,16 @@ func (self Instance) SetPlaybackAutoCaptureEaseType(value Tween.EaseType) Instan
 	return self
 }
 
+func (o *Extension[T]) SetPlaybackAutoCaptureEaseType(value Tween.EaseType) *Extension[T] {
+	o.Super().SetPlaybackAutoCaptureEaseType(value)
+	return o
+}
+
 func (self Instance) PlaybackDefaultBlendTime() Float.X { //gd:AnimationPlayer.playback_default_blend_time
 		return Float.X(Float.X(class(self).GetDefaultBlendTime()))
 }
+
+func (o *Extension[T]) PlaybackDefaultBlendTime() Float.X { return o.Super().PlaybackDefaultBlendTime() }
 
 // SetPlaybackDefaultBlendTime sets the property returned by [GetDefaultBlendTime]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPlaybackDefaultBlendTime(value Float.X) Instance { //gd:AnimationPlayer.playback_default_blend_time
@@ -431,9 +487,16 @@ func (self Instance) SetPlaybackDefaultBlendTime(value Float.X) Instance { //gd:
 	return self
 }
 
+func (o *Extension[T]) SetPlaybackDefaultBlendTime(value Float.X) *Extension[T] {
+	o.Super().SetPlaybackDefaultBlendTime(value)
+	return o
+}
+
 func (self Instance) SpeedScale() Float.X { //gd:AnimationPlayer.speed_scale
 		return Float.X(Float.X(class(self).GetSpeedScale()))
 }
+
+func (o *Extension[T]) SpeedScale() Float.X { return o.Super().SpeedScale() }
 
 // SetSpeedScale sets the property returned by [GetSpeedScale]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSpeedScale(value Float.X) Instance { //gd:AnimationPlayer.speed_scale
@@ -441,14 +504,26 @@ func (self Instance) SetSpeedScale(value Float.X) Instance { //gd:AnimationPlaye
 	return self
 }
 
+func (o *Extension[T]) SetSpeedScale(value Float.X) *Extension[T] {
+	o.Super().SetSpeedScale(value)
+	return o
+}
+
 func (self Instance) MovieQuitOnFinish() bool { //gd:AnimationPlayer.movie_quit_on_finish
 		return bool(class(self).IsMovieQuitOnFinishEnabled())
 }
+
+func (o *Extension[T]) MovieQuitOnFinish() bool { return o.Super().MovieQuitOnFinish() }
 
 // SetMovieQuitOnFinish sets the property returned by [IsMovieQuitOnFinishEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMovieQuitOnFinish(value bool) Instance { //gd:AnimationPlayer.movie_quit_on_finish
 	class(self).SetMovieQuitOnFinishEnabled(value)
 	return self
+}
+
+func (o *Extension[T]) SetMovieQuitOnFinish(value bool) *Extension[T] {
+	o.Super().SetMovieQuitOnFinish(value)
+	return o
 }
 
 func (self class) AnimationSetNext(animation_from String.Name, animation_to String.Name)  { //gd:AnimationPlayer.animation_set_next
@@ -1822,6 +1897,216 @@ func (self Instance) NotifyThreadSafe(what int) {
 // NotifyThreadSafe is promoted from [Node.Instance.NotifyThreadSafe].
 func (o *Extension[T]) NotifyThreadSafe(what int) {
 	o.Super().AsNode().NotifyThreadSafe(what)
+}
+
+// Active is promoted from [AnimationMixer.Instance.Active].
+func (o *Extension[T]) Active() bool { return o.Super().AsAnimationMixer().Active() }
+
+// SetActive is promoted from [AnimationMixer.Instance.SetActive].
+func (o *Extension[T]) SetActive(value bool) *Extension[T] {
+	o.Super().AsAnimationMixer().SetActive(value)
+	return o
+}
+
+// Deterministic is promoted from [AnimationMixer.Instance.Deterministic].
+func (o *Extension[T]) Deterministic() bool { return o.Super().AsAnimationMixer().Deterministic() }
+
+// SetDeterministic is promoted from [AnimationMixer.Instance.SetDeterministic].
+func (o *Extension[T]) SetDeterministic(value bool) *Extension[T] {
+	o.Super().AsAnimationMixer().SetDeterministic(value)
+	return o
+}
+
+// ResetOnSave is promoted from [AnimationMixer.Instance.ResetOnSave].
+func (o *Extension[T]) ResetOnSave() bool { return o.Super().AsAnimationMixer().ResetOnSave() }
+
+// SetResetOnSave is promoted from [AnimationMixer.Instance.SetResetOnSave].
+func (o *Extension[T]) SetResetOnSave(value bool) *Extension[T] {
+	o.Super().AsAnimationMixer().SetResetOnSave(value)
+	return o
+}
+
+// RootNode is promoted from [AnimationMixer.Instance.RootNode].
+func (o *Extension[T]) RootNode() string { return o.Super().AsAnimationMixer().RootNode() }
+
+// SetRootNode is promoted from [AnimationMixer.Instance.SetRootNode].
+func (o *Extension[T]) SetRootNode(value string) *Extension[T] {
+	o.Super().AsAnimationMixer().SetRootNode(value)
+	return o
+}
+
+// RootMotionTrack is promoted from [AnimationMixer.Instance.RootMotionTrack].
+func (o *Extension[T]) RootMotionTrack() string { return o.Super().AsAnimationMixer().RootMotionTrack() }
+
+// SetRootMotionTrack is promoted from [AnimationMixer.Instance.SetRootMotionTrack].
+func (o *Extension[T]) SetRootMotionTrack(value string) *Extension[T] {
+	o.Super().AsAnimationMixer().SetRootMotionTrack(value)
+	return o
+}
+
+// RootMotionLocal is promoted from [AnimationMixer.Instance.RootMotionLocal].
+func (o *Extension[T]) RootMotionLocal() bool { return o.Super().AsAnimationMixer().RootMotionLocal() }
+
+// SetRootMotionLocal is promoted from [AnimationMixer.Instance.SetRootMotionLocal].
+func (o *Extension[T]) SetRootMotionLocal(value bool) *Extension[T] {
+	o.Super().AsAnimationMixer().SetRootMotionLocal(value)
+	return o
+}
+
+// AudioMaxPolyphony is promoted from [AnimationMixer.Instance.AudioMaxPolyphony].
+func (o *Extension[T]) AudioMaxPolyphony() int { return o.Super().AsAnimationMixer().AudioMaxPolyphony() }
+
+// SetAudioMaxPolyphony is promoted from [AnimationMixer.Instance.SetAudioMaxPolyphony].
+func (o *Extension[T]) SetAudioMaxPolyphony(value int) *Extension[T] {
+	o.Super().AsAnimationMixer().SetAudioMaxPolyphony(value)
+	return o
+}
+
+// CallbackModeProcess is promoted from [AnimationMixer.Instance.CallbackModeProcess].
+func (o *Extension[T]) CallbackModeProcess() AnimationMixer.AnimationCallbackModeProcess { return o.Super().AsAnimationMixer().CallbackModeProcess() }
+
+// SetCallbackModeProcess is promoted from [AnimationMixer.Instance.SetCallbackModeProcess].
+func (o *Extension[T]) SetCallbackModeProcess(value AnimationMixer.AnimationCallbackModeProcess) *Extension[T] {
+	o.Super().AsAnimationMixer().SetCallbackModeProcess(value)
+	return o
+}
+
+// CallbackModeMethod is promoted from [AnimationMixer.Instance.CallbackModeMethod].
+func (o *Extension[T]) CallbackModeMethod() AnimationMixer.AnimationCallbackModeMethod { return o.Super().AsAnimationMixer().CallbackModeMethod() }
+
+// SetCallbackModeMethod is promoted from [AnimationMixer.Instance.SetCallbackModeMethod].
+func (o *Extension[T]) SetCallbackModeMethod(value AnimationMixer.AnimationCallbackModeMethod) *Extension[T] {
+	o.Super().AsAnimationMixer().SetCallbackModeMethod(value)
+	return o
+}
+
+// CallbackModeDiscrete is promoted from [AnimationMixer.Instance.CallbackModeDiscrete].
+func (o *Extension[T]) CallbackModeDiscrete() AnimationMixer.AnimationCallbackModeDiscrete { return o.Super().AsAnimationMixer().CallbackModeDiscrete() }
+
+// SetCallbackModeDiscrete is promoted from [AnimationMixer.Instance.SetCallbackModeDiscrete].
+func (o *Extension[T]) SetCallbackModeDiscrete(value AnimationMixer.AnimationCallbackModeDiscrete) *Extension[T] {
+	o.Super().AsAnimationMixer().SetCallbackModeDiscrete(value)
+	return o
+}
+
+// Name is promoted from [Node.Instance.Name].
+func (o *Extension[T]) Name() string { return o.Super().AsNode().Name() }
+
+// SetName is promoted from [Node.Instance.SetName].
+func (o *Extension[T]) SetName(value string) *Extension[T] {
+	o.Super().AsNode().SetName(value)
+	return o
+}
+
+// UniqueNameInOwner is promoted from [Node.Instance.UniqueNameInOwner].
+func (o *Extension[T]) UniqueNameInOwner() bool { return o.Super().AsNode().UniqueNameInOwner() }
+
+// SetUniqueNameInOwner is promoted from [Node.Instance.SetUniqueNameInOwner].
+func (o *Extension[T]) SetUniqueNameInOwner(value bool) *Extension[T] {
+	o.Super().AsNode().SetUniqueNameInOwner(value)
+	return o
+}
+
+// SceneFilePath is promoted from [Node.Instance.SceneFilePath].
+func (o *Extension[T]) SceneFilePath() string { return o.Super().AsNode().SceneFilePath() }
+
+// SetSceneFilePath is promoted from [Node.Instance.SetSceneFilePath].
+func (o *Extension[T]) SetSceneFilePath(value string) *Extension[T] {
+	o.Super().AsNode().SetSceneFilePath(value)
+	return o
+}
+
+// Owner is promoted from [Node.Instance.Owner].
+func (o *Extension[T]) Owner() Node.Instance { return o.Super().AsNode().Owner() }
+
+// SetOwner is promoted from [Node.Instance.SetOwner].
+func (o *Extension[T]) SetOwner(value Node.Instance) *Extension[T] {
+	o.Super().AsNode().SetOwner(value)
+	return o
+}
+
+// Multiplayer is promoted from [Node.Instance.Multiplayer].
+func (o *Extension[T]) Multiplayer() MultiplayerAPI.Instance { return o.Super().AsNode().Multiplayer() }
+
+// ProcessMode is promoted from [Node.Instance.ProcessMode].
+func (o *Extension[T]) ProcessMode() Node.ProcessMode { return o.Super().AsNode().ProcessMode() }
+
+// SetProcessMode is promoted from [Node.Instance.SetProcessMode].
+func (o *Extension[T]) SetProcessMode(value Node.ProcessMode) *Extension[T] {
+	o.Super().AsNode().SetProcessMode(value)
+	return o
+}
+
+// ProcessPriority is promoted from [Node.Instance.ProcessPriority].
+func (o *Extension[T]) ProcessPriority() int { return o.Super().AsNode().ProcessPriority() }
+
+// SetProcessPriority is promoted from [Node.Instance.SetProcessPriority].
+func (o *Extension[T]) SetProcessPriority(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessPriority(value)
+	return o
+}
+
+// ProcessPhysicsPriority is promoted from [Node.Instance.ProcessPhysicsPriority].
+func (o *Extension[T]) ProcessPhysicsPriority() int { return o.Super().AsNode().ProcessPhysicsPriority() }
+
+// SetProcessPhysicsPriority is promoted from [Node.Instance.SetProcessPhysicsPriority].
+func (o *Extension[T]) SetProcessPhysicsPriority(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessPhysicsPriority(value)
+	return o
+}
+
+// ProcessThreadGroup is promoted from [Node.Instance.ProcessThreadGroup].
+func (o *Extension[T]) ProcessThreadGroup() Node.ProcessThreadGroup { return o.Super().AsNode().ProcessThreadGroup() }
+
+// SetProcessThreadGroup is promoted from [Node.Instance.SetProcessThreadGroup].
+func (o *Extension[T]) SetProcessThreadGroup(value Node.ProcessThreadGroup) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadGroup(value)
+	return o
+}
+
+// ProcessThreadGroupOrder is promoted from [Node.Instance.ProcessThreadGroupOrder].
+func (o *Extension[T]) ProcessThreadGroupOrder() int { return o.Super().AsNode().ProcessThreadGroupOrder() }
+
+// SetProcessThreadGroupOrder is promoted from [Node.Instance.SetProcessThreadGroupOrder].
+func (o *Extension[T]) SetProcessThreadGroupOrder(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadGroupOrder(value)
+	return o
+}
+
+// ProcessThreadMessages is promoted from [Node.Instance.ProcessThreadMessages].
+func (o *Extension[T]) ProcessThreadMessages() Node.ProcessThreadMessages { return o.Super().AsNode().ProcessThreadMessages() }
+
+// SetProcessThreadMessages is promoted from [Node.Instance.SetProcessThreadMessages].
+func (o *Extension[T]) SetProcessThreadMessages(value Node.ProcessThreadMessages) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadMessages(value)
+	return o
+}
+
+// PhysicsInterpolationMode is promoted from [Node.Instance.PhysicsInterpolationMode].
+func (o *Extension[T]) PhysicsInterpolationMode() Node.PhysicsInterpolationMode { return o.Super().AsNode().PhysicsInterpolationMode() }
+
+// SetPhysicsInterpolationMode is promoted from [Node.Instance.SetPhysicsInterpolationMode].
+func (o *Extension[T]) SetPhysicsInterpolationMode(value Node.PhysicsInterpolationMode) *Extension[T] {
+	o.Super().AsNode().SetPhysicsInterpolationMode(value)
+	return o
+}
+
+// AutoTranslateMode is promoted from [Node.Instance.AutoTranslateMode].
+func (o *Extension[T]) AutoTranslateMode() Node.AutoTranslateMode { return o.Super().AsNode().AutoTranslateMode() }
+
+// SetAutoTranslateMode is promoted from [Node.Instance.SetAutoTranslateMode].
+func (o *Extension[T]) SetAutoTranslateMode(value Node.AutoTranslateMode) *Extension[T] {
+	o.Super().AsNode().SetAutoTranslateMode(value)
+	return o
+}
+
+// EditorDescription is promoted from [Node.Instance.EditorDescription].
+func (o *Extension[T]) EditorDescription() string { return o.Super().AsNode().EditorDescription() }
+
+// SetEditorDescription is promoted from [Node.Instance.SetEditorDescription].
+func (o *Extension[T]) SetEditorDescription(value string) *Extension[T] {
+	o.Super().AsNode().SetEditorDescription(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

@@ -153,10 +153,17 @@ func (self Instance) Radius() Float.X { //gd:CircleShape2D.radius
 		return Float.X(Float.X(class(self).GetRadius()))
 }
 
+func (o *Extension[T]) Radius() Float.X { return o.Super().Radius() }
+
 // SetRadius sets the property returned by [GetRadius]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRadius(value Float.X) Instance { //gd:CircleShape2D.radius
 	class(self).SetRadius(float64(value))
 	return self
+}
+
+func (o *Extension[T]) SetRadius(value Float.X) *Extension[T] {
+	o.Super().SetRadius(value)
+	return o
 }
 
 func (self class) SetRadius(radius float64)  { //gd:CircleShape2D.set_radius
@@ -352,6 +359,51 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// CustomSolverBias is promoted from [Shape2D.Instance.CustomSolverBias].
+func (o *Extension[T]) CustomSolverBias() Float.X { return o.Super().AsShape2D().CustomSolverBias() }
+
+// SetCustomSolverBias is promoted from [Shape2D.Instance.SetCustomSolverBias].
+func (o *Extension[T]) SetCustomSolverBias(value Float.X) *Extension[T] {
+	o.Super().AsShape2D().SetCustomSolverBias(value)
+	return o
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

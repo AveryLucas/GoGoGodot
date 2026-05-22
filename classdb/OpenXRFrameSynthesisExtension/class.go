@@ -157,20 +157,34 @@ func (self Instance) Enabled() bool { //gd:OpenXRFrameSynthesisExtension.enabled
 		return bool(class(self).IsEnabled())
 }
 
+func (o *Extension[T]) Enabled() bool { return o.Super().Enabled() }
+
 // SetEnabled sets the property returned by [IsEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEnabled(value bool) Instance { //gd:OpenXRFrameSynthesisExtension.enabled
 	class(self).SetEnabled(value)
 	return self
 }
 
+func (o *Extension[T]) SetEnabled(value bool) *Extension[T] {
+	o.Super().SetEnabled(value)
+	return o
+}
+
 func (self Instance) RelaxFrameInterval() bool { //gd:OpenXRFrameSynthesisExtension.relax_frame_interval
 		return bool(class(self).GetRelaxFrameInterval())
 }
+
+func (o *Extension[T]) RelaxFrameInterval() bool { return o.Super().RelaxFrameInterval() }
 
 // SetRelaxFrameInterval sets the property returned by [GetRelaxFrameInterval]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRelaxFrameInterval(value bool) Instance { //gd:OpenXRFrameSynthesisExtension.relax_frame_interval
 	class(self).SetRelaxFrameInterval(value)
 	return self
+}
+
+func (o *Extension[T]) SetRelaxFrameInterval(value bool) *Extension[T] {
+	o.Super().SetRelaxFrameInterval(value)
+	return o
 }
 
 func (self class) IsAvailable() bool { //gd:OpenXRFrameSynthesisExtension.is_available

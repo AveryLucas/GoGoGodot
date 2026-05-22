@@ -230,15 +230,24 @@ func (self Instance) Enabled() bool { //gd:TranslationDomain.enabled
 		return bool(class(self).IsEnabled())
 }
 
+func (o *Extension[T]) Enabled() bool { return o.Super().Enabled() }
+
 // SetEnabled sets the property returned by [IsEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEnabled(value bool) Instance { //gd:TranslationDomain.enabled
 	class(self).SetEnabled(value)
 	return self
 }
 
+func (o *Extension[T]) SetEnabled(value bool) *Extension[T] {
+	o.Super().SetEnabled(value)
+	return o
+}
+
 func (self Instance) PseudolocalizationEnabled() bool { //gd:TranslationDomain.pseudolocalization_enabled
 		return bool(class(self).IsPseudolocalizationEnabled())
 }
+
+func (o *Extension[T]) PseudolocalizationEnabled() bool { return o.Super().PseudolocalizationEnabled() }
 
 // SetPseudolocalizationEnabled sets the property returned by [IsPseudolocalizationEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPseudolocalizationEnabled(value bool) Instance { //gd:TranslationDomain.pseudolocalization_enabled
@@ -246,9 +255,16 @@ func (self Instance) SetPseudolocalizationEnabled(value bool) Instance { //gd:Tr
 	return self
 }
 
+func (o *Extension[T]) SetPseudolocalizationEnabled(value bool) *Extension[T] {
+	o.Super().SetPseudolocalizationEnabled(value)
+	return o
+}
+
 func (self Instance) PseudolocalizationAccentsEnabled() bool { //gd:TranslationDomain.pseudolocalization_accents_enabled
 		return bool(class(self).IsPseudolocalizationAccentsEnabled())
 }
+
+func (o *Extension[T]) PseudolocalizationAccentsEnabled() bool { return o.Super().PseudolocalizationAccentsEnabled() }
 
 // SetPseudolocalizationAccentsEnabled sets the property returned by [IsPseudolocalizationAccentsEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPseudolocalizationAccentsEnabled(value bool) Instance { //gd:TranslationDomain.pseudolocalization_accents_enabled
@@ -256,9 +272,16 @@ func (self Instance) SetPseudolocalizationAccentsEnabled(value bool) Instance { 
 	return self
 }
 
+func (o *Extension[T]) SetPseudolocalizationAccentsEnabled(value bool) *Extension[T] {
+	o.Super().SetPseudolocalizationAccentsEnabled(value)
+	return o
+}
+
 func (self Instance) PseudolocalizationDoubleVowelsEnabled() bool { //gd:TranslationDomain.pseudolocalization_double_vowels_enabled
 		return bool(class(self).IsPseudolocalizationDoubleVowelsEnabled())
 }
+
+func (o *Extension[T]) PseudolocalizationDoubleVowelsEnabled() bool { return o.Super().PseudolocalizationDoubleVowelsEnabled() }
 
 // SetPseudolocalizationDoubleVowelsEnabled sets the property returned by [IsPseudolocalizationDoubleVowelsEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPseudolocalizationDoubleVowelsEnabled(value bool) Instance { //gd:TranslationDomain.pseudolocalization_double_vowels_enabled
@@ -266,9 +289,16 @@ func (self Instance) SetPseudolocalizationDoubleVowelsEnabled(value bool) Instan
 	return self
 }
 
+func (o *Extension[T]) SetPseudolocalizationDoubleVowelsEnabled(value bool) *Extension[T] {
+	o.Super().SetPseudolocalizationDoubleVowelsEnabled(value)
+	return o
+}
+
 func (self Instance) PseudolocalizationFakeBidiEnabled() bool { //gd:TranslationDomain.pseudolocalization_fake_bidi_enabled
 		return bool(class(self).IsPseudolocalizationFakeBidiEnabled())
 }
+
+func (o *Extension[T]) PseudolocalizationFakeBidiEnabled() bool { return o.Super().PseudolocalizationFakeBidiEnabled() }
 
 // SetPseudolocalizationFakeBidiEnabled sets the property returned by [IsPseudolocalizationFakeBidiEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPseudolocalizationFakeBidiEnabled(value bool) Instance { //gd:TranslationDomain.pseudolocalization_fake_bidi_enabled
@@ -276,9 +306,16 @@ func (self Instance) SetPseudolocalizationFakeBidiEnabled(value bool) Instance {
 	return self
 }
 
+func (o *Extension[T]) SetPseudolocalizationFakeBidiEnabled(value bool) *Extension[T] {
+	o.Super().SetPseudolocalizationFakeBidiEnabled(value)
+	return o
+}
+
 func (self Instance) PseudolocalizationOverrideEnabled() bool { //gd:TranslationDomain.pseudolocalization_override_enabled
 		return bool(class(self).IsPseudolocalizationOverrideEnabled())
 }
+
+func (o *Extension[T]) PseudolocalizationOverrideEnabled() bool { return o.Super().PseudolocalizationOverrideEnabled() }
 
 // SetPseudolocalizationOverrideEnabled sets the property returned by [IsPseudolocalizationOverrideEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPseudolocalizationOverrideEnabled(value bool) Instance { //gd:TranslationDomain.pseudolocalization_override_enabled
@@ -286,9 +323,16 @@ func (self Instance) SetPseudolocalizationOverrideEnabled(value bool) Instance {
 	return self
 }
 
+func (o *Extension[T]) SetPseudolocalizationOverrideEnabled(value bool) *Extension[T] {
+	o.Super().SetPseudolocalizationOverrideEnabled(value)
+	return o
+}
+
 func (self Instance) PseudolocalizationSkipPlaceholdersEnabled() bool { //gd:TranslationDomain.pseudolocalization_skip_placeholders_enabled
 		return bool(class(self).IsPseudolocalizationSkipPlaceholdersEnabled())
 }
+
+func (o *Extension[T]) PseudolocalizationSkipPlaceholdersEnabled() bool { return o.Super().PseudolocalizationSkipPlaceholdersEnabled() }
 
 // SetPseudolocalizationSkipPlaceholdersEnabled sets the property returned by [IsPseudolocalizationSkipPlaceholdersEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPseudolocalizationSkipPlaceholdersEnabled(value bool) Instance { //gd:TranslationDomain.pseudolocalization_skip_placeholders_enabled
@@ -296,9 +340,16 @@ func (self Instance) SetPseudolocalizationSkipPlaceholdersEnabled(value bool) In
 	return self
 }
 
+func (o *Extension[T]) SetPseudolocalizationSkipPlaceholdersEnabled(value bool) *Extension[T] {
+	o.Super().SetPseudolocalizationSkipPlaceholdersEnabled(value)
+	return o
+}
+
 func (self Instance) PseudolocalizationExpansionRatio() Float.X { //gd:TranslationDomain.pseudolocalization_expansion_ratio
 		return Float.X(Float.X(class(self).GetPseudolocalizationExpansionRatio()))
 }
+
+func (o *Extension[T]) PseudolocalizationExpansionRatio() Float.X { return o.Super().PseudolocalizationExpansionRatio() }
 
 // SetPseudolocalizationExpansionRatio sets the property returned by [GetPseudolocalizationExpansionRatio]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPseudolocalizationExpansionRatio(value Float.X) Instance { //gd:TranslationDomain.pseudolocalization_expansion_ratio
@@ -306,9 +357,16 @@ func (self Instance) SetPseudolocalizationExpansionRatio(value Float.X) Instance
 	return self
 }
 
+func (o *Extension[T]) SetPseudolocalizationExpansionRatio(value Float.X) *Extension[T] {
+	o.Super().SetPseudolocalizationExpansionRatio(value)
+	return o
+}
+
 func (self Instance) PseudolocalizationPrefix() string { //gd:TranslationDomain.pseudolocalization_prefix
 		return string(class(self).GetPseudolocalizationPrefix().String())
 }
+
+func (o *Extension[T]) PseudolocalizationPrefix() string { return o.Super().PseudolocalizationPrefix() }
 
 // SetPseudolocalizationPrefix sets the property returned by [GetPseudolocalizationPrefix]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPseudolocalizationPrefix(value string) Instance { //gd:TranslationDomain.pseudolocalization_prefix
@@ -316,14 +374,26 @@ func (self Instance) SetPseudolocalizationPrefix(value string) Instance { //gd:T
 	return self
 }
 
+func (o *Extension[T]) SetPseudolocalizationPrefix(value string) *Extension[T] {
+	o.Super().SetPseudolocalizationPrefix(value)
+	return o
+}
+
 func (self Instance) PseudolocalizationSuffix() string { //gd:TranslationDomain.pseudolocalization_suffix
 		return string(class(self).GetPseudolocalizationSuffix().String())
 }
+
+func (o *Extension[T]) PseudolocalizationSuffix() string { return o.Super().PseudolocalizationSuffix() }
 
 // SetPseudolocalizationSuffix sets the property returned by [GetPseudolocalizationSuffix]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPseudolocalizationSuffix(value string) Instance { //gd:TranslationDomain.pseudolocalization_suffix
 	class(self).SetPseudolocalizationSuffix(String.From(value))
 	return self
+}
+
+func (o *Extension[T]) SetPseudolocalizationSuffix(value string) *Extension[T] {
+	o.Super().SetPseudolocalizationSuffix(value)
+	return o
 }
 
 func (self class) GetTranslationObject(locale String.Readable) [1]gdclass.Translation { //gd:TranslationDomain.get_translation_object

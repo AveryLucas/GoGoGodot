@@ -161,15 +161,24 @@ func (self Instance) Density() Float.X { //gd:FogMaterial.density
 		return Float.X(Float.X(class(self).GetDensity()))
 }
 
+func (o *Extension[T]) Density() Float.X { return o.Super().Density() }
+
 // SetDensity sets the property returned by [GetDensity]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDensity(value Float.X) Instance { //gd:FogMaterial.density
 	class(self).SetDensity(float64(value))
 	return self
 }
 
+func (o *Extension[T]) SetDensity(value Float.X) *Extension[T] {
+	o.Super().SetDensity(value)
+	return o
+}
+
 func (self Instance) Albedo() Color.RGBA { //gd:FogMaterial.albedo
 		return Color.RGBA(class(self).GetAlbedo())
 }
+
+func (o *Extension[T]) Albedo() Color.RGBA { return o.Super().Albedo() }
 
 // SetAlbedo sets the property returned by [GetAlbedo]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAlbedo(value Color.RGBA) Instance { //gd:FogMaterial.albedo
@@ -177,9 +186,16 @@ func (self Instance) SetAlbedo(value Color.RGBA) Instance { //gd:FogMaterial.alb
 	return self
 }
 
+func (o *Extension[T]) SetAlbedo(value Color.RGBA) *Extension[T] {
+	o.Super().SetAlbedo(value)
+	return o
+}
+
 func (self Instance) Emission() Color.RGBA { //gd:FogMaterial.emission
 		return Color.RGBA(class(self).GetEmission())
 }
+
+func (o *Extension[T]) Emission() Color.RGBA { return o.Super().Emission() }
 
 // SetEmission sets the property returned by [GetEmission]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEmission(value Color.RGBA) Instance { //gd:FogMaterial.emission
@@ -187,9 +203,16 @@ func (self Instance) SetEmission(value Color.RGBA) Instance { //gd:FogMaterial.e
 	return self
 }
 
+func (o *Extension[T]) SetEmission(value Color.RGBA) *Extension[T] {
+	o.Super().SetEmission(value)
+	return o
+}
+
 func (self Instance) HeightFalloff() Float.X { //gd:FogMaterial.height_falloff
 		return Float.X(Float.X(class(self).GetHeightFalloff()))
 }
+
+func (o *Extension[T]) HeightFalloff() Float.X { return o.Super().HeightFalloff() }
 
 // SetHeightFalloff sets the property returned by [GetHeightFalloff]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetHeightFalloff(value Float.X) Instance { //gd:FogMaterial.height_falloff
@@ -197,9 +220,16 @@ func (self Instance) SetHeightFalloff(value Float.X) Instance { //gd:FogMaterial
 	return self
 }
 
+func (o *Extension[T]) SetHeightFalloff(value Float.X) *Extension[T] {
+	o.Super().SetHeightFalloff(value)
+	return o
+}
+
 func (self Instance) EdgeFade() Float.X { //gd:FogMaterial.edge_fade
 		return Float.X(Float.X(class(self).GetEdgeFade()))
 }
+
+func (o *Extension[T]) EdgeFade() Float.X { return o.Super().EdgeFade() }
 
 // SetEdgeFade sets the property returned by [GetEdgeFade]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEdgeFade(value Float.X) Instance { //gd:FogMaterial.edge_fade
@@ -207,14 +237,26 @@ func (self Instance) SetEdgeFade(value Float.X) Instance { //gd:FogMaterial.edge
 	return self
 }
 
+func (o *Extension[T]) SetEdgeFade(value Float.X) *Extension[T] {
+	o.Super().SetEdgeFade(value)
+	return o
+}
+
 func (self Instance) DensityTexture() Texture3D.Instance { //gd:FogMaterial.density_texture
 		return Texture3D.Instance(class(self).GetDensityTexture())
 }
+
+func (o *Extension[T]) DensityTexture() Texture3D.Instance { return o.Super().DensityTexture() }
 
 // SetDensityTexture sets the property returned by [GetDensityTexture]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDensityTexture(value Texture3D.Instance) Instance { //gd:FogMaterial.density_texture
 	class(self).SetDensityTexture(value)
 	return self
+}
+
+func (o *Extension[T]) SetDensityTexture(value Texture3D.Instance) *Extension[T] {
+	o.Super().SetDensityTexture(value)
+	return o
 }
 
 func (self class) SetDensity(density float64)  { //gd:FogMaterial.set_density
@@ -410,6 +452,60 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// RenderPriority is promoted from [Material.Instance.RenderPriority].
+func (o *Extension[T]) RenderPriority() Material.RenderPriority { return o.Super().AsMaterial().RenderPriority() }
+
+// SetRenderPriority is promoted from [Material.Instance.SetRenderPriority].
+func (o *Extension[T]) SetRenderPriority(value Material.RenderPriority) *Extension[T] {
+	o.Super().AsMaterial().SetRenderPriority(value)
+	return o
+}
+
+// NextPass is promoted from [Material.Instance.NextPass].
+func (o *Extension[T]) NextPass() Material.Instance { return o.Super().AsMaterial().NextPass() }
+
+// SetNextPass is promoted from [Material.Instance.SetNextPass].
+func (o *Extension[T]) SetNextPass(value Material.Instance) *Extension[T] {
+	o.Super().AsMaterial().SetNextPass(value)
+	return o
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

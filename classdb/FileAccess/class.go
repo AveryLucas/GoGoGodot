@@ -454,10 +454,17 @@ func (self Instance) BigEndian() bool { //gd:FileAccess.big_endian
 		return bool(class(self).IsBigEndian())
 }
 
+func (o *Extension[T]) BigEndian() bool { return o.Super().BigEndian() }
+
 // SetBigEndian sets the property returned by [IsBigEndian]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBigEndian(value bool) Instance { //gd:FileAccess.big_endian
 	class(self).SetBigEndian(value)
 	return self
+}
+
+func (o *Extension[T]) SetBigEndian(value bool) *Extension[T] {
+	o.Super().SetBigEndian(value)
+	return o
 }
 
 func (self class) Open(path String.Readable, flags ModeFlags) [1]gdclass.FileAccess { //gd:FileAccess.open

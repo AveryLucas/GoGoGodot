@@ -18,6 +18,7 @@ import "graphics.gd/variant/Angle"
 import "graphics.gd/variant/Euler"
 import "graphics.gd/variant/Signal"
 import "graphics.gd/classdb/CanvasLayer"
+import "graphics.gd/classdb/MultiplayerAPI"
 import "graphics.gd/classdb/Node"
 import "graphics.gd/classdb/Tween"
 import "graphics.gd/variant/Array"
@@ -161,15 +162,24 @@ func (self Instance) ScrollOffset() Vector2.XY { //gd:ParallaxBackground.scroll_
 		return Vector2.XY(class(self).GetScrollOffset())
 }
 
+func (o *Extension[T]) ScrollOffset() Vector2.XY { return o.Super().ScrollOffset() }
+
 // SetScrollOffset sets the property returned by [GetScrollOffset]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetScrollOffset(value Vector2.XY) Instance { //gd:ParallaxBackground.scroll_offset
 	class(self).SetScrollOffset(Vector2.XY(value))
 	return self
 }
 
+func (o *Extension[T]) SetScrollOffset(value Vector2.XY) *Extension[T] {
+	o.Super().SetScrollOffset(value)
+	return o
+}
+
 func (self Instance) ScrollBaseOffset() Vector2.XY { //gd:ParallaxBackground.scroll_base_offset
 		return Vector2.XY(class(self).GetScrollBaseOffset())
 }
+
+func (o *Extension[T]) ScrollBaseOffset() Vector2.XY { return o.Super().ScrollBaseOffset() }
 
 // SetScrollBaseOffset sets the property returned by [GetScrollBaseOffset]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetScrollBaseOffset(value Vector2.XY) Instance { //gd:ParallaxBackground.scroll_base_offset
@@ -177,9 +187,16 @@ func (self Instance) SetScrollBaseOffset(value Vector2.XY) Instance { //gd:Paral
 	return self
 }
 
+func (o *Extension[T]) SetScrollBaseOffset(value Vector2.XY) *Extension[T] {
+	o.Super().SetScrollBaseOffset(value)
+	return o
+}
+
 func (self Instance) ScrollBaseScale() Vector2.XY { //gd:ParallaxBackground.scroll_base_scale
 		return Vector2.XY(class(self).GetScrollBaseScale())
 }
+
+func (o *Extension[T]) ScrollBaseScale() Vector2.XY { return o.Super().ScrollBaseScale() }
 
 // SetScrollBaseScale sets the property returned by [GetScrollBaseScale]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetScrollBaseScale(value Vector2.XY) Instance { //gd:ParallaxBackground.scroll_base_scale
@@ -187,9 +204,16 @@ func (self Instance) SetScrollBaseScale(value Vector2.XY) Instance { //gd:Parall
 	return self
 }
 
+func (o *Extension[T]) SetScrollBaseScale(value Vector2.XY) *Extension[T] {
+	o.Super().SetScrollBaseScale(value)
+	return o
+}
+
 func (self Instance) ScrollLimitBegin() Vector2.XY { //gd:ParallaxBackground.scroll_limit_begin
 		return Vector2.XY(class(self).GetLimitBegin())
 }
+
+func (o *Extension[T]) ScrollLimitBegin() Vector2.XY { return o.Super().ScrollLimitBegin() }
 
 // SetScrollLimitBegin sets the property returned by [GetLimitBegin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetScrollLimitBegin(value Vector2.XY) Instance { //gd:ParallaxBackground.scroll_limit_begin
@@ -197,9 +221,16 @@ func (self Instance) SetScrollLimitBegin(value Vector2.XY) Instance { //gd:Paral
 	return self
 }
 
+func (o *Extension[T]) SetScrollLimitBegin(value Vector2.XY) *Extension[T] {
+	o.Super().SetScrollLimitBegin(value)
+	return o
+}
+
 func (self Instance) ScrollLimitEnd() Vector2.XY { //gd:ParallaxBackground.scroll_limit_end
 		return Vector2.XY(class(self).GetLimitEnd())
 }
+
+func (o *Extension[T]) ScrollLimitEnd() Vector2.XY { return o.Super().ScrollLimitEnd() }
 
 // SetScrollLimitEnd sets the property returned by [GetLimitEnd]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetScrollLimitEnd(value Vector2.XY) Instance { //gd:ParallaxBackground.scroll_limit_end
@@ -207,14 +238,26 @@ func (self Instance) SetScrollLimitEnd(value Vector2.XY) Instance { //gd:Paralla
 	return self
 }
 
+func (o *Extension[T]) SetScrollLimitEnd(value Vector2.XY) *Extension[T] {
+	o.Super().SetScrollLimitEnd(value)
+	return o
+}
+
 func (self Instance) ScrollIgnoreCameraZoom() bool { //gd:ParallaxBackground.scroll_ignore_camera_zoom
 		return bool(class(self).IsIgnoreCameraZoom())
 }
+
+func (o *Extension[T]) ScrollIgnoreCameraZoom() bool { return o.Super().ScrollIgnoreCameraZoom() }
 
 // SetScrollIgnoreCameraZoom sets the property returned by [IsIgnoreCameraZoom]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetScrollIgnoreCameraZoom(value bool) Instance { //gd:ParallaxBackground.scroll_ignore_camera_zoom
 	class(self).SetIgnoreCameraZoom(value)
 	return self
+}
+
+func (o *Extension[T]) SetScrollIgnoreCameraZoom(value bool) *Extension[T] {
+	o.Super().SetScrollIgnoreCameraZoom(value)
+	return o
 }
 
 func (self class) SetScrollOffset(offset Vector2.XY)  { //gd:ParallaxBackground.set_scroll_offset
@@ -1121,6 +1164,207 @@ func (self Instance) NotifyThreadSafe(what int) {
 // NotifyThreadSafe is promoted from [Node.Instance.NotifyThreadSafe].
 func (o *Extension[T]) NotifyThreadSafe(what int) {
 	o.Super().AsNode().NotifyThreadSafe(what)
+}
+
+// Layer is promoted from [CanvasLayer.Instance.Layer].
+func (o *Extension[T]) Layer() int { return o.Super().AsCanvasLayer().Layer() }
+
+// SetLayer is promoted from [CanvasLayer.Instance.SetLayer].
+func (o *Extension[T]) SetLayer(value int) *Extension[T] {
+	o.Super().AsCanvasLayer().SetLayer(value)
+	return o
+}
+
+// Visible is promoted from [CanvasLayer.Instance.Visible].
+func (o *Extension[T]) Visible() bool { return o.Super().AsCanvasLayer().Visible() }
+
+// SetVisible is promoted from [CanvasLayer.Instance.SetVisible].
+func (o *Extension[T]) SetVisible(value bool) *Extension[T] {
+	o.Super().AsCanvasLayer().SetVisible(value)
+	return o
+}
+
+// Offset is promoted from [CanvasLayer.Instance.Offset].
+func (o *Extension[T]) Offset() Vector2.XY { return o.Super().AsCanvasLayer().Offset() }
+
+// SetOffset is promoted from [CanvasLayer.Instance.SetOffset].
+func (o *Extension[T]) SetOffset(value Vector2.XY) *Extension[T] {
+	o.Super().AsCanvasLayer().SetOffset(value)
+	return o
+}
+
+// Rotation is promoted from [CanvasLayer.Instance.Rotation].
+func (o *Extension[T]) Rotation() Angle.Radians { return o.Super().AsCanvasLayer().Rotation() }
+
+// SetRotation is promoted from [CanvasLayer.Instance.SetRotation].
+func (o *Extension[T]) SetRotation(value Angle.Radians) *Extension[T] {
+	o.Super().AsCanvasLayer().SetRotation(value)
+	return o
+}
+
+// Scale is promoted from [CanvasLayer.Instance.Scale].
+func (o *Extension[T]) Scale() Vector2.XY { return o.Super().AsCanvasLayer().Scale() }
+
+// SetScale is promoted from [CanvasLayer.Instance.SetScale].
+func (o *Extension[T]) SetScale(value Vector2.XY) *Extension[T] {
+	o.Super().AsCanvasLayer().SetScale(value)
+	return o
+}
+
+// Transform is promoted from [CanvasLayer.Instance.Transform].
+func (o *Extension[T]) Transform() Transform2D.OriginXY { return o.Super().AsCanvasLayer().Transform() }
+
+// SetTransform is promoted from [CanvasLayer.Instance.SetTransform].
+func (o *Extension[T]) SetTransform(value Transform2D.OriginXY) *Extension[T] {
+	o.Super().AsCanvasLayer().SetTransform(value)
+	return o
+}
+
+// CustomViewport is promoted from [CanvasLayer.Instance.CustomViewport].
+func (o *Extension[T]) CustomViewport() Node.Instance { return o.Super().AsCanvasLayer().CustomViewport() }
+
+// SetCustomViewport is promoted from [CanvasLayer.Instance.SetCustomViewport].
+func (o *Extension[T]) SetCustomViewport(value Node.Instance) *Extension[T] {
+	o.Super().AsCanvasLayer().SetCustomViewport(value)
+	return o
+}
+
+// FollowViewportEnabled is promoted from [CanvasLayer.Instance.FollowViewportEnabled].
+func (o *Extension[T]) FollowViewportEnabled() bool { return o.Super().AsCanvasLayer().FollowViewportEnabled() }
+
+// SetFollowViewportEnabled is promoted from [CanvasLayer.Instance.SetFollowViewportEnabled].
+func (o *Extension[T]) SetFollowViewportEnabled(value bool) *Extension[T] {
+	o.Super().AsCanvasLayer().SetFollowViewportEnabled(value)
+	return o
+}
+
+// FollowViewportScale is promoted from [CanvasLayer.Instance.FollowViewportScale].
+func (o *Extension[T]) FollowViewportScale() Float.X { return o.Super().AsCanvasLayer().FollowViewportScale() }
+
+// SetFollowViewportScale is promoted from [CanvasLayer.Instance.SetFollowViewportScale].
+func (o *Extension[T]) SetFollowViewportScale(value Float.X) *Extension[T] {
+	o.Super().AsCanvasLayer().SetFollowViewportScale(value)
+	return o
+}
+
+// Name is promoted from [Node.Instance.Name].
+func (o *Extension[T]) Name() string { return o.Super().AsNode().Name() }
+
+// SetName is promoted from [Node.Instance.SetName].
+func (o *Extension[T]) SetName(value string) *Extension[T] {
+	o.Super().AsNode().SetName(value)
+	return o
+}
+
+// UniqueNameInOwner is promoted from [Node.Instance.UniqueNameInOwner].
+func (o *Extension[T]) UniqueNameInOwner() bool { return o.Super().AsNode().UniqueNameInOwner() }
+
+// SetUniqueNameInOwner is promoted from [Node.Instance.SetUniqueNameInOwner].
+func (o *Extension[T]) SetUniqueNameInOwner(value bool) *Extension[T] {
+	o.Super().AsNode().SetUniqueNameInOwner(value)
+	return o
+}
+
+// SceneFilePath is promoted from [Node.Instance.SceneFilePath].
+func (o *Extension[T]) SceneFilePath() string { return o.Super().AsNode().SceneFilePath() }
+
+// SetSceneFilePath is promoted from [Node.Instance.SetSceneFilePath].
+func (o *Extension[T]) SetSceneFilePath(value string) *Extension[T] {
+	o.Super().AsNode().SetSceneFilePath(value)
+	return o
+}
+
+// Owner is promoted from [Node.Instance.Owner].
+func (o *Extension[T]) Owner() Node.Instance { return o.Super().AsNode().Owner() }
+
+// SetOwner is promoted from [Node.Instance.SetOwner].
+func (o *Extension[T]) SetOwner(value Node.Instance) *Extension[T] {
+	o.Super().AsNode().SetOwner(value)
+	return o
+}
+
+// Multiplayer is promoted from [Node.Instance.Multiplayer].
+func (o *Extension[T]) Multiplayer() MultiplayerAPI.Instance { return o.Super().AsNode().Multiplayer() }
+
+// ProcessMode is promoted from [Node.Instance.ProcessMode].
+func (o *Extension[T]) ProcessMode() Node.ProcessMode { return o.Super().AsNode().ProcessMode() }
+
+// SetProcessMode is promoted from [Node.Instance.SetProcessMode].
+func (o *Extension[T]) SetProcessMode(value Node.ProcessMode) *Extension[T] {
+	o.Super().AsNode().SetProcessMode(value)
+	return o
+}
+
+// ProcessPriority is promoted from [Node.Instance.ProcessPriority].
+func (o *Extension[T]) ProcessPriority() int { return o.Super().AsNode().ProcessPriority() }
+
+// SetProcessPriority is promoted from [Node.Instance.SetProcessPriority].
+func (o *Extension[T]) SetProcessPriority(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessPriority(value)
+	return o
+}
+
+// ProcessPhysicsPriority is promoted from [Node.Instance.ProcessPhysicsPriority].
+func (o *Extension[T]) ProcessPhysicsPriority() int { return o.Super().AsNode().ProcessPhysicsPriority() }
+
+// SetProcessPhysicsPriority is promoted from [Node.Instance.SetProcessPhysicsPriority].
+func (o *Extension[T]) SetProcessPhysicsPriority(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessPhysicsPriority(value)
+	return o
+}
+
+// ProcessThreadGroup is promoted from [Node.Instance.ProcessThreadGroup].
+func (o *Extension[T]) ProcessThreadGroup() Node.ProcessThreadGroup { return o.Super().AsNode().ProcessThreadGroup() }
+
+// SetProcessThreadGroup is promoted from [Node.Instance.SetProcessThreadGroup].
+func (o *Extension[T]) SetProcessThreadGroup(value Node.ProcessThreadGroup) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadGroup(value)
+	return o
+}
+
+// ProcessThreadGroupOrder is promoted from [Node.Instance.ProcessThreadGroupOrder].
+func (o *Extension[T]) ProcessThreadGroupOrder() int { return o.Super().AsNode().ProcessThreadGroupOrder() }
+
+// SetProcessThreadGroupOrder is promoted from [Node.Instance.SetProcessThreadGroupOrder].
+func (o *Extension[T]) SetProcessThreadGroupOrder(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadGroupOrder(value)
+	return o
+}
+
+// ProcessThreadMessages is promoted from [Node.Instance.ProcessThreadMessages].
+func (o *Extension[T]) ProcessThreadMessages() Node.ProcessThreadMessages { return o.Super().AsNode().ProcessThreadMessages() }
+
+// SetProcessThreadMessages is promoted from [Node.Instance.SetProcessThreadMessages].
+func (o *Extension[T]) SetProcessThreadMessages(value Node.ProcessThreadMessages) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadMessages(value)
+	return o
+}
+
+// PhysicsInterpolationMode is promoted from [Node.Instance.PhysicsInterpolationMode].
+func (o *Extension[T]) PhysicsInterpolationMode() Node.PhysicsInterpolationMode { return o.Super().AsNode().PhysicsInterpolationMode() }
+
+// SetPhysicsInterpolationMode is promoted from [Node.Instance.SetPhysicsInterpolationMode].
+func (o *Extension[T]) SetPhysicsInterpolationMode(value Node.PhysicsInterpolationMode) *Extension[T] {
+	o.Super().AsNode().SetPhysicsInterpolationMode(value)
+	return o
+}
+
+// AutoTranslateMode is promoted from [Node.Instance.AutoTranslateMode].
+func (o *Extension[T]) AutoTranslateMode() Node.AutoTranslateMode { return o.Super().AsNode().AutoTranslateMode() }
+
+// SetAutoTranslateMode is promoted from [Node.Instance.SetAutoTranslateMode].
+func (o *Extension[T]) SetAutoTranslateMode(value Node.AutoTranslateMode) *Extension[T] {
+	o.Super().AsNode().SetAutoTranslateMode(value)
+	return o
+}
+
+// EditorDescription is promoted from [Node.Instance.EditorDescription].
+func (o *Extension[T]) EditorDescription() string { return o.Super().AsNode().EditorDescription() }
+
+// SetEditorDescription is promoted from [Node.Instance.SetEditorDescription].
+func (o *Extension[T]) SetEditorDescription(value string) *Extension[T] {
+	o.Super().AsNode().SetEditorDescription(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

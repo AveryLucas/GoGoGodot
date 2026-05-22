@@ -187,15 +187,24 @@ func (self Instance) Color() Color.RGBA { //gd:GLTFLight.color
 		return Color.RGBA(class(self).GetColor())
 }
 
+func (o *Extension[T]) Color() Color.RGBA { return o.Super().Color() }
+
 // SetColor sets the property returned by [GetColor]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetColor(value Color.RGBA) Instance { //gd:GLTFLight.color
 	class(self).SetColor(Color.RGBA(value))
 	return self
 }
 
+func (o *Extension[T]) SetColor(value Color.RGBA) *Extension[T] {
+	o.Super().SetColor(value)
+	return o
+}
+
 func (self Instance) Intensity() Float.X { //gd:GLTFLight.intensity
 		return Float.X(Float.X(class(self).GetIntensity()))
 }
+
+func (o *Extension[T]) Intensity() Float.X { return o.Super().Intensity() }
 
 // SetIntensity sets the property returned by [GetIntensity]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetIntensity(value Float.X) Instance { //gd:GLTFLight.intensity
@@ -203,9 +212,16 @@ func (self Instance) SetIntensity(value Float.X) Instance { //gd:GLTFLight.inten
 	return self
 }
 
+func (o *Extension[T]) SetIntensity(value Float.X) *Extension[T] {
+	o.Super().SetIntensity(value)
+	return o
+}
+
 func (self Instance) LightType() string { //gd:GLTFLight.light_type
 		return string(class(self).GetLightType().String())
 }
+
+func (o *Extension[T]) LightType() string { return o.Super().LightType() }
 
 // SetLightType sets the property returned by [GetLightType]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetLightType(value string) Instance { //gd:GLTFLight.light_type
@@ -213,9 +229,16 @@ func (self Instance) SetLightType(value string) Instance { //gd:GLTFLight.light_
 	return self
 }
 
+func (o *Extension[T]) SetLightType(value string) *Extension[T] {
+	o.Super().SetLightType(value)
+	return o
+}
+
 func (self Instance) Range() Float.X { //gd:GLTFLight.range
 		return Float.X(Float.X(class(self).GetRange()))
 }
+
+func (o *Extension[T]) Range() Float.X { return o.Super().Range() }
 
 // SetRange sets the property returned by [GetRange]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRange(value Float.X) Instance { //gd:GLTFLight.range
@@ -223,9 +246,16 @@ func (self Instance) SetRange(value Float.X) Instance { //gd:GLTFLight.range
 	return self
 }
 
+func (o *Extension[T]) SetRange(value Float.X) *Extension[T] {
+	o.Super().SetRange(value)
+	return o
+}
+
 func (self Instance) InnerConeAngle() Angle.Radians { //gd:GLTFLight.inner_cone_angle
 		return Angle.Radians(Float.X(class(self).GetInnerConeAngle()))
 }
+
+func (o *Extension[T]) InnerConeAngle() Angle.Radians { return o.Super().InnerConeAngle() }
 
 // SetInnerConeAngle sets the property returned by [GetInnerConeAngle]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetInnerConeAngle(value Angle.Radians) Instance { //gd:GLTFLight.inner_cone_angle
@@ -233,14 +263,26 @@ func (self Instance) SetInnerConeAngle(value Angle.Radians) Instance { //gd:GLTF
 	return self
 }
 
+func (o *Extension[T]) SetInnerConeAngle(value Angle.Radians) *Extension[T] {
+	o.Super().SetInnerConeAngle(value)
+	return o
+}
+
 func (self Instance) OuterConeAngle() Angle.Radians { //gd:GLTFLight.outer_cone_angle
 		return Angle.Radians(Float.X(class(self).GetOuterConeAngle()))
 }
+
+func (o *Extension[T]) OuterConeAngle() Angle.Radians { return o.Super().OuterConeAngle() }
 
 // SetOuterConeAngle sets the property returned by [GetOuterConeAngle]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOuterConeAngle(value Angle.Radians) Instance { //gd:GLTFLight.outer_cone_angle
 	class(self).SetOuterConeAngle(float64(value))
 	return self
+}
+
+func (o *Extension[T]) SetOuterConeAngle(value Angle.Radians) *Extension[T] {
+	o.Super().SetOuterConeAngle(value)
+	return o
 }
 
 func (self class) FromNode(light_node [1]gdclass.Light3D) [1]gdclass.GLTFLight { //gd:GLTFLight.from_node
@@ -454,6 +496,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

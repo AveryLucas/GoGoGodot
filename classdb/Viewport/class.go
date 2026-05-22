@@ -23,6 +23,7 @@ import "graphics.gd/classdb/Camera2D"
 import "graphics.gd/classdb/Camera3D"
 import "graphics.gd/classdb/Control"
 import "graphics.gd/classdb/InputEvent"
+import "graphics.gd/classdb/MultiplayerAPI"
 import "graphics.gd/classdb/Node"
 import "graphics.gd/classdb/Texture2D"
 import "graphics.gd/classdb/Tween"
@@ -410,15 +411,24 @@ func (self Instance) Disable3d() bool { //gd:Viewport.disable_3d
 		return bool(class(self).Is3dDisabled())
 }
 
+func (o *Extension[T]) Disable3d() bool { return o.Super().Disable3d() }
+
 // SetDisable3d sets the property returned by [Is3dDisabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDisable3d(value bool) Instance { //gd:Viewport.disable_3d
 	class(self).SetDisable3d(value)
 	return self
 }
 
+func (o *Extension[T]) SetDisable3d(value bool) *Extension[T] {
+	o.Super().SetDisable3d(value)
+	return o
+}
+
 func (self Instance) UseXr() bool { //gd:Viewport.use_xr
 		return bool(class(self).IsUsingXr())
 }
+
+func (o *Extension[T]) UseXr() bool { return o.Super().UseXr() }
 
 // SetUseXr sets the property returned by [IsUsingXr]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUseXr(value bool) Instance { //gd:Viewport.use_xr
@@ -426,9 +436,16 @@ func (self Instance) SetUseXr(value bool) Instance { //gd:Viewport.use_xr
 	return self
 }
 
+func (o *Extension[T]) SetUseXr(value bool) *Extension[T] {
+	o.Super().SetUseXr(value)
+	return o
+}
+
 func (self Instance) OwnWorld3d() bool { //gd:Viewport.own_world_3d
 		return bool(class(self).IsUsingOwnWorld3d())
 }
+
+func (o *Extension[T]) OwnWorld3d() bool { return o.Super().OwnWorld3d() }
 
 // SetOwnWorld3d sets the property returned by [IsUsingOwnWorld3d]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOwnWorld3d(value bool) Instance { //gd:Viewport.own_world_3d
@@ -436,9 +453,16 @@ func (self Instance) SetOwnWorld3d(value bool) Instance { //gd:Viewport.own_worl
 	return self
 }
 
+func (o *Extension[T]) SetOwnWorld3d(value bool) *Extension[T] {
+	o.Super().SetOwnWorld3d(value)
+	return o
+}
+
 func (self Instance) World3d() World3D.Instance { //gd:Viewport.world_3d
 		return World3D.Instance(class(self).GetWorld3d())
 }
+
+func (o *Extension[T]) World3d() World3D.Instance { return o.Super().World3d() }
 
 // SetWorld3d sets the property returned by [GetWorld3d]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetWorld3d(value World3D.Instance) Instance { //gd:Viewport.world_3d
@@ -446,9 +470,16 @@ func (self Instance) SetWorld3d(value World3D.Instance) Instance { //gd:Viewport
 	return self
 }
 
+func (o *Extension[T]) SetWorld3d(value World3D.Instance) *Extension[T] {
+	o.Super().SetWorld3d(value)
+	return o
+}
+
 func (self Instance) World2d() World2D.Instance { //gd:Viewport.world_2d
 		return World2D.Instance(class(self).GetWorld2d())
 }
+
+func (o *Extension[T]) World2d() World2D.Instance { return o.Super().World2d() }
 
 // SetWorld2d sets the property returned by [GetWorld2d]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetWorld2d(value World2D.Instance) Instance { //gd:Viewport.world_2d
@@ -456,9 +487,16 @@ func (self Instance) SetWorld2d(value World2D.Instance) Instance { //gd:Viewport
 	return self
 }
 
+func (o *Extension[T]) SetWorld2d(value World2D.Instance) *Extension[T] {
+	o.Super().SetWorld2d(value)
+	return o
+}
+
 func (self Instance) TransparentBg() bool { //gd:Viewport.transparent_bg
 		return bool(class(self).HasTransparentBackground())
 }
+
+func (o *Extension[T]) TransparentBg() bool { return o.Super().TransparentBg() }
 
 // SetTransparentBg sets the property returned by [HasTransparentBackground]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTransparentBg(value bool) Instance { //gd:Viewport.transparent_bg
@@ -466,9 +504,16 @@ func (self Instance) SetTransparentBg(value bool) Instance { //gd:Viewport.trans
 	return self
 }
 
+func (o *Extension[T]) SetTransparentBg(value bool) *Extension[T] {
+	o.Super().SetTransparentBg(value)
+	return o
+}
+
 func (self Instance) HandleInputLocally() bool { //gd:Viewport.handle_input_locally
 		return bool(class(self).IsHandlingInputLocally())
 }
+
+func (o *Extension[T]) HandleInputLocally() bool { return o.Super().HandleInputLocally() }
 
 // SetHandleInputLocally sets the property returned by [IsHandlingInputLocally]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetHandleInputLocally(value bool) Instance { //gd:Viewport.handle_input_locally
@@ -476,9 +521,16 @@ func (self Instance) SetHandleInputLocally(value bool) Instance { //gd:Viewport.
 	return self
 }
 
+func (o *Extension[T]) SetHandleInputLocally(value bool) *Extension[T] {
+	o.Super().SetHandleInputLocally(value)
+	return o
+}
+
 func (self Instance) Snap2dTransformsToPixel() bool { //gd:Viewport.snap_2d_transforms_to_pixel
 		return bool(class(self).IsSnap2dTransformsToPixelEnabled())
 }
+
+func (o *Extension[T]) Snap2dTransformsToPixel() bool { return o.Super().Snap2dTransformsToPixel() }
 
 // SetSnap2dTransformsToPixel sets the property returned by [IsSnap2dTransformsToPixelEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSnap2dTransformsToPixel(value bool) Instance { //gd:Viewport.snap_2d_transforms_to_pixel
@@ -486,9 +538,16 @@ func (self Instance) SetSnap2dTransformsToPixel(value bool) Instance { //gd:View
 	return self
 }
 
+func (o *Extension[T]) SetSnap2dTransformsToPixel(value bool) *Extension[T] {
+	o.Super().SetSnap2dTransformsToPixel(value)
+	return o
+}
+
 func (self Instance) Snap2dVerticesToPixel() bool { //gd:Viewport.snap_2d_vertices_to_pixel
 		return bool(class(self).IsSnap2dVerticesToPixelEnabled())
 }
+
+func (o *Extension[T]) Snap2dVerticesToPixel() bool { return o.Super().Snap2dVerticesToPixel() }
 
 // SetSnap2dVerticesToPixel sets the property returned by [IsSnap2dVerticesToPixelEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSnap2dVerticesToPixel(value bool) Instance { //gd:Viewport.snap_2d_vertices_to_pixel
@@ -496,9 +555,16 @@ func (self Instance) SetSnap2dVerticesToPixel(value bool) Instance { //gd:Viewpo
 	return self
 }
 
+func (o *Extension[T]) SetSnap2dVerticesToPixel(value bool) *Extension[T] {
+	o.Super().SetSnap2dVerticesToPixel(value)
+	return o
+}
+
 func (self Instance) Msaa2d() MSAA { //gd:Viewport.msaa_2d
 		return MSAA(class(self).GetMsaa2d())
 }
+
+func (o *Extension[T]) Msaa2d() MSAA { return o.Super().Msaa2d() }
 
 // SetMsaa2d sets the property returned by [GetMsaa2d]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMsaa2d(value MSAA) Instance { //gd:Viewport.msaa_2d
@@ -506,9 +572,16 @@ func (self Instance) SetMsaa2d(value MSAA) Instance { //gd:Viewport.msaa_2d
 	return self
 }
 
+func (o *Extension[T]) SetMsaa2d(value MSAA) *Extension[T] {
+	o.Super().SetMsaa2d(value)
+	return o
+}
+
 func (self Instance) Msaa3d() MSAA { //gd:Viewport.msaa_3d
 		return MSAA(class(self).GetMsaa3d())
 }
+
+func (o *Extension[T]) Msaa3d() MSAA { return o.Super().Msaa3d() }
 
 // SetMsaa3d sets the property returned by [GetMsaa3d]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMsaa3d(value MSAA) Instance { //gd:Viewport.msaa_3d
@@ -516,9 +589,16 @@ func (self Instance) SetMsaa3d(value MSAA) Instance { //gd:Viewport.msaa_3d
 	return self
 }
 
+func (o *Extension[T]) SetMsaa3d(value MSAA) *Extension[T] {
+	o.Super().SetMsaa3d(value)
+	return o
+}
+
 func (self Instance) ScreenSpaceAa() ScreenSpaceAA { //gd:Viewport.screen_space_aa
 		return ScreenSpaceAA(class(self).GetScreenSpaceAa())
 }
+
+func (o *Extension[T]) ScreenSpaceAa() ScreenSpaceAA { return o.Super().ScreenSpaceAa() }
 
 // SetScreenSpaceAa sets the property returned by [GetScreenSpaceAa]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetScreenSpaceAa(value ScreenSpaceAA) Instance { //gd:Viewport.screen_space_aa
@@ -526,9 +606,16 @@ func (self Instance) SetScreenSpaceAa(value ScreenSpaceAA) Instance { //gd:Viewp
 	return self
 }
 
+func (o *Extension[T]) SetScreenSpaceAa(value ScreenSpaceAA) *Extension[T] {
+	o.Super().SetScreenSpaceAa(value)
+	return o
+}
+
 func (self Instance) UseTaa() bool { //gd:Viewport.use_taa
 		return bool(class(self).IsUsingTaa())
 }
+
+func (o *Extension[T]) UseTaa() bool { return o.Super().UseTaa() }
 
 // SetUseTaa sets the property returned by [IsUsingTaa]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUseTaa(value bool) Instance { //gd:Viewport.use_taa
@@ -536,9 +623,16 @@ func (self Instance) SetUseTaa(value bool) Instance { //gd:Viewport.use_taa
 	return self
 }
 
+func (o *Extension[T]) SetUseTaa(value bool) *Extension[T] {
+	o.Super().SetUseTaa(value)
+	return o
+}
+
 func (self Instance) UseDebanding() bool { //gd:Viewport.use_debanding
 		return bool(class(self).IsUsingDebanding())
 }
+
+func (o *Extension[T]) UseDebanding() bool { return o.Super().UseDebanding() }
 
 // SetUseDebanding sets the property returned by [IsUsingDebanding]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUseDebanding(value bool) Instance { //gd:Viewport.use_debanding
@@ -546,9 +640,16 @@ func (self Instance) SetUseDebanding(value bool) Instance { //gd:Viewport.use_de
 	return self
 }
 
+func (o *Extension[T]) SetUseDebanding(value bool) *Extension[T] {
+	o.Super().SetUseDebanding(value)
+	return o
+}
+
 func (self Instance) UseOcclusionCulling() bool { //gd:Viewport.use_occlusion_culling
 		return bool(class(self).IsUsingOcclusionCulling())
 }
+
+func (o *Extension[T]) UseOcclusionCulling() bool { return o.Super().UseOcclusionCulling() }
 
 // SetUseOcclusionCulling sets the property returned by [IsUsingOcclusionCulling]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUseOcclusionCulling(value bool) Instance { //gd:Viewport.use_occlusion_culling
@@ -556,9 +657,16 @@ func (self Instance) SetUseOcclusionCulling(value bool) Instance { //gd:Viewport
 	return self
 }
 
+func (o *Extension[T]) SetUseOcclusionCulling(value bool) *Extension[T] {
+	o.Super().SetUseOcclusionCulling(value)
+	return o
+}
+
 func (self Instance) MeshLodThreshold() Float.X { //gd:Viewport.mesh_lod_threshold
 		return Float.X(Float.X(class(self).GetMeshLodThreshold()))
 }
+
+func (o *Extension[T]) MeshLodThreshold() Float.X { return o.Super().MeshLodThreshold() }
 
 // SetMeshLodThreshold sets the property returned by [GetMeshLodThreshold]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMeshLodThreshold(value Float.X) Instance { //gd:Viewport.mesh_lod_threshold
@@ -566,9 +674,16 @@ func (self Instance) SetMeshLodThreshold(value Float.X) Instance { //gd:Viewport
 	return self
 }
 
+func (o *Extension[T]) SetMeshLodThreshold(value Float.X) *Extension[T] {
+	o.Super().SetMeshLodThreshold(value)
+	return o
+}
+
 func (self Instance) DebugDraw() DebugDraw { //gd:Viewport.debug_draw
 		return DebugDraw(class(self).GetDebugDraw())
 }
+
+func (o *Extension[T]) DebugDraw() DebugDraw { return o.Super().DebugDraw() }
 
 // SetDebugDraw sets the property returned by [GetDebugDraw]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDebugDraw(value DebugDraw) Instance { //gd:Viewport.debug_draw
@@ -576,9 +691,16 @@ func (self Instance) SetDebugDraw(value DebugDraw) Instance { //gd:Viewport.debu
 	return self
 }
 
+func (o *Extension[T]) SetDebugDraw(value DebugDraw) *Extension[T] {
+	o.Super().SetDebugDraw(value)
+	return o
+}
+
 func (self Instance) UseHdr2d() bool { //gd:Viewport.use_hdr_2d
 		return bool(class(self).IsUsingHdr2d())
 }
+
+func (o *Extension[T]) UseHdr2d() bool { return o.Super().UseHdr2d() }
 
 // SetUseHdr2d sets the property returned by [IsUsingHdr2d]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUseHdr2d(value bool) Instance { //gd:Viewport.use_hdr_2d
@@ -586,9 +708,16 @@ func (self Instance) SetUseHdr2d(value bool) Instance { //gd:Viewport.use_hdr_2d
 	return self
 }
 
+func (o *Extension[T]) SetUseHdr2d(value bool) *Extension[T] {
+	o.Super().SetUseHdr2d(value)
+	return o
+}
+
 func (self Instance) Scaling3dMode() Scaling3DMode { //gd:Viewport.scaling_3d_mode
 		return Scaling3DMode(class(self).GetScaling3dMode())
 }
+
+func (o *Extension[T]) Scaling3dMode() Scaling3DMode { return o.Super().Scaling3dMode() }
 
 // SetScaling3dMode sets the property returned by [GetScaling3dMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetScaling3dMode(value Scaling3DMode) Instance { //gd:Viewport.scaling_3d_mode
@@ -596,9 +725,16 @@ func (self Instance) SetScaling3dMode(value Scaling3DMode) Instance { //gd:Viewp
 	return self
 }
 
+func (o *Extension[T]) SetScaling3dMode(value Scaling3DMode) *Extension[T] {
+	o.Super().SetScaling3dMode(value)
+	return o
+}
+
 func (self Instance) Scaling3dScale() Float.X { //gd:Viewport.scaling_3d_scale
 		return Float.X(Float.X(class(self).GetScaling3dScale()))
 }
+
+func (o *Extension[T]) Scaling3dScale() Float.X { return o.Super().Scaling3dScale() }
 
 // SetScaling3dScale sets the property returned by [GetScaling3dScale]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetScaling3dScale(value Float.X) Instance { //gd:Viewport.scaling_3d_scale
@@ -606,9 +742,16 @@ func (self Instance) SetScaling3dScale(value Float.X) Instance { //gd:Viewport.s
 	return self
 }
 
+func (o *Extension[T]) SetScaling3dScale(value Float.X) *Extension[T] {
+	o.Super().SetScaling3dScale(value)
+	return o
+}
+
 func (self Instance) TextureMipmapBias() Float.X { //gd:Viewport.texture_mipmap_bias
 		return Float.X(Float.X(class(self).GetTextureMipmapBias()))
 }
+
+func (o *Extension[T]) TextureMipmapBias() Float.X { return o.Super().TextureMipmapBias() }
 
 // SetTextureMipmapBias sets the property returned by [GetTextureMipmapBias]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTextureMipmapBias(value Float.X) Instance { //gd:Viewport.texture_mipmap_bias
@@ -616,9 +759,16 @@ func (self Instance) SetTextureMipmapBias(value Float.X) Instance { //gd:Viewpor
 	return self
 }
 
+func (o *Extension[T]) SetTextureMipmapBias(value Float.X) *Extension[T] {
+	o.Super().SetTextureMipmapBias(value)
+	return o
+}
+
 func (self Instance) AnisotropicFilteringLevel() AnisotropicFiltering { //gd:Viewport.anisotropic_filtering_level
 		return AnisotropicFiltering(class(self).GetAnisotropicFilteringLevel())
 }
+
+func (o *Extension[T]) AnisotropicFilteringLevel() AnisotropicFiltering { return o.Super().AnisotropicFilteringLevel() }
 
 // SetAnisotropicFilteringLevel sets the property returned by [GetAnisotropicFilteringLevel]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAnisotropicFilteringLevel(value AnisotropicFiltering) Instance { //gd:Viewport.anisotropic_filtering_level
@@ -626,9 +776,16 @@ func (self Instance) SetAnisotropicFilteringLevel(value AnisotropicFiltering) In
 	return self
 }
 
+func (o *Extension[T]) SetAnisotropicFilteringLevel(value AnisotropicFiltering) *Extension[T] {
+	o.Super().SetAnisotropicFilteringLevel(value)
+	return o
+}
+
 func (self Instance) FsrSharpness() Float.X { //gd:Viewport.fsr_sharpness
 		return Float.X(Float.X(class(self).GetFsrSharpness()))
 }
+
+func (o *Extension[T]) FsrSharpness() Float.X { return o.Super().FsrSharpness() }
 
 // SetFsrSharpness sets the property returned by [GetFsrSharpness]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFsrSharpness(value Float.X) Instance { //gd:Viewport.fsr_sharpness
@@ -636,9 +793,16 @@ func (self Instance) SetFsrSharpness(value Float.X) Instance { //gd:Viewport.fsr
 	return self
 }
 
+func (o *Extension[T]) SetFsrSharpness(value Float.X) *Extension[T] {
+	o.Super().SetFsrSharpness(value)
+	return o
+}
+
 func (self Instance) VrsMode() VRSMode { //gd:Viewport.vrs_mode
 		return VRSMode(class(self).GetVrsMode())
 }
+
+func (o *Extension[T]) VrsMode() VRSMode { return o.Super().VrsMode() }
 
 // SetVrsMode sets the property returned by [GetVrsMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVrsMode(value VRSMode) Instance { //gd:Viewport.vrs_mode
@@ -646,9 +810,16 @@ func (self Instance) SetVrsMode(value VRSMode) Instance { //gd:Viewport.vrs_mode
 	return self
 }
 
+func (o *Extension[T]) SetVrsMode(value VRSMode) *Extension[T] {
+	o.Super().SetVrsMode(value)
+	return o
+}
+
 func (self Instance) VrsUpdateMode() VRSUpdateMode { //gd:Viewport.vrs_update_mode
 		return VRSUpdateMode(class(self).GetVrsUpdateMode())
 }
+
+func (o *Extension[T]) VrsUpdateMode() VRSUpdateMode { return o.Super().VrsUpdateMode() }
 
 // SetVrsUpdateMode sets the property returned by [GetVrsUpdateMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVrsUpdateMode(value VRSUpdateMode) Instance { //gd:Viewport.vrs_update_mode
@@ -656,9 +827,16 @@ func (self Instance) SetVrsUpdateMode(value VRSUpdateMode) Instance { //gd:Viewp
 	return self
 }
 
+func (o *Extension[T]) SetVrsUpdateMode(value VRSUpdateMode) *Extension[T] {
+	o.Super().SetVrsUpdateMode(value)
+	return o
+}
+
 func (self Instance) VrsTexture() Texture2D.Instance { //gd:Viewport.vrs_texture
 		return Texture2D.Instance(class(self).GetVrsTexture())
 }
+
+func (o *Extension[T]) VrsTexture() Texture2D.Instance { return o.Super().VrsTexture() }
 
 // SetVrsTexture sets the property returned by [GetVrsTexture]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVrsTexture(value Texture2D.Instance) Instance { //gd:Viewport.vrs_texture
@@ -666,9 +844,16 @@ func (self Instance) SetVrsTexture(value Texture2D.Instance) Instance { //gd:Vie
 	return self
 }
 
+func (o *Extension[T]) SetVrsTexture(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetVrsTexture(value)
+	return o
+}
+
 func (self Instance) CanvasItemDefaultTextureFilter() DefaultCanvasItemTextureFilter { //gd:Viewport.canvas_item_default_texture_filter
 		return DefaultCanvasItemTextureFilter(class(self).GetDefaultCanvasItemTextureFilter())
 }
+
+func (o *Extension[T]) CanvasItemDefaultTextureFilter() DefaultCanvasItemTextureFilter { return o.Super().CanvasItemDefaultTextureFilter() }
 
 // SetCanvasItemDefaultTextureFilter sets the property returned by [GetDefaultCanvasItemTextureFilter]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCanvasItemDefaultTextureFilter(value DefaultCanvasItemTextureFilter) Instance { //gd:Viewport.canvas_item_default_texture_filter
@@ -676,9 +861,16 @@ func (self Instance) SetCanvasItemDefaultTextureFilter(value DefaultCanvasItemTe
 	return self
 }
 
+func (o *Extension[T]) SetCanvasItemDefaultTextureFilter(value DefaultCanvasItemTextureFilter) *Extension[T] {
+	o.Super().SetCanvasItemDefaultTextureFilter(value)
+	return o
+}
+
 func (self Instance) CanvasItemDefaultTextureRepeat() DefaultCanvasItemTextureRepeat { //gd:Viewport.canvas_item_default_texture_repeat
 		return DefaultCanvasItemTextureRepeat(class(self).GetDefaultCanvasItemTextureRepeat())
 }
+
+func (o *Extension[T]) CanvasItemDefaultTextureRepeat() DefaultCanvasItemTextureRepeat { return o.Super().CanvasItemDefaultTextureRepeat() }
 
 // SetCanvasItemDefaultTextureRepeat sets the property returned by [GetDefaultCanvasItemTextureRepeat]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCanvasItemDefaultTextureRepeat(value DefaultCanvasItemTextureRepeat) Instance { //gd:Viewport.canvas_item_default_texture_repeat
@@ -686,9 +878,16 @@ func (self Instance) SetCanvasItemDefaultTextureRepeat(value DefaultCanvasItemTe
 	return self
 }
 
+func (o *Extension[T]) SetCanvasItemDefaultTextureRepeat(value DefaultCanvasItemTextureRepeat) *Extension[T] {
+	o.Super().SetCanvasItemDefaultTextureRepeat(value)
+	return o
+}
+
 func (self Instance) AudioListenerEnable2d() bool { //gd:Viewport.audio_listener_enable_2d
 		return bool(class(self).IsAudioListener2d())
 }
+
+func (o *Extension[T]) AudioListenerEnable2d() bool { return o.Super().AudioListenerEnable2d() }
 
 // SetAudioListenerEnable2d sets the property returned by [IsAudioListener2d]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAudioListenerEnable2d(value bool) Instance { //gd:Viewport.audio_listener_enable_2d
@@ -696,9 +895,16 @@ func (self Instance) SetAudioListenerEnable2d(value bool) Instance { //gd:Viewpo
 	return self
 }
 
+func (o *Extension[T]) SetAudioListenerEnable2d(value bool) *Extension[T] {
+	o.Super().SetAudioListenerEnable2d(value)
+	return o
+}
+
 func (self Instance) AudioListenerEnable3d() bool { //gd:Viewport.audio_listener_enable_3d
 		return bool(class(self).IsAudioListener3d())
 }
+
+func (o *Extension[T]) AudioListenerEnable3d() bool { return o.Super().AudioListenerEnable3d() }
 
 // SetAudioListenerEnable3d sets the property returned by [IsAudioListener3d]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAudioListenerEnable3d(value bool) Instance { //gd:Viewport.audio_listener_enable_3d
@@ -706,9 +912,16 @@ func (self Instance) SetAudioListenerEnable3d(value bool) Instance { //gd:Viewpo
 	return self
 }
 
+func (o *Extension[T]) SetAudioListenerEnable3d(value bool) *Extension[T] {
+	o.Super().SetAudioListenerEnable3d(value)
+	return o
+}
+
 func (self Instance) PhysicsObjectPicking() bool { //gd:Viewport.physics_object_picking
 		return bool(class(self).GetPhysicsObjectPicking())
 }
+
+func (o *Extension[T]) PhysicsObjectPicking() bool { return o.Super().PhysicsObjectPicking() }
 
 // SetPhysicsObjectPicking sets the property returned by [GetPhysicsObjectPicking]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPhysicsObjectPicking(value bool) Instance { //gd:Viewport.physics_object_picking
@@ -716,9 +929,16 @@ func (self Instance) SetPhysicsObjectPicking(value bool) Instance { //gd:Viewpor
 	return self
 }
 
+func (o *Extension[T]) SetPhysicsObjectPicking(value bool) *Extension[T] {
+	o.Super().SetPhysicsObjectPicking(value)
+	return o
+}
+
 func (self Instance) PhysicsObjectPickingSort() bool { //gd:Viewport.physics_object_picking_sort
 		return bool(class(self).GetPhysicsObjectPickingSort())
 }
+
+func (o *Extension[T]) PhysicsObjectPickingSort() bool { return o.Super().PhysicsObjectPickingSort() }
 
 // SetPhysicsObjectPickingSort sets the property returned by [GetPhysicsObjectPickingSort]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPhysicsObjectPickingSort(value bool) Instance { //gd:Viewport.physics_object_picking_sort
@@ -726,9 +946,16 @@ func (self Instance) SetPhysicsObjectPickingSort(value bool) Instance { //gd:Vie
 	return self
 }
 
+func (o *Extension[T]) SetPhysicsObjectPickingSort(value bool) *Extension[T] {
+	o.Super().SetPhysicsObjectPickingSort(value)
+	return o
+}
+
 func (self Instance) PhysicsObjectPickingFirstOnly() bool { //gd:Viewport.physics_object_picking_first_only
 		return bool(class(self).GetPhysicsObjectPickingFirstOnly())
 }
+
+func (o *Extension[T]) PhysicsObjectPickingFirstOnly() bool { return o.Super().PhysicsObjectPickingFirstOnly() }
 
 // SetPhysicsObjectPickingFirstOnly sets the property returned by [GetPhysicsObjectPickingFirstOnly]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPhysicsObjectPickingFirstOnly(value bool) Instance { //gd:Viewport.physics_object_picking_first_only
@@ -736,9 +963,16 @@ func (self Instance) SetPhysicsObjectPickingFirstOnly(value bool) Instance { //g
 	return self
 }
 
+func (o *Extension[T]) SetPhysicsObjectPickingFirstOnly(value bool) *Extension[T] {
+	o.Super().SetPhysicsObjectPickingFirstOnly(value)
+	return o
+}
+
 func (self Instance) GuiDisableInput() bool { //gd:Viewport.gui_disable_input
 		return bool(class(self).IsInputDisabled())
 }
+
+func (o *Extension[T]) GuiDisableInput() bool { return o.Super().GuiDisableInput() }
 
 // SetGuiDisableInput sets the property returned by [IsInputDisabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetGuiDisableInput(value bool) Instance { //gd:Viewport.gui_disable_input
@@ -746,9 +980,16 @@ func (self Instance) SetGuiDisableInput(value bool) Instance { //gd:Viewport.gui
 	return self
 }
 
+func (o *Extension[T]) SetGuiDisableInput(value bool) *Extension[T] {
+	o.Super().SetGuiDisableInput(value)
+	return o
+}
+
 func (self Instance) GuiSnapControlsToPixels() bool { //gd:Viewport.gui_snap_controls_to_pixels
 		return bool(class(self).IsSnapControlsToPixelsEnabled())
 }
+
+func (o *Extension[T]) GuiSnapControlsToPixels() bool { return o.Super().GuiSnapControlsToPixels() }
 
 // SetGuiSnapControlsToPixels sets the property returned by [IsSnapControlsToPixelsEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetGuiSnapControlsToPixels(value bool) Instance { //gd:Viewport.gui_snap_controls_to_pixels
@@ -756,9 +997,16 @@ func (self Instance) SetGuiSnapControlsToPixels(value bool) Instance { //gd:View
 	return self
 }
 
+func (o *Extension[T]) SetGuiSnapControlsToPixels(value bool) *Extension[T] {
+	o.Super().SetGuiSnapControlsToPixels(value)
+	return o
+}
+
 func (self Instance) GuiEmbedSubwindows() bool { //gd:Viewport.gui_embed_subwindows
 		return bool(class(self).IsEmbeddingSubwindows())
 }
+
+func (o *Extension[T]) GuiEmbedSubwindows() bool { return o.Super().GuiEmbedSubwindows() }
 
 // SetGuiEmbedSubwindows sets the property returned by [IsEmbeddingSubwindows]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetGuiEmbedSubwindows(value bool) Instance { //gd:Viewport.gui_embed_subwindows
@@ -766,9 +1014,16 @@ func (self Instance) SetGuiEmbedSubwindows(value bool) Instance { //gd:Viewport.
 	return self
 }
 
+func (o *Extension[T]) SetGuiEmbedSubwindows(value bool) *Extension[T] {
+	o.Super().SetGuiEmbedSubwindows(value)
+	return o
+}
+
 func (self Instance) GuiDragThreshold() int { //gd:Viewport.gui_drag_threshold
 		return int(int(class(self).GetDragThreshold()))
 }
+
+func (o *Extension[T]) GuiDragThreshold() int { return o.Super().GuiDragThreshold() }
 
 // SetGuiDragThreshold sets the property returned by [GetDragThreshold]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetGuiDragThreshold(value int) Instance { //gd:Viewport.gui_drag_threshold
@@ -776,9 +1031,16 @@ func (self Instance) SetGuiDragThreshold(value int) Instance { //gd:Viewport.gui
 	return self
 }
 
+func (o *Extension[T]) SetGuiDragThreshold(value int) *Extension[T] {
+	o.Super().SetGuiDragThreshold(value)
+	return o
+}
+
 func (self Instance) SdfOversize() SDFOversize { //gd:Viewport.sdf_oversize
 		return SDFOversize(class(self).GetSdfOversize())
 }
+
+func (o *Extension[T]) SdfOversize() SDFOversize { return o.Super().SdfOversize() }
 
 // SetSdfOversize sets the property returned by [GetSdfOversize]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSdfOversize(value SDFOversize) Instance { //gd:Viewport.sdf_oversize
@@ -786,9 +1048,16 @@ func (self Instance) SetSdfOversize(value SDFOversize) Instance { //gd:Viewport.
 	return self
 }
 
+func (o *Extension[T]) SetSdfOversize(value SDFOversize) *Extension[T] {
+	o.Super().SetSdfOversize(value)
+	return o
+}
+
 func (self Instance) SdfScale() SDFScale { //gd:Viewport.sdf_scale
 		return SDFScale(class(self).GetSdfScale())
 }
+
+func (o *Extension[T]) SdfScale() SDFScale { return o.Super().SdfScale() }
 
 // SetSdfScale sets the property returned by [GetSdfScale]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSdfScale(value SDFScale) Instance { //gd:Viewport.sdf_scale
@@ -796,9 +1065,16 @@ func (self Instance) SetSdfScale(value SDFScale) Instance { //gd:Viewport.sdf_sc
 	return self
 }
 
+func (o *Extension[T]) SetSdfScale(value SDFScale) *Extension[T] {
+	o.Super().SetSdfScale(value)
+	return o
+}
+
 func (self Instance) PositionalShadowAtlasSize() int { //gd:Viewport.positional_shadow_atlas_size
 		return int(int(class(self).GetPositionalShadowAtlasSize()))
 }
+
+func (o *Extension[T]) PositionalShadowAtlasSize() int { return o.Super().PositionalShadowAtlasSize() }
 
 // SetPositionalShadowAtlasSize sets the property returned by [GetPositionalShadowAtlasSize]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPositionalShadowAtlasSize(value int) Instance { //gd:Viewport.positional_shadow_atlas_size
@@ -806,9 +1082,16 @@ func (self Instance) SetPositionalShadowAtlasSize(value int) Instance { //gd:Vie
 	return self
 }
 
+func (o *Extension[T]) SetPositionalShadowAtlasSize(value int) *Extension[T] {
+	o.Super().SetPositionalShadowAtlasSize(value)
+	return o
+}
+
 func (self Instance) PositionalShadowAtlas16Bits() bool { //gd:Viewport.positional_shadow_atlas_16_bits
 		return bool(class(self).GetPositionalShadowAtlas16Bits())
 }
+
+func (o *Extension[T]) PositionalShadowAtlas16Bits() bool { return o.Super().PositionalShadowAtlas16Bits() }
 
 // SetPositionalShadowAtlas16Bits sets the property returned by [GetPositionalShadowAtlas16Bits]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPositionalShadowAtlas16Bits(value bool) Instance { //gd:Viewport.positional_shadow_atlas_16_bits
@@ -816,9 +1099,16 @@ func (self Instance) SetPositionalShadowAtlas16Bits(value bool) Instance { //gd:
 	return self
 }
 
+func (o *Extension[T]) SetPositionalShadowAtlas16Bits(value bool) *Extension[T] {
+	o.Super().SetPositionalShadowAtlas16Bits(value)
+	return o
+}
+
 func (self Instance) PositionalShadowAtlasQuad0() PositionalShadowAtlasQuadrantSubdiv { //gd:Viewport.positional_shadow_atlas_quad_0
 		return PositionalShadowAtlasQuadrantSubdiv(class(self).GetPositionalShadowAtlasQuadrantSubdiv(0))
 }
+
+func (o *Extension[T]) PositionalShadowAtlasQuad0() PositionalShadowAtlasQuadrantSubdiv { return o.Super().PositionalShadowAtlasQuad0() }
 
 // SetPositionalShadowAtlasQuad0 sets the property returned by [GetPositionalShadowAtlasQuadrantSubdiv]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPositionalShadowAtlasQuad0(value PositionalShadowAtlasQuadrantSubdiv) Instance { //gd:Viewport.positional_shadow_atlas_quad_0
@@ -826,9 +1116,16 @@ func (self Instance) SetPositionalShadowAtlasQuad0(value PositionalShadowAtlasQu
 	return self
 }
 
+func (o *Extension[T]) SetPositionalShadowAtlasQuad0(value PositionalShadowAtlasQuadrantSubdiv) *Extension[T] {
+	o.Super().SetPositionalShadowAtlasQuad0(value)
+	return o
+}
+
 func (self Instance) PositionalShadowAtlasQuad1() PositionalShadowAtlasQuadrantSubdiv { //gd:Viewport.positional_shadow_atlas_quad_1
 		return PositionalShadowAtlasQuadrantSubdiv(class(self).GetPositionalShadowAtlasQuadrantSubdiv(1))
 }
+
+func (o *Extension[T]) PositionalShadowAtlasQuad1() PositionalShadowAtlasQuadrantSubdiv { return o.Super().PositionalShadowAtlasQuad1() }
 
 // SetPositionalShadowAtlasQuad1 sets the property returned by [GetPositionalShadowAtlasQuadrantSubdiv]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPositionalShadowAtlasQuad1(value PositionalShadowAtlasQuadrantSubdiv) Instance { //gd:Viewport.positional_shadow_atlas_quad_1
@@ -836,9 +1133,16 @@ func (self Instance) SetPositionalShadowAtlasQuad1(value PositionalShadowAtlasQu
 	return self
 }
 
+func (o *Extension[T]) SetPositionalShadowAtlasQuad1(value PositionalShadowAtlasQuadrantSubdiv) *Extension[T] {
+	o.Super().SetPositionalShadowAtlasQuad1(value)
+	return o
+}
+
 func (self Instance) PositionalShadowAtlasQuad2() PositionalShadowAtlasQuadrantSubdiv { //gd:Viewport.positional_shadow_atlas_quad_2
 		return PositionalShadowAtlasQuadrantSubdiv(class(self).GetPositionalShadowAtlasQuadrantSubdiv(2))
 }
+
+func (o *Extension[T]) PositionalShadowAtlasQuad2() PositionalShadowAtlasQuadrantSubdiv { return o.Super().PositionalShadowAtlasQuad2() }
 
 // SetPositionalShadowAtlasQuad2 sets the property returned by [GetPositionalShadowAtlasQuadrantSubdiv]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPositionalShadowAtlasQuad2(value PositionalShadowAtlasQuadrantSubdiv) Instance { //gd:Viewport.positional_shadow_atlas_quad_2
@@ -846,9 +1150,16 @@ func (self Instance) SetPositionalShadowAtlasQuad2(value PositionalShadowAtlasQu
 	return self
 }
 
+func (o *Extension[T]) SetPositionalShadowAtlasQuad2(value PositionalShadowAtlasQuadrantSubdiv) *Extension[T] {
+	o.Super().SetPositionalShadowAtlasQuad2(value)
+	return o
+}
+
 func (self Instance) PositionalShadowAtlasQuad3() PositionalShadowAtlasQuadrantSubdiv { //gd:Viewport.positional_shadow_atlas_quad_3
 		return PositionalShadowAtlasQuadrantSubdiv(class(self).GetPositionalShadowAtlasQuadrantSubdiv(3))
 }
+
+func (o *Extension[T]) PositionalShadowAtlasQuad3() PositionalShadowAtlasQuadrantSubdiv { return o.Super().PositionalShadowAtlasQuad3() }
 
 // SetPositionalShadowAtlasQuad3 sets the property returned by [GetPositionalShadowAtlasQuadrantSubdiv]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPositionalShadowAtlasQuad3(value PositionalShadowAtlasQuadrantSubdiv) Instance { //gd:Viewport.positional_shadow_atlas_quad_3
@@ -856,9 +1167,16 @@ func (self Instance) SetPositionalShadowAtlasQuad3(value PositionalShadowAtlasQu
 	return self
 }
 
+func (o *Extension[T]) SetPositionalShadowAtlasQuad3(value PositionalShadowAtlasQuadrantSubdiv) *Extension[T] {
+	o.Super().SetPositionalShadowAtlasQuad3(value)
+	return o
+}
+
 func (self Instance) CanvasTransform() Transform2D.OriginXY { //gd:Viewport.canvas_transform
 		return Transform2D.OriginXY(class(self).GetCanvasTransform())
 }
+
+func (o *Extension[T]) CanvasTransform() Transform2D.OriginXY { return o.Super().CanvasTransform() }
 
 // SetCanvasTransform sets the property returned by [GetCanvasTransform]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCanvasTransform(value Transform2D.OriginXY) Instance { //gd:Viewport.canvas_transform
@@ -866,9 +1184,16 @@ func (self Instance) SetCanvasTransform(value Transform2D.OriginXY) Instance { /
 	return self
 }
 
+func (o *Extension[T]) SetCanvasTransform(value Transform2D.OriginXY) *Extension[T] {
+	o.Super().SetCanvasTransform(value)
+	return o
+}
+
 func (self Instance) GlobalCanvasTransform() Transform2D.OriginXY { //gd:Viewport.global_canvas_transform
 		return Transform2D.OriginXY(class(self).GetGlobalCanvasTransform())
 }
+
+func (o *Extension[T]) GlobalCanvasTransform() Transform2D.OriginXY { return o.Super().GlobalCanvasTransform() }
 
 // SetGlobalCanvasTransform sets the property returned by [GetGlobalCanvasTransform]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetGlobalCanvasTransform(value Transform2D.OriginXY) Instance { //gd:Viewport.global_canvas_transform
@@ -876,9 +1201,16 @@ func (self Instance) SetGlobalCanvasTransform(value Transform2D.OriginXY) Instan
 	return self
 }
 
+func (o *Extension[T]) SetGlobalCanvasTransform(value Transform2D.OriginXY) *Extension[T] {
+	o.Super().SetGlobalCanvasTransform(value)
+	return o
+}
+
 func (self Instance) CanvasCullMask() int { //gd:Viewport.canvas_cull_mask
 		return int(int(class(self).GetCanvasCullMask()))
 }
+
+func (o *Extension[T]) CanvasCullMask() int { return o.Super().CanvasCullMask() }
 
 // SetCanvasCullMask sets the property returned by [GetCanvasCullMask]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCanvasCullMask(value int) Instance { //gd:Viewport.canvas_cull_mask
@@ -886,9 +1218,16 @@ func (self Instance) SetCanvasCullMask(value int) Instance { //gd:Viewport.canva
 	return self
 }
 
+func (o *Extension[T]) SetCanvasCullMask(value int) *Extension[T] {
+	o.Super().SetCanvasCullMask(value)
+	return o
+}
+
 func (self Instance) Oversampling() bool { //gd:Viewport.oversampling
 		return bool(class(self).IsUsingOversampling())
 }
+
+func (o *Extension[T]) Oversampling() bool { return o.Super().Oversampling() }
 
 // SetOversampling sets the property returned by [IsUsingOversampling]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOversampling(value bool) Instance { //gd:Viewport.oversampling
@@ -896,14 +1235,26 @@ func (self Instance) SetOversampling(value bool) Instance { //gd:Viewport.oversa
 	return self
 }
 
+func (o *Extension[T]) SetOversampling(value bool) *Extension[T] {
+	o.Super().SetOversampling(value)
+	return o
+}
+
 func (self Instance) OversamplingOverride() Float.X { //gd:Viewport.oversampling_override
 		return Float.X(Float.X(class(self).GetOversamplingOverride()))
 }
+
+func (o *Extension[T]) OversamplingOverride() Float.X { return o.Super().OversamplingOverride() }
 
 // SetOversamplingOverride sets the property returned by [GetOversamplingOverride]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOversamplingOverride(value Float.X) Instance { //gd:Viewport.oversampling_override
 	class(self).SetOversamplingOverride(float64(value))
 	return self
+}
+
+func (o *Extension[T]) SetOversamplingOverride(value Float.X) *Extension[T] {
+	o.Super().SetOversamplingOverride(value)
+	return o
 }
 
 func (self class) SetWorld2d(world_2d [1]gdclass.World2D)  { //gd:Viewport.set_world_2d
@@ -2370,6 +2721,126 @@ func (self Instance) NotifyThreadSafe(what int) {
 // NotifyThreadSafe is promoted from [Node.Instance.NotifyThreadSafe].
 func (o *Extension[T]) NotifyThreadSafe(what int) {
 	o.Super().AsNode().NotifyThreadSafe(what)
+}
+
+// Name is promoted from [Node.Instance.Name].
+func (o *Extension[T]) Name() string { return o.Super().AsNode().Name() }
+
+// SetName is promoted from [Node.Instance.SetName].
+func (o *Extension[T]) SetName(value string) *Extension[T] {
+	o.Super().AsNode().SetName(value)
+	return o
+}
+
+// UniqueNameInOwner is promoted from [Node.Instance.UniqueNameInOwner].
+func (o *Extension[T]) UniqueNameInOwner() bool { return o.Super().AsNode().UniqueNameInOwner() }
+
+// SetUniqueNameInOwner is promoted from [Node.Instance.SetUniqueNameInOwner].
+func (o *Extension[T]) SetUniqueNameInOwner(value bool) *Extension[T] {
+	o.Super().AsNode().SetUniqueNameInOwner(value)
+	return o
+}
+
+// SceneFilePath is promoted from [Node.Instance.SceneFilePath].
+func (o *Extension[T]) SceneFilePath() string { return o.Super().AsNode().SceneFilePath() }
+
+// SetSceneFilePath is promoted from [Node.Instance.SetSceneFilePath].
+func (o *Extension[T]) SetSceneFilePath(value string) *Extension[T] {
+	o.Super().AsNode().SetSceneFilePath(value)
+	return o
+}
+
+// Owner is promoted from [Node.Instance.Owner].
+func (o *Extension[T]) Owner() Node.Instance { return o.Super().AsNode().Owner() }
+
+// SetOwner is promoted from [Node.Instance.SetOwner].
+func (o *Extension[T]) SetOwner(value Node.Instance) *Extension[T] {
+	o.Super().AsNode().SetOwner(value)
+	return o
+}
+
+// Multiplayer is promoted from [Node.Instance.Multiplayer].
+func (o *Extension[T]) Multiplayer() MultiplayerAPI.Instance { return o.Super().AsNode().Multiplayer() }
+
+// ProcessMode is promoted from [Node.Instance.ProcessMode].
+func (o *Extension[T]) ProcessMode() Node.ProcessMode { return o.Super().AsNode().ProcessMode() }
+
+// SetProcessMode is promoted from [Node.Instance.SetProcessMode].
+func (o *Extension[T]) SetProcessMode(value Node.ProcessMode) *Extension[T] {
+	o.Super().AsNode().SetProcessMode(value)
+	return o
+}
+
+// ProcessPriority is promoted from [Node.Instance.ProcessPriority].
+func (o *Extension[T]) ProcessPriority() int { return o.Super().AsNode().ProcessPriority() }
+
+// SetProcessPriority is promoted from [Node.Instance.SetProcessPriority].
+func (o *Extension[T]) SetProcessPriority(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessPriority(value)
+	return o
+}
+
+// ProcessPhysicsPriority is promoted from [Node.Instance.ProcessPhysicsPriority].
+func (o *Extension[T]) ProcessPhysicsPriority() int { return o.Super().AsNode().ProcessPhysicsPriority() }
+
+// SetProcessPhysicsPriority is promoted from [Node.Instance.SetProcessPhysicsPriority].
+func (o *Extension[T]) SetProcessPhysicsPriority(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessPhysicsPriority(value)
+	return o
+}
+
+// ProcessThreadGroup is promoted from [Node.Instance.ProcessThreadGroup].
+func (o *Extension[T]) ProcessThreadGroup() Node.ProcessThreadGroup { return o.Super().AsNode().ProcessThreadGroup() }
+
+// SetProcessThreadGroup is promoted from [Node.Instance.SetProcessThreadGroup].
+func (o *Extension[T]) SetProcessThreadGroup(value Node.ProcessThreadGroup) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadGroup(value)
+	return o
+}
+
+// ProcessThreadGroupOrder is promoted from [Node.Instance.ProcessThreadGroupOrder].
+func (o *Extension[T]) ProcessThreadGroupOrder() int { return o.Super().AsNode().ProcessThreadGroupOrder() }
+
+// SetProcessThreadGroupOrder is promoted from [Node.Instance.SetProcessThreadGroupOrder].
+func (o *Extension[T]) SetProcessThreadGroupOrder(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadGroupOrder(value)
+	return o
+}
+
+// ProcessThreadMessages is promoted from [Node.Instance.ProcessThreadMessages].
+func (o *Extension[T]) ProcessThreadMessages() Node.ProcessThreadMessages { return o.Super().AsNode().ProcessThreadMessages() }
+
+// SetProcessThreadMessages is promoted from [Node.Instance.SetProcessThreadMessages].
+func (o *Extension[T]) SetProcessThreadMessages(value Node.ProcessThreadMessages) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadMessages(value)
+	return o
+}
+
+// PhysicsInterpolationMode is promoted from [Node.Instance.PhysicsInterpolationMode].
+func (o *Extension[T]) PhysicsInterpolationMode() Node.PhysicsInterpolationMode { return o.Super().AsNode().PhysicsInterpolationMode() }
+
+// SetPhysicsInterpolationMode is promoted from [Node.Instance.SetPhysicsInterpolationMode].
+func (o *Extension[T]) SetPhysicsInterpolationMode(value Node.PhysicsInterpolationMode) *Extension[T] {
+	o.Super().AsNode().SetPhysicsInterpolationMode(value)
+	return o
+}
+
+// AutoTranslateMode is promoted from [Node.Instance.AutoTranslateMode].
+func (o *Extension[T]) AutoTranslateMode() Node.AutoTranslateMode { return o.Super().AsNode().AutoTranslateMode() }
+
+// SetAutoTranslateMode is promoted from [Node.Instance.SetAutoTranslateMode].
+func (o *Extension[T]) SetAutoTranslateMode(value Node.AutoTranslateMode) *Extension[T] {
+	o.Super().AsNode().SetAutoTranslateMode(value)
+	return o
+}
+
+// EditorDescription is promoted from [Node.Instance.EditorDescription].
+func (o *Extension[T]) EditorDescription() string { return o.Super().AsNode().EditorDescription() }
+
+// SetEditorDescription is promoted from [Node.Instance.SetEditorDescription].
+func (o *Extension[T]) SetEditorDescription(value string) *Extension[T] {
+	o.Super().AsNode().SetEditorDescription(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

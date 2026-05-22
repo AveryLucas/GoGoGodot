@@ -17,6 +17,7 @@ import "graphics.gd/variant"
 import "graphics.gd/variant/Angle"
 import "graphics.gd/variant/Euler"
 import "graphics.gd/variant/Signal"
+import "graphics.gd/classdb/MultiplayerAPI"
 import "graphics.gd/classdb/Node"
 import "graphics.gd/classdb/Node3DGizmo"
 import "graphics.gd/classdb/Tween"
@@ -351,15 +352,24 @@ func (self Instance) Transform() Transform3D.BasisOrigin { //gd:Node3D.transform
 		return Transform3D.BasisOrigin(class(self).GetTransform())
 }
 
+func (o *Extension[T]) Transform() Transform3D.BasisOrigin { return o.Super().Transform() }
+
 // SetTransform sets the property returned by [GetTransform]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTransform(value Transform3D.BasisOrigin) Instance { //gd:Node3D.transform
 	class(self).SetTransform(Transform3D.BasisOrigin(value))
 	return self
 }
 
+func (o *Extension[T]) SetTransform(value Transform3D.BasisOrigin) *Extension[T] {
+	o.Super().SetTransform(value)
+	return o
+}
+
 func (self Instance) GlobalTransform() Transform3D.BasisOrigin { //gd:Node3D.global_transform
 		return Transform3D.BasisOrigin(class(self).GetGlobalTransform())
 }
+
+func (o *Extension[T]) GlobalTransform() Transform3D.BasisOrigin { return o.Super().GlobalTransform() }
 
 // SetGlobalTransform sets the property returned by [GetGlobalTransform]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetGlobalTransform(value Transform3D.BasisOrigin) Instance { //gd:Node3D.global_transform
@@ -367,9 +377,16 @@ func (self Instance) SetGlobalTransform(value Transform3D.BasisOrigin) Instance 
 	return self
 }
 
+func (o *Extension[T]) SetGlobalTransform(value Transform3D.BasisOrigin) *Extension[T] {
+	o.Super().SetGlobalTransform(value)
+	return o
+}
+
 func (self Instance) Position() Vector3.XYZ { //gd:Node3D.position
 		return Vector3.XYZ(class(self).GetPosition())
 }
+
+func (o *Extension[T]) Position() Vector3.XYZ { return o.Super().Position() }
 
 // SetPosition sets the property returned by [GetPosition]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPosition(value Vector3.XYZ) Instance { //gd:Node3D.position
@@ -377,9 +394,16 @@ func (self Instance) SetPosition(value Vector3.XYZ) Instance { //gd:Node3D.posit
 	return self
 }
 
+func (o *Extension[T]) SetPosition(value Vector3.XYZ) *Extension[T] {
+	o.Super().SetPosition(value)
+	return o
+}
+
 func (self Instance) Rotation() Euler.Radians { //gd:Node3D.rotation
 		return Euler.Radians(Vector3.EulerRadians(class(self).GetRotation()))
 }
+
+func (o *Extension[T]) Rotation() Euler.Radians { return o.Super().Rotation() }
 
 // SetRotation sets the property returned by [GetRotation]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRotation(value Euler.Radians) Instance { //gd:Node3D.rotation
@@ -387,9 +411,16 @@ func (self Instance) SetRotation(value Euler.Radians) Instance { //gd:Node3D.rot
 	return self
 }
 
+func (o *Extension[T]) SetRotation(value Euler.Radians) *Extension[T] {
+	o.Super().SetRotation(value)
+	return o
+}
+
 func (self Instance) RotationDegrees() Euler.Degrees { //gd:Node3D.rotation_degrees
 		return Euler.Degrees(Vector3.EulerDegrees(class(self).GetRotationDegrees()))
 }
+
+func (o *Extension[T]) RotationDegrees() Euler.Degrees { return o.Super().RotationDegrees() }
 
 // SetRotationDegrees sets the property returned by [GetRotationDegrees]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRotationDegrees(value Euler.Degrees) Instance { //gd:Node3D.rotation_degrees
@@ -397,9 +428,16 @@ func (self Instance) SetRotationDegrees(value Euler.Degrees) Instance { //gd:Nod
 	return self
 }
 
+func (o *Extension[T]) SetRotationDegrees(value Euler.Degrees) *Extension[T] {
+	o.Super().SetRotationDegrees(value)
+	return o
+}
+
 func (self Instance) Quaternion() Quaternion.IJKX { //gd:Node3D.quaternion
 		return Quaternion.IJKX(class(self).GetQuaternion())
 }
+
+func (o *Extension[T]) Quaternion() Quaternion.IJKX { return o.Super().Quaternion() }
 
 // SetQuaternion sets the property returned by [GetQuaternion]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetQuaternion(value Quaternion.IJKX) Instance { //gd:Node3D.quaternion
@@ -407,9 +445,16 @@ func (self Instance) SetQuaternion(value Quaternion.IJKX) Instance { //gd:Node3D
 	return self
 }
 
+func (o *Extension[T]) SetQuaternion(value Quaternion.IJKX) *Extension[T] {
+	o.Super().SetQuaternion(value)
+	return o
+}
+
 func (self Instance) Basis() Basis.XYZ { //gd:Node3D.basis
 		return Basis.XYZ(class(self).GetBasis())
 }
+
+func (o *Extension[T]) Basis() Basis.XYZ { return o.Super().Basis() }
 
 // SetBasis sets the property returned by [GetBasis]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBasis(value Basis.XYZ) Instance { //gd:Node3D.basis
@@ -417,9 +462,16 @@ func (self Instance) SetBasis(value Basis.XYZ) Instance { //gd:Node3D.basis
 	return self
 }
 
+func (o *Extension[T]) SetBasis(value Basis.XYZ) *Extension[T] {
+	o.Super().SetBasis(value)
+	return o
+}
+
 func (self Instance) Scale() Vector3.XYZ { //gd:Node3D.scale
 		return Vector3.XYZ(class(self).GetScale())
 }
+
+func (o *Extension[T]) Scale() Vector3.XYZ { return o.Super().Scale() }
 
 // SetScale sets the property returned by [GetScale]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetScale(value Vector3.XYZ) Instance { //gd:Node3D.scale
@@ -427,9 +479,16 @@ func (self Instance) SetScale(value Vector3.XYZ) Instance { //gd:Node3D.scale
 	return self
 }
 
+func (o *Extension[T]) SetScale(value Vector3.XYZ) *Extension[T] {
+	o.Super().SetScale(value)
+	return o
+}
+
 func (self Instance) RotationEditMode() RotationEditMode { //gd:Node3D.rotation_edit_mode
 		return RotationEditMode(class(self).GetRotationEditMode())
 }
+
+func (o *Extension[T]) RotationEditMode() RotationEditMode { return o.Super().RotationEditMode() }
 
 // SetRotationEditMode sets the property returned by [GetRotationEditMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRotationEditMode(value RotationEditMode) Instance { //gd:Node3D.rotation_edit_mode
@@ -437,9 +496,16 @@ func (self Instance) SetRotationEditMode(value RotationEditMode) Instance { //gd
 	return self
 }
 
+func (o *Extension[T]) SetRotationEditMode(value RotationEditMode) *Extension[T] {
+	o.Super().SetRotationEditMode(value)
+	return o
+}
+
 func (self Instance) RotationOrder() Angle.Order { //gd:Node3D.rotation_order
 		return Angle.Order(class(self).GetRotationOrder())
 }
+
+func (o *Extension[T]) RotationOrder() Angle.Order { return o.Super().RotationOrder() }
 
 // SetRotationOrder sets the property returned by [GetRotationOrder]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRotationOrder(value Angle.Order) Instance { //gd:Node3D.rotation_order
@@ -447,9 +513,16 @@ func (self Instance) SetRotationOrder(value Angle.Order) Instance { //gd:Node3D.
 	return self
 }
 
+func (o *Extension[T]) SetRotationOrder(value Angle.Order) *Extension[T] {
+	o.Super().SetRotationOrder(value)
+	return o
+}
+
 func (self Instance) TopLevel() bool { //gd:Node3D.top_level
 		return bool(class(self).IsSetAsTopLevel())
 }
+
+func (o *Extension[T]) TopLevel() bool { return o.Super().TopLevel() }
 
 // SetTopLevel sets the property returned by [IsSetAsTopLevel]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTopLevel(value bool) Instance { //gd:Node3D.top_level
@@ -457,9 +530,16 @@ func (self Instance) SetTopLevel(value bool) Instance { //gd:Node3D.top_level
 	return self
 }
 
+func (o *Extension[T]) SetTopLevel(value bool) *Extension[T] {
+	o.Super().SetTopLevel(value)
+	return o
+}
+
 func (self Instance) GlobalPosition() Vector3.XYZ { //gd:Node3D.global_position
 		return Vector3.XYZ(class(self).GetGlobalPosition())
 }
+
+func (o *Extension[T]) GlobalPosition() Vector3.XYZ { return o.Super().GlobalPosition() }
 
 // SetGlobalPosition sets the property returned by [GetGlobalPosition]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetGlobalPosition(value Vector3.XYZ) Instance { //gd:Node3D.global_position
@@ -467,9 +547,16 @@ func (self Instance) SetGlobalPosition(value Vector3.XYZ) Instance { //gd:Node3D
 	return self
 }
 
+func (o *Extension[T]) SetGlobalPosition(value Vector3.XYZ) *Extension[T] {
+	o.Super().SetGlobalPosition(value)
+	return o
+}
+
 func (self Instance) GlobalBasis() Basis.XYZ { //gd:Node3D.global_basis
 		return Basis.XYZ(class(self).GetGlobalBasis())
 }
+
+func (o *Extension[T]) GlobalBasis() Basis.XYZ { return o.Super().GlobalBasis() }
 
 // SetGlobalBasis sets the property returned by [GetGlobalBasis]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetGlobalBasis(value Basis.XYZ) Instance { //gd:Node3D.global_basis
@@ -477,9 +564,16 @@ func (self Instance) SetGlobalBasis(value Basis.XYZ) Instance { //gd:Node3D.glob
 	return self
 }
 
+func (o *Extension[T]) SetGlobalBasis(value Basis.XYZ) *Extension[T] {
+	o.Super().SetGlobalBasis(value)
+	return o
+}
+
 func (self Instance) GlobalRotation() Euler.Radians { //gd:Node3D.global_rotation
 		return Euler.Radians(Vector3.EulerRadians(class(self).GetGlobalRotation()))
 }
+
+func (o *Extension[T]) GlobalRotation() Euler.Radians { return o.Super().GlobalRotation() }
 
 // SetGlobalRotation sets the property returned by [GetGlobalRotation]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetGlobalRotation(value Euler.Radians) Instance { //gd:Node3D.global_rotation
@@ -487,9 +581,16 @@ func (self Instance) SetGlobalRotation(value Euler.Radians) Instance { //gd:Node
 	return self
 }
 
+func (o *Extension[T]) SetGlobalRotation(value Euler.Radians) *Extension[T] {
+	o.Super().SetGlobalRotation(value)
+	return o
+}
+
 func (self Instance) GlobalRotationDegrees() Euler.Degrees { //gd:Node3D.global_rotation_degrees
 		return Euler.Degrees(Vector3.EulerDegrees(class(self).GetGlobalRotationDegrees()))
 }
+
+func (o *Extension[T]) GlobalRotationDegrees() Euler.Degrees { return o.Super().GlobalRotationDegrees() }
 
 // SetGlobalRotationDegrees sets the property returned by [GetGlobalRotationDegrees]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetGlobalRotationDegrees(value Euler.Degrees) Instance { //gd:Node3D.global_rotation_degrees
@@ -497,9 +598,16 @@ func (self Instance) SetGlobalRotationDegrees(value Euler.Degrees) Instance { //
 	return self
 }
 
+func (o *Extension[T]) SetGlobalRotationDegrees(value Euler.Degrees) *Extension[T] {
+	o.Super().SetGlobalRotationDegrees(value)
+	return o
+}
+
 func (self Instance) Visible() bool { //gd:Node3D.visible
 		return bool(class(self).IsVisible())
 }
+
+func (o *Extension[T]) Visible() bool { return o.Super().Visible() }
 
 // SetVisible sets the property returned by [IsVisible]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVisible(value bool) Instance { //gd:Node3D.visible
@@ -507,14 +615,26 @@ func (self Instance) SetVisible(value bool) Instance { //gd:Node3D.visible
 	return self
 }
 
+func (o *Extension[T]) SetVisible(value bool) *Extension[T] {
+	o.Super().SetVisible(value)
+	return o
+}
+
 func (self Instance) VisibilityParent() string { //gd:Node3D.visibility_parent
 		return string(class(self).GetVisibilityParent().String())
 }
+
+func (o *Extension[T]) VisibilityParent() string { return o.Super().VisibilityParent() }
 
 // SetVisibilityParent sets the property returned by [GetVisibilityParent]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVisibilityParent(value string) Instance { //gd:Node3D.visibility_parent
 	class(self).SetVisibilityParent(Path.ToNode(String.From(value)))
 	return self
+}
+
+func (o *Extension[T]) SetVisibilityParent(value string) *Extension[T] {
+	o.Super().SetVisibilityParent(value)
+	return o
 }
 
 func (self class) SetTransform(local Transform3D.BasisOrigin)  { //gd:Node3D.set_transform
@@ -1712,6 +1832,126 @@ func (self Instance) NotifyThreadSafe(what int) {
 // NotifyThreadSafe is promoted from [Node.Instance.NotifyThreadSafe].
 func (o *Extension[T]) NotifyThreadSafe(what int) {
 	o.Super().AsNode().NotifyThreadSafe(what)
+}
+
+// Name is promoted from [Node.Instance.Name].
+func (o *Extension[T]) Name() string { return o.Super().AsNode().Name() }
+
+// SetName is promoted from [Node.Instance.SetName].
+func (o *Extension[T]) SetName(value string) *Extension[T] {
+	o.Super().AsNode().SetName(value)
+	return o
+}
+
+// UniqueNameInOwner is promoted from [Node.Instance.UniqueNameInOwner].
+func (o *Extension[T]) UniqueNameInOwner() bool { return o.Super().AsNode().UniqueNameInOwner() }
+
+// SetUniqueNameInOwner is promoted from [Node.Instance.SetUniqueNameInOwner].
+func (o *Extension[T]) SetUniqueNameInOwner(value bool) *Extension[T] {
+	o.Super().AsNode().SetUniqueNameInOwner(value)
+	return o
+}
+
+// SceneFilePath is promoted from [Node.Instance.SceneFilePath].
+func (o *Extension[T]) SceneFilePath() string { return o.Super().AsNode().SceneFilePath() }
+
+// SetSceneFilePath is promoted from [Node.Instance.SetSceneFilePath].
+func (o *Extension[T]) SetSceneFilePath(value string) *Extension[T] {
+	o.Super().AsNode().SetSceneFilePath(value)
+	return o
+}
+
+// Owner is promoted from [Node.Instance.Owner].
+func (o *Extension[T]) Owner() Node.Instance { return o.Super().AsNode().Owner() }
+
+// SetOwner is promoted from [Node.Instance.SetOwner].
+func (o *Extension[T]) SetOwner(value Node.Instance) *Extension[T] {
+	o.Super().AsNode().SetOwner(value)
+	return o
+}
+
+// Multiplayer is promoted from [Node.Instance.Multiplayer].
+func (o *Extension[T]) Multiplayer() MultiplayerAPI.Instance { return o.Super().AsNode().Multiplayer() }
+
+// ProcessMode is promoted from [Node.Instance.ProcessMode].
+func (o *Extension[T]) ProcessMode() Node.ProcessMode { return o.Super().AsNode().ProcessMode() }
+
+// SetProcessMode is promoted from [Node.Instance.SetProcessMode].
+func (o *Extension[T]) SetProcessMode(value Node.ProcessMode) *Extension[T] {
+	o.Super().AsNode().SetProcessMode(value)
+	return o
+}
+
+// ProcessPriority is promoted from [Node.Instance.ProcessPriority].
+func (o *Extension[T]) ProcessPriority() int { return o.Super().AsNode().ProcessPriority() }
+
+// SetProcessPriority is promoted from [Node.Instance.SetProcessPriority].
+func (o *Extension[T]) SetProcessPriority(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessPriority(value)
+	return o
+}
+
+// ProcessPhysicsPriority is promoted from [Node.Instance.ProcessPhysicsPriority].
+func (o *Extension[T]) ProcessPhysicsPriority() int { return o.Super().AsNode().ProcessPhysicsPriority() }
+
+// SetProcessPhysicsPriority is promoted from [Node.Instance.SetProcessPhysicsPriority].
+func (o *Extension[T]) SetProcessPhysicsPriority(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessPhysicsPriority(value)
+	return o
+}
+
+// ProcessThreadGroup is promoted from [Node.Instance.ProcessThreadGroup].
+func (o *Extension[T]) ProcessThreadGroup() Node.ProcessThreadGroup { return o.Super().AsNode().ProcessThreadGroup() }
+
+// SetProcessThreadGroup is promoted from [Node.Instance.SetProcessThreadGroup].
+func (o *Extension[T]) SetProcessThreadGroup(value Node.ProcessThreadGroup) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadGroup(value)
+	return o
+}
+
+// ProcessThreadGroupOrder is promoted from [Node.Instance.ProcessThreadGroupOrder].
+func (o *Extension[T]) ProcessThreadGroupOrder() int { return o.Super().AsNode().ProcessThreadGroupOrder() }
+
+// SetProcessThreadGroupOrder is promoted from [Node.Instance.SetProcessThreadGroupOrder].
+func (o *Extension[T]) SetProcessThreadGroupOrder(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadGroupOrder(value)
+	return o
+}
+
+// ProcessThreadMessages is promoted from [Node.Instance.ProcessThreadMessages].
+func (o *Extension[T]) ProcessThreadMessages() Node.ProcessThreadMessages { return o.Super().AsNode().ProcessThreadMessages() }
+
+// SetProcessThreadMessages is promoted from [Node.Instance.SetProcessThreadMessages].
+func (o *Extension[T]) SetProcessThreadMessages(value Node.ProcessThreadMessages) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadMessages(value)
+	return o
+}
+
+// PhysicsInterpolationMode is promoted from [Node.Instance.PhysicsInterpolationMode].
+func (o *Extension[T]) PhysicsInterpolationMode() Node.PhysicsInterpolationMode { return o.Super().AsNode().PhysicsInterpolationMode() }
+
+// SetPhysicsInterpolationMode is promoted from [Node.Instance.SetPhysicsInterpolationMode].
+func (o *Extension[T]) SetPhysicsInterpolationMode(value Node.PhysicsInterpolationMode) *Extension[T] {
+	o.Super().AsNode().SetPhysicsInterpolationMode(value)
+	return o
+}
+
+// AutoTranslateMode is promoted from [Node.Instance.AutoTranslateMode].
+func (o *Extension[T]) AutoTranslateMode() Node.AutoTranslateMode { return o.Super().AsNode().AutoTranslateMode() }
+
+// SetAutoTranslateMode is promoted from [Node.Instance.SetAutoTranslateMode].
+func (o *Extension[T]) SetAutoTranslateMode(value Node.AutoTranslateMode) *Extension[T] {
+	o.Super().AsNode().SetAutoTranslateMode(value)
+	return o
+}
+
+// EditorDescription is promoted from [Node.Instance.EditorDescription].
+func (o *Extension[T]) EditorDescription() string { return o.Super().AsNode().EditorDescription() }
+
+// SetEditorDescription is promoted from [Node.Instance.SetEditorDescription].
+func (o *Extension[T]) SetEditorDescription(value string) *Extension[T] {
+	o.Super().AsNode().SetEditorDescription(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

@@ -19,6 +19,7 @@ import "graphics.gd/variant/Euler"
 import "graphics.gd/variant/Signal"
 import "graphics.gd/classdb/Animation"
 import "graphics.gd/classdb/AnimationLibrary"
+import "graphics.gd/classdb/MultiplayerAPI"
 import "graphics.gd/classdb/Node"
 import "graphics.gd/classdb/Tween"
 import "graphics.gd/variant/Array"
@@ -291,15 +292,24 @@ func (self Instance) Active() bool { //gd:AnimationMixer.active
 		return bool(class(self).IsActive())
 }
 
+func (o *Extension[T]) Active() bool { return o.Super().Active() }
+
 // SetActive sets the property returned by [IsActive]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetActive(value bool) Instance { //gd:AnimationMixer.active
 	class(self).SetActive(value)
 	return self
 }
 
+func (o *Extension[T]) SetActive(value bool) *Extension[T] {
+	o.Super().SetActive(value)
+	return o
+}
+
 func (self Instance) Deterministic() bool { //gd:AnimationMixer.deterministic
 		return bool(class(self).IsDeterministic())
 }
+
+func (o *Extension[T]) Deterministic() bool { return o.Super().Deterministic() }
 
 // SetDeterministic sets the property returned by [IsDeterministic]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDeterministic(value bool) Instance { //gd:AnimationMixer.deterministic
@@ -307,9 +317,16 @@ func (self Instance) SetDeterministic(value bool) Instance { //gd:AnimationMixer
 	return self
 }
 
+func (o *Extension[T]) SetDeterministic(value bool) *Extension[T] {
+	o.Super().SetDeterministic(value)
+	return o
+}
+
 func (self Instance) ResetOnSave() bool { //gd:AnimationMixer.reset_on_save
 		return bool(class(self).IsResetOnSaveEnabled())
 }
+
+func (o *Extension[T]) ResetOnSave() bool { return o.Super().ResetOnSave() }
 
 // SetResetOnSave sets the property returned by [IsResetOnSaveEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetResetOnSave(value bool) Instance { //gd:AnimationMixer.reset_on_save
@@ -317,9 +334,16 @@ func (self Instance) SetResetOnSave(value bool) Instance { //gd:AnimationMixer.r
 	return self
 }
 
+func (o *Extension[T]) SetResetOnSave(value bool) *Extension[T] {
+	o.Super().SetResetOnSave(value)
+	return o
+}
+
 func (self Instance) RootNode() string { //gd:AnimationMixer.root_node
 		return string(class(self).GetRootNode().String())
 }
+
+func (o *Extension[T]) RootNode() string { return o.Super().RootNode() }
 
 // SetRootNode sets the property returned by [GetRootNode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRootNode(value string) Instance { //gd:AnimationMixer.root_node
@@ -327,9 +351,16 @@ func (self Instance) SetRootNode(value string) Instance { //gd:AnimationMixer.ro
 	return self
 }
 
+func (o *Extension[T]) SetRootNode(value string) *Extension[T] {
+	o.Super().SetRootNode(value)
+	return o
+}
+
 func (self Instance) RootMotionTrack() string { //gd:AnimationMixer.root_motion_track
 		return string(class(self).GetRootMotionTrack().String())
 }
+
+func (o *Extension[T]) RootMotionTrack() string { return o.Super().RootMotionTrack() }
 
 // SetRootMotionTrack sets the property returned by [GetRootMotionTrack]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRootMotionTrack(value string) Instance { //gd:AnimationMixer.root_motion_track
@@ -337,9 +368,16 @@ func (self Instance) SetRootMotionTrack(value string) Instance { //gd:AnimationM
 	return self
 }
 
+func (o *Extension[T]) SetRootMotionTrack(value string) *Extension[T] {
+	o.Super().SetRootMotionTrack(value)
+	return o
+}
+
 func (self Instance) RootMotionLocal() bool { //gd:AnimationMixer.root_motion_local
 		return bool(class(self).IsRootMotionLocal())
 }
+
+func (o *Extension[T]) RootMotionLocal() bool { return o.Super().RootMotionLocal() }
 
 // SetRootMotionLocal sets the property returned by [IsRootMotionLocal]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRootMotionLocal(value bool) Instance { //gd:AnimationMixer.root_motion_local
@@ -347,9 +385,16 @@ func (self Instance) SetRootMotionLocal(value bool) Instance { //gd:AnimationMix
 	return self
 }
 
+func (o *Extension[T]) SetRootMotionLocal(value bool) *Extension[T] {
+	o.Super().SetRootMotionLocal(value)
+	return o
+}
+
 func (self Instance) AudioMaxPolyphony() int { //gd:AnimationMixer.audio_max_polyphony
 		return int(int(class(self).GetAudioMaxPolyphony()))
 }
+
+func (o *Extension[T]) AudioMaxPolyphony() int { return o.Super().AudioMaxPolyphony() }
 
 // SetAudioMaxPolyphony sets the property returned by [GetAudioMaxPolyphony]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAudioMaxPolyphony(value int) Instance { //gd:AnimationMixer.audio_max_polyphony
@@ -357,9 +402,16 @@ func (self Instance) SetAudioMaxPolyphony(value int) Instance { //gd:AnimationMi
 	return self
 }
 
+func (o *Extension[T]) SetAudioMaxPolyphony(value int) *Extension[T] {
+	o.Super().SetAudioMaxPolyphony(value)
+	return o
+}
+
 func (self Instance) CallbackModeProcess() AnimationCallbackModeProcess { //gd:AnimationMixer.callback_mode_process
 		return AnimationCallbackModeProcess(class(self).GetCallbackModeProcess())
 }
+
+func (o *Extension[T]) CallbackModeProcess() AnimationCallbackModeProcess { return o.Super().CallbackModeProcess() }
 
 // SetCallbackModeProcess sets the property returned by [GetCallbackModeProcess]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCallbackModeProcess(value AnimationCallbackModeProcess) Instance { //gd:AnimationMixer.callback_mode_process
@@ -367,9 +419,16 @@ func (self Instance) SetCallbackModeProcess(value AnimationCallbackModeProcess) 
 	return self
 }
 
+func (o *Extension[T]) SetCallbackModeProcess(value AnimationCallbackModeProcess) *Extension[T] {
+	o.Super().SetCallbackModeProcess(value)
+	return o
+}
+
 func (self Instance) CallbackModeMethod() AnimationCallbackModeMethod { //gd:AnimationMixer.callback_mode_method
 		return AnimationCallbackModeMethod(class(self).GetCallbackModeMethod())
 }
+
+func (o *Extension[T]) CallbackModeMethod() AnimationCallbackModeMethod { return o.Super().CallbackModeMethod() }
 
 // SetCallbackModeMethod sets the property returned by [GetCallbackModeMethod]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCallbackModeMethod(value AnimationCallbackModeMethod) Instance { //gd:AnimationMixer.callback_mode_method
@@ -377,14 +436,26 @@ func (self Instance) SetCallbackModeMethod(value AnimationCallbackModeMethod) In
 	return self
 }
 
+func (o *Extension[T]) SetCallbackModeMethod(value AnimationCallbackModeMethod) *Extension[T] {
+	o.Super().SetCallbackModeMethod(value)
+	return o
+}
+
 func (self Instance) CallbackModeDiscrete() AnimationCallbackModeDiscrete { //gd:AnimationMixer.callback_mode_discrete
 		return AnimationCallbackModeDiscrete(class(self).GetCallbackModeDiscrete())
 }
+
+func (o *Extension[T]) CallbackModeDiscrete() AnimationCallbackModeDiscrete { return o.Super().CallbackModeDiscrete() }
 
 // SetCallbackModeDiscrete sets the property returned by [GetCallbackModeDiscrete]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCallbackModeDiscrete(value AnimationCallbackModeDiscrete) Instance { //gd:AnimationMixer.callback_mode_discrete
 	class(self).SetCallbackModeDiscrete(value)
 	return self
+}
+
+func (o *Extension[T]) SetCallbackModeDiscrete(value AnimationCallbackModeDiscrete) *Extension[T] {
+	o.Super().SetCallbackModeDiscrete(value)
+	return o
 }
 func (class) _post_process_key_value(impl func(ptr gdclass.Receiver, animation [1]gdclass.Animation, track int64, value variant.Any, object_id int64, object_sub_idx int64) variant.Any) (cb gd.ExtensionClassCallVirtualFunc) {
 	return func(class any, p_args, p_back gdextension.Pointer) {
@@ -1535,6 +1606,126 @@ func (self Instance) NotifyThreadSafe(what int) {
 // NotifyThreadSafe is promoted from [Node.Instance.NotifyThreadSafe].
 func (o *Extension[T]) NotifyThreadSafe(what int) {
 	o.Super().AsNode().NotifyThreadSafe(what)
+}
+
+// Name is promoted from [Node.Instance.Name].
+func (o *Extension[T]) Name() string { return o.Super().AsNode().Name() }
+
+// SetName is promoted from [Node.Instance.SetName].
+func (o *Extension[T]) SetName(value string) *Extension[T] {
+	o.Super().AsNode().SetName(value)
+	return o
+}
+
+// UniqueNameInOwner is promoted from [Node.Instance.UniqueNameInOwner].
+func (o *Extension[T]) UniqueNameInOwner() bool { return o.Super().AsNode().UniqueNameInOwner() }
+
+// SetUniqueNameInOwner is promoted from [Node.Instance.SetUniqueNameInOwner].
+func (o *Extension[T]) SetUniqueNameInOwner(value bool) *Extension[T] {
+	o.Super().AsNode().SetUniqueNameInOwner(value)
+	return o
+}
+
+// SceneFilePath is promoted from [Node.Instance.SceneFilePath].
+func (o *Extension[T]) SceneFilePath() string { return o.Super().AsNode().SceneFilePath() }
+
+// SetSceneFilePath is promoted from [Node.Instance.SetSceneFilePath].
+func (o *Extension[T]) SetSceneFilePath(value string) *Extension[T] {
+	o.Super().AsNode().SetSceneFilePath(value)
+	return o
+}
+
+// Owner is promoted from [Node.Instance.Owner].
+func (o *Extension[T]) Owner() Node.Instance { return o.Super().AsNode().Owner() }
+
+// SetOwner is promoted from [Node.Instance.SetOwner].
+func (o *Extension[T]) SetOwner(value Node.Instance) *Extension[T] {
+	o.Super().AsNode().SetOwner(value)
+	return o
+}
+
+// Multiplayer is promoted from [Node.Instance.Multiplayer].
+func (o *Extension[T]) Multiplayer() MultiplayerAPI.Instance { return o.Super().AsNode().Multiplayer() }
+
+// ProcessMode is promoted from [Node.Instance.ProcessMode].
+func (o *Extension[T]) ProcessMode() Node.ProcessMode { return o.Super().AsNode().ProcessMode() }
+
+// SetProcessMode is promoted from [Node.Instance.SetProcessMode].
+func (o *Extension[T]) SetProcessMode(value Node.ProcessMode) *Extension[T] {
+	o.Super().AsNode().SetProcessMode(value)
+	return o
+}
+
+// ProcessPriority is promoted from [Node.Instance.ProcessPriority].
+func (o *Extension[T]) ProcessPriority() int { return o.Super().AsNode().ProcessPriority() }
+
+// SetProcessPriority is promoted from [Node.Instance.SetProcessPriority].
+func (o *Extension[T]) SetProcessPriority(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessPriority(value)
+	return o
+}
+
+// ProcessPhysicsPriority is promoted from [Node.Instance.ProcessPhysicsPriority].
+func (o *Extension[T]) ProcessPhysicsPriority() int { return o.Super().AsNode().ProcessPhysicsPriority() }
+
+// SetProcessPhysicsPriority is promoted from [Node.Instance.SetProcessPhysicsPriority].
+func (o *Extension[T]) SetProcessPhysicsPriority(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessPhysicsPriority(value)
+	return o
+}
+
+// ProcessThreadGroup is promoted from [Node.Instance.ProcessThreadGroup].
+func (o *Extension[T]) ProcessThreadGroup() Node.ProcessThreadGroup { return o.Super().AsNode().ProcessThreadGroup() }
+
+// SetProcessThreadGroup is promoted from [Node.Instance.SetProcessThreadGroup].
+func (o *Extension[T]) SetProcessThreadGroup(value Node.ProcessThreadGroup) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadGroup(value)
+	return o
+}
+
+// ProcessThreadGroupOrder is promoted from [Node.Instance.ProcessThreadGroupOrder].
+func (o *Extension[T]) ProcessThreadGroupOrder() int { return o.Super().AsNode().ProcessThreadGroupOrder() }
+
+// SetProcessThreadGroupOrder is promoted from [Node.Instance.SetProcessThreadGroupOrder].
+func (o *Extension[T]) SetProcessThreadGroupOrder(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadGroupOrder(value)
+	return o
+}
+
+// ProcessThreadMessages is promoted from [Node.Instance.ProcessThreadMessages].
+func (o *Extension[T]) ProcessThreadMessages() Node.ProcessThreadMessages { return o.Super().AsNode().ProcessThreadMessages() }
+
+// SetProcessThreadMessages is promoted from [Node.Instance.SetProcessThreadMessages].
+func (o *Extension[T]) SetProcessThreadMessages(value Node.ProcessThreadMessages) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadMessages(value)
+	return o
+}
+
+// PhysicsInterpolationMode is promoted from [Node.Instance.PhysicsInterpolationMode].
+func (o *Extension[T]) PhysicsInterpolationMode() Node.PhysicsInterpolationMode { return o.Super().AsNode().PhysicsInterpolationMode() }
+
+// SetPhysicsInterpolationMode is promoted from [Node.Instance.SetPhysicsInterpolationMode].
+func (o *Extension[T]) SetPhysicsInterpolationMode(value Node.PhysicsInterpolationMode) *Extension[T] {
+	o.Super().AsNode().SetPhysicsInterpolationMode(value)
+	return o
+}
+
+// AutoTranslateMode is promoted from [Node.Instance.AutoTranslateMode].
+func (o *Extension[T]) AutoTranslateMode() Node.AutoTranslateMode { return o.Super().AsNode().AutoTranslateMode() }
+
+// SetAutoTranslateMode is promoted from [Node.Instance.SetAutoTranslateMode].
+func (o *Extension[T]) SetAutoTranslateMode(value Node.AutoTranslateMode) *Extension[T] {
+	o.Super().AsNode().SetAutoTranslateMode(value)
+	return o
+}
+
+// EditorDescription is promoted from [Node.Instance.EditorDescription].
+func (o *Extension[T]) EditorDescription() string { return o.Super().AsNode().EditorDescription() }
+
+// SetEditorDescription is promoted from [Node.Instance.SetEditorDescription].
+func (o *Extension[T]) SetEditorDescription(value string) *Extension[T] {
+	o.Super().AsNode().SetEditorDescription(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

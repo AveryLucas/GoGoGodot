@@ -196,15 +196,24 @@ func (self Instance) OriginalName() string { //gd:GLTFNode.original_name
 		return string(class(self).GetOriginalName().String())
 }
 
+func (o *Extension[T]) OriginalName() string { return o.Super().OriginalName() }
+
 // SetOriginalName sets the property returned by [GetOriginalName]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOriginalName(value string) Instance { //gd:GLTFNode.original_name
 	class(self).SetOriginalName(String.From(value))
 	return self
 }
 
+func (o *Extension[T]) SetOriginalName(value string) *Extension[T] {
+	o.Super().SetOriginalName(value)
+	return o
+}
+
 func (self Instance) Parent() int { //gd:GLTFNode.parent
 		return int(int(class(self).GetParent()))
 }
+
+func (o *Extension[T]) Parent() int { return o.Super().Parent() }
 
 // SetParent sets the property returned by [GetParent]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetParent(value int) Instance { //gd:GLTFNode.parent
@@ -212,9 +221,16 @@ func (self Instance) SetParent(value int) Instance { //gd:GLTFNode.parent
 	return self
 }
 
+func (o *Extension[T]) SetParent(value int) *Extension[T] {
+	o.Super().SetParent(value)
+	return o
+}
+
 func (self Instance) Height() int { //gd:GLTFNode.height
 		return int(int(class(self).GetHeight()))
 }
+
+func (o *Extension[T]) Height() int { return o.Super().Height() }
 
 // SetHeight sets the property returned by [GetHeight]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetHeight(value int) Instance { //gd:GLTFNode.height
@@ -222,9 +238,16 @@ func (self Instance) SetHeight(value int) Instance { //gd:GLTFNode.height
 	return self
 }
 
+func (o *Extension[T]) SetHeight(value int) *Extension[T] {
+	o.Super().SetHeight(value)
+	return o
+}
+
 func (self Instance) Xform() Transform3D.BasisOrigin { //gd:GLTFNode.xform
 		return Transform3D.BasisOrigin(class(self).GetXform())
 }
+
+func (o *Extension[T]) Xform() Transform3D.BasisOrigin { return o.Super().Xform() }
 
 // SetXform sets the property returned by [GetXform]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetXform(value Transform3D.BasisOrigin) Instance { //gd:GLTFNode.xform
@@ -232,9 +255,16 @@ func (self Instance) SetXform(value Transform3D.BasisOrigin) Instance { //gd:GLT
 	return self
 }
 
+func (o *Extension[T]) SetXform(value Transform3D.BasisOrigin) *Extension[T] {
+	o.Super().SetXform(value)
+	return o
+}
+
 func (self Instance) Mesh() int { //gd:GLTFNode.mesh
 		return int(int(class(self).GetMesh()))
 }
+
+func (o *Extension[T]) Mesh() int { return o.Super().Mesh() }
 
 // SetMesh sets the property returned by [GetMesh]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMesh(value int) Instance { //gd:GLTFNode.mesh
@@ -242,9 +272,16 @@ func (self Instance) SetMesh(value int) Instance { //gd:GLTFNode.mesh
 	return self
 }
 
+func (o *Extension[T]) SetMesh(value int) *Extension[T] {
+	o.Super().SetMesh(value)
+	return o
+}
+
 func (self Instance) Camera() int { //gd:GLTFNode.camera
 		return int(int(class(self).GetCamera()))
 }
+
+func (o *Extension[T]) Camera() int { return o.Super().Camera() }
 
 // SetCamera sets the property returned by [GetCamera]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCamera(value int) Instance { //gd:GLTFNode.camera
@@ -252,9 +289,16 @@ func (self Instance) SetCamera(value int) Instance { //gd:GLTFNode.camera
 	return self
 }
 
+func (o *Extension[T]) SetCamera(value int) *Extension[T] {
+	o.Super().SetCamera(value)
+	return o
+}
+
 func (self Instance) Skin() int { //gd:GLTFNode.skin
 		return int(int(class(self).GetSkin()))
 }
+
+func (o *Extension[T]) Skin() int { return o.Super().Skin() }
 
 // SetSkin sets the property returned by [GetSkin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSkin(value int) Instance { //gd:GLTFNode.skin
@@ -262,9 +306,16 @@ func (self Instance) SetSkin(value int) Instance { //gd:GLTFNode.skin
 	return self
 }
 
+func (o *Extension[T]) SetSkin(value int) *Extension[T] {
+	o.Super().SetSkin(value)
+	return o
+}
+
 func (self Instance) Skeleton() int { //gd:GLTFNode.skeleton
 		return int(int(class(self).GetSkeleton()))
 }
+
+func (o *Extension[T]) Skeleton() int { return o.Super().Skeleton() }
 
 // SetSkeleton sets the property returned by [GetSkeleton]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSkeleton(value int) Instance { //gd:GLTFNode.skeleton
@@ -272,9 +323,16 @@ func (self Instance) SetSkeleton(value int) Instance { //gd:GLTFNode.skeleton
 	return self
 }
 
+func (o *Extension[T]) SetSkeleton(value int) *Extension[T] {
+	o.Super().SetSkeleton(value)
+	return o
+}
+
 func (self Instance) Position() Vector3.XYZ { //gd:GLTFNode.position
 		return Vector3.XYZ(class(self).GetPosition())
 }
+
+func (o *Extension[T]) Position() Vector3.XYZ { return o.Super().Position() }
 
 // SetPosition sets the property returned by [GetPosition]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPosition(value Vector3.XYZ) Instance { //gd:GLTFNode.position
@@ -282,9 +340,16 @@ func (self Instance) SetPosition(value Vector3.XYZ) Instance { //gd:GLTFNode.pos
 	return self
 }
 
+func (o *Extension[T]) SetPosition(value Vector3.XYZ) *Extension[T] {
+	o.Super().SetPosition(value)
+	return o
+}
+
 func (self Instance) Rotation() Quaternion.IJKX { //gd:GLTFNode.rotation
 		return Quaternion.IJKX(class(self).GetRotation())
 }
+
+func (o *Extension[T]) Rotation() Quaternion.IJKX { return o.Super().Rotation() }
 
 // SetRotation sets the property returned by [GetRotation]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRotation(value Quaternion.IJKX) Instance { //gd:GLTFNode.rotation
@@ -292,9 +357,16 @@ func (self Instance) SetRotation(value Quaternion.IJKX) Instance { //gd:GLTFNode
 	return self
 }
 
+func (o *Extension[T]) SetRotation(value Quaternion.IJKX) *Extension[T] {
+	o.Super().SetRotation(value)
+	return o
+}
+
 func (self Instance) Scale() Vector3.XYZ { //gd:GLTFNode.scale
 		return Vector3.XYZ(class(self).GetScale())
 }
+
+func (o *Extension[T]) Scale() Vector3.XYZ { return o.Super().Scale() }
 
 // SetScale sets the property returned by [GetScale]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetScale(value Vector3.XYZ) Instance { //gd:GLTFNode.scale
@@ -302,9 +374,16 @@ func (self Instance) SetScale(value Vector3.XYZ) Instance { //gd:GLTFNode.scale
 	return self
 }
 
+func (o *Extension[T]) SetScale(value Vector3.XYZ) *Extension[T] {
+	o.Super().SetScale(value)
+	return o
+}
+
 func (self Instance) Children() []int32 { //gd:GLTFNode.children
 		return []int32(slices.Collect(class(self).GetChildren().Values()))
 }
+
+func (o *Extension[T]) Children() []int32 { return o.Super().Children() }
 
 // SetChildren sets the property returned by [GetChildren]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetChildren(value []int32) Instance { //gd:GLTFNode.children
@@ -312,9 +391,16 @@ func (self Instance) SetChildren(value []int32) Instance { //gd:GLTFNode.childre
 	return self
 }
 
+func (o *Extension[T]) SetChildren(value []int32) *Extension[T] {
+	o.Super().SetChildren(value)
+	return o
+}
+
 func (self Instance) Light() int { //gd:GLTFNode.light
 		return int(int(class(self).GetLight()))
 }
+
+func (o *Extension[T]) Light() int { return o.Super().Light() }
 
 // SetLight sets the property returned by [GetLight]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetLight(value int) Instance { //gd:GLTFNode.light
@@ -322,14 +408,26 @@ func (self Instance) SetLight(value int) Instance { //gd:GLTFNode.light
 	return self
 }
 
+func (o *Extension[T]) SetLight(value int) *Extension[T] {
+	o.Super().SetLight(value)
+	return o
+}
+
 func (self Instance) Visible() bool { //gd:GLTFNode.visible
 		return bool(class(self).GetVisible())
 }
+
+func (o *Extension[T]) Visible() bool { return o.Super().Visible() }
 
 // SetVisible sets the property returned by [GetVisible]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVisible(value bool) Instance { //gd:GLTFNode.visible
 	class(self).SetVisible(value)
 	return self
+}
+
+func (o *Extension[T]) SetVisible(value bool) *Extension[T] {
+	o.Super().SetVisible(value)
+	return o
 }
 
 func (self class) GetOriginalName() String.Readable { //gd:GLTFNode.get_original_name
@@ -592,6 +690,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

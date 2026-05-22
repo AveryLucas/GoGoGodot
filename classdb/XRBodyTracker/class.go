@@ -173,20 +173,34 @@ func (self Instance) HasTrackingData() bool { //gd:XRBodyTracker.has_tracking_da
 		return bool(class(self).GetHasTrackingData())
 }
 
+func (o *Extension[T]) HasTrackingData() bool { return o.Super().HasTrackingData() }
+
 // SetHasTrackingData sets the property returned by [GetHasTrackingData]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetHasTrackingData(value bool) Instance { //gd:XRBodyTracker.has_tracking_data
 	class(self).SetHasTrackingData(value)
 	return self
 }
 
+func (o *Extension[T]) SetHasTrackingData(value bool) *Extension[T] {
+	o.Super().SetHasTrackingData(value)
+	return o
+}
+
 func (self Instance) BodyFlags() BodyFlags { //gd:XRBodyTracker.body_flags
 		return BodyFlags(class(self).GetBodyFlags())
 }
+
+func (o *Extension[T]) BodyFlags() BodyFlags { return o.Super().BodyFlags() }
 
 // SetBodyFlags sets the property returned by [GetBodyFlags]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBodyFlags(value BodyFlags) Instance { //gd:XRBodyTracker.body_flags
 	class(self).SetBodyFlags(value)
 	return self
+}
+
+func (o *Extension[T]) SetBodyFlags(value BodyFlags) *Extension[T] {
+	o.Super().SetBodyFlags(value)
+	return o
 }
 
 func (self class) SetHasTrackingData(has_data bool)  { //gd:XRBodyTracker.set_has_tracking_data
@@ -379,6 +393,51 @@ func (self Instance) SetInput(name string, value any) Instance {
 // SetInput is promoted from [XRPositionalTracker.Instance.SetInput].
 func (o *Extension[T]) SetInput(name string, value any) *Extension[T] {
 	o.Super().AsXRPositionalTracker().SetInput(name, value)
+	return o
+}
+
+// Profile is promoted from [XRPositionalTracker.Instance.Profile].
+func (o *Extension[T]) Profile() string { return o.Super().AsXRPositionalTracker().Profile() }
+
+// SetProfile is promoted from [XRPositionalTracker.Instance.SetProfile].
+func (o *Extension[T]) SetProfile(value string) *Extension[T] {
+	o.Super().AsXRPositionalTracker().SetProfile(value)
+	return o
+}
+
+// Hand is promoted from [XRPositionalTracker.Instance.Hand].
+func (o *Extension[T]) Hand() XRPositionalTracker.TrackerHand { return o.Super().AsXRPositionalTracker().Hand() }
+
+// SetHand is promoted from [XRPositionalTracker.Instance.SetHand].
+func (o *Extension[T]) SetHand(value XRPositionalTracker.TrackerHand) *Extension[T] {
+	o.Super().AsXRPositionalTracker().SetHand(value)
+	return o
+}
+
+// Type is promoted from [XRTracker.Instance.Type].
+func (o *Extension[T]) Type() XRTracker.Type { return o.Super().AsXRTracker().Type() }
+
+// SetType is promoted from [XRTracker.Instance.SetType].
+func (o *Extension[T]) SetType(value XRTracker.Type) *Extension[T] {
+	o.Super().AsXRTracker().SetType(value)
+	return o
+}
+
+// Name is promoted from [XRTracker.Instance.Name].
+func (o *Extension[T]) Name() string { return o.Super().AsXRTracker().Name() }
+
+// SetName is promoted from [XRTracker.Instance.SetName].
+func (o *Extension[T]) SetName(value string) *Extension[T] {
+	o.Super().AsXRTracker().SetName(value)
+	return o
+}
+
+// Description is promoted from [XRTracker.Instance.Description].
+func (o *Extension[T]) Description() string { return o.Super().AsXRTracker().Description() }
+
+// SetDescription is promoted from [XRTracker.Instance.SetDescription].
+func (o *Extension[T]) SetDescription(value string) *Extension[T] {
+	o.Super().AsXRTracker().SetDescription(value)
 	return o
 }
 

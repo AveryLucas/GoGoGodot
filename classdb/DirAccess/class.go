@@ -325,20 +325,34 @@ func (self Instance) IncludeNavigational() bool { //gd:DirAccess.include_navigat
 		return bool(class(self).GetIncludeNavigational())
 }
 
+func (o *Extension[T]) IncludeNavigational() bool { return o.Super().IncludeNavigational() }
+
 // SetIncludeNavigational sets the property returned by [GetIncludeNavigational]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetIncludeNavigational(value bool) Instance { //gd:DirAccess.include_navigational
 	class(self).SetIncludeNavigational(value)
 	return self
 }
 
+func (o *Extension[T]) SetIncludeNavigational(value bool) *Extension[T] {
+	o.Super().SetIncludeNavigational(value)
+	return o
+}
+
 func (self Instance) IncludeHidden() bool { //gd:DirAccess.include_hidden
 		return bool(class(self).GetIncludeHidden())
 }
+
+func (o *Extension[T]) IncludeHidden() bool { return o.Super().IncludeHidden() }
 
 // SetIncludeHidden sets the property returned by [GetIncludeHidden]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetIncludeHidden(value bool) Instance { //gd:DirAccess.include_hidden
 	class(self).SetIncludeHidden(value)
 	return self
+}
+
+func (o *Extension[T]) SetIncludeHidden(value bool) *Extension[T] {
+	o.Super().SetIncludeHidden(value)
+	return o
 }
 
 func (self class) Open(path String.Readable) [1]gdclass.DirAccess { //gd:DirAccess.open

@@ -182,6 +182,15 @@ func (o *Extension[T]) GetStructureType() int {
 	return o.Super().AsOpenXRStructureBase().GetStructureType()
 }
 
+// Next is promoted from [OpenXRStructureBase.Instance.Next].
+func (o *Extension[T]) Next() OpenXRStructureBase.Instance { return o.Super().AsOpenXRStructureBase().Next() }
+
+// SetNext is promoted from [OpenXRStructureBase.Instance.SetNext].
+func (o *Extension[T]) SetNext(value OpenXRStructureBase.Instance) *Extension[T] {
+	o.Super().AsOpenXRStructureBase().SetNext(value)
+	return o
+}
+
 func (self class) Virtual(name string) reflect.Value {
 	switch name {
 	default: return gd.VirtualByName(OpenXRStructureBase.Advanced(self.AsOpenXRStructureBase()), name)

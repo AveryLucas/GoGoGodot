@@ -18,10 +18,22 @@ import "graphics.gd/variant/Angle"
 import "graphics.gd/variant/Euler"
 import "graphics.gd/variant/Signal"
 import "graphics.gd/classdb/AnimationPlayer"
+import "graphics.gd/classdb/GLTFAccessor"
+import "graphics.gd/classdb/GLTFAnimation"
+import "graphics.gd/classdb/GLTFBufferView"
+import "graphics.gd/classdb/GLTFCamera"
+import "graphics.gd/classdb/GLTFLight"
+import "graphics.gd/classdb/GLTFMesh"
 import "graphics.gd/classdb/GLTFNode"
+import "graphics.gd/classdb/GLTFSkeleton"
+import "graphics.gd/classdb/GLTFSkin"
 import "graphics.gd/classdb/GLTFState"
+import "graphics.gd/classdb/GLTFTexture"
+import "graphics.gd/classdb/GLTFTextureSampler"
+import "graphics.gd/classdb/Material"
 import "graphics.gd/classdb/Node"
 import "graphics.gd/classdb/Resource"
+import "graphics.gd/classdb/Texture2D"
 import "graphics.gd/variant/Array"
 import "graphics.gd/variant/Callable"
 import "graphics.gd/variant/Dictionary"
@@ -152,10 +164,17 @@ func (self Instance) AllowGeometryHelperNodes() bool { //gd:FBXState.allow_geome
 		return bool(class(self).GetAllowGeometryHelperNodes())
 }
 
+func (o *Extension[T]) AllowGeometryHelperNodes() bool { return o.Super().AllowGeometryHelperNodes() }
+
 // SetAllowGeometryHelperNodes sets the property returned by [GetAllowGeometryHelperNodes]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAllowGeometryHelperNodes(value bool) Instance { //gd:FBXState.allow_geometry_helper_nodes
 	class(self).SetAllowGeometryHelperNodes(value)
 	return self
+}
+
+func (o *Extension[T]) SetAllowGeometryHelperNodes(value bool) *Extension[T] {
+	o.Super().SetAllowGeometryHelperNodes(value)
+	return o
 }
 
 func (self class) GetAllowGeometryHelperNodes() bool { //gd:FBXState.get_allow_geometry_helper_nodes
@@ -383,6 +402,321 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// Json is promoted from [GLTFState.Instance.Json].
+func (o *Extension[T]) Json() map[string]any { return o.Super().AsGLTFState().Json() }
+
+// SetJson is promoted from [GLTFState.Instance.SetJson].
+func (o *Extension[T]) SetJson(value map[string]any) *Extension[T] {
+	o.Super().AsGLTFState().SetJson(value)
+	return o
+}
+
+// MajorVersion is promoted from [GLTFState.Instance.MajorVersion].
+func (o *Extension[T]) MajorVersion() int { return o.Super().AsGLTFState().MajorVersion() }
+
+// SetMajorVersion is promoted from [GLTFState.Instance.SetMajorVersion].
+func (o *Extension[T]) SetMajorVersion(value int) *Extension[T] {
+	o.Super().AsGLTFState().SetMajorVersion(value)
+	return o
+}
+
+// MinorVersion is promoted from [GLTFState.Instance.MinorVersion].
+func (o *Extension[T]) MinorVersion() int { return o.Super().AsGLTFState().MinorVersion() }
+
+// SetMinorVersion is promoted from [GLTFState.Instance.SetMinorVersion].
+func (o *Extension[T]) SetMinorVersion(value int) *Extension[T] {
+	o.Super().AsGLTFState().SetMinorVersion(value)
+	return o
+}
+
+// Copyright is promoted from [GLTFState.Instance.Copyright].
+func (o *Extension[T]) Copyright() string { return o.Super().AsGLTFState().Copyright() }
+
+// SetCopyright is promoted from [GLTFState.Instance.SetCopyright].
+func (o *Extension[T]) SetCopyright(value string) *Extension[T] {
+	o.Super().AsGLTFState().SetCopyright(value)
+	return o
+}
+
+// GlbData is promoted from [GLTFState.Instance.GlbData].
+func (o *Extension[T]) GlbData() []byte { return o.Super().AsGLTFState().GlbData() }
+
+// SetGlbData is promoted from [GLTFState.Instance.SetGlbData].
+func (o *Extension[T]) SetGlbData(value []byte) *Extension[T] {
+	o.Super().AsGLTFState().SetGlbData(value)
+	return o
+}
+
+// UseNamedSkinBinds is promoted from [GLTFState.Instance.UseNamedSkinBinds].
+func (o *Extension[T]) UseNamedSkinBinds() bool { return o.Super().AsGLTFState().UseNamedSkinBinds() }
+
+// SetUseNamedSkinBinds is promoted from [GLTFState.Instance.SetUseNamedSkinBinds].
+func (o *Extension[T]) SetUseNamedSkinBinds(value bool) *Extension[T] {
+	o.Super().AsGLTFState().SetUseNamedSkinBinds(value)
+	return o
+}
+
+// Nodes is promoted from [GLTFState.Instance.Nodes].
+func (o *Extension[T]) Nodes() []GLTFNode.Instance { return o.Super().AsGLTFState().Nodes() }
+
+// SetNodes is promoted from [GLTFState.Instance.SetNodes].
+func (o *Extension[T]) SetNodes(value []GLTFNode.Instance) *Extension[T] {
+	o.Super().AsGLTFState().SetNodes(value)
+	return o
+}
+
+// Buffers is promoted from [GLTFState.Instance.Buffers].
+func (o *Extension[T]) Buffers() [][]byte { return o.Super().AsGLTFState().Buffers() }
+
+// SetBuffers is promoted from [GLTFState.Instance.SetBuffers].
+func (o *Extension[T]) SetBuffers(value [][]byte) *Extension[T] {
+	o.Super().AsGLTFState().SetBuffers(value)
+	return o
+}
+
+// BufferViews is promoted from [GLTFState.Instance.BufferViews].
+func (o *Extension[T]) BufferViews() []GLTFBufferView.Instance { return o.Super().AsGLTFState().BufferViews() }
+
+// SetBufferViews is promoted from [GLTFState.Instance.SetBufferViews].
+func (o *Extension[T]) SetBufferViews(value []GLTFBufferView.Instance) *Extension[T] {
+	o.Super().AsGLTFState().SetBufferViews(value)
+	return o
+}
+
+// Accessors is promoted from [GLTFState.Instance.Accessors].
+func (o *Extension[T]) Accessors() []GLTFAccessor.Instance { return o.Super().AsGLTFState().Accessors() }
+
+// SetAccessors is promoted from [GLTFState.Instance.SetAccessors].
+func (o *Extension[T]) SetAccessors(value []GLTFAccessor.Instance) *Extension[T] {
+	o.Super().AsGLTFState().SetAccessors(value)
+	return o
+}
+
+// Meshes is promoted from [GLTFState.Instance.Meshes].
+func (o *Extension[T]) Meshes() []GLTFMesh.Instance { return o.Super().AsGLTFState().Meshes() }
+
+// SetMeshes is promoted from [GLTFState.Instance.SetMeshes].
+func (o *Extension[T]) SetMeshes(value []GLTFMesh.Instance) *Extension[T] {
+	o.Super().AsGLTFState().SetMeshes(value)
+	return o
+}
+
+// Materials is promoted from [GLTFState.Instance.Materials].
+func (o *Extension[T]) Materials() []Material.Instance { return o.Super().AsGLTFState().Materials() }
+
+// SetMaterials is promoted from [GLTFState.Instance.SetMaterials].
+func (o *Extension[T]) SetMaterials(value []Material.Instance) *Extension[T] {
+	o.Super().AsGLTFState().SetMaterials(value)
+	return o
+}
+
+// SceneName is promoted from [GLTFState.Instance.SceneName].
+func (o *Extension[T]) SceneName() string { return o.Super().AsGLTFState().SceneName() }
+
+// SetSceneName is promoted from [GLTFState.Instance.SetSceneName].
+func (o *Extension[T]) SetSceneName(value string) *Extension[T] {
+	o.Super().AsGLTFState().SetSceneName(value)
+	return o
+}
+
+// BasePath is promoted from [GLTFState.Instance.BasePath].
+func (o *Extension[T]) BasePath() string { return o.Super().AsGLTFState().BasePath() }
+
+// SetBasePath is promoted from [GLTFState.Instance.SetBasePath].
+func (o *Extension[T]) SetBasePath(value string) *Extension[T] {
+	o.Super().AsGLTFState().SetBasePath(value)
+	return o
+}
+
+// Filename is promoted from [GLTFState.Instance.Filename].
+func (o *Extension[T]) Filename() string { return o.Super().AsGLTFState().Filename() }
+
+// SetFilename is promoted from [GLTFState.Instance.SetFilename].
+func (o *Extension[T]) SetFilename(value string) *Extension[T] {
+	o.Super().AsGLTFState().SetFilename(value)
+	return o
+}
+
+// RootNodes is promoted from [GLTFState.Instance.RootNodes].
+func (o *Extension[T]) RootNodes() []int32 { return o.Super().AsGLTFState().RootNodes() }
+
+// SetRootNodes is promoted from [GLTFState.Instance.SetRootNodes].
+func (o *Extension[T]) SetRootNodes(value []int32) *Extension[T] {
+	o.Super().AsGLTFState().SetRootNodes(value)
+	return o
+}
+
+// Textures is promoted from [GLTFState.Instance.Textures].
+func (o *Extension[T]) Textures() []GLTFTexture.Instance { return o.Super().AsGLTFState().Textures() }
+
+// SetTextures is promoted from [GLTFState.Instance.SetTextures].
+func (o *Extension[T]) SetTextures(value []GLTFTexture.Instance) *Extension[T] {
+	o.Super().AsGLTFState().SetTextures(value)
+	return o
+}
+
+// TextureSamplers is promoted from [GLTFState.Instance.TextureSamplers].
+func (o *Extension[T]) TextureSamplers() []GLTFTextureSampler.Instance { return o.Super().AsGLTFState().TextureSamplers() }
+
+// SetTextureSamplers is promoted from [GLTFState.Instance.SetTextureSamplers].
+func (o *Extension[T]) SetTextureSamplers(value []GLTFTextureSampler.Instance) *Extension[T] {
+	o.Super().AsGLTFState().SetTextureSamplers(value)
+	return o
+}
+
+// Images is promoted from [GLTFState.Instance.Images].
+func (o *Extension[T]) Images() []Texture2D.Instance { return o.Super().AsGLTFState().Images() }
+
+// SetImages is promoted from [GLTFState.Instance.SetImages].
+func (o *Extension[T]) SetImages(value []Texture2D.Instance) *Extension[T] {
+	o.Super().AsGLTFState().SetImages(value)
+	return o
+}
+
+// Skins is promoted from [GLTFState.Instance.Skins].
+func (o *Extension[T]) Skins() []GLTFSkin.Instance { return o.Super().AsGLTFState().Skins() }
+
+// SetSkins is promoted from [GLTFState.Instance.SetSkins].
+func (o *Extension[T]) SetSkins(value []GLTFSkin.Instance) *Extension[T] {
+	o.Super().AsGLTFState().SetSkins(value)
+	return o
+}
+
+// Cameras is promoted from [GLTFState.Instance.Cameras].
+func (o *Extension[T]) Cameras() []GLTFCamera.Instance { return o.Super().AsGLTFState().Cameras() }
+
+// SetCameras is promoted from [GLTFState.Instance.SetCameras].
+func (o *Extension[T]) SetCameras(value []GLTFCamera.Instance) *Extension[T] {
+	o.Super().AsGLTFState().SetCameras(value)
+	return o
+}
+
+// Lights is promoted from [GLTFState.Instance.Lights].
+func (o *Extension[T]) Lights() []GLTFLight.Instance { return o.Super().AsGLTFState().Lights() }
+
+// SetLights is promoted from [GLTFState.Instance.SetLights].
+func (o *Extension[T]) SetLights(value []GLTFLight.Instance) *Extension[T] {
+	o.Super().AsGLTFState().SetLights(value)
+	return o
+}
+
+// UniqueNames is promoted from [GLTFState.Instance.UniqueNames].
+func (o *Extension[T]) UniqueNames() []string { return o.Super().AsGLTFState().UniqueNames() }
+
+// SetUniqueNames is promoted from [GLTFState.Instance.SetUniqueNames].
+func (o *Extension[T]) SetUniqueNames(value []string) *Extension[T] {
+	o.Super().AsGLTFState().SetUniqueNames(value)
+	return o
+}
+
+// UniqueAnimationNames is promoted from [GLTFState.Instance.UniqueAnimationNames].
+func (o *Extension[T]) UniqueAnimationNames() []string { return o.Super().AsGLTFState().UniqueAnimationNames() }
+
+// SetUniqueAnimationNames is promoted from [GLTFState.Instance.SetUniqueAnimationNames].
+func (o *Extension[T]) SetUniqueAnimationNames(value []string) *Extension[T] {
+	o.Super().AsGLTFState().SetUniqueAnimationNames(value)
+	return o
+}
+
+// Skeletons is promoted from [GLTFState.Instance.Skeletons].
+func (o *Extension[T]) Skeletons() []GLTFSkeleton.Instance { return o.Super().AsGLTFState().Skeletons() }
+
+// SetSkeletons is promoted from [GLTFState.Instance.SetSkeletons].
+func (o *Extension[T]) SetSkeletons(value []GLTFSkeleton.Instance) *Extension[T] {
+	o.Super().AsGLTFState().SetSkeletons(value)
+	return o
+}
+
+// CreateAnimations is promoted from [GLTFState.Instance.CreateAnimations].
+func (o *Extension[T]) CreateAnimations() bool { return o.Super().AsGLTFState().CreateAnimations() }
+
+// SetCreateAnimations is promoted from [GLTFState.Instance.SetCreateAnimations].
+func (o *Extension[T]) SetCreateAnimations(value bool) *Extension[T] {
+	o.Super().AsGLTFState().SetCreateAnimations(value)
+	return o
+}
+
+// ImportAsSkeletonBones is promoted from [GLTFState.Instance.ImportAsSkeletonBones].
+func (o *Extension[T]) ImportAsSkeletonBones() bool { return o.Super().AsGLTFState().ImportAsSkeletonBones() }
+
+// SetImportAsSkeletonBones is promoted from [GLTFState.Instance.SetImportAsSkeletonBones].
+func (o *Extension[T]) SetImportAsSkeletonBones(value bool) *Extension[T] {
+	o.Super().AsGLTFState().SetImportAsSkeletonBones(value)
+	return o
+}
+
+// Animations is promoted from [GLTFState.Instance.Animations].
+func (o *Extension[T]) Animations() []GLTFAnimation.Instance { return o.Super().AsGLTFState().Animations() }
+
+// SetAnimations is promoted from [GLTFState.Instance.SetAnimations].
+func (o *Extension[T]) SetAnimations(value []GLTFAnimation.Instance) *Extension[T] {
+	o.Super().AsGLTFState().SetAnimations(value)
+	return o
+}
+
+// HandleBinaryImageMode is promoted from [GLTFState.Instance.HandleBinaryImageMode].
+func (o *Extension[T]) HandleBinaryImageMode() GLTFState.HandleBinaryImageMode { return o.Super().AsGLTFState().HandleBinaryImageMode() }
+
+// SetHandleBinaryImageMode is promoted from [GLTFState.Instance.SetHandleBinaryImageMode].
+func (o *Extension[T]) SetHandleBinaryImageMode(value GLTFState.HandleBinaryImageMode) *Extension[T] {
+	o.Super().AsGLTFState().SetHandleBinaryImageMode(value)
+	return o
+}
+
+// BakeFps is promoted from [GLTFState.Instance.BakeFps].
+func (o *Extension[T]) BakeFps() Float.X { return o.Super().AsGLTFState().BakeFps() }
+
+// SetBakeFps is promoted from [GLTFState.Instance.SetBakeFps].
+func (o *Extension[T]) SetBakeFps(value Float.X) *Extension[T] {
+	o.Super().AsGLTFState().SetBakeFps(value)
+	return o
+}
+
+// HandleBinaryImage is promoted from [GLTFState.Instance.HandleBinaryImage].
+func (o *Extension[T]) HandleBinaryImage() GLTFState.BinaryHandler { return o.Super().AsGLTFState().HandleBinaryImage() }
+
+// SetHandleBinaryImage is promoted from [GLTFState.Instance.SetHandleBinaryImage].
+func (o *Extension[T]) SetHandleBinaryImage(value GLTFState.BinaryHandler) *Extension[T] {
+	o.Super().AsGLTFState().SetHandleBinaryImage(value)
+	return o
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

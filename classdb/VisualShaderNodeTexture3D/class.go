@@ -151,10 +151,17 @@ func (self Instance) Texture() Texture3D.Instance { //gd:VisualShaderNodeTexture
 		return Texture3D.Instance(class(self).GetTexture())
 }
 
+func (o *Extension[T]) Texture() Texture3D.Instance { return o.Super().Texture() }
+
 // SetTexture sets the property returned by [GetTexture]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTexture(value Texture3D.Instance) Instance { //gd:VisualShaderNodeTexture3D.texture
 	class(self).SetTexture(value)
 	return self
+}
+
+func (o *Extension[T]) SetTexture(value Texture3D.Instance) *Extension[T] {
+	o.Super().SetTexture(value)
+	return o
 }
 
 func (self class) SetTexture(value [1]gdclass.Texture3D)  { //gd:VisualShaderNodeTexture3D.set_texture
@@ -333,6 +340,78 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// Source is promoted from [VisualShaderNodeSample3D.Instance.Source].
+func (o *Extension[T]) Source() VisualShaderNodeSample3D.Source { return o.Super().AsVisualShaderNodeSample3D().Source() }
+
+// SetSource is promoted from [VisualShaderNodeSample3D.Instance.SetSource].
+func (o *Extension[T]) SetSource(value VisualShaderNodeSample3D.Source) *Extension[T] {
+	o.Super().AsVisualShaderNodeSample3D().SetSource(value)
+	return o
+}
+
+// OutputPortForPreview is promoted from [VisualShaderNode.Instance.OutputPortForPreview].
+func (o *Extension[T]) OutputPortForPreview() int { return o.Super().AsVisualShaderNode().OutputPortForPreview() }
+
+// SetOutputPortForPreview is promoted from [VisualShaderNode.Instance.SetOutputPortForPreview].
+func (o *Extension[T]) SetOutputPortForPreview(value int) *Extension[T] {
+	o.Super().AsVisualShaderNode().SetOutputPortForPreview(value)
+	return o
+}
+
+// DefaultInputValues is promoted from [VisualShaderNode.Instance.DefaultInputValues].
+func (o *Extension[T]) DefaultInputValues() []any { return o.Super().AsVisualShaderNode().DefaultInputValues() }
+
+// SetDefaultInputValues is promoted from [VisualShaderNode.Instance.SetDefaultInputValues].
+func (o *Extension[T]) SetDefaultInputValues(value []any) *Extension[T] {
+	o.Super().AsVisualShaderNode().SetDefaultInputValues(value)
+	return o
+}
+
+// LinkedParentGraphFrame is promoted from [VisualShaderNode.Instance.LinkedParentGraphFrame].
+func (o *Extension[T]) LinkedParentGraphFrame() int { return o.Super().AsVisualShaderNode().LinkedParentGraphFrame() }
+
+// SetLinkedParentGraphFrame is promoted from [VisualShaderNode.Instance.SetLinkedParentGraphFrame].
+func (o *Extension[T]) SetLinkedParentGraphFrame(value int) *Extension[T] {
+	o.Super().AsVisualShaderNode().SetLinkedParentGraphFrame(value)
+	return o
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

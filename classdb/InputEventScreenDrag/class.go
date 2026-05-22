@@ -167,15 +167,24 @@ func (self Instance) Index() int { //gd:InputEventScreenDrag.index
 		return int(int(class(self).GetIndex()))
 }
 
+func (o *Extension[T]) Index() int { return o.Super().Index() }
+
 // SetIndex sets the property returned by [GetIndex]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetIndex(value int) Instance { //gd:InputEventScreenDrag.index
 	class(self).SetIndex(int64(value))
 	return self
 }
 
+func (o *Extension[T]) SetIndex(value int) *Extension[T] {
+	o.Super().SetIndex(value)
+	return o
+}
+
 func (self Instance) Tilt() Vector2.XY { //gd:InputEventScreenDrag.tilt
 		return Vector2.XY(class(self).GetTilt())
 }
+
+func (o *Extension[T]) Tilt() Vector2.XY { return o.Super().Tilt() }
 
 // SetTilt sets the property returned by [GetTilt]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTilt(value Vector2.XY) Instance { //gd:InputEventScreenDrag.tilt
@@ -183,9 +192,16 @@ func (self Instance) SetTilt(value Vector2.XY) Instance { //gd:InputEventScreenD
 	return self
 }
 
+func (o *Extension[T]) SetTilt(value Vector2.XY) *Extension[T] {
+	o.Super().SetTilt(value)
+	return o
+}
+
 func (self Instance) Pressure() Float.X { //gd:InputEventScreenDrag.pressure
 		return Float.X(Float.X(class(self).GetPressure()))
 }
+
+func (o *Extension[T]) Pressure() Float.X { return o.Super().Pressure() }
 
 // SetPressure sets the property returned by [GetPressure]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPressure(value Float.X) Instance { //gd:InputEventScreenDrag.pressure
@@ -193,9 +209,16 @@ func (self Instance) SetPressure(value Float.X) Instance { //gd:InputEventScreen
 	return self
 }
 
+func (o *Extension[T]) SetPressure(value Float.X) *Extension[T] {
+	o.Super().SetPressure(value)
+	return o
+}
+
 func (self Instance) PenInverted() bool { //gd:InputEventScreenDrag.pen_inverted
 		return bool(class(self).GetPenInverted())
 }
+
+func (o *Extension[T]) PenInverted() bool { return o.Super().PenInverted() }
 
 // SetPenInverted sets the property returned by [GetPenInverted]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPenInverted(value bool) Instance { //gd:InputEventScreenDrag.pen_inverted
@@ -203,9 +226,16 @@ func (self Instance) SetPenInverted(value bool) Instance { //gd:InputEventScreen
 	return self
 }
 
+func (o *Extension[T]) SetPenInverted(value bool) *Extension[T] {
+	o.Super().SetPenInverted(value)
+	return o
+}
+
 func (self Instance) Position() Vector2.XY { //gd:InputEventScreenDrag.position
 		return Vector2.XY(class(self).GetPosition())
 }
+
+func (o *Extension[T]) Position() Vector2.XY { return o.Super().Position() }
 
 // SetPosition sets the property returned by [GetPosition]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPosition(value Vector2.XY) Instance { //gd:InputEventScreenDrag.position
@@ -213,9 +243,16 @@ func (self Instance) SetPosition(value Vector2.XY) Instance { //gd:InputEventScr
 	return self
 }
 
+func (o *Extension[T]) SetPosition(value Vector2.XY) *Extension[T] {
+	o.Super().SetPosition(value)
+	return o
+}
+
 func (self Instance) Relative() Vector2.XY { //gd:InputEventScreenDrag.relative
 		return Vector2.XY(class(self).GetRelative())
 }
+
+func (o *Extension[T]) Relative() Vector2.XY { return o.Super().Relative() }
 
 // SetRelative sets the property returned by [GetRelative]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRelative(value Vector2.XY) Instance { //gd:InputEventScreenDrag.relative
@@ -223,9 +260,16 @@ func (self Instance) SetRelative(value Vector2.XY) Instance { //gd:InputEventScr
 	return self
 }
 
+func (o *Extension[T]) SetRelative(value Vector2.XY) *Extension[T] {
+	o.Super().SetRelative(value)
+	return o
+}
+
 func (self Instance) ScreenRelative() Vector2.XY { //gd:InputEventScreenDrag.screen_relative
 		return Vector2.XY(class(self).GetScreenRelative())
 }
+
+func (o *Extension[T]) ScreenRelative() Vector2.XY { return o.Super().ScreenRelative() }
 
 // SetScreenRelative sets the property returned by [GetScreenRelative]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetScreenRelative(value Vector2.XY) Instance { //gd:InputEventScreenDrag.screen_relative
@@ -233,9 +277,16 @@ func (self Instance) SetScreenRelative(value Vector2.XY) Instance { //gd:InputEv
 	return self
 }
 
+func (o *Extension[T]) SetScreenRelative(value Vector2.XY) *Extension[T] {
+	o.Super().SetScreenRelative(value)
+	return o
+}
+
 func (self Instance) Velocity() Vector2.XY { //gd:InputEventScreenDrag.velocity
 		return Vector2.XY(class(self).GetVelocity())
 }
+
+func (o *Extension[T]) Velocity() Vector2.XY { return o.Super().Velocity() }
 
 // SetVelocity sets the property returned by [GetVelocity]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVelocity(value Vector2.XY) Instance { //gd:InputEventScreenDrag.velocity
@@ -243,14 +294,26 @@ func (self Instance) SetVelocity(value Vector2.XY) Instance { //gd:InputEventScr
 	return self
 }
 
+func (o *Extension[T]) SetVelocity(value Vector2.XY) *Extension[T] {
+	o.Super().SetVelocity(value)
+	return o
+}
+
 func (self Instance) ScreenVelocity() Vector2.XY { //gd:InputEventScreenDrag.screen_velocity
 		return Vector2.XY(class(self).GetScreenVelocity())
 }
+
+func (o *Extension[T]) ScreenVelocity() Vector2.XY { return o.Super().ScreenVelocity() }
 
 // SetScreenVelocity sets the property returned by [GetScreenVelocity]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetScreenVelocity(value Vector2.XY) Instance { //gd:InputEventScreenDrag.screen_velocity
 	class(self).SetScreenVelocity(Vector2.XY(value))
 	return self
+}
+
+func (o *Extension[T]) SetScreenVelocity(value Vector2.XY) *Extension[T] {
+	o.Super().SetScreenVelocity(value)
+	return o
 }
 
 func (self class) SetIndex(index int64)  { //gd:InputEventScreenDrag.set_index
@@ -523,6 +586,60 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// WindowId is promoted from [InputEventFromWindow.Instance.WindowId].
+func (o *Extension[T]) WindowId() int { return o.Super().AsInputEventFromWindow().WindowId() }
+
+// SetWindowId is promoted from [InputEventFromWindow.Instance.SetWindowId].
+func (o *Extension[T]) SetWindowId(value int) *Extension[T] {
+	o.Super().AsInputEventFromWindow().SetWindowId(value)
+	return o
+}
+
+// Device is promoted from [InputEvent.Instance.Device].
+func (o *Extension[T]) Device() int { return o.Super().AsInputEvent().Device() }
+
+// SetDevice is promoted from [InputEvent.Instance.SetDevice].
+func (o *Extension[T]) SetDevice(value int) *Extension[T] {
+	o.Super().AsInputEvent().SetDevice(value)
+	return o
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

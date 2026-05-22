@@ -157,15 +157,24 @@ func (self Instance) OnThreshold() Float.X { //gd:OpenXRAnalogThresholdModifier.
 		return Float.X(Float.X(class(self).GetOnThreshold()))
 }
 
+func (o *Extension[T]) OnThreshold() Float.X { return o.Super().OnThreshold() }
+
 // SetOnThreshold sets the property returned by [GetOnThreshold]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOnThreshold(value Float.X) Instance { //gd:OpenXRAnalogThresholdModifier.on_threshold
 	class(self).SetOnThreshold(float64(value))
 	return self
 }
 
+func (o *Extension[T]) SetOnThreshold(value Float.X) *Extension[T] {
+	o.Super().SetOnThreshold(value)
+	return o
+}
+
 func (self Instance) OffThreshold() Float.X { //gd:OpenXRAnalogThresholdModifier.off_threshold
 		return Float.X(Float.X(class(self).GetOffThreshold()))
 }
+
+func (o *Extension[T]) OffThreshold() Float.X { return o.Super().OffThreshold() }
 
 // SetOffThreshold sets the property returned by [GetOffThreshold]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOffThreshold(value Float.X) Instance { //gd:OpenXRAnalogThresholdModifier.off_threshold
@@ -173,9 +182,16 @@ func (self Instance) SetOffThreshold(value Float.X) Instance { //gd:OpenXRAnalog
 	return self
 }
 
+func (o *Extension[T]) SetOffThreshold(value Float.X) *Extension[T] {
+	o.Super().SetOffThreshold(value)
+	return o
+}
+
 func (self Instance) OnHaptic() OpenXRHapticBase.Instance { //gd:OpenXRAnalogThresholdModifier.on_haptic
 		return OpenXRHapticBase.Instance(class(self).GetOnHaptic())
 }
+
+func (o *Extension[T]) OnHaptic() OpenXRHapticBase.Instance { return o.Super().OnHaptic() }
 
 // SetOnHaptic sets the property returned by [GetOnHaptic]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOnHaptic(value OpenXRHapticBase.Instance) Instance { //gd:OpenXRAnalogThresholdModifier.on_haptic
@@ -183,14 +199,26 @@ func (self Instance) SetOnHaptic(value OpenXRHapticBase.Instance) Instance { //g
 	return self
 }
 
+func (o *Extension[T]) SetOnHaptic(value OpenXRHapticBase.Instance) *Extension[T] {
+	o.Super().SetOnHaptic(value)
+	return o
+}
+
 func (self Instance) OffHaptic() OpenXRHapticBase.Instance { //gd:OpenXRAnalogThresholdModifier.off_haptic
 		return OpenXRHapticBase.Instance(class(self).GetOffHaptic())
 }
+
+func (o *Extension[T]) OffHaptic() OpenXRHapticBase.Instance { return o.Super().OffHaptic() }
 
 // SetOffHaptic sets the property returned by [GetOffHaptic]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOffHaptic(value OpenXRHapticBase.Instance) Instance { //gd:OpenXRAnalogThresholdModifier.off_haptic
 	class(self).SetOffHaptic(value)
 	return self
+}
+
+func (o *Extension[T]) SetOffHaptic(value OpenXRHapticBase.Instance) *Extension[T] {
+	o.Super().SetOffHaptic(value)
+	return o
 }
 
 func (self class) SetOnThreshold(on_threshold float64)  { //gd:OpenXRAnalogThresholdModifier.set_on_threshold
@@ -353,6 +381,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

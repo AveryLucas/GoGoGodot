@@ -158,15 +158,24 @@ func (self Instance) Position() Vector2.XY { //gd:PhysicsPointQueryParameters2D.
 		return Vector2.XY(class(self).GetPosition())
 }
 
+func (o *Extension[T]) Position() Vector2.XY { return o.Super().Position() }
+
 // SetPosition sets the property returned by [GetPosition]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPosition(value Vector2.XY) Instance { //gd:PhysicsPointQueryParameters2D.position
 	class(self).SetPosition(Vector2.XY(value))
 	return self
 }
 
+func (o *Extension[T]) SetPosition(value Vector2.XY) *Extension[T] {
+	o.Super().SetPosition(value)
+	return o
+}
+
 func (self Instance) CanvasInstanceId() int { //gd:PhysicsPointQueryParameters2D.canvas_instance_id
 		return int(int(class(self).GetCanvasInstanceId()))
 }
+
+func (o *Extension[T]) CanvasInstanceId() int { return o.Super().CanvasInstanceId() }
 
 // SetCanvasInstanceId sets the property returned by [GetCanvasInstanceId]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCanvasInstanceId(value int) Instance { //gd:PhysicsPointQueryParameters2D.canvas_instance_id
@@ -174,9 +183,16 @@ func (self Instance) SetCanvasInstanceId(value int) Instance { //gd:PhysicsPoint
 	return self
 }
 
+func (o *Extension[T]) SetCanvasInstanceId(value int) *Extension[T] {
+	o.Super().SetCanvasInstanceId(value)
+	return o
+}
+
 func (self Instance) CollisionMask() int { //gd:PhysicsPointQueryParameters2D.collision_mask
 		return int(int(class(self).GetCollisionMask()))
 }
+
+func (o *Extension[T]) CollisionMask() int { return o.Super().CollisionMask() }
 
 // SetCollisionMask sets the property returned by [GetCollisionMask]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCollisionMask(value int) Instance { //gd:PhysicsPointQueryParameters2D.collision_mask
@@ -184,9 +200,16 @@ func (self Instance) SetCollisionMask(value int) Instance { //gd:PhysicsPointQue
 	return self
 }
 
+func (o *Extension[T]) SetCollisionMask(value int) *Extension[T] {
+	o.Super().SetCollisionMask(value)
+	return o
+}
+
 func (self Instance) Exclude() []RID.Body2D { //gd:PhysicsPointQueryParameters2D.exclude
 		return []RID.Body2D(gd.ArrayAs[[]RID.Body2D](gd.InternalArray(class(self).GetExclude())))
 }
+
+func (o *Extension[T]) Exclude() []RID.Body2D { return o.Super().Exclude() }
 
 // SetExclude sets the property returned by [GetExclude]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetExclude(value []RID.Body2D) Instance { //gd:PhysicsPointQueryParameters2D.exclude
@@ -194,9 +217,16 @@ func (self Instance) SetExclude(value []RID.Body2D) Instance { //gd:PhysicsPoint
 	return self
 }
 
+func (o *Extension[T]) SetExclude(value []RID.Body2D) *Extension[T] {
+	o.Super().SetExclude(value)
+	return o
+}
+
 func (self Instance) CollideWithBodies() bool { //gd:PhysicsPointQueryParameters2D.collide_with_bodies
 		return bool(class(self).IsCollideWithBodiesEnabled())
 }
+
+func (o *Extension[T]) CollideWithBodies() bool { return o.Super().CollideWithBodies() }
 
 // SetCollideWithBodies sets the property returned by [IsCollideWithBodiesEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCollideWithBodies(value bool) Instance { //gd:PhysicsPointQueryParameters2D.collide_with_bodies
@@ -204,14 +234,26 @@ func (self Instance) SetCollideWithBodies(value bool) Instance { //gd:PhysicsPoi
 	return self
 }
 
+func (o *Extension[T]) SetCollideWithBodies(value bool) *Extension[T] {
+	o.Super().SetCollideWithBodies(value)
+	return o
+}
+
 func (self Instance) CollideWithAreas() bool { //gd:PhysicsPointQueryParameters2D.collide_with_areas
 		return bool(class(self).IsCollideWithAreasEnabled())
 }
+
+func (o *Extension[T]) CollideWithAreas() bool { return o.Super().CollideWithAreas() }
 
 // SetCollideWithAreas sets the property returned by [IsCollideWithAreasEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCollideWithAreas(value bool) Instance { //gd:PhysicsPointQueryParameters2D.collide_with_areas
 	class(self).SetCollideWithAreas(value)
 	return self
+}
+
+func (o *Extension[T]) SetCollideWithAreas(value bool) *Extension[T] {
+	o.Super().SetCollideWithAreas(value)
+	return o
 }
 
 func (self class) SetPosition(position Vector2.XY)  { //gd:PhysicsPointQueryParameters2D.set_position

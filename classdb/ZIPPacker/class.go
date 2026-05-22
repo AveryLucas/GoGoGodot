@@ -175,10 +175,17 @@ func (self Instance) CompressionLevel() int { //gd:ZIPPacker.compression_level
 		return int(int(class(self).GetCompressionLevel()))
 }
 
+func (o *Extension[T]) CompressionLevel() int { return o.Super().CompressionLevel() }
+
 // SetCompressionLevel sets the property returned by [GetCompressionLevel]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCompressionLevel(value int) Instance { //gd:ZIPPacker.compression_level
 	class(self).SetCompressionLevel(int64(value))
 	return self
+}
+
+func (o *Extension[T]) SetCompressionLevel(value int) *Extension[T] {
+	o.Super().SetCompressionLevel(value)
+	return o
 }
 
 func (self class) Open(path String.Readable, append ZipAppend) Error.Code { //gd:ZIPPacker.open

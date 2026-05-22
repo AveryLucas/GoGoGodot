@@ -279,15 +279,24 @@ func (self Instance) Closed() bool { //gd:Curve3D.closed
 		return bool(class(self).IsClosed())
 }
 
+func (o *Extension[T]) Closed() bool { return o.Super().Closed() }
+
 // SetClosed sets the property returned by [IsClosed]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetClosed(value bool) Instance { //gd:Curve3D.closed
 	class(self).SetClosed(value)
 	return self
 }
 
+func (o *Extension[T]) SetClosed(value bool) *Extension[T] {
+	o.Super().SetClosed(value)
+	return o
+}
+
 func (self Instance) BakeInterval() Float.X { //gd:Curve3D.bake_interval
 		return Float.X(Float.X(class(self).GetBakeInterval()))
 }
+
+func (o *Extension[T]) BakeInterval() Float.X { return o.Super().BakeInterval() }
 
 // SetBakeInterval sets the property returned by [GetBakeInterval]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBakeInterval(value Float.X) Instance { //gd:Curve3D.bake_interval
@@ -295,9 +304,16 @@ func (self Instance) SetBakeInterval(value Float.X) Instance { //gd:Curve3D.bake
 	return self
 }
 
+func (o *Extension[T]) SetBakeInterval(value Float.X) *Extension[T] {
+	o.Super().SetBakeInterval(value)
+	return o
+}
+
 func (self Instance) PointCount() int { //gd:Curve3D.point_count
 		return int(int(class(self).GetPointCount()))
 }
+
+func (o *Extension[T]) PointCount() int { return o.Super().PointCount() }
 
 // SetPointCount sets the property returned by [GetPointCount]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPointCount(value int) Instance { //gd:Curve3D.point_count
@@ -305,14 +321,26 @@ func (self Instance) SetPointCount(value int) Instance { //gd:Curve3D.point_coun
 	return self
 }
 
+func (o *Extension[T]) SetPointCount(value int) *Extension[T] {
+	o.Super().SetPointCount(value)
+	return o
+}
+
 func (self Instance) UpVectorEnabled() bool { //gd:Curve3D.up_vector_enabled
 		return bool(class(self).IsUpVectorEnabled())
 }
+
+func (o *Extension[T]) UpVectorEnabled() bool { return o.Super().UpVectorEnabled() }
 
 // SetUpVectorEnabled sets the property returned by [IsUpVectorEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUpVectorEnabled(value bool) Instance { //gd:Curve3D.up_vector_enabled
 	class(self).SetUpVectorEnabled(value)
 	return self
+}
+
+func (o *Extension[T]) SetUpVectorEnabled(value bool) *Extension[T] {
+	o.Super().SetUpVectorEnabled(value)
+	return o
 }
 
 func (self class) GetPointCount() int64 { //gd:Curve3D.get_point_count
@@ -633,6 +661,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

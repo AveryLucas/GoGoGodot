@@ -19,6 +19,7 @@ import "graphics.gd/variant/Euler"
 import "graphics.gd/variant/Signal"
 import "graphics.gd/classdb/CameraAttributes"
 import "graphics.gd/classdb/LightmapGIData"
+import "graphics.gd/classdb/MultiplayerAPI"
 import "graphics.gd/classdb/Node"
 import "graphics.gd/classdb/Node3D"
 import "graphics.gd/classdb/Node3DGizmo"
@@ -28,6 +29,7 @@ import "graphics.gd/classdb/VisualInstance3D"
 import "graphics.gd/classdb/World3D"
 import "graphics.gd/variant/AABB"
 import "graphics.gd/variant/Array"
+import "graphics.gd/variant/Basis"
 import "graphics.gd/variant/Callable"
 import "graphics.gd/variant/Color"
 import "graphics.gd/variant/Dictionary"
@@ -36,6 +38,7 @@ import "graphics.gd/variant/Float"
 import "graphics.gd/variant/Object"
 import "graphics.gd/variant/Packed"
 import "graphics.gd/variant/Path"
+import "graphics.gd/variant/Quaternion"
 import "graphics.gd/variant/RID"
 import "graphics.gd/variant/RefCounted"
 import "graphics.gd/variant/String"
@@ -201,15 +204,24 @@ func (self Instance) Quality() BakeQuality { //gd:LightmapGI.quality
 		return BakeQuality(class(self).GetBakeQuality())
 }
 
+func (o *Extension[T]) Quality() BakeQuality { return o.Super().Quality() }
+
 // SetQuality sets the property returned by [GetBakeQuality]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetQuality(value BakeQuality) Instance { //gd:LightmapGI.quality
 	class(self).SetBakeQuality(value)
 	return self
 }
 
+func (o *Extension[T]) SetQuality(value BakeQuality) *Extension[T] {
+	o.Super().SetQuality(value)
+	return o
+}
+
 func (self Instance) Supersampling() bool { //gd:LightmapGI.supersampling
 		return bool(class(self).IsSupersamplingEnabled())
 }
+
+func (o *Extension[T]) Supersampling() bool { return o.Super().Supersampling() }
 
 // SetSupersampling sets the property returned by [IsSupersamplingEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSupersampling(value bool) Instance { //gd:LightmapGI.supersampling
@@ -217,9 +229,16 @@ func (self Instance) SetSupersampling(value bool) Instance { //gd:LightmapGI.sup
 	return self
 }
 
+func (o *Extension[T]) SetSupersampling(value bool) *Extension[T] {
+	o.Super().SetSupersampling(value)
+	return o
+}
+
 func (self Instance) SupersamplingFactor() Float.X { //gd:LightmapGI.supersampling_factor
 		return Float.X(Float.X(class(self).GetSupersamplingFactor()))
 }
+
+func (o *Extension[T]) SupersamplingFactor() Float.X { return o.Super().SupersamplingFactor() }
 
 // SetSupersamplingFactor sets the property returned by [GetSupersamplingFactor]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSupersamplingFactor(value Float.X) Instance { //gd:LightmapGI.supersampling_factor
@@ -227,9 +246,16 @@ func (self Instance) SetSupersamplingFactor(value Float.X) Instance { //gd:Light
 	return self
 }
 
+func (o *Extension[T]) SetSupersamplingFactor(value Float.X) *Extension[T] {
+	o.Super().SetSupersamplingFactor(value)
+	return o
+}
+
 func (self Instance) Bounces() int { //gd:LightmapGI.bounces
 		return int(int(class(self).GetBounces()))
 }
+
+func (o *Extension[T]) Bounces() int { return o.Super().Bounces() }
 
 // SetBounces sets the property returned by [GetBounces]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBounces(value int) Instance { //gd:LightmapGI.bounces
@@ -237,9 +263,16 @@ func (self Instance) SetBounces(value int) Instance { //gd:LightmapGI.bounces
 	return self
 }
 
+func (o *Extension[T]) SetBounces(value int) *Extension[T] {
+	o.Super().SetBounces(value)
+	return o
+}
+
 func (self Instance) BounceIndirectEnergy() Float.X { //gd:LightmapGI.bounce_indirect_energy
 		return Float.X(Float.X(class(self).GetBounceIndirectEnergy()))
 }
+
+func (o *Extension[T]) BounceIndirectEnergy() Float.X { return o.Super().BounceIndirectEnergy() }
 
 // SetBounceIndirectEnergy sets the property returned by [GetBounceIndirectEnergy]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBounceIndirectEnergy(value Float.X) Instance { //gd:LightmapGI.bounce_indirect_energy
@@ -247,9 +280,16 @@ func (self Instance) SetBounceIndirectEnergy(value Float.X) Instance { //gd:Ligh
 	return self
 }
 
+func (o *Extension[T]) SetBounceIndirectEnergy(value Float.X) *Extension[T] {
+	o.Super().SetBounceIndirectEnergy(value)
+	return o
+}
+
 func (self Instance) Directional() bool { //gd:LightmapGI.directional
 		return bool(class(self).IsDirectional())
 }
+
+func (o *Extension[T]) Directional() bool { return o.Super().Directional() }
 
 // SetDirectional sets the property returned by [IsDirectional]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDirectional(value bool) Instance { //gd:LightmapGI.directional
@@ -257,9 +297,16 @@ func (self Instance) SetDirectional(value bool) Instance { //gd:LightmapGI.direc
 	return self
 }
 
+func (o *Extension[T]) SetDirectional(value bool) *Extension[T] {
+	o.Super().SetDirectional(value)
+	return o
+}
+
 func (self Instance) ShadowmaskMode() LightmapGIData.ShadowmaskMode { //gd:LightmapGI.shadowmask_mode
 		return LightmapGIData.ShadowmaskMode(class(self).GetShadowmaskMode())
 }
+
+func (o *Extension[T]) ShadowmaskMode() LightmapGIData.ShadowmaskMode { return o.Super().ShadowmaskMode() }
 
 // SetShadowmaskMode sets the property returned by [GetShadowmaskMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetShadowmaskMode(value LightmapGIData.ShadowmaskMode) Instance { //gd:LightmapGI.shadowmask_mode
@@ -267,9 +314,16 @@ func (self Instance) SetShadowmaskMode(value LightmapGIData.ShadowmaskMode) Inst
 	return self
 }
 
+func (o *Extension[T]) SetShadowmaskMode(value LightmapGIData.ShadowmaskMode) *Extension[T] {
+	o.Super().SetShadowmaskMode(value)
+	return o
+}
+
 func (self Instance) UseTextureForBounces() bool { //gd:LightmapGI.use_texture_for_bounces
 		return bool(class(self).IsUsingTextureForBounces())
 }
+
+func (o *Extension[T]) UseTextureForBounces() bool { return o.Super().UseTextureForBounces() }
 
 // SetUseTextureForBounces sets the property returned by [IsUsingTextureForBounces]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUseTextureForBounces(value bool) Instance { //gd:LightmapGI.use_texture_for_bounces
@@ -277,9 +331,16 @@ func (self Instance) SetUseTextureForBounces(value bool) Instance { //gd:Lightma
 	return self
 }
 
+func (o *Extension[T]) SetUseTextureForBounces(value bool) *Extension[T] {
+	o.Super().SetUseTextureForBounces(value)
+	return o
+}
+
 func (self Instance) Interior() bool { //gd:LightmapGI.interior
 		return bool(class(self).IsInterior())
 }
+
+func (o *Extension[T]) Interior() bool { return o.Super().Interior() }
 
 // SetInterior sets the property returned by [IsInterior]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetInterior(value bool) Instance { //gd:LightmapGI.interior
@@ -287,9 +348,16 @@ func (self Instance) SetInterior(value bool) Instance { //gd:LightmapGI.interior
 	return self
 }
 
+func (o *Extension[T]) SetInterior(value bool) *Extension[T] {
+	o.Super().SetInterior(value)
+	return o
+}
+
 func (self Instance) UseDenoiser() bool { //gd:LightmapGI.use_denoiser
 		return bool(class(self).IsUsingDenoiser())
 }
+
+func (o *Extension[T]) UseDenoiser() bool { return o.Super().UseDenoiser() }
 
 // SetUseDenoiser sets the property returned by [IsUsingDenoiser]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUseDenoiser(value bool) Instance { //gd:LightmapGI.use_denoiser
@@ -297,9 +365,16 @@ func (self Instance) SetUseDenoiser(value bool) Instance { //gd:LightmapGI.use_d
 	return self
 }
 
+func (o *Extension[T]) SetUseDenoiser(value bool) *Extension[T] {
+	o.Super().SetUseDenoiser(value)
+	return o
+}
+
 func (self Instance) DenoiserStrength() Float.X { //gd:LightmapGI.denoiser_strength
 		return Float.X(Float.X(class(self).GetDenoiserStrength()))
 }
+
+func (o *Extension[T]) DenoiserStrength() Float.X { return o.Super().DenoiserStrength() }
 
 // SetDenoiserStrength sets the property returned by [GetDenoiserStrength]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDenoiserStrength(value Float.X) Instance { //gd:LightmapGI.denoiser_strength
@@ -307,9 +382,16 @@ func (self Instance) SetDenoiserStrength(value Float.X) Instance { //gd:Lightmap
 	return self
 }
 
+func (o *Extension[T]) SetDenoiserStrength(value Float.X) *Extension[T] {
+	o.Super().SetDenoiserStrength(value)
+	return o
+}
+
 func (self Instance) DenoiserRange() int { //gd:LightmapGI.denoiser_range
 		return int(int(class(self).GetDenoiserRange()))
 }
+
+func (o *Extension[T]) DenoiserRange() int { return o.Super().DenoiserRange() }
 
 // SetDenoiserRange sets the property returned by [GetDenoiserRange]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDenoiserRange(value int) Instance { //gd:LightmapGI.denoiser_range
@@ -317,9 +399,16 @@ func (self Instance) SetDenoiserRange(value int) Instance { //gd:LightmapGI.deno
 	return self
 }
 
+func (o *Extension[T]) SetDenoiserRange(value int) *Extension[T] {
+	o.Super().SetDenoiserRange(value)
+	return o
+}
+
 func (self Instance) Bias() Float.X { //gd:LightmapGI.bias
 		return Float.X(Float.X(class(self).GetBias()))
 }
+
+func (o *Extension[T]) Bias() Float.X { return o.Super().Bias() }
 
 // SetBias sets the property returned by [GetBias]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBias(value Float.X) Instance { //gd:LightmapGI.bias
@@ -327,9 +416,16 @@ func (self Instance) SetBias(value Float.X) Instance { //gd:LightmapGI.bias
 	return self
 }
 
+func (o *Extension[T]) SetBias(value Float.X) *Extension[T] {
+	o.Super().SetBias(value)
+	return o
+}
+
 func (self Instance) TexelScale() Float.X { //gd:LightmapGI.texel_scale
 		return Float.X(Float.X(class(self).GetTexelScale()))
 }
+
+func (o *Extension[T]) TexelScale() Float.X { return o.Super().TexelScale() }
 
 // SetTexelScale sets the property returned by [GetTexelScale]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTexelScale(value Float.X) Instance { //gd:LightmapGI.texel_scale
@@ -337,9 +433,16 @@ func (self Instance) SetTexelScale(value Float.X) Instance { //gd:LightmapGI.tex
 	return self
 }
 
+func (o *Extension[T]) SetTexelScale(value Float.X) *Extension[T] {
+	o.Super().SetTexelScale(value)
+	return o
+}
+
 func (self Instance) MaxTextureSize() int { //gd:LightmapGI.max_texture_size
 		return int(int(class(self).GetMaxTextureSize()))
 }
+
+func (o *Extension[T]) MaxTextureSize() int { return o.Super().MaxTextureSize() }
 
 // SetMaxTextureSize sets the property returned by [GetMaxTextureSize]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMaxTextureSize(value int) Instance { //gd:LightmapGI.max_texture_size
@@ -347,9 +450,16 @@ func (self Instance) SetMaxTextureSize(value int) Instance { //gd:LightmapGI.max
 	return self
 }
 
+func (o *Extension[T]) SetMaxTextureSize(value int) *Extension[T] {
+	o.Super().SetMaxTextureSize(value)
+	return o
+}
+
 func (self Instance) EnvironmentMode() EnvironmentMode { //gd:LightmapGI.environment_mode
 		return EnvironmentMode(class(self).GetEnvironmentMode())
 }
+
+func (o *Extension[T]) EnvironmentMode() EnvironmentMode { return o.Super().EnvironmentMode() }
 
 // SetEnvironmentMode sets the property returned by [GetEnvironmentMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEnvironmentMode(value EnvironmentMode) Instance { //gd:LightmapGI.environment_mode
@@ -357,9 +467,16 @@ func (self Instance) SetEnvironmentMode(value EnvironmentMode) Instance { //gd:L
 	return self
 }
 
+func (o *Extension[T]) SetEnvironmentMode(value EnvironmentMode) *Extension[T] {
+	o.Super().SetEnvironmentMode(value)
+	return o
+}
+
 func (self Instance) EnvironmentCustomSky() Sky.Instance { //gd:LightmapGI.environment_custom_sky
 		return Sky.Instance(class(self).GetEnvironmentCustomSky())
 }
+
+func (o *Extension[T]) EnvironmentCustomSky() Sky.Instance { return o.Super().EnvironmentCustomSky() }
 
 // SetEnvironmentCustomSky sets the property returned by [GetEnvironmentCustomSky]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEnvironmentCustomSky(value Sky.Instance) Instance { //gd:LightmapGI.environment_custom_sky
@@ -367,9 +484,16 @@ func (self Instance) SetEnvironmentCustomSky(value Sky.Instance) Instance { //gd
 	return self
 }
 
+func (o *Extension[T]) SetEnvironmentCustomSky(value Sky.Instance) *Extension[T] {
+	o.Super().SetEnvironmentCustomSky(value)
+	return o
+}
+
 func (self Instance) EnvironmentCustomColor() Color.RGBA { //gd:LightmapGI.environment_custom_color
 		return Color.RGBA(class(self).GetEnvironmentCustomColor())
 }
+
+func (o *Extension[T]) EnvironmentCustomColor() Color.RGBA { return o.Super().EnvironmentCustomColor() }
 
 // SetEnvironmentCustomColor sets the property returned by [GetEnvironmentCustomColor]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEnvironmentCustomColor(value Color.RGBA) Instance { //gd:LightmapGI.environment_custom_color
@@ -377,9 +501,16 @@ func (self Instance) SetEnvironmentCustomColor(value Color.RGBA) Instance { //gd
 	return self
 }
 
+func (o *Extension[T]) SetEnvironmentCustomColor(value Color.RGBA) *Extension[T] {
+	o.Super().SetEnvironmentCustomColor(value)
+	return o
+}
+
 func (self Instance) EnvironmentCustomEnergy() Float.X { //gd:LightmapGI.environment_custom_energy
 		return Float.X(Float.X(class(self).GetEnvironmentCustomEnergy()))
 }
+
+func (o *Extension[T]) EnvironmentCustomEnergy() Float.X { return o.Super().EnvironmentCustomEnergy() }
 
 // SetEnvironmentCustomEnergy sets the property returned by [GetEnvironmentCustomEnergy]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEnvironmentCustomEnergy(value Float.X) Instance { //gd:LightmapGI.environment_custom_energy
@@ -387,9 +518,16 @@ func (self Instance) SetEnvironmentCustomEnergy(value Float.X) Instance { //gd:L
 	return self
 }
 
+func (o *Extension[T]) SetEnvironmentCustomEnergy(value Float.X) *Extension[T] {
+	o.Super().SetEnvironmentCustomEnergy(value)
+	return o
+}
+
 func (self Instance) CameraAttributes() CameraAttributes.Instance { //gd:LightmapGI.camera_attributes
 		return CameraAttributes.Instance(class(self).GetCameraAttributes())
 }
+
+func (o *Extension[T]) CameraAttributes() CameraAttributes.Instance { return o.Super().CameraAttributes() }
 
 // SetCameraAttributes sets the property returned by [GetCameraAttributes]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCameraAttributes(value CameraAttributes.Instance) Instance { //gd:LightmapGI.camera_attributes
@@ -397,9 +535,16 @@ func (self Instance) SetCameraAttributes(value CameraAttributes.Instance) Instan
 	return self
 }
 
+func (o *Extension[T]) SetCameraAttributes(value CameraAttributes.Instance) *Extension[T] {
+	o.Super().SetCameraAttributes(value)
+	return o
+}
+
 func (self Instance) GenerateProbesSubdiv() GenerateProbes { //gd:LightmapGI.generate_probes_subdiv
 		return GenerateProbes(class(self).GetGenerateProbes())
 }
+
+func (o *Extension[T]) GenerateProbesSubdiv() GenerateProbes { return o.Super().GenerateProbesSubdiv() }
 
 // SetGenerateProbesSubdiv sets the property returned by [GetGenerateProbes]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetGenerateProbesSubdiv(value GenerateProbes) Instance { //gd:LightmapGI.generate_probes_subdiv
@@ -407,14 +552,26 @@ func (self Instance) SetGenerateProbesSubdiv(value GenerateProbes) Instance { //
 	return self
 }
 
+func (o *Extension[T]) SetGenerateProbesSubdiv(value GenerateProbes) *Extension[T] {
+	o.Super().SetGenerateProbesSubdiv(value)
+	return o
+}
+
 func (self Instance) LightData() LightmapGIData.Instance { //gd:LightmapGI.light_data
 		return LightmapGIData.Instance(class(self).GetLightData())
 }
+
+func (o *Extension[T]) LightData() LightmapGIData.Instance { return o.Super().LightData() }
 
 // SetLightData sets the property returned by [GetLightData]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetLightData(value LightmapGIData.Instance) Instance { //gd:LightmapGI.light_data
 	class(self).SetLightData(value)
 	return self
+}
+
+func (o *Extension[T]) SetLightData(value LightmapGIData.Instance) *Extension[T] {
+	o.Super().SetLightData(value)
+	return o
 }
 
 func (self class) SetLightData(data [1]gdclass.LightmapGIData)  { //gd:LightmapGI.set_light_data
@@ -1838,6 +1995,306 @@ func (self Instance) NotifyThreadSafe(what int) {
 // NotifyThreadSafe is promoted from [Node.Instance.NotifyThreadSafe].
 func (o *Extension[T]) NotifyThreadSafe(what int) {
 	o.Super().AsNode().NotifyThreadSafe(what)
+}
+
+// Layers is promoted from [VisualInstance3D.Instance.Layers].
+func (o *Extension[T]) Layers() int { return o.Super().AsVisualInstance3D().Layers() }
+
+// SetLayers is promoted from [VisualInstance3D.Instance.SetLayers].
+func (o *Extension[T]) SetLayers(value int) *Extension[T] {
+	o.Super().AsVisualInstance3D().SetLayers(value)
+	return o
+}
+
+// SortingOffset is promoted from [VisualInstance3D.Instance.SortingOffset].
+func (o *Extension[T]) SortingOffset() Float.X { return o.Super().AsVisualInstance3D().SortingOffset() }
+
+// SetSortingOffset is promoted from [VisualInstance3D.Instance.SetSortingOffset].
+func (o *Extension[T]) SetSortingOffset(value Float.X) *Extension[T] {
+	o.Super().AsVisualInstance3D().SetSortingOffset(value)
+	return o
+}
+
+// SortingUseAabbCenter is promoted from [VisualInstance3D.Instance.SortingUseAabbCenter].
+func (o *Extension[T]) SortingUseAabbCenter() bool { return o.Super().AsVisualInstance3D().SortingUseAabbCenter() }
+
+// SetSortingUseAabbCenter is promoted from [VisualInstance3D.Instance.SetSortingUseAabbCenter].
+func (o *Extension[T]) SetSortingUseAabbCenter(value bool) *Extension[T] {
+	o.Super().AsVisualInstance3D().SetSortingUseAabbCenter(value)
+	return o
+}
+
+// Transform is promoted from [Node3D.Instance.Transform].
+func (o *Extension[T]) Transform() Transform3D.BasisOrigin { return o.Super().AsNode3D().Transform() }
+
+// SetTransform is promoted from [Node3D.Instance.SetTransform].
+func (o *Extension[T]) SetTransform(value Transform3D.BasisOrigin) *Extension[T] {
+	o.Super().AsNode3D().SetTransform(value)
+	return o
+}
+
+// GlobalTransform is promoted from [Node3D.Instance.GlobalTransform].
+func (o *Extension[T]) GlobalTransform() Transform3D.BasisOrigin { return o.Super().AsNode3D().GlobalTransform() }
+
+// SetGlobalTransform is promoted from [Node3D.Instance.SetGlobalTransform].
+func (o *Extension[T]) SetGlobalTransform(value Transform3D.BasisOrigin) *Extension[T] {
+	o.Super().AsNode3D().SetGlobalTransform(value)
+	return o
+}
+
+// Position is promoted from [Node3D.Instance.Position].
+func (o *Extension[T]) Position() Vector3.XYZ { return o.Super().AsNode3D().Position() }
+
+// SetPosition is promoted from [Node3D.Instance.SetPosition].
+func (o *Extension[T]) SetPosition(value Vector3.XYZ) *Extension[T] {
+	o.Super().AsNode3D().SetPosition(value)
+	return o
+}
+
+// Rotation is promoted from [Node3D.Instance.Rotation].
+func (o *Extension[T]) Rotation() Euler.Radians { return o.Super().AsNode3D().Rotation() }
+
+// SetRotation is promoted from [Node3D.Instance.SetRotation].
+func (o *Extension[T]) SetRotation(value Euler.Radians) *Extension[T] {
+	o.Super().AsNode3D().SetRotation(value)
+	return o
+}
+
+// RotationDegrees is promoted from [Node3D.Instance.RotationDegrees].
+func (o *Extension[T]) RotationDegrees() Euler.Degrees { return o.Super().AsNode3D().RotationDegrees() }
+
+// SetRotationDegrees is promoted from [Node3D.Instance.SetRotationDegrees].
+func (o *Extension[T]) SetRotationDegrees(value Euler.Degrees) *Extension[T] {
+	o.Super().AsNode3D().SetRotationDegrees(value)
+	return o
+}
+
+// Quaternion is promoted from [Node3D.Instance.Quaternion].
+func (o *Extension[T]) Quaternion() Quaternion.IJKX { return o.Super().AsNode3D().Quaternion() }
+
+// SetQuaternion is promoted from [Node3D.Instance.SetQuaternion].
+func (o *Extension[T]) SetQuaternion(value Quaternion.IJKX) *Extension[T] {
+	o.Super().AsNode3D().SetQuaternion(value)
+	return o
+}
+
+// Basis is promoted from [Node3D.Instance.Basis].
+func (o *Extension[T]) Basis() Basis.XYZ { return o.Super().AsNode3D().Basis() }
+
+// SetBasis is promoted from [Node3D.Instance.SetBasis].
+func (o *Extension[T]) SetBasis(value Basis.XYZ) *Extension[T] {
+	o.Super().AsNode3D().SetBasis(value)
+	return o
+}
+
+// Scale is promoted from [Node3D.Instance.Scale].
+func (o *Extension[T]) Scale() Vector3.XYZ { return o.Super().AsNode3D().Scale() }
+
+// SetScale is promoted from [Node3D.Instance.SetScale].
+func (o *Extension[T]) SetScale(value Vector3.XYZ) *Extension[T] {
+	o.Super().AsNode3D().SetScale(value)
+	return o
+}
+
+// RotationEditMode is promoted from [Node3D.Instance.RotationEditMode].
+func (o *Extension[T]) RotationEditMode() Node3D.RotationEditMode { return o.Super().AsNode3D().RotationEditMode() }
+
+// SetRotationEditMode is promoted from [Node3D.Instance.SetRotationEditMode].
+func (o *Extension[T]) SetRotationEditMode(value Node3D.RotationEditMode) *Extension[T] {
+	o.Super().AsNode3D().SetRotationEditMode(value)
+	return o
+}
+
+// RotationOrder is promoted from [Node3D.Instance.RotationOrder].
+func (o *Extension[T]) RotationOrder() Angle.Order { return o.Super().AsNode3D().RotationOrder() }
+
+// SetRotationOrder is promoted from [Node3D.Instance.SetRotationOrder].
+func (o *Extension[T]) SetRotationOrder(value Angle.Order) *Extension[T] {
+	o.Super().AsNode3D().SetRotationOrder(value)
+	return o
+}
+
+// TopLevel is promoted from [Node3D.Instance.TopLevel].
+func (o *Extension[T]) TopLevel() bool { return o.Super().AsNode3D().TopLevel() }
+
+// SetTopLevel is promoted from [Node3D.Instance.SetTopLevel].
+func (o *Extension[T]) SetTopLevel(value bool) *Extension[T] {
+	o.Super().AsNode3D().SetTopLevel(value)
+	return o
+}
+
+// GlobalPosition is promoted from [Node3D.Instance.GlobalPosition].
+func (o *Extension[T]) GlobalPosition() Vector3.XYZ { return o.Super().AsNode3D().GlobalPosition() }
+
+// SetGlobalPosition is promoted from [Node3D.Instance.SetGlobalPosition].
+func (o *Extension[T]) SetGlobalPosition(value Vector3.XYZ) *Extension[T] {
+	o.Super().AsNode3D().SetGlobalPosition(value)
+	return o
+}
+
+// GlobalBasis is promoted from [Node3D.Instance.GlobalBasis].
+func (o *Extension[T]) GlobalBasis() Basis.XYZ { return o.Super().AsNode3D().GlobalBasis() }
+
+// SetGlobalBasis is promoted from [Node3D.Instance.SetGlobalBasis].
+func (o *Extension[T]) SetGlobalBasis(value Basis.XYZ) *Extension[T] {
+	o.Super().AsNode3D().SetGlobalBasis(value)
+	return o
+}
+
+// GlobalRotation is promoted from [Node3D.Instance.GlobalRotation].
+func (o *Extension[T]) GlobalRotation() Euler.Radians { return o.Super().AsNode3D().GlobalRotation() }
+
+// SetGlobalRotation is promoted from [Node3D.Instance.SetGlobalRotation].
+func (o *Extension[T]) SetGlobalRotation(value Euler.Radians) *Extension[T] {
+	o.Super().AsNode3D().SetGlobalRotation(value)
+	return o
+}
+
+// GlobalRotationDegrees is promoted from [Node3D.Instance.GlobalRotationDegrees].
+func (o *Extension[T]) GlobalRotationDegrees() Euler.Degrees { return o.Super().AsNode3D().GlobalRotationDegrees() }
+
+// SetGlobalRotationDegrees is promoted from [Node3D.Instance.SetGlobalRotationDegrees].
+func (o *Extension[T]) SetGlobalRotationDegrees(value Euler.Degrees) *Extension[T] {
+	o.Super().AsNode3D().SetGlobalRotationDegrees(value)
+	return o
+}
+
+// Visible is promoted from [Node3D.Instance.Visible].
+func (o *Extension[T]) Visible() bool { return o.Super().AsNode3D().Visible() }
+
+// SetVisible is promoted from [Node3D.Instance.SetVisible].
+func (o *Extension[T]) SetVisible(value bool) *Extension[T] {
+	o.Super().AsNode3D().SetVisible(value)
+	return o
+}
+
+// VisibilityParent is promoted from [Node3D.Instance.VisibilityParent].
+func (o *Extension[T]) VisibilityParent() string { return o.Super().AsNode3D().VisibilityParent() }
+
+// SetVisibilityParent is promoted from [Node3D.Instance.SetVisibilityParent].
+func (o *Extension[T]) SetVisibilityParent(value string) *Extension[T] {
+	o.Super().AsNode3D().SetVisibilityParent(value)
+	return o
+}
+
+// Name is promoted from [Node.Instance.Name].
+func (o *Extension[T]) Name() string { return o.Super().AsNode().Name() }
+
+// SetName is promoted from [Node.Instance.SetName].
+func (o *Extension[T]) SetName(value string) *Extension[T] {
+	o.Super().AsNode().SetName(value)
+	return o
+}
+
+// UniqueNameInOwner is promoted from [Node.Instance.UniqueNameInOwner].
+func (o *Extension[T]) UniqueNameInOwner() bool { return o.Super().AsNode().UniqueNameInOwner() }
+
+// SetUniqueNameInOwner is promoted from [Node.Instance.SetUniqueNameInOwner].
+func (o *Extension[T]) SetUniqueNameInOwner(value bool) *Extension[T] {
+	o.Super().AsNode().SetUniqueNameInOwner(value)
+	return o
+}
+
+// SceneFilePath is promoted from [Node.Instance.SceneFilePath].
+func (o *Extension[T]) SceneFilePath() string { return o.Super().AsNode().SceneFilePath() }
+
+// SetSceneFilePath is promoted from [Node.Instance.SetSceneFilePath].
+func (o *Extension[T]) SetSceneFilePath(value string) *Extension[T] {
+	o.Super().AsNode().SetSceneFilePath(value)
+	return o
+}
+
+// Owner is promoted from [Node.Instance.Owner].
+func (o *Extension[T]) Owner() Node.Instance { return o.Super().AsNode().Owner() }
+
+// SetOwner is promoted from [Node.Instance.SetOwner].
+func (o *Extension[T]) SetOwner(value Node.Instance) *Extension[T] {
+	o.Super().AsNode().SetOwner(value)
+	return o
+}
+
+// Multiplayer is promoted from [Node.Instance.Multiplayer].
+func (o *Extension[T]) Multiplayer() MultiplayerAPI.Instance { return o.Super().AsNode().Multiplayer() }
+
+// ProcessMode is promoted from [Node.Instance.ProcessMode].
+func (o *Extension[T]) ProcessMode() Node.ProcessMode { return o.Super().AsNode().ProcessMode() }
+
+// SetProcessMode is promoted from [Node.Instance.SetProcessMode].
+func (o *Extension[T]) SetProcessMode(value Node.ProcessMode) *Extension[T] {
+	o.Super().AsNode().SetProcessMode(value)
+	return o
+}
+
+// ProcessPriority is promoted from [Node.Instance.ProcessPriority].
+func (o *Extension[T]) ProcessPriority() int { return o.Super().AsNode().ProcessPriority() }
+
+// SetProcessPriority is promoted from [Node.Instance.SetProcessPriority].
+func (o *Extension[T]) SetProcessPriority(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessPriority(value)
+	return o
+}
+
+// ProcessPhysicsPriority is promoted from [Node.Instance.ProcessPhysicsPriority].
+func (o *Extension[T]) ProcessPhysicsPriority() int { return o.Super().AsNode().ProcessPhysicsPriority() }
+
+// SetProcessPhysicsPriority is promoted from [Node.Instance.SetProcessPhysicsPriority].
+func (o *Extension[T]) SetProcessPhysicsPriority(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessPhysicsPriority(value)
+	return o
+}
+
+// ProcessThreadGroup is promoted from [Node.Instance.ProcessThreadGroup].
+func (o *Extension[T]) ProcessThreadGroup() Node.ProcessThreadGroup { return o.Super().AsNode().ProcessThreadGroup() }
+
+// SetProcessThreadGroup is promoted from [Node.Instance.SetProcessThreadGroup].
+func (o *Extension[T]) SetProcessThreadGroup(value Node.ProcessThreadGroup) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadGroup(value)
+	return o
+}
+
+// ProcessThreadGroupOrder is promoted from [Node.Instance.ProcessThreadGroupOrder].
+func (o *Extension[T]) ProcessThreadGroupOrder() int { return o.Super().AsNode().ProcessThreadGroupOrder() }
+
+// SetProcessThreadGroupOrder is promoted from [Node.Instance.SetProcessThreadGroupOrder].
+func (o *Extension[T]) SetProcessThreadGroupOrder(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadGroupOrder(value)
+	return o
+}
+
+// ProcessThreadMessages is promoted from [Node.Instance.ProcessThreadMessages].
+func (o *Extension[T]) ProcessThreadMessages() Node.ProcessThreadMessages { return o.Super().AsNode().ProcessThreadMessages() }
+
+// SetProcessThreadMessages is promoted from [Node.Instance.SetProcessThreadMessages].
+func (o *Extension[T]) SetProcessThreadMessages(value Node.ProcessThreadMessages) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadMessages(value)
+	return o
+}
+
+// PhysicsInterpolationMode is promoted from [Node.Instance.PhysicsInterpolationMode].
+func (o *Extension[T]) PhysicsInterpolationMode() Node.PhysicsInterpolationMode { return o.Super().AsNode().PhysicsInterpolationMode() }
+
+// SetPhysicsInterpolationMode is promoted from [Node.Instance.SetPhysicsInterpolationMode].
+func (o *Extension[T]) SetPhysicsInterpolationMode(value Node.PhysicsInterpolationMode) *Extension[T] {
+	o.Super().AsNode().SetPhysicsInterpolationMode(value)
+	return o
+}
+
+// AutoTranslateMode is promoted from [Node.Instance.AutoTranslateMode].
+func (o *Extension[T]) AutoTranslateMode() Node.AutoTranslateMode { return o.Super().AsNode().AutoTranslateMode() }
+
+// SetAutoTranslateMode is promoted from [Node.Instance.SetAutoTranslateMode].
+func (o *Extension[T]) SetAutoTranslateMode(value Node.AutoTranslateMode) *Extension[T] {
+	o.Super().AsNode().SetAutoTranslateMode(value)
+	return o
+}
+
+// EditorDescription is promoted from [Node.Instance.EditorDescription].
+func (o *Extension[T]) EditorDescription() string { return o.Super().AsNode().EditorDescription() }
+
+// SetEditorDescription is promoted from [Node.Instance.SetEditorDescription].
+func (o *Extension[T]) SetEditorDescription(value string) *Extension[T] {
+	o.Super().AsNode().SetEditorDescription(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

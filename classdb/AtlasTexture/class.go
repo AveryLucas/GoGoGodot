@@ -159,15 +159,24 @@ func (self Instance) Atlas() Texture2D.Instance { //gd:AtlasTexture.atlas
 		return Texture2D.Instance(class(self).GetAtlas())
 }
 
+func (o *Extension[T]) Atlas() Texture2D.Instance { return o.Super().Atlas() }
+
 // SetAtlas sets the property returned by [GetAtlas]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAtlas(value Texture2D.Instance) Instance { //gd:AtlasTexture.atlas
 	class(self).SetAtlas(value)
 	return self
 }
 
+func (o *Extension[T]) SetAtlas(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetAtlas(value)
+	return o
+}
+
 func (self Instance) Region() Rect2.PositionSize { //gd:AtlasTexture.region
 		return Rect2.PositionSize(class(self).GetRegion())
 }
+
+func (o *Extension[T]) Region() Rect2.PositionSize { return o.Super().Region() }
 
 // SetRegion sets the property returned by [GetRegion]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRegion(value Rect2.PositionSize) Instance { //gd:AtlasTexture.region
@@ -175,9 +184,16 @@ func (self Instance) SetRegion(value Rect2.PositionSize) Instance { //gd:AtlasTe
 	return self
 }
 
+func (o *Extension[T]) SetRegion(value Rect2.PositionSize) *Extension[T] {
+	o.Super().SetRegion(value)
+	return o
+}
+
 func (self Instance) Margin() Rect2.PositionSize { //gd:AtlasTexture.margin
 		return Rect2.PositionSize(class(self).GetMargin())
 }
+
+func (o *Extension[T]) Margin() Rect2.PositionSize { return o.Super().Margin() }
 
 // SetMargin sets the property returned by [GetMargin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMargin(value Rect2.PositionSize) Instance { //gd:AtlasTexture.margin
@@ -185,14 +201,26 @@ func (self Instance) SetMargin(value Rect2.PositionSize) Instance { //gd:AtlasTe
 	return self
 }
 
+func (o *Extension[T]) SetMargin(value Rect2.PositionSize) *Extension[T] {
+	o.Super().SetMargin(value)
+	return o
+}
+
 func (self Instance) FilterClip() bool { //gd:AtlasTexture.filter_clip
 		return bool(class(self).HasFilterClip())
 }
+
+func (o *Extension[T]) FilterClip() bool { return o.Super().FilterClip() }
 
 // SetFilterClip sets the property returned by [HasFilterClip]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFilterClip(value bool) Instance { //gd:AtlasTexture.filter_clip
 	class(self).SetFilterClip(value)
 	return self
+}
+
+func (o *Extension[T]) SetFilterClip(value bool) *Extension[T] {
+	o.Super().SetFilterClip(value)
+	return o
 }
 
 func (self class) SetAtlas(atlas [1]gdclass.Texture2D)  { //gd:AtlasTexture.set_atlas
@@ -415,6 +443,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

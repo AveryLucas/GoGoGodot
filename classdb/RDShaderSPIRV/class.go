@@ -151,15 +151,24 @@ func (self Instance) BytecodeVertex() []byte { //gd:RDShaderSPIRV.bytecode_verte
 		return []byte(class(self).GetStageBytecode(0).Bytes())
 }
 
+func (o *Extension[T]) BytecodeVertex() []byte { return o.Super().BytecodeVertex() }
+
 // SetBytecodeVertex sets the property returned by [GetStageBytecode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBytecodeVertex(value []byte) Instance { //gd:RDShaderSPIRV.bytecode_vertex
 	class(self).SetStageBytecode(0, Packed.BytesFrom(value...))
 	return self
 }
 
+func (o *Extension[T]) SetBytecodeVertex(value []byte) *Extension[T] {
+	o.Super().SetBytecodeVertex(value)
+	return o
+}
+
 func (self Instance) BytecodeFragment() []byte { //gd:RDShaderSPIRV.bytecode_fragment
 		return []byte(class(self).GetStageBytecode(1).Bytes())
 }
+
+func (o *Extension[T]) BytecodeFragment() []byte { return o.Super().BytecodeFragment() }
 
 // SetBytecodeFragment sets the property returned by [GetStageBytecode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBytecodeFragment(value []byte) Instance { //gd:RDShaderSPIRV.bytecode_fragment
@@ -167,9 +176,16 @@ func (self Instance) SetBytecodeFragment(value []byte) Instance { //gd:RDShaderS
 	return self
 }
 
+func (o *Extension[T]) SetBytecodeFragment(value []byte) *Extension[T] {
+	o.Super().SetBytecodeFragment(value)
+	return o
+}
+
 func (self Instance) BytecodeTesselationControl() []byte { //gd:RDShaderSPIRV.bytecode_tesselation_control
 		return []byte(class(self).GetStageBytecode(2).Bytes())
 }
+
+func (o *Extension[T]) BytecodeTesselationControl() []byte { return o.Super().BytecodeTesselationControl() }
 
 // SetBytecodeTesselationControl sets the property returned by [GetStageBytecode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBytecodeTesselationControl(value []byte) Instance { //gd:RDShaderSPIRV.bytecode_tesselation_control
@@ -177,9 +193,16 @@ func (self Instance) SetBytecodeTesselationControl(value []byte) Instance { //gd
 	return self
 }
 
+func (o *Extension[T]) SetBytecodeTesselationControl(value []byte) *Extension[T] {
+	o.Super().SetBytecodeTesselationControl(value)
+	return o
+}
+
 func (self Instance) BytecodeTesselationEvaluation() []byte { //gd:RDShaderSPIRV.bytecode_tesselation_evaluation
 		return []byte(class(self).GetStageBytecode(3).Bytes())
 }
+
+func (o *Extension[T]) BytecodeTesselationEvaluation() []byte { return o.Super().BytecodeTesselationEvaluation() }
 
 // SetBytecodeTesselationEvaluation sets the property returned by [GetStageBytecode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBytecodeTesselationEvaluation(value []byte) Instance { //gd:RDShaderSPIRV.bytecode_tesselation_evaluation
@@ -187,9 +210,16 @@ func (self Instance) SetBytecodeTesselationEvaluation(value []byte) Instance { /
 	return self
 }
 
+func (o *Extension[T]) SetBytecodeTesselationEvaluation(value []byte) *Extension[T] {
+	o.Super().SetBytecodeTesselationEvaluation(value)
+	return o
+}
+
 func (self Instance) BytecodeCompute() []byte { //gd:RDShaderSPIRV.bytecode_compute
 		return []byte(class(self).GetStageBytecode(4).Bytes())
 }
+
+func (o *Extension[T]) BytecodeCompute() []byte { return o.Super().BytecodeCompute() }
 
 // SetBytecodeCompute sets the property returned by [GetStageBytecode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBytecodeCompute(value []byte) Instance { //gd:RDShaderSPIRV.bytecode_compute
@@ -197,9 +227,16 @@ func (self Instance) SetBytecodeCompute(value []byte) Instance { //gd:RDShaderSP
 	return self
 }
 
+func (o *Extension[T]) SetBytecodeCompute(value []byte) *Extension[T] {
+	o.Super().SetBytecodeCompute(value)
+	return o
+}
+
 func (self Instance) CompileErrorVertex() string { //gd:RDShaderSPIRV.compile_error_vertex
 		return string(class(self).GetStageCompileError(0).String())
 }
+
+func (o *Extension[T]) CompileErrorVertex() string { return o.Super().CompileErrorVertex() }
 
 // SetCompileErrorVertex sets the property returned by [GetStageCompileError]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCompileErrorVertex(value string) Instance { //gd:RDShaderSPIRV.compile_error_vertex
@@ -207,9 +244,16 @@ func (self Instance) SetCompileErrorVertex(value string) Instance { //gd:RDShade
 	return self
 }
 
+func (o *Extension[T]) SetCompileErrorVertex(value string) *Extension[T] {
+	o.Super().SetCompileErrorVertex(value)
+	return o
+}
+
 func (self Instance) CompileErrorFragment() string { //gd:RDShaderSPIRV.compile_error_fragment
 		return string(class(self).GetStageCompileError(1).String())
 }
+
+func (o *Extension[T]) CompileErrorFragment() string { return o.Super().CompileErrorFragment() }
 
 // SetCompileErrorFragment sets the property returned by [GetStageCompileError]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCompileErrorFragment(value string) Instance { //gd:RDShaderSPIRV.compile_error_fragment
@@ -217,9 +261,16 @@ func (self Instance) SetCompileErrorFragment(value string) Instance { //gd:RDSha
 	return self
 }
 
+func (o *Extension[T]) SetCompileErrorFragment(value string) *Extension[T] {
+	o.Super().SetCompileErrorFragment(value)
+	return o
+}
+
 func (self Instance) CompileErrorTesselationControl() string { //gd:RDShaderSPIRV.compile_error_tesselation_control
 		return string(class(self).GetStageCompileError(2).String())
 }
+
+func (o *Extension[T]) CompileErrorTesselationControl() string { return o.Super().CompileErrorTesselationControl() }
 
 // SetCompileErrorTesselationControl sets the property returned by [GetStageCompileError]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCompileErrorTesselationControl(value string) Instance { //gd:RDShaderSPIRV.compile_error_tesselation_control
@@ -227,9 +278,16 @@ func (self Instance) SetCompileErrorTesselationControl(value string) Instance { 
 	return self
 }
 
+func (o *Extension[T]) SetCompileErrorTesselationControl(value string) *Extension[T] {
+	o.Super().SetCompileErrorTesselationControl(value)
+	return o
+}
+
 func (self Instance) CompileErrorTesselationEvaluation() string { //gd:RDShaderSPIRV.compile_error_tesselation_evaluation
 		return string(class(self).GetStageCompileError(3).String())
 }
+
+func (o *Extension[T]) CompileErrorTesselationEvaluation() string { return o.Super().CompileErrorTesselationEvaluation() }
 
 // SetCompileErrorTesselationEvaluation sets the property returned by [GetStageCompileError]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCompileErrorTesselationEvaluation(value string) Instance { //gd:RDShaderSPIRV.compile_error_tesselation_evaluation
@@ -237,14 +295,26 @@ func (self Instance) SetCompileErrorTesselationEvaluation(value string) Instance
 	return self
 }
 
+func (o *Extension[T]) SetCompileErrorTesselationEvaluation(value string) *Extension[T] {
+	o.Super().SetCompileErrorTesselationEvaluation(value)
+	return o
+}
+
 func (self Instance) CompileErrorCompute() string { //gd:RDShaderSPIRV.compile_error_compute
 		return string(class(self).GetStageCompileError(4).String())
 }
+
+func (o *Extension[T]) CompileErrorCompute() string { return o.Super().CompileErrorCompute() }
 
 // SetCompileErrorCompute sets the property returned by [GetStageCompileError]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCompileErrorCompute(value string) Instance { //gd:RDShaderSPIRV.compile_error_compute
 	class(self).SetStageCompileError(4, String.From(value))
 	return self
+}
+
+func (o *Extension[T]) SetCompileErrorCompute(value string) *Extension[T] {
+	o.Super().SetCompileErrorCompute(value)
+	return o
 }
 
 func (self class) SetStageBytecode(stage Rendering.ShaderStage, bytecode Packed.Bytes)  { //gd:RDShaderSPIRV.set_stage_bytecode
@@ -385,6 +455,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

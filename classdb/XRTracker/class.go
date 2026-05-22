@@ -151,15 +151,24 @@ func (self Instance) Type() Type { //gd:XRTracker.type
 		return Type(class(self).GetTrackerType())
 }
 
+func (o *Extension[T]) Type() Type { return o.Super().Type() }
+
 // SetType sets the property returned by [GetTrackerType]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetType(value Type) Instance { //gd:XRTracker.type
 	class(self).SetTrackerType(value)
 	return self
 }
 
+func (o *Extension[T]) SetType(value Type) *Extension[T] {
+	o.Super().SetType(value)
+	return o
+}
+
 func (self Instance) Name() string { //gd:XRTracker.name
 		return string(class(self).GetTrackerName().String())
 }
+
+func (o *Extension[T]) Name() string { return o.Super().Name() }
 
 // SetName sets the property returned by [GetTrackerName]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetName(value string) Instance { //gd:XRTracker.name
@@ -167,14 +176,26 @@ func (self Instance) SetName(value string) Instance { //gd:XRTracker.name
 	return self
 }
 
+func (o *Extension[T]) SetName(value string) *Extension[T] {
+	o.Super().SetName(value)
+	return o
+}
+
 func (self Instance) Description() string { //gd:XRTracker.description
 		return string(class(self).GetTrackerDesc().String())
 }
+
+func (o *Extension[T]) Description() string { return o.Super().Description() }
 
 // SetDescription sets the property returned by [GetTrackerDesc]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDescription(value string) Instance { //gd:XRTracker.description
 	class(self).SetTrackerDesc(String.From(value))
 	return self
+}
+
+func (o *Extension[T]) SetDescription(value string) *Extension[T] {
+	o.Super().SetDescription(value)
+	return o
 }
 
 func (self class) GetTrackerType() Type { //gd:XRTracker.get_tracker_type

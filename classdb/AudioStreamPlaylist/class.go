@@ -163,15 +163,24 @@ func (self Instance) Shuffle() bool { //gd:AudioStreamPlaylist.shuffle
 		return bool(class(self).GetShuffle())
 }
 
+func (o *Extension[T]) Shuffle() bool { return o.Super().Shuffle() }
+
 // SetShuffle sets the property returned by [GetShuffle]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetShuffle(value bool) Instance { //gd:AudioStreamPlaylist.shuffle
 	class(self).SetShuffle(value)
 	return self
 }
 
+func (o *Extension[T]) SetShuffle(value bool) *Extension[T] {
+	o.Super().SetShuffle(value)
+	return o
+}
+
 func (self Instance) Loop() bool { //gd:AudioStreamPlaylist.loop
 		return bool(class(self).HasLoop())
 }
+
+func (o *Extension[T]) Loop() bool { return o.Super().Loop() }
 
 // SetLoop sets the property returned by [HasLoop]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetLoop(value bool) Instance { //gd:AudioStreamPlaylist.loop
@@ -179,9 +188,16 @@ func (self Instance) SetLoop(value bool) Instance { //gd:AudioStreamPlaylist.loo
 	return self
 }
 
+func (o *Extension[T]) SetLoop(value bool) *Extension[T] {
+	o.Super().SetLoop(value)
+	return o
+}
+
 func (self Instance) FadeTime() Float.X { //gd:AudioStreamPlaylist.fade_time
 		return Float.X(Float.X(class(self).GetFadeTime()))
 }
+
+func (o *Extension[T]) FadeTime() Float.X { return o.Super().FadeTime() }
 
 // SetFadeTime sets the property returned by [GetFadeTime]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFadeTime(value Float.X) Instance { //gd:AudioStreamPlaylist.fade_time
@@ -189,9 +205,16 @@ func (self Instance) SetFadeTime(value Float.X) Instance { //gd:AudioStreamPlayl
 	return self
 }
 
+func (o *Extension[T]) SetFadeTime(value Float.X) *Extension[T] {
+	o.Super().SetFadeTime(value)
+	return o
+}
+
 func (self Instance) StreamCount() int { //gd:AudioStreamPlaylist.stream_count
 		return int(int(class(self).GetStreamCount()))
 }
+
+func (o *Extension[T]) StreamCount() int { return o.Super().StreamCount() }
 
 // SetStreamCount sets the property returned by [GetStreamCount]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStreamCount(value int) Instance { //gd:AudioStreamPlaylist.stream_count
@@ -199,9 +222,16 @@ func (self Instance) SetStreamCount(value int) Instance { //gd:AudioStreamPlayli
 	return self
 }
 
+func (o *Extension[T]) SetStreamCount(value int) *Extension[T] {
+	o.Super().SetStreamCount(value)
+	return o
+}
+
 func (self Instance) Stream0() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_0
 		return AudioStream.Instance(class(self).GetListStream(0))
 }
+
+func (o *Extension[T]) Stream0() AudioStream.Instance { return o.Super().Stream0() }
 
 // SetStream0 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream0(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_0
@@ -209,9 +239,16 @@ func (self Instance) SetStream0(value AudioStream.Instance) Instance { //gd:Audi
 	return self
 }
 
+func (o *Extension[T]) SetStream0(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream0(value)
+	return o
+}
+
 func (self Instance) Stream1() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_1
 		return AudioStream.Instance(class(self).GetListStream(1))
 }
+
+func (o *Extension[T]) Stream1() AudioStream.Instance { return o.Super().Stream1() }
 
 // SetStream1 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream1(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_1
@@ -219,9 +256,16 @@ func (self Instance) SetStream1(value AudioStream.Instance) Instance { //gd:Audi
 	return self
 }
 
+func (o *Extension[T]) SetStream1(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream1(value)
+	return o
+}
+
 func (self Instance) Stream2() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_2
 		return AudioStream.Instance(class(self).GetListStream(2))
 }
+
+func (o *Extension[T]) Stream2() AudioStream.Instance { return o.Super().Stream2() }
 
 // SetStream2 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream2(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_2
@@ -229,9 +273,16 @@ func (self Instance) SetStream2(value AudioStream.Instance) Instance { //gd:Audi
 	return self
 }
 
+func (o *Extension[T]) SetStream2(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream2(value)
+	return o
+}
+
 func (self Instance) Stream3() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_3
 		return AudioStream.Instance(class(self).GetListStream(3))
 }
+
+func (o *Extension[T]) Stream3() AudioStream.Instance { return o.Super().Stream3() }
 
 // SetStream3 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream3(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_3
@@ -239,9 +290,16 @@ func (self Instance) SetStream3(value AudioStream.Instance) Instance { //gd:Audi
 	return self
 }
 
+func (o *Extension[T]) SetStream3(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream3(value)
+	return o
+}
+
 func (self Instance) Stream4() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_4
 		return AudioStream.Instance(class(self).GetListStream(4))
 }
+
+func (o *Extension[T]) Stream4() AudioStream.Instance { return o.Super().Stream4() }
 
 // SetStream4 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream4(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_4
@@ -249,9 +307,16 @@ func (self Instance) SetStream4(value AudioStream.Instance) Instance { //gd:Audi
 	return self
 }
 
+func (o *Extension[T]) SetStream4(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream4(value)
+	return o
+}
+
 func (self Instance) Stream5() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_5
 		return AudioStream.Instance(class(self).GetListStream(5))
 }
+
+func (o *Extension[T]) Stream5() AudioStream.Instance { return o.Super().Stream5() }
 
 // SetStream5 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream5(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_5
@@ -259,9 +324,16 @@ func (self Instance) SetStream5(value AudioStream.Instance) Instance { //gd:Audi
 	return self
 }
 
+func (o *Extension[T]) SetStream5(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream5(value)
+	return o
+}
+
 func (self Instance) Stream6() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_6
 		return AudioStream.Instance(class(self).GetListStream(6))
 }
+
+func (o *Extension[T]) Stream6() AudioStream.Instance { return o.Super().Stream6() }
 
 // SetStream6 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream6(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_6
@@ -269,9 +341,16 @@ func (self Instance) SetStream6(value AudioStream.Instance) Instance { //gd:Audi
 	return self
 }
 
+func (o *Extension[T]) SetStream6(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream6(value)
+	return o
+}
+
 func (self Instance) Stream7() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_7
 		return AudioStream.Instance(class(self).GetListStream(7))
 }
+
+func (o *Extension[T]) Stream7() AudioStream.Instance { return o.Super().Stream7() }
 
 // SetStream7 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream7(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_7
@@ -279,9 +358,16 @@ func (self Instance) SetStream7(value AudioStream.Instance) Instance { //gd:Audi
 	return self
 }
 
+func (o *Extension[T]) SetStream7(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream7(value)
+	return o
+}
+
 func (self Instance) Stream8() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_8
 		return AudioStream.Instance(class(self).GetListStream(8))
 }
+
+func (o *Extension[T]) Stream8() AudioStream.Instance { return o.Super().Stream8() }
 
 // SetStream8 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream8(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_8
@@ -289,9 +375,16 @@ func (self Instance) SetStream8(value AudioStream.Instance) Instance { //gd:Audi
 	return self
 }
 
+func (o *Extension[T]) SetStream8(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream8(value)
+	return o
+}
+
 func (self Instance) Stream9() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_9
 		return AudioStream.Instance(class(self).GetListStream(9))
 }
+
+func (o *Extension[T]) Stream9() AudioStream.Instance { return o.Super().Stream9() }
 
 // SetStream9 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream9(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_9
@@ -299,9 +392,16 @@ func (self Instance) SetStream9(value AudioStream.Instance) Instance { //gd:Audi
 	return self
 }
 
+func (o *Extension[T]) SetStream9(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream9(value)
+	return o
+}
+
 func (self Instance) Stream10() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_10
 		return AudioStream.Instance(class(self).GetListStream(10))
 }
+
+func (o *Extension[T]) Stream10() AudioStream.Instance { return o.Super().Stream10() }
 
 // SetStream10 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream10(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_10
@@ -309,9 +409,16 @@ func (self Instance) SetStream10(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream10(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream10(value)
+	return o
+}
+
 func (self Instance) Stream11() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_11
 		return AudioStream.Instance(class(self).GetListStream(11))
 }
+
+func (o *Extension[T]) Stream11() AudioStream.Instance { return o.Super().Stream11() }
 
 // SetStream11 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream11(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_11
@@ -319,9 +426,16 @@ func (self Instance) SetStream11(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream11(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream11(value)
+	return o
+}
+
 func (self Instance) Stream12() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_12
 		return AudioStream.Instance(class(self).GetListStream(12))
 }
+
+func (o *Extension[T]) Stream12() AudioStream.Instance { return o.Super().Stream12() }
 
 // SetStream12 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream12(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_12
@@ -329,9 +443,16 @@ func (self Instance) SetStream12(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream12(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream12(value)
+	return o
+}
+
 func (self Instance) Stream13() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_13
 		return AudioStream.Instance(class(self).GetListStream(13))
 }
+
+func (o *Extension[T]) Stream13() AudioStream.Instance { return o.Super().Stream13() }
 
 // SetStream13 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream13(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_13
@@ -339,9 +460,16 @@ func (self Instance) SetStream13(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream13(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream13(value)
+	return o
+}
+
 func (self Instance) Stream14() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_14
 		return AudioStream.Instance(class(self).GetListStream(14))
 }
+
+func (o *Extension[T]) Stream14() AudioStream.Instance { return o.Super().Stream14() }
 
 // SetStream14 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream14(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_14
@@ -349,9 +477,16 @@ func (self Instance) SetStream14(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream14(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream14(value)
+	return o
+}
+
 func (self Instance) Stream15() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_15
 		return AudioStream.Instance(class(self).GetListStream(15))
 }
+
+func (o *Extension[T]) Stream15() AudioStream.Instance { return o.Super().Stream15() }
 
 // SetStream15 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream15(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_15
@@ -359,9 +494,16 @@ func (self Instance) SetStream15(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream15(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream15(value)
+	return o
+}
+
 func (self Instance) Stream16() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_16
 		return AudioStream.Instance(class(self).GetListStream(16))
 }
+
+func (o *Extension[T]) Stream16() AudioStream.Instance { return o.Super().Stream16() }
 
 // SetStream16 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream16(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_16
@@ -369,9 +511,16 @@ func (self Instance) SetStream16(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream16(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream16(value)
+	return o
+}
+
 func (self Instance) Stream17() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_17
 		return AudioStream.Instance(class(self).GetListStream(17))
 }
+
+func (o *Extension[T]) Stream17() AudioStream.Instance { return o.Super().Stream17() }
 
 // SetStream17 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream17(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_17
@@ -379,9 +528,16 @@ func (self Instance) SetStream17(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream17(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream17(value)
+	return o
+}
+
 func (self Instance) Stream18() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_18
 		return AudioStream.Instance(class(self).GetListStream(18))
 }
+
+func (o *Extension[T]) Stream18() AudioStream.Instance { return o.Super().Stream18() }
 
 // SetStream18 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream18(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_18
@@ -389,9 +545,16 @@ func (self Instance) SetStream18(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream18(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream18(value)
+	return o
+}
+
 func (self Instance) Stream19() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_19
 		return AudioStream.Instance(class(self).GetListStream(19))
 }
+
+func (o *Extension[T]) Stream19() AudioStream.Instance { return o.Super().Stream19() }
 
 // SetStream19 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream19(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_19
@@ -399,9 +562,16 @@ func (self Instance) SetStream19(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream19(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream19(value)
+	return o
+}
+
 func (self Instance) Stream20() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_20
 		return AudioStream.Instance(class(self).GetListStream(20))
 }
+
+func (o *Extension[T]) Stream20() AudioStream.Instance { return o.Super().Stream20() }
 
 // SetStream20 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream20(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_20
@@ -409,9 +579,16 @@ func (self Instance) SetStream20(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream20(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream20(value)
+	return o
+}
+
 func (self Instance) Stream21() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_21
 		return AudioStream.Instance(class(self).GetListStream(21))
 }
+
+func (o *Extension[T]) Stream21() AudioStream.Instance { return o.Super().Stream21() }
 
 // SetStream21 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream21(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_21
@@ -419,9 +596,16 @@ func (self Instance) SetStream21(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream21(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream21(value)
+	return o
+}
+
 func (self Instance) Stream22() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_22
 		return AudioStream.Instance(class(self).GetListStream(22))
 }
+
+func (o *Extension[T]) Stream22() AudioStream.Instance { return o.Super().Stream22() }
 
 // SetStream22 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream22(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_22
@@ -429,9 +613,16 @@ func (self Instance) SetStream22(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream22(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream22(value)
+	return o
+}
+
 func (self Instance) Stream23() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_23
 		return AudioStream.Instance(class(self).GetListStream(23))
 }
+
+func (o *Extension[T]) Stream23() AudioStream.Instance { return o.Super().Stream23() }
 
 // SetStream23 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream23(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_23
@@ -439,9 +630,16 @@ func (self Instance) SetStream23(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream23(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream23(value)
+	return o
+}
+
 func (self Instance) Stream24() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_24
 		return AudioStream.Instance(class(self).GetListStream(24))
 }
+
+func (o *Extension[T]) Stream24() AudioStream.Instance { return o.Super().Stream24() }
 
 // SetStream24 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream24(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_24
@@ -449,9 +647,16 @@ func (self Instance) SetStream24(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream24(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream24(value)
+	return o
+}
+
 func (self Instance) Stream25() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_25
 		return AudioStream.Instance(class(self).GetListStream(25))
 }
+
+func (o *Extension[T]) Stream25() AudioStream.Instance { return o.Super().Stream25() }
 
 // SetStream25 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream25(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_25
@@ -459,9 +664,16 @@ func (self Instance) SetStream25(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream25(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream25(value)
+	return o
+}
+
 func (self Instance) Stream26() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_26
 		return AudioStream.Instance(class(self).GetListStream(26))
 }
+
+func (o *Extension[T]) Stream26() AudioStream.Instance { return o.Super().Stream26() }
 
 // SetStream26 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream26(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_26
@@ -469,9 +681,16 @@ func (self Instance) SetStream26(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream26(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream26(value)
+	return o
+}
+
 func (self Instance) Stream27() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_27
 		return AudioStream.Instance(class(self).GetListStream(27))
 }
+
+func (o *Extension[T]) Stream27() AudioStream.Instance { return o.Super().Stream27() }
 
 // SetStream27 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream27(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_27
@@ -479,9 +698,16 @@ func (self Instance) SetStream27(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream27(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream27(value)
+	return o
+}
+
 func (self Instance) Stream28() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_28
 		return AudioStream.Instance(class(self).GetListStream(28))
 }
+
+func (o *Extension[T]) Stream28() AudioStream.Instance { return o.Super().Stream28() }
 
 // SetStream28 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream28(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_28
@@ -489,9 +715,16 @@ func (self Instance) SetStream28(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream28(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream28(value)
+	return o
+}
+
 func (self Instance) Stream29() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_29
 		return AudioStream.Instance(class(self).GetListStream(29))
 }
+
+func (o *Extension[T]) Stream29() AudioStream.Instance { return o.Super().Stream29() }
 
 // SetStream29 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream29(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_29
@@ -499,9 +732,16 @@ func (self Instance) SetStream29(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream29(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream29(value)
+	return o
+}
+
 func (self Instance) Stream30() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_30
 		return AudioStream.Instance(class(self).GetListStream(30))
 }
+
+func (o *Extension[T]) Stream30() AudioStream.Instance { return o.Super().Stream30() }
 
 // SetStream30 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream30(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_30
@@ -509,9 +749,16 @@ func (self Instance) SetStream30(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream30(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream30(value)
+	return o
+}
+
 func (self Instance) Stream31() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_31
 		return AudioStream.Instance(class(self).GetListStream(31))
 }
+
+func (o *Extension[T]) Stream31() AudioStream.Instance { return o.Super().Stream31() }
 
 // SetStream31 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream31(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_31
@@ -519,9 +766,16 @@ func (self Instance) SetStream31(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream31(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream31(value)
+	return o
+}
+
 func (self Instance) Stream32() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_32
 		return AudioStream.Instance(class(self).GetListStream(32))
 }
+
+func (o *Extension[T]) Stream32() AudioStream.Instance { return o.Super().Stream32() }
 
 // SetStream32 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream32(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_32
@@ -529,9 +783,16 @@ func (self Instance) SetStream32(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream32(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream32(value)
+	return o
+}
+
 func (self Instance) Stream33() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_33
 		return AudioStream.Instance(class(self).GetListStream(33))
 }
+
+func (o *Extension[T]) Stream33() AudioStream.Instance { return o.Super().Stream33() }
 
 // SetStream33 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream33(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_33
@@ -539,9 +800,16 @@ func (self Instance) SetStream33(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream33(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream33(value)
+	return o
+}
+
 func (self Instance) Stream34() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_34
 		return AudioStream.Instance(class(self).GetListStream(34))
 }
+
+func (o *Extension[T]) Stream34() AudioStream.Instance { return o.Super().Stream34() }
 
 // SetStream34 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream34(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_34
@@ -549,9 +817,16 @@ func (self Instance) SetStream34(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream34(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream34(value)
+	return o
+}
+
 func (self Instance) Stream35() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_35
 		return AudioStream.Instance(class(self).GetListStream(35))
 }
+
+func (o *Extension[T]) Stream35() AudioStream.Instance { return o.Super().Stream35() }
 
 // SetStream35 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream35(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_35
@@ -559,9 +834,16 @@ func (self Instance) SetStream35(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream35(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream35(value)
+	return o
+}
+
 func (self Instance) Stream36() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_36
 		return AudioStream.Instance(class(self).GetListStream(36))
 }
+
+func (o *Extension[T]) Stream36() AudioStream.Instance { return o.Super().Stream36() }
 
 // SetStream36 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream36(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_36
@@ -569,9 +851,16 @@ func (self Instance) SetStream36(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream36(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream36(value)
+	return o
+}
+
 func (self Instance) Stream37() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_37
 		return AudioStream.Instance(class(self).GetListStream(37))
 }
+
+func (o *Extension[T]) Stream37() AudioStream.Instance { return o.Super().Stream37() }
 
 // SetStream37 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream37(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_37
@@ -579,9 +868,16 @@ func (self Instance) SetStream37(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream37(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream37(value)
+	return o
+}
+
 func (self Instance) Stream38() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_38
 		return AudioStream.Instance(class(self).GetListStream(38))
 }
+
+func (o *Extension[T]) Stream38() AudioStream.Instance { return o.Super().Stream38() }
 
 // SetStream38 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream38(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_38
@@ -589,9 +885,16 @@ func (self Instance) SetStream38(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream38(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream38(value)
+	return o
+}
+
 func (self Instance) Stream39() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_39
 		return AudioStream.Instance(class(self).GetListStream(39))
 }
+
+func (o *Extension[T]) Stream39() AudioStream.Instance { return o.Super().Stream39() }
 
 // SetStream39 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream39(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_39
@@ -599,9 +902,16 @@ func (self Instance) SetStream39(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream39(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream39(value)
+	return o
+}
+
 func (self Instance) Stream40() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_40
 		return AudioStream.Instance(class(self).GetListStream(40))
 }
+
+func (o *Extension[T]) Stream40() AudioStream.Instance { return o.Super().Stream40() }
 
 // SetStream40 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream40(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_40
@@ -609,9 +919,16 @@ func (self Instance) SetStream40(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream40(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream40(value)
+	return o
+}
+
 func (self Instance) Stream41() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_41
 		return AudioStream.Instance(class(self).GetListStream(41))
 }
+
+func (o *Extension[T]) Stream41() AudioStream.Instance { return o.Super().Stream41() }
 
 // SetStream41 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream41(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_41
@@ -619,9 +936,16 @@ func (self Instance) SetStream41(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream41(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream41(value)
+	return o
+}
+
 func (self Instance) Stream42() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_42
 		return AudioStream.Instance(class(self).GetListStream(42))
 }
+
+func (o *Extension[T]) Stream42() AudioStream.Instance { return o.Super().Stream42() }
 
 // SetStream42 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream42(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_42
@@ -629,9 +953,16 @@ func (self Instance) SetStream42(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream42(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream42(value)
+	return o
+}
+
 func (self Instance) Stream43() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_43
 		return AudioStream.Instance(class(self).GetListStream(43))
 }
+
+func (o *Extension[T]) Stream43() AudioStream.Instance { return o.Super().Stream43() }
 
 // SetStream43 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream43(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_43
@@ -639,9 +970,16 @@ func (self Instance) SetStream43(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream43(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream43(value)
+	return o
+}
+
 func (self Instance) Stream44() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_44
 		return AudioStream.Instance(class(self).GetListStream(44))
 }
+
+func (o *Extension[T]) Stream44() AudioStream.Instance { return o.Super().Stream44() }
 
 // SetStream44 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream44(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_44
@@ -649,9 +987,16 @@ func (self Instance) SetStream44(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream44(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream44(value)
+	return o
+}
+
 func (self Instance) Stream45() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_45
 		return AudioStream.Instance(class(self).GetListStream(45))
 }
+
+func (o *Extension[T]) Stream45() AudioStream.Instance { return o.Super().Stream45() }
 
 // SetStream45 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream45(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_45
@@ -659,9 +1004,16 @@ func (self Instance) SetStream45(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream45(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream45(value)
+	return o
+}
+
 func (self Instance) Stream46() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_46
 		return AudioStream.Instance(class(self).GetListStream(46))
 }
+
+func (o *Extension[T]) Stream46() AudioStream.Instance { return o.Super().Stream46() }
 
 // SetStream46 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream46(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_46
@@ -669,9 +1021,16 @@ func (self Instance) SetStream46(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream46(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream46(value)
+	return o
+}
+
 func (self Instance) Stream47() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_47
 		return AudioStream.Instance(class(self).GetListStream(47))
 }
+
+func (o *Extension[T]) Stream47() AudioStream.Instance { return o.Super().Stream47() }
 
 // SetStream47 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream47(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_47
@@ -679,9 +1038,16 @@ func (self Instance) SetStream47(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream47(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream47(value)
+	return o
+}
+
 func (self Instance) Stream48() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_48
 		return AudioStream.Instance(class(self).GetListStream(48))
 }
+
+func (o *Extension[T]) Stream48() AudioStream.Instance { return o.Super().Stream48() }
 
 // SetStream48 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream48(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_48
@@ -689,9 +1055,16 @@ func (self Instance) SetStream48(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream48(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream48(value)
+	return o
+}
+
 func (self Instance) Stream49() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_49
 		return AudioStream.Instance(class(self).GetListStream(49))
 }
+
+func (o *Extension[T]) Stream49() AudioStream.Instance { return o.Super().Stream49() }
 
 // SetStream49 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream49(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_49
@@ -699,9 +1072,16 @@ func (self Instance) SetStream49(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream49(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream49(value)
+	return o
+}
+
 func (self Instance) Stream50() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_50
 		return AudioStream.Instance(class(self).GetListStream(50))
 }
+
+func (o *Extension[T]) Stream50() AudioStream.Instance { return o.Super().Stream50() }
 
 // SetStream50 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream50(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_50
@@ -709,9 +1089,16 @@ func (self Instance) SetStream50(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream50(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream50(value)
+	return o
+}
+
 func (self Instance) Stream51() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_51
 		return AudioStream.Instance(class(self).GetListStream(51))
 }
+
+func (o *Extension[T]) Stream51() AudioStream.Instance { return o.Super().Stream51() }
 
 // SetStream51 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream51(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_51
@@ -719,9 +1106,16 @@ func (self Instance) SetStream51(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream51(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream51(value)
+	return o
+}
+
 func (self Instance) Stream52() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_52
 		return AudioStream.Instance(class(self).GetListStream(52))
 }
+
+func (o *Extension[T]) Stream52() AudioStream.Instance { return o.Super().Stream52() }
 
 // SetStream52 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream52(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_52
@@ -729,9 +1123,16 @@ func (self Instance) SetStream52(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream52(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream52(value)
+	return o
+}
+
 func (self Instance) Stream53() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_53
 		return AudioStream.Instance(class(self).GetListStream(53))
 }
+
+func (o *Extension[T]) Stream53() AudioStream.Instance { return o.Super().Stream53() }
 
 // SetStream53 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream53(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_53
@@ -739,9 +1140,16 @@ func (self Instance) SetStream53(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream53(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream53(value)
+	return o
+}
+
 func (self Instance) Stream54() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_54
 		return AudioStream.Instance(class(self).GetListStream(54))
 }
+
+func (o *Extension[T]) Stream54() AudioStream.Instance { return o.Super().Stream54() }
 
 // SetStream54 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream54(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_54
@@ -749,9 +1157,16 @@ func (self Instance) SetStream54(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream54(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream54(value)
+	return o
+}
+
 func (self Instance) Stream55() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_55
 		return AudioStream.Instance(class(self).GetListStream(55))
 }
+
+func (o *Extension[T]) Stream55() AudioStream.Instance { return o.Super().Stream55() }
 
 // SetStream55 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream55(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_55
@@ -759,9 +1174,16 @@ func (self Instance) SetStream55(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream55(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream55(value)
+	return o
+}
+
 func (self Instance) Stream56() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_56
 		return AudioStream.Instance(class(self).GetListStream(56))
 }
+
+func (o *Extension[T]) Stream56() AudioStream.Instance { return o.Super().Stream56() }
 
 // SetStream56 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream56(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_56
@@ -769,9 +1191,16 @@ func (self Instance) SetStream56(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream56(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream56(value)
+	return o
+}
+
 func (self Instance) Stream57() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_57
 		return AudioStream.Instance(class(self).GetListStream(57))
 }
+
+func (o *Extension[T]) Stream57() AudioStream.Instance { return o.Super().Stream57() }
 
 // SetStream57 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream57(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_57
@@ -779,9 +1208,16 @@ func (self Instance) SetStream57(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream57(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream57(value)
+	return o
+}
+
 func (self Instance) Stream58() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_58
 		return AudioStream.Instance(class(self).GetListStream(58))
 }
+
+func (o *Extension[T]) Stream58() AudioStream.Instance { return o.Super().Stream58() }
 
 // SetStream58 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream58(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_58
@@ -789,9 +1225,16 @@ func (self Instance) SetStream58(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream58(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream58(value)
+	return o
+}
+
 func (self Instance) Stream59() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_59
 		return AudioStream.Instance(class(self).GetListStream(59))
 }
+
+func (o *Extension[T]) Stream59() AudioStream.Instance { return o.Super().Stream59() }
 
 // SetStream59 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream59(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_59
@@ -799,9 +1242,16 @@ func (self Instance) SetStream59(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream59(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream59(value)
+	return o
+}
+
 func (self Instance) Stream60() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_60
 		return AudioStream.Instance(class(self).GetListStream(60))
 }
+
+func (o *Extension[T]) Stream60() AudioStream.Instance { return o.Super().Stream60() }
 
 // SetStream60 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream60(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_60
@@ -809,9 +1259,16 @@ func (self Instance) SetStream60(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream60(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream60(value)
+	return o
+}
+
 func (self Instance) Stream61() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_61
 		return AudioStream.Instance(class(self).GetListStream(61))
 }
+
+func (o *Extension[T]) Stream61() AudioStream.Instance { return o.Super().Stream61() }
 
 // SetStream61 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream61(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_61
@@ -819,9 +1276,16 @@ func (self Instance) SetStream61(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream61(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream61(value)
+	return o
+}
+
 func (self Instance) Stream62() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_62
 		return AudioStream.Instance(class(self).GetListStream(62))
 }
+
+func (o *Extension[T]) Stream62() AudioStream.Instance { return o.Super().Stream62() }
 
 // SetStream62 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream62(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_62
@@ -829,14 +1293,26 @@ func (self Instance) SetStream62(value AudioStream.Instance) Instance { //gd:Aud
 	return self
 }
 
+func (o *Extension[T]) SetStream62(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream62(value)
+	return o
+}
+
 func (self Instance) Stream63() AudioStream.Instance { //gd:AudioStreamPlaylist.stream_63
 		return AudioStream.Instance(class(self).GetListStream(63))
 }
+
+func (o *Extension[T]) Stream63() AudioStream.Instance { return o.Super().Stream63() }
 
 // SetStream63 sets the property returned by [GetListStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream63(value AudioStream.Instance) Instance { //gd:AudioStreamPlaylist.stream_63
 	class(self).SetListStream(63, value)
 	return self
+}
+
+func (o *Extension[T]) SetStream63(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream63(value)
+	return o
 }
 
 func (self class) SetStreamCount(stream_count int64)  { //gd:AudioStreamPlaylist.set_stream_count
@@ -1082,6 +1558,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

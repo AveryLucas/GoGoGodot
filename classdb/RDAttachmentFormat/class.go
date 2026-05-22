@@ -152,15 +152,24 @@ func (self Instance) Format() Rendering.DataFormat { //gd:RDAttachmentFormat.for
 		return Rendering.DataFormat(class(self).GetFormat())
 }
 
+func (o *Extension[T]) Format() Rendering.DataFormat { return o.Super().Format() }
+
 // SetFormat sets the property returned by [GetFormat]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFormat(value Rendering.DataFormat) Instance { //gd:RDAttachmentFormat.format
 	class(self).SetFormat(value)
 	return self
 }
 
+func (o *Extension[T]) SetFormat(value Rendering.DataFormat) *Extension[T] {
+	o.Super().SetFormat(value)
+	return o
+}
+
 func (self Instance) Samples() Rendering.TextureSamples { //gd:RDAttachmentFormat.samples
 		return Rendering.TextureSamples(class(self).GetSamples())
 }
+
+func (o *Extension[T]) Samples() Rendering.TextureSamples { return o.Super().Samples() }
 
 // SetSamples sets the property returned by [GetSamples]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSamples(value Rendering.TextureSamples) Instance { //gd:RDAttachmentFormat.samples
@@ -168,14 +177,26 @@ func (self Instance) SetSamples(value Rendering.TextureSamples) Instance { //gd:
 	return self
 }
 
+func (o *Extension[T]) SetSamples(value Rendering.TextureSamples) *Extension[T] {
+	o.Super().SetSamples(value)
+	return o
+}
+
 func (self Instance) UsageFlags() int { //gd:RDAttachmentFormat.usage_flags
 		return int(int(class(self).GetUsageFlags()))
 }
+
+func (o *Extension[T]) UsageFlags() int { return o.Super().UsageFlags() }
 
 // SetUsageFlags sets the property returned by [GetUsageFlags]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUsageFlags(value int) Instance { //gd:RDAttachmentFormat.usage_flags
 	class(self).SetUsageFlags(int64(value))
 	return self
+}
+
+func (o *Extension[T]) SetUsageFlags(value int) *Extension[T] {
+	o.Super().SetUsageFlags(value)
+	return o
 }
 
 func (self class) SetFormat(p_member Rendering.DataFormat)  { //gd:RDAttachmentFormat.set_format

@@ -147,10 +147,17 @@ func (self Instance) TimeLeft() Float.X { //gd:SceneTreeTimer.time_left
 		return Float.X(Float.X(class(self).GetTimeLeft()))
 }
 
+func (o *Extension[T]) TimeLeft() Float.X { return o.Super().TimeLeft() }
+
 // SetTimeLeft sets the property returned by [GetTimeLeft]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTimeLeft(value Float.X) Instance { //gd:SceneTreeTimer.time_left
 	class(self).SetTimeLeft(float64(value))
 	return self
+}
+
+func (o *Extension[T]) SetTimeLeft(value Float.X) *Extension[T] {
+	o.Super().SetTimeLeft(value)
+	return o
 }
 
 func (self class) SetTimeLeft(time float64)  { //gd:SceneTreeTimer.set_time_left

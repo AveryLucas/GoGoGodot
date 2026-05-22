@@ -184,15 +184,24 @@ func (self Instance) GltfToGodotExpression() Expression.Instance { //gd:GLTFObje
 		return Expression.Instance(class(self).GetGltfToGodotExpression())
 }
 
+func (o *Extension[T]) GltfToGodotExpression() Expression.Instance { return o.Super().GltfToGodotExpression() }
+
 // SetGltfToGodotExpression sets the property returned by [GetGltfToGodotExpression]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetGltfToGodotExpression(value Expression.Instance) Instance { //gd:GLTFObjectModelProperty.gltf_to_godot_expression
 	class(self).SetGltfToGodotExpression(value)
 	return self
 }
 
+func (o *Extension[T]) SetGltfToGodotExpression(value Expression.Instance) *Extension[T] {
+	o.Super().SetGltfToGodotExpression(value)
+	return o
+}
+
 func (self Instance) GodotToGltfExpression() Expression.Instance { //gd:GLTFObjectModelProperty.godot_to_gltf_expression
 		return Expression.Instance(class(self).GetGodotToGltfExpression())
 }
+
+func (o *Extension[T]) GodotToGltfExpression() Expression.Instance { return o.Super().GodotToGltfExpression() }
 
 // SetGodotToGltfExpression sets the property returned by [GetGodotToGltfExpression]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetGodotToGltfExpression(value Expression.Instance) Instance { //gd:GLTFObjectModelProperty.godot_to_gltf_expression
@@ -200,9 +209,16 @@ func (self Instance) SetGodotToGltfExpression(value Expression.Instance) Instanc
 	return self
 }
 
+func (o *Extension[T]) SetGodotToGltfExpression(value Expression.Instance) *Extension[T] {
+	o.Super().SetGodotToGltfExpression(value)
+	return o
+}
+
 func (self Instance) NodePaths() []string { //gd:GLTFObjectModelProperty.node_paths
 		return []string(gd.ArrayAs[[]string](gd.InternalArray(class(self).GetNodePaths())))
 }
+
+func (o *Extension[T]) NodePaths() []string { return o.Super().NodePaths() }
 
 // SetNodePaths sets the property returned by [GetNodePaths]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetNodePaths(value []string) Instance { //gd:GLTFObjectModelProperty.node_paths
@@ -210,9 +226,16 @@ func (self Instance) SetNodePaths(value []string) Instance { //gd:GLTFObjectMode
 	return self
 }
 
+func (o *Extension[T]) SetNodePaths(value []string) *Extension[T] {
+	o.Super().SetNodePaths(value)
+	return o
+}
+
 func (self Instance) ObjectModelType() GLTFObjectModelType { //gd:GLTFObjectModelProperty.object_model_type
 		return GLTFObjectModelType(class(self).GetObjectModelType())
 }
+
+func (o *Extension[T]) ObjectModelType() GLTFObjectModelType { return o.Super().ObjectModelType() }
 
 // SetObjectModelType sets the property returned by [GetObjectModelType]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetObjectModelType(value GLTFObjectModelType) Instance { //gd:GLTFObjectModelProperty.object_model_type
@@ -220,9 +243,16 @@ func (self Instance) SetObjectModelType(value GLTFObjectModelType) Instance { //
 	return self
 }
 
+func (o *Extension[T]) SetObjectModelType(value GLTFObjectModelType) *Extension[T] {
+	o.Super().SetObjectModelType(value)
+	return o
+}
+
 func (self Instance) JsonPointers() [][]string { //gd:GLTFObjectModelProperty.json_pointers
 		return [][]string(gd.ArrayAs[[][]string](gd.InternalArray(class(self).GetJsonPointers())))
 }
+
+func (o *Extension[T]) JsonPointers() [][]string { return o.Super().JsonPointers() }
 
 // SetJsonPointers sets the property returned by [GetJsonPointers]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetJsonPointers(value [][]string) Instance { //gd:GLTFObjectModelProperty.json_pointers
@@ -230,14 +260,26 @@ func (self Instance) SetJsonPointers(value [][]string) Instance { //gd:GLTFObjec
 	return self
 }
 
+func (o *Extension[T]) SetJsonPointers(value [][]string) *Extension[T] {
+	o.Super().SetJsonPointers(value)
+	return o
+}
+
 func (self Instance) VariantType() variant.Type { //gd:GLTFObjectModelProperty.variant_type
 		return variant.Type(class(self).GetVariantType())
 }
+
+func (o *Extension[T]) VariantType() variant.Type { return o.Super().VariantType() }
 
 // SetVariantType sets the property returned by [GetVariantType]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVariantType(value variant.Type) Instance { //gd:GLTFObjectModelProperty.variant_type
 	class(self).SetVariantType(value)
 	return self
+}
+
+func (o *Extension[T]) SetVariantType(value variant.Type) *Extension[T] {
+	o.Super().SetVariantType(value)
+	return o
 }
 
 func (self class) AppendNodePath(node_path Path.ToNode)  { //gd:GLTFObjectModelProperty.append_node_path

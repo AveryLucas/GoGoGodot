@@ -307,45 +307,67 @@ func (self Instance) Step() Float.X { //gd:PhysicsDirectBodyState3D.step
 		return Float.X(Float.X(class(self).GetStep()))
 }
 
+func (o *Extension[T]) Step() Float.X { return o.Super().Step() }
+
 func (self Instance) InverseMass() Float.X { //gd:PhysicsDirectBodyState3D.inverse_mass
 		return Float.X(Float.X(class(self).GetInverseMass()))
 }
+
+func (o *Extension[T]) InverseMass() Float.X { return o.Super().InverseMass() }
 
 func (self Instance) TotalAngularDamp() Float.X { //gd:PhysicsDirectBodyState3D.total_angular_damp
 		return Float.X(Float.X(class(self).GetTotalAngularDamp()))
 }
 
+func (o *Extension[T]) TotalAngularDamp() Float.X { return o.Super().TotalAngularDamp() }
+
 func (self Instance) TotalLinearDamp() Float.X { //gd:PhysicsDirectBodyState3D.total_linear_damp
 		return Float.X(Float.X(class(self).GetTotalLinearDamp()))
 }
+
+func (o *Extension[T]) TotalLinearDamp() Float.X { return o.Super().TotalLinearDamp() }
 
 func (self Instance) InverseInertia() Vector3.XYZ { //gd:PhysicsDirectBodyState3D.inverse_inertia
 		return Vector3.XYZ(class(self).GetInverseInertia())
 }
 
+func (o *Extension[T]) InverseInertia() Vector3.XYZ { return o.Super().InverseInertia() }
+
 func (self Instance) InverseInertiaTensor() Basis.XYZ { //gd:PhysicsDirectBodyState3D.inverse_inertia_tensor
 		return Basis.XYZ(class(self).GetInverseInertiaTensor())
 }
+
+func (o *Extension[T]) InverseInertiaTensor() Basis.XYZ { return o.Super().InverseInertiaTensor() }
 
 func (self Instance) TotalGravity() Vector3.XYZ { //gd:PhysicsDirectBodyState3D.total_gravity
 		return Vector3.XYZ(class(self).GetTotalGravity())
 }
 
+func (o *Extension[T]) TotalGravity() Vector3.XYZ { return o.Super().TotalGravity() }
+
 func (self Instance) CenterOfMass() Vector3.XYZ { //gd:PhysicsDirectBodyState3D.center_of_mass
 		return Vector3.XYZ(class(self).GetCenterOfMass())
 }
+
+func (o *Extension[T]) CenterOfMass() Vector3.XYZ { return o.Super().CenterOfMass() }
 
 func (self Instance) CenterOfMassLocal() Vector3.XYZ { //gd:PhysicsDirectBodyState3D.center_of_mass_local
 		return Vector3.XYZ(class(self).GetCenterOfMassLocal())
 }
 
+func (o *Extension[T]) CenterOfMassLocal() Vector3.XYZ { return o.Super().CenterOfMassLocal() }
+
 func (self Instance) PrincipalInertiaAxes() Basis.XYZ { //gd:PhysicsDirectBodyState3D.principal_inertia_axes
 		return Basis.XYZ(class(self).GetPrincipalInertiaAxes())
 }
 
+func (o *Extension[T]) PrincipalInertiaAxes() Basis.XYZ { return o.Super().PrincipalInertiaAxes() }
+
 func (self Instance) AngularVelocity() Vector3.XYZ { //gd:PhysicsDirectBodyState3D.angular_velocity
 		return Vector3.XYZ(class(self).GetAngularVelocity())
 }
+
+func (o *Extension[T]) AngularVelocity() Vector3.XYZ { return o.Super().AngularVelocity() }
 
 // SetAngularVelocity sets the property returned by [GetAngularVelocity]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAngularVelocity(value Vector3.XYZ) Instance { //gd:PhysicsDirectBodyState3D.angular_velocity
@@ -353,9 +375,16 @@ func (self Instance) SetAngularVelocity(value Vector3.XYZ) Instance { //gd:Physi
 	return self
 }
 
+func (o *Extension[T]) SetAngularVelocity(value Vector3.XYZ) *Extension[T] {
+	o.Super().SetAngularVelocity(value)
+	return o
+}
+
 func (self Instance) LinearVelocity() Vector3.XYZ { //gd:PhysicsDirectBodyState3D.linear_velocity
 		return Vector3.XYZ(class(self).GetLinearVelocity())
 }
+
+func (o *Extension[T]) LinearVelocity() Vector3.XYZ { return o.Super().LinearVelocity() }
 
 // SetLinearVelocity sets the property returned by [GetLinearVelocity]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetLinearVelocity(value Vector3.XYZ) Instance { //gd:PhysicsDirectBodyState3D.linear_velocity
@@ -363,9 +392,16 @@ func (self Instance) SetLinearVelocity(value Vector3.XYZ) Instance { //gd:Physic
 	return self
 }
 
+func (o *Extension[T]) SetLinearVelocity(value Vector3.XYZ) *Extension[T] {
+	o.Super().SetLinearVelocity(value)
+	return o
+}
+
 func (self Instance) Sleeping() bool { //gd:PhysicsDirectBodyState3D.sleeping
 		return bool(class(self).IsSleeping())
 }
+
+func (o *Extension[T]) Sleeping() bool { return o.Super().Sleeping() }
 
 // SetSleeping sets the property returned by [IsSleeping]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSleeping(value bool) Instance { //gd:PhysicsDirectBodyState3D.sleeping
@@ -373,9 +409,16 @@ func (self Instance) SetSleeping(value bool) Instance { //gd:PhysicsDirectBodySt
 	return self
 }
 
+func (o *Extension[T]) SetSleeping(value bool) *Extension[T] {
+	o.Super().SetSleeping(value)
+	return o
+}
+
 func (self Instance) CollisionLayer() int { //gd:PhysicsDirectBodyState3D.collision_layer
 		return int(int(class(self).GetCollisionLayer()))
 }
+
+func (o *Extension[T]) CollisionLayer() int { return o.Super().CollisionLayer() }
 
 // SetCollisionLayer sets the property returned by [GetCollisionLayer]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCollisionLayer(value int) Instance { //gd:PhysicsDirectBodyState3D.collision_layer
@@ -383,9 +426,16 @@ func (self Instance) SetCollisionLayer(value int) Instance { //gd:PhysicsDirectB
 	return self
 }
 
+func (o *Extension[T]) SetCollisionLayer(value int) *Extension[T] {
+	o.Super().SetCollisionLayer(value)
+	return o
+}
+
 func (self Instance) CollisionMask() int { //gd:PhysicsDirectBodyState3D.collision_mask
 		return int(int(class(self).GetCollisionMask()))
 }
+
+func (o *Extension[T]) CollisionMask() int { return o.Super().CollisionMask() }
 
 // SetCollisionMask sets the property returned by [GetCollisionMask]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCollisionMask(value int) Instance { //gd:PhysicsDirectBodyState3D.collision_mask
@@ -393,14 +443,26 @@ func (self Instance) SetCollisionMask(value int) Instance { //gd:PhysicsDirectBo
 	return self
 }
 
+func (o *Extension[T]) SetCollisionMask(value int) *Extension[T] {
+	o.Super().SetCollisionMask(value)
+	return o
+}
+
 func (self Instance) Transform() Transform3D.BasisOrigin { //gd:PhysicsDirectBodyState3D.transform
 		return Transform3D.BasisOrigin(class(self).GetTransform())
 }
+
+func (o *Extension[T]) Transform() Transform3D.BasisOrigin { return o.Super().Transform() }
 
 // SetTransform sets the property returned by [GetTransform]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTransform(value Transform3D.BasisOrigin) Instance { //gd:PhysicsDirectBodyState3D.transform
 	class(self).SetTransform(Transform3D.BasisOrigin(value))
 	return self
+}
+
+func (o *Extension[T]) SetTransform(value Transform3D.BasisOrigin) *Extension[T] {
+	o.Super().SetTransform(value)
+	return o
 }
 
 func (self class) GetTotalGravity() Vector3.XYZ { //gd:PhysicsDirectBodyState3D.get_total_gravity

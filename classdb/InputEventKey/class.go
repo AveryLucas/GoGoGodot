@@ -191,9 +191,16 @@ func (self Instance) SetPressed(value bool) Instance { //gd:InputEventKey.presse
 	return self
 }
 
+func (o *Extension[T]) SetPressed(value bool) *Extension[T] {
+	o.Super().SetPressed(value)
+	return o
+}
+
 func (self Instance) Keycode() Input.Key { //gd:InputEventKey.keycode
 		return Input.Key(class(self).GetKeycode())
 }
+
+func (o *Extension[T]) Keycode() Input.Key { return o.Super().Keycode() }
 
 // SetKeycode sets the property returned by [GetKeycode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetKeycode(value Input.Key) Instance { //gd:InputEventKey.keycode
@@ -201,9 +208,16 @@ func (self Instance) SetKeycode(value Input.Key) Instance { //gd:InputEventKey.k
 	return self
 }
 
+func (o *Extension[T]) SetKeycode(value Input.Key) *Extension[T] {
+	o.Super().SetKeycode(value)
+	return o
+}
+
 func (self Instance) PhysicalKeycode() Input.Key { //gd:InputEventKey.physical_keycode
 		return Input.Key(class(self).GetPhysicalKeycode())
 }
+
+func (o *Extension[T]) PhysicalKeycode() Input.Key { return o.Super().PhysicalKeycode() }
 
 // SetPhysicalKeycode sets the property returned by [GetPhysicalKeycode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPhysicalKeycode(value Input.Key) Instance { //gd:InputEventKey.physical_keycode
@@ -211,9 +225,16 @@ func (self Instance) SetPhysicalKeycode(value Input.Key) Instance { //gd:InputEv
 	return self
 }
 
+func (o *Extension[T]) SetPhysicalKeycode(value Input.Key) *Extension[T] {
+	o.Super().SetPhysicalKeycode(value)
+	return o
+}
+
 func (self Instance) KeyLabel() Input.Key { //gd:InputEventKey.key_label
 		return Input.Key(class(self).GetKeyLabel())
 }
+
+func (o *Extension[T]) KeyLabel() Input.Key { return o.Super().KeyLabel() }
 
 // SetKeyLabel sets the property returned by [GetKeyLabel]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetKeyLabel(value Input.Key) Instance { //gd:InputEventKey.key_label
@@ -221,9 +242,16 @@ func (self Instance) SetKeyLabel(value Input.Key) Instance { //gd:InputEventKey.
 	return self
 }
 
+func (o *Extension[T]) SetKeyLabel(value Input.Key) *Extension[T] {
+	o.Super().SetKeyLabel(value)
+	return o
+}
+
 func (self Instance) Unicode() int { //gd:InputEventKey.unicode
 		return int(int(class(self).GetUnicode()))
 }
+
+func (o *Extension[T]) Unicode() int { return o.Super().Unicode() }
 
 // SetUnicode sets the property returned by [GetUnicode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUnicode(value int) Instance { //gd:InputEventKey.unicode
@@ -231,9 +259,16 @@ func (self Instance) SetUnicode(value int) Instance { //gd:InputEventKey.unicode
 	return self
 }
 
+func (o *Extension[T]) SetUnicode(value int) *Extension[T] {
+	o.Super().SetUnicode(value)
+	return o
+}
+
 func (self Instance) Location() Input.KeyLocation { //gd:InputEventKey.location
 		return Input.KeyLocation(class(self).GetLocation())
 }
+
+func (o *Extension[T]) Location() Input.KeyLocation { return o.Super().Location() }
 
 // SetLocation sets the property returned by [GetLocation]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetLocation(value Input.KeyLocation) Instance { //gd:InputEventKey.location
@@ -241,9 +276,19 @@ func (self Instance) SetLocation(value Input.KeyLocation) Instance { //gd:InputE
 	return self
 }
 
+func (o *Extension[T]) SetLocation(value Input.KeyLocation) *Extension[T] {
+	o.Super().SetLocation(value)
+	return o
+}
+
 func (self Instance) SetEcho(value bool) Instance { //gd:InputEventKey.echo
 	class(self).SetEcho(value)
 	return self
+}
+
+func (o *Extension[T]) SetEcho(value bool) *Extension[T] {
+	o.Super().SetEcho(value)
+	return o
 }
 
 func (self class) SetPressed(pressed bool)  { //gd:InputEventKey.set_pressed
@@ -569,6 +614,105 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// CommandOrControlAutoremap is promoted from [InputEventWithModifiers.Instance.CommandOrControlAutoremap].
+func (o *Extension[T]) CommandOrControlAutoremap() bool { return o.Super().AsInputEventWithModifiers().CommandOrControlAutoremap() }
+
+// SetCommandOrControlAutoremap is promoted from [InputEventWithModifiers.Instance.SetCommandOrControlAutoremap].
+func (o *Extension[T]) SetCommandOrControlAutoremap(value bool) *Extension[T] {
+	o.Super().AsInputEventWithModifiers().SetCommandOrControlAutoremap(value)
+	return o
+}
+
+// AltPressed is promoted from [InputEventWithModifiers.Instance.AltPressed].
+func (o *Extension[T]) AltPressed() bool { return o.Super().AsInputEventWithModifiers().AltPressed() }
+
+// SetAltPressed is promoted from [InputEventWithModifiers.Instance.SetAltPressed].
+func (o *Extension[T]) SetAltPressed(value bool) *Extension[T] {
+	o.Super().AsInputEventWithModifiers().SetAltPressed(value)
+	return o
+}
+
+// ShiftPressed is promoted from [InputEventWithModifiers.Instance.ShiftPressed].
+func (o *Extension[T]) ShiftPressed() bool { return o.Super().AsInputEventWithModifiers().ShiftPressed() }
+
+// SetShiftPressed is promoted from [InputEventWithModifiers.Instance.SetShiftPressed].
+func (o *Extension[T]) SetShiftPressed(value bool) *Extension[T] {
+	o.Super().AsInputEventWithModifiers().SetShiftPressed(value)
+	return o
+}
+
+// CtrlPressed is promoted from [InputEventWithModifiers.Instance.CtrlPressed].
+func (o *Extension[T]) CtrlPressed() bool { return o.Super().AsInputEventWithModifiers().CtrlPressed() }
+
+// SetCtrlPressed is promoted from [InputEventWithModifiers.Instance.SetCtrlPressed].
+func (o *Extension[T]) SetCtrlPressed(value bool) *Extension[T] {
+	o.Super().AsInputEventWithModifiers().SetCtrlPressed(value)
+	return o
+}
+
+// MetaPressed is promoted from [InputEventWithModifiers.Instance.MetaPressed].
+func (o *Extension[T]) MetaPressed() bool { return o.Super().AsInputEventWithModifiers().MetaPressed() }
+
+// SetMetaPressed is promoted from [InputEventWithModifiers.Instance.SetMetaPressed].
+func (o *Extension[T]) SetMetaPressed(value bool) *Extension[T] {
+	o.Super().AsInputEventWithModifiers().SetMetaPressed(value)
+	return o
+}
+
+// WindowId is promoted from [InputEventFromWindow.Instance.WindowId].
+func (o *Extension[T]) WindowId() int { return o.Super().AsInputEventFromWindow().WindowId() }
+
+// SetWindowId is promoted from [InputEventFromWindow.Instance.SetWindowId].
+func (o *Extension[T]) SetWindowId(value int) *Extension[T] {
+	o.Super().AsInputEventFromWindow().SetWindowId(value)
+	return o
+}
+
+// Device is promoted from [InputEvent.Instance.Device].
+func (o *Extension[T]) Device() int { return o.Super().AsInputEvent().Device() }
+
+// SetDevice is promoted from [InputEvent.Instance.SetDevice].
+func (o *Extension[T]) SetDevice(value int) *Extension[T] {
+	o.Super().AsInputEvent().SetDevice(value)
+	return o
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

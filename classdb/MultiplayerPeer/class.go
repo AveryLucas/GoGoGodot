@@ -205,15 +205,24 @@ func (self Instance) RefuseNewConnections() bool { //gd:MultiplayerPeer.refuse_n
 		return bool(class(self).IsRefusingNewConnections())
 }
 
+func (o *Extension[T]) RefuseNewConnections() bool { return o.Super().RefuseNewConnections() }
+
 // SetRefuseNewConnections sets the property returned by [IsRefusingNewConnections]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRefuseNewConnections(value bool) Instance { //gd:MultiplayerPeer.refuse_new_connections
 	class(self).SetRefuseNewConnections(value)
 	return self
 }
 
+func (o *Extension[T]) SetRefuseNewConnections(value bool) *Extension[T] {
+	o.Super().SetRefuseNewConnections(value)
+	return o
+}
+
 func (self Instance) TransferMode() TransferMode { //gd:MultiplayerPeer.transfer_mode
 		return TransferMode(class(self).GetTransferMode())
 }
+
+func (o *Extension[T]) TransferMode() TransferMode { return o.Super().TransferMode() }
 
 // SetTransferMode sets the property returned by [GetTransferMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTransferMode(value TransferMode) Instance { //gd:MultiplayerPeer.transfer_mode
@@ -221,14 +230,26 @@ func (self Instance) SetTransferMode(value TransferMode) Instance { //gd:Multipl
 	return self
 }
 
+func (o *Extension[T]) SetTransferMode(value TransferMode) *Extension[T] {
+	o.Super().SetTransferMode(value)
+	return o
+}
+
 func (self Instance) TransferChannel() int { //gd:MultiplayerPeer.transfer_channel
 		return int(int(class(self).GetTransferChannel()))
 }
+
+func (o *Extension[T]) TransferChannel() int { return o.Super().TransferChannel() }
 
 // SetTransferChannel sets the property returned by [GetTransferChannel]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTransferChannel(value int) Instance { //gd:MultiplayerPeer.transfer_channel
 	class(self).SetTransferChannel(int64(value))
 	return self
+}
+
+func (o *Extension[T]) SetTransferChannel(value int) *Extension[T] {
+	o.Super().SetTransferChannel(value)
+	return o
 }
 
 func (self class) SetTransferChannel(channel int64)  { //gd:MultiplayerPeer.set_transfer_channel
@@ -409,6 +430,15 @@ func (self Instance) GetAvailablePacketCount() int {
 // GetAvailablePacketCount is promoted from [PacketPeer.Instance.GetAvailablePacketCount].
 func (o *Extension[T]) GetAvailablePacketCount() int {
 	return o.Super().AsPacketPeer().GetAvailablePacketCount()
+}
+
+// EncodeBufferMaxSize is promoted from [PacketPeer.Instance.EncodeBufferMaxSize].
+func (o *Extension[T]) EncodeBufferMaxSize() int { return o.Super().AsPacketPeer().EncodeBufferMaxSize() }
+
+// SetEncodeBufferMaxSize is promoted from [PacketPeer.Instance.SetEncodeBufferMaxSize].
+func (o *Extension[T]) SetEncodeBufferMaxSize(value int) *Extension[T] {
+	o.Super().AsPacketPeer().SetEncodeBufferMaxSize(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

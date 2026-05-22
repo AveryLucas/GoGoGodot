@@ -173,15 +173,24 @@ func (self Instance) Dry() Float.X { //gd:AudioEffectDelay.dry
 		return Float.X(Float.X(class(self).GetDry()))
 }
 
+func (o *Extension[T]) Dry() Float.X { return o.Super().Dry() }
+
 // SetDry sets the property returned by [GetDry]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDry(value Float.X) Instance { //gd:AudioEffectDelay.dry
 	class(self).SetDry(float64(value))
 	return self
 }
 
+func (o *Extension[T]) SetDry(value Float.X) *Extension[T] {
+	o.Super().SetDry(value)
+	return o
+}
+
 func (self Instance) Tap1Active() bool { //gd:AudioEffectDelay.tap1_active
 		return bool(class(self).IsTap1Active())
 }
+
+func (o *Extension[T]) Tap1Active() bool { return o.Super().Tap1Active() }
 
 // SetTap1Active sets the property returned by [IsTap1Active]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTap1Active(value bool) Instance { //gd:AudioEffectDelay.tap1_active
@@ -189,9 +198,16 @@ func (self Instance) SetTap1Active(value bool) Instance { //gd:AudioEffectDelay.
 	return self
 }
 
+func (o *Extension[T]) SetTap1Active(value bool) *Extension[T] {
+	o.Super().SetTap1Active(value)
+	return o
+}
+
 func (self Instance) Tap1DelayMs() Float.X { //gd:AudioEffectDelay.tap1_delay_ms
 		return Float.X(Float.X(class(self).GetTap1DelayMs()))
 }
+
+func (o *Extension[T]) Tap1DelayMs() Float.X { return o.Super().Tap1DelayMs() }
 
 // SetTap1DelayMs sets the property returned by [GetTap1DelayMs]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTap1DelayMs(value Float.X) Instance { //gd:AudioEffectDelay.tap1_delay_ms
@@ -199,9 +215,16 @@ func (self Instance) SetTap1DelayMs(value Float.X) Instance { //gd:AudioEffectDe
 	return self
 }
 
+func (o *Extension[T]) SetTap1DelayMs(value Float.X) *Extension[T] {
+	o.Super().SetTap1DelayMs(value)
+	return o
+}
+
 func (self Instance) Tap1LevelDb() Float.X { //gd:AudioEffectDelay.tap1_level_db
 		return Float.X(Float.X(class(self).GetTap1LevelDb()))
 }
+
+func (o *Extension[T]) Tap1LevelDb() Float.X { return o.Super().Tap1LevelDb() }
 
 // SetTap1LevelDb sets the property returned by [GetTap1LevelDb]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTap1LevelDb(value Float.X) Instance { //gd:AudioEffectDelay.tap1_level_db
@@ -209,9 +232,16 @@ func (self Instance) SetTap1LevelDb(value Float.X) Instance { //gd:AudioEffectDe
 	return self
 }
 
+func (o *Extension[T]) SetTap1LevelDb(value Float.X) *Extension[T] {
+	o.Super().SetTap1LevelDb(value)
+	return o
+}
+
 func (self Instance) Tap1Pan() Float.X { //gd:AudioEffectDelay.tap1_pan
 		return Float.X(Float.X(class(self).GetTap1Pan()))
 }
+
+func (o *Extension[T]) Tap1Pan() Float.X { return o.Super().Tap1Pan() }
 
 // SetTap1Pan sets the property returned by [GetTap1Pan]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTap1Pan(value Float.X) Instance { //gd:AudioEffectDelay.tap1_pan
@@ -219,9 +249,16 @@ func (self Instance) SetTap1Pan(value Float.X) Instance { //gd:AudioEffectDelay.
 	return self
 }
 
+func (o *Extension[T]) SetTap1Pan(value Float.X) *Extension[T] {
+	o.Super().SetTap1Pan(value)
+	return o
+}
+
 func (self Instance) Tap2Active() bool { //gd:AudioEffectDelay.tap2_active
 		return bool(class(self).IsTap2Active())
 }
+
+func (o *Extension[T]) Tap2Active() bool { return o.Super().Tap2Active() }
 
 // SetTap2Active sets the property returned by [IsTap2Active]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTap2Active(value bool) Instance { //gd:AudioEffectDelay.tap2_active
@@ -229,9 +266,16 @@ func (self Instance) SetTap2Active(value bool) Instance { //gd:AudioEffectDelay.
 	return self
 }
 
+func (o *Extension[T]) SetTap2Active(value bool) *Extension[T] {
+	o.Super().SetTap2Active(value)
+	return o
+}
+
 func (self Instance) Tap2DelayMs() Float.X { //gd:AudioEffectDelay.tap2_delay_ms
 		return Float.X(Float.X(class(self).GetTap2DelayMs()))
 }
+
+func (o *Extension[T]) Tap2DelayMs() Float.X { return o.Super().Tap2DelayMs() }
 
 // SetTap2DelayMs sets the property returned by [GetTap2DelayMs]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTap2DelayMs(value Float.X) Instance { //gd:AudioEffectDelay.tap2_delay_ms
@@ -239,9 +283,16 @@ func (self Instance) SetTap2DelayMs(value Float.X) Instance { //gd:AudioEffectDe
 	return self
 }
 
+func (o *Extension[T]) SetTap2DelayMs(value Float.X) *Extension[T] {
+	o.Super().SetTap2DelayMs(value)
+	return o
+}
+
 func (self Instance) Tap2LevelDb() Float.X { //gd:AudioEffectDelay.tap2_level_db
 		return Float.X(Float.X(class(self).GetTap2LevelDb()))
 }
+
+func (o *Extension[T]) Tap2LevelDb() Float.X { return o.Super().Tap2LevelDb() }
 
 // SetTap2LevelDb sets the property returned by [GetTap2LevelDb]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTap2LevelDb(value Float.X) Instance { //gd:AudioEffectDelay.tap2_level_db
@@ -249,9 +300,16 @@ func (self Instance) SetTap2LevelDb(value Float.X) Instance { //gd:AudioEffectDe
 	return self
 }
 
+func (o *Extension[T]) SetTap2LevelDb(value Float.X) *Extension[T] {
+	o.Super().SetTap2LevelDb(value)
+	return o
+}
+
 func (self Instance) Tap2Pan() Float.X { //gd:AudioEffectDelay.tap2_pan
 		return Float.X(Float.X(class(self).GetTap2Pan()))
 }
+
+func (o *Extension[T]) Tap2Pan() Float.X { return o.Super().Tap2Pan() }
 
 // SetTap2Pan sets the property returned by [GetTap2Pan]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTap2Pan(value Float.X) Instance { //gd:AudioEffectDelay.tap2_pan
@@ -259,9 +317,16 @@ func (self Instance) SetTap2Pan(value Float.X) Instance { //gd:AudioEffectDelay.
 	return self
 }
 
+func (o *Extension[T]) SetTap2Pan(value Float.X) *Extension[T] {
+	o.Super().SetTap2Pan(value)
+	return o
+}
+
 func (self Instance) FeedbackActive() bool { //gd:AudioEffectDelay.feedback_active
 		return bool(class(self).IsFeedbackActive())
 }
+
+func (o *Extension[T]) FeedbackActive() bool { return o.Super().FeedbackActive() }
 
 // SetFeedbackActive sets the property returned by [IsFeedbackActive]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFeedbackActive(value bool) Instance { //gd:AudioEffectDelay.feedback_active
@@ -269,9 +334,16 @@ func (self Instance) SetFeedbackActive(value bool) Instance { //gd:AudioEffectDe
 	return self
 }
 
+func (o *Extension[T]) SetFeedbackActive(value bool) *Extension[T] {
+	o.Super().SetFeedbackActive(value)
+	return o
+}
+
 func (self Instance) FeedbackDelayMs() Float.X { //gd:AudioEffectDelay.feedback_delay_ms
 		return Float.X(Float.X(class(self).GetFeedbackDelayMs()))
 }
+
+func (o *Extension[T]) FeedbackDelayMs() Float.X { return o.Super().FeedbackDelayMs() }
 
 // SetFeedbackDelayMs sets the property returned by [GetFeedbackDelayMs]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFeedbackDelayMs(value Float.X) Instance { //gd:AudioEffectDelay.feedback_delay_ms
@@ -279,9 +351,16 @@ func (self Instance) SetFeedbackDelayMs(value Float.X) Instance { //gd:AudioEffe
 	return self
 }
 
+func (o *Extension[T]) SetFeedbackDelayMs(value Float.X) *Extension[T] {
+	o.Super().SetFeedbackDelayMs(value)
+	return o
+}
+
 func (self Instance) FeedbackLevelDb() Float.X { //gd:AudioEffectDelay.feedback_level_db
 		return Float.X(Float.X(class(self).GetFeedbackLevelDb()))
 }
+
+func (o *Extension[T]) FeedbackLevelDb() Float.X { return o.Super().FeedbackLevelDb() }
 
 // SetFeedbackLevelDb sets the property returned by [GetFeedbackLevelDb]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFeedbackLevelDb(value Float.X) Instance { //gd:AudioEffectDelay.feedback_level_db
@@ -289,14 +368,26 @@ func (self Instance) SetFeedbackLevelDb(value Float.X) Instance { //gd:AudioEffe
 	return self
 }
 
+func (o *Extension[T]) SetFeedbackLevelDb(value Float.X) *Extension[T] {
+	o.Super().SetFeedbackLevelDb(value)
+	return o
+}
+
 func (self Instance) FeedbackLowpass() Float.X { //gd:AudioEffectDelay.feedback_lowpass
 		return Float.X(Float.X(class(self).GetFeedbackLowpass()))
 }
+
+func (o *Extension[T]) FeedbackLowpass() Float.X { return o.Super().FeedbackLowpass() }
 
 // SetFeedbackLowpass sets the property returned by [GetFeedbackLowpass]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFeedbackLowpass(value Float.X) Instance { //gd:AudioEffectDelay.feedback_lowpass
 	class(self).SetFeedbackLowpass(float64(value))
 	return self
+}
+
+func (o *Extension[T]) SetFeedbackLowpass(value Float.X) *Extension[T] {
+	o.Super().SetFeedbackLowpass(value)
+	return o
 }
 
 func (self class) SetDry(amount float64)  { //gd:AudioEffectDelay.set_dry
@@ -528,6 +619,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

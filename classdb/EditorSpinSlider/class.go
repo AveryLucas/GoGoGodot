@@ -20,13 +20,17 @@ import "graphics.gd/variant/Signal"
 import "graphics.gd/classdb/CanvasItem"
 import "graphics.gd/classdb/CanvasLayer"
 import "graphics.gd/classdb/Control"
+import "graphics.gd/classdb/DisplayServer"
 import "graphics.gd/classdb/Font"
 import "graphics.gd/classdb/InputEvent"
+import "graphics.gd/classdb/Material"
 import "graphics.gd/classdb/MultiMesh"
+import "graphics.gd/classdb/MultiplayerAPI"
 import "graphics.gd/classdb/Node"
 import "graphics.gd/classdb/Range"
 import "graphics.gd/classdb/StyleBox"
 import "graphics.gd/classdb/Texture2D"
+import "graphics.gd/classdb/Theme"
 import "graphics.gd/classdb/Tween"
 import "graphics.gd/classdb/World2D"
 import "graphics.gd/variant/Array"
@@ -174,15 +178,24 @@ func (self Instance) Label() string { //gd:EditorSpinSlider.label
 		return string(class(self).GetLabel().String())
 }
 
+func (o *Extension[T]) Label() string { return o.Super().Label() }
+
 // SetLabel sets the property returned by [GetLabel]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetLabel(value string) Instance { //gd:EditorSpinSlider.label
 	class(self).SetLabel(String.From(value))
 	return self
 }
 
+func (o *Extension[T]) SetLabel(value string) *Extension[T] {
+	o.Super().SetLabel(value)
+	return o
+}
+
 func (self Instance) Suffix() string { //gd:EditorSpinSlider.suffix
 		return string(class(self).GetSuffix().String())
 }
+
+func (o *Extension[T]) Suffix() string { return o.Super().Suffix() }
 
 // SetSuffix sets the property returned by [GetSuffix]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSuffix(value string) Instance { //gd:EditorSpinSlider.suffix
@@ -190,9 +203,16 @@ func (self Instance) SetSuffix(value string) Instance { //gd:EditorSpinSlider.su
 	return self
 }
 
+func (o *Extension[T]) SetSuffix(value string) *Extension[T] {
+	o.Super().SetSuffix(value)
+	return o
+}
+
 func (self Instance) ReadOnly() bool { //gd:EditorSpinSlider.read_only
 		return bool(class(self).IsReadOnly())
 }
+
+func (o *Extension[T]) ReadOnly() bool { return o.Super().ReadOnly() }
 
 // SetReadOnly sets the property returned by [IsReadOnly]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetReadOnly(value bool) Instance { //gd:EditorSpinSlider.read_only
@@ -200,9 +220,16 @@ func (self Instance) SetReadOnly(value bool) Instance { //gd:EditorSpinSlider.re
 	return self
 }
 
+func (o *Extension[T]) SetReadOnly(value bool) *Extension[T] {
+	o.Super().SetReadOnly(value)
+	return o
+}
+
 func (self Instance) Flat() bool { //gd:EditorSpinSlider.flat
 		return bool(class(self).IsFlat())
 }
+
+func (o *Extension[T]) Flat() bool { return o.Super().Flat() }
 
 // SetFlat sets the property returned by [IsFlat]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFlat(value bool) Instance { //gd:EditorSpinSlider.flat
@@ -210,9 +237,16 @@ func (self Instance) SetFlat(value bool) Instance { //gd:EditorSpinSlider.flat
 	return self
 }
 
+func (o *Extension[T]) SetFlat(value bool) *Extension[T] {
+	o.Super().SetFlat(value)
+	return o
+}
+
 func (self Instance) ControlState() ControlState { //gd:EditorSpinSlider.control_state
 		return ControlState(class(self).GetControlState())
 }
+
+func (o *Extension[T]) ControlState() ControlState { return o.Super().ControlState() }
 
 // SetControlState sets the property returned by [GetControlState]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetControlState(value ControlState) Instance { //gd:EditorSpinSlider.control_state
@@ -220,9 +254,16 @@ func (self Instance) SetControlState(value ControlState) Instance { //gd:EditorS
 	return self
 }
 
+func (o *Extension[T]) SetControlState(value ControlState) *Extension[T] {
+	o.Super().SetControlState(value)
+	return o
+}
+
 func (self Instance) HideSlider() bool { //gd:EditorSpinSlider.hide_slider
 		return bool(class(self).IsHidingSlider())
 }
+
+func (o *Extension[T]) HideSlider() bool { return o.Super().HideSlider() }
 
 // SetHideSlider sets the property returned by [IsHidingSlider]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetHideSlider(value bool) Instance { //gd:EditorSpinSlider.hide_slider
@@ -230,14 +271,26 @@ func (self Instance) SetHideSlider(value bool) Instance { //gd:EditorSpinSlider.
 	return self
 }
 
+func (o *Extension[T]) SetHideSlider(value bool) *Extension[T] {
+	o.Super().SetHideSlider(value)
+	return o
+}
+
 func (self Instance) EditingInteger() bool { //gd:EditorSpinSlider.editing_integer
 		return bool(class(self).IsEditingInteger())
 }
+
+func (o *Extension[T]) EditingInteger() bool { return o.Super().EditingInteger() }
 
 // SetEditingInteger sets the property returned by [IsEditingInteger]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEditingInteger(value bool) Instance { //gd:EditorSpinSlider.editing_integer
 	class(self).SetEditingInteger(value)
 	return self
+}
+
+func (o *Extension[T]) SetEditingInteger(value bool) *Extension[T] {
+	o.Super().SetEditingInteger(value)
+	return o
 }
 
 func (self class) SetLabel(label String.Readable)  { //gd:EditorSpinSlider.set_label
@@ -2226,6 +2279,759 @@ func (self Instance) NotifyThreadSafe(what int) {
 // NotifyThreadSafe is promoted from [Node.Instance.NotifyThreadSafe].
 func (o *Extension[T]) NotifyThreadSafe(what int) {
 	o.Super().AsNode().NotifyThreadSafe(what)
+}
+
+// MinValue is promoted from [Range.Instance.MinValue].
+func (o *Extension[T]) MinValue() Float.X { return o.Super().AsRange().MinValue() }
+
+// SetMinValue is promoted from [Range.Instance.SetMinValue].
+func (o *Extension[T]) SetMinValue(value Float.X) *Extension[T] {
+	o.Super().AsRange().SetMinValue(value)
+	return o
+}
+
+// MaxValue is promoted from [Range.Instance.MaxValue].
+func (o *Extension[T]) MaxValue() Float.X { return o.Super().AsRange().MaxValue() }
+
+// SetMaxValue is promoted from [Range.Instance.SetMaxValue].
+func (o *Extension[T]) SetMaxValue(value Float.X) *Extension[T] {
+	o.Super().AsRange().SetMaxValue(value)
+	return o
+}
+
+// Step is promoted from [Range.Instance.Step].
+func (o *Extension[T]) Step() Float.X { return o.Super().AsRange().Step() }
+
+// SetStep is promoted from [Range.Instance.SetStep].
+func (o *Extension[T]) SetStep(value Float.X) *Extension[T] {
+	o.Super().AsRange().SetStep(value)
+	return o
+}
+
+// Page is promoted from [Range.Instance.Page].
+func (o *Extension[T]) Page() Float.X { return o.Super().AsRange().Page() }
+
+// SetPage is promoted from [Range.Instance.SetPage].
+func (o *Extension[T]) SetPage(value Float.X) *Extension[T] {
+	o.Super().AsRange().SetPage(value)
+	return o
+}
+
+// Value is promoted from [Range.Instance.Value].
+func (o *Extension[T]) Value() Float.X { return o.Super().AsRange().Value() }
+
+// SetValue is promoted from [Range.Instance.SetValue].
+func (o *Extension[T]) SetValue(value Float.X) *Extension[T] {
+	o.Super().AsRange().SetValue(value)
+	return o
+}
+
+// Ratio is promoted from [Range.Instance.Ratio].
+func (o *Extension[T]) Ratio() Float.X { return o.Super().AsRange().Ratio() }
+
+// SetRatio is promoted from [Range.Instance.SetRatio].
+func (o *Extension[T]) SetRatio(value Float.X) *Extension[T] {
+	o.Super().AsRange().SetRatio(value)
+	return o
+}
+
+// ExpEdit is promoted from [Range.Instance.ExpEdit].
+func (o *Extension[T]) ExpEdit() bool { return o.Super().AsRange().ExpEdit() }
+
+// SetExpEdit is promoted from [Range.Instance.SetExpEdit].
+func (o *Extension[T]) SetExpEdit(value bool) *Extension[T] {
+	o.Super().AsRange().SetExpEdit(value)
+	return o
+}
+
+// Rounded is promoted from [Range.Instance.Rounded].
+func (o *Extension[T]) Rounded() bool { return o.Super().AsRange().Rounded() }
+
+// SetRounded is promoted from [Range.Instance.SetRounded].
+func (o *Extension[T]) SetRounded(value bool) *Extension[T] {
+	o.Super().AsRange().SetRounded(value)
+	return o
+}
+
+// AllowGreater is promoted from [Range.Instance.AllowGreater].
+func (o *Extension[T]) AllowGreater() bool { return o.Super().AsRange().AllowGreater() }
+
+// SetAllowGreater is promoted from [Range.Instance.SetAllowGreater].
+func (o *Extension[T]) SetAllowGreater(value bool) *Extension[T] {
+	o.Super().AsRange().SetAllowGreater(value)
+	return o
+}
+
+// AllowLesser is promoted from [Range.Instance.AllowLesser].
+func (o *Extension[T]) AllowLesser() bool { return o.Super().AsRange().AllowLesser() }
+
+// SetAllowLesser is promoted from [Range.Instance.SetAllowLesser].
+func (o *Extension[T]) SetAllowLesser(value bool) *Extension[T] {
+	o.Super().AsRange().SetAllowLesser(value)
+	return o
+}
+
+// ClipContents is promoted from [Control.Instance.ClipContents].
+func (o *Extension[T]) ClipContents() bool { return o.Super().AsControl().ClipContents() }
+
+// SetClipContents is promoted from [Control.Instance.SetClipContents].
+func (o *Extension[T]) SetClipContents(value bool) *Extension[T] {
+	o.Super().AsControl().SetClipContents(value)
+	return o
+}
+
+// CustomMinimumSize is promoted from [Control.Instance.CustomMinimumSize].
+func (o *Extension[T]) CustomMinimumSize() Vector2.XY { return o.Super().AsControl().CustomMinimumSize() }
+
+// SetCustomMinimumSize is promoted from [Control.Instance.SetCustomMinimumSize].
+func (o *Extension[T]) SetCustomMinimumSize(value Vector2.XY) *Extension[T] {
+	o.Super().AsControl().SetCustomMinimumSize(value)
+	return o
+}
+
+// LayoutDirection is promoted from [Control.Instance.LayoutDirection].
+func (o *Extension[T]) LayoutDirection() Control.LayoutDirection { return o.Super().AsControl().LayoutDirection() }
+
+// SetLayoutDirection is promoted from [Control.Instance.SetLayoutDirection].
+func (o *Extension[T]) SetLayoutDirection(value Control.LayoutDirection) *Extension[T] {
+	o.Super().AsControl().SetLayoutDirection(value)
+	return o
+}
+
+// AnchorLeft is promoted from [Control.Instance.AnchorLeft].
+func (o *Extension[T]) AnchorLeft() Float.X { return o.Super().AsControl().AnchorLeft() }
+
+// AnchorTop is promoted from [Control.Instance.AnchorTop].
+func (o *Extension[T]) AnchorTop() Float.X { return o.Super().AsControl().AnchorTop() }
+
+// AnchorRight is promoted from [Control.Instance.AnchorRight].
+func (o *Extension[T]) AnchorRight() Float.X { return o.Super().AsControl().AnchorRight() }
+
+// AnchorBottom is promoted from [Control.Instance.AnchorBottom].
+func (o *Extension[T]) AnchorBottom() Float.X { return o.Super().AsControl().AnchorBottom() }
+
+// OffsetLeft is promoted from [Control.Instance.OffsetLeft].
+func (o *Extension[T]) OffsetLeft() Float.X { return o.Super().AsControl().OffsetLeft() }
+
+// SetOffsetLeft is promoted from [Control.Instance.SetOffsetLeft].
+func (o *Extension[T]) SetOffsetLeft(value Float.X) *Extension[T] {
+	o.Super().AsControl().SetOffsetLeft(value)
+	return o
+}
+
+// OffsetTop is promoted from [Control.Instance.OffsetTop].
+func (o *Extension[T]) OffsetTop() Float.X { return o.Super().AsControl().OffsetTop() }
+
+// SetOffsetTop is promoted from [Control.Instance.SetOffsetTop].
+func (o *Extension[T]) SetOffsetTop(value Float.X) *Extension[T] {
+	o.Super().AsControl().SetOffsetTop(value)
+	return o
+}
+
+// OffsetRight is promoted from [Control.Instance.OffsetRight].
+func (o *Extension[T]) OffsetRight() Float.X { return o.Super().AsControl().OffsetRight() }
+
+// SetOffsetRight is promoted from [Control.Instance.SetOffsetRight].
+func (o *Extension[T]) SetOffsetRight(value Float.X) *Extension[T] {
+	o.Super().AsControl().SetOffsetRight(value)
+	return o
+}
+
+// OffsetBottom is promoted from [Control.Instance.OffsetBottom].
+func (o *Extension[T]) OffsetBottom() Float.X { return o.Super().AsControl().OffsetBottom() }
+
+// SetOffsetBottom is promoted from [Control.Instance.SetOffsetBottom].
+func (o *Extension[T]) SetOffsetBottom(value Float.X) *Extension[T] {
+	o.Super().AsControl().SetOffsetBottom(value)
+	return o
+}
+
+// GrowHorizontal is promoted from [Control.Instance.GrowHorizontal].
+func (o *Extension[T]) GrowHorizontal() Control.GrowDirection { return o.Super().AsControl().GrowHorizontal() }
+
+// SetGrowHorizontal is promoted from [Control.Instance.SetGrowHorizontal].
+func (o *Extension[T]) SetGrowHorizontal(value Control.GrowDirection) *Extension[T] {
+	o.Super().AsControl().SetGrowHorizontal(value)
+	return o
+}
+
+// GrowVertical is promoted from [Control.Instance.GrowVertical].
+func (o *Extension[T]) GrowVertical() Control.GrowDirection { return o.Super().AsControl().GrowVertical() }
+
+// SetGrowVertical is promoted from [Control.Instance.SetGrowVertical].
+func (o *Extension[T]) SetGrowVertical(value Control.GrowDirection) *Extension[T] {
+	o.Super().AsControl().SetGrowVertical(value)
+	return o
+}
+
+// Size is promoted from [Control.Instance.Size].
+func (o *Extension[T]) Size() Vector2.XY { return o.Super().AsControl().Size() }
+
+// Position is promoted from [Control.Instance.Position].
+func (o *Extension[T]) Position() Vector2.XY { return o.Super().AsControl().Position() }
+
+// GlobalPosition is promoted from [Control.Instance.GlobalPosition].
+func (o *Extension[T]) GlobalPosition() Vector2.XY { return o.Super().AsControl().GlobalPosition() }
+
+// Rotation is promoted from [Control.Instance.Rotation].
+func (o *Extension[T]) Rotation() Float.X { return o.Super().AsControl().Rotation() }
+
+// SetRotation is promoted from [Control.Instance.SetRotation].
+func (o *Extension[T]) SetRotation(value Float.X) *Extension[T] {
+	o.Super().AsControl().SetRotation(value)
+	return o
+}
+
+// RotationDegrees is promoted from [Control.Instance.RotationDegrees].
+func (o *Extension[T]) RotationDegrees() Float.X { return o.Super().AsControl().RotationDegrees() }
+
+// SetRotationDegrees is promoted from [Control.Instance.SetRotationDegrees].
+func (o *Extension[T]) SetRotationDegrees(value Float.X) *Extension[T] {
+	o.Super().AsControl().SetRotationDegrees(value)
+	return o
+}
+
+// Scale is promoted from [Control.Instance.Scale].
+func (o *Extension[T]) Scale() Vector2.XY { return o.Super().AsControl().Scale() }
+
+// SetScale is promoted from [Control.Instance.SetScale].
+func (o *Extension[T]) SetScale(value Vector2.XY) *Extension[T] {
+	o.Super().AsControl().SetScale(value)
+	return o
+}
+
+// PivotOffset is promoted from [Control.Instance.PivotOffset].
+func (o *Extension[T]) PivotOffset() Vector2.XY { return o.Super().AsControl().PivotOffset() }
+
+// SetPivotOffset is promoted from [Control.Instance.SetPivotOffset].
+func (o *Extension[T]) SetPivotOffset(value Vector2.XY) *Extension[T] {
+	o.Super().AsControl().SetPivotOffset(value)
+	return o
+}
+
+// PivotOffsetRatio is promoted from [Control.Instance.PivotOffsetRatio].
+func (o *Extension[T]) PivotOffsetRatio() Vector2.XY { return o.Super().AsControl().PivotOffsetRatio() }
+
+// SetPivotOffsetRatio is promoted from [Control.Instance.SetPivotOffsetRatio].
+func (o *Extension[T]) SetPivotOffsetRatio(value Vector2.XY) *Extension[T] {
+	o.Super().AsControl().SetPivotOffsetRatio(value)
+	return o
+}
+
+// SizeFlagsHorizontal is promoted from [Control.Instance.SizeFlagsHorizontal].
+func (o *Extension[T]) SizeFlagsHorizontal() Control.SizeFlags { return o.Super().AsControl().SizeFlagsHorizontal() }
+
+// SetSizeFlagsHorizontal is promoted from [Control.Instance.SetSizeFlagsHorizontal].
+func (o *Extension[T]) SetSizeFlagsHorizontal(value Control.SizeFlags) *Extension[T] {
+	o.Super().AsControl().SetSizeFlagsHorizontal(value)
+	return o
+}
+
+// SizeFlagsVertical is promoted from [Control.Instance.SizeFlagsVertical].
+func (o *Extension[T]) SizeFlagsVertical() Control.SizeFlags { return o.Super().AsControl().SizeFlagsVertical() }
+
+// SetSizeFlagsVertical is promoted from [Control.Instance.SetSizeFlagsVertical].
+func (o *Extension[T]) SetSizeFlagsVertical(value Control.SizeFlags) *Extension[T] {
+	o.Super().AsControl().SetSizeFlagsVertical(value)
+	return o
+}
+
+// SizeFlagsStretchRatio is promoted from [Control.Instance.SizeFlagsStretchRatio].
+func (o *Extension[T]) SizeFlagsStretchRatio() Float.X { return o.Super().AsControl().SizeFlagsStretchRatio() }
+
+// SetSizeFlagsStretchRatio is promoted from [Control.Instance.SetSizeFlagsStretchRatio].
+func (o *Extension[T]) SetSizeFlagsStretchRatio(value Float.X) *Extension[T] {
+	o.Super().AsControl().SetSizeFlagsStretchRatio(value)
+	return o
+}
+
+// LocalizeNumeralSystem is promoted from [Control.Instance.LocalizeNumeralSystem].
+func (o *Extension[T]) LocalizeNumeralSystem() bool { return o.Super().AsControl().LocalizeNumeralSystem() }
+
+// SetLocalizeNumeralSystem is promoted from [Control.Instance.SetLocalizeNumeralSystem].
+func (o *Extension[T]) SetLocalizeNumeralSystem(value bool) *Extension[T] {
+	o.Super().AsControl().SetLocalizeNumeralSystem(value)
+	return o
+}
+
+// AutoTranslate is promoted from [Control.Instance.AutoTranslate].
+func (o *Extension[T]) AutoTranslate() bool { return o.Super().AsControl().AutoTranslate() }
+
+// SetAutoTranslate is promoted from [Control.Instance.SetAutoTranslate].
+func (o *Extension[T]) SetAutoTranslate(value bool) *Extension[T] {
+	o.Super().AsControl().SetAutoTranslate(value)
+	return o
+}
+
+// TooltipText is promoted from [Control.Instance.TooltipText].
+func (o *Extension[T]) TooltipText() string { return o.Super().AsControl().TooltipText() }
+
+// SetTooltipText is promoted from [Control.Instance.SetTooltipText].
+func (o *Extension[T]) SetTooltipText(value string) *Extension[T] {
+	o.Super().AsControl().SetTooltipText(value)
+	return o
+}
+
+// TooltipAutoTranslateMode is promoted from [Control.Instance.TooltipAutoTranslateMode].
+func (o *Extension[T]) TooltipAutoTranslateMode() Node.AutoTranslateMode { return o.Super().AsControl().TooltipAutoTranslateMode() }
+
+// SetTooltipAutoTranslateMode is promoted from [Control.Instance.SetTooltipAutoTranslateMode].
+func (o *Extension[T]) SetTooltipAutoTranslateMode(value Node.AutoTranslateMode) *Extension[T] {
+	o.Super().AsControl().SetTooltipAutoTranslateMode(value)
+	return o
+}
+
+// FocusNeighborLeft is promoted from [Control.Instance.FocusNeighborLeft].
+func (o *Extension[T]) FocusNeighborLeft() string { return o.Super().AsControl().FocusNeighborLeft() }
+
+// SetFocusNeighborLeft is promoted from [Control.Instance.SetFocusNeighborLeft].
+func (o *Extension[T]) SetFocusNeighborLeft(value string) *Extension[T] {
+	o.Super().AsControl().SetFocusNeighborLeft(value)
+	return o
+}
+
+// FocusNeighborTop is promoted from [Control.Instance.FocusNeighborTop].
+func (o *Extension[T]) FocusNeighborTop() string { return o.Super().AsControl().FocusNeighborTop() }
+
+// SetFocusNeighborTop is promoted from [Control.Instance.SetFocusNeighborTop].
+func (o *Extension[T]) SetFocusNeighborTop(value string) *Extension[T] {
+	o.Super().AsControl().SetFocusNeighborTop(value)
+	return o
+}
+
+// FocusNeighborRight is promoted from [Control.Instance.FocusNeighborRight].
+func (o *Extension[T]) FocusNeighborRight() string { return o.Super().AsControl().FocusNeighborRight() }
+
+// SetFocusNeighborRight is promoted from [Control.Instance.SetFocusNeighborRight].
+func (o *Extension[T]) SetFocusNeighborRight(value string) *Extension[T] {
+	o.Super().AsControl().SetFocusNeighborRight(value)
+	return o
+}
+
+// FocusNeighborBottom is promoted from [Control.Instance.FocusNeighborBottom].
+func (o *Extension[T]) FocusNeighborBottom() string { return o.Super().AsControl().FocusNeighborBottom() }
+
+// SetFocusNeighborBottom is promoted from [Control.Instance.SetFocusNeighborBottom].
+func (o *Extension[T]) SetFocusNeighborBottom(value string) *Extension[T] {
+	o.Super().AsControl().SetFocusNeighborBottom(value)
+	return o
+}
+
+// FocusNext is promoted from [Control.Instance.FocusNext].
+func (o *Extension[T]) FocusNext() string { return o.Super().AsControl().FocusNext() }
+
+// SetFocusNext is promoted from [Control.Instance.SetFocusNext].
+func (o *Extension[T]) SetFocusNext(value string) *Extension[T] {
+	o.Super().AsControl().SetFocusNext(value)
+	return o
+}
+
+// FocusPrevious is promoted from [Control.Instance.FocusPrevious].
+func (o *Extension[T]) FocusPrevious() string { return o.Super().AsControl().FocusPrevious() }
+
+// SetFocusPrevious is promoted from [Control.Instance.SetFocusPrevious].
+func (o *Extension[T]) SetFocusPrevious(value string) *Extension[T] {
+	o.Super().AsControl().SetFocusPrevious(value)
+	return o
+}
+
+// FocusMode is promoted from [Control.Instance.FocusMode].
+func (o *Extension[T]) FocusMode() Control.FocusMode { return o.Super().AsControl().FocusMode() }
+
+// SetFocusMode is promoted from [Control.Instance.SetFocusMode].
+func (o *Extension[T]) SetFocusMode(value Control.FocusMode) *Extension[T] {
+	o.Super().AsControl().SetFocusMode(value)
+	return o
+}
+
+// FocusBehaviorRecursive is promoted from [Control.Instance.FocusBehaviorRecursive].
+func (o *Extension[T]) FocusBehaviorRecursive() Control.FocusBehaviorRecursive { return o.Super().AsControl().FocusBehaviorRecursive() }
+
+// SetFocusBehaviorRecursive is promoted from [Control.Instance.SetFocusBehaviorRecursive].
+func (o *Extension[T]) SetFocusBehaviorRecursive(value Control.FocusBehaviorRecursive) *Extension[T] {
+	o.Super().AsControl().SetFocusBehaviorRecursive(value)
+	return o
+}
+
+// MouseFilter is promoted from [Control.Instance.MouseFilter].
+func (o *Extension[T]) MouseFilter() Control.MouseFilter { return o.Super().AsControl().MouseFilter() }
+
+// SetMouseFilter is promoted from [Control.Instance.SetMouseFilter].
+func (o *Extension[T]) SetMouseFilter(value Control.MouseFilter) *Extension[T] {
+	o.Super().AsControl().SetMouseFilter(value)
+	return o
+}
+
+// MouseBehaviorRecursive is promoted from [Control.Instance.MouseBehaviorRecursive].
+func (o *Extension[T]) MouseBehaviorRecursive() Control.MouseBehaviorRecursive { return o.Super().AsControl().MouseBehaviorRecursive() }
+
+// SetMouseBehaviorRecursive is promoted from [Control.Instance.SetMouseBehaviorRecursive].
+func (o *Extension[T]) SetMouseBehaviorRecursive(value Control.MouseBehaviorRecursive) *Extension[T] {
+	o.Super().AsControl().SetMouseBehaviorRecursive(value)
+	return o
+}
+
+// MouseForcePassScrollEvents is promoted from [Control.Instance.MouseForcePassScrollEvents].
+func (o *Extension[T]) MouseForcePassScrollEvents() bool { return o.Super().AsControl().MouseForcePassScrollEvents() }
+
+// SetMouseForcePassScrollEvents is promoted from [Control.Instance.SetMouseForcePassScrollEvents].
+func (o *Extension[T]) SetMouseForcePassScrollEvents(value bool) *Extension[T] {
+	o.Super().AsControl().SetMouseForcePassScrollEvents(value)
+	return o
+}
+
+// MouseDefaultCursorShape is promoted from [Control.Instance.MouseDefaultCursorShape].
+func (o *Extension[T]) MouseDefaultCursorShape() Control.CursorShape { return o.Super().AsControl().MouseDefaultCursorShape() }
+
+// SetMouseDefaultCursorShape is promoted from [Control.Instance.SetMouseDefaultCursorShape].
+func (o *Extension[T]) SetMouseDefaultCursorShape(value Control.CursorShape) *Extension[T] {
+	o.Super().AsControl().SetMouseDefaultCursorShape(value)
+	return o
+}
+
+// ShortcutContext is promoted from [Control.Instance.ShortcutContext].
+func (o *Extension[T]) ShortcutContext() Node.Instance { return o.Super().AsControl().ShortcutContext() }
+
+// SetShortcutContext is promoted from [Control.Instance.SetShortcutContext].
+func (o *Extension[T]) SetShortcutContext(value Node.Instance) *Extension[T] {
+	o.Super().AsControl().SetShortcutContext(value)
+	return o
+}
+
+// AccessibilityName is promoted from [Control.Instance.AccessibilityName].
+func (o *Extension[T]) AccessibilityName() string { return o.Super().AsControl().AccessibilityName() }
+
+// SetAccessibilityName is promoted from [Control.Instance.SetAccessibilityName].
+func (o *Extension[T]) SetAccessibilityName(value string) *Extension[T] {
+	o.Super().AsControl().SetAccessibilityName(value)
+	return o
+}
+
+// AccessibilityDescription is promoted from [Control.Instance.AccessibilityDescription].
+func (o *Extension[T]) AccessibilityDescription() string { return o.Super().AsControl().AccessibilityDescription() }
+
+// SetAccessibilityDescription is promoted from [Control.Instance.SetAccessibilityDescription].
+func (o *Extension[T]) SetAccessibilityDescription(value string) *Extension[T] {
+	o.Super().AsControl().SetAccessibilityDescription(value)
+	return o
+}
+
+// AccessibilityLive is promoted from [Control.Instance.AccessibilityLive].
+func (o *Extension[T]) AccessibilityLive() DisplayServer.AccessibilityLiveMode { return o.Super().AsControl().AccessibilityLive() }
+
+// SetAccessibilityLive is promoted from [Control.Instance.SetAccessibilityLive].
+func (o *Extension[T]) SetAccessibilityLive(value DisplayServer.AccessibilityLiveMode) *Extension[T] {
+	o.Super().AsControl().SetAccessibilityLive(value)
+	return o
+}
+
+// AccessibilityControlsNodes is promoted from [Control.Instance.AccessibilityControlsNodes].
+func (o *Extension[T]) AccessibilityControlsNodes() []string { return o.Super().AsControl().AccessibilityControlsNodes() }
+
+// SetAccessibilityControlsNodes is promoted from [Control.Instance.SetAccessibilityControlsNodes].
+func (o *Extension[T]) SetAccessibilityControlsNodes(value []string) *Extension[T] {
+	o.Super().AsControl().SetAccessibilityControlsNodes(value)
+	return o
+}
+
+// AccessibilityDescribedByNodes is promoted from [Control.Instance.AccessibilityDescribedByNodes].
+func (o *Extension[T]) AccessibilityDescribedByNodes() []string { return o.Super().AsControl().AccessibilityDescribedByNodes() }
+
+// SetAccessibilityDescribedByNodes is promoted from [Control.Instance.SetAccessibilityDescribedByNodes].
+func (o *Extension[T]) SetAccessibilityDescribedByNodes(value []string) *Extension[T] {
+	o.Super().AsControl().SetAccessibilityDescribedByNodes(value)
+	return o
+}
+
+// AccessibilityLabeledByNodes is promoted from [Control.Instance.AccessibilityLabeledByNodes].
+func (o *Extension[T]) AccessibilityLabeledByNodes() []string { return o.Super().AsControl().AccessibilityLabeledByNodes() }
+
+// SetAccessibilityLabeledByNodes is promoted from [Control.Instance.SetAccessibilityLabeledByNodes].
+func (o *Extension[T]) SetAccessibilityLabeledByNodes(value []string) *Extension[T] {
+	o.Super().AsControl().SetAccessibilityLabeledByNodes(value)
+	return o
+}
+
+// AccessibilityFlowToNodes is promoted from [Control.Instance.AccessibilityFlowToNodes].
+func (o *Extension[T]) AccessibilityFlowToNodes() []string { return o.Super().AsControl().AccessibilityFlowToNodes() }
+
+// SetAccessibilityFlowToNodes is promoted from [Control.Instance.SetAccessibilityFlowToNodes].
+func (o *Extension[T]) SetAccessibilityFlowToNodes(value []string) *Extension[T] {
+	o.Super().AsControl().SetAccessibilityFlowToNodes(value)
+	return o
+}
+
+// Theme is promoted from [Control.Instance.Theme].
+func (o *Extension[T]) Theme() Theme.Instance { return o.Super().AsControl().Theme() }
+
+// SetTheme is promoted from [Control.Instance.SetTheme].
+func (o *Extension[T]) SetTheme(value Theme.Instance) *Extension[T] {
+	o.Super().AsControl().SetTheme(value)
+	return o
+}
+
+// ThemeTypeVariation is promoted from [Control.Instance.ThemeTypeVariation].
+func (o *Extension[T]) ThemeTypeVariation() string { return o.Super().AsControl().ThemeTypeVariation() }
+
+// SetThemeTypeVariation is promoted from [Control.Instance.SetThemeTypeVariation].
+func (o *Extension[T]) SetThemeTypeVariation(value string) *Extension[T] {
+	o.Super().AsControl().SetThemeTypeVariation(value)
+	return o
+}
+
+// Visible is promoted from [CanvasItem.Instance.Visible].
+func (o *Extension[T]) Visible() bool { return o.Super().AsCanvasItem().Visible() }
+
+// SetVisible is promoted from [CanvasItem.Instance.SetVisible].
+func (o *Extension[T]) SetVisible(value bool) *Extension[T] {
+	o.Super().AsCanvasItem().SetVisible(value)
+	return o
+}
+
+// Modulate is promoted from [CanvasItem.Instance.Modulate].
+func (o *Extension[T]) Modulate() Color.RGBA { return o.Super().AsCanvasItem().Modulate() }
+
+// SetModulate is promoted from [CanvasItem.Instance.SetModulate].
+func (o *Extension[T]) SetModulate(value Color.RGBA) *Extension[T] {
+	o.Super().AsCanvasItem().SetModulate(value)
+	return o
+}
+
+// SelfModulate is promoted from [CanvasItem.Instance.SelfModulate].
+func (o *Extension[T]) SelfModulate() Color.RGBA { return o.Super().AsCanvasItem().SelfModulate() }
+
+// SetSelfModulate is promoted from [CanvasItem.Instance.SetSelfModulate].
+func (o *Extension[T]) SetSelfModulate(value Color.RGBA) *Extension[T] {
+	o.Super().AsCanvasItem().SetSelfModulate(value)
+	return o
+}
+
+// ShowBehindParent is promoted from [CanvasItem.Instance.ShowBehindParent].
+func (o *Extension[T]) ShowBehindParent() bool { return o.Super().AsCanvasItem().ShowBehindParent() }
+
+// SetShowBehindParent is promoted from [CanvasItem.Instance.SetShowBehindParent].
+func (o *Extension[T]) SetShowBehindParent(value bool) *Extension[T] {
+	o.Super().AsCanvasItem().SetShowBehindParent(value)
+	return o
+}
+
+// TopLevel is promoted from [CanvasItem.Instance.TopLevel].
+func (o *Extension[T]) TopLevel() bool { return o.Super().AsCanvasItem().TopLevel() }
+
+// SetTopLevel is promoted from [CanvasItem.Instance.SetTopLevel].
+func (o *Extension[T]) SetTopLevel(value bool) *Extension[T] {
+	o.Super().AsCanvasItem().SetTopLevel(value)
+	return o
+}
+
+// ClipChildren is promoted from [CanvasItem.Instance.ClipChildren].
+func (o *Extension[T]) ClipChildren() CanvasItem.ClipChildrenMode { return o.Super().AsCanvasItem().ClipChildren() }
+
+// SetClipChildren is promoted from [CanvasItem.Instance.SetClipChildren].
+func (o *Extension[T]) SetClipChildren(value CanvasItem.ClipChildrenMode) *Extension[T] {
+	o.Super().AsCanvasItem().SetClipChildren(value)
+	return o
+}
+
+// LightMask is promoted from [CanvasItem.Instance.LightMask].
+func (o *Extension[T]) LightMask() int { return o.Super().AsCanvasItem().LightMask() }
+
+// SetLightMask is promoted from [CanvasItem.Instance.SetLightMask].
+func (o *Extension[T]) SetLightMask(value int) *Extension[T] {
+	o.Super().AsCanvasItem().SetLightMask(value)
+	return o
+}
+
+// VisibilityLayer is promoted from [CanvasItem.Instance.VisibilityLayer].
+func (o *Extension[T]) VisibilityLayer() int { return o.Super().AsCanvasItem().VisibilityLayer() }
+
+// SetVisibilityLayer is promoted from [CanvasItem.Instance.SetVisibilityLayer].
+func (o *Extension[T]) SetVisibilityLayer(value int) *Extension[T] {
+	o.Super().AsCanvasItem().SetVisibilityLayer(value)
+	return o
+}
+
+// ZIndex is promoted from [CanvasItem.Instance.ZIndex].
+func (o *Extension[T]) ZIndex() int { return o.Super().AsCanvasItem().ZIndex() }
+
+// SetZIndex is promoted from [CanvasItem.Instance.SetZIndex].
+func (o *Extension[T]) SetZIndex(value int) *Extension[T] {
+	o.Super().AsCanvasItem().SetZIndex(value)
+	return o
+}
+
+// ZAsRelative is promoted from [CanvasItem.Instance.ZAsRelative].
+func (o *Extension[T]) ZAsRelative() bool { return o.Super().AsCanvasItem().ZAsRelative() }
+
+// SetZAsRelative is promoted from [CanvasItem.Instance.SetZAsRelative].
+func (o *Extension[T]) SetZAsRelative(value bool) *Extension[T] {
+	o.Super().AsCanvasItem().SetZAsRelative(value)
+	return o
+}
+
+// YSortEnabled is promoted from [CanvasItem.Instance.YSortEnabled].
+func (o *Extension[T]) YSortEnabled() bool { return o.Super().AsCanvasItem().YSortEnabled() }
+
+// SetYSortEnabled is promoted from [CanvasItem.Instance.SetYSortEnabled].
+func (o *Extension[T]) SetYSortEnabled(value bool) *Extension[T] {
+	o.Super().AsCanvasItem().SetYSortEnabled(value)
+	return o
+}
+
+// TextureFilter is promoted from [CanvasItem.Instance.TextureFilter].
+func (o *Extension[T]) TextureFilter() CanvasItem.TextureFilter { return o.Super().AsCanvasItem().TextureFilter() }
+
+// SetTextureFilter is promoted from [CanvasItem.Instance.SetTextureFilter].
+func (o *Extension[T]) SetTextureFilter(value CanvasItem.TextureFilter) *Extension[T] {
+	o.Super().AsCanvasItem().SetTextureFilter(value)
+	return o
+}
+
+// TextureRepeat is promoted from [CanvasItem.Instance.TextureRepeat].
+func (o *Extension[T]) TextureRepeat() CanvasItem.TextureRepeat { return o.Super().AsCanvasItem().TextureRepeat() }
+
+// SetTextureRepeat is promoted from [CanvasItem.Instance.SetTextureRepeat].
+func (o *Extension[T]) SetTextureRepeat(value CanvasItem.TextureRepeat) *Extension[T] {
+	o.Super().AsCanvasItem().SetTextureRepeat(value)
+	return o
+}
+
+// Material is promoted from [CanvasItem.Instance.Material].
+func (o *Extension[T]) Material() Material.Instance { return o.Super().AsCanvasItem().Material() }
+
+// SetMaterial is promoted from [CanvasItem.Instance.SetMaterial].
+func (o *Extension[T]) SetMaterial(value Material.Instance) *Extension[T] {
+	o.Super().AsCanvasItem().SetMaterial(value)
+	return o
+}
+
+// UseParentMaterial is promoted from [CanvasItem.Instance.UseParentMaterial].
+func (o *Extension[T]) UseParentMaterial() bool { return o.Super().AsCanvasItem().UseParentMaterial() }
+
+// SetUseParentMaterial is promoted from [CanvasItem.Instance.SetUseParentMaterial].
+func (o *Extension[T]) SetUseParentMaterial(value bool) *Extension[T] {
+	o.Super().AsCanvasItem().SetUseParentMaterial(value)
+	return o
+}
+
+// Name is promoted from [Node.Instance.Name].
+func (o *Extension[T]) Name() string { return o.Super().AsNode().Name() }
+
+// SetName is promoted from [Node.Instance.SetName].
+func (o *Extension[T]) SetName(value string) *Extension[T] {
+	o.Super().AsNode().SetName(value)
+	return o
+}
+
+// UniqueNameInOwner is promoted from [Node.Instance.UniqueNameInOwner].
+func (o *Extension[T]) UniqueNameInOwner() bool { return o.Super().AsNode().UniqueNameInOwner() }
+
+// SetUniqueNameInOwner is promoted from [Node.Instance.SetUniqueNameInOwner].
+func (o *Extension[T]) SetUniqueNameInOwner(value bool) *Extension[T] {
+	o.Super().AsNode().SetUniqueNameInOwner(value)
+	return o
+}
+
+// SceneFilePath is promoted from [Node.Instance.SceneFilePath].
+func (o *Extension[T]) SceneFilePath() string { return o.Super().AsNode().SceneFilePath() }
+
+// SetSceneFilePath is promoted from [Node.Instance.SetSceneFilePath].
+func (o *Extension[T]) SetSceneFilePath(value string) *Extension[T] {
+	o.Super().AsNode().SetSceneFilePath(value)
+	return o
+}
+
+// Owner is promoted from [Node.Instance.Owner].
+func (o *Extension[T]) Owner() Node.Instance { return o.Super().AsNode().Owner() }
+
+// SetOwner is promoted from [Node.Instance.SetOwner].
+func (o *Extension[T]) SetOwner(value Node.Instance) *Extension[T] {
+	o.Super().AsNode().SetOwner(value)
+	return o
+}
+
+// Multiplayer is promoted from [Node.Instance.Multiplayer].
+func (o *Extension[T]) Multiplayer() MultiplayerAPI.Instance { return o.Super().AsNode().Multiplayer() }
+
+// ProcessMode is promoted from [Node.Instance.ProcessMode].
+func (o *Extension[T]) ProcessMode() Node.ProcessMode { return o.Super().AsNode().ProcessMode() }
+
+// SetProcessMode is promoted from [Node.Instance.SetProcessMode].
+func (o *Extension[T]) SetProcessMode(value Node.ProcessMode) *Extension[T] {
+	o.Super().AsNode().SetProcessMode(value)
+	return o
+}
+
+// ProcessPriority is promoted from [Node.Instance.ProcessPriority].
+func (o *Extension[T]) ProcessPriority() int { return o.Super().AsNode().ProcessPriority() }
+
+// SetProcessPriority is promoted from [Node.Instance.SetProcessPriority].
+func (o *Extension[T]) SetProcessPriority(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessPriority(value)
+	return o
+}
+
+// ProcessPhysicsPriority is promoted from [Node.Instance.ProcessPhysicsPriority].
+func (o *Extension[T]) ProcessPhysicsPriority() int { return o.Super().AsNode().ProcessPhysicsPriority() }
+
+// SetProcessPhysicsPriority is promoted from [Node.Instance.SetProcessPhysicsPriority].
+func (o *Extension[T]) SetProcessPhysicsPriority(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessPhysicsPriority(value)
+	return o
+}
+
+// ProcessThreadGroup is promoted from [Node.Instance.ProcessThreadGroup].
+func (o *Extension[T]) ProcessThreadGroup() Node.ProcessThreadGroup { return o.Super().AsNode().ProcessThreadGroup() }
+
+// SetProcessThreadGroup is promoted from [Node.Instance.SetProcessThreadGroup].
+func (o *Extension[T]) SetProcessThreadGroup(value Node.ProcessThreadGroup) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadGroup(value)
+	return o
+}
+
+// ProcessThreadGroupOrder is promoted from [Node.Instance.ProcessThreadGroupOrder].
+func (o *Extension[T]) ProcessThreadGroupOrder() int { return o.Super().AsNode().ProcessThreadGroupOrder() }
+
+// SetProcessThreadGroupOrder is promoted from [Node.Instance.SetProcessThreadGroupOrder].
+func (o *Extension[T]) SetProcessThreadGroupOrder(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadGroupOrder(value)
+	return o
+}
+
+// ProcessThreadMessages is promoted from [Node.Instance.ProcessThreadMessages].
+func (o *Extension[T]) ProcessThreadMessages() Node.ProcessThreadMessages { return o.Super().AsNode().ProcessThreadMessages() }
+
+// SetProcessThreadMessages is promoted from [Node.Instance.SetProcessThreadMessages].
+func (o *Extension[T]) SetProcessThreadMessages(value Node.ProcessThreadMessages) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadMessages(value)
+	return o
+}
+
+// PhysicsInterpolationMode is promoted from [Node.Instance.PhysicsInterpolationMode].
+func (o *Extension[T]) PhysicsInterpolationMode() Node.PhysicsInterpolationMode { return o.Super().AsNode().PhysicsInterpolationMode() }
+
+// SetPhysicsInterpolationMode is promoted from [Node.Instance.SetPhysicsInterpolationMode].
+func (o *Extension[T]) SetPhysicsInterpolationMode(value Node.PhysicsInterpolationMode) *Extension[T] {
+	o.Super().AsNode().SetPhysicsInterpolationMode(value)
+	return o
+}
+
+// AutoTranslateMode is promoted from [Node.Instance.AutoTranslateMode].
+func (o *Extension[T]) AutoTranslateMode() Node.AutoTranslateMode { return o.Super().AsNode().AutoTranslateMode() }
+
+// SetAutoTranslateMode is promoted from [Node.Instance.SetAutoTranslateMode].
+func (o *Extension[T]) SetAutoTranslateMode(value Node.AutoTranslateMode) *Extension[T] {
+	o.Super().AsNode().SetAutoTranslateMode(value)
+	return o
+}
+
+// EditorDescription is promoted from [Node.Instance.EditorDescription].
+func (o *Extension[T]) EditorDescription() string { return o.Super().AsNode().EditorDescription() }
+
+// SetEditorDescription is promoted from [Node.Instance.SetEditorDescription].
+func (o *Extension[T]) SetEditorDescription(value string) *Extension[T] {
+	o.Super().AsNode().SetEditorDescription(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

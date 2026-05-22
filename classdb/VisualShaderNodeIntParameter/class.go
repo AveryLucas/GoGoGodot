@@ -162,15 +162,24 @@ func (self Instance) Hint() Hint { //gd:VisualShaderNodeIntParameter.hint
 		return Hint(class(self).GetHint())
 }
 
+func (o *Extension[T]) Hint() Hint { return o.Super().Hint() }
+
 // SetHint sets the property returned by [GetHint]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetHint(value Hint) Instance { //gd:VisualShaderNodeIntParameter.hint
 	class(self).SetHint(value)
 	return self
 }
 
+func (o *Extension[T]) SetHint(value Hint) *Extension[T] {
+	o.Super().SetHint(value)
+	return o
+}
+
 func (self Instance) Min() int { //gd:VisualShaderNodeIntParameter.min
 		return int(int(class(self).GetMin()))
 }
+
+func (o *Extension[T]) Min() int { return o.Super().Min() }
 
 // SetMin sets the property returned by [GetMin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMin(value int) Instance { //gd:VisualShaderNodeIntParameter.min
@@ -178,9 +187,16 @@ func (self Instance) SetMin(value int) Instance { //gd:VisualShaderNodeIntParame
 	return self
 }
 
+func (o *Extension[T]) SetMin(value int) *Extension[T] {
+	o.Super().SetMin(value)
+	return o
+}
+
 func (self Instance) Max() int { //gd:VisualShaderNodeIntParameter.max
 		return int(int(class(self).GetMax()))
 }
+
+func (o *Extension[T]) Max() int { return o.Super().Max() }
 
 // SetMax sets the property returned by [GetMax]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMax(value int) Instance { //gd:VisualShaderNodeIntParameter.max
@@ -188,9 +204,16 @@ func (self Instance) SetMax(value int) Instance { //gd:VisualShaderNodeIntParame
 	return self
 }
 
+func (o *Extension[T]) SetMax(value int) *Extension[T] {
+	o.Super().SetMax(value)
+	return o
+}
+
 func (self Instance) Step() int { //gd:VisualShaderNodeIntParameter.step
 		return int(int(class(self).GetStep()))
 }
+
+func (o *Extension[T]) Step() int { return o.Super().Step() }
 
 // SetStep sets the property returned by [GetStep]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStep(value int) Instance { //gd:VisualShaderNodeIntParameter.step
@@ -198,9 +221,16 @@ func (self Instance) SetStep(value int) Instance { //gd:VisualShaderNodeIntParam
 	return self
 }
 
+func (o *Extension[T]) SetStep(value int) *Extension[T] {
+	o.Super().SetStep(value)
+	return o
+}
+
 func (self Instance) EnumNames() []string { //gd:VisualShaderNodeIntParameter.enum_names
 		return []string(class(self).GetEnumNames().Strings())
 }
+
+func (o *Extension[T]) EnumNames() []string { return o.Super().EnumNames() }
 
 // SetEnumNames sets the property returned by [GetEnumNames]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEnumNames(value []string) Instance { //gd:VisualShaderNodeIntParameter.enum_names
@@ -208,9 +238,16 @@ func (self Instance) SetEnumNames(value []string) Instance { //gd:VisualShaderNo
 	return self
 }
 
+func (o *Extension[T]) SetEnumNames(value []string) *Extension[T] {
+	o.Super().SetEnumNames(value)
+	return o
+}
+
 func (self Instance) DefaultValueEnabled() bool { //gd:VisualShaderNodeIntParameter.default_value_enabled
 		return bool(class(self).IsDefaultValueEnabled())
 }
+
+func (o *Extension[T]) DefaultValueEnabled() bool { return o.Super().DefaultValueEnabled() }
 
 // SetDefaultValueEnabled sets the property returned by [IsDefaultValueEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDefaultValueEnabled(value bool) Instance { //gd:VisualShaderNodeIntParameter.default_value_enabled
@@ -218,14 +255,26 @@ func (self Instance) SetDefaultValueEnabled(value bool) Instance { //gd:VisualSh
 	return self
 }
 
+func (o *Extension[T]) SetDefaultValueEnabled(value bool) *Extension[T] {
+	o.Super().SetDefaultValueEnabled(value)
+	return o
+}
+
 func (self Instance) DefaultValue() int { //gd:VisualShaderNodeIntParameter.default_value
 		return int(int(class(self).GetDefaultValue()))
 }
+
+func (o *Extension[T]) DefaultValue() int { return o.Super().DefaultValue() }
 
 // SetDefaultValue sets the property returned by [GetDefaultValue]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDefaultValue(value int) Instance { //gd:VisualShaderNodeIntParameter.default_value
 	class(self).SetDefaultValue(int64(value))
 	return self
+}
+
+func (o *Extension[T]) SetDefaultValue(value int) *Extension[T] {
+	o.Super().SetDefaultValue(value)
+	return o
 }
 
 func (self class) SetHint(hint Hint)  { //gd:VisualShaderNodeIntParameter.set_hint
@@ -452,6 +501,96 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ParameterName is promoted from [VisualShaderNodeParameter.Instance.ParameterName].
+func (o *Extension[T]) ParameterName() string { return o.Super().AsVisualShaderNodeParameter().ParameterName() }
+
+// SetParameterName is promoted from [VisualShaderNodeParameter.Instance.SetParameterName].
+func (o *Extension[T]) SetParameterName(value string) *Extension[T] {
+	o.Super().AsVisualShaderNodeParameter().SetParameterName(value)
+	return o
+}
+
+// Qualifier is promoted from [VisualShaderNodeParameter.Instance.Qualifier].
+func (o *Extension[T]) Qualifier() VisualShaderNodeParameter.Qualifier { return o.Super().AsVisualShaderNodeParameter().Qualifier() }
+
+// SetQualifier is promoted from [VisualShaderNodeParameter.Instance.SetQualifier].
+func (o *Extension[T]) SetQualifier(value VisualShaderNodeParameter.Qualifier) *Extension[T] {
+	o.Super().AsVisualShaderNodeParameter().SetQualifier(value)
+	return o
+}
+
+// InstanceIndex is promoted from [VisualShaderNodeParameter.Instance.InstanceIndex].
+func (o *Extension[T]) InstanceIndex() int { return o.Super().AsVisualShaderNodeParameter().InstanceIndex() }
+
+// SetInstanceIndex is promoted from [VisualShaderNodeParameter.Instance.SetInstanceIndex].
+func (o *Extension[T]) SetInstanceIndex(value int) *Extension[T] {
+	o.Super().AsVisualShaderNodeParameter().SetInstanceIndex(value)
+	return o
+}
+
+// OutputPortForPreview is promoted from [VisualShaderNode.Instance.OutputPortForPreview].
+func (o *Extension[T]) OutputPortForPreview() int { return o.Super().AsVisualShaderNode().OutputPortForPreview() }
+
+// SetOutputPortForPreview is promoted from [VisualShaderNode.Instance.SetOutputPortForPreview].
+func (o *Extension[T]) SetOutputPortForPreview(value int) *Extension[T] {
+	o.Super().AsVisualShaderNode().SetOutputPortForPreview(value)
+	return o
+}
+
+// DefaultInputValues is promoted from [VisualShaderNode.Instance.DefaultInputValues].
+func (o *Extension[T]) DefaultInputValues() []any { return o.Super().AsVisualShaderNode().DefaultInputValues() }
+
+// SetDefaultInputValues is promoted from [VisualShaderNode.Instance.SetDefaultInputValues].
+func (o *Extension[T]) SetDefaultInputValues(value []any) *Extension[T] {
+	o.Super().AsVisualShaderNode().SetDefaultInputValues(value)
+	return o
+}
+
+// LinkedParentGraphFrame is promoted from [VisualShaderNode.Instance.LinkedParentGraphFrame].
+func (o *Extension[T]) LinkedParentGraphFrame() int { return o.Super().AsVisualShaderNode().LinkedParentGraphFrame() }
+
+// SetLinkedParentGraphFrame is promoted from [VisualShaderNode.Instance.SetLinkedParentGraphFrame].
+func (o *Extension[T]) SetLinkedParentGraphFrame(value int) *Extension[T] {
+	o.Super().AsVisualShaderNode().SetLinkedParentGraphFrame(value)
+	return o
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

@@ -237,15 +237,24 @@ func (self Instance) Vertices() []Vector2.XY { //gd:NavigationPolygon.vertices
 		return []Vector2.XY(slices.Collect(class(self).GetVertices().Values()))
 }
 
+func (o *Extension[T]) Vertices() []Vector2.XY { return o.Super().Vertices() }
+
 // SetVertices sets the property returned by [GetVertices]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVertices(value []Vector2.XY) Instance { //gd:NavigationPolygon.vertices
 	class(self).SetVertices(Packed.New(value...))
 	return self
 }
 
+func (o *Extension[T]) SetVertices(value []Vector2.XY) *Extension[T] {
+	o.Super().SetVertices(value)
+	return o
+}
+
 func (self Instance) SamplePartitionType() SamplePartitionType { //gd:NavigationPolygon.sample_partition_type
 		return SamplePartitionType(class(self).GetSamplePartitionType())
 }
+
+func (o *Extension[T]) SamplePartitionType() SamplePartitionType { return o.Super().SamplePartitionType() }
 
 // SetSamplePartitionType sets the property returned by [GetSamplePartitionType]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSamplePartitionType(value SamplePartitionType) Instance { //gd:NavigationPolygon.sample_partition_type
@@ -253,9 +262,16 @@ func (self Instance) SetSamplePartitionType(value SamplePartitionType) Instance 
 	return self
 }
 
+func (o *Extension[T]) SetSamplePartitionType(value SamplePartitionType) *Extension[T] {
+	o.Super().SetSamplePartitionType(value)
+	return o
+}
+
 func (self Instance) ParsedGeometryType() ParsedGeometryType { //gd:NavigationPolygon.parsed_geometry_type
 		return ParsedGeometryType(class(self).GetParsedGeometryType())
 }
+
+func (o *Extension[T]) ParsedGeometryType() ParsedGeometryType { return o.Super().ParsedGeometryType() }
 
 // SetParsedGeometryType sets the property returned by [GetParsedGeometryType]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetParsedGeometryType(value ParsedGeometryType) Instance { //gd:NavigationPolygon.parsed_geometry_type
@@ -263,9 +279,16 @@ func (self Instance) SetParsedGeometryType(value ParsedGeometryType) Instance { 
 	return self
 }
 
+func (o *Extension[T]) SetParsedGeometryType(value ParsedGeometryType) *Extension[T] {
+	o.Super().SetParsedGeometryType(value)
+	return o
+}
+
 func (self Instance) ParsedCollisionMask() int { //gd:NavigationPolygon.parsed_collision_mask
 		return int(int(class(self).GetParsedCollisionMask()))
 }
+
+func (o *Extension[T]) ParsedCollisionMask() int { return o.Super().ParsedCollisionMask() }
 
 // SetParsedCollisionMask sets the property returned by [GetParsedCollisionMask]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetParsedCollisionMask(value int) Instance { //gd:NavigationPolygon.parsed_collision_mask
@@ -273,9 +296,16 @@ func (self Instance) SetParsedCollisionMask(value int) Instance { //gd:Navigatio
 	return self
 }
 
+func (o *Extension[T]) SetParsedCollisionMask(value int) *Extension[T] {
+	o.Super().SetParsedCollisionMask(value)
+	return o
+}
+
 func (self Instance) SourceGeometryMode() SourceGeometryMode { //gd:NavigationPolygon.source_geometry_mode
 		return SourceGeometryMode(class(self).GetSourceGeometryMode())
 }
+
+func (o *Extension[T]) SourceGeometryMode() SourceGeometryMode { return o.Super().SourceGeometryMode() }
 
 // SetSourceGeometryMode sets the property returned by [GetSourceGeometryMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSourceGeometryMode(value SourceGeometryMode) Instance { //gd:NavigationPolygon.source_geometry_mode
@@ -283,9 +313,16 @@ func (self Instance) SetSourceGeometryMode(value SourceGeometryMode) Instance { 
 	return self
 }
 
+func (o *Extension[T]) SetSourceGeometryMode(value SourceGeometryMode) *Extension[T] {
+	o.Super().SetSourceGeometryMode(value)
+	return o
+}
+
 func (self Instance) SourceGeometryGroupName() string { //gd:NavigationPolygon.source_geometry_group_name
 		return string(class(self).GetSourceGeometryGroupName().String())
 }
+
+func (o *Extension[T]) SourceGeometryGroupName() string { return o.Super().SourceGeometryGroupName() }
 
 // SetSourceGeometryGroupName sets the property returned by [GetSourceGeometryGroupName]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSourceGeometryGroupName(value string) Instance { //gd:NavigationPolygon.source_geometry_group_name
@@ -293,9 +330,16 @@ func (self Instance) SetSourceGeometryGroupName(value string) Instance { //gd:Na
 	return self
 }
 
+func (o *Extension[T]) SetSourceGeometryGroupName(value string) *Extension[T] {
+	o.Super().SetSourceGeometryGroupName(value)
+	return o
+}
+
 func (self Instance) CellSize() Float.X { //gd:NavigationPolygon.cell_size
 		return Float.X(Float.X(class(self).GetCellSize()))
 }
+
+func (o *Extension[T]) CellSize() Float.X { return o.Super().CellSize() }
 
 // SetCellSize sets the property returned by [GetCellSize]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCellSize(value Float.X) Instance { //gd:NavigationPolygon.cell_size
@@ -303,9 +347,16 @@ func (self Instance) SetCellSize(value Float.X) Instance { //gd:NavigationPolygo
 	return self
 }
 
+func (o *Extension[T]) SetCellSize(value Float.X) *Extension[T] {
+	o.Super().SetCellSize(value)
+	return o
+}
+
 func (self Instance) BorderSize() Float.X { //gd:NavigationPolygon.border_size
 		return Float.X(Float.X(class(self).GetBorderSize()))
 }
+
+func (o *Extension[T]) BorderSize() Float.X { return o.Super().BorderSize() }
 
 // SetBorderSize sets the property returned by [GetBorderSize]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBorderSize(value Float.X) Instance { //gd:NavigationPolygon.border_size
@@ -313,9 +364,16 @@ func (self Instance) SetBorderSize(value Float.X) Instance { //gd:NavigationPoly
 	return self
 }
 
+func (o *Extension[T]) SetBorderSize(value Float.X) *Extension[T] {
+	o.Super().SetBorderSize(value)
+	return o
+}
+
 func (self Instance) AgentRadius() Float.X { //gd:NavigationPolygon.agent_radius
 		return Float.X(Float.X(class(self).GetAgentRadius()))
 }
+
+func (o *Extension[T]) AgentRadius() Float.X { return o.Super().AgentRadius() }
 
 // SetAgentRadius sets the property returned by [GetAgentRadius]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAgentRadius(value Float.X) Instance { //gd:NavigationPolygon.agent_radius
@@ -323,9 +381,16 @@ func (self Instance) SetAgentRadius(value Float.X) Instance { //gd:NavigationPol
 	return self
 }
 
+func (o *Extension[T]) SetAgentRadius(value Float.X) *Extension[T] {
+	o.Super().SetAgentRadius(value)
+	return o
+}
+
 func (self Instance) BakingRect() Rect2.PositionSize { //gd:NavigationPolygon.baking_rect
 		return Rect2.PositionSize(class(self).GetBakingRect())
 }
+
+func (o *Extension[T]) BakingRect() Rect2.PositionSize { return o.Super().BakingRect() }
 
 // SetBakingRect sets the property returned by [GetBakingRect]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBakingRect(value Rect2.PositionSize) Instance { //gd:NavigationPolygon.baking_rect
@@ -333,14 +398,26 @@ func (self Instance) SetBakingRect(value Rect2.PositionSize) Instance { //gd:Nav
 	return self
 }
 
+func (o *Extension[T]) SetBakingRect(value Rect2.PositionSize) *Extension[T] {
+	o.Super().SetBakingRect(value)
+	return o
+}
+
 func (self Instance) BakingRectOffset() Vector2.XY { //gd:NavigationPolygon.baking_rect_offset
 		return Vector2.XY(class(self).GetBakingRectOffset())
 }
+
+func (o *Extension[T]) BakingRectOffset() Vector2.XY { return o.Super().BakingRectOffset() }
 
 // SetBakingRectOffset sets the property returned by [GetBakingRectOffset]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBakingRectOffset(value Vector2.XY) Instance { //gd:NavigationPolygon.baking_rect_offset
 	class(self).SetBakingRectOffset(Vector2.XY(value))
 	return self
+}
+
+func (o *Extension[T]) SetBakingRectOffset(value Vector2.XY) *Extension[T] {
+	o.Super().SetBakingRectOffset(value)
+	return o
 }
 
 func (self class) SetVertices(vertices Packed.Array[Vector2.XY])  { //gd:NavigationPolygon.set_vertices
@@ -663,6 +740,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

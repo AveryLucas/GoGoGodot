@@ -175,15 +175,24 @@ func (self Instance) Perspective() bool { //gd:GLTFCamera.perspective
 		return bool(class(self).GetPerspective())
 }
 
+func (o *Extension[T]) Perspective() bool { return o.Super().Perspective() }
+
 // SetPerspective sets the property returned by [GetPerspective]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPerspective(value bool) Instance { //gd:GLTFCamera.perspective
 	class(self).SetPerspective(value)
 	return self
 }
 
+func (o *Extension[T]) SetPerspective(value bool) *Extension[T] {
+	o.Super().SetPerspective(value)
+	return o
+}
+
 func (self Instance) Fov() Float.X { //gd:GLTFCamera.fov
 		return Float.X(Float.X(class(self).GetFov()))
 }
+
+func (o *Extension[T]) Fov() Float.X { return o.Super().Fov() }
 
 // SetFov sets the property returned by [GetFov]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFov(value Float.X) Instance { //gd:GLTFCamera.fov
@@ -191,9 +200,16 @@ func (self Instance) SetFov(value Float.X) Instance { //gd:GLTFCamera.fov
 	return self
 }
 
+func (o *Extension[T]) SetFov(value Float.X) *Extension[T] {
+	o.Super().SetFov(value)
+	return o
+}
+
 func (self Instance) SizeMag() Float.X { //gd:GLTFCamera.size_mag
 		return Float.X(Float.X(class(self).GetSizeMag()))
 }
+
+func (o *Extension[T]) SizeMag() Float.X { return o.Super().SizeMag() }
 
 // SetSizeMag sets the property returned by [GetSizeMag]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSizeMag(value Float.X) Instance { //gd:GLTFCamera.size_mag
@@ -201,9 +217,16 @@ func (self Instance) SetSizeMag(value Float.X) Instance { //gd:GLTFCamera.size_m
 	return self
 }
 
+func (o *Extension[T]) SetSizeMag(value Float.X) *Extension[T] {
+	o.Super().SetSizeMag(value)
+	return o
+}
+
 func (self Instance) DepthFar() Float.X { //gd:GLTFCamera.depth_far
 		return Float.X(Float.X(class(self).GetDepthFar()))
 }
+
+func (o *Extension[T]) DepthFar() Float.X { return o.Super().DepthFar() }
 
 // SetDepthFar sets the property returned by [GetDepthFar]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDepthFar(value Float.X) Instance { //gd:GLTFCamera.depth_far
@@ -211,14 +234,26 @@ func (self Instance) SetDepthFar(value Float.X) Instance { //gd:GLTFCamera.depth
 	return self
 }
 
+func (o *Extension[T]) SetDepthFar(value Float.X) *Extension[T] {
+	o.Super().SetDepthFar(value)
+	return o
+}
+
 func (self Instance) DepthNear() Float.X { //gd:GLTFCamera.depth_near
 		return Float.X(Float.X(class(self).GetDepthNear()))
 }
+
+func (o *Extension[T]) DepthNear() Float.X { return o.Super().DepthNear() }
 
 // SetDepthNear sets the property returned by [GetDepthNear]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDepthNear(value Float.X) Instance { //gd:GLTFCamera.depth_near
 	class(self).SetDepthNear(float64(value))
 	return self
+}
+
+func (o *Extension[T]) SetDepthNear(value Float.X) *Extension[T] {
+	o.Super().SetDepthNear(value)
+	return o
 }
 
 func (self class) FromNode(camera_node [1]gdclass.Camera3D) [1]gdclass.GLTFCamera { //gd:GLTFCamera.from_node
@@ -409,6 +444,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

@@ -32,6 +32,7 @@ import "graphics.gd/variant/Path"
 import "graphics.gd/variant/RID"
 import "graphics.gd/variant/RefCounted"
 import "graphics.gd/variant/String"
+import "graphics.gd/variant/Vector2"
 
 var _ Object.ID
 type _ gdclass.Node
@@ -167,15 +168,24 @@ func (self Instance) Title() string { //gd:VisualShaderNodeFrame.title
 		return string(class(self).GetTitle().String())
 }
 
+func (o *Extension[T]) Title() string { return o.Super().Title() }
+
 // SetTitle sets the property returned by [GetTitle]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTitle(value string) Instance { //gd:VisualShaderNodeFrame.title
 	class(self).SetTitle(String.From(value))
 	return self
 }
 
+func (o *Extension[T]) SetTitle(value string) *Extension[T] {
+	o.Super().SetTitle(value)
+	return o
+}
+
 func (self Instance) TintColorEnabled() bool { //gd:VisualShaderNodeFrame.tint_color_enabled
 		return bool(class(self).IsTintColorEnabled())
 }
+
+func (o *Extension[T]) TintColorEnabled() bool { return o.Super().TintColorEnabled() }
 
 // SetTintColorEnabled sets the property returned by [IsTintColorEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTintColorEnabled(value bool) Instance { //gd:VisualShaderNodeFrame.tint_color_enabled
@@ -183,9 +193,16 @@ func (self Instance) SetTintColorEnabled(value bool) Instance { //gd:VisualShade
 	return self
 }
 
+func (o *Extension[T]) SetTintColorEnabled(value bool) *Extension[T] {
+	o.Super().SetTintColorEnabled(value)
+	return o
+}
+
 func (self Instance) TintColor() Color.RGBA { //gd:VisualShaderNodeFrame.tint_color
 		return Color.RGBA(class(self).GetTintColor())
 }
+
+func (o *Extension[T]) TintColor() Color.RGBA { return o.Super().TintColor() }
 
 // SetTintColor sets the property returned by [GetTintColor]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTintColor(value Color.RGBA) Instance { //gd:VisualShaderNodeFrame.tint_color
@@ -193,9 +210,16 @@ func (self Instance) SetTintColor(value Color.RGBA) Instance { //gd:VisualShader
 	return self
 }
 
+func (o *Extension[T]) SetTintColor(value Color.RGBA) *Extension[T] {
+	o.Super().SetTintColor(value)
+	return o
+}
+
 func (self Instance) Autoshrink() bool { //gd:VisualShaderNodeFrame.autoshrink
 		return bool(class(self).IsAutoshrinkEnabled())
 }
+
+func (o *Extension[T]) Autoshrink() bool { return o.Super().Autoshrink() }
 
 // SetAutoshrink sets the property returned by [IsAutoshrinkEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAutoshrink(value bool) Instance { //gd:VisualShaderNodeFrame.autoshrink
@@ -203,14 +227,26 @@ func (self Instance) SetAutoshrink(value bool) Instance { //gd:VisualShaderNodeF
 	return self
 }
 
+func (o *Extension[T]) SetAutoshrink(value bool) *Extension[T] {
+	o.Super().SetAutoshrink(value)
+	return o
+}
+
 func (self Instance) AttachedNodes() []int32 { //gd:VisualShaderNodeFrame.attached_nodes
 		return []int32(slices.Collect(class(self).GetAttachedNodes().Values()))
 }
+
+func (o *Extension[T]) AttachedNodes() []int32 { return o.Super().AttachedNodes() }
 
 // SetAttachedNodes sets the property returned by [GetAttachedNodes]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAttachedNodes(value []int32) Instance { //gd:VisualShaderNodeFrame.attached_nodes
 	class(self).SetAttachedNodes(Packed.New(value...))
 	return self
+}
+
+func (o *Extension[T]) SetAttachedNodes(value []int32) *Extension[T] {
+	o.Super().SetAttachedNodes(value)
+	return o
 }
 
 func (self class) SetTitle(title String.Readable)  { //gd:VisualShaderNodeFrame.set_title
@@ -433,6 +469,78 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// Size is promoted from [VisualShaderNodeResizableBase.Instance.Size].
+func (o *Extension[T]) Size() Vector2.XY { return o.Super().AsVisualShaderNodeResizableBase().Size() }
+
+// SetSize is promoted from [VisualShaderNodeResizableBase.Instance.SetSize].
+func (o *Extension[T]) SetSize(value Vector2.XY) *Extension[T] {
+	o.Super().AsVisualShaderNodeResizableBase().SetSize(value)
+	return o
+}
+
+// OutputPortForPreview is promoted from [VisualShaderNode.Instance.OutputPortForPreview].
+func (o *Extension[T]) OutputPortForPreview() int { return o.Super().AsVisualShaderNode().OutputPortForPreview() }
+
+// SetOutputPortForPreview is promoted from [VisualShaderNode.Instance.SetOutputPortForPreview].
+func (o *Extension[T]) SetOutputPortForPreview(value int) *Extension[T] {
+	o.Super().AsVisualShaderNode().SetOutputPortForPreview(value)
+	return o
+}
+
+// DefaultInputValues is promoted from [VisualShaderNode.Instance.DefaultInputValues].
+func (o *Extension[T]) DefaultInputValues() []any { return o.Super().AsVisualShaderNode().DefaultInputValues() }
+
+// SetDefaultInputValues is promoted from [VisualShaderNode.Instance.SetDefaultInputValues].
+func (o *Extension[T]) SetDefaultInputValues(value []any) *Extension[T] {
+	o.Super().AsVisualShaderNode().SetDefaultInputValues(value)
+	return o
+}
+
+// LinkedParentGraphFrame is promoted from [VisualShaderNode.Instance.LinkedParentGraphFrame].
+func (o *Extension[T]) LinkedParentGraphFrame() int { return o.Super().AsVisualShaderNode().LinkedParentGraphFrame() }
+
+// SetLinkedParentGraphFrame is promoted from [VisualShaderNode.Instance.SetLinkedParentGraphFrame].
+func (o *Extension[T]) SetLinkedParentGraphFrame(value int) *Extension[T] {
+	o.Super().AsVisualShaderNode().SetLinkedParentGraphFrame(value)
+	return o
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

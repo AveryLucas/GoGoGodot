@@ -21,7 +21,9 @@ import "graphics.gd/classdb/CanvasItem"
 import "graphics.gd/classdb/CanvasLayer"
 import "graphics.gd/classdb/InputEvent"
 import "graphics.gd/classdb/Joint2D"
+import "graphics.gd/classdb/Material"
 import "graphics.gd/classdb/MultiMesh"
+import "graphics.gd/classdb/MultiplayerAPI"
 import "graphics.gd/classdb/Node"
 import "graphics.gd/classdb/Node2D"
 import "graphics.gd/classdb/Texture2D"
@@ -29,6 +31,7 @@ import "graphics.gd/classdb/Tween"
 import "graphics.gd/classdb/World2D"
 import "graphics.gd/variant/Array"
 import "graphics.gd/variant/Callable"
+import "graphics.gd/variant/Color"
 import "graphics.gd/variant/Dictionary"
 import "graphics.gd/variant/Error"
 import "graphics.gd/variant/Float"
@@ -165,15 +168,24 @@ func (self Instance) Length() Float.X { //gd:DampedSpringJoint2D.length
 		return Float.X(Float.X(class(self).GetLength()))
 }
 
+func (o *Extension[T]) Length() Float.X { return o.Super().Length() }
+
 // SetLength sets the property returned by [GetLength]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetLength(value Float.X) Instance { //gd:DampedSpringJoint2D.length
 	class(self).SetLength(float64(value))
 	return self
 }
 
+func (o *Extension[T]) SetLength(value Float.X) *Extension[T] {
+	o.Super().SetLength(value)
+	return o
+}
+
 func (self Instance) RestLength() Float.X { //gd:DampedSpringJoint2D.rest_length
 		return Float.X(Float.X(class(self).GetRestLength()))
 }
+
+func (o *Extension[T]) RestLength() Float.X { return o.Super().RestLength() }
 
 // SetRestLength sets the property returned by [GetRestLength]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRestLength(value Float.X) Instance { //gd:DampedSpringJoint2D.rest_length
@@ -181,9 +193,16 @@ func (self Instance) SetRestLength(value Float.X) Instance { //gd:DampedSpringJo
 	return self
 }
 
+func (o *Extension[T]) SetRestLength(value Float.X) *Extension[T] {
+	o.Super().SetRestLength(value)
+	return o
+}
+
 func (self Instance) Stiffness() Float.X { //gd:DampedSpringJoint2D.stiffness
 		return Float.X(Float.X(class(self).GetStiffness()))
 }
+
+func (o *Extension[T]) Stiffness() Float.X { return o.Super().Stiffness() }
 
 // SetStiffness sets the property returned by [GetStiffness]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStiffness(value Float.X) Instance { //gd:DampedSpringJoint2D.stiffness
@@ -191,14 +210,26 @@ func (self Instance) SetStiffness(value Float.X) Instance { //gd:DampedSpringJoi
 	return self
 }
 
+func (o *Extension[T]) SetStiffness(value Float.X) *Extension[T] {
+	o.Super().SetStiffness(value)
+	return o
+}
+
 func (self Instance) Damping() Float.X { //gd:DampedSpringJoint2D.damping
 		return Float.X(Float.X(class(self).GetDamping()))
 }
+
+func (o *Extension[T]) Damping() Float.X { return o.Super().Damping() }
 
 // SetDamping sets the property returned by [GetDamping]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDamping(value Float.X) Instance { //gd:DampedSpringJoint2D.damping
 	class(self).SetDamping(float64(value))
 	return self
+}
+
+func (o *Extension[T]) SetDamping(value Float.X) *Extension[T] {
+	o.Super().SetDamping(value)
+	return o
 }
 
 func (self class) SetLength(length float64)  { //gd:DampedSpringJoint2D.set_length
@@ -1513,6 +1544,399 @@ func (self Instance) NotifyThreadSafe(what int) {
 // NotifyThreadSafe is promoted from [Node.Instance.NotifyThreadSafe].
 func (o *Extension[T]) NotifyThreadSafe(what int) {
 	o.Super().AsNode().NotifyThreadSafe(what)
+}
+
+// NodeA is promoted from [Joint2D.Instance.NodeA].
+func (o *Extension[T]) NodeA() string { return o.Super().AsJoint2D().NodeA() }
+
+// SetNodeA is promoted from [Joint2D.Instance.SetNodeA].
+func (o *Extension[T]) SetNodeA(value string) *Extension[T] {
+	o.Super().AsJoint2D().SetNodeA(value)
+	return o
+}
+
+// NodeB is promoted from [Joint2D.Instance.NodeB].
+func (o *Extension[T]) NodeB() string { return o.Super().AsJoint2D().NodeB() }
+
+// SetNodeB is promoted from [Joint2D.Instance.SetNodeB].
+func (o *Extension[T]) SetNodeB(value string) *Extension[T] {
+	o.Super().AsJoint2D().SetNodeB(value)
+	return o
+}
+
+// Bias is promoted from [Joint2D.Instance.Bias].
+func (o *Extension[T]) Bias() Float.X { return o.Super().AsJoint2D().Bias() }
+
+// SetBias is promoted from [Joint2D.Instance.SetBias].
+func (o *Extension[T]) SetBias(value Float.X) *Extension[T] {
+	o.Super().AsJoint2D().SetBias(value)
+	return o
+}
+
+// DisableCollision is promoted from [Joint2D.Instance.DisableCollision].
+func (o *Extension[T]) DisableCollision() bool { return o.Super().AsJoint2D().DisableCollision() }
+
+// SetDisableCollision is promoted from [Joint2D.Instance.SetDisableCollision].
+func (o *Extension[T]) SetDisableCollision(value bool) *Extension[T] {
+	o.Super().AsJoint2D().SetDisableCollision(value)
+	return o
+}
+
+// Position is promoted from [Node2D.Instance.Position].
+func (o *Extension[T]) Position() Vector2.XY { return o.Super().AsNode2D().Position() }
+
+// SetPosition is promoted from [Node2D.Instance.SetPosition].
+func (o *Extension[T]) SetPosition(value Vector2.XY) *Extension[T] {
+	o.Super().AsNode2D().SetPosition(value)
+	return o
+}
+
+// Rotation is promoted from [Node2D.Instance.Rotation].
+func (o *Extension[T]) Rotation() Angle.Radians { return o.Super().AsNode2D().Rotation() }
+
+// SetRotation is promoted from [Node2D.Instance.SetRotation].
+func (o *Extension[T]) SetRotation(value Angle.Radians) *Extension[T] {
+	o.Super().AsNode2D().SetRotation(value)
+	return o
+}
+
+// RotationDegrees is promoted from [Node2D.Instance.RotationDegrees].
+func (o *Extension[T]) RotationDegrees() Angle.Degrees { return o.Super().AsNode2D().RotationDegrees() }
+
+// SetRotationDegrees is promoted from [Node2D.Instance.SetRotationDegrees].
+func (o *Extension[T]) SetRotationDegrees(value Angle.Degrees) *Extension[T] {
+	o.Super().AsNode2D().SetRotationDegrees(value)
+	return o
+}
+
+// Scale is promoted from [Node2D.Instance.Scale].
+func (o *Extension[T]) Scale() Vector2.XY { return o.Super().AsNode2D().Scale() }
+
+// SetScale is promoted from [Node2D.Instance.SetScale].
+func (o *Extension[T]) SetScale(value Vector2.XY) *Extension[T] {
+	o.Super().AsNode2D().SetScale(value)
+	return o
+}
+
+// Skew is promoted from [Node2D.Instance.Skew].
+func (o *Extension[T]) Skew() Float.X { return o.Super().AsNode2D().Skew() }
+
+// SetSkew is promoted from [Node2D.Instance.SetSkew].
+func (o *Extension[T]) SetSkew(value Float.X) *Extension[T] {
+	o.Super().AsNode2D().SetSkew(value)
+	return o
+}
+
+// SetTransform is promoted from [Node2D.Instance.SetTransform].
+func (o *Extension[T]) SetTransform(value Transform2D.OriginXY) *Extension[T] {
+	o.Super().AsNode2D().SetTransform(value)
+	return o
+}
+
+// GlobalPosition is promoted from [Node2D.Instance.GlobalPosition].
+func (o *Extension[T]) GlobalPosition() Vector2.XY { return o.Super().AsNode2D().GlobalPosition() }
+
+// SetGlobalPosition is promoted from [Node2D.Instance.SetGlobalPosition].
+func (o *Extension[T]) SetGlobalPosition(value Vector2.XY) *Extension[T] {
+	o.Super().AsNode2D().SetGlobalPosition(value)
+	return o
+}
+
+// GlobalRotation is promoted from [Node2D.Instance.GlobalRotation].
+func (o *Extension[T]) GlobalRotation() Angle.Radians { return o.Super().AsNode2D().GlobalRotation() }
+
+// SetGlobalRotation is promoted from [Node2D.Instance.SetGlobalRotation].
+func (o *Extension[T]) SetGlobalRotation(value Angle.Radians) *Extension[T] {
+	o.Super().AsNode2D().SetGlobalRotation(value)
+	return o
+}
+
+// GlobalRotationDegrees is promoted from [Node2D.Instance.GlobalRotationDegrees].
+func (o *Extension[T]) GlobalRotationDegrees() Angle.Degrees { return o.Super().AsNode2D().GlobalRotationDegrees() }
+
+// SetGlobalRotationDegrees is promoted from [Node2D.Instance.SetGlobalRotationDegrees].
+func (o *Extension[T]) SetGlobalRotationDegrees(value Angle.Degrees) *Extension[T] {
+	o.Super().AsNode2D().SetGlobalRotationDegrees(value)
+	return o
+}
+
+// GlobalScale is promoted from [Node2D.Instance.GlobalScale].
+func (o *Extension[T]) GlobalScale() Vector2.XY { return o.Super().AsNode2D().GlobalScale() }
+
+// SetGlobalScale is promoted from [Node2D.Instance.SetGlobalScale].
+func (o *Extension[T]) SetGlobalScale(value Vector2.XY) *Extension[T] {
+	o.Super().AsNode2D().SetGlobalScale(value)
+	return o
+}
+
+// GlobalSkew is promoted from [Node2D.Instance.GlobalSkew].
+func (o *Extension[T]) GlobalSkew() Float.X { return o.Super().AsNode2D().GlobalSkew() }
+
+// SetGlobalSkew is promoted from [Node2D.Instance.SetGlobalSkew].
+func (o *Extension[T]) SetGlobalSkew(value Float.X) *Extension[T] {
+	o.Super().AsNode2D().SetGlobalSkew(value)
+	return o
+}
+
+// SetGlobalTransform is promoted from [Node2D.Instance.SetGlobalTransform].
+func (o *Extension[T]) SetGlobalTransform(value Transform2D.OriginXY) *Extension[T] {
+	o.Super().AsNode2D().SetGlobalTransform(value)
+	return o
+}
+
+// Visible is promoted from [CanvasItem.Instance.Visible].
+func (o *Extension[T]) Visible() bool { return o.Super().AsCanvasItem().Visible() }
+
+// SetVisible is promoted from [CanvasItem.Instance.SetVisible].
+func (o *Extension[T]) SetVisible(value bool) *Extension[T] {
+	o.Super().AsCanvasItem().SetVisible(value)
+	return o
+}
+
+// Modulate is promoted from [CanvasItem.Instance.Modulate].
+func (o *Extension[T]) Modulate() Color.RGBA { return o.Super().AsCanvasItem().Modulate() }
+
+// SetModulate is promoted from [CanvasItem.Instance.SetModulate].
+func (o *Extension[T]) SetModulate(value Color.RGBA) *Extension[T] {
+	o.Super().AsCanvasItem().SetModulate(value)
+	return o
+}
+
+// SelfModulate is promoted from [CanvasItem.Instance.SelfModulate].
+func (o *Extension[T]) SelfModulate() Color.RGBA { return o.Super().AsCanvasItem().SelfModulate() }
+
+// SetSelfModulate is promoted from [CanvasItem.Instance.SetSelfModulate].
+func (o *Extension[T]) SetSelfModulate(value Color.RGBA) *Extension[T] {
+	o.Super().AsCanvasItem().SetSelfModulate(value)
+	return o
+}
+
+// ShowBehindParent is promoted from [CanvasItem.Instance.ShowBehindParent].
+func (o *Extension[T]) ShowBehindParent() bool { return o.Super().AsCanvasItem().ShowBehindParent() }
+
+// SetShowBehindParent is promoted from [CanvasItem.Instance.SetShowBehindParent].
+func (o *Extension[T]) SetShowBehindParent(value bool) *Extension[T] {
+	o.Super().AsCanvasItem().SetShowBehindParent(value)
+	return o
+}
+
+// TopLevel is promoted from [CanvasItem.Instance.TopLevel].
+func (o *Extension[T]) TopLevel() bool { return o.Super().AsCanvasItem().TopLevel() }
+
+// SetTopLevel is promoted from [CanvasItem.Instance.SetTopLevel].
+func (o *Extension[T]) SetTopLevel(value bool) *Extension[T] {
+	o.Super().AsCanvasItem().SetTopLevel(value)
+	return o
+}
+
+// ClipChildren is promoted from [CanvasItem.Instance.ClipChildren].
+func (o *Extension[T]) ClipChildren() CanvasItem.ClipChildrenMode { return o.Super().AsCanvasItem().ClipChildren() }
+
+// SetClipChildren is promoted from [CanvasItem.Instance.SetClipChildren].
+func (o *Extension[T]) SetClipChildren(value CanvasItem.ClipChildrenMode) *Extension[T] {
+	o.Super().AsCanvasItem().SetClipChildren(value)
+	return o
+}
+
+// LightMask is promoted from [CanvasItem.Instance.LightMask].
+func (o *Extension[T]) LightMask() int { return o.Super().AsCanvasItem().LightMask() }
+
+// SetLightMask is promoted from [CanvasItem.Instance.SetLightMask].
+func (o *Extension[T]) SetLightMask(value int) *Extension[T] {
+	o.Super().AsCanvasItem().SetLightMask(value)
+	return o
+}
+
+// VisibilityLayer is promoted from [CanvasItem.Instance.VisibilityLayer].
+func (o *Extension[T]) VisibilityLayer() int { return o.Super().AsCanvasItem().VisibilityLayer() }
+
+// SetVisibilityLayer is promoted from [CanvasItem.Instance.SetVisibilityLayer].
+func (o *Extension[T]) SetVisibilityLayer(value int) *Extension[T] {
+	o.Super().AsCanvasItem().SetVisibilityLayer(value)
+	return o
+}
+
+// ZIndex is promoted from [CanvasItem.Instance.ZIndex].
+func (o *Extension[T]) ZIndex() int { return o.Super().AsCanvasItem().ZIndex() }
+
+// SetZIndex is promoted from [CanvasItem.Instance.SetZIndex].
+func (o *Extension[T]) SetZIndex(value int) *Extension[T] {
+	o.Super().AsCanvasItem().SetZIndex(value)
+	return o
+}
+
+// ZAsRelative is promoted from [CanvasItem.Instance.ZAsRelative].
+func (o *Extension[T]) ZAsRelative() bool { return o.Super().AsCanvasItem().ZAsRelative() }
+
+// SetZAsRelative is promoted from [CanvasItem.Instance.SetZAsRelative].
+func (o *Extension[T]) SetZAsRelative(value bool) *Extension[T] {
+	o.Super().AsCanvasItem().SetZAsRelative(value)
+	return o
+}
+
+// YSortEnabled is promoted from [CanvasItem.Instance.YSortEnabled].
+func (o *Extension[T]) YSortEnabled() bool { return o.Super().AsCanvasItem().YSortEnabled() }
+
+// SetYSortEnabled is promoted from [CanvasItem.Instance.SetYSortEnabled].
+func (o *Extension[T]) SetYSortEnabled(value bool) *Extension[T] {
+	o.Super().AsCanvasItem().SetYSortEnabled(value)
+	return o
+}
+
+// TextureFilter is promoted from [CanvasItem.Instance.TextureFilter].
+func (o *Extension[T]) TextureFilter() CanvasItem.TextureFilter { return o.Super().AsCanvasItem().TextureFilter() }
+
+// SetTextureFilter is promoted from [CanvasItem.Instance.SetTextureFilter].
+func (o *Extension[T]) SetTextureFilter(value CanvasItem.TextureFilter) *Extension[T] {
+	o.Super().AsCanvasItem().SetTextureFilter(value)
+	return o
+}
+
+// TextureRepeat is promoted from [CanvasItem.Instance.TextureRepeat].
+func (o *Extension[T]) TextureRepeat() CanvasItem.TextureRepeat { return o.Super().AsCanvasItem().TextureRepeat() }
+
+// SetTextureRepeat is promoted from [CanvasItem.Instance.SetTextureRepeat].
+func (o *Extension[T]) SetTextureRepeat(value CanvasItem.TextureRepeat) *Extension[T] {
+	o.Super().AsCanvasItem().SetTextureRepeat(value)
+	return o
+}
+
+// Material is promoted from [CanvasItem.Instance.Material].
+func (o *Extension[T]) Material() Material.Instance { return o.Super().AsCanvasItem().Material() }
+
+// SetMaterial is promoted from [CanvasItem.Instance.SetMaterial].
+func (o *Extension[T]) SetMaterial(value Material.Instance) *Extension[T] {
+	o.Super().AsCanvasItem().SetMaterial(value)
+	return o
+}
+
+// UseParentMaterial is promoted from [CanvasItem.Instance.UseParentMaterial].
+func (o *Extension[T]) UseParentMaterial() bool { return o.Super().AsCanvasItem().UseParentMaterial() }
+
+// SetUseParentMaterial is promoted from [CanvasItem.Instance.SetUseParentMaterial].
+func (o *Extension[T]) SetUseParentMaterial(value bool) *Extension[T] {
+	o.Super().AsCanvasItem().SetUseParentMaterial(value)
+	return o
+}
+
+// Name is promoted from [Node.Instance.Name].
+func (o *Extension[T]) Name() string { return o.Super().AsNode().Name() }
+
+// SetName is promoted from [Node.Instance.SetName].
+func (o *Extension[T]) SetName(value string) *Extension[T] {
+	o.Super().AsNode().SetName(value)
+	return o
+}
+
+// UniqueNameInOwner is promoted from [Node.Instance.UniqueNameInOwner].
+func (o *Extension[T]) UniqueNameInOwner() bool { return o.Super().AsNode().UniqueNameInOwner() }
+
+// SetUniqueNameInOwner is promoted from [Node.Instance.SetUniqueNameInOwner].
+func (o *Extension[T]) SetUniqueNameInOwner(value bool) *Extension[T] {
+	o.Super().AsNode().SetUniqueNameInOwner(value)
+	return o
+}
+
+// SceneFilePath is promoted from [Node.Instance.SceneFilePath].
+func (o *Extension[T]) SceneFilePath() string { return o.Super().AsNode().SceneFilePath() }
+
+// SetSceneFilePath is promoted from [Node.Instance.SetSceneFilePath].
+func (o *Extension[T]) SetSceneFilePath(value string) *Extension[T] {
+	o.Super().AsNode().SetSceneFilePath(value)
+	return o
+}
+
+// Owner is promoted from [Node.Instance.Owner].
+func (o *Extension[T]) Owner() Node.Instance { return o.Super().AsNode().Owner() }
+
+// SetOwner is promoted from [Node.Instance.SetOwner].
+func (o *Extension[T]) SetOwner(value Node.Instance) *Extension[T] {
+	o.Super().AsNode().SetOwner(value)
+	return o
+}
+
+// Multiplayer is promoted from [Node.Instance.Multiplayer].
+func (o *Extension[T]) Multiplayer() MultiplayerAPI.Instance { return o.Super().AsNode().Multiplayer() }
+
+// ProcessMode is promoted from [Node.Instance.ProcessMode].
+func (o *Extension[T]) ProcessMode() Node.ProcessMode { return o.Super().AsNode().ProcessMode() }
+
+// SetProcessMode is promoted from [Node.Instance.SetProcessMode].
+func (o *Extension[T]) SetProcessMode(value Node.ProcessMode) *Extension[T] {
+	o.Super().AsNode().SetProcessMode(value)
+	return o
+}
+
+// ProcessPriority is promoted from [Node.Instance.ProcessPriority].
+func (o *Extension[T]) ProcessPriority() int { return o.Super().AsNode().ProcessPriority() }
+
+// SetProcessPriority is promoted from [Node.Instance.SetProcessPriority].
+func (o *Extension[T]) SetProcessPriority(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessPriority(value)
+	return o
+}
+
+// ProcessPhysicsPriority is promoted from [Node.Instance.ProcessPhysicsPriority].
+func (o *Extension[T]) ProcessPhysicsPriority() int { return o.Super().AsNode().ProcessPhysicsPriority() }
+
+// SetProcessPhysicsPriority is promoted from [Node.Instance.SetProcessPhysicsPriority].
+func (o *Extension[T]) SetProcessPhysicsPriority(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessPhysicsPriority(value)
+	return o
+}
+
+// ProcessThreadGroup is promoted from [Node.Instance.ProcessThreadGroup].
+func (o *Extension[T]) ProcessThreadGroup() Node.ProcessThreadGroup { return o.Super().AsNode().ProcessThreadGroup() }
+
+// SetProcessThreadGroup is promoted from [Node.Instance.SetProcessThreadGroup].
+func (o *Extension[T]) SetProcessThreadGroup(value Node.ProcessThreadGroup) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadGroup(value)
+	return o
+}
+
+// ProcessThreadGroupOrder is promoted from [Node.Instance.ProcessThreadGroupOrder].
+func (o *Extension[T]) ProcessThreadGroupOrder() int { return o.Super().AsNode().ProcessThreadGroupOrder() }
+
+// SetProcessThreadGroupOrder is promoted from [Node.Instance.SetProcessThreadGroupOrder].
+func (o *Extension[T]) SetProcessThreadGroupOrder(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadGroupOrder(value)
+	return o
+}
+
+// ProcessThreadMessages is promoted from [Node.Instance.ProcessThreadMessages].
+func (o *Extension[T]) ProcessThreadMessages() Node.ProcessThreadMessages { return o.Super().AsNode().ProcessThreadMessages() }
+
+// SetProcessThreadMessages is promoted from [Node.Instance.SetProcessThreadMessages].
+func (o *Extension[T]) SetProcessThreadMessages(value Node.ProcessThreadMessages) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadMessages(value)
+	return o
+}
+
+// PhysicsInterpolationMode is promoted from [Node.Instance.PhysicsInterpolationMode].
+func (o *Extension[T]) PhysicsInterpolationMode() Node.PhysicsInterpolationMode { return o.Super().AsNode().PhysicsInterpolationMode() }
+
+// SetPhysicsInterpolationMode is promoted from [Node.Instance.SetPhysicsInterpolationMode].
+func (o *Extension[T]) SetPhysicsInterpolationMode(value Node.PhysicsInterpolationMode) *Extension[T] {
+	o.Super().AsNode().SetPhysicsInterpolationMode(value)
+	return o
+}
+
+// AutoTranslateMode is promoted from [Node.Instance.AutoTranslateMode].
+func (o *Extension[T]) AutoTranslateMode() Node.AutoTranslateMode { return o.Super().AsNode().AutoTranslateMode() }
+
+// SetAutoTranslateMode is promoted from [Node.Instance.SetAutoTranslateMode].
+func (o *Extension[T]) SetAutoTranslateMode(value Node.AutoTranslateMode) *Extension[T] {
+	o.Super().AsNode().SetAutoTranslateMode(value)
+	return o
+}
+
+// EditorDescription is promoted from [Node.Instance.EditorDescription].
+func (o *Extension[T]) EditorDescription() string { return o.Super().AsNode().EditorDescription() }
+
+// SetEditorDescription is promoted from [Node.Instance.SetEditorDescription].
+func (o *Extension[T]) SetEditorDescription(value string) *Extension[T] {
+	o.Super().AsNode().SetEditorDescription(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

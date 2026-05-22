@@ -239,15 +239,24 @@ func (self Instance) SupportedProtocols() []string { //gd:WebSocketPeer.supporte
 		return []string(class(self).GetSupportedProtocols().Strings())
 }
 
+func (o *Extension[T]) SupportedProtocols() []string { return o.Super().SupportedProtocols() }
+
 // SetSupportedProtocols sets the property returned by [GetSupportedProtocols]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSupportedProtocols(value []string) Instance { //gd:WebSocketPeer.supported_protocols
 	class(self).SetSupportedProtocols(Packed.MakeStrings(value...))
 	return self
 }
 
+func (o *Extension[T]) SetSupportedProtocols(value []string) *Extension[T] {
+	o.Super().SetSupportedProtocols(value)
+	return o
+}
+
 func (self Instance) HandshakeHeaders() []string { //gd:WebSocketPeer.handshake_headers
 		return []string(class(self).GetHandshakeHeaders().Strings())
 }
+
+func (o *Extension[T]) HandshakeHeaders() []string { return o.Super().HandshakeHeaders() }
 
 // SetHandshakeHeaders sets the property returned by [GetHandshakeHeaders]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetHandshakeHeaders(value []string) Instance { //gd:WebSocketPeer.handshake_headers
@@ -255,9 +264,16 @@ func (self Instance) SetHandshakeHeaders(value []string) Instance { //gd:WebSock
 	return self
 }
 
+func (o *Extension[T]) SetHandshakeHeaders(value []string) *Extension[T] {
+	o.Super().SetHandshakeHeaders(value)
+	return o
+}
+
 func (self Instance) InboundBufferSize() int { //gd:WebSocketPeer.inbound_buffer_size
 		return int(int(class(self).GetInboundBufferSize()))
 }
+
+func (o *Extension[T]) InboundBufferSize() int { return o.Super().InboundBufferSize() }
 
 // SetInboundBufferSize sets the property returned by [GetInboundBufferSize]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetInboundBufferSize(value int) Instance { //gd:WebSocketPeer.inbound_buffer_size
@@ -265,9 +281,16 @@ func (self Instance) SetInboundBufferSize(value int) Instance { //gd:WebSocketPe
 	return self
 }
 
+func (o *Extension[T]) SetInboundBufferSize(value int) *Extension[T] {
+	o.Super().SetInboundBufferSize(value)
+	return o
+}
+
 func (self Instance) OutboundBufferSize() int { //gd:WebSocketPeer.outbound_buffer_size
 		return int(int(class(self).GetOutboundBufferSize()))
 }
+
+func (o *Extension[T]) OutboundBufferSize() int { return o.Super().OutboundBufferSize() }
 
 // SetOutboundBufferSize sets the property returned by [GetOutboundBufferSize]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOutboundBufferSize(value int) Instance { //gd:WebSocketPeer.outbound_buffer_size
@@ -275,9 +298,16 @@ func (self Instance) SetOutboundBufferSize(value int) Instance { //gd:WebSocketP
 	return self
 }
 
+func (o *Extension[T]) SetOutboundBufferSize(value int) *Extension[T] {
+	o.Super().SetOutboundBufferSize(value)
+	return o
+}
+
 func (self Instance) MaxQueuedPackets() int { //gd:WebSocketPeer.max_queued_packets
 		return int(int(class(self).GetMaxQueuedPackets()))
 }
+
+func (o *Extension[T]) MaxQueuedPackets() int { return o.Super().MaxQueuedPackets() }
 
 // SetMaxQueuedPackets sets the property returned by [GetMaxQueuedPackets]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMaxQueuedPackets(value int) Instance { //gd:WebSocketPeer.max_queued_packets
@@ -285,14 +315,26 @@ func (self Instance) SetMaxQueuedPackets(value int) Instance { //gd:WebSocketPee
 	return self
 }
 
+func (o *Extension[T]) SetMaxQueuedPackets(value int) *Extension[T] {
+	o.Super().SetMaxQueuedPackets(value)
+	return o
+}
+
 func (self Instance) HeartbeatInterval() Float.X { //gd:WebSocketPeer.heartbeat_interval
 		return Float.X(Float.X(class(self).GetHeartbeatInterval()))
 }
+
+func (o *Extension[T]) HeartbeatInterval() Float.X { return o.Super().HeartbeatInterval() }
 
 // SetHeartbeatInterval sets the property returned by [GetHeartbeatInterval]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetHeartbeatInterval(value Float.X) Instance { //gd:WebSocketPeer.heartbeat_interval
 	class(self).SetHeartbeatInterval(float64(value))
 	return self
+}
+
+func (o *Extension[T]) SetHeartbeatInterval(value Float.X) *Extension[T] {
+	o.Super().SetHeartbeatInterval(value)
+	return o
 }
 
 func (self class) ConnectToUrl(url String.Readable, tls_client_options [1]gdclass.TLSOptions) Error.Code { //gd:WebSocketPeer.connect_to_url
@@ -505,6 +547,15 @@ func (self Instance) GetAvailablePacketCount() int {
 // GetAvailablePacketCount is promoted from [PacketPeer.Instance.GetAvailablePacketCount].
 func (o *Extension[T]) GetAvailablePacketCount() int {
 	return o.Super().AsPacketPeer().GetAvailablePacketCount()
+}
+
+// EncodeBufferMaxSize is promoted from [PacketPeer.Instance.EncodeBufferMaxSize].
+func (o *Extension[T]) EncodeBufferMaxSize() int { return o.Super().AsPacketPeer().EncodeBufferMaxSize() }
+
+// SetEncodeBufferMaxSize is promoted from [PacketPeer.Instance.SetEncodeBufferMaxSize].
+func (o *Extension[T]) SetEncodeBufferMaxSize(value int) *Extension[T] {
+	o.Super().AsPacketPeer().SetEncodeBufferMaxSize(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

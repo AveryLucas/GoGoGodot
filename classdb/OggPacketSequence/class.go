@@ -156,15 +156,24 @@ func (self Instance) PacketData() [][][]any { //gd:OggPacketSequence.packet_data
 		return [][][]any(gd.ArrayAs[[][][]any](gd.InternalArray(class(self).GetPacketData())))
 }
 
+func (o *Extension[T]) PacketData() [][][]any { return o.Super().PacketData() }
+
 // SetPacketData sets the property returned by [GetPacketData]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPacketData(value [][][]any) Instance { //gd:OggPacketSequence.packet_data
 	class(self).SetPacketData(gd.ArrayFromSlice[Array.Contains[Array.Any]](value))
 	return self
 }
 
+func (o *Extension[T]) SetPacketData(value [][][]any) *Extension[T] {
+	o.Super().SetPacketData(value)
+	return o
+}
+
 func (self Instance) GranulePositions() []int64 { //gd:OggPacketSequence.granule_positions
 		return []int64(slices.Collect(class(self).GetPacketGranulePositions().Values()))
 }
+
+func (o *Extension[T]) GranulePositions() []int64 { return o.Super().GranulePositions() }
 
 // SetGranulePositions sets the property returned by [GetPacketGranulePositions]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetGranulePositions(value []int64) Instance { //gd:OggPacketSequence.granule_positions
@@ -172,14 +181,26 @@ func (self Instance) SetGranulePositions(value []int64) Instance { //gd:OggPacke
 	return self
 }
 
+func (o *Extension[T]) SetGranulePositions(value []int64) *Extension[T] {
+	o.Super().SetGranulePositions(value)
+	return o
+}
+
 func (self Instance) SamplingRate() Float.X { //gd:OggPacketSequence.sampling_rate
 		return Float.X(Float.X(class(self).GetSamplingRate()))
 }
+
+func (o *Extension[T]) SamplingRate() Float.X { return o.Super().SamplingRate() }
 
 // SetSamplingRate sets the property returned by [GetSamplingRate]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSamplingRate(value Float.X) Instance { //gd:OggPacketSequence.sampling_rate
 	class(self).SetSamplingRate(float64(value))
 	return self
+}
+
+func (o *Extension[T]) SetSamplingRate(value Float.X) *Extension[T] {
+	o.Super().SetSamplingRate(value)
+	return o
 }
 
 func (self class) SetPacketData(packet_data Array.Contains[Array.Any])  { //gd:OggPacketSequence.set_packet_data
@@ -336,6 +357,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

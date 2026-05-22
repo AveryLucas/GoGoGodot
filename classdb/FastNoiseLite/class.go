@@ -191,15 +191,24 @@ func (self Instance) NoiseType() NoiseType { //gd:FastNoiseLite.noise_type
 		return NoiseType(class(self).GetNoiseType())
 }
 
+func (o *Extension[T]) NoiseType() NoiseType { return o.Super().NoiseType() }
+
 // SetNoiseType sets the property returned by [GetNoiseType]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetNoiseType(value NoiseType) Instance { //gd:FastNoiseLite.noise_type
 	class(self).SetNoiseType(value)
 	return self
 }
 
+func (o *Extension[T]) SetNoiseType(value NoiseType) *Extension[T] {
+	o.Super().SetNoiseType(value)
+	return o
+}
+
 func (self Instance) Seed() int { //gd:FastNoiseLite.seed
 		return int(int(class(self).GetSeed()))
 }
+
+func (o *Extension[T]) Seed() int { return o.Super().Seed() }
 
 // SetSeed sets the property returned by [GetSeed]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSeed(value int) Instance { //gd:FastNoiseLite.seed
@@ -207,9 +216,16 @@ func (self Instance) SetSeed(value int) Instance { //gd:FastNoiseLite.seed
 	return self
 }
 
+func (o *Extension[T]) SetSeed(value int) *Extension[T] {
+	o.Super().SetSeed(value)
+	return o
+}
+
 func (self Instance) Frequency() Float.X { //gd:FastNoiseLite.frequency
 		return Float.X(Float.X(class(self).GetFrequency()))
 }
+
+func (o *Extension[T]) Frequency() Float.X { return o.Super().Frequency() }
 
 // SetFrequency sets the property returned by [GetFrequency]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFrequency(value Float.X) Instance { //gd:FastNoiseLite.frequency
@@ -217,9 +233,16 @@ func (self Instance) SetFrequency(value Float.X) Instance { //gd:FastNoiseLite.f
 	return self
 }
 
+func (o *Extension[T]) SetFrequency(value Float.X) *Extension[T] {
+	o.Super().SetFrequency(value)
+	return o
+}
+
 func (self Instance) Offset() Vector3.XYZ { //gd:FastNoiseLite.offset
 		return Vector3.XYZ(class(self).GetOffset())
 }
+
+func (o *Extension[T]) Offset() Vector3.XYZ { return o.Super().Offset() }
 
 // SetOffset sets the property returned by [GetOffset]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOffset(value Vector3.XYZ) Instance { //gd:FastNoiseLite.offset
@@ -227,9 +250,16 @@ func (self Instance) SetOffset(value Vector3.XYZ) Instance { //gd:FastNoiseLite.
 	return self
 }
 
+func (o *Extension[T]) SetOffset(value Vector3.XYZ) *Extension[T] {
+	o.Super().SetOffset(value)
+	return o
+}
+
 func (self Instance) FractalType() FractalType { //gd:FastNoiseLite.fractal_type
 		return FractalType(class(self).GetFractalType())
 }
+
+func (o *Extension[T]) FractalType() FractalType { return o.Super().FractalType() }
 
 // SetFractalType sets the property returned by [GetFractalType]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFractalType(value FractalType) Instance { //gd:FastNoiseLite.fractal_type
@@ -237,9 +267,16 @@ func (self Instance) SetFractalType(value FractalType) Instance { //gd:FastNoise
 	return self
 }
 
+func (o *Extension[T]) SetFractalType(value FractalType) *Extension[T] {
+	o.Super().SetFractalType(value)
+	return o
+}
+
 func (self Instance) FractalOctaves() int { //gd:FastNoiseLite.fractal_octaves
 		return int(int(class(self).GetFractalOctaves()))
 }
+
+func (o *Extension[T]) FractalOctaves() int { return o.Super().FractalOctaves() }
 
 // SetFractalOctaves sets the property returned by [GetFractalOctaves]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFractalOctaves(value int) Instance { //gd:FastNoiseLite.fractal_octaves
@@ -247,9 +284,16 @@ func (self Instance) SetFractalOctaves(value int) Instance { //gd:FastNoiseLite.
 	return self
 }
 
+func (o *Extension[T]) SetFractalOctaves(value int) *Extension[T] {
+	o.Super().SetFractalOctaves(value)
+	return o
+}
+
 func (self Instance) FractalLacunarity() Float.X { //gd:FastNoiseLite.fractal_lacunarity
 		return Float.X(Float.X(class(self).GetFractalLacunarity()))
 }
+
+func (o *Extension[T]) FractalLacunarity() Float.X { return o.Super().FractalLacunarity() }
 
 // SetFractalLacunarity sets the property returned by [GetFractalLacunarity]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFractalLacunarity(value Float.X) Instance { //gd:FastNoiseLite.fractal_lacunarity
@@ -257,9 +301,16 @@ func (self Instance) SetFractalLacunarity(value Float.X) Instance { //gd:FastNoi
 	return self
 }
 
+func (o *Extension[T]) SetFractalLacunarity(value Float.X) *Extension[T] {
+	o.Super().SetFractalLacunarity(value)
+	return o
+}
+
 func (self Instance) FractalGain() Float.X { //gd:FastNoiseLite.fractal_gain
 		return Float.X(Float.X(class(self).GetFractalGain()))
 }
+
+func (o *Extension[T]) FractalGain() Float.X { return o.Super().FractalGain() }
 
 // SetFractalGain sets the property returned by [GetFractalGain]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFractalGain(value Float.X) Instance { //gd:FastNoiseLite.fractal_gain
@@ -267,9 +318,16 @@ func (self Instance) SetFractalGain(value Float.X) Instance { //gd:FastNoiseLite
 	return self
 }
 
+func (o *Extension[T]) SetFractalGain(value Float.X) *Extension[T] {
+	o.Super().SetFractalGain(value)
+	return o
+}
+
 func (self Instance) FractalWeightedStrength() Float.X { //gd:FastNoiseLite.fractal_weighted_strength
 		return Float.X(Float.X(class(self).GetFractalWeightedStrength()))
 }
+
+func (o *Extension[T]) FractalWeightedStrength() Float.X { return o.Super().FractalWeightedStrength() }
 
 // SetFractalWeightedStrength sets the property returned by [GetFractalWeightedStrength]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFractalWeightedStrength(value Float.X) Instance { //gd:FastNoiseLite.fractal_weighted_strength
@@ -277,9 +335,16 @@ func (self Instance) SetFractalWeightedStrength(value Float.X) Instance { //gd:F
 	return self
 }
 
+func (o *Extension[T]) SetFractalWeightedStrength(value Float.X) *Extension[T] {
+	o.Super().SetFractalWeightedStrength(value)
+	return o
+}
+
 func (self Instance) FractalPingPongStrength() Float.X { //gd:FastNoiseLite.fractal_ping_pong_strength
 		return Float.X(Float.X(class(self).GetFractalPingPongStrength()))
 }
+
+func (o *Extension[T]) FractalPingPongStrength() Float.X { return o.Super().FractalPingPongStrength() }
 
 // SetFractalPingPongStrength sets the property returned by [GetFractalPingPongStrength]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFractalPingPongStrength(value Float.X) Instance { //gd:FastNoiseLite.fractal_ping_pong_strength
@@ -287,9 +352,16 @@ func (self Instance) SetFractalPingPongStrength(value Float.X) Instance { //gd:F
 	return self
 }
 
+func (o *Extension[T]) SetFractalPingPongStrength(value Float.X) *Extension[T] {
+	o.Super().SetFractalPingPongStrength(value)
+	return o
+}
+
 func (self Instance) CellularDistanceFunction() CellularDistanceFunction { //gd:FastNoiseLite.cellular_distance_function
 		return CellularDistanceFunction(class(self).GetCellularDistanceFunction())
 }
+
+func (o *Extension[T]) CellularDistanceFunction() CellularDistanceFunction { return o.Super().CellularDistanceFunction() }
 
 // SetCellularDistanceFunction sets the property returned by [GetCellularDistanceFunction]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCellularDistanceFunction(value CellularDistanceFunction) Instance { //gd:FastNoiseLite.cellular_distance_function
@@ -297,9 +369,16 @@ func (self Instance) SetCellularDistanceFunction(value CellularDistanceFunction)
 	return self
 }
 
+func (o *Extension[T]) SetCellularDistanceFunction(value CellularDistanceFunction) *Extension[T] {
+	o.Super().SetCellularDistanceFunction(value)
+	return o
+}
+
 func (self Instance) CellularJitter() Float.X { //gd:FastNoiseLite.cellular_jitter
 		return Float.X(Float.X(class(self).GetCellularJitter()))
 }
+
+func (o *Extension[T]) CellularJitter() Float.X { return o.Super().CellularJitter() }
 
 // SetCellularJitter sets the property returned by [GetCellularJitter]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCellularJitter(value Float.X) Instance { //gd:FastNoiseLite.cellular_jitter
@@ -307,9 +386,16 @@ func (self Instance) SetCellularJitter(value Float.X) Instance { //gd:FastNoiseL
 	return self
 }
 
+func (o *Extension[T]) SetCellularJitter(value Float.X) *Extension[T] {
+	o.Super().SetCellularJitter(value)
+	return o
+}
+
 func (self Instance) CellularReturnType() CellularReturnType { //gd:FastNoiseLite.cellular_return_type
 		return CellularReturnType(class(self).GetCellularReturnType())
 }
+
+func (o *Extension[T]) CellularReturnType() CellularReturnType { return o.Super().CellularReturnType() }
 
 // SetCellularReturnType sets the property returned by [GetCellularReturnType]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCellularReturnType(value CellularReturnType) Instance { //gd:FastNoiseLite.cellular_return_type
@@ -317,9 +403,16 @@ func (self Instance) SetCellularReturnType(value CellularReturnType) Instance { 
 	return self
 }
 
+func (o *Extension[T]) SetCellularReturnType(value CellularReturnType) *Extension[T] {
+	o.Super().SetCellularReturnType(value)
+	return o
+}
+
 func (self Instance) DomainWarpEnabled() bool { //gd:FastNoiseLite.domain_warp_enabled
 		return bool(class(self).IsDomainWarpEnabled())
 }
+
+func (o *Extension[T]) DomainWarpEnabled() bool { return o.Super().DomainWarpEnabled() }
 
 // SetDomainWarpEnabled sets the property returned by [IsDomainWarpEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDomainWarpEnabled(value bool) Instance { //gd:FastNoiseLite.domain_warp_enabled
@@ -327,9 +420,16 @@ func (self Instance) SetDomainWarpEnabled(value bool) Instance { //gd:FastNoiseL
 	return self
 }
 
+func (o *Extension[T]) SetDomainWarpEnabled(value bool) *Extension[T] {
+	o.Super().SetDomainWarpEnabled(value)
+	return o
+}
+
 func (self Instance) DomainWarpType() DomainWarpType { //gd:FastNoiseLite.domain_warp_type
 		return DomainWarpType(class(self).GetDomainWarpType())
 }
+
+func (o *Extension[T]) DomainWarpType() DomainWarpType { return o.Super().DomainWarpType() }
 
 // SetDomainWarpType sets the property returned by [GetDomainWarpType]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDomainWarpType(value DomainWarpType) Instance { //gd:FastNoiseLite.domain_warp_type
@@ -337,9 +437,16 @@ func (self Instance) SetDomainWarpType(value DomainWarpType) Instance { //gd:Fas
 	return self
 }
 
+func (o *Extension[T]) SetDomainWarpType(value DomainWarpType) *Extension[T] {
+	o.Super().SetDomainWarpType(value)
+	return o
+}
+
 func (self Instance) DomainWarpAmplitude() Float.X { //gd:FastNoiseLite.domain_warp_amplitude
 		return Float.X(Float.X(class(self).GetDomainWarpAmplitude()))
 }
+
+func (o *Extension[T]) DomainWarpAmplitude() Float.X { return o.Super().DomainWarpAmplitude() }
 
 // SetDomainWarpAmplitude sets the property returned by [GetDomainWarpAmplitude]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDomainWarpAmplitude(value Float.X) Instance { //gd:FastNoiseLite.domain_warp_amplitude
@@ -347,9 +454,16 @@ func (self Instance) SetDomainWarpAmplitude(value Float.X) Instance { //gd:FastN
 	return self
 }
 
+func (o *Extension[T]) SetDomainWarpAmplitude(value Float.X) *Extension[T] {
+	o.Super().SetDomainWarpAmplitude(value)
+	return o
+}
+
 func (self Instance) DomainWarpFrequency() Float.X { //gd:FastNoiseLite.domain_warp_frequency
 		return Float.X(Float.X(class(self).GetDomainWarpFrequency()))
 }
+
+func (o *Extension[T]) DomainWarpFrequency() Float.X { return o.Super().DomainWarpFrequency() }
 
 // SetDomainWarpFrequency sets the property returned by [GetDomainWarpFrequency]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDomainWarpFrequency(value Float.X) Instance { //gd:FastNoiseLite.domain_warp_frequency
@@ -357,9 +471,16 @@ func (self Instance) SetDomainWarpFrequency(value Float.X) Instance { //gd:FastN
 	return self
 }
 
+func (o *Extension[T]) SetDomainWarpFrequency(value Float.X) *Extension[T] {
+	o.Super().SetDomainWarpFrequency(value)
+	return o
+}
+
 func (self Instance) DomainWarpFractalType() DomainWarpFractalType { //gd:FastNoiseLite.domain_warp_fractal_type
 		return DomainWarpFractalType(class(self).GetDomainWarpFractalType())
 }
+
+func (o *Extension[T]) DomainWarpFractalType() DomainWarpFractalType { return o.Super().DomainWarpFractalType() }
 
 // SetDomainWarpFractalType sets the property returned by [GetDomainWarpFractalType]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDomainWarpFractalType(value DomainWarpFractalType) Instance { //gd:FastNoiseLite.domain_warp_fractal_type
@@ -367,9 +488,16 @@ func (self Instance) SetDomainWarpFractalType(value DomainWarpFractalType) Insta
 	return self
 }
 
+func (o *Extension[T]) SetDomainWarpFractalType(value DomainWarpFractalType) *Extension[T] {
+	o.Super().SetDomainWarpFractalType(value)
+	return o
+}
+
 func (self Instance) DomainWarpFractalOctaves() int { //gd:FastNoiseLite.domain_warp_fractal_octaves
 		return int(int(class(self).GetDomainWarpFractalOctaves()))
 }
+
+func (o *Extension[T]) DomainWarpFractalOctaves() int { return o.Super().DomainWarpFractalOctaves() }
 
 // SetDomainWarpFractalOctaves sets the property returned by [GetDomainWarpFractalOctaves]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDomainWarpFractalOctaves(value int) Instance { //gd:FastNoiseLite.domain_warp_fractal_octaves
@@ -377,9 +505,16 @@ func (self Instance) SetDomainWarpFractalOctaves(value int) Instance { //gd:Fast
 	return self
 }
 
+func (o *Extension[T]) SetDomainWarpFractalOctaves(value int) *Extension[T] {
+	o.Super().SetDomainWarpFractalOctaves(value)
+	return o
+}
+
 func (self Instance) DomainWarpFractalLacunarity() Float.X { //gd:FastNoiseLite.domain_warp_fractal_lacunarity
 		return Float.X(Float.X(class(self).GetDomainWarpFractalLacunarity()))
 }
+
+func (o *Extension[T]) DomainWarpFractalLacunarity() Float.X { return o.Super().DomainWarpFractalLacunarity() }
 
 // SetDomainWarpFractalLacunarity sets the property returned by [GetDomainWarpFractalLacunarity]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDomainWarpFractalLacunarity(value Float.X) Instance { //gd:FastNoiseLite.domain_warp_fractal_lacunarity
@@ -387,14 +522,26 @@ func (self Instance) SetDomainWarpFractalLacunarity(value Float.X) Instance { //
 	return self
 }
 
+func (o *Extension[T]) SetDomainWarpFractalLacunarity(value Float.X) *Extension[T] {
+	o.Super().SetDomainWarpFractalLacunarity(value)
+	return o
+}
+
 func (self Instance) DomainWarpFractalGain() Float.X { //gd:FastNoiseLite.domain_warp_fractal_gain
 		return Float.X(Float.X(class(self).GetDomainWarpFractalGain()))
 }
+
+func (o *Extension[T]) DomainWarpFractalGain() Float.X { return o.Super().DomainWarpFractalGain() }
 
 // SetDomainWarpFractalGain sets the property returned by [GetDomainWarpFractalGain]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDomainWarpFractalGain(value Float.X) Instance { //gd:FastNoiseLite.domain_warp_fractal_gain
 	class(self).SetDomainWarpFractalGain(float64(value))
 	return self
+}
+
+func (o *Extension[T]) SetDomainWarpFractalGain(value Float.X) *Extension[T] {
+	o.Super().SetDomainWarpFractalGain(value)
+	return o
 }
 
 func (self class) SetNoiseType(atype NoiseType)  { //gd:FastNoiseLite.set_noise_type
@@ -740,6 +887,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

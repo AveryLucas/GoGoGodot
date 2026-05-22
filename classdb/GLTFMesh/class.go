@@ -165,15 +165,24 @@ func (self Instance) OriginalName() string { //gd:GLTFMesh.original_name
 		return string(class(self).GetOriginalName().String())
 }
 
+func (o *Extension[T]) OriginalName() string { return o.Super().OriginalName() }
+
 // SetOriginalName sets the property returned by [GetOriginalName]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOriginalName(value string) Instance { //gd:GLTFMesh.original_name
 	class(self).SetOriginalName(String.From(value))
 	return self
 }
 
+func (o *Extension[T]) SetOriginalName(value string) *Extension[T] {
+	o.Super().SetOriginalName(value)
+	return o
+}
+
 func (self Instance) Mesh() ImporterMesh.Instance { //gd:GLTFMesh.mesh
 		return ImporterMesh.Instance(class(self).GetMesh())
 }
+
+func (o *Extension[T]) Mesh() ImporterMesh.Instance { return o.Super().Mesh() }
 
 // SetMesh sets the property returned by [GetMesh]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMesh(value ImporterMesh.Instance) Instance { //gd:GLTFMesh.mesh
@@ -181,9 +190,16 @@ func (self Instance) SetMesh(value ImporterMesh.Instance) Instance { //gd:GLTFMe
 	return self
 }
 
+func (o *Extension[T]) SetMesh(value ImporterMesh.Instance) *Extension[T] {
+	o.Super().SetMesh(value)
+	return o
+}
+
 func (self Instance) BlendWeights() []float32 { //gd:GLTFMesh.blend_weights
 		return []float32(slices.Collect(class(self).GetBlendWeights().Values()))
 }
+
+func (o *Extension[T]) BlendWeights() []float32 { return o.Super().BlendWeights() }
 
 // SetBlendWeights sets the property returned by [GetBlendWeights]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBlendWeights(value []float32) Instance { //gd:GLTFMesh.blend_weights
@@ -191,14 +207,26 @@ func (self Instance) SetBlendWeights(value []float32) Instance { //gd:GLTFMesh.b
 	return self
 }
 
+func (o *Extension[T]) SetBlendWeights(value []float32) *Extension[T] {
+	o.Super().SetBlendWeights(value)
+	return o
+}
+
 func (self Instance) InstanceMaterials() []Material.Instance { //gd:GLTFMesh.instance_materials
 		return []Material.Instance(gd.ArrayAs[[]Material.Instance](gd.InternalArray(class(self).GetInstanceMaterials())))
 }
+
+func (o *Extension[T]) InstanceMaterials() []Material.Instance { return o.Super().InstanceMaterials() }
 
 // SetInstanceMaterials sets the property returned by [GetInstanceMaterials]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetInstanceMaterials(value []Material.Instance) Instance { //gd:GLTFMesh.instance_materials
 	class(self).SetInstanceMaterials(gd.ArrayFromSlice[Array.Contains[[1]gdclass.Material]](value))
 	return self
+}
+
+func (o *Extension[T]) SetInstanceMaterials(value []Material.Instance) *Extension[T] {
+	o.Super().SetInstanceMaterials(value)
+	return o
 }
 
 func (self class) GetOriginalName() String.Readable { //gd:GLTFMesh.get_original_name
@@ -370,6 +398,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

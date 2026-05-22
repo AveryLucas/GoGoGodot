@@ -165,15 +165,24 @@ func (self Instance) DofBlurFarEnabled() bool { //gd:CameraAttributesPractical.d
 		return bool(class(self).IsDofBlurFarEnabled())
 }
 
+func (o *Extension[T]) DofBlurFarEnabled() bool { return o.Super().DofBlurFarEnabled() }
+
 // SetDofBlurFarEnabled sets the property returned by [IsDofBlurFarEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDofBlurFarEnabled(value bool) Instance { //gd:CameraAttributesPractical.dof_blur_far_enabled
 	class(self).SetDofBlurFarEnabled(value)
 	return self
 }
 
+func (o *Extension[T]) SetDofBlurFarEnabled(value bool) *Extension[T] {
+	o.Super().SetDofBlurFarEnabled(value)
+	return o
+}
+
 func (self Instance) DofBlurFarDistance() Float.X { //gd:CameraAttributesPractical.dof_blur_far_distance
 		return Float.X(Float.X(class(self).GetDofBlurFarDistance()))
 }
+
+func (o *Extension[T]) DofBlurFarDistance() Float.X { return o.Super().DofBlurFarDistance() }
 
 // SetDofBlurFarDistance sets the property returned by [GetDofBlurFarDistance]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDofBlurFarDistance(value Float.X) Instance { //gd:CameraAttributesPractical.dof_blur_far_distance
@@ -181,9 +190,16 @@ func (self Instance) SetDofBlurFarDistance(value Float.X) Instance { //gd:Camera
 	return self
 }
 
+func (o *Extension[T]) SetDofBlurFarDistance(value Float.X) *Extension[T] {
+	o.Super().SetDofBlurFarDistance(value)
+	return o
+}
+
 func (self Instance) DofBlurFarTransition() Float.X { //gd:CameraAttributesPractical.dof_blur_far_transition
 		return Float.X(Float.X(class(self).GetDofBlurFarTransition()))
 }
+
+func (o *Extension[T]) DofBlurFarTransition() Float.X { return o.Super().DofBlurFarTransition() }
 
 // SetDofBlurFarTransition sets the property returned by [GetDofBlurFarTransition]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDofBlurFarTransition(value Float.X) Instance { //gd:CameraAttributesPractical.dof_blur_far_transition
@@ -191,9 +207,16 @@ func (self Instance) SetDofBlurFarTransition(value Float.X) Instance { //gd:Came
 	return self
 }
 
+func (o *Extension[T]) SetDofBlurFarTransition(value Float.X) *Extension[T] {
+	o.Super().SetDofBlurFarTransition(value)
+	return o
+}
+
 func (self Instance) DofBlurNearEnabled() bool { //gd:CameraAttributesPractical.dof_blur_near_enabled
 		return bool(class(self).IsDofBlurNearEnabled())
 }
+
+func (o *Extension[T]) DofBlurNearEnabled() bool { return o.Super().DofBlurNearEnabled() }
 
 // SetDofBlurNearEnabled sets the property returned by [IsDofBlurNearEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDofBlurNearEnabled(value bool) Instance { //gd:CameraAttributesPractical.dof_blur_near_enabled
@@ -201,9 +224,16 @@ func (self Instance) SetDofBlurNearEnabled(value bool) Instance { //gd:CameraAtt
 	return self
 }
 
+func (o *Extension[T]) SetDofBlurNearEnabled(value bool) *Extension[T] {
+	o.Super().SetDofBlurNearEnabled(value)
+	return o
+}
+
 func (self Instance) DofBlurNearDistance() Float.X { //gd:CameraAttributesPractical.dof_blur_near_distance
 		return Float.X(Float.X(class(self).GetDofBlurNearDistance()))
 }
+
+func (o *Extension[T]) DofBlurNearDistance() Float.X { return o.Super().DofBlurNearDistance() }
 
 // SetDofBlurNearDistance sets the property returned by [GetDofBlurNearDistance]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDofBlurNearDistance(value Float.X) Instance { //gd:CameraAttributesPractical.dof_blur_near_distance
@@ -211,9 +241,16 @@ func (self Instance) SetDofBlurNearDistance(value Float.X) Instance { //gd:Camer
 	return self
 }
 
+func (o *Extension[T]) SetDofBlurNearDistance(value Float.X) *Extension[T] {
+	o.Super().SetDofBlurNearDistance(value)
+	return o
+}
+
 func (self Instance) DofBlurNearTransition() Float.X { //gd:CameraAttributesPractical.dof_blur_near_transition
 		return Float.X(Float.X(class(self).GetDofBlurNearTransition()))
 }
+
+func (o *Extension[T]) DofBlurNearTransition() Float.X { return o.Super().DofBlurNearTransition() }
 
 // SetDofBlurNearTransition sets the property returned by [GetDofBlurNearTransition]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDofBlurNearTransition(value Float.X) Instance { //gd:CameraAttributesPractical.dof_blur_near_transition
@@ -221,9 +258,16 @@ func (self Instance) SetDofBlurNearTransition(value Float.X) Instance { //gd:Cam
 	return self
 }
 
+func (o *Extension[T]) SetDofBlurNearTransition(value Float.X) *Extension[T] {
+	o.Super().SetDofBlurNearTransition(value)
+	return o
+}
+
 func (self Instance) DofBlurAmount() Float.X { //gd:CameraAttributesPractical.dof_blur_amount
 		return Float.X(Float.X(class(self).GetDofBlurAmount()))
 }
+
+func (o *Extension[T]) DofBlurAmount() Float.X { return o.Super().DofBlurAmount() }
 
 // SetDofBlurAmount sets the property returned by [GetDofBlurAmount]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDofBlurAmount(value Float.X) Instance { //gd:CameraAttributesPractical.dof_blur_amount
@@ -231,9 +275,16 @@ func (self Instance) SetDofBlurAmount(value Float.X) Instance { //gd:CameraAttri
 	return self
 }
 
+func (o *Extension[T]) SetDofBlurAmount(value Float.X) *Extension[T] {
+	o.Super().SetDofBlurAmount(value)
+	return o
+}
+
 func (self Instance) AutoExposureMinSensitivity() Float.X { //gd:CameraAttributesPractical.auto_exposure_min_sensitivity
 		return Float.X(Float.X(class(self).GetAutoExposureMinSensitivity()))
 }
+
+func (o *Extension[T]) AutoExposureMinSensitivity() Float.X { return o.Super().AutoExposureMinSensitivity() }
 
 // SetAutoExposureMinSensitivity sets the property returned by [GetAutoExposureMinSensitivity]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAutoExposureMinSensitivity(value Float.X) Instance { //gd:CameraAttributesPractical.auto_exposure_min_sensitivity
@@ -241,14 +292,26 @@ func (self Instance) SetAutoExposureMinSensitivity(value Float.X) Instance { //g
 	return self
 }
 
+func (o *Extension[T]) SetAutoExposureMinSensitivity(value Float.X) *Extension[T] {
+	o.Super().SetAutoExposureMinSensitivity(value)
+	return o
+}
+
 func (self Instance) AutoExposureMaxSensitivity() Float.X { //gd:CameraAttributesPractical.auto_exposure_max_sensitivity
 		return Float.X(Float.X(class(self).GetAutoExposureMaxSensitivity()))
 }
+
+func (o *Extension[T]) AutoExposureMaxSensitivity() Float.X { return o.Super().AutoExposureMaxSensitivity() }
 
 // SetAutoExposureMaxSensitivity sets the property returned by [GetAutoExposureMaxSensitivity]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAutoExposureMaxSensitivity(value Float.X) Instance { //gd:CameraAttributesPractical.auto_exposure_max_sensitivity
 	class(self).SetAutoExposureMaxSensitivity(float64(value))
 	return self
+}
+
+func (o *Extension[T]) SetAutoExposureMaxSensitivity(value Float.X) *Extension[T] {
+	o.Super().SetAutoExposureMaxSensitivity(value)
+	return o
 }
 
 func (self class) SetDofBlurFarEnabled(enabled bool)  { //gd:CameraAttributesPractical.set_dof_blur_far_enabled
@@ -448,6 +511,87 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ExposureSensitivity is promoted from [CameraAttributes.Instance.ExposureSensitivity].
+func (o *Extension[T]) ExposureSensitivity() Float.X { return o.Super().AsCameraAttributes().ExposureSensitivity() }
+
+// SetExposureSensitivity is promoted from [CameraAttributes.Instance.SetExposureSensitivity].
+func (o *Extension[T]) SetExposureSensitivity(value Float.X) *Extension[T] {
+	o.Super().AsCameraAttributes().SetExposureSensitivity(value)
+	return o
+}
+
+// ExposureMultiplier is promoted from [CameraAttributes.Instance.ExposureMultiplier].
+func (o *Extension[T]) ExposureMultiplier() Float.X { return o.Super().AsCameraAttributes().ExposureMultiplier() }
+
+// SetExposureMultiplier is promoted from [CameraAttributes.Instance.SetExposureMultiplier].
+func (o *Extension[T]) SetExposureMultiplier(value Float.X) *Extension[T] {
+	o.Super().AsCameraAttributes().SetExposureMultiplier(value)
+	return o
+}
+
+// AutoExposureEnabled is promoted from [CameraAttributes.Instance.AutoExposureEnabled].
+func (o *Extension[T]) AutoExposureEnabled() bool { return o.Super().AsCameraAttributes().AutoExposureEnabled() }
+
+// SetAutoExposureEnabled is promoted from [CameraAttributes.Instance.SetAutoExposureEnabled].
+func (o *Extension[T]) SetAutoExposureEnabled(value bool) *Extension[T] {
+	o.Super().AsCameraAttributes().SetAutoExposureEnabled(value)
+	return o
+}
+
+// AutoExposureScale is promoted from [CameraAttributes.Instance.AutoExposureScale].
+func (o *Extension[T]) AutoExposureScale() Float.X { return o.Super().AsCameraAttributes().AutoExposureScale() }
+
+// SetAutoExposureScale is promoted from [CameraAttributes.Instance.SetAutoExposureScale].
+func (o *Extension[T]) SetAutoExposureScale(value Float.X) *Extension[T] {
+	o.Super().AsCameraAttributes().SetAutoExposureScale(value)
+	return o
+}
+
+// AutoExposureSpeed is promoted from [CameraAttributes.Instance.AutoExposureSpeed].
+func (o *Extension[T]) AutoExposureSpeed() Float.X { return o.Super().AsCameraAttributes().AutoExposureSpeed() }
+
+// SetAutoExposureSpeed is promoted from [CameraAttributes.Instance.SetAutoExposureSpeed].
+func (o *Extension[T]) SetAutoExposureSpeed(value Float.X) *Extension[T] {
+	o.Super().AsCameraAttributes().SetAutoExposureSpeed(value)
+	return o
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

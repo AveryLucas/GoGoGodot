@@ -34,6 +34,7 @@ import "graphics.gd/variant/Path"
 import "graphics.gd/variant/RID"
 import "graphics.gd/variant/RefCounted"
 import "graphics.gd/variant/String"
+import "graphics.gd/variant/Vector2i"
 import "graphics.gd/variant/Vector3"
 
 var _ Object.ID
@@ -152,6 +153,11 @@ if !gd.Linked {
 func (self Instance) SetAabb(value AABB.PositionSize) Instance { //gd:PlaceholderMesh.aabb
 	class(self).SetAabb(AABB.PositionSize(value))
 	return self
+}
+
+func (o *Extension[T]) SetAabb(value AABB.PositionSize) *Extension[T] {
+	o.Super().SetAabb(value)
+	return o
 }
 
 func (self class) SetAabb(aabb AABB.PositionSize)  { //gd:PlaceholderMesh.set_aabb
@@ -392,6 +398,51 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// LightmapSizeHint is promoted from [Mesh.Instance.LightmapSizeHint].
+func (o *Extension[T]) LightmapSizeHint() Vector2i.XY { return o.Super().AsMesh().LightmapSizeHint() }
+
+// SetLightmapSizeHint is promoted from [Mesh.Instance.SetLightmapSizeHint].
+func (o *Extension[T]) SetLightmapSizeHint(value Vector2i.XY) *Extension[T] {
+	o.Super().AsMesh().SetLightmapSizeHint(value)
+	return o
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

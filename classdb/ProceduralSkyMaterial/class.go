@@ -177,15 +177,24 @@ func (self Instance) SkyTopColor() Color.RGBA { //gd:ProceduralSkyMaterial.sky_t
 		return Color.RGBA(class(self).GetSkyTopColor())
 }
 
+func (o *Extension[T]) SkyTopColor() Color.RGBA { return o.Super().SkyTopColor() }
+
 // SetSkyTopColor sets the property returned by [GetSkyTopColor]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSkyTopColor(value Color.RGBA) Instance { //gd:ProceduralSkyMaterial.sky_top_color
 	class(self).SetSkyTopColor(Color.RGBA(value))
 	return self
 }
 
+func (o *Extension[T]) SetSkyTopColor(value Color.RGBA) *Extension[T] {
+	o.Super().SetSkyTopColor(value)
+	return o
+}
+
 func (self Instance) SkyHorizonColor() Color.RGBA { //gd:ProceduralSkyMaterial.sky_horizon_color
 		return Color.RGBA(class(self).GetSkyHorizonColor())
 }
+
+func (o *Extension[T]) SkyHorizonColor() Color.RGBA { return o.Super().SkyHorizonColor() }
 
 // SetSkyHorizonColor sets the property returned by [GetSkyHorizonColor]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSkyHorizonColor(value Color.RGBA) Instance { //gd:ProceduralSkyMaterial.sky_horizon_color
@@ -193,9 +202,16 @@ func (self Instance) SetSkyHorizonColor(value Color.RGBA) Instance { //gd:Proced
 	return self
 }
 
+func (o *Extension[T]) SetSkyHorizonColor(value Color.RGBA) *Extension[T] {
+	o.Super().SetSkyHorizonColor(value)
+	return o
+}
+
 func (self Instance) SkyCurve() Float.X { //gd:ProceduralSkyMaterial.sky_curve
 		return Float.X(Float.X(class(self).GetSkyCurve()))
 }
+
+func (o *Extension[T]) SkyCurve() Float.X { return o.Super().SkyCurve() }
 
 // SetSkyCurve sets the property returned by [GetSkyCurve]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSkyCurve(value Float.X) Instance { //gd:ProceduralSkyMaterial.sky_curve
@@ -203,9 +219,16 @@ func (self Instance) SetSkyCurve(value Float.X) Instance { //gd:ProceduralSkyMat
 	return self
 }
 
+func (o *Extension[T]) SetSkyCurve(value Float.X) *Extension[T] {
+	o.Super().SetSkyCurve(value)
+	return o
+}
+
 func (self Instance) SkyEnergyMultiplier() Float.X { //gd:ProceduralSkyMaterial.sky_energy_multiplier
 		return Float.X(Float.X(class(self).GetSkyEnergyMultiplier()))
 }
+
+func (o *Extension[T]) SkyEnergyMultiplier() Float.X { return o.Super().SkyEnergyMultiplier() }
 
 // SetSkyEnergyMultiplier sets the property returned by [GetSkyEnergyMultiplier]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSkyEnergyMultiplier(value Float.X) Instance { //gd:ProceduralSkyMaterial.sky_energy_multiplier
@@ -213,9 +236,16 @@ func (self Instance) SetSkyEnergyMultiplier(value Float.X) Instance { //gd:Proce
 	return self
 }
 
+func (o *Extension[T]) SetSkyEnergyMultiplier(value Float.X) *Extension[T] {
+	o.Super().SetSkyEnergyMultiplier(value)
+	return o
+}
+
 func (self Instance) SkyCover() Texture2D.Instance { //gd:ProceduralSkyMaterial.sky_cover
 		return Texture2D.Instance(class(self).GetSkyCover())
 }
+
+func (o *Extension[T]) SkyCover() Texture2D.Instance { return o.Super().SkyCover() }
 
 // SetSkyCover sets the property returned by [GetSkyCover]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSkyCover(value Texture2D.Instance) Instance { //gd:ProceduralSkyMaterial.sky_cover
@@ -223,9 +253,16 @@ func (self Instance) SetSkyCover(value Texture2D.Instance) Instance { //gd:Proce
 	return self
 }
 
+func (o *Extension[T]) SetSkyCover(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetSkyCover(value)
+	return o
+}
+
 func (self Instance) SkyCoverModulate() Color.RGBA { //gd:ProceduralSkyMaterial.sky_cover_modulate
 		return Color.RGBA(class(self).GetSkyCoverModulate())
 }
+
+func (o *Extension[T]) SkyCoverModulate() Color.RGBA { return o.Super().SkyCoverModulate() }
 
 // SetSkyCoverModulate sets the property returned by [GetSkyCoverModulate]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSkyCoverModulate(value Color.RGBA) Instance { //gd:ProceduralSkyMaterial.sky_cover_modulate
@@ -233,9 +270,16 @@ func (self Instance) SetSkyCoverModulate(value Color.RGBA) Instance { //gd:Proce
 	return self
 }
 
+func (o *Extension[T]) SetSkyCoverModulate(value Color.RGBA) *Extension[T] {
+	o.Super().SetSkyCoverModulate(value)
+	return o
+}
+
 func (self Instance) GroundBottomColor() Color.RGBA { //gd:ProceduralSkyMaterial.ground_bottom_color
 		return Color.RGBA(class(self).GetGroundBottomColor())
 }
+
+func (o *Extension[T]) GroundBottomColor() Color.RGBA { return o.Super().GroundBottomColor() }
 
 // SetGroundBottomColor sets the property returned by [GetGroundBottomColor]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetGroundBottomColor(value Color.RGBA) Instance { //gd:ProceduralSkyMaterial.ground_bottom_color
@@ -243,9 +287,16 @@ func (self Instance) SetGroundBottomColor(value Color.RGBA) Instance { //gd:Proc
 	return self
 }
 
+func (o *Extension[T]) SetGroundBottomColor(value Color.RGBA) *Extension[T] {
+	o.Super().SetGroundBottomColor(value)
+	return o
+}
+
 func (self Instance) GroundHorizonColor() Color.RGBA { //gd:ProceduralSkyMaterial.ground_horizon_color
 		return Color.RGBA(class(self).GetGroundHorizonColor())
 }
+
+func (o *Extension[T]) GroundHorizonColor() Color.RGBA { return o.Super().GroundHorizonColor() }
 
 // SetGroundHorizonColor sets the property returned by [GetGroundHorizonColor]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetGroundHorizonColor(value Color.RGBA) Instance { //gd:ProceduralSkyMaterial.ground_horizon_color
@@ -253,9 +304,16 @@ func (self Instance) SetGroundHorizonColor(value Color.RGBA) Instance { //gd:Pro
 	return self
 }
 
+func (o *Extension[T]) SetGroundHorizonColor(value Color.RGBA) *Extension[T] {
+	o.Super().SetGroundHorizonColor(value)
+	return o
+}
+
 func (self Instance) GroundCurve() Float.X { //gd:ProceduralSkyMaterial.ground_curve
 		return Float.X(Float.X(class(self).GetGroundCurve()))
 }
+
+func (o *Extension[T]) GroundCurve() Float.X { return o.Super().GroundCurve() }
 
 // SetGroundCurve sets the property returned by [GetGroundCurve]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetGroundCurve(value Float.X) Instance { //gd:ProceduralSkyMaterial.ground_curve
@@ -263,9 +321,16 @@ func (self Instance) SetGroundCurve(value Float.X) Instance { //gd:ProceduralSky
 	return self
 }
 
+func (o *Extension[T]) SetGroundCurve(value Float.X) *Extension[T] {
+	o.Super().SetGroundCurve(value)
+	return o
+}
+
 func (self Instance) GroundEnergyMultiplier() Float.X { //gd:ProceduralSkyMaterial.ground_energy_multiplier
 		return Float.X(Float.X(class(self).GetGroundEnergyMultiplier()))
 }
+
+func (o *Extension[T]) GroundEnergyMultiplier() Float.X { return o.Super().GroundEnergyMultiplier() }
 
 // SetGroundEnergyMultiplier sets the property returned by [GetGroundEnergyMultiplier]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetGroundEnergyMultiplier(value Float.X) Instance { //gd:ProceduralSkyMaterial.ground_energy_multiplier
@@ -273,9 +338,16 @@ func (self Instance) SetGroundEnergyMultiplier(value Float.X) Instance { //gd:Pr
 	return self
 }
 
+func (o *Extension[T]) SetGroundEnergyMultiplier(value Float.X) *Extension[T] {
+	o.Super().SetGroundEnergyMultiplier(value)
+	return o
+}
+
 func (self Instance) SunAngleMax() Angle.Radians { //gd:ProceduralSkyMaterial.sun_angle_max
 		return Angle.Radians(Float.X(class(self).GetSunAngleMax()))
 }
+
+func (o *Extension[T]) SunAngleMax() Angle.Radians { return o.Super().SunAngleMax() }
 
 // SetSunAngleMax sets the property returned by [GetSunAngleMax]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSunAngleMax(value Angle.Radians) Instance { //gd:ProceduralSkyMaterial.sun_angle_max
@@ -283,9 +355,16 @@ func (self Instance) SetSunAngleMax(value Angle.Radians) Instance { //gd:Procedu
 	return self
 }
 
+func (o *Extension[T]) SetSunAngleMax(value Angle.Radians) *Extension[T] {
+	o.Super().SetSunAngleMax(value)
+	return o
+}
+
 func (self Instance) SunCurve() Float.X { //gd:ProceduralSkyMaterial.sun_curve
 		return Float.X(Float.X(class(self).GetSunCurve()))
 }
+
+func (o *Extension[T]) SunCurve() Float.X { return o.Super().SunCurve() }
 
 // SetSunCurve sets the property returned by [GetSunCurve]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSunCurve(value Float.X) Instance { //gd:ProceduralSkyMaterial.sun_curve
@@ -293,9 +372,16 @@ func (self Instance) SetSunCurve(value Float.X) Instance { //gd:ProceduralSkyMat
 	return self
 }
 
+func (o *Extension[T]) SetSunCurve(value Float.X) *Extension[T] {
+	o.Super().SetSunCurve(value)
+	return o
+}
+
 func (self Instance) UseDebanding() bool { //gd:ProceduralSkyMaterial.use_debanding
 		return bool(class(self).GetUseDebanding())
 }
+
+func (o *Extension[T]) UseDebanding() bool { return o.Super().UseDebanding() }
 
 // SetUseDebanding sets the property returned by [GetUseDebanding]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUseDebanding(value bool) Instance { //gd:ProceduralSkyMaterial.use_debanding
@@ -303,14 +389,26 @@ func (self Instance) SetUseDebanding(value bool) Instance { //gd:ProceduralSkyMa
 	return self
 }
 
+func (o *Extension[T]) SetUseDebanding(value bool) *Extension[T] {
+	o.Super().SetUseDebanding(value)
+	return o
+}
+
 func (self Instance) EnergyMultiplier() Float.X { //gd:ProceduralSkyMaterial.energy_multiplier
 		return Float.X(Float.X(class(self).GetEnergyMultiplier()))
 }
+
+func (o *Extension[T]) EnergyMultiplier() Float.X { return o.Super().EnergyMultiplier() }
 
 // SetEnergyMultiplier sets the property returned by [GetEnergyMultiplier]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEnergyMultiplier(value Float.X) Instance { //gd:ProceduralSkyMaterial.energy_multiplier
 	class(self).SetEnergyMultiplier(float64(value))
 	return self
+}
+
+func (o *Extension[T]) SetEnergyMultiplier(value Float.X) *Extension[T] {
+	o.Super().SetEnergyMultiplier(value)
+	return o
 }
 
 func (self class) SetSkyTopColor(color Color.RGBA)  { //gd:ProceduralSkyMaterial.set_sky_top_color
@@ -570,6 +668,60 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// RenderPriority is promoted from [Material.Instance.RenderPriority].
+func (o *Extension[T]) RenderPriority() Material.RenderPriority { return o.Super().AsMaterial().RenderPriority() }
+
+// SetRenderPriority is promoted from [Material.Instance.SetRenderPriority].
+func (o *Extension[T]) SetRenderPriority(value Material.RenderPriority) *Extension[T] {
+	o.Super().AsMaterial().SetRenderPriority(value)
+	return o
+}
+
+// NextPass is promoted from [Material.Instance.NextPass].
+func (o *Extension[T]) NextPass() Material.Instance { return o.Super().AsMaterial().NextPass() }
+
+// SetNextPass is promoted from [Material.Instance.SetNextPass].
+func (o *Extension[T]) SetNextPass(value Material.Instance) *Extension[T] {
+	o.Super().AsMaterial().SetNextPass(value)
+	return o
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

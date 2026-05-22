@@ -635,6 +635,24 @@ func (o *Extension[T]) GetAvailablePacketCount() int {
 	return o.Super().AsPacketPeer().GetAvailablePacketCount()
 }
 
+// WriteMode is promoted from [WebRTCDataChannel.Instance.WriteMode].
+func (o *Extension[T]) WriteMode() WebRTCDataChannel.WriteMode { return o.Super().AsWebRTCDataChannel().WriteMode() }
+
+// SetWriteMode is promoted from [WebRTCDataChannel.Instance.SetWriteMode].
+func (o *Extension[T]) SetWriteMode(value WebRTCDataChannel.WriteMode) *Extension[T] {
+	o.Super().AsWebRTCDataChannel().SetWriteMode(value)
+	return o
+}
+
+// EncodeBufferMaxSize is promoted from [PacketPeer.Instance.EncodeBufferMaxSize].
+func (o *Extension[T]) EncodeBufferMaxSize() int { return o.Super().AsPacketPeer().EncodeBufferMaxSize() }
+
+// SetEncodeBufferMaxSize is promoted from [PacketPeer.Instance.SetEncodeBufferMaxSize].
+func (o *Extension[T]) SetEncodeBufferMaxSize(value int) *Extension[T] {
+	o.Super().AsPacketPeer().SetEncodeBufferMaxSize(value)
+	return o
+}
+
 func (self class) Virtual(name string) reflect.Value {
 	switch name {
 	case "_get_packet": return reflect.ValueOf(self._get_packet);

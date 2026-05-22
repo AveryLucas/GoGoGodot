@@ -195,15 +195,24 @@ func (self Instance) RootPath() string { //gd:SceneMultiplayer.root_path
 		return string(class(self).GetRootPath().String())
 }
 
+func (o *Extension[T]) RootPath() string { return o.Super().RootPath() }
+
 // SetRootPath sets the property returned by [GetRootPath]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRootPath(value string) Instance { //gd:SceneMultiplayer.root_path
 	class(self).SetRootPath(Path.ToNode(String.From(value)))
 	return self
 }
 
+func (o *Extension[T]) SetRootPath(value string) *Extension[T] {
+	o.Super().SetRootPath(value)
+	return o
+}
+
 func (self Instance) AuthCallback() Callable.Function { //gd:SceneMultiplayer.auth_callback
 		return Callable.Function(gd.CallableAs[Callable.Function](gd.InternalCallable(class(self).GetAuthCallback())))
 }
+
+func (o *Extension[T]) AuthCallback() Callable.Function { return o.Super().AuthCallback() }
 
 // SetAuthCallback sets the property returned by [GetAuthCallback]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAuthCallback(value Callable.Function) Instance { //gd:SceneMultiplayer.auth_callback
@@ -211,9 +220,16 @@ func (self Instance) SetAuthCallback(value Callable.Function) Instance { //gd:Sc
 	return self
 }
 
+func (o *Extension[T]) SetAuthCallback(value Callable.Function) *Extension[T] {
+	o.Super().SetAuthCallback(value)
+	return o
+}
+
 func (self Instance) AuthTimeout() Float.X { //gd:SceneMultiplayer.auth_timeout
 		return Float.X(Float.X(class(self).GetAuthTimeout()))
 }
+
+func (o *Extension[T]) AuthTimeout() Float.X { return o.Super().AuthTimeout() }
 
 // SetAuthTimeout sets the property returned by [GetAuthTimeout]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAuthTimeout(value Float.X) Instance { //gd:SceneMultiplayer.auth_timeout
@@ -221,9 +237,16 @@ func (self Instance) SetAuthTimeout(value Float.X) Instance { //gd:SceneMultipla
 	return self
 }
 
+func (o *Extension[T]) SetAuthTimeout(value Float.X) *Extension[T] {
+	o.Super().SetAuthTimeout(value)
+	return o
+}
+
 func (self Instance) AllowObjectDecoding() bool { //gd:SceneMultiplayer.allow_object_decoding
 		return bool(class(self).IsObjectDecodingAllowed())
 }
+
+func (o *Extension[T]) AllowObjectDecoding() bool { return o.Super().AllowObjectDecoding() }
 
 // SetAllowObjectDecoding sets the property returned by [IsObjectDecodingAllowed]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAllowObjectDecoding(value bool) Instance { //gd:SceneMultiplayer.allow_object_decoding
@@ -231,9 +254,16 @@ func (self Instance) SetAllowObjectDecoding(value bool) Instance { //gd:SceneMul
 	return self
 }
 
+func (o *Extension[T]) SetAllowObjectDecoding(value bool) *Extension[T] {
+	o.Super().SetAllowObjectDecoding(value)
+	return o
+}
+
 func (self Instance) RefuseNewConnections() bool { //gd:SceneMultiplayer.refuse_new_connections
 		return bool(class(self).IsRefusingNewConnections())
 }
+
+func (o *Extension[T]) RefuseNewConnections() bool { return o.Super().RefuseNewConnections() }
 
 // SetRefuseNewConnections sets the property returned by [IsRefusingNewConnections]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRefuseNewConnections(value bool) Instance { //gd:SceneMultiplayer.refuse_new_connections
@@ -241,9 +271,16 @@ func (self Instance) SetRefuseNewConnections(value bool) Instance { //gd:SceneMu
 	return self
 }
 
+func (o *Extension[T]) SetRefuseNewConnections(value bool) *Extension[T] {
+	o.Super().SetRefuseNewConnections(value)
+	return o
+}
+
 func (self Instance) ServerRelay() bool { //gd:SceneMultiplayer.server_relay
 		return bool(class(self).IsServerRelayEnabled())
 }
+
+func (o *Extension[T]) ServerRelay() bool { return o.Super().ServerRelay() }
 
 // SetServerRelay sets the property returned by [IsServerRelayEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetServerRelay(value bool) Instance { //gd:SceneMultiplayer.server_relay
@@ -251,9 +288,16 @@ func (self Instance) SetServerRelay(value bool) Instance { //gd:SceneMultiplayer
 	return self
 }
 
+func (o *Extension[T]) SetServerRelay(value bool) *Extension[T] {
+	o.Super().SetServerRelay(value)
+	return o
+}
+
 func (self Instance) MaxSyncPacketSize() int { //gd:SceneMultiplayer.max_sync_packet_size
 		return int(int(class(self).GetMaxSyncPacketSize()))
 }
+
+func (o *Extension[T]) MaxSyncPacketSize() int { return o.Super().MaxSyncPacketSize() }
 
 // SetMaxSyncPacketSize sets the property returned by [GetMaxSyncPacketSize]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMaxSyncPacketSize(value int) Instance { //gd:SceneMultiplayer.max_sync_packet_size
@@ -261,14 +305,26 @@ func (self Instance) SetMaxSyncPacketSize(value int) Instance { //gd:SceneMultip
 	return self
 }
 
+func (o *Extension[T]) SetMaxSyncPacketSize(value int) *Extension[T] {
+	o.Super().SetMaxSyncPacketSize(value)
+	return o
+}
+
 func (self Instance) MaxDeltaPacketSize() int { //gd:SceneMultiplayer.max_delta_packet_size
 		return int(int(class(self).GetMaxDeltaPacketSize()))
 }
+
+func (o *Extension[T]) MaxDeltaPacketSize() int { return o.Super().MaxDeltaPacketSize() }
 
 // SetMaxDeltaPacketSize sets the property returned by [GetMaxDeltaPacketSize]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMaxDeltaPacketSize(value int) Instance { //gd:SceneMultiplayer.max_delta_packet_size
 	class(self).SetMaxDeltaPacketSize(int64(value))
 	return self
+}
+
+func (o *Extension[T]) SetMaxDeltaPacketSize(value int) *Extension[T] {
+	o.Super().SetMaxDeltaPacketSize(value)
+	return o
 }
 
 func (self class) SetRootPath(path Path.ToNode)  { //gd:SceneMultiplayer.set_root_path
@@ -556,6 +612,15 @@ func (self Instance) GetPeers() []int32 {
 // GetPeers is promoted from [MultiplayerAPI.Instance.GetPeers].
 func (o *Extension[T]) GetPeers() []int32 {
 	return o.Super().AsMultiplayerAPI().GetPeers()
+}
+
+// MultiplayerPeer is promoted from [MultiplayerAPI.Instance.MultiplayerPeer].
+func (o *Extension[T]) MultiplayerPeer() MultiplayerPeer.Instance { return o.Super().AsMultiplayerAPI().MultiplayerPeer() }
+
+// SetMultiplayerPeer is promoted from [MultiplayerAPI.Instance.SetMultiplayerPeer].
+func (o *Extension[T]) SetMultiplayerPeer(value MultiplayerPeer.Instance) *Extension[T] {
+	o.Super().AsMultiplayerAPI().SetMultiplayerPeer(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

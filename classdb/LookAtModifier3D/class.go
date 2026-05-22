@@ -17,6 +17,7 @@ import "graphics.gd/variant"
 import "graphics.gd/variant/Angle"
 import "graphics.gd/variant/Euler"
 import "graphics.gd/variant/Signal"
+import "graphics.gd/classdb/MultiplayerAPI"
 import "graphics.gd/classdb/Node"
 import "graphics.gd/classdb/Node3D"
 import "graphics.gd/classdb/Node3DGizmo"
@@ -25,6 +26,7 @@ import "graphics.gd/classdb/SkeletonModifier3D"
 import "graphics.gd/classdb/Tween"
 import "graphics.gd/classdb/World3D"
 import "graphics.gd/variant/Array"
+import "graphics.gd/variant/Basis"
 import "graphics.gd/variant/Callable"
 import "graphics.gd/variant/Dictionary"
 import "graphics.gd/variant/Error"
@@ -32,6 +34,7 @@ import "graphics.gd/variant/Float"
 import "graphics.gd/variant/Object"
 import "graphics.gd/variant/Packed"
 import "graphics.gd/variant/Path"
+import "graphics.gd/variant/Quaternion"
 import "graphics.gd/variant/RID"
 import "graphics.gd/variant/RefCounted"
 import "graphics.gd/variant/String"
@@ -225,15 +228,24 @@ func (self Instance) TargetNode() string { //gd:LookAtModifier3D.target_node
 		return string(class(self).GetTargetNode().String())
 }
 
+func (o *Extension[T]) TargetNode() string { return o.Super().TargetNode() }
+
 // SetTargetNode sets the property returned by [GetTargetNode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTargetNode(value string) Instance { //gd:LookAtModifier3D.target_node
 	class(self).SetTargetNode(Path.ToNode(String.From(value)))
 	return self
 }
 
+func (o *Extension[T]) SetTargetNode(value string) *Extension[T] {
+	o.Super().SetTargetNode(value)
+	return o
+}
+
 func (self Instance) BoneName() string { //gd:LookAtModifier3D.bone_name
 		return string(class(self).GetBoneName().String())
 }
+
+func (o *Extension[T]) BoneName() string { return o.Super().BoneName() }
 
 // SetBoneName sets the property returned by [GetBoneName]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBoneName(value string) Instance { //gd:LookAtModifier3D.bone_name
@@ -241,9 +253,16 @@ func (self Instance) SetBoneName(value string) Instance { //gd:LookAtModifier3D.
 	return self
 }
 
+func (o *Extension[T]) SetBoneName(value string) *Extension[T] {
+	o.Super().SetBoneName(value)
+	return o
+}
+
 func (self Instance) Bone() int { //gd:LookAtModifier3D.bone
 		return int(int(class(self).GetBone()))
 }
+
+func (o *Extension[T]) Bone() int { return o.Super().Bone() }
 
 // SetBone sets the property returned by [GetBone]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBone(value int) Instance { //gd:LookAtModifier3D.bone
@@ -251,9 +270,16 @@ func (self Instance) SetBone(value int) Instance { //gd:LookAtModifier3D.bone
 	return self
 }
 
+func (o *Extension[T]) SetBone(value int) *Extension[T] {
+	o.Super().SetBone(value)
+	return o
+}
+
 func (self Instance) ForwardAxis() SkeletonModifier3D.BoneAxis { //gd:LookAtModifier3D.forward_axis
 		return SkeletonModifier3D.BoneAxis(class(self).GetForwardAxis())
 }
+
+func (o *Extension[T]) ForwardAxis() SkeletonModifier3D.BoneAxis { return o.Super().ForwardAxis() }
 
 // SetForwardAxis sets the property returned by [GetForwardAxis]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetForwardAxis(value SkeletonModifier3D.BoneAxis) Instance { //gd:LookAtModifier3D.forward_axis
@@ -261,9 +287,16 @@ func (self Instance) SetForwardAxis(value SkeletonModifier3D.BoneAxis) Instance 
 	return self
 }
 
+func (o *Extension[T]) SetForwardAxis(value SkeletonModifier3D.BoneAxis) *Extension[T] {
+	o.Super().SetForwardAxis(value)
+	return o
+}
+
 func (self Instance) PrimaryRotationAxis() Vector3.Axis { //gd:LookAtModifier3D.primary_rotation_axis
 		return Vector3.Axis(class(self).GetPrimaryRotationAxis())
 }
+
+func (o *Extension[T]) PrimaryRotationAxis() Vector3.Axis { return o.Super().PrimaryRotationAxis() }
 
 // SetPrimaryRotationAxis sets the property returned by [GetPrimaryRotationAxis]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPrimaryRotationAxis(value Vector3.Axis) Instance { //gd:LookAtModifier3D.primary_rotation_axis
@@ -271,9 +304,16 @@ func (self Instance) SetPrimaryRotationAxis(value Vector3.Axis) Instance { //gd:
 	return self
 }
 
+func (o *Extension[T]) SetPrimaryRotationAxis(value Vector3.Axis) *Extension[T] {
+	o.Super().SetPrimaryRotationAxis(value)
+	return o
+}
+
 func (self Instance) UseSecondaryRotation() bool { //gd:LookAtModifier3D.use_secondary_rotation
 		return bool(class(self).IsUsingSecondaryRotation())
 }
+
+func (o *Extension[T]) UseSecondaryRotation() bool { return o.Super().UseSecondaryRotation() }
 
 // SetUseSecondaryRotation sets the property returned by [IsUsingSecondaryRotation]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUseSecondaryRotation(value bool) Instance { //gd:LookAtModifier3D.use_secondary_rotation
@@ -281,9 +321,16 @@ func (self Instance) SetUseSecondaryRotation(value bool) Instance { //gd:LookAtM
 	return self
 }
 
+func (o *Extension[T]) SetUseSecondaryRotation(value bool) *Extension[T] {
+	o.Super().SetUseSecondaryRotation(value)
+	return o
+}
+
 func (self Instance) Relative() bool { //gd:LookAtModifier3D.relative
 		return bool(class(self).IsRelative())
 }
+
+func (o *Extension[T]) Relative() bool { return o.Super().Relative() }
 
 // SetRelative sets the property returned by [IsRelative]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRelative(value bool) Instance { //gd:LookAtModifier3D.relative
@@ -291,9 +338,16 @@ func (self Instance) SetRelative(value bool) Instance { //gd:LookAtModifier3D.re
 	return self
 }
 
+func (o *Extension[T]) SetRelative(value bool) *Extension[T] {
+	o.Super().SetRelative(value)
+	return o
+}
+
 func (self Instance) OriginFrom() OriginFrom { //gd:LookAtModifier3D.origin_from
 		return OriginFrom(class(self).GetOriginFrom())
 }
+
+func (o *Extension[T]) OriginFrom() OriginFrom { return o.Super().OriginFrom() }
 
 // SetOriginFrom sets the property returned by [GetOriginFrom]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOriginFrom(value OriginFrom) Instance { //gd:LookAtModifier3D.origin_from
@@ -301,9 +355,16 @@ func (self Instance) SetOriginFrom(value OriginFrom) Instance { //gd:LookAtModif
 	return self
 }
 
+func (o *Extension[T]) SetOriginFrom(value OriginFrom) *Extension[T] {
+	o.Super().SetOriginFrom(value)
+	return o
+}
+
 func (self Instance) OriginBoneName() string { //gd:LookAtModifier3D.origin_bone_name
 		return string(class(self).GetOriginBoneName().String())
 }
+
+func (o *Extension[T]) OriginBoneName() string { return o.Super().OriginBoneName() }
 
 // SetOriginBoneName sets the property returned by [GetOriginBoneName]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOriginBoneName(value string) Instance { //gd:LookAtModifier3D.origin_bone_name
@@ -311,9 +372,16 @@ func (self Instance) SetOriginBoneName(value string) Instance { //gd:LookAtModif
 	return self
 }
 
+func (o *Extension[T]) SetOriginBoneName(value string) *Extension[T] {
+	o.Super().SetOriginBoneName(value)
+	return o
+}
+
 func (self Instance) OriginBone() int { //gd:LookAtModifier3D.origin_bone
 		return int(int(class(self).GetOriginBone()))
 }
+
+func (o *Extension[T]) OriginBone() int { return o.Super().OriginBone() }
 
 // SetOriginBone sets the property returned by [GetOriginBone]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOriginBone(value int) Instance { //gd:LookAtModifier3D.origin_bone
@@ -321,9 +389,16 @@ func (self Instance) SetOriginBone(value int) Instance { //gd:LookAtModifier3D.o
 	return self
 }
 
+func (o *Extension[T]) SetOriginBone(value int) *Extension[T] {
+	o.Super().SetOriginBone(value)
+	return o
+}
+
 func (self Instance) OriginExternalNode() string { //gd:LookAtModifier3D.origin_external_node
 		return string(class(self).GetOriginExternalNode().String())
 }
+
+func (o *Extension[T]) OriginExternalNode() string { return o.Super().OriginExternalNode() }
 
 // SetOriginExternalNode sets the property returned by [GetOriginExternalNode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOriginExternalNode(value string) Instance { //gd:LookAtModifier3D.origin_external_node
@@ -331,9 +406,16 @@ func (self Instance) SetOriginExternalNode(value string) Instance { //gd:LookAtM
 	return self
 }
 
+func (o *Extension[T]) SetOriginExternalNode(value string) *Extension[T] {
+	o.Super().SetOriginExternalNode(value)
+	return o
+}
+
 func (self Instance) OriginOffset() Vector3.XYZ { //gd:LookAtModifier3D.origin_offset
 		return Vector3.XYZ(class(self).GetOriginOffset())
 }
+
+func (o *Extension[T]) OriginOffset() Vector3.XYZ { return o.Super().OriginOffset() }
 
 // SetOriginOffset sets the property returned by [GetOriginOffset]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOriginOffset(value Vector3.XYZ) Instance { //gd:LookAtModifier3D.origin_offset
@@ -341,9 +423,16 @@ func (self Instance) SetOriginOffset(value Vector3.XYZ) Instance { //gd:LookAtMo
 	return self
 }
 
+func (o *Extension[T]) SetOriginOffset(value Vector3.XYZ) *Extension[T] {
+	o.Super().SetOriginOffset(value)
+	return o
+}
+
 func (self Instance) OriginSafeMargin() Float.X { //gd:LookAtModifier3D.origin_safe_margin
 		return Float.X(Float.X(class(self).GetOriginSafeMargin()))
 }
+
+func (o *Extension[T]) OriginSafeMargin() Float.X { return o.Super().OriginSafeMargin() }
 
 // SetOriginSafeMargin sets the property returned by [GetOriginSafeMargin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOriginSafeMargin(value Float.X) Instance { //gd:LookAtModifier3D.origin_safe_margin
@@ -351,9 +440,16 @@ func (self Instance) SetOriginSafeMargin(value Float.X) Instance { //gd:LookAtMo
 	return self
 }
 
+func (o *Extension[T]) SetOriginSafeMargin(value Float.X) *Extension[T] {
+	o.Super().SetOriginSafeMargin(value)
+	return o
+}
+
 func (self Instance) Duration() Float.X { //gd:LookAtModifier3D.duration
 		return Float.X(Float.X(class(self).GetDuration()))
 }
+
+func (o *Extension[T]) Duration() Float.X { return o.Super().Duration() }
 
 // SetDuration sets the property returned by [GetDuration]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDuration(value Float.X) Instance { //gd:LookAtModifier3D.duration
@@ -361,9 +457,16 @@ func (self Instance) SetDuration(value Float.X) Instance { //gd:LookAtModifier3D
 	return self
 }
 
+func (o *Extension[T]) SetDuration(value Float.X) *Extension[T] {
+	o.Super().SetDuration(value)
+	return o
+}
+
 func (self Instance) TransitionType() Tween.TransitionType { //gd:LookAtModifier3D.transition_type
 		return Tween.TransitionType(class(self).GetTransitionType())
 }
+
+func (o *Extension[T]) TransitionType() Tween.TransitionType { return o.Super().TransitionType() }
 
 // SetTransitionType sets the property returned by [GetTransitionType]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTransitionType(value Tween.TransitionType) Instance { //gd:LookAtModifier3D.transition_type
@@ -371,9 +474,16 @@ func (self Instance) SetTransitionType(value Tween.TransitionType) Instance { //
 	return self
 }
 
+func (o *Extension[T]) SetTransitionType(value Tween.TransitionType) *Extension[T] {
+	o.Super().SetTransitionType(value)
+	return o
+}
+
 func (self Instance) EaseType() Tween.EaseType { //gd:LookAtModifier3D.ease_type
 		return Tween.EaseType(class(self).GetEaseType())
 }
+
+func (o *Extension[T]) EaseType() Tween.EaseType { return o.Super().EaseType() }
 
 // SetEaseType sets the property returned by [GetEaseType]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEaseType(value Tween.EaseType) Instance { //gd:LookAtModifier3D.ease_type
@@ -381,9 +491,16 @@ func (self Instance) SetEaseType(value Tween.EaseType) Instance { //gd:LookAtMod
 	return self
 }
 
+func (o *Extension[T]) SetEaseType(value Tween.EaseType) *Extension[T] {
+	o.Super().SetEaseType(value)
+	return o
+}
+
 func (self Instance) UseAngleLimitation() bool { //gd:LookAtModifier3D.use_angle_limitation
 		return bool(class(self).IsUsingAngleLimitation())
 }
+
+func (o *Extension[T]) UseAngleLimitation() bool { return o.Super().UseAngleLimitation() }
 
 // SetUseAngleLimitation sets the property returned by [IsUsingAngleLimitation]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUseAngleLimitation(value bool) Instance { //gd:LookAtModifier3D.use_angle_limitation
@@ -391,9 +508,16 @@ func (self Instance) SetUseAngleLimitation(value bool) Instance { //gd:LookAtMod
 	return self
 }
 
+func (o *Extension[T]) SetUseAngleLimitation(value bool) *Extension[T] {
+	o.Super().SetUseAngleLimitation(value)
+	return o
+}
+
 func (self Instance) SymmetryLimitation() bool { //gd:LookAtModifier3D.symmetry_limitation
 		return bool(class(self).IsLimitationSymmetry())
 }
+
+func (o *Extension[T]) SymmetryLimitation() bool { return o.Super().SymmetryLimitation() }
 
 // SetSymmetryLimitation sets the property returned by [IsLimitationSymmetry]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSymmetryLimitation(value bool) Instance { //gd:LookAtModifier3D.symmetry_limitation
@@ -401,9 +525,16 @@ func (self Instance) SetSymmetryLimitation(value bool) Instance { //gd:LookAtMod
 	return self
 }
 
+func (o *Extension[T]) SetSymmetryLimitation(value bool) *Extension[T] {
+	o.Super().SetSymmetryLimitation(value)
+	return o
+}
+
 func (self Instance) PrimaryLimitAngle() Angle.Radians { //gd:LookAtModifier3D.primary_limit_angle
 		return Angle.Radians(Float.X(class(self).GetPrimaryLimitAngle()))
 }
+
+func (o *Extension[T]) PrimaryLimitAngle() Angle.Radians { return o.Super().PrimaryLimitAngle() }
 
 // SetPrimaryLimitAngle sets the property returned by [GetPrimaryLimitAngle]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPrimaryLimitAngle(value Angle.Radians) Instance { //gd:LookAtModifier3D.primary_limit_angle
@@ -411,9 +542,16 @@ func (self Instance) SetPrimaryLimitAngle(value Angle.Radians) Instance { //gd:L
 	return self
 }
 
+func (o *Extension[T]) SetPrimaryLimitAngle(value Angle.Radians) *Extension[T] {
+	o.Super().SetPrimaryLimitAngle(value)
+	return o
+}
+
 func (self Instance) PrimaryDampThreshold() Float.X { //gd:LookAtModifier3D.primary_damp_threshold
 		return Float.X(Float.X(class(self).GetPrimaryDampThreshold()))
 }
+
+func (o *Extension[T]) PrimaryDampThreshold() Float.X { return o.Super().PrimaryDampThreshold() }
 
 // SetPrimaryDampThreshold sets the property returned by [GetPrimaryDampThreshold]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPrimaryDampThreshold(value Float.X) Instance { //gd:LookAtModifier3D.primary_damp_threshold
@@ -421,9 +559,16 @@ func (self Instance) SetPrimaryDampThreshold(value Float.X) Instance { //gd:Look
 	return self
 }
 
+func (o *Extension[T]) SetPrimaryDampThreshold(value Float.X) *Extension[T] {
+	o.Super().SetPrimaryDampThreshold(value)
+	return o
+}
+
 func (self Instance) PrimaryPositiveLimitAngle() Angle.Radians { //gd:LookAtModifier3D.primary_positive_limit_angle
 		return Angle.Radians(Float.X(class(self).GetPrimaryPositiveLimitAngle()))
 }
+
+func (o *Extension[T]) PrimaryPositiveLimitAngle() Angle.Radians { return o.Super().PrimaryPositiveLimitAngle() }
 
 // SetPrimaryPositiveLimitAngle sets the property returned by [GetPrimaryPositiveLimitAngle]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPrimaryPositiveLimitAngle(value Angle.Radians) Instance { //gd:LookAtModifier3D.primary_positive_limit_angle
@@ -431,9 +576,16 @@ func (self Instance) SetPrimaryPositiveLimitAngle(value Angle.Radians) Instance 
 	return self
 }
 
+func (o *Extension[T]) SetPrimaryPositiveLimitAngle(value Angle.Radians) *Extension[T] {
+	o.Super().SetPrimaryPositiveLimitAngle(value)
+	return o
+}
+
 func (self Instance) PrimaryPositiveDampThreshold() Float.X { //gd:LookAtModifier3D.primary_positive_damp_threshold
 		return Float.X(Float.X(class(self).GetPrimaryPositiveDampThreshold()))
 }
+
+func (o *Extension[T]) PrimaryPositiveDampThreshold() Float.X { return o.Super().PrimaryPositiveDampThreshold() }
 
 // SetPrimaryPositiveDampThreshold sets the property returned by [GetPrimaryPositiveDampThreshold]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPrimaryPositiveDampThreshold(value Float.X) Instance { //gd:LookAtModifier3D.primary_positive_damp_threshold
@@ -441,9 +593,16 @@ func (self Instance) SetPrimaryPositiveDampThreshold(value Float.X) Instance { /
 	return self
 }
 
+func (o *Extension[T]) SetPrimaryPositiveDampThreshold(value Float.X) *Extension[T] {
+	o.Super().SetPrimaryPositiveDampThreshold(value)
+	return o
+}
+
 func (self Instance) PrimaryNegativeLimitAngle() Angle.Radians { //gd:LookAtModifier3D.primary_negative_limit_angle
 		return Angle.Radians(Float.X(class(self).GetPrimaryNegativeLimitAngle()))
 }
+
+func (o *Extension[T]) PrimaryNegativeLimitAngle() Angle.Radians { return o.Super().PrimaryNegativeLimitAngle() }
 
 // SetPrimaryNegativeLimitAngle sets the property returned by [GetPrimaryNegativeLimitAngle]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPrimaryNegativeLimitAngle(value Angle.Radians) Instance { //gd:LookAtModifier3D.primary_negative_limit_angle
@@ -451,9 +610,16 @@ func (self Instance) SetPrimaryNegativeLimitAngle(value Angle.Radians) Instance 
 	return self
 }
 
+func (o *Extension[T]) SetPrimaryNegativeLimitAngle(value Angle.Radians) *Extension[T] {
+	o.Super().SetPrimaryNegativeLimitAngle(value)
+	return o
+}
+
 func (self Instance) PrimaryNegativeDampThreshold() Float.X { //gd:LookAtModifier3D.primary_negative_damp_threshold
 		return Float.X(Float.X(class(self).GetPrimaryNegativeDampThreshold()))
 }
+
+func (o *Extension[T]) PrimaryNegativeDampThreshold() Float.X { return o.Super().PrimaryNegativeDampThreshold() }
 
 // SetPrimaryNegativeDampThreshold sets the property returned by [GetPrimaryNegativeDampThreshold]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPrimaryNegativeDampThreshold(value Float.X) Instance { //gd:LookAtModifier3D.primary_negative_damp_threshold
@@ -461,9 +627,16 @@ func (self Instance) SetPrimaryNegativeDampThreshold(value Float.X) Instance { /
 	return self
 }
 
+func (o *Extension[T]) SetPrimaryNegativeDampThreshold(value Float.X) *Extension[T] {
+	o.Super().SetPrimaryNegativeDampThreshold(value)
+	return o
+}
+
 func (self Instance) SecondaryLimitAngle() Angle.Radians { //gd:LookAtModifier3D.secondary_limit_angle
 		return Angle.Radians(Float.X(class(self).GetSecondaryLimitAngle()))
 }
+
+func (o *Extension[T]) SecondaryLimitAngle() Angle.Radians { return o.Super().SecondaryLimitAngle() }
 
 // SetSecondaryLimitAngle sets the property returned by [GetSecondaryLimitAngle]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSecondaryLimitAngle(value Angle.Radians) Instance { //gd:LookAtModifier3D.secondary_limit_angle
@@ -471,9 +644,16 @@ func (self Instance) SetSecondaryLimitAngle(value Angle.Radians) Instance { //gd
 	return self
 }
 
+func (o *Extension[T]) SetSecondaryLimitAngle(value Angle.Radians) *Extension[T] {
+	o.Super().SetSecondaryLimitAngle(value)
+	return o
+}
+
 func (self Instance) SecondaryDampThreshold() Float.X { //gd:LookAtModifier3D.secondary_damp_threshold
 		return Float.X(Float.X(class(self).GetSecondaryDampThreshold()))
 }
+
+func (o *Extension[T]) SecondaryDampThreshold() Float.X { return o.Super().SecondaryDampThreshold() }
 
 // SetSecondaryDampThreshold sets the property returned by [GetSecondaryDampThreshold]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSecondaryDampThreshold(value Float.X) Instance { //gd:LookAtModifier3D.secondary_damp_threshold
@@ -481,9 +661,16 @@ func (self Instance) SetSecondaryDampThreshold(value Float.X) Instance { //gd:Lo
 	return self
 }
 
+func (o *Extension[T]) SetSecondaryDampThreshold(value Float.X) *Extension[T] {
+	o.Super().SetSecondaryDampThreshold(value)
+	return o
+}
+
 func (self Instance) SecondaryPositiveLimitAngle() Angle.Radians { //gd:LookAtModifier3D.secondary_positive_limit_angle
 		return Angle.Radians(Float.X(class(self).GetSecondaryPositiveLimitAngle()))
 }
+
+func (o *Extension[T]) SecondaryPositiveLimitAngle() Angle.Radians { return o.Super().SecondaryPositiveLimitAngle() }
 
 // SetSecondaryPositiveLimitAngle sets the property returned by [GetSecondaryPositiveLimitAngle]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSecondaryPositiveLimitAngle(value Angle.Radians) Instance { //gd:LookAtModifier3D.secondary_positive_limit_angle
@@ -491,9 +678,16 @@ func (self Instance) SetSecondaryPositiveLimitAngle(value Angle.Radians) Instanc
 	return self
 }
 
+func (o *Extension[T]) SetSecondaryPositiveLimitAngle(value Angle.Radians) *Extension[T] {
+	o.Super().SetSecondaryPositiveLimitAngle(value)
+	return o
+}
+
 func (self Instance) SecondaryPositiveDampThreshold() Float.X { //gd:LookAtModifier3D.secondary_positive_damp_threshold
 		return Float.X(Float.X(class(self).GetSecondaryPositiveDampThreshold()))
 }
+
+func (o *Extension[T]) SecondaryPositiveDampThreshold() Float.X { return o.Super().SecondaryPositiveDampThreshold() }
 
 // SetSecondaryPositiveDampThreshold sets the property returned by [GetSecondaryPositiveDampThreshold]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSecondaryPositiveDampThreshold(value Float.X) Instance { //gd:LookAtModifier3D.secondary_positive_damp_threshold
@@ -501,9 +695,16 @@ func (self Instance) SetSecondaryPositiveDampThreshold(value Float.X) Instance {
 	return self
 }
 
+func (o *Extension[T]) SetSecondaryPositiveDampThreshold(value Float.X) *Extension[T] {
+	o.Super().SetSecondaryPositiveDampThreshold(value)
+	return o
+}
+
 func (self Instance) SecondaryNegativeLimitAngle() Angle.Radians { //gd:LookAtModifier3D.secondary_negative_limit_angle
 		return Angle.Radians(Float.X(class(self).GetSecondaryNegativeLimitAngle()))
 }
+
+func (o *Extension[T]) SecondaryNegativeLimitAngle() Angle.Radians { return o.Super().SecondaryNegativeLimitAngle() }
 
 // SetSecondaryNegativeLimitAngle sets the property returned by [GetSecondaryNegativeLimitAngle]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSecondaryNegativeLimitAngle(value Angle.Radians) Instance { //gd:LookAtModifier3D.secondary_negative_limit_angle
@@ -511,14 +712,26 @@ func (self Instance) SetSecondaryNegativeLimitAngle(value Angle.Radians) Instanc
 	return self
 }
 
+func (o *Extension[T]) SetSecondaryNegativeLimitAngle(value Angle.Radians) *Extension[T] {
+	o.Super().SetSecondaryNegativeLimitAngle(value)
+	return o
+}
+
 func (self Instance) SecondaryNegativeDampThreshold() Float.X { //gd:LookAtModifier3D.secondary_negative_damp_threshold
 		return Float.X(Float.X(class(self).GetSecondaryNegativeDampThreshold()))
 }
+
+func (o *Extension[T]) SecondaryNegativeDampThreshold() Float.X { return o.Super().SecondaryNegativeDampThreshold() }
 
 // SetSecondaryNegativeDampThreshold sets the property returned by [GetSecondaryNegativeDampThreshold]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSecondaryNegativeDampThreshold(value Float.X) Instance { //gd:LookAtModifier3D.secondary_negative_damp_threshold
 	class(self).SetSecondaryNegativeDampThreshold(float64(value))
 	return self
+}
+
+func (o *Extension[T]) SetSecondaryNegativeDampThreshold(value Float.X) *Extension[T] {
+	o.Super().SetSecondaryNegativeDampThreshold(value)
+	return o
 }
 
 func (self class) SetTargetNode(target_node Path.ToNode)  { //gd:LookAtModifier3D.set_target_node
@@ -1986,6 +2199,297 @@ func (self Instance) NotifyThreadSafe(what int) {
 // NotifyThreadSafe is promoted from [Node.Instance.NotifyThreadSafe].
 func (o *Extension[T]) NotifyThreadSafe(what int) {
 	o.Super().AsNode().NotifyThreadSafe(what)
+}
+
+// Active is promoted from [SkeletonModifier3D.Instance.Active].
+func (o *Extension[T]) Active() bool { return o.Super().AsSkeletonModifier3D().Active() }
+
+// SetActive is promoted from [SkeletonModifier3D.Instance.SetActive].
+func (o *Extension[T]) SetActive(value bool) *Extension[T] {
+	o.Super().AsSkeletonModifier3D().SetActive(value)
+	return o
+}
+
+// Influence is promoted from [SkeletonModifier3D.Instance.Influence].
+func (o *Extension[T]) Influence() Float.X { return o.Super().AsSkeletonModifier3D().Influence() }
+
+// SetInfluence is promoted from [SkeletonModifier3D.Instance.SetInfluence].
+func (o *Extension[T]) SetInfluence(value Float.X) *Extension[T] {
+	o.Super().AsSkeletonModifier3D().SetInfluence(value)
+	return o
+}
+
+// Transform is promoted from [Node3D.Instance.Transform].
+func (o *Extension[T]) Transform() Transform3D.BasisOrigin { return o.Super().AsNode3D().Transform() }
+
+// SetTransform is promoted from [Node3D.Instance.SetTransform].
+func (o *Extension[T]) SetTransform(value Transform3D.BasisOrigin) *Extension[T] {
+	o.Super().AsNode3D().SetTransform(value)
+	return o
+}
+
+// GlobalTransform is promoted from [Node3D.Instance.GlobalTransform].
+func (o *Extension[T]) GlobalTransform() Transform3D.BasisOrigin { return o.Super().AsNode3D().GlobalTransform() }
+
+// SetGlobalTransform is promoted from [Node3D.Instance.SetGlobalTransform].
+func (o *Extension[T]) SetGlobalTransform(value Transform3D.BasisOrigin) *Extension[T] {
+	o.Super().AsNode3D().SetGlobalTransform(value)
+	return o
+}
+
+// Position is promoted from [Node3D.Instance.Position].
+func (o *Extension[T]) Position() Vector3.XYZ { return o.Super().AsNode3D().Position() }
+
+// SetPosition is promoted from [Node3D.Instance.SetPosition].
+func (o *Extension[T]) SetPosition(value Vector3.XYZ) *Extension[T] {
+	o.Super().AsNode3D().SetPosition(value)
+	return o
+}
+
+// Rotation is promoted from [Node3D.Instance.Rotation].
+func (o *Extension[T]) Rotation() Euler.Radians { return o.Super().AsNode3D().Rotation() }
+
+// SetRotation is promoted from [Node3D.Instance.SetRotation].
+func (o *Extension[T]) SetRotation(value Euler.Radians) *Extension[T] {
+	o.Super().AsNode3D().SetRotation(value)
+	return o
+}
+
+// RotationDegrees is promoted from [Node3D.Instance.RotationDegrees].
+func (o *Extension[T]) RotationDegrees() Euler.Degrees { return o.Super().AsNode3D().RotationDegrees() }
+
+// SetRotationDegrees is promoted from [Node3D.Instance.SetRotationDegrees].
+func (o *Extension[T]) SetRotationDegrees(value Euler.Degrees) *Extension[T] {
+	o.Super().AsNode3D().SetRotationDegrees(value)
+	return o
+}
+
+// Quaternion is promoted from [Node3D.Instance.Quaternion].
+func (o *Extension[T]) Quaternion() Quaternion.IJKX { return o.Super().AsNode3D().Quaternion() }
+
+// SetQuaternion is promoted from [Node3D.Instance.SetQuaternion].
+func (o *Extension[T]) SetQuaternion(value Quaternion.IJKX) *Extension[T] {
+	o.Super().AsNode3D().SetQuaternion(value)
+	return o
+}
+
+// Basis is promoted from [Node3D.Instance.Basis].
+func (o *Extension[T]) Basis() Basis.XYZ { return o.Super().AsNode3D().Basis() }
+
+// SetBasis is promoted from [Node3D.Instance.SetBasis].
+func (o *Extension[T]) SetBasis(value Basis.XYZ) *Extension[T] {
+	o.Super().AsNode3D().SetBasis(value)
+	return o
+}
+
+// Scale is promoted from [Node3D.Instance.Scale].
+func (o *Extension[T]) Scale() Vector3.XYZ { return o.Super().AsNode3D().Scale() }
+
+// SetScale is promoted from [Node3D.Instance.SetScale].
+func (o *Extension[T]) SetScale(value Vector3.XYZ) *Extension[T] {
+	o.Super().AsNode3D().SetScale(value)
+	return o
+}
+
+// RotationEditMode is promoted from [Node3D.Instance.RotationEditMode].
+func (o *Extension[T]) RotationEditMode() Node3D.RotationEditMode { return o.Super().AsNode3D().RotationEditMode() }
+
+// SetRotationEditMode is promoted from [Node3D.Instance.SetRotationEditMode].
+func (o *Extension[T]) SetRotationEditMode(value Node3D.RotationEditMode) *Extension[T] {
+	o.Super().AsNode3D().SetRotationEditMode(value)
+	return o
+}
+
+// RotationOrder is promoted from [Node3D.Instance.RotationOrder].
+func (o *Extension[T]) RotationOrder() Angle.Order { return o.Super().AsNode3D().RotationOrder() }
+
+// SetRotationOrder is promoted from [Node3D.Instance.SetRotationOrder].
+func (o *Extension[T]) SetRotationOrder(value Angle.Order) *Extension[T] {
+	o.Super().AsNode3D().SetRotationOrder(value)
+	return o
+}
+
+// TopLevel is promoted from [Node3D.Instance.TopLevel].
+func (o *Extension[T]) TopLevel() bool { return o.Super().AsNode3D().TopLevel() }
+
+// SetTopLevel is promoted from [Node3D.Instance.SetTopLevel].
+func (o *Extension[T]) SetTopLevel(value bool) *Extension[T] {
+	o.Super().AsNode3D().SetTopLevel(value)
+	return o
+}
+
+// GlobalPosition is promoted from [Node3D.Instance.GlobalPosition].
+func (o *Extension[T]) GlobalPosition() Vector3.XYZ { return o.Super().AsNode3D().GlobalPosition() }
+
+// SetGlobalPosition is promoted from [Node3D.Instance.SetGlobalPosition].
+func (o *Extension[T]) SetGlobalPosition(value Vector3.XYZ) *Extension[T] {
+	o.Super().AsNode3D().SetGlobalPosition(value)
+	return o
+}
+
+// GlobalBasis is promoted from [Node3D.Instance.GlobalBasis].
+func (o *Extension[T]) GlobalBasis() Basis.XYZ { return o.Super().AsNode3D().GlobalBasis() }
+
+// SetGlobalBasis is promoted from [Node3D.Instance.SetGlobalBasis].
+func (o *Extension[T]) SetGlobalBasis(value Basis.XYZ) *Extension[T] {
+	o.Super().AsNode3D().SetGlobalBasis(value)
+	return o
+}
+
+// GlobalRotation is promoted from [Node3D.Instance.GlobalRotation].
+func (o *Extension[T]) GlobalRotation() Euler.Radians { return o.Super().AsNode3D().GlobalRotation() }
+
+// SetGlobalRotation is promoted from [Node3D.Instance.SetGlobalRotation].
+func (o *Extension[T]) SetGlobalRotation(value Euler.Radians) *Extension[T] {
+	o.Super().AsNode3D().SetGlobalRotation(value)
+	return o
+}
+
+// GlobalRotationDegrees is promoted from [Node3D.Instance.GlobalRotationDegrees].
+func (o *Extension[T]) GlobalRotationDegrees() Euler.Degrees { return o.Super().AsNode3D().GlobalRotationDegrees() }
+
+// SetGlobalRotationDegrees is promoted from [Node3D.Instance.SetGlobalRotationDegrees].
+func (o *Extension[T]) SetGlobalRotationDegrees(value Euler.Degrees) *Extension[T] {
+	o.Super().AsNode3D().SetGlobalRotationDegrees(value)
+	return o
+}
+
+// Visible is promoted from [Node3D.Instance.Visible].
+func (o *Extension[T]) Visible() bool { return o.Super().AsNode3D().Visible() }
+
+// SetVisible is promoted from [Node3D.Instance.SetVisible].
+func (o *Extension[T]) SetVisible(value bool) *Extension[T] {
+	o.Super().AsNode3D().SetVisible(value)
+	return o
+}
+
+// VisibilityParent is promoted from [Node3D.Instance.VisibilityParent].
+func (o *Extension[T]) VisibilityParent() string { return o.Super().AsNode3D().VisibilityParent() }
+
+// SetVisibilityParent is promoted from [Node3D.Instance.SetVisibilityParent].
+func (o *Extension[T]) SetVisibilityParent(value string) *Extension[T] {
+	o.Super().AsNode3D().SetVisibilityParent(value)
+	return o
+}
+
+// Name is promoted from [Node.Instance.Name].
+func (o *Extension[T]) Name() string { return o.Super().AsNode().Name() }
+
+// SetName is promoted from [Node.Instance.SetName].
+func (o *Extension[T]) SetName(value string) *Extension[T] {
+	o.Super().AsNode().SetName(value)
+	return o
+}
+
+// UniqueNameInOwner is promoted from [Node.Instance.UniqueNameInOwner].
+func (o *Extension[T]) UniqueNameInOwner() bool { return o.Super().AsNode().UniqueNameInOwner() }
+
+// SetUniqueNameInOwner is promoted from [Node.Instance.SetUniqueNameInOwner].
+func (o *Extension[T]) SetUniqueNameInOwner(value bool) *Extension[T] {
+	o.Super().AsNode().SetUniqueNameInOwner(value)
+	return o
+}
+
+// SceneFilePath is promoted from [Node.Instance.SceneFilePath].
+func (o *Extension[T]) SceneFilePath() string { return o.Super().AsNode().SceneFilePath() }
+
+// SetSceneFilePath is promoted from [Node.Instance.SetSceneFilePath].
+func (o *Extension[T]) SetSceneFilePath(value string) *Extension[T] {
+	o.Super().AsNode().SetSceneFilePath(value)
+	return o
+}
+
+// Owner is promoted from [Node.Instance.Owner].
+func (o *Extension[T]) Owner() Node.Instance { return o.Super().AsNode().Owner() }
+
+// SetOwner is promoted from [Node.Instance.SetOwner].
+func (o *Extension[T]) SetOwner(value Node.Instance) *Extension[T] {
+	o.Super().AsNode().SetOwner(value)
+	return o
+}
+
+// Multiplayer is promoted from [Node.Instance.Multiplayer].
+func (o *Extension[T]) Multiplayer() MultiplayerAPI.Instance { return o.Super().AsNode().Multiplayer() }
+
+// ProcessMode is promoted from [Node.Instance.ProcessMode].
+func (o *Extension[T]) ProcessMode() Node.ProcessMode { return o.Super().AsNode().ProcessMode() }
+
+// SetProcessMode is promoted from [Node.Instance.SetProcessMode].
+func (o *Extension[T]) SetProcessMode(value Node.ProcessMode) *Extension[T] {
+	o.Super().AsNode().SetProcessMode(value)
+	return o
+}
+
+// ProcessPriority is promoted from [Node.Instance.ProcessPriority].
+func (o *Extension[T]) ProcessPriority() int { return o.Super().AsNode().ProcessPriority() }
+
+// SetProcessPriority is promoted from [Node.Instance.SetProcessPriority].
+func (o *Extension[T]) SetProcessPriority(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessPriority(value)
+	return o
+}
+
+// ProcessPhysicsPriority is promoted from [Node.Instance.ProcessPhysicsPriority].
+func (o *Extension[T]) ProcessPhysicsPriority() int { return o.Super().AsNode().ProcessPhysicsPriority() }
+
+// SetProcessPhysicsPriority is promoted from [Node.Instance.SetProcessPhysicsPriority].
+func (o *Extension[T]) SetProcessPhysicsPriority(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessPhysicsPriority(value)
+	return o
+}
+
+// ProcessThreadGroup is promoted from [Node.Instance.ProcessThreadGroup].
+func (o *Extension[T]) ProcessThreadGroup() Node.ProcessThreadGroup { return o.Super().AsNode().ProcessThreadGroup() }
+
+// SetProcessThreadGroup is promoted from [Node.Instance.SetProcessThreadGroup].
+func (o *Extension[T]) SetProcessThreadGroup(value Node.ProcessThreadGroup) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadGroup(value)
+	return o
+}
+
+// ProcessThreadGroupOrder is promoted from [Node.Instance.ProcessThreadGroupOrder].
+func (o *Extension[T]) ProcessThreadGroupOrder() int { return o.Super().AsNode().ProcessThreadGroupOrder() }
+
+// SetProcessThreadGroupOrder is promoted from [Node.Instance.SetProcessThreadGroupOrder].
+func (o *Extension[T]) SetProcessThreadGroupOrder(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadGroupOrder(value)
+	return o
+}
+
+// ProcessThreadMessages is promoted from [Node.Instance.ProcessThreadMessages].
+func (o *Extension[T]) ProcessThreadMessages() Node.ProcessThreadMessages { return o.Super().AsNode().ProcessThreadMessages() }
+
+// SetProcessThreadMessages is promoted from [Node.Instance.SetProcessThreadMessages].
+func (o *Extension[T]) SetProcessThreadMessages(value Node.ProcessThreadMessages) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadMessages(value)
+	return o
+}
+
+// PhysicsInterpolationMode is promoted from [Node.Instance.PhysicsInterpolationMode].
+func (o *Extension[T]) PhysicsInterpolationMode() Node.PhysicsInterpolationMode { return o.Super().AsNode().PhysicsInterpolationMode() }
+
+// SetPhysicsInterpolationMode is promoted from [Node.Instance.SetPhysicsInterpolationMode].
+func (o *Extension[T]) SetPhysicsInterpolationMode(value Node.PhysicsInterpolationMode) *Extension[T] {
+	o.Super().AsNode().SetPhysicsInterpolationMode(value)
+	return o
+}
+
+// AutoTranslateMode is promoted from [Node.Instance.AutoTranslateMode].
+func (o *Extension[T]) AutoTranslateMode() Node.AutoTranslateMode { return o.Super().AsNode().AutoTranslateMode() }
+
+// SetAutoTranslateMode is promoted from [Node.Instance.SetAutoTranslateMode].
+func (o *Extension[T]) SetAutoTranslateMode(value Node.AutoTranslateMode) *Extension[T] {
+	o.Super().AsNode().SetAutoTranslateMode(value)
+	return o
+}
+
+// EditorDescription is promoted from [Node.Instance.EditorDescription].
+func (o *Extension[T]) EditorDescription() string { return o.Super().AsNode().EditorDescription() }
+
+// SetEditorDescription is promoted from [Node.Instance.SetEditorDescription].
+func (o *Extension[T]) SetEditorDescription(value string) *Extension[T] {
+	o.Super().AsNode().SetEditorDescription(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

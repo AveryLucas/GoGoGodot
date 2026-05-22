@@ -19,6 +19,7 @@ import "graphics.gd/variant/Euler"
 import "graphics.gd/variant/Signal"
 import "graphics.gd/classdb/GeometryInstance3D"
 import "graphics.gd/classdb/ImporterMesh"
+import "graphics.gd/classdb/MultiplayerAPI"
 import "graphics.gd/classdb/Node"
 import "graphics.gd/classdb/Node3D"
 import "graphics.gd/classdb/Node3DGizmo"
@@ -26,6 +27,7 @@ import "graphics.gd/classdb/Skin"
 import "graphics.gd/classdb/Tween"
 import "graphics.gd/classdb/World3D"
 import "graphics.gd/variant/Array"
+import "graphics.gd/variant/Basis"
 import "graphics.gd/variant/Callable"
 import "graphics.gd/variant/Dictionary"
 import "graphics.gd/variant/Error"
@@ -33,6 +35,7 @@ import "graphics.gd/variant/Float"
 import "graphics.gd/variant/Object"
 import "graphics.gd/variant/Packed"
 import "graphics.gd/variant/Path"
+import "graphics.gd/variant/Quaternion"
 import "graphics.gd/variant/RID"
 import "graphics.gd/variant/RefCounted"
 import "graphics.gd/variant/String"
@@ -174,15 +177,24 @@ func (self Instance) Mesh() ImporterMesh.Instance { //gd:ImporterMeshInstance3D.
 		return ImporterMesh.Instance(class(self).GetMesh())
 }
 
+func (o *Extension[T]) Mesh() ImporterMesh.Instance { return o.Super().Mesh() }
+
 // SetMesh sets the property returned by [GetMesh]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMesh(value ImporterMesh.Instance) Instance { //gd:ImporterMeshInstance3D.mesh
 	class(self).SetMesh(value)
 	return self
 }
 
+func (o *Extension[T]) SetMesh(value ImporterMesh.Instance) *Extension[T] {
+	o.Super().SetMesh(value)
+	return o
+}
+
 func (self Instance) Skin() Skin.Instance { //gd:ImporterMeshInstance3D.skin
 		return Skin.Instance(class(self).GetSkin())
 }
+
+func (o *Extension[T]) Skin() Skin.Instance { return o.Super().Skin() }
 
 // SetSkin sets the property returned by [GetSkin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSkin(value Skin.Instance) Instance { //gd:ImporterMeshInstance3D.skin
@@ -190,9 +202,16 @@ func (self Instance) SetSkin(value Skin.Instance) Instance { //gd:ImporterMeshIn
 	return self
 }
 
+func (o *Extension[T]) SetSkin(value Skin.Instance) *Extension[T] {
+	o.Super().SetSkin(value)
+	return o
+}
+
 func (self Instance) SkeletonPath() string { //gd:ImporterMeshInstance3D.skeleton_path
 		return string(class(self).GetSkeletonPath().String())
 }
+
+func (o *Extension[T]) SkeletonPath() string { return o.Super().SkeletonPath() }
 
 // SetSkeletonPath sets the property returned by [GetSkeletonPath]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSkeletonPath(value string) Instance { //gd:ImporterMeshInstance3D.skeleton_path
@@ -200,9 +219,16 @@ func (self Instance) SetSkeletonPath(value string) Instance { //gd:ImporterMeshI
 	return self
 }
 
+func (o *Extension[T]) SetSkeletonPath(value string) *Extension[T] {
+	o.Super().SetSkeletonPath(value)
+	return o
+}
+
 func (self Instance) LayerMask() int { //gd:ImporterMeshInstance3D.layer_mask
 		return int(int(class(self).GetLayerMask()))
 }
+
+func (o *Extension[T]) LayerMask() int { return o.Super().LayerMask() }
 
 // SetLayerMask sets the property returned by [GetLayerMask]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetLayerMask(value int) Instance { //gd:ImporterMeshInstance3D.layer_mask
@@ -210,9 +236,16 @@ func (self Instance) SetLayerMask(value int) Instance { //gd:ImporterMeshInstanc
 	return self
 }
 
+func (o *Extension[T]) SetLayerMask(value int) *Extension[T] {
+	o.Super().SetLayerMask(value)
+	return o
+}
+
 func (self Instance) CastShadow() GeometryInstance3D.ShadowCastingSetting { //gd:ImporterMeshInstance3D.cast_shadow
 		return GeometryInstance3D.ShadowCastingSetting(class(self).GetCastShadowsSetting())
 }
+
+func (o *Extension[T]) CastShadow() GeometryInstance3D.ShadowCastingSetting { return o.Super().CastShadow() }
 
 // SetCastShadow sets the property returned by [GetCastShadowsSetting]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCastShadow(value GeometryInstance3D.ShadowCastingSetting) Instance { //gd:ImporterMeshInstance3D.cast_shadow
@@ -220,9 +253,16 @@ func (self Instance) SetCastShadow(value GeometryInstance3D.ShadowCastingSetting
 	return self
 }
 
+func (o *Extension[T]) SetCastShadow(value GeometryInstance3D.ShadowCastingSetting) *Extension[T] {
+	o.Super().SetCastShadow(value)
+	return o
+}
+
 func (self Instance) VisibilityRangeBegin() Float.X { //gd:ImporterMeshInstance3D.visibility_range_begin
 		return Float.X(Float.X(class(self).GetVisibilityRangeBegin()))
 }
+
+func (o *Extension[T]) VisibilityRangeBegin() Float.X { return o.Super().VisibilityRangeBegin() }
 
 // SetVisibilityRangeBegin sets the property returned by [GetVisibilityRangeBegin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVisibilityRangeBegin(value Float.X) Instance { //gd:ImporterMeshInstance3D.visibility_range_begin
@@ -230,9 +270,16 @@ func (self Instance) SetVisibilityRangeBegin(value Float.X) Instance { //gd:Impo
 	return self
 }
 
+func (o *Extension[T]) SetVisibilityRangeBegin(value Float.X) *Extension[T] {
+	o.Super().SetVisibilityRangeBegin(value)
+	return o
+}
+
 func (self Instance) VisibilityRangeBeginMargin() Float.X { //gd:ImporterMeshInstance3D.visibility_range_begin_margin
 		return Float.X(Float.X(class(self).GetVisibilityRangeBeginMargin()))
 }
+
+func (o *Extension[T]) VisibilityRangeBeginMargin() Float.X { return o.Super().VisibilityRangeBeginMargin() }
 
 // SetVisibilityRangeBeginMargin sets the property returned by [GetVisibilityRangeBeginMargin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVisibilityRangeBeginMargin(value Float.X) Instance { //gd:ImporterMeshInstance3D.visibility_range_begin_margin
@@ -240,9 +287,16 @@ func (self Instance) SetVisibilityRangeBeginMargin(value Float.X) Instance { //g
 	return self
 }
 
+func (o *Extension[T]) SetVisibilityRangeBeginMargin(value Float.X) *Extension[T] {
+	o.Super().SetVisibilityRangeBeginMargin(value)
+	return o
+}
+
 func (self Instance) VisibilityRangeEnd() Float.X { //gd:ImporterMeshInstance3D.visibility_range_end
 		return Float.X(Float.X(class(self).GetVisibilityRangeEnd()))
 }
+
+func (o *Extension[T]) VisibilityRangeEnd() Float.X { return o.Super().VisibilityRangeEnd() }
 
 // SetVisibilityRangeEnd sets the property returned by [GetVisibilityRangeEnd]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVisibilityRangeEnd(value Float.X) Instance { //gd:ImporterMeshInstance3D.visibility_range_end
@@ -250,9 +304,16 @@ func (self Instance) SetVisibilityRangeEnd(value Float.X) Instance { //gd:Import
 	return self
 }
 
+func (o *Extension[T]) SetVisibilityRangeEnd(value Float.X) *Extension[T] {
+	o.Super().SetVisibilityRangeEnd(value)
+	return o
+}
+
 func (self Instance) VisibilityRangeEndMargin() Float.X { //gd:ImporterMeshInstance3D.visibility_range_end_margin
 		return Float.X(Float.X(class(self).GetVisibilityRangeEndMargin()))
 }
+
+func (o *Extension[T]) VisibilityRangeEndMargin() Float.X { return o.Super().VisibilityRangeEndMargin() }
 
 // SetVisibilityRangeEndMargin sets the property returned by [GetVisibilityRangeEndMargin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVisibilityRangeEndMargin(value Float.X) Instance { //gd:ImporterMeshInstance3D.visibility_range_end_margin
@@ -260,14 +321,26 @@ func (self Instance) SetVisibilityRangeEndMargin(value Float.X) Instance { //gd:
 	return self
 }
 
+func (o *Extension[T]) SetVisibilityRangeEndMargin(value Float.X) *Extension[T] {
+	o.Super().SetVisibilityRangeEndMargin(value)
+	return o
+}
+
 func (self Instance) VisibilityRangeFadeMode() GeometryInstance3D.VisibilityRangeFadeMode { //gd:ImporterMeshInstance3D.visibility_range_fade_mode
 		return GeometryInstance3D.VisibilityRangeFadeMode(class(self).GetVisibilityRangeFadeMode())
 }
+
+func (o *Extension[T]) VisibilityRangeFadeMode() GeometryInstance3D.VisibilityRangeFadeMode { return o.Super().VisibilityRangeFadeMode() }
 
 // SetVisibilityRangeFadeMode sets the property returned by [GetVisibilityRangeFadeMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVisibilityRangeFadeMode(value GeometryInstance3D.VisibilityRangeFadeMode) Instance { //gd:ImporterMeshInstance3D.visibility_range_fade_mode
 	class(self).SetVisibilityRangeFadeMode(value)
 	return self
+}
+
+func (o *Extension[T]) SetVisibilityRangeFadeMode(value GeometryInstance3D.VisibilityRangeFadeMode) *Extension[T] {
+	o.Super().SetVisibilityRangeFadeMode(value)
+	return o
 }
 
 func (self class) SetMesh(mesh [1]gdclass.ImporterMesh)  { //gd:ImporterMeshInstance3D.set_mesh
@@ -1528,6 +1601,279 @@ func (self Instance) NotifyThreadSafe(what int) {
 // NotifyThreadSafe is promoted from [Node.Instance.NotifyThreadSafe].
 func (o *Extension[T]) NotifyThreadSafe(what int) {
 	o.Super().AsNode().NotifyThreadSafe(what)
+}
+
+// Transform is promoted from [Node3D.Instance.Transform].
+func (o *Extension[T]) Transform() Transform3D.BasisOrigin { return o.Super().AsNode3D().Transform() }
+
+// SetTransform is promoted from [Node3D.Instance.SetTransform].
+func (o *Extension[T]) SetTransform(value Transform3D.BasisOrigin) *Extension[T] {
+	o.Super().AsNode3D().SetTransform(value)
+	return o
+}
+
+// GlobalTransform is promoted from [Node3D.Instance.GlobalTransform].
+func (o *Extension[T]) GlobalTransform() Transform3D.BasisOrigin { return o.Super().AsNode3D().GlobalTransform() }
+
+// SetGlobalTransform is promoted from [Node3D.Instance.SetGlobalTransform].
+func (o *Extension[T]) SetGlobalTransform(value Transform3D.BasisOrigin) *Extension[T] {
+	o.Super().AsNode3D().SetGlobalTransform(value)
+	return o
+}
+
+// Position is promoted from [Node3D.Instance.Position].
+func (o *Extension[T]) Position() Vector3.XYZ { return o.Super().AsNode3D().Position() }
+
+// SetPosition is promoted from [Node3D.Instance.SetPosition].
+func (o *Extension[T]) SetPosition(value Vector3.XYZ) *Extension[T] {
+	o.Super().AsNode3D().SetPosition(value)
+	return o
+}
+
+// Rotation is promoted from [Node3D.Instance.Rotation].
+func (o *Extension[T]) Rotation() Euler.Radians { return o.Super().AsNode3D().Rotation() }
+
+// SetRotation is promoted from [Node3D.Instance.SetRotation].
+func (o *Extension[T]) SetRotation(value Euler.Radians) *Extension[T] {
+	o.Super().AsNode3D().SetRotation(value)
+	return o
+}
+
+// RotationDegrees is promoted from [Node3D.Instance.RotationDegrees].
+func (o *Extension[T]) RotationDegrees() Euler.Degrees { return o.Super().AsNode3D().RotationDegrees() }
+
+// SetRotationDegrees is promoted from [Node3D.Instance.SetRotationDegrees].
+func (o *Extension[T]) SetRotationDegrees(value Euler.Degrees) *Extension[T] {
+	o.Super().AsNode3D().SetRotationDegrees(value)
+	return o
+}
+
+// Quaternion is promoted from [Node3D.Instance.Quaternion].
+func (o *Extension[T]) Quaternion() Quaternion.IJKX { return o.Super().AsNode3D().Quaternion() }
+
+// SetQuaternion is promoted from [Node3D.Instance.SetQuaternion].
+func (o *Extension[T]) SetQuaternion(value Quaternion.IJKX) *Extension[T] {
+	o.Super().AsNode3D().SetQuaternion(value)
+	return o
+}
+
+// Basis is promoted from [Node3D.Instance.Basis].
+func (o *Extension[T]) Basis() Basis.XYZ { return o.Super().AsNode3D().Basis() }
+
+// SetBasis is promoted from [Node3D.Instance.SetBasis].
+func (o *Extension[T]) SetBasis(value Basis.XYZ) *Extension[T] {
+	o.Super().AsNode3D().SetBasis(value)
+	return o
+}
+
+// Scale is promoted from [Node3D.Instance.Scale].
+func (o *Extension[T]) Scale() Vector3.XYZ { return o.Super().AsNode3D().Scale() }
+
+// SetScale is promoted from [Node3D.Instance.SetScale].
+func (o *Extension[T]) SetScale(value Vector3.XYZ) *Extension[T] {
+	o.Super().AsNode3D().SetScale(value)
+	return o
+}
+
+// RotationEditMode is promoted from [Node3D.Instance.RotationEditMode].
+func (o *Extension[T]) RotationEditMode() Node3D.RotationEditMode { return o.Super().AsNode3D().RotationEditMode() }
+
+// SetRotationEditMode is promoted from [Node3D.Instance.SetRotationEditMode].
+func (o *Extension[T]) SetRotationEditMode(value Node3D.RotationEditMode) *Extension[T] {
+	o.Super().AsNode3D().SetRotationEditMode(value)
+	return o
+}
+
+// RotationOrder is promoted from [Node3D.Instance.RotationOrder].
+func (o *Extension[T]) RotationOrder() Angle.Order { return o.Super().AsNode3D().RotationOrder() }
+
+// SetRotationOrder is promoted from [Node3D.Instance.SetRotationOrder].
+func (o *Extension[T]) SetRotationOrder(value Angle.Order) *Extension[T] {
+	o.Super().AsNode3D().SetRotationOrder(value)
+	return o
+}
+
+// TopLevel is promoted from [Node3D.Instance.TopLevel].
+func (o *Extension[T]) TopLevel() bool { return o.Super().AsNode3D().TopLevel() }
+
+// SetTopLevel is promoted from [Node3D.Instance.SetTopLevel].
+func (o *Extension[T]) SetTopLevel(value bool) *Extension[T] {
+	o.Super().AsNode3D().SetTopLevel(value)
+	return o
+}
+
+// GlobalPosition is promoted from [Node3D.Instance.GlobalPosition].
+func (o *Extension[T]) GlobalPosition() Vector3.XYZ { return o.Super().AsNode3D().GlobalPosition() }
+
+// SetGlobalPosition is promoted from [Node3D.Instance.SetGlobalPosition].
+func (o *Extension[T]) SetGlobalPosition(value Vector3.XYZ) *Extension[T] {
+	o.Super().AsNode3D().SetGlobalPosition(value)
+	return o
+}
+
+// GlobalBasis is promoted from [Node3D.Instance.GlobalBasis].
+func (o *Extension[T]) GlobalBasis() Basis.XYZ { return o.Super().AsNode3D().GlobalBasis() }
+
+// SetGlobalBasis is promoted from [Node3D.Instance.SetGlobalBasis].
+func (o *Extension[T]) SetGlobalBasis(value Basis.XYZ) *Extension[T] {
+	o.Super().AsNode3D().SetGlobalBasis(value)
+	return o
+}
+
+// GlobalRotation is promoted from [Node3D.Instance.GlobalRotation].
+func (o *Extension[T]) GlobalRotation() Euler.Radians { return o.Super().AsNode3D().GlobalRotation() }
+
+// SetGlobalRotation is promoted from [Node3D.Instance.SetGlobalRotation].
+func (o *Extension[T]) SetGlobalRotation(value Euler.Radians) *Extension[T] {
+	o.Super().AsNode3D().SetGlobalRotation(value)
+	return o
+}
+
+// GlobalRotationDegrees is promoted from [Node3D.Instance.GlobalRotationDegrees].
+func (o *Extension[T]) GlobalRotationDegrees() Euler.Degrees { return o.Super().AsNode3D().GlobalRotationDegrees() }
+
+// SetGlobalRotationDegrees is promoted from [Node3D.Instance.SetGlobalRotationDegrees].
+func (o *Extension[T]) SetGlobalRotationDegrees(value Euler.Degrees) *Extension[T] {
+	o.Super().AsNode3D().SetGlobalRotationDegrees(value)
+	return o
+}
+
+// Visible is promoted from [Node3D.Instance.Visible].
+func (o *Extension[T]) Visible() bool { return o.Super().AsNode3D().Visible() }
+
+// SetVisible is promoted from [Node3D.Instance.SetVisible].
+func (o *Extension[T]) SetVisible(value bool) *Extension[T] {
+	o.Super().AsNode3D().SetVisible(value)
+	return o
+}
+
+// VisibilityParent is promoted from [Node3D.Instance.VisibilityParent].
+func (o *Extension[T]) VisibilityParent() string { return o.Super().AsNode3D().VisibilityParent() }
+
+// SetVisibilityParent is promoted from [Node3D.Instance.SetVisibilityParent].
+func (o *Extension[T]) SetVisibilityParent(value string) *Extension[T] {
+	o.Super().AsNode3D().SetVisibilityParent(value)
+	return o
+}
+
+// Name is promoted from [Node.Instance.Name].
+func (o *Extension[T]) Name() string { return o.Super().AsNode().Name() }
+
+// SetName is promoted from [Node.Instance.SetName].
+func (o *Extension[T]) SetName(value string) *Extension[T] {
+	o.Super().AsNode().SetName(value)
+	return o
+}
+
+// UniqueNameInOwner is promoted from [Node.Instance.UniqueNameInOwner].
+func (o *Extension[T]) UniqueNameInOwner() bool { return o.Super().AsNode().UniqueNameInOwner() }
+
+// SetUniqueNameInOwner is promoted from [Node.Instance.SetUniqueNameInOwner].
+func (o *Extension[T]) SetUniqueNameInOwner(value bool) *Extension[T] {
+	o.Super().AsNode().SetUniqueNameInOwner(value)
+	return o
+}
+
+// SceneFilePath is promoted from [Node.Instance.SceneFilePath].
+func (o *Extension[T]) SceneFilePath() string { return o.Super().AsNode().SceneFilePath() }
+
+// SetSceneFilePath is promoted from [Node.Instance.SetSceneFilePath].
+func (o *Extension[T]) SetSceneFilePath(value string) *Extension[T] {
+	o.Super().AsNode().SetSceneFilePath(value)
+	return o
+}
+
+// Owner is promoted from [Node.Instance.Owner].
+func (o *Extension[T]) Owner() Node.Instance { return o.Super().AsNode().Owner() }
+
+// SetOwner is promoted from [Node.Instance.SetOwner].
+func (o *Extension[T]) SetOwner(value Node.Instance) *Extension[T] {
+	o.Super().AsNode().SetOwner(value)
+	return o
+}
+
+// Multiplayer is promoted from [Node.Instance.Multiplayer].
+func (o *Extension[T]) Multiplayer() MultiplayerAPI.Instance { return o.Super().AsNode().Multiplayer() }
+
+// ProcessMode is promoted from [Node.Instance.ProcessMode].
+func (o *Extension[T]) ProcessMode() Node.ProcessMode { return o.Super().AsNode().ProcessMode() }
+
+// SetProcessMode is promoted from [Node.Instance.SetProcessMode].
+func (o *Extension[T]) SetProcessMode(value Node.ProcessMode) *Extension[T] {
+	o.Super().AsNode().SetProcessMode(value)
+	return o
+}
+
+// ProcessPriority is promoted from [Node.Instance.ProcessPriority].
+func (o *Extension[T]) ProcessPriority() int { return o.Super().AsNode().ProcessPriority() }
+
+// SetProcessPriority is promoted from [Node.Instance.SetProcessPriority].
+func (o *Extension[T]) SetProcessPriority(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessPriority(value)
+	return o
+}
+
+// ProcessPhysicsPriority is promoted from [Node.Instance.ProcessPhysicsPriority].
+func (o *Extension[T]) ProcessPhysicsPriority() int { return o.Super().AsNode().ProcessPhysicsPriority() }
+
+// SetProcessPhysicsPriority is promoted from [Node.Instance.SetProcessPhysicsPriority].
+func (o *Extension[T]) SetProcessPhysicsPriority(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessPhysicsPriority(value)
+	return o
+}
+
+// ProcessThreadGroup is promoted from [Node.Instance.ProcessThreadGroup].
+func (o *Extension[T]) ProcessThreadGroup() Node.ProcessThreadGroup { return o.Super().AsNode().ProcessThreadGroup() }
+
+// SetProcessThreadGroup is promoted from [Node.Instance.SetProcessThreadGroup].
+func (o *Extension[T]) SetProcessThreadGroup(value Node.ProcessThreadGroup) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadGroup(value)
+	return o
+}
+
+// ProcessThreadGroupOrder is promoted from [Node.Instance.ProcessThreadGroupOrder].
+func (o *Extension[T]) ProcessThreadGroupOrder() int { return o.Super().AsNode().ProcessThreadGroupOrder() }
+
+// SetProcessThreadGroupOrder is promoted from [Node.Instance.SetProcessThreadGroupOrder].
+func (o *Extension[T]) SetProcessThreadGroupOrder(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadGroupOrder(value)
+	return o
+}
+
+// ProcessThreadMessages is promoted from [Node.Instance.ProcessThreadMessages].
+func (o *Extension[T]) ProcessThreadMessages() Node.ProcessThreadMessages { return o.Super().AsNode().ProcessThreadMessages() }
+
+// SetProcessThreadMessages is promoted from [Node.Instance.SetProcessThreadMessages].
+func (o *Extension[T]) SetProcessThreadMessages(value Node.ProcessThreadMessages) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadMessages(value)
+	return o
+}
+
+// PhysicsInterpolationMode is promoted from [Node.Instance.PhysicsInterpolationMode].
+func (o *Extension[T]) PhysicsInterpolationMode() Node.PhysicsInterpolationMode { return o.Super().AsNode().PhysicsInterpolationMode() }
+
+// SetPhysicsInterpolationMode is promoted from [Node.Instance.SetPhysicsInterpolationMode].
+func (o *Extension[T]) SetPhysicsInterpolationMode(value Node.PhysicsInterpolationMode) *Extension[T] {
+	o.Super().AsNode().SetPhysicsInterpolationMode(value)
+	return o
+}
+
+// AutoTranslateMode is promoted from [Node.Instance.AutoTranslateMode].
+func (o *Extension[T]) AutoTranslateMode() Node.AutoTranslateMode { return o.Super().AsNode().AutoTranslateMode() }
+
+// SetAutoTranslateMode is promoted from [Node.Instance.SetAutoTranslateMode].
+func (o *Extension[T]) SetAutoTranslateMode(value Node.AutoTranslateMode) *Extension[T] {
+	o.Super().AsNode().SetAutoTranslateMode(value)
+	return o
+}
+
+// EditorDescription is promoted from [Node.Instance.EditorDescription].
+func (o *Extension[T]) EditorDescription() string { return o.Super().AsNode().EditorDescription() }
+
+// SetEditorDescription is promoted from [Node.Instance.SetEditorDescription].
+func (o *Extension[T]) SetEditorDescription(value string) *Extension[T] {
+	o.Super().AsNode().SetEditorDescription(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

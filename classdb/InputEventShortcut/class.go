@@ -150,10 +150,17 @@ func (self Instance) Shortcut() Shortcut.Instance { //gd:InputEventShortcut.shor
 		return Shortcut.Instance(class(self).GetShortcut())
 }
 
+func (o *Extension[T]) Shortcut() Shortcut.Instance { return o.Super().Shortcut() }
+
 // SetShortcut sets the property returned by [GetShortcut]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetShortcut(value Shortcut.Instance) Instance { //gd:InputEventShortcut.shortcut
 	class(self).SetShortcut(value)
 	return self
+}
+
+func (o *Extension[T]) SetShortcut(value Shortcut.Instance) *Extension[T] {
+	o.Super().SetShortcut(value)
+	return o
 }
 
 func (self class) SetShortcut(shortcut [1]gdclass.Shortcut)  { //gd:InputEventShortcut.set_shortcut
@@ -359,6 +366,51 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// Device is promoted from [InputEvent.Instance.Device].
+func (o *Extension[T]) Device() int { return o.Super().AsInputEvent().Device() }
+
+// SetDevice is promoted from [InputEvent.Instance.SetDevice].
+func (o *Extension[T]) SetDevice(value int) *Extension[T] {
+	o.Super().AsInputEvent().SetDevice(value)
+	return o
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

@@ -159,15 +159,24 @@ func (self Instance) BlendMode() BlendMode { //gd:CanvasItemMaterial.blend_mode
 		return BlendMode(class(self).GetBlendMode())
 }
 
+func (o *Extension[T]) BlendMode() BlendMode { return o.Super().BlendMode() }
+
 // SetBlendMode sets the property returned by [GetBlendMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBlendMode(value BlendMode) Instance { //gd:CanvasItemMaterial.blend_mode
 	class(self).SetBlendMode(value)
 	return self
 }
 
+func (o *Extension[T]) SetBlendMode(value BlendMode) *Extension[T] {
+	o.Super().SetBlendMode(value)
+	return o
+}
+
 func (self Instance) LightMode() LightMode { //gd:CanvasItemMaterial.light_mode
 		return LightMode(class(self).GetLightMode())
 }
+
+func (o *Extension[T]) LightMode() LightMode { return o.Super().LightMode() }
 
 // SetLightMode sets the property returned by [GetLightMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetLightMode(value LightMode) Instance { //gd:CanvasItemMaterial.light_mode
@@ -175,9 +184,16 @@ func (self Instance) SetLightMode(value LightMode) Instance { //gd:CanvasItemMat
 	return self
 }
 
+func (o *Extension[T]) SetLightMode(value LightMode) *Extension[T] {
+	o.Super().SetLightMode(value)
+	return o
+}
+
 func (self Instance) ParticlesAnimation() bool { //gd:CanvasItemMaterial.particles_animation
 		return bool(class(self).GetParticlesAnimation())
 }
+
+func (o *Extension[T]) ParticlesAnimation() bool { return o.Super().ParticlesAnimation() }
 
 // SetParticlesAnimation sets the property returned by [GetParticlesAnimation]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetParticlesAnimation(value bool) Instance { //gd:CanvasItemMaterial.particles_animation
@@ -185,9 +201,16 @@ func (self Instance) SetParticlesAnimation(value bool) Instance { //gd:CanvasIte
 	return self
 }
 
+func (o *Extension[T]) SetParticlesAnimation(value bool) *Extension[T] {
+	o.Super().SetParticlesAnimation(value)
+	return o
+}
+
 func (self Instance) ParticlesAnimHFrames() int { //gd:CanvasItemMaterial.particles_anim_h_frames
 		return int(int(class(self).GetParticlesAnimHFrames()))
 }
+
+func (o *Extension[T]) ParticlesAnimHFrames() int { return o.Super().ParticlesAnimHFrames() }
 
 // SetParticlesAnimHFrames sets the property returned by [GetParticlesAnimHFrames]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetParticlesAnimHFrames(value int) Instance { //gd:CanvasItemMaterial.particles_anim_h_frames
@@ -195,9 +218,16 @@ func (self Instance) SetParticlesAnimHFrames(value int) Instance { //gd:CanvasIt
 	return self
 }
 
+func (o *Extension[T]) SetParticlesAnimHFrames(value int) *Extension[T] {
+	o.Super().SetParticlesAnimHFrames(value)
+	return o
+}
+
 func (self Instance) ParticlesAnimVFrames() int { //gd:CanvasItemMaterial.particles_anim_v_frames
 		return int(int(class(self).GetParticlesAnimVFrames()))
 }
+
+func (o *Extension[T]) ParticlesAnimVFrames() int { return o.Super().ParticlesAnimVFrames() }
 
 // SetParticlesAnimVFrames sets the property returned by [GetParticlesAnimVFrames]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetParticlesAnimVFrames(value int) Instance { //gd:CanvasItemMaterial.particles_anim_v_frames
@@ -205,14 +235,26 @@ func (self Instance) SetParticlesAnimVFrames(value int) Instance { //gd:CanvasIt
 	return self
 }
 
+func (o *Extension[T]) SetParticlesAnimVFrames(value int) *Extension[T] {
+	o.Super().SetParticlesAnimVFrames(value)
+	return o
+}
+
 func (self Instance) ParticlesAnimLoop() bool { //gd:CanvasItemMaterial.particles_anim_loop
 		return bool(class(self).GetParticlesAnimLoop())
 }
+
+func (o *Extension[T]) ParticlesAnimLoop() bool { return o.Super().ParticlesAnimLoop() }
 
 // SetParticlesAnimLoop sets the property returned by [GetParticlesAnimLoop]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetParticlesAnimLoop(value bool) Instance { //gd:CanvasItemMaterial.particles_anim_loop
 	class(self).SetParticlesAnimLoop(value)
 	return self
+}
+
+func (o *Extension[T]) SetParticlesAnimLoop(value bool) *Extension[T] {
+	o.Super().SetParticlesAnimLoop(value)
+	return o
 }
 
 func (self class) SetBlendMode(blend_mode BlendMode)  { //gd:CanvasItemMaterial.set_blend_mode
@@ -408,6 +450,60 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// RenderPriority is promoted from [Material.Instance.RenderPriority].
+func (o *Extension[T]) RenderPriority() Material.RenderPriority { return o.Super().AsMaterial().RenderPriority() }
+
+// SetRenderPriority is promoted from [Material.Instance.SetRenderPriority].
+func (o *Extension[T]) SetRenderPriority(value Material.RenderPriority) *Extension[T] {
+	o.Super().AsMaterial().SetRenderPriority(value)
+	return o
+}
+
+// NextPass is promoted from [Material.Instance.NextPass].
+func (o *Extension[T]) NextPass() Material.Instance { return o.Super().AsMaterial().NextPass() }
+
+// SetNextPass is promoted from [Material.Instance.SetNextPass].
+func (o *Extension[T]) SetNextPass(value Material.Instance) *Extension[T] {
+	o.Super().AsMaterial().SetNextPass(value)
+	return o
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

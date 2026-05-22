@@ -314,6 +314,78 @@ func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
 }
 
+// OpType is promoted from [VisualShaderNodeVectorBase.Instance.OpType].
+func (o *Extension[T]) OpType() VisualShaderNodeVectorBase.OpType { return o.Super().AsVisualShaderNodeVectorBase().OpType() }
+
+// SetOpType is promoted from [VisualShaderNodeVectorBase.Instance.SetOpType].
+func (o *Extension[T]) SetOpType(value VisualShaderNodeVectorBase.OpType) *Extension[T] {
+	o.Super().AsVisualShaderNodeVectorBase().SetOpType(value)
+	return o
+}
+
+// OutputPortForPreview is promoted from [VisualShaderNode.Instance.OutputPortForPreview].
+func (o *Extension[T]) OutputPortForPreview() int { return o.Super().AsVisualShaderNode().OutputPortForPreview() }
+
+// SetOutputPortForPreview is promoted from [VisualShaderNode.Instance.SetOutputPortForPreview].
+func (o *Extension[T]) SetOutputPortForPreview(value int) *Extension[T] {
+	o.Super().AsVisualShaderNode().SetOutputPortForPreview(value)
+	return o
+}
+
+// DefaultInputValues is promoted from [VisualShaderNode.Instance.DefaultInputValues].
+func (o *Extension[T]) DefaultInputValues() []any { return o.Super().AsVisualShaderNode().DefaultInputValues() }
+
+// SetDefaultInputValues is promoted from [VisualShaderNode.Instance.SetDefaultInputValues].
+func (o *Extension[T]) SetDefaultInputValues(value []any) *Extension[T] {
+	o.Super().AsVisualShaderNode().SetDefaultInputValues(value)
+	return o
+}
+
+// LinkedParentGraphFrame is promoted from [VisualShaderNode.Instance.LinkedParentGraphFrame].
+func (o *Extension[T]) LinkedParentGraphFrame() int { return o.Super().AsVisualShaderNode().LinkedParentGraphFrame() }
+
+// SetLinkedParentGraphFrame is promoted from [VisualShaderNode.Instance.SetLinkedParentGraphFrame].
+func (o *Extension[T]) SetLinkedParentGraphFrame(value int) *Extension[T] {
+	o.Super().AsVisualShaderNode().SetLinkedParentGraphFrame(value)
+	return o
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
+}
+
 func (self class) Virtual(name string) reflect.Value {
 	switch name {
 	default: return gd.VirtualByName(VisualShaderNodeVectorBase.Advanced(self.AsVisualShaderNodeVectorBase()), name)

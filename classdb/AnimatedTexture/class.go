@@ -178,15 +178,24 @@ func (self Instance) Frames() int { //gd:AnimatedTexture.frames
 		return int(int(class(self).GetFrames()))
 }
 
+func (o *Extension[T]) Frames() int { return o.Super().Frames() }
+
 // SetFrames sets the property returned by [GetFrames]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFrames(value int) Instance { //gd:AnimatedTexture.frames
 	class(self).SetFrames(int64(value))
 	return self
 }
 
+func (o *Extension[T]) SetFrames(value int) *Extension[T] {
+	o.Super().SetFrames(value)
+	return o
+}
+
 func (self Instance) CurrentFrame() int { //gd:AnimatedTexture.current_frame
 		return int(int(class(self).GetCurrentFrame()))
 }
+
+func (o *Extension[T]) CurrentFrame() int { return o.Super().CurrentFrame() }
 
 // SetCurrentFrame sets the property returned by [GetCurrentFrame]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCurrentFrame(value int) Instance { //gd:AnimatedTexture.current_frame
@@ -194,9 +203,16 @@ func (self Instance) SetCurrentFrame(value int) Instance { //gd:AnimatedTexture.
 	return self
 }
 
+func (o *Extension[T]) SetCurrentFrame(value int) *Extension[T] {
+	o.Super().SetCurrentFrame(value)
+	return o
+}
+
 func (self Instance) Pause() bool { //gd:AnimatedTexture.pause
 		return bool(class(self).GetPause())
 }
+
+func (o *Extension[T]) Pause() bool { return o.Super().Pause() }
 
 // SetPause sets the property returned by [GetPause]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPause(value bool) Instance { //gd:AnimatedTexture.pause
@@ -204,9 +220,16 @@ func (self Instance) SetPause(value bool) Instance { //gd:AnimatedTexture.pause
 	return self
 }
 
+func (o *Extension[T]) SetPause(value bool) *Extension[T] {
+	o.Super().SetPause(value)
+	return o
+}
+
 func (self Instance) OneShot() bool { //gd:AnimatedTexture.one_shot
 		return bool(class(self).GetOneShot())
 }
+
+func (o *Extension[T]) OneShot() bool { return o.Super().OneShot() }
 
 // SetOneShot sets the property returned by [GetOneShot]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOneShot(value bool) Instance { //gd:AnimatedTexture.one_shot
@@ -214,14 +237,26 @@ func (self Instance) SetOneShot(value bool) Instance { //gd:AnimatedTexture.one_
 	return self
 }
 
+func (o *Extension[T]) SetOneShot(value bool) *Extension[T] {
+	o.Super().SetOneShot(value)
+	return o
+}
+
 func (self Instance) SpeedScale() Float.X { //gd:AnimatedTexture.speed_scale
 		return Float.X(Float.X(class(self).GetSpeedScale()))
 }
+
+func (o *Extension[T]) SpeedScale() Float.X { return o.Super().SpeedScale() }
 
 // SetSpeedScale sets the property returned by [GetSpeedScale]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSpeedScale(value Float.X) Instance { //gd:AnimatedTexture.speed_scale
 	class(self).SetSpeedScale(float64(value))
 	return self
+}
+
+func (o *Extension[T]) SetSpeedScale(value Float.X) *Extension[T] {
+	o.Super().SetSpeedScale(value)
+	return o
 }
 
 func (self class) SetFrames(frames int64)  { //gd:AnimatedTexture.set_frames
@@ -482,6 +517,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

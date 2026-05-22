@@ -308,15 +308,24 @@ func (self Instance) AutoAcceptQuit() bool { //gd:SceneTree.auto_accept_quit
 		return bool(class(self).IsAutoAcceptQuit())
 }
 
+func (o *Extension[T]) AutoAcceptQuit() bool { return o.Super().AutoAcceptQuit() }
+
 // SetAutoAcceptQuit sets the property returned by [IsAutoAcceptQuit]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAutoAcceptQuit(value bool) Instance { //gd:SceneTree.auto_accept_quit
 	class(self).SetAutoAcceptQuit(value)
 	return self
 }
 
+func (o *Extension[T]) SetAutoAcceptQuit(value bool) *Extension[T] {
+	o.Super().SetAutoAcceptQuit(value)
+	return o
+}
+
 func (self Instance) QuitOnGoBack() bool { //gd:SceneTree.quit_on_go_back
 		return bool(class(self).IsQuitOnGoBack())
 }
+
+func (o *Extension[T]) QuitOnGoBack() bool { return o.Super().QuitOnGoBack() }
 
 // SetQuitOnGoBack sets the property returned by [IsQuitOnGoBack]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetQuitOnGoBack(value bool) Instance { //gd:SceneTree.quit_on_go_back
@@ -324,9 +333,16 @@ func (self Instance) SetQuitOnGoBack(value bool) Instance { //gd:SceneTree.quit_
 	return self
 }
 
+func (o *Extension[T]) SetQuitOnGoBack(value bool) *Extension[T] {
+	o.Super().SetQuitOnGoBack(value)
+	return o
+}
+
 func (self Instance) DebugCollisionsHint() bool { //gd:SceneTree.debug_collisions_hint
 		return bool(class(self).IsDebuggingCollisionsHint())
 }
+
+func (o *Extension[T]) DebugCollisionsHint() bool { return o.Super().DebugCollisionsHint() }
 
 // SetDebugCollisionsHint sets the property returned by [IsDebuggingCollisionsHint]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDebugCollisionsHint(value bool) Instance { //gd:SceneTree.debug_collisions_hint
@@ -334,9 +350,16 @@ func (self Instance) SetDebugCollisionsHint(value bool) Instance { //gd:SceneTre
 	return self
 }
 
+func (o *Extension[T]) SetDebugCollisionsHint(value bool) *Extension[T] {
+	o.Super().SetDebugCollisionsHint(value)
+	return o
+}
+
 func (self Instance) DebugPathsHint() bool { //gd:SceneTree.debug_paths_hint
 		return bool(class(self).IsDebuggingPathsHint())
 }
+
+func (o *Extension[T]) DebugPathsHint() bool { return o.Super().DebugPathsHint() }
 
 // SetDebugPathsHint sets the property returned by [IsDebuggingPathsHint]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDebugPathsHint(value bool) Instance { //gd:SceneTree.debug_paths_hint
@@ -344,9 +367,16 @@ func (self Instance) SetDebugPathsHint(value bool) Instance { //gd:SceneTree.deb
 	return self
 }
 
+func (o *Extension[T]) SetDebugPathsHint(value bool) *Extension[T] {
+	o.Super().SetDebugPathsHint(value)
+	return o
+}
+
 func (self Instance) DebugNavigationHint() bool { //gd:SceneTree.debug_navigation_hint
 		return bool(class(self).IsDebuggingNavigationHint())
 }
+
+func (o *Extension[T]) DebugNavigationHint() bool { return o.Super().DebugNavigationHint() }
 
 // SetDebugNavigationHint sets the property returned by [IsDebuggingNavigationHint]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDebugNavigationHint(value bool) Instance { //gd:SceneTree.debug_navigation_hint
@@ -354,9 +384,16 @@ func (self Instance) SetDebugNavigationHint(value bool) Instance { //gd:SceneTre
 	return self
 }
 
+func (o *Extension[T]) SetDebugNavigationHint(value bool) *Extension[T] {
+	o.Super().SetDebugNavigationHint(value)
+	return o
+}
+
 func (self Instance) Paused() bool { //gd:SceneTree.paused
 		return bool(class(self).IsPaused())
 }
+
+func (o *Extension[T]) Paused() bool { return o.Super().Paused() }
 
 // SetPaused sets the property returned by [IsPaused]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPaused(value bool) Instance { //gd:SceneTree.paused
@@ -364,9 +401,16 @@ func (self Instance) SetPaused(value bool) Instance { //gd:SceneTree.paused
 	return self
 }
 
+func (o *Extension[T]) SetPaused(value bool) *Extension[T] {
+	o.Super().SetPaused(value)
+	return o
+}
+
 func (self Instance) EditedSceneRoot() Node.Instance { //gd:SceneTree.edited_scene_root
 		return Node.Instance(class(self).GetEditedSceneRoot())
 }
+
+func (o *Extension[T]) EditedSceneRoot() Node.Instance { return o.Super().EditedSceneRoot() }
 
 // SetEditedSceneRoot sets the property returned by [GetEditedSceneRoot]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEditedSceneRoot(value Node.Instance) Instance { //gd:SceneTree.edited_scene_root
@@ -374,9 +418,16 @@ func (self Instance) SetEditedSceneRoot(value Node.Instance) Instance { //gd:Sce
 	return self
 }
 
+func (o *Extension[T]) SetEditedSceneRoot(value Node.Instance) *Extension[T] {
+	o.Super().SetEditedSceneRoot(value)
+	return o
+}
+
 func (self Instance) CurrentScene() Node.Instance { //gd:SceneTree.current_scene
 		return Node.Instance(class(self).GetCurrentScene())
 }
+
+func (o *Extension[T]) CurrentScene() Node.Instance { return o.Super().CurrentScene() }
 
 // SetCurrentScene sets the property returned by [GetCurrentScene]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCurrentScene(value Node.Instance) Instance { //gd:SceneTree.current_scene
@@ -384,13 +435,22 @@ func (self Instance) SetCurrentScene(value Node.Instance) Instance { //gd:SceneT
 	return self
 }
 
+func (o *Extension[T]) SetCurrentScene(value Node.Instance) *Extension[T] {
+	o.Super().SetCurrentScene(value)
+	return o
+}
+
 func (self Instance) Root() Window.Instance { //gd:SceneTree.root
 		return Window.Instance(class(self).GetRoot())
 }
 
+func (o *Extension[T]) Root() Window.Instance { return o.Super().Root() }
+
 func (self Instance) MultiplayerPoll() bool { //gd:SceneTree.multiplayer_poll
 		return bool(class(self).IsMultiplayerPollEnabled())
 }
+
+func (o *Extension[T]) MultiplayerPoll() bool { return o.Super().MultiplayerPoll() }
 
 // SetMultiplayerPoll sets the property returned by [IsMultiplayerPollEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMultiplayerPoll(value bool) Instance { //gd:SceneTree.multiplayer_poll
@@ -398,14 +458,26 @@ func (self Instance) SetMultiplayerPoll(value bool) Instance { //gd:SceneTree.mu
 	return self
 }
 
+func (o *Extension[T]) SetMultiplayerPoll(value bool) *Extension[T] {
+	o.Super().SetMultiplayerPoll(value)
+	return o
+}
+
 func (self Instance) PhysicsInterpolation() bool { //gd:SceneTree.physics_interpolation
 		return bool(class(self).IsPhysicsInterpolationEnabled())
 }
+
+func (o *Extension[T]) PhysicsInterpolation() bool { return o.Super().PhysicsInterpolation() }
 
 // SetPhysicsInterpolation sets the property returned by [IsPhysicsInterpolationEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPhysicsInterpolation(value bool) Instance { //gd:SceneTree.physics_interpolation
 	class(self).SetPhysicsInterpolationEnabled(value)
 	return self
+}
+
+func (o *Extension[T]) SetPhysicsInterpolation(value bool) *Extension[T] {
+	o.Super().SetPhysicsInterpolation(value)
+	return o
 }
 
 func (self class) GetRoot() [1]gdclass.Window { //gd:SceneTree.get_root

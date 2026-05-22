@@ -172,15 +172,24 @@ func (self Instance) LightmapTextures() []TextureLayered.Instance { //gd:Lightma
 		return []TextureLayered.Instance(gd.ArrayAs[[]TextureLayered.Instance](gd.InternalArray(class(self).GetLightmapTextures())))
 }
 
+func (o *Extension[T]) LightmapTextures() []TextureLayered.Instance { return o.Super().LightmapTextures() }
+
 // SetLightmapTextures sets the property returned by [GetLightmapTextures]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetLightmapTextures(value []TextureLayered.Instance) Instance { //gd:LightmapGIData.lightmap_textures
 	class(self).SetLightmapTextures(gd.ArrayFromSlice[Array.Contains[[1]gdclass.TextureLayered]](value))
 	return self
 }
 
+func (o *Extension[T]) SetLightmapTextures(value []TextureLayered.Instance) *Extension[T] {
+	o.Super().SetLightmapTextures(value)
+	return o
+}
+
 func (self Instance) ShadowmaskTextures() []TextureLayered.Instance { //gd:LightmapGIData.shadowmask_textures
 		return []TextureLayered.Instance(gd.ArrayAs[[]TextureLayered.Instance](gd.InternalArray(class(self).GetShadowmaskTextures())))
 }
+
+func (o *Extension[T]) ShadowmaskTextures() []TextureLayered.Instance { return o.Super().ShadowmaskTextures() }
 
 // SetShadowmaskTextures sets the property returned by [GetShadowmaskTextures]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetShadowmaskTextures(value []TextureLayered.Instance) Instance { //gd:LightmapGIData.shadowmask_textures
@@ -188,9 +197,16 @@ func (self Instance) SetShadowmaskTextures(value []TextureLayered.Instance) Inst
 	return self
 }
 
+func (o *Extension[T]) SetShadowmaskTextures(value []TextureLayered.Instance) *Extension[T] {
+	o.Super().SetShadowmaskTextures(value)
+	return o
+}
+
 func (self Instance) UsesSphericalHarmonics() bool { //gd:LightmapGIData.uses_spherical_harmonics
 		return bool(class(self).IsUsingSphericalHarmonics())
 }
+
+func (o *Extension[T]) UsesSphericalHarmonics() bool { return o.Super().UsesSphericalHarmonics() }
 
 // SetUsesSphericalHarmonics sets the property returned by [IsUsingSphericalHarmonics]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUsesSphericalHarmonics(value bool) Instance { //gd:LightmapGIData.uses_spherical_harmonics
@@ -198,14 +214,26 @@ func (self Instance) SetUsesSphericalHarmonics(value bool) Instance { //gd:Light
 	return self
 }
 
+func (o *Extension[T]) SetUsesSphericalHarmonics(value bool) *Extension[T] {
+	o.Super().SetUsesSphericalHarmonics(value)
+	return o
+}
+
 func (self Instance) LightTexture() TextureLayered.Instance { //gd:LightmapGIData.light_texture
 		return TextureLayered.Instance(class(self).GetLightTexture())
 }
+
+func (o *Extension[T]) LightTexture() TextureLayered.Instance { return o.Super().LightTexture() }
 
 // SetLightTexture sets the property returned by [GetLightTexture]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetLightTexture(value TextureLayered.Instance) Instance { //gd:LightmapGIData.light_texture
 	class(self).SetLightTexture(value)
 	return self
+}
+
+func (o *Extension[T]) SetLightTexture(value TextureLayered.Instance) *Extension[T] {
+	o.Super().SetLightTexture(value)
+	return o
 }
 
 func (self class) SetLightmapTextures(light_textures Array.Contains[[1]gdclass.TextureLayered])  { //gd:LightmapGIData.set_lightmap_textures
@@ -390,6 +418,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

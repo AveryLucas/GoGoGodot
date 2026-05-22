@@ -154,15 +154,24 @@ func (self Instance) Source() Source { //gd:VisualShaderNodeCubemap.source
 		return Source(class(self).GetSource())
 }
 
+func (o *Extension[T]) Source() Source { return o.Super().Source() }
+
 // SetSource sets the property returned by [GetSource]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSource(value Source) Instance { //gd:VisualShaderNodeCubemap.source
 	class(self).SetSource(value)
 	return self
 }
 
+func (o *Extension[T]) SetSource(value Source) *Extension[T] {
+	o.Super().SetSource(value)
+	return o
+}
+
 func (self Instance) CubeMap() TextureLayered.Instance { //gd:VisualShaderNodeCubemap.cube_map
 		return TextureLayered.Instance(class(self).GetCubeMap())
 }
+
+func (o *Extension[T]) CubeMap() TextureLayered.Instance { return o.Super().CubeMap() }
 
 // SetCubeMap sets the property returned by [GetCubeMap]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCubeMap(value TextureLayered.Instance) Instance { //gd:VisualShaderNodeCubemap.cube_map
@@ -170,14 +179,26 @@ func (self Instance) SetCubeMap(value TextureLayered.Instance) Instance { //gd:V
 	return self
 }
 
+func (o *Extension[T]) SetCubeMap(value TextureLayered.Instance) *Extension[T] {
+	o.Super().SetCubeMap(value)
+	return o
+}
+
 func (self Instance) TextureType() TextureType { //gd:VisualShaderNodeCubemap.texture_type
 		return TextureType(class(self).GetTextureType())
 }
+
+func (o *Extension[T]) TextureType() TextureType { return o.Super().TextureType() }
 
 // SetTextureType sets the property returned by [GetTextureType]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTextureType(value TextureType) Instance { //gd:VisualShaderNodeCubemap.texture_type
 	class(self).SetTextureType(value)
 	return self
+}
+
+func (o *Extension[T]) SetTextureType(value TextureType) *Extension[T] {
+	o.Super().SetTextureType(value)
+	return o
 }
 
 func (self class) SetSource(value Source)  { //gd:VisualShaderNodeCubemap.set_source
@@ -369,6 +390,69 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// OutputPortForPreview is promoted from [VisualShaderNode.Instance.OutputPortForPreview].
+func (o *Extension[T]) OutputPortForPreview() int { return o.Super().AsVisualShaderNode().OutputPortForPreview() }
+
+// SetOutputPortForPreview is promoted from [VisualShaderNode.Instance.SetOutputPortForPreview].
+func (o *Extension[T]) SetOutputPortForPreview(value int) *Extension[T] {
+	o.Super().AsVisualShaderNode().SetOutputPortForPreview(value)
+	return o
+}
+
+// DefaultInputValues is promoted from [VisualShaderNode.Instance.DefaultInputValues].
+func (o *Extension[T]) DefaultInputValues() []any { return o.Super().AsVisualShaderNode().DefaultInputValues() }
+
+// SetDefaultInputValues is promoted from [VisualShaderNode.Instance.SetDefaultInputValues].
+func (o *Extension[T]) SetDefaultInputValues(value []any) *Extension[T] {
+	o.Super().AsVisualShaderNode().SetDefaultInputValues(value)
+	return o
+}
+
+// LinkedParentGraphFrame is promoted from [VisualShaderNode.Instance.LinkedParentGraphFrame].
+func (o *Extension[T]) LinkedParentGraphFrame() int { return o.Super().AsVisualShaderNode().LinkedParentGraphFrame() }
+
+// SetLinkedParentGraphFrame is promoted from [VisualShaderNode.Instance.SetLinkedParentGraphFrame].
+func (o *Extension[T]) SetLinkedParentGraphFrame(value int) *Extension[T] {
+	o.Super().AsVisualShaderNode().SetLinkedParentGraphFrame(value)
+	return o
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

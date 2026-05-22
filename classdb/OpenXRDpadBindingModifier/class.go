@@ -168,15 +168,24 @@ func (self Instance) ActionSet() OpenXRActionSet.Instance { //gd:OpenXRDpadBindi
 		return OpenXRActionSet.Instance(class(self).GetActionSet())
 }
 
+func (o *Extension[T]) ActionSet() OpenXRActionSet.Instance { return o.Super().ActionSet() }
+
 // SetActionSet sets the property returned by [GetActionSet]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetActionSet(value OpenXRActionSet.Instance) Instance { //gd:OpenXRDpadBindingModifier.action_set
 	class(self).SetActionSet(value)
 	return self
 }
 
+func (o *Extension[T]) SetActionSet(value OpenXRActionSet.Instance) *Extension[T] {
+	o.Super().SetActionSet(value)
+	return o
+}
+
 func (self Instance) InputPath() string { //gd:OpenXRDpadBindingModifier.input_path
 		return string(class(self).GetInputPath().String())
 }
+
+func (o *Extension[T]) InputPath() string { return o.Super().InputPath() }
 
 // SetInputPath sets the property returned by [GetInputPath]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetInputPath(value string) Instance { //gd:OpenXRDpadBindingModifier.input_path
@@ -184,9 +193,16 @@ func (self Instance) SetInputPath(value string) Instance { //gd:OpenXRDpadBindin
 	return self
 }
 
+func (o *Extension[T]) SetInputPath(value string) *Extension[T] {
+	o.Super().SetInputPath(value)
+	return o
+}
+
 func (self Instance) Threshold() Float.X { //gd:OpenXRDpadBindingModifier.threshold
 		return Float.X(Float.X(class(self).GetThreshold()))
 }
+
+func (o *Extension[T]) Threshold() Float.X { return o.Super().Threshold() }
 
 // SetThreshold sets the property returned by [GetThreshold]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetThreshold(value Float.X) Instance { //gd:OpenXRDpadBindingModifier.threshold
@@ -194,9 +210,16 @@ func (self Instance) SetThreshold(value Float.X) Instance { //gd:OpenXRDpadBindi
 	return self
 }
 
+func (o *Extension[T]) SetThreshold(value Float.X) *Extension[T] {
+	o.Super().SetThreshold(value)
+	return o
+}
+
 func (self Instance) ThresholdReleased() Float.X { //gd:OpenXRDpadBindingModifier.threshold_released
 		return Float.X(Float.X(class(self).GetThresholdReleased()))
 }
+
+func (o *Extension[T]) ThresholdReleased() Float.X { return o.Super().ThresholdReleased() }
 
 // SetThresholdReleased sets the property returned by [GetThresholdReleased]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetThresholdReleased(value Float.X) Instance { //gd:OpenXRDpadBindingModifier.threshold_released
@@ -204,9 +227,16 @@ func (self Instance) SetThresholdReleased(value Float.X) Instance { //gd:OpenXRD
 	return self
 }
 
+func (o *Extension[T]) SetThresholdReleased(value Float.X) *Extension[T] {
+	o.Super().SetThresholdReleased(value)
+	return o
+}
+
 func (self Instance) CenterRegion() Float.X { //gd:OpenXRDpadBindingModifier.center_region
 		return Float.X(Float.X(class(self).GetCenterRegion()))
 }
+
+func (o *Extension[T]) CenterRegion() Float.X { return o.Super().CenterRegion() }
 
 // SetCenterRegion sets the property returned by [GetCenterRegion]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCenterRegion(value Float.X) Instance { //gd:OpenXRDpadBindingModifier.center_region
@@ -214,9 +244,16 @@ func (self Instance) SetCenterRegion(value Float.X) Instance { //gd:OpenXRDpadBi
 	return self
 }
 
+func (o *Extension[T]) SetCenterRegion(value Float.X) *Extension[T] {
+	o.Super().SetCenterRegion(value)
+	return o
+}
+
 func (self Instance) WedgeAngle() Angle.Radians { //gd:OpenXRDpadBindingModifier.wedge_angle
 		return Angle.Radians(Float.X(class(self).GetWedgeAngle()))
 }
+
+func (o *Extension[T]) WedgeAngle() Angle.Radians { return o.Super().WedgeAngle() }
 
 // SetWedgeAngle sets the property returned by [GetWedgeAngle]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetWedgeAngle(value Angle.Radians) Instance { //gd:OpenXRDpadBindingModifier.wedge_angle
@@ -224,9 +261,16 @@ func (self Instance) SetWedgeAngle(value Angle.Radians) Instance { //gd:OpenXRDp
 	return self
 }
 
+func (o *Extension[T]) SetWedgeAngle(value Angle.Radians) *Extension[T] {
+	o.Super().SetWedgeAngle(value)
+	return o
+}
+
 func (self Instance) IsSticky() bool { //gd:OpenXRDpadBindingModifier.is_sticky
 		return bool(class(self).GetIsSticky())
 }
+
+func (o *Extension[T]) IsSticky() bool { return o.Super().IsSticky() }
 
 // SetIsSticky sets the property returned by [GetIsSticky]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetIsSticky(value bool) Instance { //gd:OpenXRDpadBindingModifier.is_sticky
@@ -234,9 +278,16 @@ func (self Instance) SetIsSticky(value bool) Instance { //gd:OpenXRDpadBindingMo
 	return self
 }
 
+func (o *Extension[T]) SetIsSticky(value bool) *Extension[T] {
+	o.Super().SetIsSticky(value)
+	return o
+}
+
 func (self Instance) OnHaptic() OpenXRHapticBase.Instance { //gd:OpenXRDpadBindingModifier.on_haptic
 		return OpenXRHapticBase.Instance(class(self).GetOnHaptic())
 }
+
+func (o *Extension[T]) OnHaptic() OpenXRHapticBase.Instance { return o.Super().OnHaptic() }
 
 // SetOnHaptic sets the property returned by [GetOnHaptic]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOnHaptic(value OpenXRHapticBase.Instance) Instance { //gd:OpenXRDpadBindingModifier.on_haptic
@@ -244,14 +295,26 @@ func (self Instance) SetOnHaptic(value OpenXRHapticBase.Instance) Instance { //g
 	return self
 }
 
+func (o *Extension[T]) SetOnHaptic(value OpenXRHapticBase.Instance) *Extension[T] {
+	o.Super().SetOnHaptic(value)
+	return o
+}
+
 func (self Instance) OffHaptic() OpenXRHapticBase.Instance { //gd:OpenXRDpadBindingModifier.off_haptic
 		return OpenXRHapticBase.Instance(class(self).GetOffHaptic())
 }
+
+func (o *Extension[T]) OffHaptic() OpenXRHapticBase.Instance { return o.Super().OffHaptic() }
 
 // SetOffHaptic sets the property returned by [GetOffHaptic]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOffHaptic(value OpenXRHapticBase.Instance) Instance { //gd:OpenXRDpadBindingModifier.off_haptic
 	class(self).SetOffHaptic(value)
 	return self
+}
+
+func (o *Extension[T]) SetOffHaptic(value OpenXRHapticBase.Instance) *Extension[T] {
+	o.Super().SetOffHaptic(value)
+	return o
 }
 
 func (self class) SetActionSet(action_set [1]gdclass.OpenXRActionSet)  { //gd:OpenXRDpadBindingModifier.set_action_set
@@ -454,6 +517,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

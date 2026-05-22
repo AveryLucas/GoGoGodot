@@ -199,15 +199,24 @@ func (self Instance) BoneIndex() int { //gd:SkeletonModification2DLookAt.bone_in
 		return int(int(class(self).GetBoneIndex()))
 }
 
+func (o *Extension[T]) BoneIndex() int { return o.Super().BoneIndex() }
+
 // SetBoneIndex sets the property returned by [GetBoneIndex]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBoneIndex(value int) Instance { //gd:SkeletonModification2DLookAt.bone_index
 	class(self).SetBoneIndex(int64(value))
 	return self
 }
 
+func (o *Extension[T]) SetBoneIndex(value int) *Extension[T] {
+	o.Super().SetBoneIndex(value)
+	return o
+}
+
 func (self Instance) Bone2dNode() string { //gd:SkeletonModification2DLookAt.bone2d_node
 		return string(class(self).GetBone2dNode().String())
 }
+
+func (o *Extension[T]) Bone2dNode() string { return o.Super().Bone2dNode() }
 
 // SetBone2dNode sets the property returned by [GetBone2dNode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBone2dNode(value string) Instance { //gd:SkeletonModification2DLookAt.bone2d_node
@@ -215,14 +224,26 @@ func (self Instance) SetBone2dNode(value string) Instance { //gd:SkeletonModific
 	return self
 }
 
+func (o *Extension[T]) SetBone2dNode(value string) *Extension[T] {
+	o.Super().SetBone2dNode(value)
+	return o
+}
+
 func (self Instance) TargetNodepath() string { //gd:SkeletonModification2DLookAt.target_nodepath
 		return string(class(self).GetTargetNode().String())
 }
+
+func (o *Extension[T]) TargetNodepath() string { return o.Super().TargetNodepath() }
 
 // SetTargetNodepath sets the property returned by [GetTargetNode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTargetNodepath(value string) Instance { //gd:SkeletonModification2DLookAt.target_nodepath
 	class(self).SetTargetNode(Path.ToNode(String.From(value)))
 	return self
+}
+
+func (o *Extension[T]) SetTargetNodepath(value string) *Extension[T] {
+	o.Super().SetTargetNodepath(value)
+	return o
 }
 
 func (self class) SetBone2dNode(bone2d_nodepath Path.ToNode)  { //gd:SkeletonModification2DLookAt.set_bone2d_node
@@ -513,6 +534,60 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// Enabled is promoted from [SkeletonModification2D.Instance.Enabled].
+func (o *Extension[T]) Enabled() bool { return o.Super().AsSkeletonModification2D().Enabled() }
+
+// SetEnabled is promoted from [SkeletonModification2D.Instance.SetEnabled].
+func (o *Extension[T]) SetEnabled(value bool) *Extension[T] {
+	o.Super().AsSkeletonModification2D().SetEnabled(value)
+	return o
+}
+
+// ExecutionMode is promoted from [SkeletonModification2D.Instance.ExecutionMode].
+func (o *Extension[T]) ExecutionMode() int { return o.Super().AsSkeletonModification2D().ExecutionMode() }
+
+// SetExecutionMode is promoted from [SkeletonModification2D.Instance.SetExecutionMode].
+func (o *Extension[T]) SetExecutionMode(value int) *Extension[T] {
+	o.Super().AsSkeletonModification2D().SetExecutionMode(value)
+	return o
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

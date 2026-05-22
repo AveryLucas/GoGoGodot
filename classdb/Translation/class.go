@@ -254,20 +254,34 @@ func (self Instance) Locale() string { //gd:Translation.locale
 		return string(class(self).GetLocale().String())
 }
 
+func (o *Extension[T]) Locale() string { return o.Super().Locale() }
+
 // SetLocale sets the property returned by [GetLocale]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetLocale(value string) Instance { //gd:Translation.locale
 	class(self).SetLocale(String.From(value))
 	return self
 }
 
+func (o *Extension[T]) SetLocale(value string) *Extension[T] {
+	o.Super().SetLocale(value)
+	return o
+}
+
 func (self Instance) PluralRulesOverride() string { //gd:Translation.plural_rules_override
 		return string(class(self).GetPluralRulesOverride().String())
 }
+
+func (o *Extension[T]) PluralRulesOverride() string { return o.Super().PluralRulesOverride() }
 
 // SetPluralRulesOverride sets the property returned by [GetPluralRulesOverride]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPluralRulesOverride(value string) Instance { //gd:Translation.plural_rules_override
 	class(self).SetPluralRulesOverride(String.From(value))
 	return self
+}
+
+func (o *Extension[T]) SetPluralRulesOverride(value string) *Extension[T] {
+	o.Super().SetPluralRulesOverride(value)
+	return o
 }
 func (class) _get_plural_message(impl func(ptr gdclass.Receiver, src_message String.Name, src_plural_message String.Name, n int64, context String.Name) String.Name) (cb gd.ExtensionClassCallVirtualFunc) {
 	return func(class any, p_args, p_back gdextension.Pointer) {
@@ -486,6 +500,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

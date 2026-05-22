@@ -193,15 +193,24 @@ func (self Instance) InterpolationMode() InterpolationMode { //gd:Gradient.inter
 		return InterpolationMode(class(self).GetInterpolationMode())
 }
 
+func (o *Extension[T]) InterpolationMode() InterpolationMode { return o.Super().InterpolationMode() }
+
 // SetInterpolationMode sets the property returned by [GetInterpolationMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetInterpolationMode(value InterpolationMode) Instance { //gd:Gradient.interpolation_mode
 	class(self).SetInterpolationMode(value)
 	return self
 }
 
+func (o *Extension[T]) SetInterpolationMode(value InterpolationMode) *Extension[T] {
+	o.Super().SetInterpolationMode(value)
+	return o
+}
+
 func (self Instance) InterpolationColorSpace() ColorSpace { //gd:Gradient.interpolation_color_space
 		return ColorSpace(class(self).GetInterpolationColorSpace())
 }
+
+func (o *Extension[T]) InterpolationColorSpace() ColorSpace { return o.Super().InterpolationColorSpace() }
 
 // SetInterpolationColorSpace sets the property returned by [GetInterpolationColorSpace]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetInterpolationColorSpace(value ColorSpace) Instance { //gd:Gradient.interpolation_color_space
@@ -209,9 +218,16 @@ func (self Instance) SetInterpolationColorSpace(value ColorSpace) Instance { //g
 	return self
 }
 
+func (o *Extension[T]) SetInterpolationColorSpace(value ColorSpace) *Extension[T] {
+	o.Super().SetInterpolationColorSpace(value)
+	return o
+}
+
 func (self Instance) Offsets() []float32 { //gd:Gradient.offsets
 		return []float32(slices.Collect(class(self).GetOffsets().Values()))
 }
+
+func (o *Extension[T]) Offsets() []float32 { return o.Super().Offsets() }
 
 // SetOffsets sets the property returned by [GetOffsets]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOffsets(value []float32) Instance { //gd:Gradient.offsets
@@ -219,14 +235,26 @@ func (self Instance) SetOffsets(value []float32) Instance { //gd:Gradient.offset
 	return self
 }
 
+func (o *Extension[T]) SetOffsets(value []float32) *Extension[T] {
+	o.Super().SetOffsets(value)
+	return o
+}
+
 func (self Instance) Colors() []Color.RGBA { //gd:Gradient.colors
 		return []Color.RGBA(slices.Collect(class(self).GetColors().Values()))
 }
+
+func (o *Extension[T]) Colors() []Color.RGBA { return o.Super().Colors() }
 
 // SetColors sets the property returned by [GetColors]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetColors(value []Color.RGBA) Instance { //gd:Gradient.colors
 	class(self).SetColors(Packed.New(value...))
 	return self
+}
+
+func (o *Extension[T]) SetColors(value []Color.RGBA) *Extension[T] {
+	o.Super().SetColors(value)
+	return o
 }
 
 func (self class) AddPoint(offset float64, color Color.RGBA)  { //gd:Gradient.add_point
@@ -447,6 +475,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

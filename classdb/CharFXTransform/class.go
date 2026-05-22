@@ -175,15 +175,24 @@ func (self Instance) Transform() Transform2D.OriginXY { //gd:CharFXTransform.tra
 		return Transform2D.OriginXY(class(self).GetTransform())
 }
 
+func (o *Extension[T]) Transform() Transform2D.OriginXY { return o.Super().Transform() }
+
 // SetTransform sets the property returned by [GetTransform]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTransform(value Transform2D.OriginXY) Instance { //gd:CharFXTransform.transform
 	class(self).SetTransform(Transform2D.OriginXY(value))
 	return self
 }
 
+func (o *Extension[T]) SetTransform(value Transform2D.OriginXY) *Extension[T] {
+	o.Super().SetTransform(value)
+	return o
+}
+
 func (self Instance) Range() Vector2i.XY { //gd:CharFXTransform.range
 		return Vector2i.XY(class(self).GetRange())
 }
+
+func (o *Extension[T]) Range() Vector2i.XY { return o.Super().Range() }
 
 // SetRange sets the property returned by [GetRange]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRange(value Vector2i.XY) Instance { //gd:CharFXTransform.range
@@ -191,9 +200,16 @@ func (self Instance) SetRange(value Vector2i.XY) Instance { //gd:CharFXTransform
 	return self
 }
 
+func (o *Extension[T]) SetRange(value Vector2i.XY) *Extension[T] {
+	o.Super().SetRange(value)
+	return o
+}
+
 func (self Instance) ElapsedTime() Float.X { //gd:CharFXTransform.elapsed_time
 		return Float.X(Float.X(class(self).GetElapsedTime()))
 }
+
+func (o *Extension[T]) ElapsedTime() Float.X { return o.Super().ElapsedTime() }
 
 // SetElapsedTime sets the property returned by [GetElapsedTime]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetElapsedTime(value Float.X) Instance { //gd:CharFXTransform.elapsed_time
@@ -201,9 +217,16 @@ func (self Instance) SetElapsedTime(value Float.X) Instance { //gd:CharFXTransfo
 	return self
 }
 
+func (o *Extension[T]) SetElapsedTime(value Float.X) *Extension[T] {
+	o.Super().SetElapsedTime(value)
+	return o
+}
+
 func (self Instance) Visible() bool { //gd:CharFXTransform.visible
 		return bool(class(self).IsVisible())
 }
+
+func (o *Extension[T]) Visible() bool { return o.Super().Visible() }
 
 // SetVisible sets the property returned by [IsVisible]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVisible(value bool) Instance { //gd:CharFXTransform.visible
@@ -211,9 +234,16 @@ func (self Instance) SetVisible(value bool) Instance { //gd:CharFXTransform.visi
 	return self
 }
 
+func (o *Extension[T]) SetVisible(value bool) *Extension[T] {
+	o.Super().SetVisible(value)
+	return o
+}
+
 func (self Instance) Outline() bool { //gd:CharFXTransform.outline
 		return bool(class(self).IsOutline())
 }
+
+func (o *Extension[T]) Outline() bool { return o.Super().Outline() }
 
 // SetOutline sets the property returned by [IsOutline]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOutline(value bool) Instance { //gd:CharFXTransform.outline
@@ -221,9 +251,16 @@ func (self Instance) SetOutline(value bool) Instance { //gd:CharFXTransform.outl
 	return self
 }
 
+func (o *Extension[T]) SetOutline(value bool) *Extension[T] {
+	o.Super().SetOutline(value)
+	return o
+}
+
 func (self Instance) Offset() Vector2.XY { //gd:CharFXTransform.offset
 		return Vector2.XY(class(self).GetOffset())
 }
+
+func (o *Extension[T]) Offset() Vector2.XY { return o.Super().Offset() }
 
 // SetOffset sets the property returned by [GetOffset]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOffset(value Vector2.XY) Instance { //gd:CharFXTransform.offset
@@ -231,9 +268,16 @@ func (self Instance) SetOffset(value Vector2.XY) Instance { //gd:CharFXTransform
 	return self
 }
 
+func (o *Extension[T]) SetOffset(value Vector2.XY) *Extension[T] {
+	o.Super().SetOffset(value)
+	return o
+}
+
 func (self Instance) Color() Color.RGBA { //gd:CharFXTransform.color
 		return Color.RGBA(class(self).GetColor())
 }
+
+func (o *Extension[T]) Color() Color.RGBA { return o.Super().Color() }
 
 // SetColor sets the property returned by [GetColor]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetColor(value Color.RGBA) Instance { //gd:CharFXTransform.color
@@ -241,9 +285,16 @@ func (self Instance) SetColor(value Color.RGBA) Instance { //gd:CharFXTransform.
 	return self
 }
 
+func (o *Extension[T]) SetColor(value Color.RGBA) *Extension[T] {
+	o.Super().SetColor(value)
+	return o
+}
+
 func (self Instance) Env() map[any]any { //gd:CharFXTransform.env
 		return map[any]any(gd.DictionaryAs[map[any]any](class(self).GetEnvironment()))
 }
+
+func (o *Extension[T]) Env() map[any]any { return o.Super().Env() }
 
 // SetEnv sets the property returned by [GetEnvironment]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEnv(value map[any]any) Instance { //gd:CharFXTransform.env
@@ -251,9 +302,16 @@ func (self Instance) SetEnv(value map[any]any) Instance { //gd:CharFXTransform.e
 	return self
 }
 
+func (o *Extension[T]) SetEnv(value map[any]any) *Extension[T] {
+	o.Super().SetEnv(value)
+	return o
+}
+
 func (self Instance) GlyphIndex() int { //gd:CharFXTransform.glyph_index
 		return int(int(class(self).GetGlyphIndex()))
 }
+
+func (o *Extension[T]) GlyphIndex() int { return o.Super().GlyphIndex() }
 
 // SetGlyphIndex sets the property returned by [GetGlyphIndex]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetGlyphIndex(value int) Instance { //gd:CharFXTransform.glyph_index
@@ -261,9 +319,16 @@ func (self Instance) SetGlyphIndex(value int) Instance { //gd:CharFXTransform.gl
 	return self
 }
 
+func (o *Extension[T]) SetGlyphIndex(value int) *Extension[T] {
+	o.Super().SetGlyphIndex(value)
+	return o
+}
+
 func (self Instance) GlyphCount() int { //gd:CharFXTransform.glyph_count
 		return int(int(class(self).GetGlyphCount()))
 }
+
+func (o *Extension[T]) GlyphCount() int { return o.Super().GlyphCount() }
 
 // SetGlyphCount sets the property returned by [GetGlyphCount]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetGlyphCount(value int) Instance { //gd:CharFXTransform.glyph_count
@@ -271,9 +336,16 @@ func (self Instance) SetGlyphCount(value int) Instance { //gd:CharFXTransform.gl
 	return self
 }
 
+func (o *Extension[T]) SetGlyphCount(value int) *Extension[T] {
+	o.Super().SetGlyphCount(value)
+	return o
+}
+
 func (self Instance) GlyphFlags() int { //gd:CharFXTransform.glyph_flags
 		return int(int(class(self).GetGlyphFlags()))
 }
+
+func (o *Extension[T]) GlyphFlags() int { return o.Super().GlyphFlags() }
 
 // SetGlyphFlags sets the property returned by [GetGlyphFlags]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetGlyphFlags(value int) Instance { //gd:CharFXTransform.glyph_flags
@@ -281,9 +353,16 @@ func (self Instance) SetGlyphFlags(value int) Instance { //gd:CharFXTransform.gl
 	return self
 }
 
+func (o *Extension[T]) SetGlyphFlags(value int) *Extension[T] {
+	o.Super().SetGlyphFlags(value)
+	return o
+}
+
 func (self Instance) RelativeIndex() int { //gd:CharFXTransform.relative_index
 		return int(int(class(self).GetRelativeIndex()))
 }
+
+func (o *Extension[T]) RelativeIndex() int { return o.Super().RelativeIndex() }
 
 // SetRelativeIndex sets the property returned by [GetRelativeIndex]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRelativeIndex(value int) Instance { //gd:CharFXTransform.relative_index
@@ -291,14 +370,26 @@ func (self Instance) SetRelativeIndex(value int) Instance { //gd:CharFXTransform
 	return self
 }
 
+func (o *Extension[T]) SetRelativeIndex(value int) *Extension[T] {
+	o.Super().SetRelativeIndex(value)
+	return o
+}
+
 func (self Instance) Font() RID.Font { //gd:CharFXTransform.font
 		return RID.Font(RID.Font(class(self).GetFont()))
 }
+
+func (o *Extension[T]) Font() RID.Font { return o.Super().Font() }
 
 // SetFont sets the property returned by [GetFont]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFont(value RID.Font) Instance { //gd:CharFXTransform.font
 	class(self).SetFont(RID.Any(value))
 	return self
+}
+
+func (o *Extension[T]) SetFont(value RID.Font) *Extension[T] {
+	o.Super().SetFont(value)
+	return o
 }
 
 func (self class) GetTransform() Transform2D.OriginXY { //gd:CharFXTransform.get_transform

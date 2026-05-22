@@ -162,20 +162,34 @@ func (self Instance) UniformType() Rendering.UniformType { //gd:RDUniform.unifor
 		return Rendering.UniformType(class(self).GetUniformType())
 }
 
+func (o *Extension[T]) UniformType() Rendering.UniformType { return o.Super().UniformType() }
+
 // SetUniformType sets the property returned by [GetUniformType]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUniformType(value Rendering.UniformType) Instance { //gd:RDUniform.uniform_type
 	class(self).SetUniformType(value)
 	return self
 }
 
+func (o *Extension[T]) SetUniformType(value Rendering.UniformType) *Extension[T] {
+	o.Super().SetUniformType(value)
+	return o
+}
+
 func (self Instance) Binding() int { //gd:RDUniform.binding
 		return int(int(class(self).GetBinding()))
 }
+
+func (o *Extension[T]) Binding() int { return o.Super().Binding() }
 
 // SetBinding sets the property returned by [GetBinding]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBinding(value int) Instance { //gd:RDUniform.binding
 	class(self).SetBinding(int64(value))
 	return self
+}
+
+func (o *Extension[T]) SetBinding(value int) *Extension[T] {
+	o.Super().SetBinding(value)
+	return o
 }
 
 func (self class) SetUniformType(p_member Rendering.UniformType)  { //gd:RDUniform.set_uniform_type

@@ -258,15 +258,24 @@ func (self Instance) ResourceLocalToScene() bool { //gd:Resource.resource_local_
 		return bool(class(self).IsLocalToScene())
 }
 
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().ResourceLocalToScene() }
+
 // SetResourceLocalToScene sets the property returned by [IsLocalToScene]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetResourceLocalToScene(value bool) Instance { //gd:Resource.resource_local_to_scene
 	class(self).SetLocalToScene(value)
 	return self
 }
 
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().SetResourceLocalToScene(value)
+	return o
+}
+
 func (self Instance) ResourcePath() string { //gd:Resource.resource_path
 		return string(class(self).GetPath().String())
 }
+
+func (o *Extension[T]) ResourcePath() string { return o.Super().ResourcePath() }
 
 // SetResourcePath sets the property returned by [GetPath]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetResourcePath(value string) Instance { //gd:Resource.resource_path
@@ -274,9 +283,16 @@ func (self Instance) SetResourcePath(value string) Instance { //gd:Resource.reso
 	return self
 }
 
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().SetResourcePath(value)
+	return o
+}
+
 func (self Instance) ResourceName() string { //gd:Resource.resource_name
 		return string(class(self).GetName().String())
 }
+
+func (o *Extension[T]) ResourceName() string { return o.Super().ResourceName() }
 
 // SetResourceName sets the property returned by [GetName]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetResourceName(value string) Instance { //gd:Resource.resource_name
@@ -284,14 +300,26 @@ func (self Instance) SetResourceName(value string) Instance { //gd:Resource.reso
 	return self
 }
 
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().SetResourceName(value)
+	return o
+}
+
 func (self Instance) ResourceSceneUniqueId() string { //gd:Resource.resource_scene_unique_id
 		return string(class(self).GetSceneUniqueId().String())
 }
+
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().ResourceSceneUniqueId() }
 
 // SetResourceSceneUniqueId sets the property returned by [GetSceneUniqueId]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetResourceSceneUniqueId(value string) Instance { //gd:Resource.resource_scene_unique_id
 	class(self).SetSceneUniqueId(String.From(value))
 	return self
+}
+
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().SetResourceSceneUniqueId(value)
+	return o
 }
 func (class) _setup_local_to_scene(impl func(ptr gdclass.Receiver) ) (cb gd.ExtensionClassCallVirtualFunc) {
 	return func(class any, p_args, p_back gdextension.Pointer) {

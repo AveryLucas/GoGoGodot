@@ -153,15 +153,24 @@ func (self Instance) PanPullout() Float.X { //gd:AudioEffectStereoEnhance.pan_pu
 		return Float.X(Float.X(class(self).GetPanPullout()))
 }
 
+func (o *Extension[T]) PanPullout() Float.X { return o.Super().PanPullout() }
+
 // SetPanPullout sets the property returned by [GetPanPullout]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPanPullout(value Float.X) Instance { //gd:AudioEffectStereoEnhance.pan_pullout
 	class(self).SetPanPullout(float64(value))
 	return self
 }
 
+func (o *Extension[T]) SetPanPullout(value Float.X) *Extension[T] {
+	o.Super().SetPanPullout(value)
+	return o
+}
+
 func (self Instance) TimePulloutMs() Float.X { //gd:AudioEffectStereoEnhance.time_pullout_ms
 		return Float.X(Float.X(class(self).GetTimePullout()))
 }
+
+func (o *Extension[T]) TimePulloutMs() Float.X { return o.Super().TimePulloutMs() }
 
 // SetTimePulloutMs sets the property returned by [GetTimePullout]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTimePulloutMs(value Float.X) Instance { //gd:AudioEffectStereoEnhance.time_pullout_ms
@@ -169,14 +178,26 @@ func (self Instance) SetTimePulloutMs(value Float.X) Instance { //gd:AudioEffect
 	return self
 }
 
+func (o *Extension[T]) SetTimePulloutMs(value Float.X) *Extension[T] {
+	o.Super().SetTimePulloutMs(value)
+	return o
+}
+
 func (self Instance) Surround() Float.X { //gd:AudioEffectStereoEnhance.surround
 		return Float.X(Float.X(class(self).GetSurround()))
 }
+
+func (o *Extension[T]) Surround() Float.X { return o.Super().Surround() }
 
 // SetSurround sets the property returned by [GetSurround]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSurround(value Float.X) Instance { //gd:AudioEffectStereoEnhance.surround
 	class(self).SetSurround(float64(value))
 	return self
+}
+
+func (o *Extension[T]) SetSurround(value Float.X) *Extension[T] {
+	o.Super().SetSurround(value)
+	return o
 }
 
 func (self class) SetPanPullout(amount float64)  { //gd:AudioEffectStereoEnhance.set_pan_pullout
@@ -328,6 +349,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

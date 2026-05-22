@@ -1019,6 +1019,42 @@ func (o *Extension[T]) GetSupportedEnvironmentBlendModes() []XRInterface.Environ
 	return o.Super().AsXRInterface().GetSupportedEnvironmentBlendModes()
 }
 
+// InterfaceIsPrimary is promoted from [XRInterface.Instance.InterfaceIsPrimary].
+func (o *Extension[T]) InterfaceIsPrimary() bool { return o.Super().AsXRInterface().InterfaceIsPrimary() }
+
+// SetInterfaceIsPrimary is promoted from [XRInterface.Instance.SetInterfaceIsPrimary].
+func (o *Extension[T]) SetInterfaceIsPrimary(value bool) *Extension[T] {
+	o.Super().AsXRInterface().SetInterfaceIsPrimary(value)
+	return o
+}
+
+// XrPlayAreaMode is promoted from [XRInterface.Instance.XrPlayAreaMode].
+func (o *Extension[T]) XrPlayAreaMode() XRInterface.PlayAreaMode { return o.Super().AsXRInterface().XrPlayAreaMode() }
+
+// SetXrPlayAreaMode is promoted from [XRInterface.Instance.SetXrPlayAreaMode].
+func (o *Extension[T]) SetXrPlayAreaMode(value XRInterface.PlayAreaMode) *Extension[T] {
+	o.Super().AsXRInterface().SetXrPlayAreaMode(value)
+	return o
+}
+
+// EnvironmentBlendMode is promoted from [XRInterface.Instance.EnvironmentBlendMode].
+func (o *Extension[T]) EnvironmentBlendMode() XRInterface.EnvironmentBlendMode { return o.Super().AsXRInterface().EnvironmentBlendMode() }
+
+// SetEnvironmentBlendMode is promoted from [XRInterface.Instance.SetEnvironmentBlendMode].
+func (o *Extension[T]) SetEnvironmentBlendMode(value XRInterface.EnvironmentBlendMode) *Extension[T] {
+	o.Super().AsXRInterface().SetEnvironmentBlendMode(value)
+	return o
+}
+
+// ArIsAnchorDetectionEnabled is promoted from [XRInterface.Instance.ArIsAnchorDetectionEnabled].
+func (o *Extension[T]) ArIsAnchorDetectionEnabled() bool { return o.Super().AsXRInterface().ArIsAnchorDetectionEnabled() }
+
+// SetArIsAnchorDetectionEnabled is promoted from [XRInterface.Instance.SetArIsAnchorDetectionEnabled].
+func (o *Extension[T]) SetArIsAnchorDetectionEnabled(value bool) *Extension[T] {
+	o.Super().AsXRInterface().SetArIsAnchorDetectionEnabled(value)
+	return o
+}
+
 func (self class) Virtual(name string) reflect.Value {
 	switch name {
 	case "_get_name": return reflect.ValueOf(self._get_name);

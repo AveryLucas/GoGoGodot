@@ -155,20 +155,34 @@ func (self Instance) Normal() Vector2.XY { //gd:WorldBoundaryShape2D.normal
 		return Vector2.XY(class(self).GetNormal())
 }
 
+func (o *Extension[T]) Normal() Vector2.XY { return o.Super().Normal() }
+
 // SetNormal sets the property returned by [GetNormal]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetNormal(value Vector2.XY) Instance { //gd:WorldBoundaryShape2D.normal
 	class(self).SetNormal(Vector2.XY(value))
 	return self
 }
 
+func (o *Extension[T]) SetNormal(value Vector2.XY) *Extension[T] {
+	o.Super().SetNormal(value)
+	return o
+}
+
 func (self Instance) Distance() Float.X { //gd:WorldBoundaryShape2D.distance
 		return Float.X(Float.X(class(self).GetDistance()))
 }
+
+func (o *Extension[T]) Distance() Float.X { return o.Super().Distance() }
 
 // SetDistance sets the property returned by [GetDistance]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDistance(value Float.X) Instance { //gd:WorldBoundaryShape2D.distance
 	class(self).SetDistance(float64(value))
 	return self
+}
+
+func (o *Extension[T]) SetDistance(value Float.X) *Extension[T] {
+	o.Super().SetDistance(value)
+	return o
 }
 
 func (self class) SetNormal(normal Vector2.XY)  { //gd:WorldBoundaryShape2D.set_normal
@@ -372,6 +386,51 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// CustomSolverBias is promoted from [Shape2D.Instance.CustomSolverBias].
+func (o *Extension[T]) CustomSolverBias() Float.X { return o.Super().AsShape2D().CustomSolverBias() }
+
+// SetCustomSolverBias is promoted from [Shape2D.Instance.SetCustomSolverBias].
+func (o *Extension[T]) SetCustomSolverBias(value Float.X) *Extension[T] {
+	o.Super().AsShape2D().SetCustomSolverBias(value)
+	return o
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

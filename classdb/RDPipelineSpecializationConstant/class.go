@@ -149,20 +149,34 @@ func (self Instance) Value() any { //gd:RDPipelineSpecializationConstant.value
 		return any(class(self).GetValue().Interface())
 }
 
+func (o *Extension[T]) Value() any { return o.Super().Value() }
+
 // SetValue sets the property returned by [GetValue]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetValue(value any) Instance { //gd:RDPipelineSpecializationConstant.value
 	class(self).SetValue(variant.New(value))
 	return self
 }
 
+func (o *Extension[T]) SetValue(value any) *Extension[T] {
+	o.Super().SetValue(value)
+	return o
+}
+
 func (self Instance) ConstantId() int { //gd:RDPipelineSpecializationConstant.constant_id
 		return int(int(class(self).GetConstantId()))
 }
+
+func (o *Extension[T]) ConstantId() int { return o.Super().ConstantId() }
 
 // SetConstantId sets the property returned by [GetConstantId]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetConstantId(value int) Instance { //gd:RDPipelineSpecializationConstant.constant_id
 	class(self).SetConstantId(int64(value))
 	return self
+}
+
+func (o *Extension[T]) SetConstantId(value int) *Extension[T] {
+	o.Super().SetConstantId(value)
+	return o
 }
 
 func (self class) SetValue(value variant.Any)  { //gd:RDPipelineSpecializationConstant.set_value

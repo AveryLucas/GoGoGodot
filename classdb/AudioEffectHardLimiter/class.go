@@ -153,15 +153,24 @@ func (self Instance) PreGainDb() Float.X { //gd:AudioEffectHardLimiter.pre_gain_
 		return Float.X(Float.X(class(self).GetPreGainDb()))
 }
 
+func (o *Extension[T]) PreGainDb() Float.X { return o.Super().PreGainDb() }
+
 // SetPreGainDb sets the property returned by [GetPreGainDb]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPreGainDb(value Float.X) Instance { //gd:AudioEffectHardLimiter.pre_gain_db
 	class(self).SetPreGainDb(float64(value))
 	return self
 }
 
+func (o *Extension[T]) SetPreGainDb(value Float.X) *Extension[T] {
+	o.Super().SetPreGainDb(value)
+	return o
+}
+
 func (self Instance) CeilingDb() Float.X { //gd:AudioEffectHardLimiter.ceiling_db
 		return Float.X(Float.X(class(self).GetCeilingDb()))
 }
+
+func (o *Extension[T]) CeilingDb() Float.X { return o.Super().CeilingDb() }
 
 // SetCeilingDb sets the property returned by [GetCeilingDb]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCeilingDb(value Float.X) Instance { //gd:AudioEffectHardLimiter.ceiling_db
@@ -169,14 +178,26 @@ func (self Instance) SetCeilingDb(value Float.X) Instance { //gd:AudioEffectHard
 	return self
 }
 
+func (o *Extension[T]) SetCeilingDb(value Float.X) *Extension[T] {
+	o.Super().SetCeilingDb(value)
+	return o
+}
+
 func (self Instance) Release() Float.X { //gd:AudioEffectHardLimiter.release
 		return Float.X(Float.X(class(self).GetRelease()))
 }
+
+func (o *Extension[T]) Release() Float.X { return o.Super().Release() }
 
 // SetRelease sets the property returned by [GetRelease]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRelease(value Float.X) Instance { //gd:AudioEffectHardLimiter.release
 	class(self).SetRelease(float64(value))
 	return self
+}
+
+func (o *Extension[T]) SetRelease(value Float.X) *Extension[T] {
+	o.Super().SetRelease(value)
+	return o
 }
 
 func (self class) SetCeilingDb(ceiling float64)  { //gd:AudioEffectHardLimiter.set_ceiling_db
@@ -328,6 +349,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

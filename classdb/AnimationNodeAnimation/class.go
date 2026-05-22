@@ -165,15 +165,24 @@ func (self Instance) Animation() string { //gd:AnimationNodeAnimation.animation
 		return string(class(self).GetAnimation().String())
 }
 
+func (o *Extension[T]) Animation() string { return o.Super().Animation() }
+
 // SetAnimation sets the property returned by [GetAnimation]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAnimation(value string) Instance { //gd:AnimationNodeAnimation.animation
 	class(self).SetAnimation(String.Name(String.From(value)))
 	return self
 }
 
+func (o *Extension[T]) SetAnimation(value string) *Extension[T] {
+	o.Super().SetAnimation(value)
+	return o
+}
+
 func (self Instance) PlayMode() PlayMode { //gd:AnimationNodeAnimation.play_mode
 		return PlayMode(class(self).GetPlayMode())
 }
+
+func (o *Extension[T]) PlayMode() PlayMode { return o.Super().PlayMode() }
 
 // SetPlayMode sets the property returned by [GetPlayMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPlayMode(value PlayMode) Instance { //gd:AnimationNodeAnimation.play_mode
@@ -181,9 +190,16 @@ func (self Instance) SetPlayMode(value PlayMode) Instance { //gd:AnimationNodeAn
 	return self
 }
 
+func (o *Extension[T]) SetPlayMode(value PlayMode) *Extension[T] {
+	o.Super().SetPlayMode(value)
+	return o
+}
+
 func (self Instance) AdvanceOnStart() bool { //gd:AnimationNodeAnimation.advance_on_start
 		return bool(class(self).IsAdvanceOnStart())
 }
+
+func (o *Extension[T]) AdvanceOnStart() bool { return o.Super().AdvanceOnStart() }
 
 // SetAdvanceOnStart sets the property returned by [IsAdvanceOnStart]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAdvanceOnStart(value bool) Instance { //gd:AnimationNodeAnimation.advance_on_start
@@ -191,9 +207,16 @@ func (self Instance) SetAdvanceOnStart(value bool) Instance { //gd:AnimationNode
 	return self
 }
 
+func (o *Extension[T]) SetAdvanceOnStart(value bool) *Extension[T] {
+	o.Super().SetAdvanceOnStart(value)
+	return o
+}
+
 func (self Instance) UseCustomTimeline() bool { //gd:AnimationNodeAnimation.use_custom_timeline
 		return bool(class(self).IsUsingCustomTimeline())
 }
+
+func (o *Extension[T]) UseCustomTimeline() bool { return o.Super().UseCustomTimeline() }
 
 // SetUseCustomTimeline sets the property returned by [IsUsingCustomTimeline]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUseCustomTimeline(value bool) Instance { //gd:AnimationNodeAnimation.use_custom_timeline
@@ -201,9 +224,16 @@ func (self Instance) SetUseCustomTimeline(value bool) Instance { //gd:AnimationN
 	return self
 }
 
+func (o *Extension[T]) SetUseCustomTimeline(value bool) *Extension[T] {
+	o.Super().SetUseCustomTimeline(value)
+	return o
+}
+
 func (self Instance) TimelineLength() Float.X { //gd:AnimationNodeAnimation.timeline_length
 		return Float.X(Float.X(class(self).GetTimelineLength()))
 }
+
+func (o *Extension[T]) TimelineLength() Float.X { return o.Super().TimelineLength() }
 
 // SetTimelineLength sets the property returned by [GetTimelineLength]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTimelineLength(value Float.X) Instance { //gd:AnimationNodeAnimation.timeline_length
@@ -211,9 +241,16 @@ func (self Instance) SetTimelineLength(value Float.X) Instance { //gd:AnimationN
 	return self
 }
 
+func (o *Extension[T]) SetTimelineLength(value Float.X) *Extension[T] {
+	o.Super().SetTimelineLength(value)
+	return o
+}
+
 func (self Instance) StretchTimeScale() bool { //gd:AnimationNodeAnimation.stretch_time_scale
 		return bool(class(self).IsStretchingTimeScale())
 }
+
+func (o *Extension[T]) StretchTimeScale() bool { return o.Super().StretchTimeScale() }
 
 // SetStretchTimeScale sets the property returned by [IsStretchingTimeScale]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStretchTimeScale(value bool) Instance { //gd:AnimationNodeAnimation.stretch_time_scale
@@ -221,9 +258,16 @@ func (self Instance) SetStretchTimeScale(value bool) Instance { //gd:AnimationNo
 	return self
 }
 
+func (o *Extension[T]) SetStretchTimeScale(value bool) *Extension[T] {
+	o.Super().SetStretchTimeScale(value)
+	return o
+}
+
 func (self Instance) StartOffset() Float.X { //gd:AnimationNodeAnimation.start_offset
 		return Float.X(Float.X(class(self).GetStartOffset()))
 }
+
+func (o *Extension[T]) StartOffset() Float.X { return o.Super().StartOffset() }
 
 // SetStartOffset sets the property returned by [GetStartOffset]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStartOffset(value Float.X) Instance { //gd:AnimationNodeAnimation.start_offset
@@ -231,14 +275,26 @@ func (self Instance) SetStartOffset(value Float.X) Instance { //gd:AnimationNode
 	return self
 }
 
+func (o *Extension[T]) SetStartOffset(value Float.X) *Extension[T] {
+	o.Super().SetStartOffset(value)
+	return o
+}
+
 func (self Instance) LoopMode() Animation.LoopMode { //gd:AnimationNodeAnimation.loop_mode
 		return Animation.LoopMode(class(self).GetLoopMode())
 }
+
+func (o *Extension[T]) LoopMode() Animation.LoopMode { return o.Super().LoopMode() }
 
 // SetLoopMode sets the property returned by [GetLoopMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetLoopMode(value Animation.LoopMode) Instance { //gd:AnimationNodeAnimation.loop_mode
 	class(self).SetLoopMode(value)
 	return self
+}
+
+func (o *Extension[T]) SetLoopMode(value Animation.LoopMode) *Extension[T] {
+	o.Super().SetLoopMode(value)
+	return o
 }
 
 func (self class) SetAnimation(name String.Name)  { //gd:AnimationNodeAnimation.set_animation
@@ -587,6 +643,51 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// FilterEnabled is promoted from [AnimationNode.Instance.FilterEnabled].
+func (o *Extension[T]) FilterEnabled() bool { return o.Super().AsAnimationNode().FilterEnabled() }
+
+// SetFilterEnabled is promoted from [AnimationNode.Instance.SetFilterEnabled].
+func (o *Extension[T]) SetFilterEnabled(value bool) *Extension[T] {
+	o.Super().AsAnimationNode().SetFilterEnabled(value)
+	return o
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

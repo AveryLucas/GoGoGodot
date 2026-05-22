@@ -168,15 +168,24 @@ func (self Instance) EnableDepthClamp() bool { //gd:RDPipelineRasterizationState
 		return bool(class(self).GetEnableDepthClamp())
 }
 
+func (o *Extension[T]) EnableDepthClamp() bool { return o.Super().EnableDepthClamp() }
+
 // SetEnableDepthClamp sets the property returned by [GetEnableDepthClamp]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEnableDepthClamp(value bool) Instance { //gd:RDPipelineRasterizationState.enable_depth_clamp
 	class(self).SetEnableDepthClamp(value)
 	return self
 }
 
+func (o *Extension[T]) SetEnableDepthClamp(value bool) *Extension[T] {
+	o.Super().SetEnableDepthClamp(value)
+	return o
+}
+
 func (self Instance) DiscardPrimitives() bool { //gd:RDPipelineRasterizationState.discard_primitives
 		return bool(class(self).GetDiscardPrimitives())
 }
+
+func (o *Extension[T]) DiscardPrimitives() bool { return o.Super().DiscardPrimitives() }
 
 // SetDiscardPrimitives sets the property returned by [GetDiscardPrimitives]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDiscardPrimitives(value bool) Instance { //gd:RDPipelineRasterizationState.discard_primitives
@@ -184,9 +193,16 @@ func (self Instance) SetDiscardPrimitives(value bool) Instance { //gd:RDPipeline
 	return self
 }
 
+func (o *Extension[T]) SetDiscardPrimitives(value bool) *Extension[T] {
+	o.Super().SetDiscardPrimitives(value)
+	return o
+}
+
 func (self Instance) Wireframe() bool { //gd:RDPipelineRasterizationState.wireframe
 		return bool(class(self).GetWireframe())
 }
+
+func (o *Extension[T]) Wireframe() bool { return o.Super().Wireframe() }
 
 // SetWireframe sets the property returned by [GetWireframe]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetWireframe(value bool) Instance { //gd:RDPipelineRasterizationState.wireframe
@@ -194,9 +210,16 @@ func (self Instance) SetWireframe(value bool) Instance { //gd:RDPipelineRasteriz
 	return self
 }
 
+func (o *Extension[T]) SetWireframe(value bool) *Extension[T] {
+	o.Super().SetWireframe(value)
+	return o
+}
+
 func (self Instance) CullMode() Rendering.PolygonCullMode { //gd:RDPipelineRasterizationState.cull_mode
 		return Rendering.PolygonCullMode(class(self).GetCullMode())
 }
+
+func (o *Extension[T]) CullMode() Rendering.PolygonCullMode { return o.Super().CullMode() }
 
 // SetCullMode sets the property returned by [GetCullMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCullMode(value Rendering.PolygonCullMode) Instance { //gd:RDPipelineRasterizationState.cull_mode
@@ -204,9 +227,16 @@ func (self Instance) SetCullMode(value Rendering.PolygonCullMode) Instance { //g
 	return self
 }
 
+func (o *Extension[T]) SetCullMode(value Rendering.PolygonCullMode) *Extension[T] {
+	o.Super().SetCullMode(value)
+	return o
+}
+
 func (self Instance) FrontFace() Rendering.PolygonFrontFace { //gd:RDPipelineRasterizationState.front_face
 		return Rendering.PolygonFrontFace(class(self).GetFrontFace())
 }
+
+func (o *Extension[T]) FrontFace() Rendering.PolygonFrontFace { return o.Super().FrontFace() }
 
 // SetFrontFace sets the property returned by [GetFrontFace]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFrontFace(value Rendering.PolygonFrontFace) Instance { //gd:RDPipelineRasterizationState.front_face
@@ -214,9 +244,16 @@ func (self Instance) SetFrontFace(value Rendering.PolygonFrontFace) Instance { /
 	return self
 }
 
+func (o *Extension[T]) SetFrontFace(value Rendering.PolygonFrontFace) *Extension[T] {
+	o.Super().SetFrontFace(value)
+	return o
+}
+
 func (self Instance) DepthBiasEnabled() bool { //gd:RDPipelineRasterizationState.depth_bias_enabled
 		return bool(class(self).GetDepthBiasEnabled())
 }
+
+func (o *Extension[T]) DepthBiasEnabled() bool { return o.Super().DepthBiasEnabled() }
 
 // SetDepthBiasEnabled sets the property returned by [GetDepthBiasEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDepthBiasEnabled(value bool) Instance { //gd:RDPipelineRasterizationState.depth_bias_enabled
@@ -224,9 +261,16 @@ func (self Instance) SetDepthBiasEnabled(value bool) Instance { //gd:RDPipelineR
 	return self
 }
 
+func (o *Extension[T]) SetDepthBiasEnabled(value bool) *Extension[T] {
+	o.Super().SetDepthBiasEnabled(value)
+	return o
+}
+
 func (self Instance) DepthBiasConstantFactor() Float.X { //gd:RDPipelineRasterizationState.depth_bias_constant_factor
 		return Float.X(Float.X(class(self).GetDepthBiasConstantFactor()))
 }
+
+func (o *Extension[T]) DepthBiasConstantFactor() Float.X { return o.Super().DepthBiasConstantFactor() }
 
 // SetDepthBiasConstantFactor sets the property returned by [GetDepthBiasConstantFactor]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDepthBiasConstantFactor(value Float.X) Instance { //gd:RDPipelineRasterizationState.depth_bias_constant_factor
@@ -234,9 +278,16 @@ func (self Instance) SetDepthBiasConstantFactor(value Float.X) Instance { //gd:R
 	return self
 }
 
+func (o *Extension[T]) SetDepthBiasConstantFactor(value Float.X) *Extension[T] {
+	o.Super().SetDepthBiasConstantFactor(value)
+	return o
+}
+
 func (self Instance) DepthBiasClamp() Float.X { //gd:RDPipelineRasterizationState.depth_bias_clamp
 		return Float.X(Float.X(class(self).GetDepthBiasClamp()))
 }
+
+func (o *Extension[T]) DepthBiasClamp() Float.X { return o.Super().DepthBiasClamp() }
 
 // SetDepthBiasClamp sets the property returned by [GetDepthBiasClamp]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDepthBiasClamp(value Float.X) Instance { //gd:RDPipelineRasterizationState.depth_bias_clamp
@@ -244,9 +295,16 @@ func (self Instance) SetDepthBiasClamp(value Float.X) Instance { //gd:RDPipeline
 	return self
 }
 
+func (o *Extension[T]) SetDepthBiasClamp(value Float.X) *Extension[T] {
+	o.Super().SetDepthBiasClamp(value)
+	return o
+}
+
 func (self Instance) DepthBiasSlopeFactor() Float.X { //gd:RDPipelineRasterizationState.depth_bias_slope_factor
 		return Float.X(Float.X(class(self).GetDepthBiasSlopeFactor()))
 }
+
+func (o *Extension[T]) DepthBiasSlopeFactor() Float.X { return o.Super().DepthBiasSlopeFactor() }
 
 // SetDepthBiasSlopeFactor sets the property returned by [GetDepthBiasSlopeFactor]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDepthBiasSlopeFactor(value Float.X) Instance { //gd:RDPipelineRasterizationState.depth_bias_slope_factor
@@ -254,9 +312,16 @@ func (self Instance) SetDepthBiasSlopeFactor(value Float.X) Instance { //gd:RDPi
 	return self
 }
 
+func (o *Extension[T]) SetDepthBiasSlopeFactor(value Float.X) *Extension[T] {
+	o.Super().SetDepthBiasSlopeFactor(value)
+	return o
+}
+
 func (self Instance) LineWidth() Float.X { //gd:RDPipelineRasterizationState.line_width
 		return Float.X(Float.X(class(self).GetLineWidth()))
 }
+
+func (o *Extension[T]) LineWidth() Float.X { return o.Super().LineWidth() }
 
 // SetLineWidth sets the property returned by [GetLineWidth]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetLineWidth(value Float.X) Instance { //gd:RDPipelineRasterizationState.line_width
@@ -264,14 +329,26 @@ func (self Instance) SetLineWidth(value Float.X) Instance { //gd:RDPipelineRaste
 	return self
 }
 
+func (o *Extension[T]) SetLineWidth(value Float.X) *Extension[T] {
+	o.Super().SetLineWidth(value)
+	return o
+}
+
 func (self Instance) PatchControlPoints() int { //gd:RDPipelineRasterizationState.patch_control_points
 		return int(int(class(self).GetPatchControlPoints()))
 }
+
+func (o *Extension[T]) PatchControlPoints() int { return o.Super().PatchControlPoints() }
 
 // SetPatchControlPoints sets the property returned by [GetPatchControlPoints]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPatchControlPoints(value int) Instance { //gd:RDPipelineRasterizationState.patch_control_points
 	class(self).SetPatchControlPoints(int64(value))
 	return self
+}
+
+func (o *Extension[T]) SetPatchControlPoints(value int) *Extension[T] {
+	o.Super().SetPatchControlPoints(value)
+	return o
 }
 
 func (self class) SetEnableDepthClamp(p_member bool)  { //gd:RDPipelineRasterizationState.set_enable_depth_clamp

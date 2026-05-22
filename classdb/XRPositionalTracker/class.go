@@ -180,20 +180,34 @@ func (self Instance) Profile() string { //gd:XRPositionalTracker.profile
 		return string(class(self).GetTrackerProfile().String())
 }
 
+func (o *Extension[T]) Profile() string { return o.Super().Profile() }
+
 // SetProfile sets the property returned by [GetTrackerProfile]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetProfile(value string) Instance { //gd:XRPositionalTracker.profile
 	class(self).SetTrackerProfile(String.From(value))
 	return self
 }
 
+func (o *Extension[T]) SetProfile(value string) *Extension[T] {
+	o.Super().SetProfile(value)
+	return o
+}
+
 func (self Instance) Hand() TrackerHand { //gd:XRPositionalTracker.hand
 		return TrackerHand(class(self).GetTrackerHand())
 }
+
+func (o *Extension[T]) Hand() TrackerHand { return o.Super().Hand() }
 
 // SetHand sets the property returned by [GetTrackerHand]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetHand(value TrackerHand) Instance { //gd:XRPositionalTracker.hand
 	class(self).SetTrackerHand(value)
 	return self
+}
+
+func (o *Extension[T]) SetHand(value TrackerHand) *Extension[T] {
+	o.Super().SetHand(value)
+	return o
 }
 
 func (self class) GetTrackerProfile() String.Readable { //gd:XRPositionalTracker.get_tracker_profile
@@ -361,6 +375,33 @@ func (o *Extension[T]) GetInput(name string) any {
 }
 func (o *Extension[T]) SetInput(name string, value any) *Extension[T] {
 	o.Super().SetInput(name, value)
+	return o
+}
+
+// Type is promoted from [XRTracker.Instance.Type].
+func (o *Extension[T]) Type() XRTracker.Type { return o.Super().AsXRTracker().Type() }
+
+// SetType is promoted from [XRTracker.Instance.SetType].
+func (o *Extension[T]) SetType(value XRTracker.Type) *Extension[T] {
+	o.Super().AsXRTracker().SetType(value)
+	return o
+}
+
+// Name is promoted from [XRTracker.Instance.Name].
+func (o *Extension[T]) Name() string { return o.Super().AsXRTracker().Name() }
+
+// SetName is promoted from [XRTracker.Instance.SetName].
+func (o *Extension[T]) SetName(value string) *Extension[T] {
+	o.Super().AsXRTracker().SetName(value)
+	return o
+}
+
+// Description is promoted from [XRTracker.Instance.Description].
+func (o *Extension[T]) Description() string { return o.Super().AsXRTracker().Description() }
+
+// SetDescription is promoted from [XRTracker.Instance.SetDescription].
+func (o *Extension[T]) SetDescription(value string) *Extension[T] {
+	o.Super().AsXRTracker().SetDescription(value)
 	return o
 }
 

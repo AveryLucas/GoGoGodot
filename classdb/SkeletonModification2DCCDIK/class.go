@@ -217,15 +217,24 @@ func (self Instance) TargetNodepath() string { //gd:SkeletonModification2DCCDIK.
 		return string(class(self).GetTargetNode().String())
 }
 
+func (o *Extension[T]) TargetNodepath() string { return o.Super().TargetNodepath() }
+
 // SetTargetNodepath sets the property returned by [GetTargetNode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTargetNodepath(value string) Instance { //gd:SkeletonModification2DCCDIK.target_nodepath
 	class(self).SetTargetNode(Path.ToNode(String.From(value)))
 	return self
 }
 
+func (o *Extension[T]) SetTargetNodepath(value string) *Extension[T] {
+	o.Super().SetTargetNodepath(value)
+	return o
+}
+
 func (self Instance) TipNodepath() string { //gd:SkeletonModification2DCCDIK.tip_nodepath
 		return string(class(self).GetTipNode().String())
 }
+
+func (o *Extension[T]) TipNodepath() string { return o.Super().TipNodepath() }
 
 // SetTipNodepath sets the property returned by [GetTipNode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTipNodepath(value string) Instance { //gd:SkeletonModification2DCCDIK.tip_nodepath
@@ -233,14 +242,26 @@ func (self Instance) SetTipNodepath(value string) Instance { //gd:SkeletonModifi
 	return self
 }
 
+func (o *Extension[T]) SetTipNodepath(value string) *Extension[T] {
+	o.Super().SetTipNodepath(value)
+	return o
+}
+
 func (self Instance) CcdikDataChainLength() int { //gd:SkeletonModification2DCCDIK.ccdik_data_chain_length
 		return int(int(class(self).GetCcdikDataChainLength()))
 }
+
+func (o *Extension[T]) CcdikDataChainLength() int { return o.Super().CcdikDataChainLength() }
 
 // SetCcdikDataChainLength sets the property returned by [GetCcdikDataChainLength]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCcdikDataChainLength(value int) Instance { //gd:SkeletonModification2DCCDIK.ccdik_data_chain_length
 	class(self).SetCcdikDataChainLength(int64(value))
 	return self
+}
+
+func (o *Extension[T]) SetCcdikDataChainLength(value int) *Extension[T] {
+	o.Super().SetCcdikDataChainLength(value)
+	return o
 }
 
 func (self class) SetTargetNode(target_nodepath Path.ToNode)  { //gd:SkeletonModification2DCCDIK.set_target_node
@@ -561,6 +582,60 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// Enabled is promoted from [SkeletonModification2D.Instance.Enabled].
+func (o *Extension[T]) Enabled() bool { return o.Super().AsSkeletonModification2D().Enabled() }
+
+// SetEnabled is promoted from [SkeletonModification2D.Instance.SetEnabled].
+func (o *Extension[T]) SetEnabled(value bool) *Extension[T] {
+	o.Super().AsSkeletonModification2D().SetEnabled(value)
+	return o
+}
+
+// ExecutionMode is promoted from [SkeletonModification2D.Instance.ExecutionMode].
+func (o *Extension[T]) ExecutionMode() int { return o.Super().AsSkeletonModification2D().ExecutionMode() }
+
+// SetExecutionMode is promoted from [SkeletonModification2D.Instance.SetExecutionMode].
+func (o *Extension[T]) SetExecutionMode(value int) *Extension[T] {
+	o.Super().AsSkeletonModification2D().SetExecutionMode(value)
+	return o
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

@@ -36,6 +36,8 @@ import "graphics.gd/variant/Path"
 import "graphics.gd/variant/RID"
 import "graphics.gd/variant/RefCounted"
 import "graphics.gd/variant/String"
+import "graphics.gd/variant/Vector2"
+import "graphics.gd/variant/Vector2i"
 import "graphics.gd/variant/Vector3"
 
 var _ Object.ID
@@ -411,6 +413,141 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// Size is promoted from [PlaneMesh.Instance.Size].
+func (o *Extension[T]) Size() Vector2.XY { return o.Super().AsPlaneMesh().Size() }
+
+// SetSize is promoted from [PlaneMesh.Instance.SetSize].
+func (o *Extension[T]) SetSize(value Vector2.XY) *Extension[T] {
+	o.Super().AsPlaneMesh().SetSize(value)
+	return o
+}
+
+// SubdivideWidth is promoted from [PlaneMesh.Instance.SubdivideWidth].
+func (o *Extension[T]) SubdivideWidth() int { return o.Super().AsPlaneMesh().SubdivideWidth() }
+
+// SetSubdivideWidth is promoted from [PlaneMesh.Instance.SetSubdivideWidth].
+func (o *Extension[T]) SetSubdivideWidth(value int) *Extension[T] {
+	o.Super().AsPlaneMesh().SetSubdivideWidth(value)
+	return o
+}
+
+// SubdivideDepth is promoted from [PlaneMesh.Instance.SubdivideDepth].
+func (o *Extension[T]) SubdivideDepth() int { return o.Super().AsPlaneMesh().SubdivideDepth() }
+
+// SetSubdivideDepth is promoted from [PlaneMesh.Instance.SetSubdivideDepth].
+func (o *Extension[T]) SetSubdivideDepth(value int) *Extension[T] {
+	o.Super().AsPlaneMesh().SetSubdivideDepth(value)
+	return o
+}
+
+// CenterOffset is promoted from [PlaneMesh.Instance.CenterOffset].
+func (o *Extension[T]) CenterOffset() Vector3.XYZ { return o.Super().AsPlaneMesh().CenterOffset() }
+
+// SetCenterOffset is promoted from [PlaneMesh.Instance.SetCenterOffset].
+func (o *Extension[T]) SetCenterOffset(value Vector3.XYZ) *Extension[T] {
+	o.Super().AsPlaneMesh().SetCenterOffset(value)
+	return o
+}
+
+// Orientation is promoted from [PlaneMesh.Instance.Orientation].
+func (o *Extension[T]) Orientation() PlaneMesh.Orientation { return o.Super().AsPlaneMesh().Orientation() }
+
+// SetOrientation is promoted from [PlaneMesh.Instance.SetOrientation].
+func (o *Extension[T]) SetOrientation(value PlaneMesh.Orientation) *Extension[T] {
+	o.Super().AsPlaneMesh().SetOrientation(value)
+	return o
+}
+
+// Material is promoted from [PrimitiveMesh.Instance.Material].
+func (o *Extension[T]) Material() Material.Instance { return o.Super().AsPrimitiveMesh().Material() }
+
+// SetMaterial is promoted from [PrimitiveMesh.Instance.SetMaterial].
+func (o *Extension[T]) SetMaterial(value Material.Instance) *Extension[T] {
+	o.Super().AsPrimitiveMesh().SetMaterial(value)
+	return o
+}
+
+// CustomAabb is promoted from [PrimitiveMesh.Instance.CustomAabb].
+func (o *Extension[T]) CustomAabb() AABB.PositionSize { return o.Super().AsPrimitiveMesh().CustomAabb() }
+
+// SetCustomAabb is promoted from [PrimitiveMesh.Instance.SetCustomAabb].
+func (o *Extension[T]) SetCustomAabb(value AABB.PositionSize) *Extension[T] {
+	o.Super().AsPrimitiveMesh().SetCustomAabb(value)
+	return o
+}
+
+// FlipFaces is promoted from [PrimitiveMesh.Instance.FlipFaces].
+func (o *Extension[T]) FlipFaces() bool { return o.Super().AsPrimitiveMesh().FlipFaces() }
+
+// SetFlipFaces is promoted from [PrimitiveMesh.Instance.SetFlipFaces].
+func (o *Extension[T]) SetFlipFaces(value bool) *Extension[T] {
+	o.Super().AsPrimitiveMesh().SetFlipFaces(value)
+	return o
+}
+
+// AddUv2 is promoted from [PrimitiveMesh.Instance.AddUv2].
+func (o *Extension[T]) AddUv2() bool { return o.Super().AsPrimitiveMesh().AddUv2() }
+
+// SetAddUv2 is promoted from [PrimitiveMesh.Instance.SetAddUv2].
+func (o *Extension[T]) SetAddUv2(value bool) *Extension[T] {
+	o.Super().AsPrimitiveMesh().SetAddUv2(value)
+	return o
+}
+
+// Uv2Padding is promoted from [PrimitiveMesh.Instance.Uv2Padding].
+func (o *Extension[T]) Uv2Padding() Float.X { return o.Super().AsPrimitiveMesh().Uv2Padding() }
+
+// SetUv2Padding is promoted from [PrimitiveMesh.Instance.SetUv2Padding].
+func (o *Extension[T]) SetUv2Padding(value Float.X) *Extension[T] {
+	o.Super().AsPrimitiveMesh().SetUv2Padding(value)
+	return o
+}
+
+// LightmapSizeHint is promoted from [Mesh.Instance.LightmapSizeHint].
+func (o *Extension[T]) LightmapSizeHint() Vector2i.XY { return o.Super().AsMesh().LightmapSizeHint() }
+
+// SetLightmapSizeHint is promoted from [Mesh.Instance.SetLightmapSizeHint].
+func (o *Extension[T]) SetLightmapSizeHint(value Vector2i.XY) *Extension[T] {
+	o.Super().AsMesh().SetLightmapSizeHint(value)
+	return o
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

@@ -358,15 +358,24 @@ func (self Instance) Direction() TextServer.Direction { //gd:TextParagraph.direc
 		return TextServer.Direction(class(self).GetDirection())
 }
 
+func (o *Extension[T]) Direction() TextServer.Direction { return o.Super().Direction() }
+
 // SetDirection sets the property returned by [GetDirection]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDirection(value TextServer.Direction) Instance { //gd:TextParagraph.direction
 	class(self).SetDirection(value)
 	return self
 }
 
+func (o *Extension[T]) SetDirection(value TextServer.Direction) *Extension[T] {
+	o.Super().SetDirection(value)
+	return o
+}
+
 func (self Instance) CustomPunctuation() string { //gd:TextParagraph.custom_punctuation
 		return string(class(self).GetCustomPunctuation().String())
 }
+
+func (o *Extension[T]) CustomPunctuation() string { return o.Super().CustomPunctuation() }
 
 // SetCustomPunctuation sets the property returned by [GetCustomPunctuation]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCustomPunctuation(value string) Instance { //gd:TextParagraph.custom_punctuation
@@ -374,9 +383,16 @@ func (self Instance) SetCustomPunctuation(value string) Instance { //gd:TextPara
 	return self
 }
 
+func (o *Extension[T]) SetCustomPunctuation(value string) *Extension[T] {
+	o.Super().SetCustomPunctuation(value)
+	return o
+}
+
 func (self Instance) Orientation() TextServer.Orientation { //gd:TextParagraph.orientation
 		return TextServer.Orientation(class(self).GetOrientation())
 }
+
+func (o *Extension[T]) Orientation() TextServer.Orientation { return o.Super().Orientation() }
 
 // SetOrientation sets the property returned by [GetOrientation]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOrientation(value TextServer.Orientation) Instance { //gd:TextParagraph.orientation
@@ -384,9 +400,16 @@ func (self Instance) SetOrientation(value TextServer.Orientation) Instance { //g
 	return self
 }
 
+func (o *Extension[T]) SetOrientation(value TextServer.Orientation) *Extension[T] {
+	o.Super().SetOrientation(value)
+	return o
+}
+
 func (self Instance) PreserveInvalid() bool { //gd:TextParagraph.preserve_invalid
 		return bool(class(self).GetPreserveInvalid())
 }
+
+func (o *Extension[T]) PreserveInvalid() bool { return o.Super().PreserveInvalid() }
 
 // SetPreserveInvalid sets the property returned by [GetPreserveInvalid]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPreserveInvalid(value bool) Instance { //gd:TextParagraph.preserve_invalid
@@ -394,9 +417,16 @@ func (self Instance) SetPreserveInvalid(value bool) Instance { //gd:TextParagrap
 	return self
 }
 
+func (o *Extension[T]) SetPreserveInvalid(value bool) *Extension[T] {
+	o.Super().SetPreserveInvalid(value)
+	return o
+}
+
 func (self Instance) PreserveControl() bool { //gd:TextParagraph.preserve_control
 		return bool(class(self).GetPreserveControl())
 }
+
+func (o *Extension[T]) PreserveControl() bool { return o.Super().PreserveControl() }
 
 // SetPreserveControl sets the property returned by [GetPreserveControl]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPreserveControl(value bool) Instance { //gd:TextParagraph.preserve_control
@@ -404,9 +434,16 @@ func (self Instance) SetPreserveControl(value bool) Instance { //gd:TextParagrap
 	return self
 }
 
+func (o *Extension[T]) SetPreserveControl(value bool) *Extension[T] {
+	o.Super().SetPreserveControl(value)
+	return o
+}
+
 func (self Instance) Alignment() GUI.HorizontalAlignment { //gd:TextParagraph.alignment
 		return GUI.HorizontalAlignment(class(self).GetAlignment())
 }
+
+func (o *Extension[T]) Alignment() GUI.HorizontalAlignment { return o.Super().Alignment() }
 
 // SetAlignment sets the property returned by [GetAlignment]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAlignment(value GUI.HorizontalAlignment) Instance { //gd:TextParagraph.alignment
@@ -414,9 +451,16 @@ func (self Instance) SetAlignment(value GUI.HorizontalAlignment) Instance { //gd
 	return self
 }
 
+func (o *Extension[T]) SetAlignment(value GUI.HorizontalAlignment) *Extension[T] {
+	o.Super().SetAlignment(value)
+	return o
+}
+
 func (self Instance) BreakFlags() TextServer.LineBreakFlag { //gd:TextParagraph.break_flags
 		return TextServer.LineBreakFlag(class(self).GetBreakFlags())
 }
+
+func (o *Extension[T]) BreakFlags() TextServer.LineBreakFlag { return o.Super().BreakFlags() }
 
 // SetBreakFlags sets the property returned by [GetBreakFlags]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBreakFlags(value TextServer.LineBreakFlag) Instance { //gd:TextParagraph.break_flags
@@ -424,9 +468,16 @@ func (self Instance) SetBreakFlags(value TextServer.LineBreakFlag) Instance { //
 	return self
 }
 
+func (o *Extension[T]) SetBreakFlags(value TextServer.LineBreakFlag) *Extension[T] {
+	o.Super().SetBreakFlags(value)
+	return o
+}
+
 func (self Instance) JustificationFlags() TextServer.JustificationFlag { //gd:TextParagraph.justification_flags
 		return TextServer.JustificationFlag(class(self).GetJustificationFlags())
 }
+
+func (o *Extension[T]) JustificationFlags() TextServer.JustificationFlag { return o.Super().JustificationFlags() }
 
 // SetJustificationFlags sets the property returned by [GetJustificationFlags]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetJustificationFlags(value TextServer.JustificationFlag) Instance { //gd:TextParagraph.justification_flags
@@ -434,9 +485,16 @@ func (self Instance) SetJustificationFlags(value TextServer.JustificationFlag) I
 	return self
 }
 
+func (o *Extension[T]) SetJustificationFlags(value TextServer.JustificationFlag) *Extension[T] {
+	o.Super().SetJustificationFlags(value)
+	return o
+}
+
 func (self Instance) TextOverrunBehavior() TextServer.OverrunBehavior { //gd:TextParagraph.text_overrun_behavior
 		return TextServer.OverrunBehavior(class(self).GetTextOverrunBehavior())
 }
+
+func (o *Extension[T]) TextOverrunBehavior() TextServer.OverrunBehavior { return o.Super().TextOverrunBehavior() }
 
 // SetTextOverrunBehavior sets the property returned by [GetTextOverrunBehavior]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTextOverrunBehavior(value TextServer.OverrunBehavior) Instance { //gd:TextParagraph.text_overrun_behavior
@@ -444,9 +502,16 @@ func (self Instance) SetTextOverrunBehavior(value TextServer.OverrunBehavior) In
 	return self
 }
 
+func (o *Extension[T]) SetTextOverrunBehavior(value TextServer.OverrunBehavior) *Extension[T] {
+	o.Super().SetTextOverrunBehavior(value)
+	return o
+}
+
 func (self Instance) EllipsisChar() string { //gd:TextParagraph.ellipsis_char
 		return string(class(self).GetEllipsisChar().String())
 }
+
+func (o *Extension[T]) EllipsisChar() string { return o.Super().EllipsisChar() }
 
 // SetEllipsisChar sets the property returned by [GetEllipsisChar]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEllipsisChar(value string) Instance { //gd:TextParagraph.ellipsis_char
@@ -454,9 +519,16 @@ func (self Instance) SetEllipsisChar(value string) Instance { //gd:TextParagraph
 	return self
 }
 
+func (o *Extension[T]) SetEllipsisChar(value string) *Extension[T] {
+	o.Super().SetEllipsisChar(value)
+	return o
+}
+
 func (self Instance) Width() Float.X { //gd:TextParagraph.width
 		return Float.X(Float.X(class(self).GetWidth()))
 }
+
+func (o *Extension[T]) Width() Float.X { return o.Super().Width() }
 
 // SetWidth sets the property returned by [GetWidth]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetWidth(value Float.X) Instance { //gd:TextParagraph.width
@@ -464,9 +536,16 @@ func (self Instance) SetWidth(value Float.X) Instance { //gd:TextParagraph.width
 	return self
 }
 
+func (o *Extension[T]) SetWidth(value Float.X) *Extension[T] {
+	o.Super().SetWidth(value)
+	return o
+}
+
 func (self Instance) MaxLinesVisible() int { //gd:TextParagraph.max_lines_visible
 		return int(int(class(self).GetMaxLinesVisible()))
 }
+
+func (o *Extension[T]) MaxLinesVisible() int { return o.Super().MaxLinesVisible() }
 
 // SetMaxLinesVisible sets the property returned by [GetMaxLinesVisible]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMaxLinesVisible(value int) Instance { //gd:TextParagraph.max_lines_visible
@@ -474,14 +553,26 @@ func (self Instance) SetMaxLinesVisible(value int) Instance { //gd:TextParagraph
 	return self
 }
 
+func (o *Extension[T]) SetMaxLinesVisible(value int) *Extension[T] {
+	o.Super().SetMaxLinesVisible(value)
+	return o
+}
+
 func (self Instance) LineSpacing() Float.X { //gd:TextParagraph.line_spacing
 		return Float.X(Float.X(class(self).GetLineSpacing()))
 }
+
+func (o *Extension[T]) LineSpacing() Float.X { return o.Super().LineSpacing() }
 
 // SetLineSpacing sets the property returned by [GetLineSpacing]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetLineSpacing(value Float.X) Instance { //gd:TextParagraph.line_spacing
 	class(self).SetLineSpacing(float64(value))
 	return self
+}
+
+func (o *Extension[T]) SetLineSpacing(value Float.X) *Extension[T] {
+	o.Super().SetLineSpacing(value)
+	return o
 }
 
 func (self class) Clear()  { //gd:TextParagraph.clear

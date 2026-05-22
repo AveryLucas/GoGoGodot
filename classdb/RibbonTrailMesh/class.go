@@ -36,6 +36,7 @@ import "graphics.gd/variant/Path"
 import "graphics.gd/variant/RID"
 import "graphics.gd/variant/RefCounted"
 import "graphics.gd/variant/String"
+import "graphics.gd/variant/Vector2i"
 import "graphics.gd/variant/Vector3"
 
 var _ Object.ID
@@ -166,15 +167,24 @@ func (self Instance) Shape() Shape { //gd:RibbonTrailMesh.shape
 		return Shape(class(self).GetShape())
 }
 
+func (o *Extension[T]) Shape() Shape { return o.Super().Shape() }
+
 // SetShape sets the property returned by [GetShape]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetShape(value Shape) Instance { //gd:RibbonTrailMesh.shape
 	class(self).SetShape(value)
 	return self
 }
 
+func (o *Extension[T]) SetShape(value Shape) *Extension[T] {
+	o.Super().SetShape(value)
+	return o
+}
+
 func (self Instance) Size() Float.X { //gd:RibbonTrailMesh.size
 		return Float.X(Float.X(class(self).GetSize()))
 }
+
+func (o *Extension[T]) Size() Float.X { return o.Super().Size() }
 
 // SetSize sets the property returned by [GetSize]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSize(value Float.X) Instance { //gd:RibbonTrailMesh.size
@@ -182,9 +192,16 @@ func (self Instance) SetSize(value Float.X) Instance { //gd:RibbonTrailMesh.size
 	return self
 }
 
+func (o *Extension[T]) SetSize(value Float.X) *Extension[T] {
+	o.Super().SetSize(value)
+	return o
+}
+
 func (self Instance) Sections() int { //gd:RibbonTrailMesh.sections
 		return int(int(class(self).GetSections()))
 }
+
+func (o *Extension[T]) Sections() int { return o.Super().Sections() }
 
 // SetSections sets the property returned by [GetSections]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSections(value int) Instance { //gd:RibbonTrailMesh.sections
@@ -192,9 +209,16 @@ func (self Instance) SetSections(value int) Instance { //gd:RibbonTrailMesh.sect
 	return self
 }
 
+func (o *Extension[T]) SetSections(value int) *Extension[T] {
+	o.Super().SetSections(value)
+	return o
+}
+
 func (self Instance) SectionLength() Float.X { //gd:RibbonTrailMesh.section_length
 		return Float.X(Float.X(class(self).GetSectionLength()))
 }
+
+func (o *Extension[T]) SectionLength() Float.X { return o.Super().SectionLength() }
 
 // SetSectionLength sets the property returned by [GetSectionLength]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSectionLength(value Float.X) Instance { //gd:RibbonTrailMesh.section_length
@@ -202,9 +226,16 @@ func (self Instance) SetSectionLength(value Float.X) Instance { //gd:RibbonTrail
 	return self
 }
 
+func (o *Extension[T]) SetSectionLength(value Float.X) *Extension[T] {
+	o.Super().SetSectionLength(value)
+	return o
+}
+
 func (self Instance) SectionSegments() int { //gd:RibbonTrailMesh.section_segments
 		return int(int(class(self).GetSectionSegments()))
 }
+
+func (o *Extension[T]) SectionSegments() int { return o.Super().SectionSegments() }
 
 // SetSectionSegments sets the property returned by [GetSectionSegments]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSectionSegments(value int) Instance { //gd:RibbonTrailMesh.section_segments
@@ -212,14 +243,26 @@ func (self Instance) SetSectionSegments(value int) Instance { //gd:RibbonTrailMe
 	return self
 }
 
+func (o *Extension[T]) SetSectionSegments(value int) *Extension[T] {
+	o.Super().SetSectionSegments(value)
+	return o
+}
+
 func (self Instance) Curve() Curve.Instance { //gd:RibbonTrailMesh.curve
 		return Curve.Instance(class(self).GetCurve())
 }
+
+func (o *Extension[T]) Curve() Curve.Instance { return o.Super().Curve() }
 
 // SetCurve sets the property returned by [GetCurve]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCurve(value Curve.Instance) Instance { //gd:RibbonTrailMesh.curve
 	class(self).SetCurve(value)
 	return self
+}
+
+func (o *Extension[T]) SetCurve(value Curve.Instance) *Extension[T] {
+	o.Super().SetCurve(value)
+	return o
 }
 
 func (self class) SetSize(size float64)  { //gd:RibbonTrailMesh.set_size
@@ -528,6 +571,96 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// Material is promoted from [PrimitiveMesh.Instance.Material].
+func (o *Extension[T]) Material() Material.Instance { return o.Super().AsPrimitiveMesh().Material() }
+
+// SetMaterial is promoted from [PrimitiveMesh.Instance.SetMaterial].
+func (o *Extension[T]) SetMaterial(value Material.Instance) *Extension[T] {
+	o.Super().AsPrimitiveMesh().SetMaterial(value)
+	return o
+}
+
+// CustomAabb is promoted from [PrimitiveMesh.Instance.CustomAabb].
+func (o *Extension[T]) CustomAabb() AABB.PositionSize { return o.Super().AsPrimitiveMesh().CustomAabb() }
+
+// SetCustomAabb is promoted from [PrimitiveMesh.Instance.SetCustomAabb].
+func (o *Extension[T]) SetCustomAabb(value AABB.PositionSize) *Extension[T] {
+	o.Super().AsPrimitiveMesh().SetCustomAabb(value)
+	return o
+}
+
+// FlipFaces is promoted from [PrimitiveMesh.Instance.FlipFaces].
+func (o *Extension[T]) FlipFaces() bool { return o.Super().AsPrimitiveMesh().FlipFaces() }
+
+// SetFlipFaces is promoted from [PrimitiveMesh.Instance.SetFlipFaces].
+func (o *Extension[T]) SetFlipFaces(value bool) *Extension[T] {
+	o.Super().AsPrimitiveMesh().SetFlipFaces(value)
+	return o
+}
+
+// AddUv2 is promoted from [PrimitiveMesh.Instance.AddUv2].
+func (o *Extension[T]) AddUv2() bool { return o.Super().AsPrimitiveMesh().AddUv2() }
+
+// SetAddUv2 is promoted from [PrimitiveMesh.Instance.SetAddUv2].
+func (o *Extension[T]) SetAddUv2(value bool) *Extension[T] {
+	o.Super().AsPrimitiveMesh().SetAddUv2(value)
+	return o
+}
+
+// Uv2Padding is promoted from [PrimitiveMesh.Instance.Uv2Padding].
+func (o *Extension[T]) Uv2Padding() Float.X { return o.Super().AsPrimitiveMesh().Uv2Padding() }
+
+// SetUv2Padding is promoted from [PrimitiveMesh.Instance.SetUv2Padding].
+func (o *Extension[T]) SetUv2Padding(value Float.X) *Extension[T] {
+	o.Super().AsPrimitiveMesh().SetUv2Padding(value)
+	return o
+}
+
+// LightmapSizeHint is promoted from [Mesh.Instance.LightmapSizeHint].
+func (o *Extension[T]) LightmapSizeHint() Vector2i.XY { return o.Super().AsMesh().LightmapSizeHint() }
+
+// SetLightmapSizeHint is promoted from [Mesh.Instance.SetLightmapSizeHint].
+func (o *Extension[T]) SetLightmapSizeHint(value Vector2i.XY) *Extension[T] {
+	o.Super().AsMesh().SetLightmapSizeHint(value)
+	return o
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

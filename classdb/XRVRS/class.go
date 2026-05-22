@@ -156,15 +156,24 @@ func (self Instance) VrsMinRadius() Float.X { //gd:XRVRS.vrs_min_radius
 		return Float.X(Float.X(class(self).GetVrsMinRadius()))
 }
 
+func (o *Extension[T]) VrsMinRadius() Float.X { return o.Super().VrsMinRadius() }
+
 // SetVrsMinRadius sets the property returned by [GetVrsMinRadius]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVrsMinRadius(value Float.X) Instance { //gd:XRVRS.vrs_min_radius
 	class(self).SetVrsMinRadius(float64(value))
 	return self
 }
 
+func (o *Extension[T]) SetVrsMinRadius(value Float.X) *Extension[T] {
+	o.Super().SetVrsMinRadius(value)
+	return o
+}
+
 func (self Instance) VrsStrength() Float.X { //gd:XRVRS.vrs_strength
 		return Float.X(Float.X(class(self).GetVrsStrength()))
 }
+
+func (o *Extension[T]) VrsStrength() Float.X { return o.Super().VrsStrength() }
 
 // SetVrsStrength sets the property returned by [GetVrsStrength]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVrsStrength(value Float.X) Instance { //gd:XRVRS.vrs_strength
@@ -172,14 +181,26 @@ func (self Instance) SetVrsStrength(value Float.X) Instance { //gd:XRVRS.vrs_str
 	return self
 }
 
+func (o *Extension[T]) SetVrsStrength(value Float.X) *Extension[T] {
+	o.Super().SetVrsStrength(value)
+	return o
+}
+
 func (self Instance) VrsRenderRegion() Rect2i.PositionSize { //gd:XRVRS.vrs_render_region
 		return Rect2i.PositionSize(class(self).GetVrsRenderRegion())
 }
+
+func (o *Extension[T]) VrsRenderRegion() Rect2i.PositionSize { return o.Super().VrsRenderRegion() }
 
 // SetVrsRenderRegion sets the property returned by [GetVrsRenderRegion]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVrsRenderRegion(value Rect2i.PositionSize) Instance { //gd:XRVRS.vrs_render_region
 	class(self).SetVrsRenderRegion(Rect2i.PositionSize(value))
 	return self
+}
+
+func (o *Extension[T]) SetVrsRenderRegion(value Rect2i.PositionSize) *Extension[T] {
+	o.Super().SetVrsRenderRegion(value)
+	return o
 }
 
 func (self class) GetVrsMinRadius() float64 { //gd:XRVRS.get_vrs_min_radius

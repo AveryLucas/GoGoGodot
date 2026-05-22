@@ -166,15 +166,24 @@ func (self Instance) Tilt() Vector2.XY { //gd:InputEventMouseMotion.tilt
 		return Vector2.XY(class(self).GetTilt())
 }
 
+func (o *Extension[T]) Tilt() Vector2.XY { return o.Super().Tilt() }
+
 // SetTilt sets the property returned by [GetTilt]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTilt(value Vector2.XY) Instance { //gd:InputEventMouseMotion.tilt
 	class(self).SetTilt(Vector2.XY(value))
 	return self
 }
 
+func (o *Extension[T]) SetTilt(value Vector2.XY) *Extension[T] {
+	o.Super().SetTilt(value)
+	return o
+}
+
 func (self Instance) Pressure() Float.X { //gd:InputEventMouseMotion.pressure
 		return Float.X(Float.X(class(self).GetPressure()))
 }
+
+func (o *Extension[T]) Pressure() Float.X { return o.Super().Pressure() }
 
 // SetPressure sets the property returned by [GetPressure]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPressure(value Float.X) Instance { //gd:InputEventMouseMotion.pressure
@@ -182,9 +191,16 @@ func (self Instance) SetPressure(value Float.X) Instance { //gd:InputEventMouseM
 	return self
 }
 
+func (o *Extension[T]) SetPressure(value Float.X) *Extension[T] {
+	o.Super().SetPressure(value)
+	return o
+}
+
 func (self Instance) PenInverted() bool { //gd:InputEventMouseMotion.pen_inverted
 		return bool(class(self).GetPenInverted())
 }
+
+func (o *Extension[T]) PenInverted() bool { return o.Super().PenInverted() }
 
 // SetPenInverted sets the property returned by [GetPenInverted]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPenInverted(value bool) Instance { //gd:InputEventMouseMotion.pen_inverted
@@ -192,9 +208,16 @@ func (self Instance) SetPenInverted(value bool) Instance { //gd:InputEventMouseM
 	return self
 }
 
+func (o *Extension[T]) SetPenInverted(value bool) *Extension[T] {
+	o.Super().SetPenInverted(value)
+	return o
+}
+
 func (self Instance) Relative() Vector2.XY { //gd:InputEventMouseMotion.relative
 		return Vector2.XY(class(self).GetRelative())
 }
+
+func (o *Extension[T]) Relative() Vector2.XY { return o.Super().Relative() }
 
 // SetRelative sets the property returned by [GetRelative]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRelative(value Vector2.XY) Instance { //gd:InputEventMouseMotion.relative
@@ -202,9 +225,16 @@ func (self Instance) SetRelative(value Vector2.XY) Instance { //gd:InputEventMou
 	return self
 }
 
+func (o *Extension[T]) SetRelative(value Vector2.XY) *Extension[T] {
+	o.Super().SetRelative(value)
+	return o
+}
+
 func (self Instance) ScreenRelative() Vector2.XY { //gd:InputEventMouseMotion.screen_relative
 		return Vector2.XY(class(self).GetScreenRelative())
 }
+
+func (o *Extension[T]) ScreenRelative() Vector2.XY { return o.Super().ScreenRelative() }
 
 // SetScreenRelative sets the property returned by [GetScreenRelative]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetScreenRelative(value Vector2.XY) Instance { //gd:InputEventMouseMotion.screen_relative
@@ -212,9 +242,16 @@ func (self Instance) SetScreenRelative(value Vector2.XY) Instance { //gd:InputEv
 	return self
 }
 
+func (o *Extension[T]) SetScreenRelative(value Vector2.XY) *Extension[T] {
+	o.Super().SetScreenRelative(value)
+	return o
+}
+
 func (self Instance) Velocity() Vector2.XY { //gd:InputEventMouseMotion.velocity
 		return Vector2.XY(class(self).GetVelocity())
 }
+
+func (o *Extension[T]) Velocity() Vector2.XY { return o.Super().Velocity() }
 
 // SetVelocity sets the property returned by [GetVelocity]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVelocity(value Vector2.XY) Instance { //gd:InputEventMouseMotion.velocity
@@ -222,14 +259,26 @@ func (self Instance) SetVelocity(value Vector2.XY) Instance { //gd:InputEventMou
 	return self
 }
 
+func (o *Extension[T]) SetVelocity(value Vector2.XY) *Extension[T] {
+	o.Super().SetVelocity(value)
+	return o
+}
+
 func (self Instance) ScreenVelocity() Vector2.XY { //gd:InputEventMouseMotion.screen_velocity
 		return Vector2.XY(class(self).GetScreenVelocity())
 }
+
+func (o *Extension[T]) ScreenVelocity() Vector2.XY { return o.Super().ScreenVelocity() }
 
 // SetScreenVelocity sets the property returned by [GetScreenVelocity]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetScreenVelocity(value Vector2.XY) Instance { //gd:InputEventMouseMotion.screen_velocity
 	class(self).SetScreenVelocity(Vector2.XY(value))
 	return self
+}
+
+func (o *Extension[T]) SetScreenVelocity(value Vector2.XY) *Extension[T] {
+	o.Super().SetScreenVelocity(value)
+	return o
 }
 
 func (self class) SetTilt(tilt Vector2.XY)  { //gd:InputEventMouseMotion.set_tilt
@@ -512,6 +561,132 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ButtonMask is promoted from [InputEventMouse.Instance.ButtonMask].
+func (o *Extension[T]) ButtonMask() Input.MouseButtonMask { return o.Super().AsInputEventMouse().ButtonMask() }
+
+// SetButtonMask is promoted from [InputEventMouse.Instance.SetButtonMask].
+func (o *Extension[T]) SetButtonMask(value Input.MouseButtonMask) *Extension[T] {
+	o.Super().AsInputEventMouse().SetButtonMask(value)
+	return o
+}
+
+// Position is promoted from [InputEventMouse.Instance.Position].
+func (o *Extension[T]) Position() Vector2.XY { return o.Super().AsInputEventMouse().Position() }
+
+// SetPosition is promoted from [InputEventMouse.Instance.SetPosition].
+func (o *Extension[T]) SetPosition(value Vector2.XY) *Extension[T] {
+	o.Super().AsInputEventMouse().SetPosition(value)
+	return o
+}
+
+// GlobalPosition is promoted from [InputEventMouse.Instance.GlobalPosition].
+func (o *Extension[T]) GlobalPosition() Vector2.XY { return o.Super().AsInputEventMouse().GlobalPosition() }
+
+// SetGlobalPosition is promoted from [InputEventMouse.Instance.SetGlobalPosition].
+func (o *Extension[T]) SetGlobalPosition(value Vector2.XY) *Extension[T] {
+	o.Super().AsInputEventMouse().SetGlobalPosition(value)
+	return o
+}
+
+// CommandOrControlAutoremap is promoted from [InputEventWithModifiers.Instance.CommandOrControlAutoremap].
+func (o *Extension[T]) CommandOrControlAutoremap() bool { return o.Super().AsInputEventWithModifiers().CommandOrControlAutoremap() }
+
+// SetCommandOrControlAutoremap is promoted from [InputEventWithModifiers.Instance.SetCommandOrControlAutoremap].
+func (o *Extension[T]) SetCommandOrControlAutoremap(value bool) *Extension[T] {
+	o.Super().AsInputEventWithModifiers().SetCommandOrControlAutoremap(value)
+	return o
+}
+
+// AltPressed is promoted from [InputEventWithModifiers.Instance.AltPressed].
+func (o *Extension[T]) AltPressed() bool { return o.Super().AsInputEventWithModifiers().AltPressed() }
+
+// SetAltPressed is promoted from [InputEventWithModifiers.Instance.SetAltPressed].
+func (o *Extension[T]) SetAltPressed(value bool) *Extension[T] {
+	o.Super().AsInputEventWithModifiers().SetAltPressed(value)
+	return o
+}
+
+// ShiftPressed is promoted from [InputEventWithModifiers.Instance.ShiftPressed].
+func (o *Extension[T]) ShiftPressed() bool { return o.Super().AsInputEventWithModifiers().ShiftPressed() }
+
+// SetShiftPressed is promoted from [InputEventWithModifiers.Instance.SetShiftPressed].
+func (o *Extension[T]) SetShiftPressed(value bool) *Extension[T] {
+	o.Super().AsInputEventWithModifiers().SetShiftPressed(value)
+	return o
+}
+
+// CtrlPressed is promoted from [InputEventWithModifiers.Instance.CtrlPressed].
+func (o *Extension[T]) CtrlPressed() bool { return o.Super().AsInputEventWithModifiers().CtrlPressed() }
+
+// SetCtrlPressed is promoted from [InputEventWithModifiers.Instance.SetCtrlPressed].
+func (o *Extension[T]) SetCtrlPressed(value bool) *Extension[T] {
+	o.Super().AsInputEventWithModifiers().SetCtrlPressed(value)
+	return o
+}
+
+// MetaPressed is promoted from [InputEventWithModifiers.Instance.MetaPressed].
+func (o *Extension[T]) MetaPressed() bool { return o.Super().AsInputEventWithModifiers().MetaPressed() }
+
+// SetMetaPressed is promoted from [InputEventWithModifiers.Instance.SetMetaPressed].
+func (o *Extension[T]) SetMetaPressed(value bool) *Extension[T] {
+	o.Super().AsInputEventWithModifiers().SetMetaPressed(value)
+	return o
+}
+
+// WindowId is promoted from [InputEventFromWindow.Instance.WindowId].
+func (o *Extension[T]) WindowId() int { return o.Super().AsInputEventFromWindow().WindowId() }
+
+// SetWindowId is promoted from [InputEventFromWindow.Instance.SetWindowId].
+func (o *Extension[T]) SetWindowId(value int) *Extension[T] {
+	o.Super().AsInputEventFromWindow().SetWindowId(value)
+	return o
+}
+
+// Device is promoted from [InputEvent.Instance.Device].
+func (o *Extension[T]) Device() int { return o.Super().AsInputEvent().Device() }
+
+// SetDevice is promoted from [InputEvent.Instance.SetDevice].
+func (o *Extension[T]) SetDevice(value int) *Extension[T] {
+	o.Super().AsInputEvent().SetDevice(value)
+	return o
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

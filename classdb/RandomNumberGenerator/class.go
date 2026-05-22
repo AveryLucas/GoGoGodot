@@ -185,20 +185,34 @@ func (self Instance) Seed() int { //gd:RandomNumberGenerator.seed
 		return int(int(class(self).GetSeed()))
 }
 
+func (o *Extension[T]) Seed() int { return o.Super().Seed() }
+
 // SetSeed sets the property returned by [GetSeed]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSeed(value int) Instance { //gd:RandomNumberGenerator.seed
 	class(self).SetSeed(int64(value))
 	return self
 }
 
+func (o *Extension[T]) SetSeed(value int) *Extension[T] {
+	o.Super().SetSeed(value)
+	return o
+}
+
 func (self Instance) State() int { //gd:RandomNumberGenerator.state
 		return int(int(class(self).GetState()))
 }
+
+func (o *Extension[T]) State() int { return o.Super().State() }
 
 // SetState sets the property returned by [GetState]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetState(value int) Instance { //gd:RandomNumberGenerator.state
 	class(self).SetState(int64(value))
 	return self
+}
+
+func (o *Extension[T]) SetState(value int) *Extension[T] {
+	o.Super().SetState(value)
+	return o
 }
 
 func (self class) SetSeed(seed int64)  { //gd:RandomNumberGenerator.set_seed

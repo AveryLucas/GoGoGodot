@@ -253,15 +253,24 @@ func (self Instance) LineSpacing() Float.X { //gd:LabelSettings.line_spacing
 		return Float.X(Float.X(class(self).GetLineSpacing()))
 }
 
+func (o *Extension[T]) LineSpacing() Float.X { return o.Super().LineSpacing() }
+
 // SetLineSpacing sets the property returned by [GetLineSpacing]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetLineSpacing(value Float.X) Instance { //gd:LabelSettings.line_spacing
 	class(self).SetLineSpacing(float64(value))
 	return self
 }
 
+func (o *Extension[T]) SetLineSpacing(value Float.X) *Extension[T] {
+	o.Super().SetLineSpacing(value)
+	return o
+}
+
 func (self Instance) ParagraphSpacing() Float.X { //gd:LabelSettings.paragraph_spacing
 		return Float.X(Float.X(class(self).GetParagraphSpacing()))
 }
+
+func (o *Extension[T]) ParagraphSpacing() Float.X { return o.Super().ParagraphSpacing() }
 
 // SetParagraphSpacing sets the property returned by [GetParagraphSpacing]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetParagraphSpacing(value Float.X) Instance { //gd:LabelSettings.paragraph_spacing
@@ -269,9 +278,16 @@ func (self Instance) SetParagraphSpacing(value Float.X) Instance { //gd:LabelSet
 	return self
 }
 
+func (o *Extension[T]) SetParagraphSpacing(value Float.X) *Extension[T] {
+	o.Super().SetParagraphSpacing(value)
+	return o
+}
+
 func (self Instance) Font() Font.Instance { //gd:LabelSettings.font
 		return Font.Instance(class(self).GetFont())
 }
+
+func (o *Extension[T]) Font() Font.Instance { return o.Super().Font() }
 
 // SetFont sets the property returned by [GetFont]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFont(value Font.Instance) Instance { //gd:LabelSettings.font
@@ -279,9 +295,16 @@ func (self Instance) SetFont(value Font.Instance) Instance { //gd:LabelSettings.
 	return self
 }
 
+func (o *Extension[T]) SetFont(value Font.Instance) *Extension[T] {
+	o.Super().SetFont(value)
+	return o
+}
+
 func (self Instance) FontSize() int { //gd:LabelSettings.font_size
 		return int(int(class(self).GetFontSize()))
 }
+
+func (o *Extension[T]) FontSize() int { return o.Super().FontSize() }
 
 // SetFontSize sets the property returned by [GetFontSize]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFontSize(value int) Instance { //gd:LabelSettings.font_size
@@ -289,9 +312,16 @@ func (self Instance) SetFontSize(value int) Instance { //gd:LabelSettings.font_s
 	return self
 }
 
+func (o *Extension[T]) SetFontSize(value int) *Extension[T] {
+	o.Super().SetFontSize(value)
+	return o
+}
+
 func (self Instance) FontColor() Color.RGBA { //gd:LabelSettings.font_color
 		return Color.RGBA(class(self).GetFontColor())
 }
+
+func (o *Extension[T]) FontColor() Color.RGBA { return o.Super().FontColor() }
 
 // SetFontColor sets the property returned by [GetFontColor]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFontColor(value Color.RGBA) Instance { //gd:LabelSettings.font_color
@@ -299,9 +329,16 @@ func (self Instance) SetFontColor(value Color.RGBA) Instance { //gd:LabelSetting
 	return self
 }
 
+func (o *Extension[T]) SetFontColor(value Color.RGBA) *Extension[T] {
+	o.Super().SetFontColor(value)
+	return o
+}
+
 func (self Instance) OutlineSize() int { //gd:LabelSettings.outline_size
 		return int(int(class(self).GetOutlineSize()))
 }
+
+func (o *Extension[T]) OutlineSize() int { return o.Super().OutlineSize() }
 
 // SetOutlineSize sets the property returned by [GetOutlineSize]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOutlineSize(value int) Instance { //gd:LabelSettings.outline_size
@@ -309,9 +346,16 @@ func (self Instance) SetOutlineSize(value int) Instance { //gd:LabelSettings.out
 	return self
 }
 
+func (o *Extension[T]) SetOutlineSize(value int) *Extension[T] {
+	o.Super().SetOutlineSize(value)
+	return o
+}
+
 func (self Instance) OutlineColor() Color.RGBA { //gd:LabelSettings.outline_color
 		return Color.RGBA(class(self).GetOutlineColor())
 }
+
+func (o *Extension[T]) OutlineColor() Color.RGBA { return o.Super().OutlineColor() }
 
 // SetOutlineColor sets the property returned by [GetOutlineColor]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOutlineColor(value Color.RGBA) Instance { //gd:LabelSettings.outline_color
@@ -319,9 +363,16 @@ func (self Instance) SetOutlineColor(value Color.RGBA) Instance { //gd:LabelSett
 	return self
 }
 
+func (o *Extension[T]) SetOutlineColor(value Color.RGBA) *Extension[T] {
+	o.Super().SetOutlineColor(value)
+	return o
+}
+
 func (self Instance) ShadowSize() int { //gd:LabelSettings.shadow_size
 		return int(int(class(self).GetShadowSize()))
 }
+
+func (o *Extension[T]) ShadowSize() int { return o.Super().ShadowSize() }
 
 // SetShadowSize sets the property returned by [GetShadowSize]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetShadowSize(value int) Instance { //gd:LabelSettings.shadow_size
@@ -329,9 +380,16 @@ func (self Instance) SetShadowSize(value int) Instance { //gd:LabelSettings.shad
 	return self
 }
 
+func (o *Extension[T]) SetShadowSize(value int) *Extension[T] {
+	o.Super().SetShadowSize(value)
+	return o
+}
+
 func (self Instance) ShadowColor() Color.RGBA { //gd:LabelSettings.shadow_color
 		return Color.RGBA(class(self).GetShadowColor())
 }
+
+func (o *Extension[T]) ShadowColor() Color.RGBA { return o.Super().ShadowColor() }
 
 // SetShadowColor sets the property returned by [GetShadowColor]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetShadowColor(value Color.RGBA) Instance { //gd:LabelSettings.shadow_color
@@ -339,9 +397,16 @@ func (self Instance) SetShadowColor(value Color.RGBA) Instance { //gd:LabelSetti
 	return self
 }
 
+func (o *Extension[T]) SetShadowColor(value Color.RGBA) *Extension[T] {
+	o.Super().SetShadowColor(value)
+	return o
+}
+
 func (self Instance) ShadowOffset() Vector2.XY { //gd:LabelSettings.shadow_offset
 		return Vector2.XY(class(self).GetShadowOffset())
 }
+
+func (o *Extension[T]) ShadowOffset() Vector2.XY { return o.Super().ShadowOffset() }
 
 // SetShadowOffset sets the property returned by [GetShadowOffset]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetShadowOffset(value Vector2.XY) Instance { //gd:LabelSettings.shadow_offset
@@ -349,9 +414,16 @@ func (self Instance) SetShadowOffset(value Vector2.XY) Instance { //gd:LabelSett
 	return self
 }
 
+func (o *Extension[T]) SetShadowOffset(value Vector2.XY) *Extension[T] {
+	o.Super().SetShadowOffset(value)
+	return o
+}
+
 func (self Instance) StackedOutlineCount() int { //gd:LabelSettings.stacked_outline_count
 		return int(int(class(self).GetStackedOutlineCount()))
 }
+
+func (o *Extension[T]) StackedOutlineCount() int { return o.Super().StackedOutlineCount() }
 
 // SetStackedOutlineCount sets the property returned by [GetStackedOutlineCount]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStackedOutlineCount(value int) Instance { //gd:LabelSettings.stacked_outline_count
@@ -359,14 +431,26 @@ func (self Instance) SetStackedOutlineCount(value int) Instance { //gd:LabelSett
 	return self
 }
 
+func (o *Extension[T]) SetStackedOutlineCount(value int) *Extension[T] {
+	o.Super().SetStackedOutlineCount(value)
+	return o
+}
+
 func (self Instance) StackedShadowCount() int { //gd:LabelSettings.stacked_shadow_count
 		return int(int(class(self).GetStackedShadowCount()))
 }
+
+func (o *Extension[T]) StackedShadowCount() int { return o.Super().StackedShadowCount() }
 
 // SetStackedShadowCount sets the property returned by [GetStackedShadowCount]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStackedShadowCount(value int) Instance { //gd:LabelSettings.stacked_shadow_count
 	class(self).SetStackedShadowCount(int64(value))
 	return self
+}
+
+func (o *Extension[T]) SetStackedShadowCount(value int) *Extension[T] {
+	o.Super().SetStackedShadowCount(value)
+	return o
 }
 
 func (self class) SetLineSpacing(spacing float64)  { //gd:LabelSettings.set_line_spacing
@@ -692,6 +776,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

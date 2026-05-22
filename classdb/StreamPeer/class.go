@@ -299,10 +299,17 @@ func (self Instance) BigEndian() bool { //gd:StreamPeer.big_endian
 		return bool(class(self).IsBigEndianEnabled())
 }
 
+func (o *Extension[T]) BigEndian() bool { return o.Super().BigEndian() }
+
 // SetBigEndian sets the property returned by [IsBigEndianEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBigEndian(value bool) Instance { //gd:StreamPeer.big_endian
 	class(self).SetBigEndian(value)
 	return self
+}
+
+func (o *Extension[T]) SetBigEndian(value bool) *Extension[T] {
+	o.Super().SetBigEndian(value)
+	return o
 }
 
 func (self class) PutData(data Packed.Bytes) Error.Code { //gd:StreamPeer.put_data

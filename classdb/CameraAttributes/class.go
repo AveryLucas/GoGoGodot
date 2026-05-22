@@ -156,15 +156,24 @@ func (self Instance) ExposureSensitivity() Float.X { //gd:CameraAttributes.expos
 		return Float.X(Float.X(class(self).GetExposureSensitivity()))
 }
 
+func (o *Extension[T]) ExposureSensitivity() Float.X { return o.Super().ExposureSensitivity() }
+
 // SetExposureSensitivity sets the property returned by [GetExposureSensitivity]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetExposureSensitivity(value Float.X) Instance { //gd:CameraAttributes.exposure_sensitivity
 	class(self).SetExposureSensitivity(float64(value))
 	return self
 }
 
+func (o *Extension[T]) SetExposureSensitivity(value Float.X) *Extension[T] {
+	o.Super().SetExposureSensitivity(value)
+	return o
+}
+
 func (self Instance) ExposureMultiplier() Float.X { //gd:CameraAttributes.exposure_multiplier
 		return Float.X(Float.X(class(self).GetExposureMultiplier()))
 }
+
+func (o *Extension[T]) ExposureMultiplier() Float.X { return o.Super().ExposureMultiplier() }
 
 // SetExposureMultiplier sets the property returned by [GetExposureMultiplier]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetExposureMultiplier(value Float.X) Instance { //gd:CameraAttributes.exposure_multiplier
@@ -172,9 +181,16 @@ func (self Instance) SetExposureMultiplier(value Float.X) Instance { //gd:Camera
 	return self
 }
 
+func (o *Extension[T]) SetExposureMultiplier(value Float.X) *Extension[T] {
+	o.Super().SetExposureMultiplier(value)
+	return o
+}
+
 func (self Instance) AutoExposureEnabled() bool { //gd:CameraAttributes.auto_exposure_enabled
 		return bool(class(self).IsAutoExposureEnabled())
 }
+
+func (o *Extension[T]) AutoExposureEnabled() bool { return o.Super().AutoExposureEnabled() }
 
 // SetAutoExposureEnabled sets the property returned by [IsAutoExposureEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAutoExposureEnabled(value bool) Instance { //gd:CameraAttributes.auto_exposure_enabled
@@ -182,9 +198,16 @@ func (self Instance) SetAutoExposureEnabled(value bool) Instance { //gd:CameraAt
 	return self
 }
 
+func (o *Extension[T]) SetAutoExposureEnabled(value bool) *Extension[T] {
+	o.Super().SetAutoExposureEnabled(value)
+	return o
+}
+
 func (self Instance) AutoExposureScale() Float.X { //gd:CameraAttributes.auto_exposure_scale
 		return Float.X(Float.X(class(self).GetAutoExposureScale()))
 }
+
+func (o *Extension[T]) AutoExposureScale() Float.X { return o.Super().AutoExposureScale() }
 
 // SetAutoExposureScale sets the property returned by [GetAutoExposureScale]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAutoExposureScale(value Float.X) Instance { //gd:CameraAttributes.auto_exposure_scale
@@ -192,14 +215,26 @@ func (self Instance) SetAutoExposureScale(value Float.X) Instance { //gd:CameraA
 	return self
 }
 
+func (o *Extension[T]) SetAutoExposureScale(value Float.X) *Extension[T] {
+	o.Super().SetAutoExposureScale(value)
+	return o
+}
+
 func (self Instance) AutoExposureSpeed() Float.X { //gd:CameraAttributes.auto_exposure_speed
 		return Float.X(Float.X(class(self).GetAutoExposureSpeed()))
 }
+
+func (o *Extension[T]) AutoExposureSpeed() Float.X { return o.Super().AutoExposureSpeed() }
 
 // SetAutoExposureSpeed sets the property returned by [GetAutoExposureSpeed]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAutoExposureSpeed(value Float.X) Instance { //gd:CameraAttributes.auto_exposure_speed
 	class(self).SetAutoExposureSpeed(float64(value))
 	return self
+}
+
+func (o *Extension[T]) SetAutoExposureSpeed(value Float.X) *Extension[T] {
+	o.Super().SetAutoExposureSpeed(value)
+	return o
 }
 
 func (self class) SetExposureMultiplier(multiplier float64)  { //gd:CameraAttributes.set_exposure_multiplier
@@ -364,6 +399,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

@@ -22,7 +22,9 @@ import "graphics.gd/classdb/CanvasLayer"
 import "graphics.gd/classdb/Curve"
 import "graphics.gd/classdb/Gradient"
 import "graphics.gd/classdb/InputEvent"
+import "graphics.gd/classdb/Material"
 import "graphics.gd/classdb/MultiMesh"
+import "graphics.gd/classdb/MultiplayerAPI"
 import "graphics.gd/classdb/Node"
 import "graphics.gd/classdb/Node2D"
 import "graphics.gd/classdb/Texture2D"
@@ -253,15 +255,24 @@ func (self Instance) Emitting() bool { //gd:CPUParticles2D.emitting
 		return bool(class(self).IsEmitting())
 }
 
+func (o *Extension[T]) Emitting() bool { return o.Super().Emitting() }
+
 // SetEmitting sets the property returned by [IsEmitting]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEmitting(value bool) Instance { //gd:CPUParticles2D.emitting
 	class(self).SetEmitting(value)
 	return self
 }
 
+func (o *Extension[T]) SetEmitting(value bool) *Extension[T] {
+	o.Super().SetEmitting(value)
+	return o
+}
+
 func (self Instance) Amount() int { //gd:CPUParticles2D.amount
 		return int(int(class(self).GetAmount()))
 }
+
+func (o *Extension[T]) Amount() int { return o.Super().Amount() }
 
 // SetAmount sets the property returned by [GetAmount]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAmount(value int) Instance { //gd:CPUParticles2D.amount
@@ -269,9 +280,16 @@ func (self Instance) SetAmount(value int) Instance { //gd:CPUParticles2D.amount
 	return self
 }
 
+func (o *Extension[T]) SetAmount(value int) *Extension[T] {
+	o.Super().SetAmount(value)
+	return o
+}
+
 func (self Instance) Texture() Texture2D.Instance { //gd:CPUParticles2D.texture
 		return Texture2D.Instance(class(self).GetTexture())
 }
+
+func (o *Extension[T]) Texture() Texture2D.Instance { return o.Super().Texture() }
 
 // SetTexture sets the property returned by [GetTexture]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTexture(value Texture2D.Instance) Instance { //gd:CPUParticles2D.texture
@@ -279,9 +297,16 @@ func (self Instance) SetTexture(value Texture2D.Instance) Instance { //gd:CPUPar
 	return self
 }
 
+func (o *Extension[T]) SetTexture(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetTexture(value)
+	return o
+}
+
 func (self Instance) Lifetime() Float.X { //gd:CPUParticles2D.lifetime
 		return Float.X(Float.X(class(self).GetLifetime()))
 }
+
+func (o *Extension[T]) Lifetime() Float.X { return o.Super().Lifetime() }
 
 // SetLifetime sets the property returned by [GetLifetime]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetLifetime(value Float.X) Instance { //gd:CPUParticles2D.lifetime
@@ -289,9 +314,16 @@ func (self Instance) SetLifetime(value Float.X) Instance { //gd:CPUParticles2D.l
 	return self
 }
 
+func (o *Extension[T]) SetLifetime(value Float.X) *Extension[T] {
+	o.Super().SetLifetime(value)
+	return o
+}
+
 func (self Instance) OneShot() bool { //gd:CPUParticles2D.one_shot
 		return bool(class(self).GetOneShot())
 }
+
+func (o *Extension[T]) OneShot() bool { return o.Super().OneShot() }
 
 // SetOneShot sets the property returned by [GetOneShot]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOneShot(value bool) Instance { //gd:CPUParticles2D.one_shot
@@ -299,9 +331,16 @@ func (self Instance) SetOneShot(value bool) Instance { //gd:CPUParticles2D.one_s
 	return self
 }
 
+func (o *Extension[T]) SetOneShot(value bool) *Extension[T] {
+	o.Super().SetOneShot(value)
+	return o
+}
+
 func (self Instance) Preprocess() Float.X { //gd:CPUParticles2D.preprocess
 		return Float.X(Float.X(class(self).GetPreProcessTime()))
 }
+
+func (o *Extension[T]) Preprocess() Float.X { return o.Super().Preprocess() }
 
 // SetPreprocess sets the property returned by [GetPreProcessTime]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPreprocess(value Float.X) Instance { //gd:CPUParticles2D.preprocess
@@ -309,9 +348,16 @@ func (self Instance) SetPreprocess(value Float.X) Instance { //gd:CPUParticles2D
 	return self
 }
 
+func (o *Extension[T]) SetPreprocess(value Float.X) *Extension[T] {
+	o.Super().SetPreprocess(value)
+	return o
+}
+
 func (self Instance) SpeedScale() Float.X { //gd:CPUParticles2D.speed_scale
 		return Float.X(Float.X(class(self).GetSpeedScale()))
 }
+
+func (o *Extension[T]) SpeedScale() Float.X { return o.Super().SpeedScale() }
 
 // SetSpeedScale sets the property returned by [GetSpeedScale]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSpeedScale(value Float.X) Instance { //gd:CPUParticles2D.speed_scale
@@ -319,9 +365,16 @@ func (self Instance) SetSpeedScale(value Float.X) Instance { //gd:CPUParticles2D
 	return self
 }
 
+func (o *Extension[T]) SetSpeedScale(value Float.X) *Extension[T] {
+	o.Super().SetSpeedScale(value)
+	return o
+}
+
 func (self Instance) Explosiveness() Float.X { //gd:CPUParticles2D.explosiveness
 		return Float.X(Float.X(class(self).GetExplosivenessRatio()))
 }
+
+func (o *Extension[T]) Explosiveness() Float.X { return o.Super().Explosiveness() }
 
 // SetExplosiveness sets the property returned by [GetExplosivenessRatio]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetExplosiveness(value Float.X) Instance { //gd:CPUParticles2D.explosiveness
@@ -329,9 +382,16 @@ func (self Instance) SetExplosiveness(value Float.X) Instance { //gd:CPUParticle
 	return self
 }
 
+func (o *Extension[T]) SetExplosiveness(value Float.X) *Extension[T] {
+	o.Super().SetExplosiveness(value)
+	return o
+}
+
 func (self Instance) Randomness() Float.X { //gd:CPUParticles2D.randomness
 		return Float.X(Float.X(class(self).GetRandomnessRatio()))
 }
+
+func (o *Extension[T]) Randomness() Float.X { return o.Super().Randomness() }
 
 // SetRandomness sets the property returned by [GetRandomnessRatio]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRandomness(value Float.X) Instance { //gd:CPUParticles2D.randomness
@@ -339,9 +399,16 @@ func (self Instance) SetRandomness(value Float.X) Instance { //gd:CPUParticles2D
 	return self
 }
 
+func (o *Extension[T]) SetRandomness(value Float.X) *Extension[T] {
+	o.Super().SetRandomness(value)
+	return o
+}
+
 func (self Instance) UseFixedSeed() bool { //gd:CPUParticles2D.use_fixed_seed
 		return bool(class(self).GetUseFixedSeed())
 }
+
+func (o *Extension[T]) UseFixedSeed() bool { return o.Super().UseFixedSeed() }
 
 // SetUseFixedSeed sets the property returned by [GetUseFixedSeed]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUseFixedSeed(value bool) Instance { //gd:CPUParticles2D.use_fixed_seed
@@ -349,9 +416,16 @@ func (self Instance) SetUseFixedSeed(value bool) Instance { //gd:CPUParticles2D.
 	return self
 }
 
+func (o *Extension[T]) SetUseFixedSeed(value bool) *Extension[T] {
+	o.Super().SetUseFixedSeed(value)
+	return o
+}
+
 func (self Instance) Seed() int { //gd:CPUParticles2D.seed
 		return int(int(class(self).GetSeed()))
 }
+
+func (o *Extension[T]) Seed() int { return o.Super().Seed() }
 
 // SetSeed sets the property returned by [GetSeed]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSeed(value int) Instance { //gd:CPUParticles2D.seed
@@ -359,9 +433,16 @@ func (self Instance) SetSeed(value int) Instance { //gd:CPUParticles2D.seed
 	return self
 }
 
+func (o *Extension[T]) SetSeed(value int) *Extension[T] {
+	o.Super().SetSeed(value)
+	return o
+}
+
 func (self Instance) LifetimeRandomness() Float.X { //gd:CPUParticles2D.lifetime_randomness
 		return Float.X(Float.X(class(self).GetLifetimeRandomness()))
 }
+
+func (o *Extension[T]) LifetimeRandomness() Float.X { return o.Super().LifetimeRandomness() }
 
 // SetLifetimeRandomness sets the property returned by [GetLifetimeRandomness]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetLifetimeRandomness(value Float.X) Instance { //gd:CPUParticles2D.lifetime_randomness
@@ -369,9 +450,16 @@ func (self Instance) SetLifetimeRandomness(value Float.X) Instance { //gd:CPUPar
 	return self
 }
 
+func (o *Extension[T]) SetLifetimeRandomness(value Float.X) *Extension[T] {
+	o.Super().SetLifetimeRandomness(value)
+	return o
+}
+
 func (self Instance) FixedFps() int { //gd:CPUParticles2D.fixed_fps
 		return int(int(class(self).GetFixedFps()))
 }
+
+func (o *Extension[T]) FixedFps() int { return o.Super().FixedFps() }
 
 // SetFixedFps sets the property returned by [GetFixedFps]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFixedFps(value int) Instance { //gd:CPUParticles2D.fixed_fps
@@ -379,9 +467,16 @@ func (self Instance) SetFixedFps(value int) Instance { //gd:CPUParticles2D.fixed
 	return self
 }
 
+func (o *Extension[T]) SetFixedFps(value int) *Extension[T] {
+	o.Super().SetFixedFps(value)
+	return o
+}
+
 func (self Instance) FractDelta() bool { //gd:CPUParticles2D.fract_delta
 		return bool(class(self).GetFractionalDelta())
 }
+
+func (o *Extension[T]) FractDelta() bool { return o.Super().FractDelta() }
 
 // SetFractDelta sets the property returned by [GetFractionalDelta]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFractDelta(value bool) Instance { //gd:CPUParticles2D.fract_delta
@@ -389,9 +484,16 @@ func (self Instance) SetFractDelta(value bool) Instance { //gd:CPUParticles2D.fr
 	return self
 }
 
+func (o *Extension[T]) SetFractDelta(value bool) *Extension[T] {
+	o.Super().SetFractDelta(value)
+	return o
+}
+
 func (self Instance) LocalCoords() bool { //gd:CPUParticles2D.local_coords
 		return bool(class(self).GetUseLocalCoordinates())
 }
+
+func (o *Extension[T]) LocalCoords() bool { return o.Super().LocalCoords() }
 
 // SetLocalCoords sets the property returned by [GetUseLocalCoordinates]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetLocalCoords(value bool) Instance { //gd:CPUParticles2D.local_coords
@@ -399,9 +501,16 @@ func (self Instance) SetLocalCoords(value bool) Instance { //gd:CPUParticles2D.l
 	return self
 }
 
+func (o *Extension[T]) SetLocalCoords(value bool) *Extension[T] {
+	o.Super().SetLocalCoords(value)
+	return o
+}
+
 func (self Instance) DrawOrder() DrawOrder { //gd:CPUParticles2D.draw_order
 		return DrawOrder(class(self).GetDrawOrder())
 }
+
+func (o *Extension[T]) DrawOrder() DrawOrder { return o.Super().DrawOrder() }
 
 // SetDrawOrder sets the property returned by [GetDrawOrder]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDrawOrder(value DrawOrder) Instance { //gd:CPUParticles2D.draw_order
@@ -409,9 +518,16 @@ func (self Instance) SetDrawOrder(value DrawOrder) Instance { //gd:CPUParticles2
 	return self
 }
 
+func (o *Extension[T]) SetDrawOrder(value DrawOrder) *Extension[T] {
+	o.Super().SetDrawOrder(value)
+	return o
+}
+
 func (self Instance) EmissionShape() EmissionShape { //gd:CPUParticles2D.emission_shape
 		return EmissionShape(class(self).GetEmissionShape())
 }
+
+func (o *Extension[T]) EmissionShape() EmissionShape { return o.Super().EmissionShape() }
 
 // SetEmissionShape sets the property returned by [GetEmissionShape]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEmissionShape(value EmissionShape) Instance { //gd:CPUParticles2D.emission_shape
@@ -419,9 +535,16 @@ func (self Instance) SetEmissionShape(value EmissionShape) Instance { //gd:CPUPa
 	return self
 }
 
+func (o *Extension[T]) SetEmissionShape(value EmissionShape) *Extension[T] {
+	o.Super().SetEmissionShape(value)
+	return o
+}
+
 func (self Instance) EmissionSphereRadius() Float.X { //gd:CPUParticles2D.emission_sphere_radius
 		return Float.X(Float.X(class(self).GetEmissionSphereRadius()))
 }
+
+func (o *Extension[T]) EmissionSphereRadius() Float.X { return o.Super().EmissionSphereRadius() }
 
 // SetEmissionSphereRadius sets the property returned by [GetEmissionSphereRadius]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEmissionSphereRadius(value Float.X) Instance { //gd:CPUParticles2D.emission_sphere_radius
@@ -429,9 +552,16 @@ func (self Instance) SetEmissionSphereRadius(value Float.X) Instance { //gd:CPUP
 	return self
 }
 
+func (o *Extension[T]) SetEmissionSphereRadius(value Float.X) *Extension[T] {
+	o.Super().SetEmissionSphereRadius(value)
+	return o
+}
+
 func (self Instance) EmissionRectExtents() Vector2.XY { //gd:CPUParticles2D.emission_rect_extents
 		return Vector2.XY(class(self).GetEmissionRectExtents())
 }
+
+func (o *Extension[T]) EmissionRectExtents() Vector2.XY { return o.Super().EmissionRectExtents() }
 
 // SetEmissionRectExtents sets the property returned by [GetEmissionRectExtents]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEmissionRectExtents(value Vector2.XY) Instance { //gd:CPUParticles2D.emission_rect_extents
@@ -439,9 +569,16 @@ func (self Instance) SetEmissionRectExtents(value Vector2.XY) Instance { //gd:CP
 	return self
 }
 
+func (o *Extension[T]) SetEmissionRectExtents(value Vector2.XY) *Extension[T] {
+	o.Super().SetEmissionRectExtents(value)
+	return o
+}
+
 func (self Instance) EmissionPoints() []Vector2.XY { //gd:CPUParticles2D.emission_points
 		return []Vector2.XY(slices.Collect(class(self).GetEmissionPoints().Values()))
 }
+
+func (o *Extension[T]) EmissionPoints() []Vector2.XY { return o.Super().EmissionPoints() }
 
 // SetEmissionPoints sets the property returned by [GetEmissionPoints]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEmissionPoints(value []Vector2.XY) Instance { //gd:CPUParticles2D.emission_points
@@ -449,9 +586,16 @@ func (self Instance) SetEmissionPoints(value []Vector2.XY) Instance { //gd:CPUPa
 	return self
 }
 
+func (o *Extension[T]) SetEmissionPoints(value []Vector2.XY) *Extension[T] {
+	o.Super().SetEmissionPoints(value)
+	return o
+}
+
 func (self Instance) EmissionNormals() []Vector2.XY { //gd:CPUParticles2D.emission_normals
 		return []Vector2.XY(slices.Collect(class(self).GetEmissionNormals().Values()))
 }
+
+func (o *Extension[T]) EmissionNormals() []Vector2.XY { return o.Super().EmissionNormals() }
 
 // SetEmissionNormals sets the property returned by [GetEmissionNormals]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEmissionNormals(value []Vector2.XY) Instance { //gd:CPUParticles2D.emission_normals
@@ -459,9 +603,16 @@ func (self Instance) SetEmissionNormals(value []Vector2.XY) Instance { //gd:CPUP
 	return self
 }
 
+func (o *Extension[T]) SetEmissionNormals(value []Vector2.XY) *Extension[T] {
+	o.Super().SetEmissionNormals(value)
+	return o
+}
+
 func (self Instance) EmissionColors() []Color.RGBA { //gd:CPUParticles2D.emission_colors
 		return []Color.RGBA(slices.Collect(class(self).GetEmissionColors().Values()))
 }
+
+func (o *Extension[T]) EmissionColors() []Color.RGBA { return o.Super().EmissionColors() }
 
 // SetEmissionColors sets the property returned by [GetEmissionColors]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEmissionColors(value []Color.RGBA) Instance { //gd:CPUParticles2D.emission_colors
@@ -469,9 +620,16 @@ func (self Instance) SetEmissionColors(value []Color.RGBA) Instance { //gd:CPUPa
 	return self
 }
 
+func (o *Extension[T]) SetEmissionColors(value []Color.RGBA) *Extension[T] {
+	o.Super().SetEmissionColors(value)
+	return o
+}
+
 func (self Instance) EmissionRingInnerRadius() Float.X { //gd:CPUParticles2D.emission_ring_inner_radius
 		return Float.X(Float.X(class(self).GetEmissionRingInnerRadius()))
 }
+
+func (o *Extension[T]) EmissionRingInnerRadius() Float.X { return o.Super().EmissionRingInnerRadius() }
 
 // SetEmissionRingInnerRadius sets the property returned by [GetEmissionRingInnerRadius]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEmissionRingInnerRadius(value Float.X) Instance { //gd:CPUParticles2D.emission_ring_inner_radius
@@ -479,9 +637,16 @@ func (self Instance) SetEmissionRingInnerRadius(value Float.X) Instance { //gd:C
 	return self
 }
 
+func (o *Extension[T]) SetEmissionRingInnerRadius(value Float.X) *Extension[T] {
+	o.Super().SetEmissionRingInnerRadius(value)
+	return o
+}
+
 func (self Instance) EmissionRingRadius() Float.X { //gd:CPUParticles2D.emission_ring_radius
 		return Float.X(Float.X(class(self).GetEmissionRingRadius()))
 }
+
+func (o *Extension[T]) EmissionRingRadius() Float.X { return o.Super().EmissionRingRadius() }
 
 // SetEmissionRingRadius sets the property returned by [GetEmissionRingRadius]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEmissionRingRadius(value Float.X) Instance { //gd:CPUParticles2D.emission_ring_radius
@@ -489,9 +654,16 @@ func (self Instance) SetEmissionRingRadius(value Float.X) Instance { //gd:CPUPar
 	return self
 }
 
+func (o *Extension[T]) SetEmissionRingRadius(value Float.X) *Extension[T] {
+	o.Super().SetEmissionRingRadius(value)
+	return o
+}
+
 func (self Instance) ParticleFlagAlignY() bool { //gd:CPUParticles2D.particle_flag_align_y
 		return bool(class(self).GetParticleFlag(0))
 }
+
+func (o *Extension[T]) ParticleFlagAlignY() bool { return o.Super().ParticleFlagAlignY() }
 
 // SetParticleFlagAlignY sets the property returned by [GetParticleFlag]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetParticleFlagAlignY(value bool) Instance { //gd:CPUParticles2D.particle_flag_align_y
@@ -499,9 +671,16 @@ func (self Instance) SetParticleFlagAlignY(value bool) Instance { //gd:CPUPartic
 	return self
 }
 
+func (o *Extension[T]) SetParticleFlagAlignY(value bool) *Extension[T] {
+	o.Super().SetParticleFlagAlignY(value)
+	return o
+}
+
 func (self Instance) Direction() Vector2.XY { //gd:CPUParticles2D.direction
 		return Vector2.XY(class(self).GetDirection())
 }
+
+func (o *Extension[T]) Direction() Vector2.XY { return o.Super().Direction() }
 
 // SetDirection sets the property returned by [GetDirection]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDirection(value Vector2.XY) Instance { //gd:CPUParticles2D.direction
@@ -509,9 +688,16 @@ func (self Instance) SetDirection(value Vector2.XY) Instance { //gd:CPUParticles
 	return self
 }
 
+func (o *Extension[T]) SetDirection(value Vector2.XY) *Extension[T] {
+	o.Super().SetDirection(value)
+	return o
+}
+
 func (self Instance) Spread() Float.X { //gd:CPUParticles2D.spread
 		return Float.X(Float.X(class(self).GetSpread()))
 }
+
+func (o *Extension[T]) Spread() Float.X { return o.Super().Spread() }
 
 // SetSpread sets the property returned by [GetSpread]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSpread(value Float.X) Instance { //gd:CPUParticles2D.spread
@@ -519,9 +705,16 @@ func (self Instance) SetSpread(value Float.X) Instance { //gd:CPUParticles2D.spr
 	return self
 }
 
+func (o *Extension[T]) SetSpread(value Float.X) *Extension[T] {
+	o.Super().SetSpread(value)
+	return o
+}
+
 func (self Instance) Gravity() Vector2.XY { //gd:CPUParticles2D.gravity
 		return Vector2.XY(class(self).GetGravity())
 }
+
+func (o *Extension[T]) Gravity() Vector2.XY { return o.Super().Gravity() }
 
 // SetGravity sets the property returned by [GetGravity]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetGravity(value Vector2.XY) Instance { //gd:CPUParticles2D.gravity
@@ -529,9 +722,16 @@ func (self Instance) SetGravity(value Vector2.XY) Instance { //gd:CPUParticles2D
 	return self
 }
 
+func (o *Extension[T]) SetGravity(value Vector2.XY) *Extension[T] {
+	o.Super().SetGravity(value)
+	return o
+}
+
 func (self Instance) InitialVelocityMin() Float.X { //gd:CPUParticles2D.initial_velocity_min
 		return Float.X(Float.X(class(self).GetParamMin(0)))
 }
+
+func (o *Extension[T]) InitialVelocityMin() Float.X { return o.Super().InitialVelocityMin() }
 
 // SetInitialVelocityMin sets the property returned by [GetParamMin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetInitialVelocityMin(value Float.X) Instance { //gd:CPUParticles2D.initial_velocity_min
@@ -539,9 +739,16 @@ func (self Instance) SetInitialVelocityMin(value Float.X) Instance { //gd:CPUPar
 	return self
 }
 
+func (o *Extension[T]) SetInitialVelocityMin(value Float.X) *Extension[T] {
+	o.Super().SetInitialVelocityMin(value)
+	return o
+}
+
 func (self Instance) InitialVelocityMax() Float.X { //gd:CPUParticles2D.initial_velocity_max
 		return Float.X(Float.X(class(self).GetParamMax(0)))
 }
+
+func (o *Extension[T]) InitialVelocityMax() Float.X { return o.Super().InitialVelocityMax() }
 
 // SetInitialVelocityMax sets the property returned by [GetParamMax]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetInitialVelocityMax(value Float.X) Instance { //gd:CPUParticles2D.initial_velocity_max
@@ -549,9 +756,16 @@ func (self Instance) SetInitialVelocityMax(value Float.X) Instance { //gd:CPUPar
 	return self
 }
 
+func (o *Extension[T]) SetInitialVelocityMax(value Float.X) *Extension[T] {
+	o.Super().SetInitialVelocityMax(value)
+	return o
+}
+
 func (self Instance) AngularVelocityMin() Float.X { //gd:CPUParticles2D.angular_velocity_min
 		return Float.X(Float.X(class(self).GetParamMin(1)))
 }
+
+func (o *Extension[T]) AngularVelocityMin() Float.X { return o.Super().AngularVelocityMin() }
 
 // SetAngularVelocityMin sets the property returned by [GetParamMin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAngularVelocityMin(value Float.X) Instance { //gd:CPUParticles2D.angular_velocity_min
@@ -559,9 +773,16 @@ func (self Instance) SetAngularVelocityMin(value Float.X) Instance { //gd:CPUPar
 	return self
 }
 
+func (o *Extension[T]) SetAngularVelocityMin(value Float.X) *Extension[T] {
+	o.Super().SetAngularVelocityMin(value)
+	return o
+}
+
 func (self Instance) AngularVelocityMax() Float.X { //gd:CPUParticles2D.angular_velocity_max
 		return Float.X(Float.X(class(self).GetParamMax(1)))
 }
+
+func (o *Extension[T]) AngularVelocityMax() Float.X { return o.Super().AngularVelocityMax() }
 
 // SetAngularVelocityMax sets the property returned by [GetParamMax]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAngularVelocityMax(value Float.X) Instance { //gd:CPUParticles2D.angular_velocity_max
@@ -569,9 +790,16 @@ func (self Instance) SetAngularVelocityMax(value Float.X) Instance { //gd:CPUPar
 	return self
 }
 
+func (o *Extension[T]) SetAngularVelocityMax(value Float.X) *Extension[T] {
+	o.Super().SetAngularVelocityMax(value)
+	return o
+}
+
 func (self Instance) AngularVelocityCurve() Curve.Instance { //gd:CPUParticles2D.angular_velocity_curve
 		return Curve.Instance(class(self).GetParamCurve(1))
 }
+
+func (o *Extension[T]) AngularVelocityCurve() Curve.Instance { return o.Super().AngularVelocityCurve() }
 
 // SetAngularVelocityCurve sets the property returned by [GetParamCurve]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAngularVelocityCurve(value Curve.Instance) Instance { //gd:CPUParticles2D.angular_velocity_curve
@@ -579,9 +807,16 @@ func (self Instance) SetAngularVelocityCurve(value Curve.Instance) Instance { //
 	return self
 }
 
+func (o *Extension[T]) SetAngularVelocityCurve(value Curve.Instance) *Extension[T] {
+	o.Super().SetAngularVelocityCurve(value)
+	return o
+}
+
 func (self Instance) OrbitVelocityMin() Float.X { //gd:CPUParticles2D.orbit_velocity_min
 		return Float.X(Float.X(class(self).GetParamMin(2)))
 }
+
+func (o *Extension[T]) OrbitVelocityMin() Float.X { return o.Super().OrbitVelocityMin() }
 
 // SetOrbitVelocityMin sets the property returned by [GetParamMin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOrbitVelocityMin(value Float.X) Instance { //gd:CPUParticles2D.orbit_velocity_min
@@ -589,9 +824,16 @@ func (self Instance) SetOrbitVelocityMin(value Float.X) Instance { //gd:CPUParti
 	return self
 }
 
+func (o *Extension[T]) SetOrbitVelocityMin(value Float.X) *Extension[T] {
+	o.Super().SetOrbitVelocityMin(value)
+	return o
+}
+
 func (self Instance) OrbitVelocityMax() Float.X { //gd:CPUParticles2D.orbit_velocity_max
 		return Float.X(Float.X(class(self).GetParamMax(2)))
 }
+
+func (o *Extension[T]) OrbitVelocityMax() Float.X { return o.Super().OrbitVelocityMax() }
 
 // SetOrbitVelocityMax sets the property returned by [GetParamMax]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOrbitVelocityMax(value Float.X) Instance { //gd:CPUParticles2D.orbit_velocity_max
@@ -599,9 +841,16 @@ func (self Instance) SetOrbitVelocityMax(value Float.X) Instance { //gd:CPUParti
 	return self
 }
 
+func (o *Extension[T]) SetOrbitVelocityMax(value Float.X) *Extension[T] {
+	o.Super().SetOrbitVelocityMax(value)
+	return o
+}
+
 func (self Instance) OrbitVelocityCurve() Curve.Instance { //gd:CPUParticles2D.orbit_velocity_curve
 		return Curve.Instance(class(self).GetParamCurve(2))
 }
+
+func (o *Extension[T]) OrbitVelocityCurve() Curve.Instance { return o.Super().OrbitVelocityCurve() }
 
 // SetOrbitVelocityCurve sets the property returned by [GetParamCurve]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOrbitVelocityCurve(value Curve.Instance) Instance { //gd:CPUParticles2D.orbit_velocity_curve
@@ -609,9 +858,16 @@ func (self Instance) SetOrbitVelocityCurve(value Curve.Instance) Instance { //gd
 	return self
 }
 
+func (o *Extension[T]) SetOrbitVelocityCurve(value Curve.Instance) *Extension[T] {
+	o.Super().SetOrbitVelocityCurve(value)
+	return o
+}
+
 func (self Instance) LinearAccelMin() Float.X { //gd:CPUParticles2D.linear_accel_min
 		return Float.X(Float.X(class(self).GetParamMin(3)))
 }
+
+func (o *Extension[T]) LinearAccelMin() Float.X { return o.Super().LinearAccelMin() }
 
 // SetLinearAccelMin sets the property returned by [GetParamMin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetLinearAccelMin(value Float.X) Instance { //gd:CPUParticles2D.linear_accel_min
@@ -619,9 +875,16 @@ func (self Instance) SetLinearAccelMin(value Float.X) Instance { //gd:CPUParticl
 	return self
 }
 
+func (o *Extension[T]) SetLinearAccelMin(value Float.X) *Extension[T] {
+	o.Super().SetLinearAccelMin(value)
+	return o
+}
+
 func (self Instance) LinearAccelMax() Float.X { //gd:CPUParticles2D.linear_accel_max
 		return Float.X(Float.X(class(self).GetParamMax(3)))
 }
+
+func (o *Extension[T]) LinearAccelMax() Float.X { return o.Super().LinearAccelMax() }
 
 // SetLinearAccelMax sets the property returned by [GetParamMax]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetLinearAccelMax(value Float.X) Instance { //gd:CPUParticles2D.linear_accel_max
@@ -629,9 +892,16 @@ func (self Instance) SetLinearAccelMax(value Float.X) Instance { //gd:CPUParticl
 	return self
 }
 
+func (o *Extension[T]) SetLinearAccelMax(value Float.X) *Extension[T] {
+	o.Super().SetLinearAccelMax(value)
+	return o
+}
+
 func (self Instance) LinearAccelCurve() Curve.Instance { //gd:CPUParticles2D.linear_accel_curve
 		return Curve.Instance(class(self).GetParamCurve(3))
 }
+
+func (o *Extension[T]) LinearAccelCurve() Curve.Instance { return o.Super().LinearAccelCurve() }
 
 // SetLinearAccelCurve sets the property returned by [GetParamCurve]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetLinearAccelCurve(value Curve.Instance) Instance { //gd:CPUParticles2D.linear_accel_curve
@@ -639,9 +909,16 @@ func (self Instance) SetLinearAccelCurve(value Curve.Instance) Instance { //gd:C
 	return self
 }
 
+func (o *Extension[T]) SetLinearAccelCurve(value Curve.Instance) *Extension[T] {
+	o.Super().SetLinearAccelCurve(value)
+	return o
+}
+
 func (self Instance) RadialAccelMin() Float.X { //gd:CPUParticles2D.radial_accel_min
 		return Float.X(Float.X(class(self).GetParamMin(4)))
 }
+
+func (o *Extension[T]) RadialAccelMin() Float.X { return o.Super().RadialAccelMin() }
 
 // SetRadialAccelMin sets the property returned by [GetParamMin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRadialAccelMin(value Float.X) Instance { //gd:CPUParticles2D.radial_accel_min
@@ -649,9 +926,16 @@ func (self Instance) SetRadialAccelMin(value Float.X) Instance { //gd:CPUParticl
 	return self
 }
 
+func (o *Extension[T]) SetRadialAccelMin(value Float.X) *Extension[T] {
+	o.Super().SetRadialAccelMin(value)
+	return o
+}
+
 func (self Instance) RadialAccelMax() Float.X { //gd:CPUParticles2D.radial_accel_max
 		return Float.X(Float.X(class(self).GetParamMax(4)))
 }
+
+func (o *Extension[T]) RadialAccelMax() Float.X { return o.Super().RadialAccelMax() }
 
 // SetRadialAccelMax sets the property returned by [GetParamMax]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRadialAccelMax(value Float.X) Instance { //gd:CPUParticles2D.radial_accel_max
@@ -659,9 +943,16 @@ func (self Instance) SetRadialAccelMax(value Float.X) Instance { //gd:CPUParticl
 	return self
 }
 
+func (o *Extension[T]) SetRadialAccelMax(value Float.X) *Extension[T] {
+	o.Super().SetRadialAccelMax(value)
+	return o
+}
+
 func (self Instance) RadialAccelCurve() Curve.Instance { //gd:CPUParticles2D.radial_accel_curve
 		return Curve.Instance(class(self).GetParamCurve(4))
 }
+
+func (o *Extension[T]) RadialAccelCurve() Curve.Instance { return o.Super().RadialAccelCurve() }
 
 // SetRadialAccelCurve sets the property returned by [GetParamCurve]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRadialAccelCurve(value Curve.Instance) Instance { //gd:CPUParticles2D.radial_accel_curve
@@ -669,9 +960,16 @@ func (self Instance) SetRadialAccelCurve(value Curve.Instance) Instance { //gd:C
 	return self
 }
 
+func (o *Extension[T]) SetRadialAccelCurve(value Curve.Instance) *Extension[T] {
+	o.Super().SetRadialAccelCurve(value)
+	return o
+}
+
 func (self Instance) TangentialAccelMin() Float.X { //gd:CPUParticles2D.tangential_accel_min
 		return Float.X(Float.X(class(self).GetParamMin(5)))
 }
+
+func (o *Extension[T]) TangentialAccelMin() Float.X { return o.Super().TangentialAccelMin() }
 
 // SetTangentialAccelMin sets the property returned by [GetParamMin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTangentialAccelMin(value Float.X) Instance { //gd:CPUParticles2D.tangential_accel_min
@@ -679,9 +977,16 @@ func (self Instance) SetTangentialAccelMin(value Float.X) Instance { //gd:CPUPar
 	return self
 }
 
+func (o *Extension[T]) SetTangentialAccelMin(value Float.X) *Extension[T] {
+	o.Super().SetTangentialAccelMin(value)
+	return o
+}
+
 func (self Instance) TangentialAccelMax() Float.X { //gd:CPUParticles2D.tangential_accel_max
 		return Float.X(Float.X(class(self).GetParamMax(5)))
 }
+
+func (o *Extension[T]) TangentialAccelMax() Float.X { return o.Super().TangentialAccelMax() }
 
 // SetTangentialAccelMax sets the property returned by [GetParamMax]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTangentialAccelMax(value Float.X) Instance { //gd:CPUParticles2D.tangential_accel_max
@@ -689,9 +994,16 @@ func (self Instance) SetTangentialAccelMax(value Float.X) Instance { //gd:CPUPar
 	return self
 }
 
+func (o *Extension[T]) SetTangentialAccelMax(value Float.X) *Extension[T] {
+	o.Super().SetTangentialAccelMax(value)
+	return o
+}
+
 func (self Instance) TangentialAccelCurve() Curve.Instance { //gd:CPUParticles2D.tangential_accel_curve
 		return Curve.Instance(class(self).GetParamCurve(5))
 }
+
+func (o *Extension[T]) TangentialAccelCurve() Curve.Instance { return o.Super().TangentialAccelCurve() }
 
 // SetTangentialAccelCurve sets the property returned by [GetParamCurve]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTangentialAccelCurve(value Curve.Instance) Instance { //gd:CPUParticles2D.tangential_accel_curve
@@ -699,9 +1011,16 @@ func (self Instance) SetTangentialAccelCurve(value Curve.Instance) Instance { //
 	return self
 }
 
+func (o *Extension[T]) SetTangentialAccelCurve(value Curve.Instance) *Extension[T] {
+	o.Super().SetTangentialAccelCurve(value)
+	return o
+}
+
 func (self Instance) DampingMin() Float.X { //gd:CPUParticles2D.damping_min
 		return Float.X(Float.X(class(self).GetParamMin(6)))
 }
+
+func (o *Extension[T]) DampingMin() Float.X { return o.Super().DampingMin() }
 
 // SetDampingMin sets the property returned by [GetParamMin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDampingMin(value Float.X) Instance { //gd:CPUParticles2D.damping_min
@@ -709,9 +1028,16 @@ func (self Instance) SetDampingMin(value Float.X) Instance { //gd:CPUParticles2D
 	return self
 }
 
+func (o *Extension[T]) SetDampingMin(value Float.X) *Extension[T] {
+	o.Super().SetDampingMin(value)
+	return o
+}
+
 func (self Instance) DampingMax() Float.X { //gd:CPUParticles2D.damping_max
 		return Float.X(Float.X(class(self).GetParamMax(6)))
 }
+
+func (o *Extension[T]) DampingMax() Float.X { return o.Super().DampingMax() }
 
 // SetDampingMax sets the property returned by [GetParamMax]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDampingMax(value Float.X) Instance { //gd:CPUParticles2D.damping_max
@@ -719,9 +1045,16 @@ func (self Instance) SetDampingMax(value Float.X) Instance { //gd:CPUParticles2D
 	return self
 }
 
+func (o *Extension[T]) SetDampingMax(value Float.X) *Extension[T] {
+	o.Super().SetDampingMax(value)
+	return o
+}
+
 func (self Instance) DampingCurve() Curve.Instance { //gd:CPUParticles2D.damping_curve
 		return Curve.Instance(class(self).GetParamCurve(6))
 }
+
+func (o *Extension[T]) DampingCurve() Curve.Instance { return o.Super().DampingCurve() }
 
 // SetDampingCurve sets the property returned by [GetParamCurve]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDampingCurve(value Curve.Instance) Instance { //gd:CPUParticles2D.damping_curve
@@ -729,9 +1062,16 @@ func (self Instance) SetDampingCurve(value Curve.Instance) Instance { //gd:CPUPa
 	return self
 }
 
+func (o *Extension[T]) SetDampingCurve(value Curve.Instance) *Extension[T] {
+	o.Super().SetDampingCurve(value)
+	return o
+}
+
 func (self Instance) AngleMin() Float.X { //gd:CPUParticles2D.angle_min
 		return Float.X(Float.X(class(self).GetParamMin(7)))
 }
+
+func (o *Extension[T]) AngleMin() Float.X { return o.Super().AngleMin() }
 
 // SetAngleMin sets the property returned by [GetParamMin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAngleMin(value Float.X) Instance { //gd:CPUParticles2D.angle_min
@@ -739,9 +1079,16 @@ func (self Instance) SetAngleMin(value Float.X) Instance { //gd:CPUParticles2D.a
 	return self
 }
 
+func (o *Extension[T]) SetAngleMin(value Float.X) *Extension[T] {
+	o.Super().SetAngleMin(value)
+	return o
+}
+
 func (self Instance) AngleMax() Float.X { //gd:CPUParticles2D.angle_max
 		return Float.X(Float.X(class(self).GetParamMax(7)))
 }
+
+func (o *Extension[T]) AngleMax() Float.X { return o.Super().AngleMax() }
 
 // SetAngleMax sets the property returned by [GetParamMax]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAngleMax(value Float.X) Instance { //gd:CPUParticles2D.angle_max
@@ -749,9 +1096,16 @@ func (self Instance) SetAngleMax(value Float.X) Instance { //gd:CPUParticles2D.a
 	return self
 }
 
+func (o *Extension[T]) SetAngleMax(value Float.X) *Extension[T] {
+	o.Super().SetAngleMax(value)
+	return o
+}
+
 func (self Instance) AngleCurve() Curve.Instance { //gd:CPUParticles2D.angle_curve
 		return Curve.Instance(class(self).GetParamCurve(7))
 }
+
+func (o *Extension[T]) AngleCurve() Curve.Instance { return o.Super().AngleCurve() }
 
 // SetAngleCurve sets the property returned by [GetParamCurve]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAngleCurve(value Curve.Instance) Instance { //gd:CPUParticles2D.angle_curve
@@ -759,9 +1113,16 @@ func (self Instance) SetAngleCurve(value Curve.Instance) Instance { //gd:CPUPart
 	return self
 }
 
+func (o *Extension[T]) SetAngleCurve(value Curve.Instance) *Extension[T] {
+	o.Super().SetAngleCurve(value)
+	return o
+}
+
 func (self Instance) ScaleAmountMin() Float.X { //gd:CPUParticles2D.scale_amount_min
 		return Float.X(Float.X(class(self).GetParamMin(8)))
 }
+
+func (o *Extension[T]) ScaleAmountMin() Float.X { return o.Super().ScaleAmountMin() }
 
 // SetScaleAmountMin sets the property returned by [GetParamMin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetScaleAmountMin(value Float.X) Instance { //gd:CPUParticles2D.scale_amount_min
@@ -769,9 +1130,16 @@ func (self Instance) SetScaleAmountMin(value Float.X) Instance { //gd:CPUParticl
 	return self
 }
 
+func (o *Extension[T]) SetScaleAmountMin(value Float.X) *Extension[T] {
+	o.Super().SetScaleAmountMin(value)
+	return o
+}
+
 func (self Instance) ScaleAmountMax() Float.X { //gd:CPUParticles2D.scale_amount_max
 		return Float.X(Float.X(class(self).GetParamMax(8)))
 }
+
+func (o *Extension[T]) ScaleAmountMax() Float.X { return o.Super().ScaleAmountMax() }
 
 // SetScaleAmountMax sets the property returned by [GetParamMax]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetScaleAmountMax(value Float.X) Instance { //gd:CPUParticles2D.scale_amount_max
@@ -779,9 +1147,16 @@ func (self Instance) SetScaleAmountMax(value Float.X) Instance { //gd:CPUParticl
 	return self
 }
 
+func (o *Extension[T]) SetScaleAmountMax(value Float.X) *Extension[T] {
+	o.Super().SetScaleAmountMax(value)
+	return o
+}
+
 func (self Instance) ScaleAmountCurve() Curve.Instance { //gd:CPUParticles2D.scale_amount_curve
 		return Curve.Instance(class(self).GetParamCurve(8))
 }
+
+func (o *Extension[T]) ScaleAmountCurve() Curve.Instance { return o.Super().ScaleAmountCurve() }
 
 // SetScaleAmountCurve sets the property returned by [GetParamCurve]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetScaleAmountCurve(value Curve.Instance) Instance { //gd:CPUParticles2D.scale_amount_curve
@@ -789,9 +1164,16 @@ func (self Instance) SetScaleAmountCurve(value Curve.Instance) Instance { //gd:C
 	return self
 }
 
+func (o *Extension[T]) SetScaleAmountCurve(value Curve.Instance) *Extension[T] {
+	o.Super().SetScaleAmountCurve(value)
+	return o
+}
+
 func (self Instance) SplitScale() bool { //gd:CPUParticles2D.split_scale
 		return bool(class(self).GetSplitScale())
 }
+
+func (o *Extension[T]) SplitScale() bool { return o.Super().SplitScale() }
 
 // SetSplitScale sets the property returned by [GetSplitScale]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSplitScale(value bool) Instance { //gd:CPUParticles2D.split_scale
@@ -799,9 +1181,16 @@ func (self Instance) SetSplitScale(value bool) Instance { //gd:CPUParticles2D.sp
 	return self
 }
 
+func (o *Extension[T]) SetSplitScale(value bool) *Extension[T] {
+	o.Super().SetSplitScale(value)
+	return o
+}
+
 func (self Instance) ScaleCurveX() Curve.Instance { //gd:CPUParticles2D.scale_curve_x
 		return Curve.Instance(class(self).GetScaleCurveX())
 }
+
+func (o *Extension[T]) ScaleCurveX() Curve.Instance { return o.Super().ScaleCurveX() }
 
 // SetScaleCurveX sets the property returned by [GetScaleCurveX]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetScaleCurveX(value Curve.Instance) Instance { //gd:CPUParticles2D.scale_curve_x
@@ -809,9 +1198,16 @@ func (self Instance) SetScaleCurveX(value Curve.Instance) Instance { //gd:CPUPar
 	return self
 }
 
+func (o *Extension[T]) SetScaleCurveX(value Curve.Instance) *Extension[T] {
+	o.Super().SetScaleCurveX(value)
+	return o
+}
+
 func (self Instance) ScaleCurveY() Curve.Instance { //gd:CPUParticles2D.scale_curve_y
 		return Curve.Instance(class(self).GetScaleCurveY())
 }
+
+func (o *Extension[T]) ScaleCurveY() Curve.Instance { return o.Super().ScaleCurveY() }
 
 // SetScaleCurveY sets the property returned by [GetScaleCurveY]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetScaleCurveY(value Curve.Instance) Instance { //gd:CPUParticles2D.scale_curve_y
@@ -819,9 +1215,16 @@ func (self Instance) SetScaleCurveY(value Curve.Instance) Instance { //gd:CPUPar
 	return self
 }
 
+func (o *Extension[T]) SetScaleCurveY(value Curve.Instance) *Extension[T] {
+	o.Super().SetScaleCurveY(value)
+	return o
+}
+
 func (self Instance) Color() Color.RGBA { //gd:CPUParticles2D.color
 		return Color.RGBA(class(self).GetColor())
 }
+
+func (o *Extension[T]) Color() Color.RGBA { return o.Super().Color() }
 
 // SetColor sets the property returned by [GetColor]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetColor(value Color.RGBA) Instance { //gd:CPUParticles2D.color
@@ -829,9 +1232,16 @@ func (self Instance) SetColor(value Color.RGBA) Instance { //gd:CPUParticles2D.c
 	return self
 }
 
+func (o *Extension[T]) SetColor(value Color.RGBA) *Extension[T] {
+	o.Super().SetColor(value)
+	return o
+}
+
 func (self Instance) ColorRamp() Gradient.Instance { //gd:CPUParticles2D.color_ramp
 		return Gradient.Instance(class(self).GetColorRamp())
 }
+
+func (o *Extension[T]) ColorRamp() Gradient.Instance { return o.Super().ColorRamp() }
 
 // SetColorRamp sets the property returned by [GetColorRamp]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetColorRamp(value Gradient.Instance) Instance { //gd:CPUParticles2D.color_ramp
@@ -839,9 +1249,16 @@ func (self Instance) SetColorRamp(value Gradient.Instance) Instance { //gd:CPUPa
 	return self
 }
 
+func (o *Extension[T]) SetColorRamp(value Gradient.Instance) *Extension[T] {
+	o.Super().SetColorRamp(value)
+	return o
+}
+
 func (self Instance) ColorInitialRamp() Gradient.Instance { //gd:CPUParticles2D.color_initial_ramp
 		return Gradient.Instance(class(self).GetColorInitialRamp())
 }
+
+func (o *Extension[T]) ColorInitialRamp() Gradient.Instance { return o.Super().ColorInitialRamp() }
 
 // SetColorInitialRamp sets the property returned by [GetColorInitialRamp]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetColorInitialRamp(value Gradient.Instance) Instance { //gd:CPUParticles2D.color_initial_ramp
@@ -849,9 +1266,16 @@ func (self Instance) SetColorInitialRamp(value Gradient.Instance) Instance { //g
 	return self
 }
 
+func (o *Extension[T]) SetColorInitialRamp(value Gradient.Instance) *Extension[T] {
+	o.Super().SetColorInitialRamp(value)
+	return o
+}
+
 func (self Instance) HueVariationMin() Float.X { //gd:CPUParticles2D.hue_variation_min
 		return Float.X(Float.X(class(self).GetParamMin(9)))
 }
+
+func (o *Extension[T]) HueVariationMin() Float.X { return o.Super().HueVariationMin() }
 
 // SetHueVariationMin sets the property returned by [GetParamMin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetHueVariationMin(value Float.X) Instance { //gd:CPUParticles2D.hue_variation_min
@@ -859,9 +1283,16 @@ func (self Instance) SetHueVariationMin(value Float.X) Instance { //gd:CPUPartic
 	return self
 }
 
+func (o *Extension[T]) SetHueVariationMin(value Float.X) *Extension[T] {
+	o.Super().SetHueVariationMin(value)
+	return o
+}
+
 func (self Instance) HueVariationMax() Float.X { //gd:CPUParticles2D.hue_variation_max
 		return Float.X(Float.X(class(self).GetParamMax(9)))
 }
+
+func (o *Extension[T]) HueVariationMax() Float.X { return o.Super().HueVariationMax() }
 
 // SetHueVariationMax sets the property returned by [GetParamMax]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetHueVariationMax(value Float.X) Instance { //gd:CPUParticles2D.hue_variation_max
@@ -869,9 +1300,16 @@ func (self Instance) SetHueVariationMax(value Float.X) Instance { //gd:CPUPartic
 	return self
 }
 
+func (o *Extension[T]) SetHueVariationMax(value Float.X) *Extension[T] {
+	o.Super().SetHueVariationMax(value)
+	return o
+}
+
 func (self Instance) HueVariationCurve() Curve.Instance { //gd:CPUParticles2D.hue_variation_curve
 		return Curve.Instance(class(self).GetParamCurve(9))
 }
+
+func (o *Extension[T]) HueVariationCurve() Curve.Instance { return o.Super().HueVariationCurve() }
 
 // SetHueVariationCurve sets the property returned by [GetParamCurve]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetHueVariationCurve(value Curve.Instance) Instance { //gd:CPUParticles2D.hue_variation_curve
@@ -879,9 +1317,16 @@ func (self Instance) SetHueVariationCurve(value Curve.Instance) Instance { //gd:
 	return self
 }
 
+func (o *Extension[T]) SetHueVariationCurve(value Curve.Instance) *Extension[T] {
+	o.Super().SetHueVariationCurve(value)
+	return o
+}
+
 func (self Instance) AnimSpeedMin() Float.X { //gd:CPUParticles2D.anim_speed_min
 		return Float.X(Float.X(class(self).GetParamMin(10)))
 }
+
+func (o *Extension[T]) AnimSpeedMin() Float.X { return o.Super().AnimSpeedMin() }
 
 // SetAnimSpeedMin sets the property returned by [GetParamMin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAnimSpeedMin(value Float.X) Instance { //gd:CPUParticles2D.anim_speed_min
@@ -889,9 +1334,16 @@ func (self Instance) SetAnimSpeedMin(value Float.X) Instance { //gd:CPUParticles
 	return self
 }
 
+func (o *Extension[T]) SetAnimSpeedMin(value Float.X) *Extension[T] {
+	o.Super().SetAnimSpeedMin(value)
+	return o
+}
+
 func (self Instance) AnimSpeedMax() Float.X { //gd:CPUParticles2D.anim_speed_max
 		return Float.X(Float.X(class(self).GetParamMax(10)))
 }
+
+func (o *Extension[T]) AnimSpeedMax() Float.X { return o.Super().AnimSpeedMax() }
 
 // SetAnimSpeedMax sets the property returned by [GetParamMax]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAnimSpeedMax(value Float.X) Instance { //gd:CPUParticles2D.anim_speed_max
@@ -899,9 +1351,16 @@ func (self Instance) SetAnimSpeedMax(value Float.X) Instance { //gd:CPUParticles
 	return self
 }
 
+func (o *Extension[T]) SetAnimSpeedMax(value Float.X) *Extension[T] {
+	o.Super().SetAnimSpeedMax(value)
+	return o
+}
+
 func (self Instance) AnimSpeedCurve() Curve.Instance { //gd:CPUParticles2D.anim_speed_curve
 		return Curve.Instance(class(self).GetParamCurve(10))
 }
+
+func (o *Extension[T]) AnimSpeedCurve() Curve.Instance { return o.Super().AnimSpeedCurve() }
 
 // SetAnimSpeedCurve sets the property returned by [GetParamCurve]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAnimSpeedCurve(value Curve.Instance) Instance { //gd:CPUParticles2D.anim_speed_curve
@@ -909,9 +1368,16 @@ func (self Instance) SetAnimSpeedCurve(value Curve.Instance) Instance { //gd:CPU
 	return self
 }
 
+func (o *Extension[T]) SetAnimSpeedCurve(value Curve.Instance) *Extension[T] {
+	o.Super().SetAnimSpeedCurve(value)
+	return o
+}
+
 func (self Instance) AnimOffsetMin() Float.X { //gd:CPUParticles2D.anim_offset_min
 		return Float.X(Float.X(class(self).GetParamMin(11)))
 }
+
+func (o *Extension[T]) AnimOffsetMin() Float.X { return o.Super().AnimOffsetMin() }
 
 // SetAnimOffsetMin sets the property returned by [GetParamMin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAnimOffsetMin(value Float.X) Instance { //gd:CPUParticles2D.anim_offset_min
@@ -919,9 +1385,16 @@ func (self Instance) SetAnimOffsetMin(value Float.X) Instance { //gd:CPUParticle
 	return self
 }
 
+func (o *Extension[T]) SetAnimOffsetMin(value Float.X) *Extension[T] {
+	o.Super().SetAnimOffsetMin(value)
+	return o
+}
+
 func (self Instance) AnimOffsetMax() Float.X { //gd:CPUParticles2D.anim_offset_max
 		return Float.X(Float.X(class(self).GetParamMax(11)))
 }
+
+func (o *Extension[T]) AnimOffsetMax() Float.X { return o.Super().AnimOffsetMax() }
 
 // SetAnimOffsetMax sets the property returned by [GetParamMax]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAnimOffsetMax(value Float.X) Instance { //gd:CPUParticles2D.anim_offset_max
@@ -929,14 +1402,26 @@ func (self Instance) SetAnimOffsetMax(value Float.X) Instance { //gd:CPUParticle
 	return self
 }
 
+func (o *Extension[T]) SetAnimOffsetMax(value Float.X) *Extension[T] {
+	o.Super().SetAnimOffsetMax(value)
+	return o
+}
+
 func (self Instance) AnimOffsetCurve() Curve.Instance { //gd:CPUParticles2D.anim_offset_curve
 		return Curve.Instance(class(self).GetParamCurve(11))
 }
+
+func (o *Extension[T]) AnimOffsetCurve() Curve.Instance { return o.Super().AnimOffsetCurve() }
 
 // SetAnimOffsetCurve sets the property returned by [GetParamCurve]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAnimOffsetCurve(value Curve.Instance) Instance { //gd:CPUParticles2D.anim_offset_curve
 	class(self).SetParamCurve(11, value)
 	return self
+}
+
+func (o *Extension[T]) SetAnimOffsetCurve(value Curve.Instance) *Extension[T] {
+	o.Super().SetAnimOffsetCurve(value)
+	return o
 }
 
 func (self class) SetEmitting(emitting bool)  { //gd:CPUParticles2D.set_emitting
@@ -2531,6 +3016,363 @@ func (self Instance) NotifyThreadSafe(what int) {
 // NotifyThreadSafe is promoted from [Node.Instance.NotifyThreadSafe].
 func (o *Extension[T]) NotifyThreadSafe(what int) {
 	o.Super().AsNode().NotifyThreadSafe(what)
+}
+
+// Position is promoted from [Node2D.Instance.Position].
+func (o *Extension[T]) Position() Vector2.XY { return o.Super().AsNode2D().Position() }
+
+// SetPosition is promoted from [Node2D.Instance.SetPosition].
+func (o *Extension[T]) SetPosition(value Vector2.XY) *Extension[T] {
+	o.Super().AsNode2D().SetPosition(value)
+	return o
+}
+
+// Rotation is promoted from [Node2D.Instance.Rotation].
+func (o *Extension[T]) Rotation() Angle.Radians { return o.Super().AsNode2D().Rotation() }
+
+// SetRotation is promoted from [Node2D.Instance.SetRotation].
+func (o *Extension[T]) SetRotation(value Angle.Radians) *Extension[T] {
+	o.Super().AsNode2D().SetRotation(value)
+	return o
+}
+
+// RotationDegrees is promoted from [Node2D.Instance.RotationDegrees].
+func (o *Extension[T]) RotationDegrees() Angle.Degrees { return o.Super().AsNode2D().RotationDegrees() }
+
+// SetRotationDegrees is promoted from [Node2D.Instance.SetRotationDegrees].
+func (o *Extension[T]) SetRotationDegrees(value Angle.Degrees) *Extension[T] {
+	o.Super().AsNode2D().SetRotationDegrees(value)
+	return o
+}
+
+// Scale is promoted from [Node2D.Instance.Scale].
+func (o *Extension[T]) Scale() Vector2.XY { return o.Super().AsNode2D().Scale() }
+
+// SetScale is promoted from [Node2D.Instance.SetScale].
+func (o *Extension[T]) SetScale(value Vector2.XY) *Extension[T] {
+	o.Super().AsNode2D().SetScale(value)
+	return o
+}
+
+// Skew is promoted from [Node2D.Instance.Skew].
+func (o *Extension[T]) Skew() Float.X { return o.Super().AsNode2D().Skew() }
+
+// SetSkew is promoted from [Node2D.Instance.SetSkew].
+func (o *Extension[T]) SetSkew(value Float.X) *Extension[T] {
+	o.Super().AsNode2D().SetSkew(value)
+	return o
+}
+
+// SetTransform is promoted from [Node2D.Instance.SetTransform].
+func (o *Extension[T]) SetTransform(value Transform2D.OriginXY) *Extension[T] {
+	o.Super().AsNode2D().SetTransform(value)
+	return o
+}
+
+// GlobalPosition is promoted from [Node2D.Instance.GlobalPosition].
+func (o *Extension[T]) GlobalPosition() Vector2.XY { return o.Super().AsNode2D().GlobalPosition() }
+
+// SetGlobalPosition is promoted from [Node2D.Instance.SetGlobalPosition].
+func (o *Extension[T]) SetGlobalPosition(value Vector2.XY) *Extension[T] {
+	o.Super().AsNode2D().SetGlobalPosition(value)
+	return o
+}
+
+// GlobalRotation is promoted from [Node2D.Instance.GlobalRotation].
+func (o *Extension[T]) GlobalRotation() Angle.Radians { return o.Super().AsNode2D().GlobalRotation() }
+
+// SetGlobalRotation is promoted from [Node2D.Instance.SetGlobalRotation].
+func (o *Extension[T]) SetGlobalRotation(value Angle.Radians) *Extension[T] {
+	o.Super().AsNode2D().SetGlobalRotation(value)
+	return o
+}
+
+// GlobalRotationDegrees is promoted from [Node2D.Instance.GlobalRotationDegrees].
+func (o *Extension[T]) GlobalRotationDegrees() Angle.Degrees { return o.Super().AsNode2D().GlobalRotationDegrees() }
+
+// SetGlobalRotationDegrees is promoted from [Node2D.Instance.SetGlobalRotationDegrees].
+func (o *Extension[T]) SetGlobalRotationDegrees(value Angle.Degrees) *Extension[T] {
+	o.Super().AsNode2D().SetGlobalRotationDegrees(value)
+	return o
+}
+
+// GlobalScale is promoted from [Node2D.Instance.GlobalScale].
+func (o *Extension[T]) GlobalScale() Vector2.XY { return o.Super().AsNode2D().GlobalScale() }
+
+// SetGlobalScale is promoted from [Node2D.Instance.SetGlobalScale].
+func (o *Extension[T]) SetGlobalScale(value Vector2.XY) *Extension[T] {
+	o.Super().AsNode2D().SetGlobalScale(value)
+	return o
+}
+
+// GlobalSkew is promoted from [Node2D.Instance.GlobalSkew].
+func (o *Extension[T]) GlobalSkew() Float.X { return o.Super().AsNode2D().GlobalSkew() }
+
+// SetGlobalSkew is promoted from [Node2D.Instance.SetGlobalSkew].
+func (o *Extension[T]) SetGlobalSkew(value Float.X) *Extension[T] {
+	o.Super().AsNode2D().SetGlobalSkew(value)
+	return o
+}
+
+// SetGlobalTransform is promoted from [Node2D.Instance.SetGlobalTransform].
+func (o *Extension[T]) SetGlobalTransform(value Transform2D.OriginXY) *Extension[T] {
+	o.Super().AsNode2D().SetGlobalTransform(value)
+	return o
+}
+
+// Visible is promoted from [CanvasItem.Instance.Visible].
+func (o *Extension[T]) Visible() bool { return o.Super().AsCanvasItem().Visible() }
+
+// SetVisible is promoted from [CanvasItem.Instance.SetVisible].
+func (o *Extension[T]) SetVisible(value bool) *Extension[T] {
+	o.Super().AsCanvasItem().SetVisible(value)
+	return o
+}
+
+// Modulate is promoted from [CanvasItem.Instance.Modulate].
+func (o *Extension[T]) Modulate() Color.RGBA { return o.Super().AsCanvasItem().Modulate() }
+
+// SetModulate is promoted from [CanvasItem.Instance.SetModulate].
+func (o *Extension[T]) SetModulate(value Color.RGBA) *Extension[T] {
+	o.Super().AsCanvasItem().SetModulate(value)
+	return o
+}
+
+// SelfModulate is promoted from [CanvasItem.Instance.SelfModulate].
+func (o *Extension[T]) SelfModulate() Color.RGBA { return o.Super().AsCanvasItem().SelfModulate() }
+
+// SetSelfModulate is promoted from [CanvasItem.Instance.SetSelfModulate].
+func (o *Extension[T]) SetSelfModulate(value Color.RGBA) *Extension[T] {
+	o.Super().AsCanvasItem().SetSelfModulate(value)
+	return o
+}
+
+// ShowBehindParent is promoted from [CanvasItem.Instance.ShowBehindParent].
+func (o *Extension[T]) ShowBehindParent() bool { return o.Super().AsCanvasItem().ShowBehindParent() }
+
+// SetShowBehindParent is promoted from [CanvasItem.Instance.SetShowBehindParent].
+func (o *Extension[T]) SetShowBehindParent(value bool) *Extension[T] {
+	o.Super().AsCanvasItem().SetShowBehindParent(value)
+	return o
+}
+
+// TopLevel is promoted from [CanvasItem.Instance.TopLevel].
+func (o *Extension[T]) TopLevel() bool { return o.Super().AsCanvasItem().TopLevel() }
+
+// SetTopLevel is promoted from [CanvasItem.Instance.SetTopLevel].
+func (o *Extension[T]) SetTopLevel(value bool) *Extension[T] {
+	o.Super().AsCanvasItem().SetTopLevel(value)
+	return o
+}
+
+// ClipChildren is promoted from [CanvasItem.Instance.ClipChildren].
+func (o *Extension[T]) ClipChildren() CanvasItem.ClipChildrenMode { return o.Super().AsCanvasItem().ClipChildren() }
+
+// SetClipChildren is promoted from [CanvasItem.Instance.SetClipChildren].
+func (o *Extension[T]) SetClipChildren(value CanvasItem.ClipChildrenMode) *Extension[T] {
+	o.Super().AsCanvasItem().SetClipChildren(value)
+	return o
+}
+
+// LightMask is promoted from [CanvasItem.Instance.LightMask].
+func (o *Extension[T]) LightMask() int { return o.Super().AsCanvasItem().LightMask() }
+
+// SetLightMask is promoted from [CanvasItem.Instance.SetLightMask].
+func (o *Extension[T]) SetLightMask(value int) *Extension[T] {
+	o.Super().AsCanvasItem().SetLightMask(value)
+	return o
+}
+
+// VisibilityLayer is promoted from [CanvasItem.Instance.VisibilityLayer].
+func (o *Extension[T]) VisibilityLayer() int { return o.Super().AsCanvasItem().VisibilityLayer() }
+
+// SetVisibilityLayer is promoted from [CanvasItem.Instance.SetVisibilityLayer].
+func (o *Extension[T]) SetVisibilityLayer(value int) *Extension[T] {
+	o.Super().AsCanvasItem().SetVisibilityLayer(value)
+	return o
+}
+
+// ZIndex is promoted from [CanvasItem.Instance.ZIndex].
+func (o *Extension[T]) ZIndex() int { return o.Super().AsCanvasItem().ZIndex() }
+
+// SetZIndex is promoted from [CanvasItem.Instance.SetZIndex].
+func (o *Extension[T]) SetZIndex(value int) *Extension[T] {
+	o.Super().AsCanvasItem().SetZIndex(value)
+	return o
+}
+
+// ZAsRelative is promoted from [CanvasItem.Instance.ZAsRelative].
+func (o *Extension[T]) ZAsRelative() bool { return o.Super().AsCanvasItem().ZAsRelative() }
+
+// SetZAsRelative is promoted from [CanvasItem.Instance.SetZAsRelative].
+func (o *Extension[T]) SetZAsRelative(value bool) *Extension[T] {
+	o.Super().AsCanvasItem().SetZAsRelative(value)
+	return o
+}
+
+// YSortEnabled is promoted from [CanvasItem.Instance.YSortEnabled].
+func (o *Extension[T]) YSortEnabled() bool { return o.Super().AsCanvasItem().YSortEnabled() }
+
+// SetYSortEnabled is promoted from [CanvasItem.Instance.SetYSortEnabled].
+func (o *Extension[T]) SetYSortEnabled(value bool) *Extension[T] {
+	o.Super().AsCanvasItem().SetYSortEnabled(value)
+	return o
+}
+
+// TextureFilter is promoted from [CanvasItem.Instance.TextureFilter].
+func (o *Extension[T]) TextureFilter() CanvasItem.TextureFilter { return o.Super().AsCanvasItem().TextureFilter() }
+
+// SetTextureFilter is promoted from [CanvasItem.Instance.SetTextureFilter].
+func (o *Extension[T]) SetTextureFilter(value CanvasItem.TextureFilter) *Extension[T] {
+	o.Super().AsCanvasItem().SetTextureFilter(value)
+	return o
+}
+
+// TextureRepeat is promoted from [CanvasItem.Instance.TextureRepeat].
+func (o *Extension[T]) TextureRepeat() CanvasItem.TextureRepeat { return o.Super().AsCanvasItem().TextureRepeat() }
+
+// SetTextureRepeat is promoted from [CanvasItem.Instance.SetTextureRepeat].
+func (o *Extension[T]) SetTextureRepeat(value CanvasItem.TextureRepeat) *Extension[T] {
+	o.Super().AsCanvasItem().SetTextureRepeat(value)
+	return o
+}
+
+// Material is promoted from [CanvasItem.Instance.Material].
+func (o *Extension[T]) Material() Material.Instance { return o.Super().AsCanvasItem().Material() }
+
+// SetMaterial is promoted from [CanvasItem.Instance.SetMaterial].
+func (o *Extension[T]) SetMaterial(value Material.Instance) *Extension[T] {
+	o.Super().AsCanvasItem().SetMaterial(value)
+	return o
+}
+
+// UseParentMaterial is promoted from [CanvasItem.Instance.UseParentMaterial].
+func (o *Extension[T]) UseParentMaterial() bool { return o.Super().AsCanvasItem().UseParentMaterial() }
+
+// SetUseParentMaterial is promoted from [CanvasItem.Instance.SetUseParentMaterial].
+func (o *Extension[T]) SetUseParentMaterial(value bool) *Extension[T] {
+	o.Super().AsCanvasItem().SetUseParentMaterial(value)
+	return o
+}
+
+// Name is promoted from [Node.Instance.Name].
+func (o *Extension[T]) Name() string { return o.Super().AsNode().Name() }
+
+// SetName is promoted from [Node.Instance.SetName].
+func (o *Extension[T]) SetName(value string) *Extension[T] {
+	o.Super().AsNode().SetName(value)
+	return o
+}
+
+// UniqueNameInOwner is promoted from [Node.Instance.UniqueNameInOwner].
+func (o *Extension[T]) UniqueNameInOwner() bool { return o.Super().AsNode().UniqueNameInOwner() }
+
+// SetUniqueNameInOwner is promoted from [Node.Instance.SetUniqueNameInOwner].
+func (o *Extension[T]) SetUniqueNameInOwner(value bool) *Extension[T] {
+	o.Super().AsNode().SetUniqueNameInOwner(value)
+	return o
+}
+
+// SceneFilePath is promoted from [Node.Instance.SceneFilePath].
+func (o *Extension[T]) SceneFilePath() string { return o.Super().AsNode().SceneFilePath() }
+
+// SetSceneFilePath is promoted from [Node.Instance.SetSceneFilePath].
+func (o *Extension[T]) SetSceneFilePath(value string) *Extension[T] {
+	o.Super().AsNode().SetSceneFilePath(value)
+	return o
+}
+
+// Owner is promoted from [Node.Instance.Owner].
+func (o *Extension[T]) Owner() Node.Instance { return o.Super().AsNode().Owner() }
+
+// SetOwner is promoted from [Node.Instance.SetOwner].
+func (o *Extension[T]) SetOwner(value Node.Instance) *Extension[T] {
+	o.Super().AsNode().SetOwner(value)
+	return o
+}
+
+// Multiplayer is promoted from [Node.Instance.Multiplayer].
+func (o *Extension[T]) Multiplayer() MultiplayerAPI.Instance { return o.Super().AsNode().Multiplayer() }
+
+// ProcessMode is promoted from [Node.Instance.ProcessMode].
+func (o *Extension[T]) ProcessMode() Node.ProcessMode { return o.Super().AsNode().ProcessMode() }
+
+// SetProcessMode is promoted from [Node.Instance.SetProcessMode].
+func (o *Extension[T]) SetProcessMode(value Node.ProcessMode) *Extension[T] {
+	o.Super().AsNode().SetProcessMode(value)
+	return o
+}
+
+// ProcessPriority is promoted from [Node.Instance.ProcessPriority].
+func (o *Extension[T]) ProcessPriority() int { return o.Super().AsNode().ProcessPriority() }
+
+// SetProcessPriority is promoted from [Node.Instance.SetProcessPriority].
+func (o *Extension[T]) SetProcessPriority(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessPriority(value)
+	return o
+}
+
+// ProcessPhysicsPriority is promoted from [Node.Instance.ProcessPhysicsPriority].
+func (o *Extension[T]) ProcessPhysicsPriority() int { return o.Super().AsNode().ProcessPhysicsPriority() }
+
+// SetProcessPhysicsPriority is promoted from [Node.Instance.SetProcessPhysicsPriority].
+func (o *Extension[T]) SetProcessPhysicsPriority(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessPhysicsPriority(value)
+	return o
+}
+
+// ProcessThreadGroup is promoted from [Node.Instance.ProcessThreadGroup].
+func (o *Extension[T]) ProcessThreadGroup() Node.ProcessThreadGroup { return o.Super().AsNode().ProcessThreadGroup() }
+
+// SetProcessThreadGroup is promoted from [Node.Instance.SetProcessThreadGroup].
+func (o *Extension[T]) SetProcessThreadGroup(value Node.ProcessThreadGroup) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadGroup(value)
+	return o
+}
+
+// ProcessThreadGroupOrder is promoted from [Node.Instance.ProcessThreadGroupOrder].
+func (o *Extension[T]) ProcessThreadGroupOrder() int { return o.Super().AsNode().ProcessThreadGroupOrder() }
+
+// SetProcessThreadGroupOrder is promoted from [Node.Instance.SetProcessThreadGroupOrder].
+func (o *Extension[T]) SetProcessThreadGroupOrder(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadGroupOrder(value)
+	return o
+}
+
+// ProcessThreadMessages is promoted from [Node.Instance.ProcessThreadMessages].
+func (o *Extension[T]) ProcessThreadMessages() Node.ProcessThreadMessages { return o.Super().AsNode().ProcessThreadMessages() }
+
+// SetProcessThreadMessages is promoted from [Node.Instance.SetProcessThreadMessages].
+func (o *Extension[T]) SetProcessThreadMessages(value Node.ProcessThreadMessages) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadMessages(value)
+	return o
+}
+
+// PhysicsInterpolationMode is promoted from [Node.Instance.PhysicsInterpolationMode].
+func (o *Extension[T]) PhysicsInterpolationMode() Node.PhysicsInterpolationMode { return o.Super().AsNode().PhysicsInterpolationMode() }
+
+// SetPhysicsInterpolationMode is promoted from [Node.Instance.SetPhysicsInterpolationMode].
+func (o *Extension[T]) SetPhysicsInterpolationMode(value Node.PhysicsInterpolationMode) *Extension[T] {
+	o.Super().AsNode().SetPhysicsInterpolationMode(value)
+	return o
+}
+
+// AutoTranslateMode is promoted from [Node.Instance.AutoTranslateMode].
+func (o *Extension[T]) AutoTranslateMode() Node.AutoTranslateMode { return o.Super().AsNode().AutoTranslateMode() }
+
+// SetAutoTranslateMode is promoted from [Node.Instance.SetAutoTranslateMode].
+func (o *Extension[T]) SetAutoTranslateMode(value Node.AutoTranslateMode) *Extension[T] {
+	o.Super().AsNode().SetAutoTranslateMode(value)
+	return o
+}
+
+// EditorDescription is promoted from [Node.Instance.EditorDescription].
+func (o *Extension[T]) EditorDescription() string { return o.Super().AsNode().EditorDescription() }
+
+// SetEditorDescription is promoted from [Node.Instance.SetEditorDescription].
+func (o *Extension[T]) SetEditorDescription(value string) *Extension[T] {
+	o.Super().AsNode().SetEditorDescription(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

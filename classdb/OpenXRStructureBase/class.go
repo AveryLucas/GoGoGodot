@@ -172,10 +172,17 @@ func (self Instance) Next() Instance { //gd:OpenXRStructureBase.next
 		return Instance(class(self).GetNext())
 }
 
+func (o *Extension[T]) Next() Instance { return o.Super().Next() }
+
 // SetNext sets the property returned by [GetNext]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetNext(value Instance) Instance { //gd:OpenXRStructureBase.next
 	class(self).SetNext(value)
 	return self
+}
+
+func (o *Extension[T]) SetNext(value Instance) *Extension[T] {
+	o.Super().SetNext(value)
+	return o
 }
 func (class) _get_header(impl func(ptr gdclass.Receiver, next int64) int64) (cb gd.ExtensionClassCallVirtualFunc) {
 	return func(class any, p_args, p_back gdextension.Pointer) {

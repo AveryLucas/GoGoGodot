@@ -693,15 +693,24 @@ func (self Instance) Collapsed() bool { //gd:TreeItem.collapsed
 		return bool(class(self).IsCollapsed())
 }
 
+func (o *Extension[T]) Collapsed() bool { return o.Super().Collapsed() }
+
 // SetCollapsed sets the property returned by [IsCollapsed]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCollapsed(value bool) Instance { //gd:TreeItem.collapsed
 	class(self).SetCollapsed(value)
 	return self
 }
 
+func (o *Extension[T]) SetCollapsed(value bool) *Extension[T] {
+	o.Super().SetCollapsed(value)
+	return o
+}
+
 func (self Instance) Visible() bool { //gd:TreeItem.visible
 		return bool(class(self).IsVisible())
 }
+
+func (o *Extension[T]) Visible() bool { return o.Super().Visible() }
 
 // SetVisible sets the property returned by [IsVisible]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVisible(value bool) Instance { //gd:TreeItem.visible
@@ -709,9 +718,16 @@ func (self Instance) SetVisible(value bool) Instance { //gd:TreeItem.visible
 	return self
 }
 
+func (o *Extension[T]) SetVisible(value bool) *Extension[T] {
+	o.Super().SetVisible(value)
+	return o
+}
+
 func (self Instance) DisableFolding() bool { //gd:TreeItem.disable_folding
 		return bool(class(self).IsFoldingDisabled())
 }
+
+func (o *Extension[T]) DisableFolding() bool { return o.Super().DisableFolding() }
 
 // SetDisableFolding sets the property returned by [IsFoldingDisabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDisableFolding(value bool) Instance { //gd:TreeItem.disable_folding
@@ -719,14 +735,26 @@ func (self Instance) SetDisableFolding(value bool) Instance { //gd:TreeItem.disa
 	return self
 }
 
+func (o *Extension[T]) SetDisableFolding(value bool) *Extension[T] {
+	o.Super().SetDisableFolding(value)
+	return o
+}
+
 func (self Instance) CustomMinimumHeight() int { //gd:TreeItem.custom_minimum_height
 		return int(int(class(self).GetCustomMinimumHeight()))
 }
+
+func (o *Extension[T]) CustomMinimumHeight() int { return o.Super().CustomMinimumHeight() }
 
 // SetCustomMinimumHeight sets the property returned by [GetCustomMinimumHeight]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCustomMinimumHeight(value int) Instance { //gd:TreeItem.custom_minimum_height
 	class(self).SetCustomMinimumHeight(int64(value))
 	return self
+}
+
+func (o *Extension[T]) SetCustomMinimumHeight(value int) *Extension[T] {
+	o.Super().SetCustomMinimumHeight(value)
+	return o
 }
 
 func (self class) SetCellMode(column int64, mode TreeCellMode)  { //gd:TreeItem.set_cell_mode

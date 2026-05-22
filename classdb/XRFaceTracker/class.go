@@ -157,10 +157,17 @@ func (self Instance) BlendShapes() []float32 { //gd:XRFaceTracker.blend_shapes
 		return []float32(slices.Collect(class(self).GetBlendShapes().Values()))
 }
 
+func (o *Extension[T]) BlendShapes() []float32 { return o.Super().BlendShapes() }
+
 // SetBlendShapes sets the property returned by [GetBlendShapes]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBlendShapes(value []float32) Instance { //gd:XRFaceTracker.blend_shapes
 	class(self).SetBlendShapes(Packed.New(value...))
 	return self
+}
+
+func (o *Extension[T]) SetBlendShapes(value []float32) *Extension[T] {
+	o.Super().SetBlendShapes(value)
+	return o
 }
 
 func (self class) GetBlendShape(blend_shape BlendShapeEntry) float64 { //gd:XRFaceTracker.get_blend_shape
@@ -193,6 +200,33 @@ func (o *Extension[T]) GetBlendShape(blend_shape BlendShapeEntry) Float.X {
 }
 func (o *Extension[T]) SetBlendShape(blend_shape BlendShapeEntry, weight Float.X) *Extension[T] {
 	o.Super().SetBlendShape(blend_shape, weight)
+	return o
+}
+
+// Type is promoted from [XRTracker.Instance.Type].
+func (o *Extension[T]) Type() XRTracker.Type { return o.Super().AsXRTracker().Type() }
+
+// SetType is promoted from [XRTracker.Instance.SetType].
+func (o *Extension[T]) SetType(value XRTracker.Type) *Extension[T] {
+	o.Super().AsXRTracker().SetType(value)
+	return o
+}
+
+// Name is promoted from [XRTracker.Instance.Name].
+func (o *Extension[T]) Name() string { return o.Super().AsXRTracker().Name() }
+
+// SetName is promoted from [XRTracker.Instance.SetName].
+func (o *Extension[T]) SetName(value string) *Extension[T] {
+	o.Super().AsXRTracker().SetName(value)
+	return o
+}
+
+// Description is promoted from [XRTracker.Instance.Description].
+func (o *Extension[T]) Description() string { return o.Super().AsXRTracker().Description() }
+
+// SetDescription is promoted from [XRTracker.Instance.SetDescription].
+func (o *Extension[T]) SetDescription(value string) *Extension[T] {
+	o.Super().AsXRTracker().SetDescription(value)
 	return o
 }
 

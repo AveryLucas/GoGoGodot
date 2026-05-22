@@ -232,15 +232,24 @@ func (self Instance) Vertices() []Vector3.XYZ { //gd:NavigationMesh.vertices
 		return []Vector3.XYZ(slices.Collect(class(self).GetVertices().Values()))
 }
 
+func (o *Extension[T]) Vertices() []Vector3.XYZ { return o.Super().Vertices() }
+
 // SetVertices sets the property returned by [GetVertices]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVertices(value []Vector3.XYZ) Instance { //gd:NavigationMesh.vertices
 	class(self).SetVertices(Packed.New(value...))
 	return self
 }
 
+func (o *Extension[T]) SetVertices(value []Vector3.XYZ) *Extension[T] {
+	o.Super().SetVertices(value)
+	return o
+}
+
 func (self Instance) SamplePartitionType() SamplePartitionType { //gd:NavigationMesh.sample_partition_type
 		return SamplePartitionType(class(self).GetSamplePartitionType())
 }
+
+func (o *Extension[T]) SamplePartitionType() SamplePartitionType { return o.Super().SamplePartitionType() }
 
 // SetSamplePartitionType sets the property returned by [GetSamplePartitionType]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSamplePartitionType(value SamplePartitionType) Instance { //gd:NavigationMesh.sample_partition_type
@@ -248,9 +257,16 @@ func (self Instance) SetSamplePartitionType(value SamplePartitionType) Instance 
 	return self
 }
 
+func (o *Extension[T]) SetSamplePartitionType(value SamplePartitionType) *Extension[T] {
+	o.Super().SetSamplePartitionType(value)
+	return o
+}
+
 func (self Instance) GeometryParsedGeometryType() ParsedGeometryType { //gd:NavigationMesh.geometry_parsed_geometry_type
 		return ParsedGeometryType(class(self).GetParsedGeometryType())
 }
+
+func (o *Extension[T]) GeometryParsedGeometryType() ParsedGeometryType { return o.Super().GeometryParsedGeometryType() }
 
 // SetGeometryParsedGeometryType sets the property returned by [GetParsedGeometryType]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetGeometryParsedGeometryType(value ParsedGeometryType) Instance { //gd:NavigationMesh.geometry_parsed_geometry_type
@@ -258,9 +274,16 @@ func (self Instance) SetGeometryParsedGeometryType(value ParsedGeometryType) Ins
 	return self
 }
 
+func (o *Extension[T]) SetGeometryParsedGeometryType(value ParsedGeometryType) *Extension[T] {
+	o.Super().SetGeometryParsedGeometryType(value)
+	return o
+}
+
 func (self Instance) GeometryCollisionMask() int { //gd:NavigationMesh.geometry_collision_mask
 		return int(int(class(self).GetCollisionMask()))
 }
+
+func (o *Extension[T]) GeometryCollisionMask() int { return o.Super().GeometryCollisionMask() }
 
 // SetGeometryCollisionMask sets the property returned by [GetCollisionMask]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetGeometryCollisionMask(value int) Instance { //gd:NavigationMesh.geometry_collision_mask
@@ -268,9 +291,16 @@ func (self Instance) SetGeometryCollisionMask(value int) Instance { //gd:Navigat
 	return self
 }
 
+func (o *Extension[T]) SetGeometryCollisionMask(value int) *Extension[T] {
+	o.Super().SetGeometryCollisionMask(value)
+	return o
+}
+
 func (self Instance) GeometrySourceGeometryMode() SourceGeometryMode { //gd:NavigationMesh.geometry_source_geometry_mode
 		return SourceGeometryMode(class(self).GetSourceGeometryMode())
 }
+
+func (o *Extension[T]) GeometrySourceGeometryMode() SourceGeometryMode { return o.Super().GeometrySourceGeometryMode() }
 
 // SetGeometrySourceGeometryMode sets the property returned by [GetSourceGeometryMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetGeometrySourceGeometryMode(value SourceGeometryMode) Instance { //gd:NavigationMesh.geometry_source_geometry_mode
@@ -278,9 +308,16 @@ func (self Instance) SetGeometrySourceGeometryMode(value SourceGeometryMode) Ins
 	return self
 }
 
+func (o *Extension[T]) SetGeometrySourceGeometryMode(value SourceGeometryMode) *Extension[T] {
+	o.Super().SetGeometrySourceGeometryMode(value)
+	return o
+}
+
 func (self Instance) GeometrySourceGroupName() string { //gd:NavigationMesh.geometry_source_group_name
 		return string(class(self).GetSourceGroupName().String())
 }
+
+func (o *Extension[T]) GeometrySourceGroupName() string { return o.Super().GeometrySourceGroupName() }
 
 // SetGeometrySourceGroupName sets the property returned by [GetSourceGroupName]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetGeometrySourceGroupName(value string) Instance { //gd:NavigationMesh.geometry_source_group_name
@@ -288,9 +325,16 @@ func (self Instance) SetGeometrySourceGroupName(value string) Instance { //gd:Na
 	return self
 }
 
+func (o *Extension[T]) SetGeometrySourceGroupName(value string) *Extension[T] {
+	o.Super().SetGeometrySourceGroupName(value)
+	return o
+}
+
 func (self Instance) CellSize() Float.X { //gd:NavigationMesh.cell_size
 		return Float.X(Float.X(class(self).GetCellSize()))
 }
+
+func (o *Extension[T]) CellSize() Float.X { return o.Super().CellSize() }
 
 // SetCellSize sets the property returned by [GetCellSize]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCellSize(value Float.X) Instance { //gd:NavigationMesh.cell_size
@@ -298,9 +342,16 @@ func (self Instance) SetCellSize(value Float.X) Instance { //gd:NavigationMesh.c
 	return self
 }
 
+func (o *Extension[T]) SetCellSize(value Float.X) *Extension[T] {
+	o.Super().SetCellSize(value)
+	return o
+}
+
 func (self Instance) CellHeight() Float.X { //gd:NavigationMesh.cell_height
 		return Float.X(Float.X(class(self).GetCellHeight()))
 }
+
+func (o *Extension[T]) CellHeight() Float.X { return o.Super().CellHeight() }
 
 // SetCellHeight sets the property returned by [GetCellHeight]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCellHeight(value Float.X) Instance { //gd:NavigationMesh.cell_height
@@ -308,9 +359,16 @@ func (self Instance) SetCellHeight(value Float.X) Instance { //gd:NavigationMesh
 	return self
 }
 
+func (o *Extension[T]) SetCellHeight(value Float.X) *Extension[T] {
+	o.Super().SetCellHeight(value)
+	return o
+}
+
 func (self Instance) BorderSize() Float.X { //gd:NavigationMesh.border_size
 		return Float.X(Float.X(class(self).GetBorderSize()))
 }
+
+func (o *Extension[T]) BorderSize() Float.X { return o.Super().BorderSize() }
 
 // SetBorderSize sets the property returned by [GetBorderSize]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBorderSize(value Float.X) Instance { //gd:NavigationMesh.border_size
@@ -318,9 +376,16 @@ func (self Instance) SetBorderSize(value Float.X) Instance { //gd:NavigationMesh
 	return self
 }
 
+func (o *Extension[T]) SetBorderSize(value Float.X) *Extension[T] {
+	o.Super().SetBorderSize(value)
+	return o
+}
+
 func (self Instance) AgentHeight() Float.X { //gd:NavigationMesh.agent_height
 		return Float.X(Float.X(class(self).GetAgentHeight()))
 }
+
+func (o *Extension[T]) AgentHeight() Float.X { return o.Super().AgentHeight() }
 
 // SetAgentHeight sets the property returned by [GetAgentHeight]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAgentHeight(value Float.X) Instance { //gd:NavigationMesh.agent_height
@@ -328,9 +393,16 @@ func (self Instance) SetAgentHeight(value Float.X) Instance { //gd:NavigationMes
 	return self
 }
 
+func (o *Extension[T]) SetAgentHeight(value Float.X) *Extension[T] {
+	o.Super().SetAgentHeight(value)
+	return o
+}
+
 func (self Instance) AgentRadius() Float.X { //gd:NavigationMesh.agent_radius
 		return Float.X(Float.X(class(self).GetAgentRadius()))
 }
+
+func (o *Extension[T]) AgentRadius() Float.X { return o.Super().AgentRadius() }
 
 // SetAgentRadius sets the property returned by [GetAgentRadius]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAgentRadius(value Float.X) Instance { //gd:NavigationMesh.agent_radius
@@ -338,9 +410,16 @@ func (self Instance) SetAgentRadius(value Float.X) Instance { //gd:NavigationMes
 	return self
 }
 
+func (o *Extension[T]) SetAgentRadius(value Float.X) *Extension[T] {
+	o.Super().SetAgentRadius(value)
+	return o
+}
+
 func (self Instance) AgentMaxClimb() Float.X { //gd:NavigationMesh.agent_max_climb
 		return Float.X(Float.X(class(self).GetAgentMaxClimb()))
 }
+
+func (o *Extension[T]) AgentMaxClimb() Float.X { return o.Super().AgentMaxClimb() }
 
 // SetAgentMaxClimb sets the property returned by [GetAgentMaxClimb]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAgentMaxClimb(value Float.X) Instance { //gd:NavigationMesh.agent_max_climb
@@ -348,9 +427,16 @@ func (self Instance) SetAgentMaxClimb(value Float.X) Instance { //gd:NavigationM
 	return self
 }
 
+func (o *Extension[T]) SetAgentMaxClimb(value Float.X) *Extension[T] {
+	o.Super().SetAgentMaxClimb(value)
+	return o
+}
+
 func (self Instance) AgentMaxSlope() Float.X { //gd:NavigationMesh.agent_max_slope
 		return Float.X(Float.X(class(self).GetAgentMaxSlope()))
 }
+
+func (o *Extension[T]) AgentMaxSlope() Float.X { return o.Super().AgentMaxSlope() }
 
 // SetAgentMaxSlope sets the property returned by [GetAgentMaxSlope]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAgentMaxSlope(value Float.X) Instance { //gd:NavigationMesh.agent_max_slope
@@ -358,9 +444,16 @@ func (self Instance) SetAgentMaxSlope(value Float.X) Instance { //gd:NavigationM
 	return self
 }
 
+func (o *Extension[T]) SetAgentMaxSlope(value Float.X) *Extension[T] {
+	o.Super().SetAgentMaxSlope(value)
+	return o
+}
+
 func (self Instance) RegionMinSize() Float.X { //gd:NavigationMesh.region_min_size
 		return Float.X(Float.X(class(self).GetRegionMinSize()))
 }
+
+func (o *Extension[T]) RegionMinSize() Float.X { return o.Super().RegionMinSize() }
 
 // SetRegionMinSize sets the property returned by [GetRegionMinSize]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRegionMinSize(value Float.X) Instance { //gd:NavigationMesh.region_min_size
@@ -368,9 +461,16 @@ func (self Instance) SetRegionMinSize(value Float.X) Instance { //gd:NavigationM
 	return self
 }
 
+func (o *Extension[T]) SetRegionMinSize(value Float.X) *Extension[T] {
+	o.Super().SetRegionMinSize(value)
+	return o
+}
+
 func (self Instance) RegionMergeSize() Float.X { //gd:NavigationMesh.region_merge_size
 		return Float.X(Float.X(class(self).GetRegionMergeSize()))
 }
+
+func (o *Extension[T]) RegionMergeSize() Float.X { return o.Super().RegionMergeSize() }
 
 // SetRegionMergeSize sets the property returned by [GetRegionMergeSize]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRegionMergeSize(value Float.X) Instance { //gd:NavigationMesh.region_merge_size
@@ -378,9 +478,16 @@ func (self Instance) SetRegionMergeSize(value Float.X) Instance { //gd:Navigatio
 	return self
 }
 
+func (o *Extension[T]) SetRegionMergeSize(value Float.X) *Extension[T] {
+	o.Super().SetRegionMergeSize(value)
+	return o
+}
+
 func (self Instance) EdgeMaxLength() Float.X { //gd:NavigationMesh.edge_max_length
 		return Float.X(Float.X(class(self).GetEdgeMaxLength()))
 }
+
+func (o *Extension[T]) EdgeMaxLength() Float.X { return o.Super().EdgeMaxLength() }
 
 // SetEdgeMaxLength sets the property returned by [GetEdgeMaxLength]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEdgeMaxLength(value Float.X) Instance { //gd:NavigationMesh.edge_max_length
@@ -388,9 +495,16 @@ func (self Instance) SetEdgeMaxLength(value Float.X) Instance { //gd:NavigationM
 	return self
 }
 
+func (o *Extension[T]) SetEdgeMaxLength(value Float.X) *Extension[T] {
+	o.Super().SetEdgeMaxLength(value)
+	return o
+}
+
 func (self Instance) EdgeMaxError() Float.X { //gd:NavigationMesh.edge_max_error
 		return Float.X(Float.X(class(self).GetEdgeMaxError()))
 }
+
+func (o *Extension[T]) EdgeMaxError() Float.X { return o.Super().EdgeMaxError() }
 
 // SetEdgeMaxError sets the property returned by [GetEdgeMaxError]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEdgeMaxError(value Float.X) Instance { //gd:NavigationMesh.edge_max_error
@@ -398,9 +512,16 @@ func (self Instance) SetEdgeMaxError(value Float.X) Instance { //gd:NavigationMe
 	return self
 }
 
+func (o *Extension[T]) SetEdgeMaxError(value Float.X) *Extension[T] {
+	o.Super().SetEdgeMaxError(value)
+	return o
+}
+
 func (self Instance) VerticesPerPolygon() Float.X { //gd:NavigationMesh.vertices_per_polygon
 		return Float.X(Float.X(class(self).GetVerticesPerPolygon()))
 }
+
+func (o *Extension[T]) VerticesPerPolygon() Float.X { return o.Super().VerticesPerPolygon() }
 
 // SetVerticesPerPolygon sets the property returned by [GetVerticesPerPolygon]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVerticesPerPolygon(value Float.X) Instance { //gd:NavigationMesh.vertices_per_polygon
@@ -408,9 +529,16 @@ func (self Instance) SetVerticesPerPolygon(value Float.X) Instance { //gd:Naviga
 	return self
 }
 
+func (o *Extension[T]) SetVerticesPerPolygon(value Float.X) *Extension[T] {
+	o.Super().SetVerticesPerPolygon(value)
+	return o
+}
+
 func (self Instance) DetailSampleDistance() Float.X { //gd:NavigationMesh.detail_sample_distance
 		return Float.X(Float.X(class(self).GetDetailSampleDistance()))
 }
+
+func (o *Extension[T]) DetailSampleDistance() Float.X { return o.Super().DetailSampleDistance() }
 
 // SetDetailSampleDistance sets the property returned by [GetDetailSampleDistance]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDetailSampleDistance(value Float.X) Instance { //gd:NavigationMesh.detail_sample_distance
@@ -418,9 +546,16 @@ func (self Instance) SetDetailSampleDistance(value Float.X) Instance { //gd:Navi
 	return self
 }
 
+func (o *Extension[T]) SetDetailSampleDistance(value Float.X) *Extension[T] {
+	o.Super().SetDetailSampleDistance(value)
+	return o
+}
+
 func (self Instance) DetailSampleMaxError() Float.X { //gd:NavigationMesh.detail_sample_max_error
 		return Float.X(Float.X(class(self).GetDetailSampleMaxError()))
 }
+
+func (o *Extension[T]) DetailSampleMaxError() Float.X { return o.Super().DetailSampleMaxError() }
 
 // SetDetailSampleMaxError sets the property returned by [GetDetailSampleMaxError]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDetailSampleMaxError(value Float.X) Instance { //gd:NavigationMesh.detail_sample_max_error
@@ -428,9 +563,16 @@ func (self Instance) SetDetailSampleMaxError(value Float.X) Instance { //gd:Navi
 	return self
 }
 
+func (o *Extension[T]) SetDetailSampleMaxError(value Float.X) *Extension[T] {
+	o.Super().SetDetailSampleMaxError(value)
+	return o
+}
+
 func (self Instance) FilterLowHangingObstacles() bool { //gd:NavigationMesh.filter_low_hanging_obstacles
 		return bool(class(self).GetFilterLowHangingObstacles())
 }
+
+func (o *Extension[T]) FilterLowHangingObstacles() bool { return o.Super().FilterLowHangingObstacles() }
 
 // SetFilterLowHangingObstacles sets the property returned by [GetFilterLowHangingObstacles]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFilterLowHangingObstacles(value bool) Instance { //gd:NavigationMesh.filter_low_hanging_obstacles
@@ -438,9 +580,16 @@ func (self Instance) SetFilterLowHangingObstacles(value bool) Instance { //gd:Na
 	return self
 }
 
+func (o *Extension[T]) SetFilterLowHangingObstacles(value bool) *Extension[T] {
+	o.Super().SetFilterLowHangingObstacles(value)
+	return o
+}
+
 func (self Instance) FilterLedgeSpans() bool { //gd:NavigationMesh.filter_ledge_spans
 		return bool(class(self).GetFilterLedgeSpans())
 }
+
+func (o *Extension[T]) FilterLedgeSpans() bool { return o.Super().FilterLedgeSpans() }
 
 // SetFilterLedgeSpans sets the property returned by [GetFilterLedgeSpans]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFilterLedgeSpans(value bool) Instance { //gd:NavigationMesh.filter_ledge_spans
@@ -448,9 +597,16 @@ func (self Instance) SetFilterLedgeSpans(value bool) Instance { //gd:NavigationM
 	return self
 }
 
+func (o *Extension[T]) SetFilterLedgeSpans(value bool) *Extension[T] {
+	o.Super().SetFilterLedgeSpans(value)
+	return o
+}
+
 func (self Instance) FilterWalkableLowHeightSpans() bool { //gd:NavigationMesh.filter_walkable_low_height_spans
 		return bool(class(self).GetFilterWalkableLowHeightSpans())
 }
+
+func (o *Extension[T]) FilterWalkableLowHeightSpans() bool { return o.Super().FilterWalkableLowHeightSpans() }
 
 // SetFilterWalkableLowHeightSpans sets the property returned by [GetFilterWalkableLowHeightSpans]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFilterWalkableLowHeightSpans(value bool) Instance { //gd:NavigationMesh.filter_walkable_low_height_spans
@@ -458,9 +614,16 @@ func (self Instance) SetFilterWalkableLowHeightSpans(value bool) Instance { //gd
 	return self
 }
 
+func (o *Extension[T]) SetFilterWalkableLowHeightSpans(value bool) *Extension[T] {
+	o.Super().SetFilterWalkableLowHeightSpans(value)
+	return o
+}
+
 func (self Instance) FilterBakingAabb() AABB.PositionSize { //gd:NavigationMesh.filter_baking_aabb
 		return AABB.PositionSize(class(self).GetFilterBakingAabb())
 }
+
+func (o *Extension[T]) FilterBakingAabb() AABB.PositionSize { return o.Super().FilterBakingAabb() }
 
 // SetFilterBakingAabb sets the property returned by [GetFilterBakingAabb]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFilterBakingAabb(value AABB.PositionSize) Instance { //gd:NavigationMesh.filter_baking_aabb
@@ -468,14 +631,26 @@ func (self Instance) SetFilterBakingAabb(value AABB.PositionSize) Instance { //g
 	return self
 }
 
+func (o *Extension[T]) SetFilterBakingAabb(value AABB.PositionSize) *Extension[T] {
+	o.Super().SetFilterBakingAabb(value)
+	return o
+}
+
 func (self Instance) FilterBakingAabbOffset() Vector3.XYZ { //gd:NavigationMesh.filter_baking_aabb_offset
 		return Vector3.XYZ(class(self).GetFilterBakingAabbOffset())
 }
+
+func (o *Extension[T]) FilterBakingAabbOffset() Vector3.XYZ { return o.Super().FilterBakingAabbOffset() }
 
 // SetFilterBakingAabbOffset sets the property returned by [GetFilterBakingAabbOffset]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFilterBakingAabbOffset(value Vector3.XYZ) Instance { //gd:NavigationMesh.filter_baking_aabb_offset
 	class(self).SetFilterBakingAabbOffset(Vector3.XYZ(value))
 	return self
+}
+
+func (o *Extension[T]) SetFilterBakingAabbOffset(value Vector3.XYZ) *Extension[T] {
+	o.Super().SetFilterBakingAabbOffset(value)
+	return o
 }
 
 func (self class) SetSamplePartitionType(sample_partition_type SamplePartitionType)  { //gd:NavigationMesh.set_sample_partition_type
@@ -855,6 +1030,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

@@ -18,6 +18,7 @@ import "graphics.gd/variant/Angle"
 import "graphics.gd/variant/Euler"
 import "graphics.gd/variant/Signal"
 import "graphics.gd/classdb/JavaObject"
+import "graphics.gd/classdb/MultiplayerAPI"
 import "graphics.gd/classdb/Node"
 import "graphics.gd/classdb/Node3D"
 import "graphics.gd/classdb/Node3DGizmo"
@@ -25,6 +26,7 @@ import "graphics.gd/classdb/SubViewport"
 import "graphics.gd/classdb/Tween"
 import "graphics.gd/classdb/World3D"
 import "graphics.gd/variant/Array"
+import "graphics.gd/variant/Basis"
 import "graphics.gd/variant/Callable"
 import "graphics.gd/variant/Color"
 import "graphics.gd/variant/Dictionary"
@@ -33,6 +35,7 @@ import "graphics.gd/variant/Float"
 import "graphics.gd/variant/Object"
 import "graphics.gd/variant/Packed"
 import "graphics.gd/variant/Path"
+import "graphics.gd/variant/Quaternion"
 import "graphics.gd/variant/RID"
 import "graphics.gd/variant/RefCounted"
 import "graphics.gd/variant/String"
@@ -204,15 +207,24 @@ func (self Instance) LayerViewport() SubViewport.Instance { //gd:OpenXRCompositi
 		return SubViewport.Instance(class(self).GetLayerViewport())
 }
 
+func (o *Extension[T]) LayerViewport() SubViewport.Instance { return o.Super().LayerViewport() }
+
 // SetLayerViewport sets the property returned by [GetLayerViewport]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetLayerViewport(value SubViewport.Instance) Instance { //gd:OpenXRCompositionLayer.layer_viewport
 	class(self).SetLayerViewport(value)
 	return self
 }
 
+func (o *Extension[T]) SetLayerViewport(value SubViewport.Instance) *Extension[T] {
+	o.Super().SetLayerViewport(value)
+	return o
+}
+
 func (self Instance) UseAndroidSurface() bool { //gd:OpenXRCompositionLayer.use_android_surface
 		return bool(class(self).GetUseAndroidSurface())
 }
+
+func (o *Extension[T]) UseAndroidSurface() bool { return o.Super().UseAndroidSurface() }
 
 // SetUseAndroidSurface sets the property returned by [GetUseAndroidSurface]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUseAndroidSurface(value bool) Instance { //gd:OpenXRCompositionLayer.use_android_surface
@@ -220,9 +232,16 @@ func (self Instance) SetUseAndroidSurface(value bool) Instance { //gd:OpenXRComp
 	return self
 }
 
+func (o *Extension[T]) SetUseAndroidSurface(value bool) *Extension[T] {
+	o.Super().SetUseAndroidSurface(value)
+	return o
+}
+
 func (self Instance) ProtectedContent() bool { //gd:OpenXRCompositionLayer.protected_content
 		return bool(class(self).IsProtectedContent())
 }
+
+func (o *Extension[T]) ProtectedContent() bool { return o.Super().ProtectedContent() }
 
 // SetProtectedContent sets the property returned by [IsProtectedContent]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetProtectedContent(value bool) Instance { //gd:OpenXRCompositionLayer.protected_content
@@ -230,9 +249,16 @@ func (self Instance) SetProtectedContent(value bool) Instance { //gd:OpenXRCompo
 	return self
 }
 
+func (o *Extension[T]) SetProtectedContent(value bool) *Extension[T] {
+	o.Super().SetProtectedContent(value)
+	return o
+}
+
 func (self Instance) AndroidSurfaceSize() Vector2i.XY { //gd:OpenXRCompositionLayer.android_surface_size
 		return Vector2i.XY(class(self).GetAndroidSurfaceSize())
 }
+
+func (o *Extension[T]) AndroidSurfaceSize() Vector2i.XY { return o.Super().AndroidSurfaceSize() }
 
 // SetAndroidSurfaceSize sets the property returned by [GetAndroidSurfaceSize]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAndroidSurfaceSize(value Vector2i.XY) Instance { //gd:OpenXRCompositionLayer.android_surface_size
@@ -240,9 +266,16 @@ func (self Instance) SetAndroidSurfaceSize(value Vector2i.XY) Instance { //gd:Op
 	return self
 }
 
+func (o *Extension[T]) SetAndroidSurfaceSize(value Vector2i.XY) *Extension[T] {
+	o.Super().SetAndroidSurfaceSize(value)
+	return o
+}
+
 func (self Instance) SortOrder() int { //gd:OpenXRCompositionLayer.sort_order
 		return int(int(class(self).GetSortOrder()))
 }
+
+func (o *Extension[T]) SortOrder() int { return o.Super().SortOrder() }
 
 // SetSortOrder sets the property returned by [GetSortOrder]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSortOrder(value int) Instance { //gd:OpenXRCompositionLayer.sort_order
@@ -250,9 +283,16 @@ func (self Instance) SetSortOrder(value int) Instance { //gd:OpenXRCompositionLa
 	return self
 }
 
+func (o *Extension[T]) SetSortOrder(value int) *Extension[T] {
+	o.Super().SetSortOrder(value)
+	return o
+}
+
 func (self Instance) AlphaBlend() bool { //gd:OpenXRCompositionLayer.alpha_blend
 		return bool(class(self).GetAlphaBlend())
 }
+
+func (o *Extension[T]) AlphaBlend() bool { return o.Super().AlphaBlend() }
 
 // SetAlphaBlend sets the property returned by [GetAlphaBlend]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAlphaBlend(value bool) Instance { //gd:OpenXRCompositionLayer.alpha_blend
@@ -260,9 +300,16 @@ func (self Instance) SetAlphaBlend(value bool) Instance { //gd:OpenXRComposition
 	return self
 }
 
+func (o *Extension[T]) SetAlphaBlend(value bool) *Extension[T] {
+	o.Super().SetAlphaBlend(value)
+	return o
+}
+
 func (self Instance) EnableHolePunch() bool { //gd:OpenXRCompositionLayer.enable_hole_punch
 		return bool(class(self).GetEnableHolePunch())
 }
+
+func (o *Extension[T]) EnableHolePunch() bool { return o.Super().EnableHolePunch() }
 
 // SetEnableHolePunch sets the property returned by [GetEnableHolePunch]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEnableHolePunch(value bool) Instance { //gd:OpenXRCompositionLayer.enable_hole_punch
@@ -270,9 +317,16 @@ func (self Instance) SetEnableHolePunch(value bool) Instance { //gd:OpenXRCompos
 	return self
 }
 
+func (o *Extension[T]) SetEnableHolePunch(value bool) *Extension[T] {
+	o.Super().SetEnableHolePunch(value)
+	return o
+}
+
 func (self Instance) SwapchainStateMinFilter() Filter { //gd:OpenXRCompositionLayer.swapchain_state_min_filter
 		return Filter(class(self).GetMinFilter())
 }
+
+func (o *Extension[T]) SwapchainStateMinFilter() Filter { return o.Super().SwapchainStateMinFilter() }
 
 // SetSwapchainStateMinFilter sets the property returned by [GetMinFilter]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSwapchainStateMinFilter(value Filter) Instance { //gd:OpenXRCompositionLayer.swapchain_state_min_filter
@@ -280,9 +334,16 @@ func (self Instance) SetSwapchainStateMinFilter(value Filter) Instance { //gd:Op
 	return self
 }
 
+func (o *Extension[T]) SetSwapchainStateMinFilter(value Filter) *Extension[T] {
+	o.Super().SetSwapchainStateMinFilter(value)
+	return o
+}
+
 func (self Instance) SwapchainStateMagFilter() Filter { //gd:OpenXRCompositionLayer.swapchain_state_mag_filter
 		return Filter(class(self).GetMagFilter())
 }
+
+func (o *Extension[T]) SwapchainStateMagFilter() Filter { return o.Super().SwapchainStateMagFilter() }
 
 // SetSwapchainStateMagFilter sets the property returned by [GetMagFilter]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSwapchainStateMagFilter(value Filter) Instance { //gd:OpenXRCompositionLayer.swapchain_state_mag_filter
@@ -290,9 +351,16 @@ func (self Instance) SetSwapchainStateMagFilter(value Filter) Instance { //gd:Op
 	return self
 }
 
+func (o *Extension[T]) SetSwapchainStateMagFilter(value Filter) *Extension[T] {
+	o.Super().SetSwapchainStateMagFilter(value)
+	return o
+}
+
 func (self Instance) SwapchainStateMipmapMode() MipmapMode { //gd:OpenXRCompositionLayer.swapchain_state_mipmap_mode
 		return MipmapMode(class(self).GetMipmapMode())
 }
+
+func (o *Extension[T]) SwapchainStateMipmapMode() MipmapMode { return o.Super().SwapchainStateMipmapMode() }
 
 // SetSwapchainStateMipmapMode sets the property returned by [GetMipmapMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSwapchainStateMipmapMode(value MipmapMode) Instance { //gd:OpenXRCompositionLayer.swapchain_state_mipmap_mode
@@ -300,9 +368,16 @@ func (self Instance) SetSwapchainStateMipmapMode(value MipmapMode) Instance { //
 	return self
 }
 
+func (o *Extension[T]) SetSwapchainStateMipmapMode(value MipmapMode) *Extension[T] {
+	o.Super().SetSwapchainStateMipmapMode(value)
+	return o
+}
+
 func (self Instance) SwapchainStateHorizontalWrap() Wrap { //gd:OpenXRCompositionLayer.swapchain_state_horizontal_wrap
 		return Wrap(class(self).GetHorizontalWrap())
 }
+
+func (o *Extension[T]) SwapchainStateHorizontalWrap() Wrap { return o.Super().SwapchainStateHorizontalWrap() }
 
 // SetSwapchainStateHorizontalWrap sets the property returned by [GetHorizontalWrap]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSwapchainStateHorizontalWrap(value Wrap) Instance { //gd:OpenXRCompositionLayer.swapchain_state_horizontal_wrap
@@ -310,9 +385,16 @@ func (self Instance) SetSwapchainStateHorizontalWrap(value Wrap) Instance { //gd
 	return self
 }
 
+func (o *Extension[T]) SetSwapchainStateHorizontalWrap(value Wrap) *Extension[T] {
+	o.Super().SetSwapchainStateHorizontalWrap(value)
+	return o
+}
+
 func (self Instance) SwapchainStateVerticalWrap() Wrap { //gd:OpenXRCompositionLayer.swapchain_state_vertical_wrap
 		return Wrap(class(self).GetVerticalWrap())
 }
+
+func (o *Extension[T]) SwapchainStateVerticalWrap() Wrap { return o.Super().SwapchainStateVerticalWrap() }
 
 // SetSwapchainStateVerticalWrap sets the property returned by [GetVerticalWrap]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSwapchainStateVerticalWrap(value Wrap) Instance { //gd:OpenXRCompositionLayer.swapchain_state_vertical_wrap
@@ -320,9 +402,16 @@ func (self Instance) SetSwapchainStateVerticalWrap(value Wrap) Instance { //gd:O
 	return self
 }
 
+func (o *Extension[T]) SetSwapchainStateVerticalWrap(value Wrap) *Extension[T] {
+	o.Super().SetSwapchainStateVerticalWrap(value)
+	return o
+}
+
 func (self Instance) SwapchainStateRedSwizzle() Swizzle { //gd:OpenXRCompositionLayer.swapchain_state_red_swizzle
 		return Swizzle(class(self).GetRedSwizzle())
 }
+
+func (o *Extension[T]) SwapchainStateRedSwizzle() Swizzle { return o.Super().SwapchainStateRedSwizzle() }
 
 // SetSwapchainStateRedSwizzle sets the property returned by [GetRedSwizzle]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSwapchainStateRedSwizzle(value Swizzle) Instance { //gd:OpenXRCompositionLayer.swapchain_state_red_swizzle
@@ -330,9 +419,16 @@ func (self Instance) SetSwapchainStateRedSwizzle(value Swizzle) Instance { //gd:
 	return self
 }
 
+func (o *Extension[T]) SetSwapchainStateRedSwizzle(value Swizzle) *Extension[T] {
+	o.Super().SetSwapchainStateRedSwizzle(value)
+	return o
+}
+
 func (self Instance) SwapchainStateGreenSwizzle() Swizzle { //gd:OpenXRCompositionLayer.swapchain_state_green_swizzle
 		return Swizzle(class(self).GetGreenSwizzle())
 }
+
+func (o *Extension[T]) SwapchainStateGreenSwizzle() Swizzle { return o.Super().SwapchainStateGreenSwizzle() }
 
 // SetSwapchainStateGreenSwizzle sets the property returned by [GetGreenSwizzle]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSwapchainStateGreenSwizzle(value Swizzle) Instance { //gd:OpenXRCompositionLayer.swapchain_state_green_swizzle
@@ -340,9 +436,16 @@ func (self Instance) SetSwapchainStateGreenSwizzle(value Swizzle) Instance { //g
 	return self
 }
 
+func (o *Extension[T]) SetSwapchainStateGreenSwizzle(value Swizzle) *Extension[T] {
+	o.Super().SetSwapchainStateGreenSwizzle(value)
+	return o
+}
+
 func (self Instance) SwapchainStateBlueSwizzle() Swizzle { //gd:OpenXRCompositionLayer.swapchain_state_blue_swizzle
 		return Swizzle(class(self).GetBlueSwizzle())
 }
+
+func (o *Extension[T]) SwapchainStateBlueSwizzle() Swizzle { return o.Super().SwapchainStateBlueSwizzle() }
 
 // SetSwapchainStateBlueSwizzle sets the property returned by [GetBlueSwizzle]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSwapchainStateBlueSwizzle(value Swizzle) Instance { //gd:OpenXRCompositionLayer.swapchain_state_blue_swizzle
@@ -350,9 +453,16 @@ func (self Instance) SetSwapchainStateBlueSwizzle(value Swizzle) Instance { //gd
 	return self
 }
 
+func (o *Extension[T]) SetSwapchainStateBlueSwizzle(value Swizzle) *Extension[T] {
+	o.Super().SetSwapchainStateBlueSwizzle(value)
+	return o
+}
+
 func (self Instance) SwapchainStateAlphaSwizzle() Swizzle { //gd:OpenXRCompositionLayer.swapchain_state_alpha_swizzle
 		return Swizzle(class(self).GetAlphaSwizzle())
 }
+
+func (o *Extension[T]) SwapchainStateAlphaSwizzle() Swizzle { return o.Super().SwapchainStateAlphaSwizzle() }
 
 // SetSwapchainStateAlphaSwizzle sets the property returned by [GetAlphaSwizzle]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSwapchainStateAlphaSwizzle(value Swizzle) Instance { //gd:OpenXRCompositionLayer.swapchain_state_alpha_swizzle
@@ -360,9 +470,16 @@ func (self Instance) SetSwapchainStateAlphaSwizzle(value Swizzle) Instance { //g
 	return self
 }
 
+func (o *Extension[T]) SetSwapchainStateAlphaSwizzle(value Swizzle) *Extension[T] {
+	o.Super().SetSwapchainStateAlphaSwizzle(value)
+	return o
+}
+
 func (self Instance) SwapchainStateMaxAnisotropy() Float.X { //gd:OpenXRCompositionLayer.swapchain_state_max_anisotropy
 		return Float.X(Float.X(class(self).GetMaxAnisotropy()))
 }
+
+func (o *Extension[T]) SwapchainStateMaxAnisotropy() Float.X { return o.Super().SwapchainStateMaxAnisotropy() }
 
 // SetSwapchainStateMaxAnisotropy sets the property returned by [GetMaxAnisotropy]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSwapchainStateMaxAnisotropy(value Float.X) Instance { //gd:OpenXRCompositionLayer.swapchain_state_max_anisotropy
@@ -370,14 +487,26 @@ func (self Instance) SetSwapchainStateMaxAnisotropy(value Float.X) Instance { //
 	return self
 }
 
+func (o *Extension[T]) SetSwapchainStateMaxAnisotropy(value Float.X) *Extension[T] {
+	o.Super().SetSwapchainStateMaxAnisotropy(value)
+	return o
+}
+
 func (self Instance) SwapchainStateBorderColor() Color.RGBA { //gd:OpenXRCompositionLayer.swapchain_state_border_color
 		return Color.RGBA(class(self).GetBorderColor())
 }
+
+func (o *Extension[T]) SwapchainStateBorderColor() Color.RGBA { return o.Super().SwapchainStateBorderColor() }
 
 // SetSwapchainStateBorderColor sets the property returned by [GetBorderColor]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSwapchainStateBorderColor(value Color.RGBA) Instance { //gd:OpenXRCompositionLayer.swapchain_state_border_color
 	class(self).SetBorderColor(Color.RGBA(value))
 	return self
+}
+
+func (o *Extension[T]) SetSwapchainStateBorderColor(value Color.RGBA) *Extension[T] {
+	o.Super().SetSwapchainStateBorderColor(value)
+	return o
 }
 
 func (self class) SetLayerViewport(viewport [1]gdclass.SubViewport)  { //gd:OpenXRCompositionLayer.set_layer_viewport
@@ -1726,6 +1855,279 @@ func (self Instance) NotifyThreadSafe(what int) {
 // NotifyThreadSafe is promoted from [Node.Instance.NotifyThreadSafe].
 func (o *Extension[T]) NotifyThreadSafe(what int) {
 	o.Super().AsNode().NotifyThreadSafe(what)
+}
+
+// Transform is promoted from [Node3D.Instance.Transform].
+func (o *Extension[T]) Transform() Transform3D.BasisOrigin { return o.Super().AsNode3D().Transform() }
+
+// SetTransform is promoted from [Node3D.Instance.SetTransform].
+func (o *Extension[T]) SetTransform(value Transform3D.BasisOrigin) *Extension[T] {
+	o.Super().AsNode3D().SetTransform(value)
+	return o
+}
+
+// GlobalTransform is promoted from [Node3D.Instance.GlobalTransform].
+func (o *Extension[T]) GlobalTransform() Transform3D.BasisOrigin { return o.Super().AsNode3D().GlobalTransform() }
+
+// SetGlobalTransform is promoted from [Node3D.Instance.SetGlobalTransform].
+func (o *Extension[T]) SetGlobalTransform(value Transform3D.BasisOrigin) *Extension[T] {
+	o.Super().AsNode3D().SetGlobalTransform(value)
+	return o
+}
+
+// Position is promoted from [Node3D.Instance.Position].
+func (o *Extension[T]) Position() Vector3.XYZ { return o.Super().AsNode3D().Position() }
+
+// SetPosition is promoted from [Node3D.Instance.SetPosition].
+func (o *Extension[T]) SetPosition(value Vector3.XYZ) *Extension[T] {
+	o.Super().AsNode3D().SetPosition(value)
+	return o
+}
+
+// Rotation is promoted from [Node3D.Instance.Rotation].
+func (o *Extension[T]) Rotation() Euler.Radians { return o.Super().AsNode3D().Rotation() }
+
+// SetRotation is promoted from [Node3D.Instance.SetRotation].
+func (o *Extension[T]) SetRotation(value Euler.Radians) *Extension[T] {
+	o.Super().AsNode3D().SetRotation(value)
+	return o
+}
+
+// RotationDegrees is promoted from [Node3D.Instance.RotationDegrees].
+func (o *Extension[T]) RotationDegrees() Euler.Degrees { return o.Super().AsNode3D().RotationDegrees() }
+
+// SetRotationDegrees is promoted from [Node3D.Instance.SetRotationDegrees].
+func (o *Extension[T]) SetRotationDegrees(value Euler.Degrees) *Extension[T] {
+	o.Super().AsNode3D().SetRotationDegrees(value)
+	return o
+}
+
+// Quaternion is promoted from [Node3D.Instance.Quaternion].
+func (o *Extension[T]) Quaternion() Quaternion.IJKX { return o.Super().AsNode3D().Quaternion() }
+
+// SetQuaternion is promoted from [Node3D.Instance.SetQuaternion].
+func (o *Extension[T]) SetQuaternion(value Quaternion.IJKX) *Extension[T] {
+	o.Super().AsNode3D().SetQuaternion(value)
+	return o
+}
+
+// Basis is promoted from [Node3D.Instance.Basis].
+func (o *Extension[T]) Basis() Basis.XYZ { return o.Super().AsNode3D().Basis() }
+
+// SetBasis is promoted from [Node3D.Instance.SetBasis].
+func (o *Extension[T]) SetBasis(value Basis.XYZ) *Extension[T] {
+	o.Super().AsNode3D().SetBasis(value)
+	return o
+}
+
+// Scale is promoted from [Node3D.Instance.Scale].
+func (o *Extension[T]) Scale() Vector3.XYZ { return o.Super().AsNode3D().Scale() }
+
+// SetScale is promoted from [Node3D.Instance.SetScale].
+func (o *Extension[T]) SetScale(value Vector3.XYZ) *Extension[T] {
+	o.Super().AsNode3D().SetScale(value)
+	return o
+}
+
+// RotationEditMode is promoted from [Node3D.Instance.RotationEditMode].
+func (o *Extension[T]) RotationEditMode() Node3D.RotationEditMode { return o.Super().AsNode3D().RotationEditMode() }
+
+// SetRotationEditMode is promoted from [Node3D.Instance.SetRotationEditMode].
+func (o *Extension[T]) SetRotationEditMode(value Node3D.RotationEditMode) *Extension[T] {
+	o.Super().AsNode3D().SetRotationEditMode(value)
+	return o
+}
+
+// RotationOrder is promoted from [Node3D.Instance.RotationOrder].
+func (o *Extension[T]) RotationOrder() Angle.Order { return o.Super().AsNode3D().RotationOrder() }
+
+// SetRotationOrder is promoted from [Node3D.Instance.SetRotationOrder].
+func (o *Extension[T]) SetRotationOrder(value Angle.Order) *Extension[T] {
+	o.Super().AsNode3D().SetRotationOrder(value)
+	return o
+}
+
+// TopLevel is promoted from [Node3D.Instance.TopLevel].
+func (o *Extension[T]) TopLevel() bool { return o.Super().AsNode3D().TopLevel() }
+
+// SetTopLevel is promoted from [Node3D.Instance.SetTopLevel].
+func (o *Extension[T]) SetTopLevel(value bool) *Extension[T] {
+	o.Super().AsNode3D().SetTopLevel(value)
+	return o
+}
+
+// GlobalPosition is promoted from [Node3D.Instance.GlobalPosition].
+func (o *Extension[T]) GlobalPosition() Vector3.XYZ { return o.Super().AsNode3D().GlobalPosition() }
+
+// SetGlobalPosition is promoted from [Node3D.Instance.SetGlobalPosition].
+func (o *Extension[T]) SetGlobalPosition(value Vector3.XYZ) *Extension[T] {
+	o.Super().AsNode3D().SetGlobalPosition(value)
+	return o
+}
+
+// GlobalBasis is promoted from [Node3D.Instance.GlobalBasis].
+func (o *Extension[T]) GlobalBasis() Basis.XYZ { return o.Super().AsNode3D().GlobalBasis() }
+
+// SetGlobalBasis is promoted from [Node3D.Instance.SetGlobalBasis].
+func (o *Extension[T]) SetGlobalBasis(value Basis.XYZ) *Extension[T] {
+	o.Super().AsNode3D().SetGlobalBasis(value)
+	return o
+}
+
+// GlobalRotation is promoted from [Node3D.Instance.GlobalRotation].
+func (o *Extension[T]) GlobalRotation() Euler.Radians { return o.Super().AsNode3D().GlobalRotation() }
+
+// SetGlobalRotation is promoted from [Node3D.Instance.SetGlobalRotation].
+func (o *Extension[T]) SetGlobalRotation(value Euler.Radians) *Extension[T] {
+	o.Super().AsNode3D().SetGlobalRotation(value)
+	return o
+}
+
+// GlobalRotationDegrees is promoted from [Node3D.Instance.GlobalRotationDegrees].
+func (o *Extension[T]) GlobalRotationDegrees() Euler.Degrees { return o.Super().AsNode3D().GlobalRotationDegrees() }
+
+// SetGlobalRotationDegrees is promoted from [Node3D.Instance.SetGlobalRotationDegrees].
+func (o *Extension[T]) SetGlobalRotationDegrees(value Euler.Degrees) *Extension[T] {
+	o.Super().AsNode3D().SetGlobalRotationDegrees(value)
+	return o
+}
+
+// Visible is promoted from [Node3D.Instance.Visible].
+func (o *Extension[T]) Visible() bool { return o.Super().AsNode3D().Visible() }
+
+// SetVisible is promoted from [Node3D.Instance.SetVisible].
+func (o *Extension[T]) SetVisible(value bool) *Extension[T] {
+	o.Super().AsNode3D().SetVisible(value)
+	return o
+}
+
+// VisibilityParent is promoted from [Node3D.Instance.VisibilityParent].
+func (o *Extension[T]) VisibilityParent() string { return o.Super().AsNode3D().VisibilityParent() }
+
+// SetVisibilityParent is promoted from [Node3D.Instance.SetVisibilityParent].
+func (o *Extension[T]) SetVisibilityParent(value string) *Extension[T] {
+	o.Super().AsNode3D().SetVisibilityParent(value)
+	return o
+}
+
+// Name is promoted from [Node.Instance.Name].
+func (o *Extension[T]) Name() string { return o.Super().AsNode().Name() }
+
+// SetName is promoted from [Node.Instance.SetName].
+func (o *Extension[T]) SetName(value string) *Extension[T] {
+	o.Super().AsNode().SetName(value)
+	return o
+}
+
+// UniqueNameInOwner is promoted from [Node.Instance.UniqueNameInOwner].
+func (o *Extension[T]) UniqueNameInOwner() bool { return o.Super().AsNode().UniqueNameInOwner() }
+
+// SetUniqueNameInOwner is promoted from [Node.Instance.SetUniqueNameInOwner].
+func (o *Extension[T]) SetUniqueNameInOwner(value bool) *Extension[T] {
+	o.Super().AsNode().SetUniqueNameInOwner(value)
+	return o
+}
+
+// SceneFilePath is promoted from [Node.Instance.SceneFilePath].
+func (o *Extension[T]) SceneFilePath() string { return o.Super().AsNode().SceneFilePath() }
+
+// SetSceneFilePath is promoted from [Node.Instance.SetSceneFilePath].
+func (o *Extension[T]) SetSceneFilePath(value string) *Extension[T] {
+	o.Super().AsNode().SetSceneFilePath(value)
+	return o
+}
+
+// Owner is promoted from [Node.Instance.Owner].
+func (o *Extension[T]) Owner() Node.Instance { return o.Super().AsNode().Owner() }
+
+// SetOwner is promoted from [Node.Instance.SetOwner].
+func (o *Extension[T]) SetOwner(value Node.Instance) *Extension[T] {
+	o.Super().AsNode().SetOwner(value)
+	return o
+}
+
+// Multiplayer is promoted from [Node.Instance.Multiplayer].
+func (o *Extension[T]) Multiplayer() MultiplayerAPI.Instance { return o.Super().AsNode().Multiplayer() }
+
+// ProcessMode is promoted from [Node.Instance.ProcessMode].
+func (o *Extension[T]) ProcessMode() Node.ProcessMode { return o.Super().AsNode().ProcessMode() }
+
+// SetProcessMode is promoted from [Node.Instance.SetProcessMode].
+func (o *Extension[T]) SetProcessMode(value Node.ProcessMode) *Extension[T] {
+	o.Super().AsNode().SetProcessMode(value)
+	return o
+}
+
+// ProcessPriority is promoted from [Node.Instance.ProcessPriority].
+func (o *Extension[T]) ProcessPriority() int { return o.Super().AsNode().ProcessPriority() }
+
+// SetProcessPriority is promoted from [Node.Instance.SetProcessPriority].
+func (o *Extension[T]) SetProcessPriority(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessPriority(value)
+	return o
+}
+
+// ProcessPhysicsPriority is promoted from [Node.Instance.ProcessPhysicsPriority].
+func (o *Extension[T]) ProcessPhysicsPriority() int { return o.Super().AsNode().ProcessPhysicsPriority() }
+
+// SetProcessPhysicsPriority is promoted from [Node.Instance.SetProcessPhysicsPriority].
+func (o *Extension[T]) SetProcessPhysicsPriority(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessPhysicsPriority(value)
+	return o
+}
+
+// ProcessThreadGroup is promoted from [Node.Instance.ProcessThreadGroup].
+func (o *Extension[T]) ProcessThreadGroup() Node.ProcessThreadGroup { return o.Super().AsNode().ProcessThreadGroup() }
+
+// SetProcessThreadGroup is promoted from [Node.Instance.SetProcessThreadGroup].
+func (o *Extension[T]) SetProcessThreadGroup(value Node.ProcessThreadGroup) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadGroup(value)
+	return o
+}
+
+// ProcessThreadGroupOrder is promoted from [Node.Instance.ProcessThreadGroupOrder].
+func (o *Extension[T]) ProcessThreadGroupOrder() int { return o.Super().AsNode().ProcessThreadGroupOrder() }
+
+// SetProcessThreadGroupOrder is promoted from [Node.Instance.SetProcessThreadGroupOrder].
+func (o *Extension[T]) SetProcessThreadGroupOrder(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadGroupOrder(value)
+	return o
+}
+
+// ProcessThreadMessages is promoted from [Node.Instance.ProcessThreadMessages].
+func (o *Extension[T]) ProcessThreadMessages() Node.ProcessThreadMessages { return o.Super().AsNode().ProcessThreadMessages() }
+
+// SetProcessThreadMessages is promoted from [Node.Instance.SetProcessThreadMessages].
+func (o *Extension[T]) SetProcessThreadMessages(value Node.ProcessThreadMessages) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadMessages(value)
+	return o
+}
+
+// PhysicsInterpolationMode is promoted from [Node.Instance.PhysicsInterpolationMode].
+func (o *Extension[T]) PhysicsInterpolationMode() Node.PhysicsInterpolationMode { return o.Super().AsNode().PhysicsInterpolationMode() }
+
+// SetPhysicsInterpolationMode is promoted from [Node.Instance.SetPhysicsInterpolationMode].
+func (o *Extension[T]) SetPhysicsInterpolationMode(value Node.PhysicsInterpolationMode) *Extension[T] {
+	o.Super().AsNode().SetPhysicsInterpolationMode(value)
+	return o
+}
+
+// AutoTranslateMode is promoted from [Node.Instance.AutoTranslateMode].
+func (o *Extension[T]) AutoTranslateMode() Node.AutoTranslateMode { return o.Super().AsNode().AutoTranslateMode() }
+
+// SetAutoTranslateMode is promoted from [Node.Instance.SetAutoTranslateMode].
+func (o *Extension[T]) SetAutoTranslateMode(value Node.AutoTranslateMode) *Extension[T] {
+	o.Super().AsNode().SetAutoTranslateMode(value)
+	return o
+}
+
+// EditorDescription is promoted from [Node.Instance.EditorDescription].
+func (o *Extension[T]) EditorDescription() string { return o.Super().AsNode().EditorDescription() }
+
+// SetEditorDescription is promoted from [Node.Instance.SetEditorDescription].
+func (o *Extension[T]) SetEditorDescription(value string) *Extension[T] {
+	o.Super().AsNode().SetEditorDescription(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

@@ -522,6 +522,15 @@ func (o *Extension[T]) GetPeers() []int32 {
 	return o.Super().AsMultiplayerAPI().GetPeers()
 }
 
+// MultiplayerPeer is promoted from [MultiplayerAPI.Instance.MultiplayerPeer].
+func (o *Extension[T]) MultiplayerPeer() MultiplayerPeer.Instance { return o.Super().AsMultiplayerAPI().MultiplayerPeer() }
+
+// SetMultiplayerPeer is promoted from [MultiplayerAPI.Instance.SetMultiplayerPeer].
+func (o *Extension[T]) SetMultiplayerPeer(value MultiplayerPeer.Instance) *Extension[T] {
+	o.Super().AsMultiplayerAPI().SetMultiplayerPeer(value)
+	return o
+}
+
 func (self class) Virtual(name string) reflect.Value {
 	switch name {
 	case "_poll": return reflect.ValueOf(self._poll);

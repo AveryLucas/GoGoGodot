@@ -171,15 +171,24 @@ func (self Instance) MaxConcavity() Float.X { //gd:MeshConvexDecompositionSettin
 		return Float.X(Float.X(class(self).GetMaxConcavity()))
 }
 
+func (o *Extension[T]) MaxConcavity() Float.X { return o.Super().MaxConcavity() }
+
 // SetMaxConcavity sets the property returned by [GetMaxConcavity]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMaxConcavity(value Float.X) Instance { //gd:MeshConvexDecompositionSettings.max_concavity
 	class(self).SetMaxConcavity(float64(value))
 	return self
 }
 
+func (o *Extension[T]) SetMaxConcavity(value Float.X) *Extension[T] {
+	o.Super().SetMaxConcavity(value)
+	return o
+}
+
 func (self Instance) SymmetryPlanesClippingBias() Float.X { //gd:MeshConvexDecompositionSettings.symmetry_planes_clipping_bias
 		return Float.X(Float.X(class(self).GetSymmetryPlanesClippingBias()))
 }
+
+func (o *Extension[T]) SymmetryPlanesClippingBias() Float.X { return o.Super().SymmetryPlanesClippingBias() }
 
 // SetSymmetryPlanesClippingBias sets the property returned by [GetSymmetryPlanesClippingBias]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSymmetryPlanesClippingBias(value Float.X) Instance { //gd:MeshConvexDecompositionSettings.symmetry_planes_clipping_bias
@@ -187,9 +196,16 @@ func (self Instance) SetSymmetryPlanesClippingBias(value Float.X) Instance { //g
 	return self
 }
 
+func (o *Extension[T]) SetSymmetryPlanesClippingBias(value Float.X) *Extension[T] {
+	o.Super().SetSymmetryPlanesClippingBias(value)
+	return o
+}
+
 func (self Instance) RevolutionAxesClippingBias() Float.X { //gd:MeshConvexDecompositionSettings.revolution_axes_clipping_bias
 		return Float.X(Float.X(class(self).GetRevolutionAxesClippingBias()))
 }
+
+func (o *Extension[T]) RevolutionAxesClippingBias() Float.X { return o.Super().RevolutionAxesClippingBias() }
 
 // SetRevolutionAxesClippingBias sets the property returned by [GetRevolutionAxesClippingBias]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRevolutionAxesClippingBias(value Float.X) Instance { //gd:MeshConvexDecompositionSettings.revolution_axes_clipping_bias
@@ -197,9 +213,16 @@ func (self Instance) SetRevolutionAxesClippingBias(value Float.X) Instance { //g
 	return self
 }
 
+func (o *Extension[T]) SetRevolutionAxesClippingBias(value Float.X) *Extension[T] {
+	o.Super().SetRevolutionAxesClippingBias(value)
+	return o
+}
+
 func (self Instance) MinVolumePerConvexHull() Float.X { //gd:MeshConvexDecompositionSettings.min_volume_per_convex_hull
 		return Float.X(Float.X(class(self).GetMinVolumePerConvexHull()))
 }
+
+func (o *Extension[T]) MinVolumePerConvexHull() Float.X { return o.Super().MinVolumePerConvexHull() }
 
 // SetMinVolumePerConvexHull sets the property returned by [GetMinVolumePerConvexHull]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMinVolumePerConvexHull(value Float.X) Instance { //gd:MeshConvexDecompositionSettings.min_volume_per_convex_hull
@@ -207,9 +230,16 @@ func (self Instance) SetMinVolumePerConvexHull(value Float.X) Instance { //gd:Me
 	return self
 }
 
+func (o *Extension[T]) SetMinVolumePerConvexHull(value Float.X) *Extension[T] {
+	o.Super().SetMinVolumePerConvexHull(value)
+	return o
+}
+
 func (self Instance) Resolution() int { //gd:MeshConvexDecompositionSettings.resolution
 		return int(int(class(self).GetResolution()))
 }
+
+func (o *Extension[T]) Resolution() int { return o.Super().Resolution() }
 
 // SetResolution sets the property returned by [GetResolution]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetResolution(value int) Instance { //gd:MeshConvexDecompositionSettings.resolution
@@ -217,9 +247,16 @@ func (self Instance) SetResolution(value int) Instance { //gd:MeshConvexDecompos
 	return self
 }
 
+func (o *Extension[T]) SetResolution(value int) *Extension[T] {
+	o.Super().SetResolution(value)
+	return o
+}
+
 func (self Instance) MaxNumVerticesPerConvexHull() int { //gd:MeshConvexDecompositionSettings.max_num_vertices_per_convex_hull
 		return int(int(class(self).GetMaxNumVerticesPerConvexHull()))
 }
+
+func (o *Extension[T]) MaxNumVerticesPerConvexHull() int { return o.Super().MaxNumVerticesPerConvexHull() }
 
 // SetMaxNumVerticesPerConvexHull sets the property returned by [GetMaxNumVerticesPerConvexHull]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMaxNumVerticesPerConvexHull(value int) Instance { //gd:MeshConvexDecompositionSettings.max_num_vertices_per_convex_hull
@@ -227,9 +264,16 @@ func (self Instance) SetMaxNumVerticesPerConvexHull(value int) Instance { //gd:M
 	return self
 }
 
+func (o *Extension[T]) SetMaxNumVerticesPerConvexHull(value int) *Extension[T] {
+	o.Super().SetMaxNumVerticesPerConvexHull(value)
+	return o
+}
+
 func (self Instance) PlaneDownsampling() int { //gd:MeshConvexDecompositionSettings.plane_downsampling
 		return int(int(class(self).GetPlaneDownsampling()))
 }
+
+func (o *Extension[T]) PlaneDownsampling() int { return o.Super().PlaneDownsampling() }
 
 // SetPlaneDownsampling sets the property returned by [GetPlaneDownsampling]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPlaneDownsampling(value int) Instance { //gd:MeshConvexDecompositionSettings.plane_downsampling
@@ -237,9 +281,16 @@ func (self Instance) SetPlaneDownsampling(value int) Instance { //gd:MeshConvexD
 	return self
 }
 
+func (o *Extension[T]) SetPlaneDownsampling(value int) *Extension[T] {
+	o.Super().SetPlaneDownsampling(value)
+	return o
+}
+
 func (self Instance) ConvexHullDownsampling() int { //gd:MeshConvexDecompositionSettings.convex_hull_downsampling
 		return int(int(class(self).GetConvexHullDownsampling()))
 }
+
+func (o *Extension[T]) ConvexHullDownsampling() int { return o.Super().ConvexHullDownsampling() }
 
 // SetConvexHullDownsampling sets the property returned by [GetConvexHullDownsampling]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetConvexHullDownsampling(value int) Instance { //gd:MeshConvexDecompositionSettings.convex_hull_downsampling
@@ -247,9 +298,16 @@ func (self Instance) SetConvexHullDownsampling(value int) Instance { //gd:MeshCo
 	return self
 }
 
+func (o *Extension[T]) SetConvexHullDownsampling(value int) *Extension[T] {
+	o.Super().SetConvexHullDownsampling(value)
+	return o
+}
+
 func (self Instance) NormalizeMesh() bool { //gd:MeshConvexDecompositionSettings.normalize_mesh
 		return bool(class(self).GetNormalizeMesh())
 }
+
+func (o *Extension[T]) NormalizeMesh() bool { return o.Super().NormalizeMesh() }
 
 // SetNormalizeMesh sets the property returned by [GetNormalizeMesh]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetNormalizeMesh(value bool) Instance { //gd:MeshConvexDecompositionSettings.normalize_mesh
@@ -257,9 +315,16 @@ func (self Instance) SetNormalizeMesh(value bool) Instance { //gd:MeshConvexDeco
 	return self
 }
 
+func (o *Extension[T]) SetNormalizeMesh(value bool) *Extension[T] {
+	o.Super().SetNormalizeMesh(value)
+	return o
+}
+
 func (self Instance) Mode() Mode { //gd:MeshConvexDecompositionSettings.mode
 		return Mode(class(self).GetMode())
 }
+
+func (o *Extension[T]) Mode() Mode { return o.Super().Mode() }
 
 // SetMode sets the property returned by [GetMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMode(value Mode) Instance { //gd:MeshConvexDecompositionSettings.mode
@@ -267,9 +332,16 @@ func (self Instance) SetMode(value Mode) Instance { //gd:MeshConvexDecomposition
 	return self
 }
 
+func (o *Extension[T]) SetMode(value Mode) *Extension[T] {
+	o.Super().SetMode(value)
+	return o
+}
+
 func (self Instance) ConvexHullApproximation() bool { //gd:MeshConvexDecompositionSettings.convex_hull_approximation
 		return bool(class(self).GetConvexHullApproximation())
 }
+
+func (o *Extension[T]) ConvexHullApproximation() bool { return o.Super().ConvexHullApproximation() }
 
 // SetConvexHullApproximation sets the property returned by [GetConvexHullApproximation]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetConvexHullApproximation(value bool) Instance { //gd:MeshConvexDecompositionSettings.convex_hull_approximation
@@ -277,9 +349,16 @@ func (self Instance) SetConvexHullApproximation(value bool) Instance { //gd:Mesh
 	return self
 }
 
+func (o *Extension[T]) SetConvexHullApproximation(value bool) *Extension[T] {
+	o.Super().SetConvexHullApproximation(value)
+	return o
+}
+
 func (self Instance) MaxConvexHulls() int { //gd:MeshConvexDecompositionSettings.max_convex_hulls
 		return int(int(class(self).GetMaxConvexHulls()))
 }
+
+func (o *Extension[T]) MaxConvexHulls() int { return o.Super().MaxConvexHulls() }
 
 // SetMaxConvexHulls sets the property returned by [GetMaxConvexHulls]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMaxConvexHulls(value int) Instance { //gd:MeshConvexDecompositionSettings.max_convex_hulls
@@ -287,14 +366,26 @@ func (self Instance) SetMaxConvexHulls(value int) Instance { //gd:MeshConvexDeco
 	return self
 }
 
+func (o *Extension[T]) SetMaxConvexHulls(value int) *Extension[T] {
+	o.Super().SetMaxConvexHulls(value)
+	return o
+}
+
 func (self Instance) ProjectHullVertices() bool { //gd:MeshConvexDecompositionSettings.project_hull_vertices
 		return bool(class(self).GetProjectHullVertices())
 }
+
+func (o *Extension[T]) ProjectHullVertices() bool { return o.Super().ProjectHullVertices() }
 
 // SetProjectHullVertices sets the property returned by [GetProjectHullVertices]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetProjectHullVertices(value bool) Instance { //gd:MeshConvexDecompositionSettings.project_hull_vertices
 	class(self).SetProjectHullVertices(value)
 	return self
+}
+
+func (o *Extension[T]) SetProjectHullVertices(value bool) *Extension[T] {
+	o.Super().SetProjectHullVertices(value)
+	return o
 }
 
 func (self class) SetMaxConcavity(max_concavity float64)  { //gd:MeshConvexDecompositionSettings.set_max_concavity

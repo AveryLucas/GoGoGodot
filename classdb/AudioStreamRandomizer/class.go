@@ -197,15 +197,24 @@ func (self Instance) PlaybackMode() PlaybackMode { //gd:AudioStreamRandomizer.pl
 		return PlaybackMode(class(self).GetPlaybackMode())
 }
 
+func (o *Extension[T]) PlaybackMode() PlaybackMode { return o.Super().PlaybackMode() }
+
 // SetPlaybackMode sets the property returned by [GetPlaybackMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPlaybackMode(value PlaybackMode) Instance { //gd:AudioStreamRandomizer.playback_mode
 	class(self).SetPlaybackMode(value)
 	return self
 }
 
+func (o *Extension[T]) SetPlaybackMode(value PlaybackMode) *Extension[T] {
+	o.Super().SetPlaybackMode(value)
+	return o
+}
+
 func (self Instance) RandomPitch() Float.X { //gd:AudioStreamRandomizer.random_pitch
 		return Float.X(Float.X(class(self).GetRandomPitch()))
 }
+
+func (o *Extension[T]) RandomPitch() Float.X { return o.Super().RandomPitch() }
 
 // SetRandomPitch sets the property returned by [GetRandomPitch]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRandomPitch(value Float.X) Instance { //gd:AudioStreamRandomizer.random_pitch
@@ -213,9 +222,16 @@ func (self Instance) SetRandomPitch(value Float.X) Instance { //gd:AudioStreamRa
 	return self
 }
 
+func (o *Extension[T]) SetRandomPitch(value Float.X) *Extension[T] {
+	o.Super().SetRandomPitch(value)
+	return o
+}
+
 func (self Instance) RandomPitchSemitones() Float.X { //gd:AudioStreamRandomizer.random_pitch_semitones
 		return Float.X(Float.X(class(self).GetRandomPitchSemitones()))
 }
+
+func (o *Extension[T]) RandomPitchSemitones() Float.X { return o.Super().RandomPitchSemitones() }
 
 // SetRandomPitchSemitones sets the property returned by [GetRandomPitchSemitones]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRandomPitchSemitones(value Float.X) Instance { //gd:AudioStreamRandomizer.random_pitch_semitones
@@ -223,9 +239,16 @@ func (self Instance) SetRandomPitchSemitones(value Float.X) Instance { //gd:Audi
 	return self
 }
 
+func (o *Extension[T]) SetRandomPitchSemitones(value Float.X) *Extension[T] {
+	o.Super().SetRandomPitchSemitones(value)
+	return o
+}
+
 func (self Instance) RandomVolumeOffsetDb() Float.X { //gd:AudioStreamRandomizer.random_volume_offset_db
 		return Float.X(Float.X(class(self).GetRandomVolumeOffsetDb()))
 }
+
+func (o *Extension[T]) RandomVolumeOffsetDb() Float.X { return o.Super().RandomVolumeOffsetDb() }
 
 // SetRandomVolumeOffsetDb sets the property returned by [GetRandomVolumeOffsetDb]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRandomVolumeOffsetDb(value Float.X) Instance { //gd:AudioStreamRandomizer.random_volume_offset_db
@@ -233,14 +256,26 @@ func (self Instance) SetRandomVolumeOffsetDb(value Float.X) Instance { //gd:Audi
 	return self
 }
 
+func (o *Extension[T]) SetRandomVolumeOffsetDb(value Float.X) *Extension[T] {
+	o.Super().SetRandomVolumeOffsetDb(value)
+	return o
+}
+
 func (self Instance) StreamsCount() int { //gd:AudioStreamRandomizer.streams_count
 		return int(int(class(self).GetStreamsCount()))
 }
+
+func (o *Extension[T]) StreamsCount() int { return o.Super().StreamsCount() }
 
 // SetStreamsCount sets the property returned by [GetStreamsCount]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStreamsCount(value int) Instance { //gd:AudioStreamRandomizer.streams_count
 	class(self).SetStreamsCount(int64(value))
 	return self
+}
+
+func (o *Extension[T]) SetStreamsCount(value int) *Extension[T] {
+	o.Super().SetStreamsCount(value)
+	return o
 }
 
 func (self class) AddStream(index int64, stream [1]gdclass.AudioStream, weight float64)  { //gd:AudioStreamRandomizer.add_stream
@@ -523,6 +558,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

@@ -156,15 +156,24 @@ func (self Instance) Position() Vector3.XYZ { //gd:PhysicsPointQueryParameters3D
 		return Vector3.XYZ(class(self).GetPosition())
 }
 
+func (o *Extension[T]) Position() Vector3.XYZ { return o.Super().Position() }
+
 // SetPosition sets the property returned by [GetPosition]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPosition(value Vector3.XYZ) Instance { //gd:PhysicsPointQueryParameters3D.position
 	class(self).SetPosition(Vector3.XYZ(value))
 	return self
 }
 
+func (o *Extension[T]) SetPosition(value Vector3.XYZ) *Extension[T] {
+	o.Super().SetPosition(value)
+	return o
+}
+
 func (self Instance) CollisionMask() int { //gd:PhysicsPointQueryParameters3D.collision_mask
 		return int(int(class(self).GetCollisionMask()))
 }
+
+func (o *Extension[T]) CollisionMask() int { return o.Super().CollisionMask() }
 
 // SetCollisionMask sets the property returned by [GetCollisionMask]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCollisionMask(value int) Instance { //gd:PhysicsPointQueryParameters3D.collision_mask
@@ -172,9 +181,16 @@ func (self Instance) SetCollisionMask(value int) Instance { //gd:PhysicsPointQue
 	return self
 }
 
+func (o *Extension[T]) SetCollisionMask(value int) *Extension[T] {
+	o.Super().SetCollisionMask(value)
+	return o
+}
+
 func (self Instance) Exclude() []RID.Body3D { //gd:PhysicsPointQueryParameters3D.exclude
 		return []RID.Body3D(gd.ArrayAs[[]RID.Body3D](gd.InternalArray(class(self).GetExclude())))
 }
+
+func (o *Extension[T]) Exclude() []RID.Body3D { return o.Super().Exclude() }
 
 // SetExclude sets the property returned by [GetExclude]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetExclude(value []RID.Body3D) Instance { //gd:PhysicsPointQueryParameters3D.exclude
@@ -182,9 +198,16 @@ func (self Instance) SetExclude(value []RID.Body3D) Instance { //gd:PhysicsPoint
 	return self
 }
 
+func (o *Extension[T]) SetExclude(value []RID.Body3D) *Extension[T] {
+	o.Super().SetExclude(value)
+	return o
+}
+
 func (self Instance) CollideWithBodies() bool { //gd:PhysicsPointQueryParameters3D.collide_with_bodies
 		return bool(class(self).IsCollideWithBodiesEnabled())
 }
+
+func (o *Extension[T]) CollideWithBodies() bool { return o.Super().CollideWithBodies() }
 
 // SetCollideWithBodies sets the property returned by [IsCollideWithBodiesEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCollideWithBodies(value bool) Instance { //gd:PhysicsPointQueryParameters3D.collide_with_bodies
@@ -192,14 +215,26 @@ func (self Instance) SetCollideWithBodies(value bool) Instance { //gd:PhysicsPoi
 	return self
 }
 
+func (o *Extension[T]) SetCollideWithBodies(value bool) *Extension[T] {
+	o.Super().SetCollideWithBodies(value)
+	return o
+}
+
 func (self Instance) CollideWithAreas() bool { //gd:PhysicsPointQueryParameters3D.collide_with_areas
 		return bool(class(self).IsCollideWithAreasEnabled())
 }
+
+func (o *Extension[T]) CollideWithAreas() bool { return o.Super().CollideWithAreas() }
 
 // SetCollideWithAreas sets the property returned by [IsCollideWithAreasEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCollideWithAreas(value bool) Instance { //gd:PhysicsPointQueryParameters3D.collide_with_areas
 	class(self).SetCollideWithAreas(value)
 	return self
+}
+
+func (o *Extension[T]) SetCollideWithAreas(value bool) *Extension[T] {
+	o.Super().SetCollideWithAreas(value)
+	return o
 }
 
 func (self class) SetPosition(position Vector3.XYZ)  { //gd:PhysicsPointQueryParameters3D.set_position

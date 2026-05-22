@@ -248,15 +248,24 @@ func (self Instance) DisplayRefreshRate() Float.X { //gd:OpenXRInterface.display
 		return Float.X(Float.X(class(self).GetDisplayRefreshRate()))
 }
 
+func (o *Extension[T]) DisplayRefreshRate() Float.X { return o.Super().DisplayRefreshRate() }
+
 // SetDisplayRefreshRate sets the property returned by [GetDisplayRefreshRate]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDisplayRefreshRate(value Float.X) Instance { //gd:OpenXRInterface.display_refresh_rate
 	class(self).SetDisplayRefreshRate(float64(value))
 	return self
 }
 
+func (o *Extension[T]) SetDisplayRefreshRate(value Float.X) *Extension[T] {
+	o.Super().SetDisplayRefreshRate(value)
+	return o
+}
+
 func (self Instance) RenderTargetSizeMultiplier() Float.X { //gd:OpenXRInterface.render_target_size_multiplier
 		return Float.X(Float.X(class(self).GetRenderTargetSizeMultiplier()))
 }
+
+func (o *Extension[T]) RenderTargetSizeMultiplier() Float.X { return o.Super().RenderTargetSizeMultiplier() }
 
 // SetRenderTargetSizeMultiplier sets the property returned by [GetRenderTargetSizeMultiplier]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRenderTargetSizeMultiplier(value Float.X) Instance { //gd:OpenXRInterface.render_target_size_multiplier
@@ -264,9 +273,16 @@ func (self Instance) SetRenderTargetSizeMultiplier(value Float.X) Instance { //g
 	return self
 }
 
+func (o *Extension[T]) SetRenderTargetSizeMultiplier(value Float.X) *Extension[T] {
+	o.Super().SetRenderTargetSizeMultiplier(value)
+	return o
+}
+
 func (self Instance) FoveationLevel() int { //gd:OpenXRInterface.foveation_level
 		return int(int(class(self).GetFoveationLevel()))
 }
+
+func (o *Extension[T]) FoveationLevel() int { return o.Super().FoveationLevel() }
 
 // SetFoveationLevel sets the property returned by [GetFoveationLevel]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFoveationLevel(value int) Instance { //gd:OpenXRInterface.foveation_level
@@ -274,9 +290,16 @@ func (self Instance) SetFoveationLevel(value int) Instance { //gd:OpenXRInterfac
 	return self
 }
 
+func (o *Extension[T]) SetFoveationLevel(value int) *Extension[T] {
+	o.Super().SetFoveationLevel(value)
+	return o
+}
+
 func (self Instance) FoveationDynamic() bool { //gd:OpenXRInterface.foveation_dynamic
 		return bool(class(self).GetFoveationDynamic())
 }
+
+func (o *Extension[T]) FoveationDynamic() bool { return o.Super().FoveationDynamic() }
 
 // SetFoveationDynamic sets the property returned by [GetFoveationDynamic]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFoveationDynamic(value bool) Instance { //gd:OpenXRInterface.foveation_dynamic
@@ -284,9 +307,16 @@ func (self Instance) SetFoveationDynamic(value bool) Instance { //gd:OpenXRInter
 	return self
 }
 
+func (o *Extension[T]) SetFoveationDynamic(value bool) *Extension[T] {
+	o.Super().SetFoveationDynamic(value)
+	return o
+}
+
 func (self Instance) VrsMinRadius() Float.X { //gd:OpenXRInterface.vrs_min_radius
 		return Float.X(Float.X(class(self).GetVrsMinRadius()))
 }
+
+func (o *Extension[T]) VrsMinRadius() Float.X { return o.Super().VrsMinRadius() }
 
 // SetVrsMinRadius sets the property returned by [GetVrsMinRadius]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVrsMinRadius(value Float.X) Instance { //gd:OpenXRInterface.vrs_min_radius
@@ -294,14 +324,26 @@ func (self Instance) SetVrsMinRadius(value Float.X) Instance { //gd:OpenXRInterf
 	return self
 }
 
+func (o *Extension[T]) SetVrsMinRadius(value Float.X) *Extension[T] {
+	o.Super().SetVrsMinRadius(value)
+	return o
+}
+
 func (self Instance) VrsStrength() Float.X { //gd:OpenXRInterface.vrs_strength
 		return Float.X(Float.X(class(self).GetVrsStrength()))
 }
+
+func (o *Extension[T]) VrsStrength() Float.X { return o.Super().VrsStrength() }
 
 // SetVrsStrength sets the property returned by [GetVrsStrength]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVrsStrength(value Float.X) Instance { //gd:OpenXRInterface.vrs_strength
 	class(self).SetVrsStrength(float64(value))
 	return self
+}
+
+func (o *Extension[T]) SetVrsStrength(value Float.X) *Extension[T] {
+	o.Super().SetVrsStrength(value)
+	return o
 }
 
 func (self class) GetSessionState() SessionState { //gd:OpenXRInterface.get_session_state
@@ -880,6 +922,42 @@ func (self Instance) GetSupportedEnvironmentBlendModes() []XRInterface.Environme
 // GetSupportedEnvironmentBlendModes is promoted from [XRInterface.Instance.GetSupportedEnvironmentBlendModes].
 func (o *Extension[T]) GetSupportedEnvironmentBlendModes() []XRInterface.EnvironmentBlendMode {
 	return o.Super().AsXRInterface().GetSupportedEnvironmentBlendModes()
+}
+
+// InterfaceIsPrimary is promoted from [XRInterface.Instance.InterfaceIsPrimary].
+func (o *Extension[T]) InterfaceIsPrimary() bool { return o.Super().AsXRInterface().InterfaceIsPrimary() }
+
+// SetInterfaceIsPrimary is promoted from [XRInterface.Instance.SetInterfaceIsPrimary].
+func (o *Extension[T]) SetInterfaceIsPrimary(value bool) *Extension[T] {
+	o.Super().AsXRInterface().SetInterfaceIsPrimary(value)
+	return o
+}
+
+// XrPlayAreaMode is promoted from [XRInterface.Instance.XrPlayAreaMode].
+func (o *Extension[T]) XrPlayAreaMode() XRInterface.PlayAreaMode { return o.Super().AsXRInterface().XrPlayAreaMode() }
+
+// SetXrPlayAreaMode is promoted from [XRInterface.Instance.SetXrPlayAreaMode].
+func (o *Extension[T]) SetXrPlayAreaMode(value XRInterface.PlayAreaMode) *Extension[T] {
+	o.Super().AsXRInterface().SetXrPlayAreaMode(value)
+	return o
+}
+
+// EnvironmentBlendMode is promoted from [XRInterface.Instance.EnvironmentBlendMode].
+func (o *Extension[T]) EnvironmentBlendMode() XRInterface.EnvironmentBlendMode { return o.Super().AsXRInterface().EnvironmentBlendMode() }
+
+// SetEnvironmentBlendMode is promoted from [XRInterface.Instance.SetEnvironmentBlendMode].
+func (o *Extension[T]) SetEnvironmentBlendMode(value XRInterface.EnvironmentBlendMode) *Extension[T] {
+	o.Super().AsXRInterface().SetEnvironmentBlendMode(value)
+	return o
+}
+
+// ArIsAnchorDetectionEnabled is promoted from [XRInterface.Instance.ArIsAnchorDetectionEnabled].
+func (o *Extension[T]) ArIsAnchorDetectionEnabled() bool { return o.Super().AsXRInterface().ArIsAnchorDetectionEnabled() }
+
+// SetArIsAnchorDetectionEnabled is promoted from [XRInterface.Instance.SetArIsAnchorDetectionEnabled].
+func (o *Extension[T]) SetArIsAnchorDetectionEnabled(value bool) *Extension[T] {
+	o.Super().AsXRInterface().SetArIsAnchorDetectionEnabled(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

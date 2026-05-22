@@ -186,6 +186,8 @@ func (self Instance) Host() ENetConnection.Instance { //gd:ENetMultiplayerPeer.h
 		return ENetConnection.Instance(class(self).GetHost())
 }
 
+func (o *Extension[T]) Host() ENetConnection.Instance { return o.Super().Host() }
+
 func (self class) CreateServer(port int64, max_clients int64, max_channels int64, in_bandwidth int64, out_bandwidth int64) Error.Code { //gd:ENetMultiplayerPeer.create_server
 	var r_ret = noescape.Call[int64]( gd.ObjectChecked(self.AsObject()), methods.create_server, gdextension.SizeInt|(gdextension.SizeInt<<4)|(gdextension.SizeInt<<8)|(gdextension.SizeInt<<12)|(gdextension.SizeInt<<16)|(gdextension.SizeInt<<20), &struct{port int64; max_clients int64; max_channels int64; in_bandwidth int64; out_bandwidth int64}{port, max_clients, max_channels, in_bandwidth, out_bandwidth})
 	var ret = Error.Code(r_ret)
@@ -405,6 +407,42 @@ func (self Instance) GetAvailablePacketCount() int {
 // GetAvailablePacketCount is promoted from [PacketPeer.Instance.GetAvailablePacketCount].
 func (o *Extension[T]) GetAvailablePacketCount() int {
 	return o.Super().AsPacketPeer().GetAvailablePacketCount()
+}
+
+// RefuseNewConnections is promoted from [MultiplayerPeer.Instance.RefuseNewConnections].
+func (o *Extension[T]) RefuseNewConnections() bool { return o.Super().AsMultiplayerPeer().RefuseNewConnections() }
+
+// SetRefuseNewConnections is promoted from [MultiplayerPeer.Instance.SetRefuseNewConnections].
+func (o *Extension[T]) SetRefuseNewConnections(value bool) *Extension[T] {
+	o.Super().AsMultiplayerPeer().SetRefuseNewConnections(value)
+	return o
+}
+
+// TransferMode is promoted from [MultiplayerPeer.Instance.TransferMode].
+func (o *Extension[T]) TransferMode() MultiplayerPeer.TransferMode { return o.Super().AsMultiplayerPeer().TransferMode() }
+
+// SetTransferMode is promoted from [MultiplayerPeer.Instance.SetTransferMode].
+func (o *Extension[T]) SetTransferMode(value MultiplayerPeer.TransferMode) *Extension[T] {
+	o.Super().AsMultiplayerPeer().SetTransferMode(value)
+	return o
+}
+
+// TransferChannel is promoted from [MultiplayerPeer.Instance.TransferChannel].
+func (o *Extension[T]) TransferChannel() int { return o.Super().AsMultiplayerPeer().TransferChannel() }
+
+// SetTransferChannel is promoted from [MultiplayerPeer.Instance.SetTransferChannel].
+func (o *Extension[T]) SetTransferChannel(value int) *Extension[T] {
+	o.Super().AsMultiplayerPeer().SetTransferChannel(value)
+	return o
+}
+
+// EncodeBufferMaxSize is promoted from [PacketPeer.Instance.EncodeBufferMaxSize].
+func (o *Extension[T]) EncodeBufferMaxSize() int { return o.Super().AsPacketPeer().EncodeBufferMaxSize() }
+
+// SetEncodeBufferMaxSize is promoted from [PacketPeer.Instance.SetEncodeBufferMaxSize].
+func (o *Extension[T]) SetEncodeBufferMaxSize(value int) *Extension[T] {
+	o.Super().AsPacketPeer().SetEncodeBufferMaxSize(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

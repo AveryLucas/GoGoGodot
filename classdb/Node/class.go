@@ -785,15 +785,24 @@ func (self Instance) Name() string { //gd:Node.name
 		return string(class(self).GetName().String())
 }
 
+func (o *Extension[T]) Name() string { return o.Super().Name() }
+
 // SetName sets the property returned by [GetName]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetName(value string) Instance { //gd:Node.name
 	class(self).SetName(String.Name(String.From(value)))
 	return self
 }
 
+func (o *Extension[T]) SetName(value string) *Extension[T] {
+	o.Super().SetName(value)
+	return o
+}
+
 func (self Instance) UniqueNameInOwner() bool { //gd:Node.unique_name_in_owner
 		return bool(class(self).IsUniqueNameInOwner())
 }
+
+func (o *Extension[T]) UniqueNameInOwner() bool { return o.Super().UniqueNameInOwner() }
 
 // SetUniqueNameInOwner sets the property returned by [IsUniqueNameInOwner]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUniqueNameInOwner(value bool) Instance { //gd:Node.unique_name_in_owner
@@ -801,9 +810,16 @@ func (self Instance) SetUniqueNameInOwner(value bool) Instance { //gd:Node.uniqu
 	return self
 }
 
+func (o *Extension[T]) SetUniqueNameInOwner(value bool) *Extension[T] {
+	o.Super().SetUniqueNameInOwner(value)
+	return o
+}
+
 func (self Instance) SceneFilePath() string { //gd:Node.scene_file_path
 		return string(class(self).GetSceneFilePath().String())
 }
+
+func (o *Extension[T]) SceneFilePath() string { return o.Super().SceneFilePath() }
 
 // SetSceneFilePath sets the property returned by [GetSceneFilePath]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSceneFilePath(value string) Instance { //gd:Node.scene_file_path
@@ -811,9 +827,16 @@ func (self Instance) SetSceneFilePath(value string) Instance { //gd:Node.scene_f
 	return self
 }
 
+func (o *Extension[T]) SetSceneFilePath(value string) *Extension[T] {
+	o.Super().SetSceneFilePath(value)
+	return o
+}
+
 func (self Instance) Owner() Instance { //gd:Node.owner
 		return Instance(class(self).GetOwner())
 }
+
+func (o *Extension[T]) Owner() Instance { return o.Super().Owner() }
 
 // SetOwner sets the property returned by [GetOwner]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOwner(value Instance) Instance { //gd:Node.owner
@@ -821,13 +844,22 @@ func (self Instance) SetOwner(value Instance) Instance { //gd:Node.owner
 	return self
 }
 
+func (o *Extension[T]) SetOwner(value Instance) *Extension[T] {
+	o.Super().SetOwner(value)
+	return o
+}
+
 func (self Instance) Multiplayer() MultiplayerAPI.Instance { //gd:Node.multiplayer
 		return MultiplayerAPI.Instance(class(self).GetMultiplayer())
 }
 
+func (o *Extension[T]) Multiplayer() MultiplayerAPI.Instance { return o.Super().Multiplayer() }
+
 func (self Instance) ProcessMode() ProcessMode { //gd:Node.process_mode
 		return ProcessMode(class(self).GetProcessMode())
 }
+
+func (o *Extension[T]) ProcessMode() ProcessMode { return o.Super().ProcessMode() }
 
 // SetProcessMode sets the property returned by [GetProcessMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetProcessMode(value ProcessMode) Instance { //gd:Node.process_mode
@@ -835,9 +867,16 @@ func (self Instance) SetProcessMode(value ProcessMode) Instance { //gd:Node.proc
 	return self
 }
 
+func (o *Extension[T]) SetProcessMode(value ProcessMode) *Extension[T] {
+	o.Super().SetProcessMode(value)
+	return o
+}
+
 func (self Instance) ProcessPriority() int { //gd:Node.process_priority
 		return int(int(class(self).GetProcessPriority()))
 }
+
+func (o *Extension[T]) ProcessPriority() int { return o.Super().ProcessPriority() }
 
 // SetProcessPriority sets the property returned by [GetProcessPriority]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetProcessPriority(value int) Instance { //gd:Node.process_priority
@@ -845,9 +884,16 @@ func (self Instance) SetProcessPriority(value int) Instance { //gd:Node.process_
 	return self
 }
 
+func (o *Extension[T]) SetProcessPriority(value int) *Extension[T] {
+	o.Super().SetProcessPriority(value)
+	return o
+}
+
 func (self Instance) ProcessPhysicsPriority() int { //gd:Node.process_physics_priority
 		return int(int(class(self).GetPhysicsProcessPriority()))
 }
+
+func (o *Extension[T]) ProcessPhysicsPriority() int { return o.Super().ProcessPhysicsPriority() }
 
 // SetProcessPhysicsPriority sets the property returned by [GetPhysicsProcessPriority]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetProcessPhysicsPriority(value int) Instance { //gd:Node.process_physics_priority
@@ -855,9 +901,16 @@ func (self Instance) SetProcessPhysicsPriority(value int) Instance { //gd:Node.p
 	return self
 }
 
+func (o *Extension[T]) SetProcessPhysicsPriority(value int) *Extension[T] {
+	o.Super().SetProcessPhysicsPriority(value)
+	return o
+}
+
 func (self Instance) ProcessThreadGroup() ProcessThreadGroup { //gd:Node.process_thread_group
 		return ProcessThreadGroup(class(self).GetProcessThreadGroup())
 }
+
+func (o *Extension[T]) ProcessThreadGroup() ProcessThreadGroup { return o.Super().ProcessThreadGroup() }
 
 // SetProcessThreadGroup sets the property returned by [GetProcessThreadGroup]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetProcessThreadGroup(value ProcessThreadGroup) Instance { //gd:Node.process_thread_group
@@ -865,9 +918,16 @@ func (self Instance) SetProcessThreadGroup(value ProcessThreadGroup) Instance { 
 	return self
 }
 
+func (o *Extension[T]) SetProcessThreadGroup(value ProcessThreadGroup) *Extension[T] {
+	o.Super().SetProcessThreadGroup(value)
+	return o
+}
+
 func (self Instance) ProcessThreadGroupOrder() int { //gd:Node.process_thread_group_order
 		return int(int(class(self).GetProcessThreadGroupOrder()))
 }
+
+func (o *Extension[T]) ProcessThreadGroupOrder() int { return o.Super().ProcessThreadGroupOrder() }
 
 // SetProcessThreadGroupOrder sets the property returned by [GetProcessThreadGroupOrder]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetProcessThreadGroupOrder(value int) Instance { //gd:Node.process_thread_group_order
@@ -875,9 +935,16 @@ func (self Instance) SetProcessThreadGroupOrder(value int) Instance { //gd:Node.
 	return self
 }
 
+func (o *Extension[T]) SetProcessThreadGroupOrder(value int) *Extension[T] {
+	o.Super().SetProcessThreadGroupOrder(value)
+	return o
+}
+
 func (self Instance) ProcessThreadMessages() ProcessThreadMessages { //gd:Node.process_thread_messages
 		return ProcessThreadMessages(class(self).GetProcessThreadMessages())
 }
+
+func (o *Extension[T]) ProcessThreadMessages() ProcessThreadMessages { return o.Super().ProcessThreadMessages() }
 
 // SetProcessThreadMessages sets the property returned by [GetProcessThreadMessages]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetProcessThreadMessages(value ProcessThreadMessages) Instance { //gd:Node.process_thread_messages
@@ -885,9 +952,16 @@ func (self Instance) SetProcessThreadMessages(value ProcessThreadMessages) Insta
 	return self
 }
 
+func (o *Extension[T]) SetProcessThreadMessages(value ProcessThreadMessages) *Extension[T] {
+	o.Super().SetProcessThreadMessages(value)
+	return o
+}
+
 func (self Instance) PhysicsInterpolationMode() PhysicsInterpolationMode { //gd:Node.physics_interpolation_mode
 		return PhysicsInterpolationMode(class(self).GetPhysicsInterpolationMode())
 }
+
+func (o *Extension[T]) PhysicsInterpolationMode() PhysicsInterpolationMode { return o.Super().PhysicsInterpolationMode() }
 
 // SetPhysicsInterpolationMode sets the property returned by [GetPhysicsInterpolationMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPhysicsInterpolationMode(value PhysicsInterpolationMode) Instance { //gd:Node.physics_interpolation_mode
@@ -895,9 +969,16 @@ func (self Instance) SetPhysicsInterpolationMode(value PhysicsInterpolationMode)
 	return self
 }
 
+func (o *Extension[T]) SetPhysicsInterpolationMode(value PhysicsInterpolationMode) *Extension[T] {
+	o.Super().SetPhysicsInterpolationMode(value)
+	return o
+}
+
 func (self Instance) AutoTranslateMode() AutoTranslateMode { //gd:Node.auto_translate_mode
 		return AutoTranslateMode(class(self).GetAutoTranslateMode())
 }
+
+func (o *Extension[T]) AutoTranslateMode() AutoTranslateMode { return o.Super().AutoTranslateMode() }
 
 // SetAutoTranslateMode sets the property returned by [GetAutoTranslateMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAutoTranslateMode(value AutoTranslateMode) Instance { //gd:Node.auto_translate_mode
@@ -905,14 +986,26 @@ func (self Instance) SetAutoTranslateMode(value AutoTranslateMode) Instance { //
 	return self
 }
 
+func (o *Extension[T]) SetAutoTranslateMode(value AutoTranslateMode) *Extension[T] {
+	o.Super().SetAutoTranslateMode(value)
+	return o
+}
+
 func (self Instance) EditorDescription() string { //gd:Node.editor_description
 		return string(class(self).GetEditorDescription().String())
 }
+
+func (o *Extension[T]) EditorDescription() string { return o.Super().EditorDescription() }
 
 // SetEditorDescription sets the property returned by [GetEditorDescription]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEditorDescription(value string) Instance { //gd:Node.editor_description
 	class(self).SetEditorDescription(String.From(value))
 	return self
+}
+
+func (o *Extension[T]) SetEditorDescription(value string) *Extension[T] {
+	o.Super().SetEditorDescription(value)
+	return o
 }
 func (class) _process(impl func(ptr gdclass.Receiver, delta float64) ) (cb gd.ExtensionClassCallVirtualFunc) {
 	return func(class any, p_args, p_back gdextension.Pointer) {

@@ -20,6 +20,7 @@ import "graphics.gd/variant/Signal"
 import "graphics.gd/classdb/CollisionObject3D"
 import "graphics.gd/classdb/InputEvent"
 import "graphics.gd/classdb/KinematicCollision3D"
+import "graphics.gd/classdb/MultiplayerAPI"
 import "graphics.gd/classdb/Node"
 import "graphics.gd/classdb/Node3D"
 import "graphics.gd/classdb/Node3DGizmo"
@@ -28,6 +29,7 @@ import "graphics.gd/classdb/Shape3D"
 import "graphics.gd/classdb/Tween"
 import "graphics.gd/classdb/World3D"
 import "graphics.gd/variant/Array"
+import "graphics.gd/variant/Basis"
 import "graphics.gd/variant/Callable"
 import "graphics.gd/variant/Dictionary"
 import "graphics.gd/variant/Error"
@@ -35,6 +37,7 @@ import "graphics.gd/variant/Float"
 import "graphics.gd/variant/Object"
 import "graphics.gd/variant/Packed"
 import "graphics.gd/variant/Path"
+import "graphics.gd/variant/Quaternion"
 import "graphics.gd/variant/RID"
 import "graphics.gd/variant/RefCounted"
 import "graphics.gd/variant/String"
@@ -270,15 +273,24 @@ func (self Instance) MotionMode() MotionMode { //gd:CharacterBody3D.motion_mode
 		return MotionMode(class(self).GetMotionMode())
 }
 
+func (o *Extension[T]) MotionMode() MotionMode { return o.Super().MotionMode() }
+
 // SetMotionMode sets the property returned by [GetMotionMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMotionMode(value MotionMode) Instance { //gd:CharacterBody3D.motion_mode
 	class(self).SetMotionMode(value)
 	return self
 }
 
+func (o *Extension[T]) SetMotionMode(value MotionMode) *Extension[T] {
+	o.Super().SetMotionMode(value)
+	return o
+}
+
 func (self Instance) UpDirection() Vector3.XYZ { //gd:CharacterBody3D.up_direction
 		return Vector3.XYZ(class(self).GetUpDirection())
 }
+
+func (o *Extension[T]) UpDirection() Vector3.XYZ { return o.Super().UpDirection() }
 
 // SetUpDirection sets the property returned by [GetUpDirection]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUpDirection(value Vector3.XYZ) Instance { //gd:CharacterBody3D.up_direction
@@ -286,9 +298,16 @@ func (self Instance) SetUpDirection(value Vector3.XYZ) Instance { //gd:Character
 	return self
 }
 
+func (o *Extension[T]) SetUpDirection(value Vector3.XYZ) *Extension[T] {
+	o.Super().SetUpDirection(value)
+	return o
+}
+
 func (self Instance) SlideOnCeiling() bool { //gd:CharacterBody3D.slide_on_ceiling
 		return bool(class(self).IsSlideOnCeilingEnabled())
 }
+
+func (o *Extension[T]) SlideOnCeiling() bool { return o.Super().SlideOnCeiling() }
 
 // SetSlideOnCeiling sets the property returned by [IsSlideOnCeilingEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSlideOnCeiling(value bool) Instance { //gd:CharacterBody3D.slide_on_ceiling
@@ -296,9 +315,16 @@ func (self Instance) SetSlideOnCeiling(value bool) Instance { //gd:CharacterBody
 	return self
 }
 
+func (o *Extension[T]) SetSlideOnCeiling(value bool) *Extension[T] {
+	o.Super().SetSlideOnCeiling(value)
+	return o
+}
+
 func (self Instance) Velocity() Vector3.XYZ { //gd:CharacterBody3D.velocity
 		return Vector3.XYZ(class(self).GetVelocity())
 }
+
+func (o *Extension[T]) Velocity() Vector3.XYZ { return o.Super().Velocity() }
 
 // SetVelocity sets the property returned by [GetVelocity]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVelocity(value Vector3.XYZ) Instance { //gd:CharacterBody3D.velocity
@@ -306,9 +332,16 @@ func (self Instance) SetVelocity(value Vector3.XYZ) Instance { //gd:CharacterBod
 	return self
 }
 
+func (o *Extension[T]) SetVelocity(value Vector3.XYZ) *Extension[T] {
+	o.Super().SetVelocity(value)
+	return o
+}
+
 func (self Instance) MaxSlides() int { //gd:CharacterBody3D.max_slides
 		return int(int(class(self).GetMaxSlides()))
 }
+
+func (o *Extension[T]) MaxSlides() int { return o.Super().MaxSlides() }
 
 // SetMaxSlides sets the property returned by [GetMaxSlides]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMaxSlides(value int) Instance { //gd:CharacterBody3D.max_slides
@@ -316,9 +349,16 @@ func (self Instance) SetMaxSlides(value int) Instance { //gd:CharacterBody3D.max
 	return self
 }
 
+func (o *Extension[T]) SetMaxSlides(value int) *Extension[T] {
+	o.Super().SetMaxSlides(value)
+	return o
+}
+
 func (self Instance) WallMinSlideAngle() Angle.Radians { //gd:CharacterBody3D.wall_min_slide_angle
 		return Angle.Radians(Float.X(class(self).GetWallMinSlideAngle()))
 }
+
+func (o *Extension[T]) WallMinSlideAngle() Angle.Radians { return o.Super().WallMinSlideAngle() }
 
 // SetWallMinSlideAngle sets the property returned by [GetWallMinSlideAngle]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetWallMinSlideAngle(value Angle.Radians) Instance { //gd:CharacterBody3D.wall_min_slide_angle
@@ -326,9 +366,16 @@ func (self Instance) SetWallMinSlideAngle(value Angle.Radians) Instance { //gd:C
 	return self
 }
 
+func (o *Extension[T]) SetWallMinSlideAngle(value Angle.Radians) *Extension[T] {
+	o.Super().SetWallMinSlideAngle(value)
+	return o
+}
+
 func (self Instance) FloorStopOnSlope() bool { //gd:CharacterBody3D.floor_stop_on_slope
 		return bool(class(self).IsFloorStopOnSlopeEnabled())
 }
+
+func (o *Extension[T]) FloorStopOnSlope() bool { return o.Super().FloorStopOnSlope() }
 
 // SetFloorStopOnSlope sets the property returned by [IsFloorStopOnSlopeEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFloorStopOnSlope(value bool) Instance { //gd:CharacterBody3D.floor_stop_on_slope
@@ -336,9 +383,16 @@ func (self Instance) SetFloorStopOnSlope(value bool) Instance { //gd:CharacterBo
 	return self
 }
 
+func (o *Extension[T]) SetFloorStopOnSlope(value bool) *Extension[T] {
+	o.Super().SetFloorStopOnSlope(value)
+	return o
+}
+
 func (self Instance) FloorConstantSpeed() bool { //gd:CharacterBody3D.floor_constant_speed
 		return bool(class(self).IsFloorConstantSpeedEnabled())
 }
+
+func (o *Extension[T]) FloorConstantSpeed() bool { return o.Super().FloorConstantSpeed() }
 
 // SetFloorConstantSpeed sets the property returned by [IsFloorConstantSpeedEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFloorConstantSpeed(value bool) Instance { //gd:CharacterBody3D.floor_constant_speed
@@ -346,9 +400,16 @@ func (self Instance) SetFloorConstantSpeed(value bool) Instance { //gd:Character
 	return self
 }
 
+func (o *Extension[T]) SetFloorConstantSpeed(value bool) *Extension[T] {
+	o.Super().SetFloorConstantSpeed(value)
+	return o
+}
+
 func (self Instance) FloorBlockOnWall() bool { //gd:CharacterBody3D.floor_block_on_wall
 		return bool(class(self).IsFloorBlockOnWallEnabled())
 }
+
+func (o *Extension[T]) FloorBlockOnWall() bool { return o.Super().FloorBlockOnWall() }
 
 // SetFloorBlockOnWall sets the property returned by [IsFloorBlockOnWallEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFloorBlockOnWall(value bool) Instance { //gd:CharacterBody3D.floor_block_on_wall
@@ -356,9 +417,16 @@ func (self Instance) SetFloorBlockOnWall(value bool) Instance { //gd:CharacterBo
 	return self
 }
 
+func (o *Extension[T]) SetFloorBlockOnWall(value bool) *Extension[T] {
+	o.Super().SetFloorBlockOnWall(value)
+	return o
+}
+
 func (self Instance) FloorMaxAngle() Angle.Radians { //gd:CharacterBody3D.floor_max_angle
 		return Angle.Radians(Float.X(class(self).GetFloorMaxAngle()))
 }
+
+func (o *Extension[T]) FloorMaxAngle() Angle.Radians { return o.Super().FloorMaxAngle() }
 
 // SetFloorMaxAngle sets the property returned by [GetFloorMaxAngle]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFloorMaxAngle(value Angle.Radians) Instance { //gd:CharacterBody3D.floor_max_angle
@@ -366,9 +434,16 @@ func (self Instance) SetFloorMaxAngle(value Angle.Radians) Instance { //gd:Chara
 	return self
 }
 
+func (o *Extension[T]) SetFloorMaxAngle(value Angle.Radians) *Extension[T] {
+	o.Super().SetFloorMaxAngle(value)
+	return o
+}
+
 func (self Instance) FloorSnapLength() Float.X { //gd:CharacterBody3D.floor_snap_length
 		return Float.X(Float.X(class(self).GetFloorSnapLength()))
 }
+
+func (o *Extension[T]) FloorSnapLength() Float.X { return o.Super().FloorSnapLength() }
 
 // SetFloorSnapLength sets the property returned by [GetFloorSnapLength]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFloorSnapLength(value Float.X) Instance { //gd:CharacterBody3D.floor_snap_length
@@ -376,9 +451,16 @@ func (self Instance) SetFloorSnapLength(value Float.X) Instance { //gd:Character
 	return self
 }
 
+func (o *Extension[T]) SetFloorSnapLength(value Float.X) *Extension[T] {
+	o.Super().SetFloorSnapLength(value)
+	return o
+}
+
 func (self Instance) PlatformOnLeave() PlatformOnLeave { //gd:CharacterBody3D.platform_on_leave
 		return PlatformOnLeave(class(self).GetPlatformOnLeave())
 }
+
+func (o *Extension[T]) PlatformOnLeave() PlatformOnLeave { return o.Super().PlatformOnLeave() }
 
 // SetPlatformOnLeave sets the property returned by [GetPlatformOnLeave]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPlatformOnLeave(value PlatformOnLeave) Instance { //gd:CharacterBody3D.platform_on_leave
@@ -386,9 +468,16 @@ func (self Instance) SetPlatformOnLeave(value PlatformOnLeave) Instance { //gd:C
 	return self
 }
 
+func (o *Extension[T]) SetPlatformOnLeave(value PlatformOnLeave) *Extension[T] {
+	o.Super().SetPlatformOnLeave(value)
+	return o
+}
+
 func (self Instance) PlatformFloorLayers() int { //gd:CharacterBody3D.platform_floor_layers
 		return int(int(class(self).GetPlatformFloorLayers()))
 }
+
+func (o *Extension[T]) PlatformFloorLayers() int { return o.Super().PlatformFloorLayers() }
 
 // SetPlatformFloorLayers sets the property returned by [GetPlatformFloorLayers]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPlatformFloorLayers(value int) Instance { //gd:CharacterBody3D.platform_floor_layers
@@ -396,9 +485,16 @@ func (self Instance) SetPlatformFloorLayers(value int) Instance { //gd:Character
 	return self
 }
 
+func (o *Extension[T]) SetPlatformFloorLayers(value int) *Extension[T] {
+	o.Super().SetPlatformFloorLayers(value)
+	return o
+}
+
 func (self Instance) PlatformWallLayers() int { //gd:CharacterBody3D.platform_wall_layers
 		return int(int(class(self).GetPlatformWallLayers()))
 }
+
+func (o *Extension[T]) PlatformWallLayers() int { return o.Super().PlatformWallLayers() }
 
 // SetPlatformWallLayers sets the property returned by [GetPlatformWallLayers]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPlatformWallLayers(value int) Instance { //gd:CharacterBody3D.platform_wall_layers
@@ -406,14 +502,26 @@ func (self Instance) SetPlatformWallLayers(value int) Instance { //gd:CharacterB
 	return self
 }
 
+func (o *Extension[T]) SetPlatformWallLayers(value int) *Extension[T] {
+	o.Super().SetPlatformWallLayers(value)
+	return o
+}
+
 func (self Instance) SafeMargin() Float.X { //gd:CharacterBody3D.safe_margin
 		return Float.X(Float.X(class(self).GetSafeMargin()))
 }
+
+func (o *Extension[T]) SafeMargin() Float.X { return o.Super().SafeMargin() }
 
 // SetSafeMargin sets the property returned by [GetSafeMargin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSafeMargin(value Float.X) Instance { //gd:CharacterBody3D.safe_margin
 	class(self).SetSafeMargin(float64(value))
 	return self
+}
+
+func (o *Extension[T]) SetSafeMargin(value Float.X) *Extension[T] {
+	o.Super().SetSafeMargin(value)
+	return o
 }
 
 func (self class) MoveAndSlide() bool { //gd:CharacterBody3D.move_and_slide
@@ -2141,6 +2249,387 @@ func (self Instance) NotifyThreadSafe(what int) {
 // NotifyThreadSafe is promoted from [Node.Instance.NotifyThreadSafe].
 func (o *Extension[T]) NotifyThreadSafe(what int) {
 	o.Super().AsNode().NotifyThreadSafe(what)
+}
+
+// AxisLockLinearX is promoted from [PhysicsBody3D.Instance.AxisLockLinearX].
+func (o *Extension[T]) AxisLockLinearX() bool { return o.Super().AsPhysicsBody3D().AxisLockLinearX() }
+
+// SetAxisLockLinearX is promoted from [PhysicsBody3D.Instance.SetAxisLockLinearX].
+func (o *Extension[T]) SetAxisLockLinearX(value bool) *Extension[T] {
+	o.Super().AsPhysicsBody3D().SetAxisLockLinearX(value)
+	return o
+}
+
+// AxisLockLinearY is promoted from [PhysicsBody3D.Instance.AxisLockLinearY].
+func (o *Extension[T]) AxisLockLinearY() bool { return o.Super().AsPhysicsBody3D().AxisLockLinearY() }
+
+// SetAxisLockLinearY is promoted from [PhysicsBody3D.Instance.SetAxisLockLinearY].
+func (o *Extension[T]) SetAxisLockLinearY(value bool) *Extension[T] {
+	o.Super().AsPhysicsBody3D().SetAxisLockLinearY(value)
+	return o
+}
+
+// AxisLockLinearZ is promoted from [PhysicsBody3D.Instance.AxisLockLinearZ].
+func (o *Extension[T]) AxisLockLinearZ() bool { return o.Super().AsPhysicsBody3D().AxisLockLinearZ() }
+
+// SetAxisLockLinearZ is promoted from [PhysicsBody3D.Instance.SetAxisLockLinearZ].
+func (o *Extension[T]) SetAxisLockLinearZ(value bool) *Extension[T] {
+	o.Super().AsPhysicsBody3D().SetAxisLockLinearZ(value)
+	return o
+}
+
+// AxisLockAngularX is promoted from [PhysicsBody3D.Instance.AxisLockAngularX].
+func (o *Extension[T]) AxisLockAngularX() bool { return o.Super().AsPhysicsBody3D().AxisLockAngularX() }
+
+// SetAxisLockAngularX is promoted from [PhysicsBody3D.Instance.SetAxisLockAngularX].
+func (o *Extension[T]) SetAxisLockAngularX(value bool) *Extension[T] {
+	o.Super().AsPhysicsBody3D().SetAxisLockAngularX(value)
+	return o
+}
+
+// AxisLockAngularY is promoted from [PhysicsBody3D.Instance.AxisLockAngularY].
+func (o *Extension[T]) AxisLockAngularY() bool { return o.Super().AsPhysicsBody3D().AxisLockAngularY() }
+
+// SetAxisLockAngularY is promoted from [PhysicsBody3D.Instance.SetAxisLockAngularY].
+func (o *Extension[T]) SetAxisLockAngularY(value bool) *Extension[T] {
+	o.Super().AsPhysicsBody3D().SetAxisLockAngularY(value)
+	return o
+}
+
+// AxisLockAngularZ is promoted from [PhysicsBody3D.Instance.AxisLockAngularZ].
+func (o *Extension[T]) AxisLockAngularZ() bool { return o.Super().AsPhysicsBody3D().AxisLockAngularZ() }
+
+// SetAxisLockAngularZ is promoted from [PhysicsBody3D.Instance.SetAxisLockAngularZ].
+func (o *Extension[T]) SetAxisLockAngularZ(value bool) *Extension[T] {
+	o.Super().AsPhysicsBody3D().SetAxisLockAngularZ(value)
+	return o
+}
+
+// DisableMode is promoted from [CollisionObject3D.Instance.DisableMode].
+func (o *Extension[T]) DisableMode() CollisionObject3D.DisableMode { return o.Super().AsCollisionObject3D().DisableMode() }
+
+// SetDisableMode is promoted from [CollisionObject3D.Instance.SetDisableMode].
+func (o *Extension[T]) SetDisableMode(value CollisionObject3D.DisableMode) *Extension[T] {
+	o.Super().AsCollisionObject3D().SetDisableMode(value)
+	return o
+}
+
+// CollisionLayer is promoted from [CollisionObject3D.Instance.CollisionLayer].
+func (o *Extension[T]) CollisionLayer() int { return o.Super().AsCollisionObject3D().CollisionLayer() }
+
+// SetCollisionLayer is promoted from [CollisionObject3D.Instance.SetCollisionLayer].
+func (o *Extension[T]) SetCollisionLayer(value int) *Extension[T] {
+	o.Super().AsCollisionObject3D().SetCollisionLayer(value)
+	return o
+}
+
+// CollisionMask is promoted from [CollisionObject3D.Instance.CollisionMask].
+func (o *Extension[T]) CollisionMask() int { return o.Super().AsCollisionObject3D().CollisionMask() }
+
+// SetCollisionMask is promoted from [CollisionObject3D.Instance.SetCollisionMask].
+func (o *Extension[T]) SetCollisionMask(value int) *Extension[T] {
+	o.Super().AsCollisionObject3D().SetCollisionMask(value)
+	return o
+}
+
+// CollisionPriority is promoted from [CollisionObject3D.Instance.CollisionPriority].
+func (o *Extension[T]) CollisionPriority() Float.X { return o.Super().AsCollisionObject3D().CollisionPriority() }
+
+// SetCollisionPriority is promoted from [CollisionObject3D.Instance.SetCollisionPriority].
+func (o *Extension[T]) SetCollisionPriority(value Float.X) *Extension[T] {
+	o.Super().AsCollisionObject3D().SetCollisionPriority(value)
+	return o
+}
+
+// InputRayPickable is promoted from [CollisionObject3D.Instance.InputRayPickable].
+func (o *Extension[T]) InputRayPickable() bool { return o.Super().AsCollisionObject3D().InputRayPickable() }
+
+// SetInputRayPickable is promoted from [CollisionObject3D.Instance.SetInputRayPickable].
+func (o *Extension[T]) SetInputRayPickable(value bool) *Extension[T] {
+	o.Super().AsCollisionObject3D().SetInputRayPickable(value)
+	return o
+}
+
+// InputCaptureOnDrag is promoted from [CollisionObject3D.Instance.InputCaptureOnDrag].
+func (o *Extension[T]) InputCaptureOnDrag() bool { return o.Super().AsCollisionObject3D().InputCaptureOnDrag() }
+
+// SetInputCaptureOnDrag is promoted from [CollisionObject3D.Instance.SetInputCaptureOnDrag].
+func (o *Extension[T]) SetInputCaptureOnDrag(value bool) *Extension[T] {
+	o.Super().AsCollisionObject3D().SetInputCaptureOnDrag(value)
+	return o
+}
+
+// Transform is promoted from [Node3D.Instance.Transform].
+func (o *Extension[T]) Transform() Transform3D.BasisOrigin { return o.Super().AsNode3D().Transform() }
+
+// SetTransform is promoted from [Node3D.Instance.SetTransform].
+func (o *Extension[T]) SetTransform(value Transform3D.BasisOrigin) *Extension[T] {
+	o.Super().AsNode3D().SetTransform(value)
+	return o
+}
+
+// GlobalTransform is promoted from [Node3D.Instance.GlobalTransform].
+func (o *Extension[T]) GlobalTransform() Transform3D.BasisOrigin { return o.Super().AsNode3D().GlobalTransform() }
+
+// SetGlobalTransform is promoted from [Node3D.Instance.SetGlobalTransform].
+func (o *Extension[T]) SetGlobalTransform(value Transform3D.BasisOrigin) *Extension[T] {
+	o.Super().AsNode3D().SetGlobalTransform(value)
+	return o
+}
+
+// Position is promoted from [Node3D.Instance.Position].
+func (o *Extension[T]) Position() Vector3.XYZ { return o.Super().AsNode3D().Position() }
+
+// SetPosition is promoted from [Node3D.Instance.SetPosition].
+func (o *Extension[T]) SetPosition(value Vector3.XYZ) *Extension[T] {
+	o.Super().AsNode3D().SetPosition(value)
+	return o
+}
+
+// Rotation is promoted from [Node3D.Instance.Rotation].
+func (o *Extension[T]) Rotation() Euler.Radians { return o.Super().AsNode3D().Rotation() }
+
+// SetRotation is promoted from [Node3D.Instance.SetRotation].
+func (o *Extension[T]) SetRotation(value Euler.Radians) *Extension[T] {
+	o.Super().AsNode3D().SetRotation(value)
+	return o
+}
+
+// RotationDegrees is promoted from [Node3D.Instance.RotationDegrees].
+func (o *Extension[T]) RotationDegrees() Euler.Degrees { return o.Super().AsNode3D().RotationDegrees() }
+
+// SetRotationDegrees is promoted from [Node3D.Instance.SetRotationDegrees].
+func (o *Extension[T]) SetRotationDegrees(value Euler.Degrees) *Extension[T] {
+	o.Super().AsNode3D().SetRotationDegrees(value)
+	return o
+}
+
+// Quaternion is promoted from [Node3D.Instance.Quaternion].
+func (o *Extension[T]) Quaternion() Quaternion.IJKX { return o.Super().AsNode3D().Quaternion() }
+
+// SetQuaternion is promoted from [Node3D.Instance.SetQuaternion].
+func (o *Extension[T]) SetQuaternion(value Quaternion.IJKX) *Extension[T] {
+	o.Super().AsNode3D().SetQuaternion(value)
+	return o
+}
+
+// Basis is promoted from [Node3D.Instance.Basis].
+func (o *Extension[T]) Basis() Basis.XYZ { return o.Super().AsNode3D().Basis() }
+
+// SetBasis is promoted from [Node3D.Instance.SetBasis].
+func (o *Extension[T]) SetBasis(value Basis.XYZ) *Extension[T] {
+	o.Super().AsNode3D().SetBasis(value)
+	return o
+}
+
+// Scale is promoted from [Node3D.Instance.Scale].
+func (o *Extension[T]) Scale() Vector3.XYZ { return o.Super().AsNode3D().Scale() }
+
+// SetScale is promoted from [Node3D.Instance.SetScale].
+func (o *Extension[T]) SetScale(value Vector3.XYZ) *Extension[T] {
+	o.Super().AsNode3D().SetScale(value)
+	return o
+}
+
+// RotationEditMode is promoted from [Node3D.Instance.RotationEditMode].
+func (o *Extension[T]) RotationEditMode() Node3D.RotationEditMode { return o.Super().AsNode3D().RotationEditMode() }
+
+// SetRotationEditMode is promoted from [Node3D.Instance.SetRotationEditMode].
+func (o *Extension[T]) SetRotationEditMode(value Node3D.RotationEditMode) *Extension[T] {
+	o.Super().AsNode3D().SetRotationEditMode(value)
+	return o
+}
+
+// RotationOrder is promoted from [Node3D.Instance.RotationOrder].
+func (o *Extension[T]) RotationOrder() Angle.Order { return o.Super().AsNode3D().RotationOrder() }
+
+// SetRotationOrder is promoted from [Node3D.Instance.SetRotationOrder].
+func (o *Extension[T]) SetRotationOrder(value Angle.Order) *Extension[T] {
+	o.Super().AsNode3D().SetRotationOrder(value)
+	return o
+}
+
+// TopLevel is promoted from [Node3D.Instance.TopLevel].
+func (o *Extension[T]) TopLevel() bool { return o.Super().AsNode3D().TopLevel() }
+
+// SetTopLevel is promoted from [Node3D.Instance.SetTopLevel].
+func (o *Extension[T]) SetTopLevel(value bool) *Extension[T] {
+	o.Super().AsNode3D().SetTopLevel(value)
+	return o
+}
+
+// GlobalPosition is promoted from [Node3D.Instance.GlobalPosition].
+func (o *Extension[T]) GlobalPosition() Vector3.XYZ { return o.Super().AsNode3D().GlobalPosition() }
+
+// SetGlobalPosition is promoted from [Node3D.Instance.SetGlobalPosition].
+func (o *Extension[T]) SetGlobalPosition(value Vector3.XYZ) *Extension[T] {
+	o.Super().AsNode3D().SetGlobalPosition(value)
+	return o
+}
+
+// GlobalBasis is promoted from [Node3D.Instance.GlobalBasis].
+func (o *Extension[T]) GlobalBasis() Basis.XYZ { return o.Super().AsNode3D().GlobalBasis() }
+
+// SetGlobalBasis is promoted from [Node3D.Instance.SetGlobalBasis].
+func (o *Extension[T]) SetGlobalBasis(value Basis.XYZ) *Extension[T] {
+	o.Super().AsNode3D().SetGlobalBasis(value)
+	return o
+}
+
+// GlobalRotation is promoted from [Node3D.Instance.GlobalRotation].
+func (o *Extension[T]) GlobalRotation() Euler.Radians { return o.Super().AsNode3D().GlobalRotation() }
+
+// SetGlobalRotation is promoted from [Node3D.Instance.SetGlobalRotation].
+func (o *Extension[T]) SetGlobalRotation(value Euler.Radians) *Extension[T] {
+	o.Super().AsNode3D().SetGlobalRotation(value)
+	return o
+}
+
+// GlobalRotationDegrees is promoted from [Node3D.Instance.GlobalRotationDegrees].
+func (o *Extension[T]) GlobalRotationDegrees() Euler.Degrees { return o.Super().AsNode3D().GlobalRotationDegrees() }
+
+// SetGlobalRotationDegrees is promoted from [Node3D.Instance.SetGlobalRotationDegrees].
+func (o *Extension[T]) SetGlobalRotationDegrees(value Euler.Degrees) *Extension[T] {
+	o.Super().AsNode3D().SetGlobalRotationDegrees(value)
+	return o
+}
+
+// Visible is promoted from [Node3D.Instance.Visible].
+func (o *Extension[T]) Visible() bool { return o.Super().AsNode3D().Visible() }
+
+// SetVisible is promoted from [Node3D.Instance.SetVisible].
+func (o *Extension[T]) SetVisible(value bool) *Extension[T] {
+	o.Super().AsNode3D().SetVisible(value)
+	return o
+}
+
+// VisibilityParent is promoted from [Node3D.Instance.VisibilityParent].
+func (o *Extension[T]) VisibilityParent() string { return o.Super().AsNode3D().VisibilityParent() }
+
+// SetVisibilityParent is promoted from [Node3D.Instance.SetVisibilityParent].
+func (o *Extension[T]) SetVisibilityParent(value string) *Extension[T] {
+	o.Super().AsNode3D().SetVisibilityParent(value)
+	return o
+}
+
+// Name is promoted from [Node.Instance.Name].
+func (o *Extension[T]) Name() string { return o.Super().AsNode().Name() }
+
+// SetName is promoted from [Node.Instance.SetName].
+func (o *Extension[T]) SetName(value string) *Extension[T] {
+	o.Super().AsNode().SetName(value)
+	return o
+}
+
+// UniqueNameInOwner is promoted from [Node.Instance.UniqueNameInOwner].
+func (o *Extension[T]) UniqueNameInOwner() bool { return o.Super().AsNode().UniqueNameInOwner() }
+
+// SetUniqueNameInOwner is promoted from [Node.Instance.SetUniqueNameInOwner].
+func (o *Extension[T]) SetUniqueNameInOwner(value bool) *Extension[T] {
+	o.Super().AsNode().SetUniqueNameInOwner(value)
+	return o
+}
+
+// SceneFilePath is promoted from [Node.Instance.SceneFilePath].
+func (o *Extension[T]) SceneFilePath() string { return o.Super().AsNode().SceneFilePath() }
+
+// SetSceneFilePath is promoted from [Node.Instance.SetSceneFilePath].
+func (o *Extension[T]) SetSceneFilePath(value string) *Extension[T] {
+	o.Super().AsNode().SetSceneFilePath(value)
+	return o
+}
+
+// Owner is promoted from [Node.Instance.Owner].
+func (o *Extension[T]) Owner() Node.Instance { return o.Super().AsNode().Owner() }
+
+// SetOwner is promoted from [Node.Instance.SetOwner].
+func (o *Extension[T]) SetOwner(value Node.Instance) *Extension[T] {
+	o.Super().AsNode().SetOwner(value)
+	return o
+}
+
+// Multiplayer is promoted from [Node.Instance.Multiplayer].
+func (o *Extension[T]) Multiplayer() MultiplayerAPI.Instance { return o.Super().AsNode().Multiplayer() }
+
+// ProcessMode is promoted from [Node.Instance.ProcessMode].
+func (o *Extension[T]) ProcessMode() Node.ProcessMode { return o.Super().AsNode().ProcessMode() }
+
+// SetProcessMode is promoted from [Node.Instance.SetProcessMode].
+func (o *Extension[T]) SetProcessMode(value Node.ProcessMode) *Extension[T] {
+	o.Super().AsNode().SetProcessMode(value)
+	return o
+}
+
+// ProcessPriority is promoted from [Node.Instance.ProcessPriority].
+func (o *Extension[T]) ProcessPriority() int { return o.Super().AsNode().ProcessPriority() }
+
+// SetProcessPriority is promoted from [Node.Instance.SetProcessPriority].
+func (o *Extension[T]) SetProcessPriority(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessPriority(value)
+	return o
+}
+
+// ProcessPhysicsPriority is promoted from [Node.Instance.ProcessPhysicsPriority].
+func (o *Extension[T]) ProcessPhysicsPriority() int { return o.Super().AsNode().ProcessPhysicsPriority() }
+
+// SetProcessPhysicsPriority is promoted from [Node.Instance.SetProcessPhysicsPriority].
+func (o *Extension[T]) SetProcessPhysicsPriority(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessPhysicsPriority(value)
+	return o
+}
+
+// ProcessThreadGroup is promoted from [Node.Instance.ProcessThreadGroup].
+func (o *Extension[T]) ProcessThreadGroup() Node.ProcessThreadGroup { return o.Super().AsNode().ProcessThreadGroup() }
+
+// SetProcessThreadGroup is promoted from [Node.Instance.SetProcessThreadGroup].
+func (o *Extension[T]) SetProcessThreadGroup(value Node.ProcessThreadGroup) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadGroup(value)
+	return o
+}
+
+// ProcessThreadGroupOrder is promoted from [Node.Instance.ProcessThreadGroupOrder].
+func (o *Extension[T]) ProcessThreadGroupOrder() int { return o.Super().AsNode().ProcessThreadGroupOrder() }
+
+// SetProcessThreadGroupOrder is promoted from [Node.Instance.SetProcessThreadGroupOrder].
+func (o *Extension[T]) SetProcessThreadGroupOrder(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadGroupOrder(value)
+	return o
+}
+
+// ProcessThreadMessages is promoted from [Node.Instance.ProcessThreadMessages].
+func (o *Extension[T]) ProcessThreadMessages() Node.ProcessThreadMessages { return o.Super().AsNode().ProcessThreadMessages() }
+
+// SetProcessThreadMessages is promoted from [Node.Instance.SetProcessThreadMessages].
+func (o *Extension[T]) SetProcessThreadMessages(value Node.ProcessThreadMessages) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadMessages(value)
+	return o
+}
+
+// PhysicsInterpolationMode is promoted from [Node.Instance.PhysicsInterpolationMode].
+func (o *Extension[T]) PhysicsInterpolationMode() Node.PhysicsInterpolationMode { return o.Super().AsNode().PhysicsInterpolationMode() }
+
+// SetPhysicsInterpolationMode is promoted from [Node.Instance.SetPhysicsInterpolationMode].
+func (o *Extension[T]) SetPhysicsInterpolationMode(value Node.PhysicsInterpolationMode) *Extension[T] {
+	o.Super().AsNode().SetPhysicsInterpolationMode(value)
+	return o
+}
+
+// AutoTranslateMode is promoted from [Node.Instance.AutoTranslateMode].
+func (o *Extension[T]) AutoTranslateMode() Node.AutoTranslateMode { return o.Super().AsNode().AutoTranslateMode() }
+
+// SetAutoTranslateMode is promoted from [Node.Instance.SetAutoTranslateMode].
+func (o *Extension[T]) SetAutoTranslateMode(value Node.AutoTranslateMode) *Extension[T] {
+	o.Super().AsNode().SetAutoTranslateMode(value)
+	return o
+}
+
+// EditorDescription is promoted from [Node.Instance.EditorDescription].
+func (o *Extension[T]) EditorDescription() string { return o.Super().AsNode().EditorDescription() }
+
+// SetEditorDescription is promoted from [Node.Instance.SetEditorDescription].
+func (o *Extension[T]) SetEditorDescription(value string) *Extension[T] {
+	o.Super().AsNode().SetEditorDescription(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

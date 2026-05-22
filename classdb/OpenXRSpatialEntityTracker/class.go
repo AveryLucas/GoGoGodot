@@ -155,20 +155,34 @@ func (self Instance) Entity() RID.SpatialEntity { //gd:OpenXRSpatialEntityTracke
 		return RID.SpatialEntity(RID.SpatialEntity(class(self).GetEntity()))
 }
 
+func (o *Extension[T]) Entity() RID.SpatialEntity { return o.Super().Entity() }
+
 // SetEntity sets the property returned by [GetEntity]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEntity(value RID.SpatialEntity) Instance { //gd:OpenXRSpatialEntityTracker.entity
 	class(self).SetEntity(RID.Any(value))
 	return self
 }
 
+func (o *Extension[T]) SetEntity(value RID.SpatialEntity) *Extension[T] {
+	o.Super().SetEntity(value)
+	return o
+}
+
 func (self Instance) SpatialTrackingState() EntityTrackingState { //gd:OpenXRSpatialEntityTracker.spatial_tracking_state
 		return EntityTrackingState(class(self).GetSpatialTrackingState())
 }
+
+func (o *Extension[T]) SpatialTrackingState() EntityTrackingState { return o.Super().SpatialTrackingState() }
 
 // SetSpatialTrackingState sets the property returned by [GetSpatialTrackingState]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSpatialTrackingState(value EntityTrackingState) Instance { //gd:OpenXRSpatialEntityTracker.spatial_tracking_state
 	class(self).SetSpatialTrackingState(value)
 	return self
+}
+
+func (o *Extension[T]) SetSpatialTrackingState(value EntityTrackingState) *Extension[T] {
+	o.Super().SetSpatialTrackingState(value)
+	return o
 }
 
 func (self class) SetEntity(entity RID.Any)  { //gd:OpenXRSpatialEntityTracker.set_entity
@@ -345,6 +359,51 @@ func (self Instance) SetInput(name string, value any) Instance {
 // SetInput is promoted from [XRPositionalTracker.Instance.SetInput].
 func (o *Extension[T]) SetInput(name string, value any) *Extension[T] {
 	o.Super().AsXRPositionalTracker().SetInput(name, value)
+	return o
+}
+
+// Profile is promoted from [XRPositionalTracker.Instance.Profile].
+func (o *Extension[T]) Profile() string { return o.Super().AsXRPositionalTracker().Profile() }
+
+// SetProfile is promoted from [XRPositionalTracker.Instance.SetProfile].
+func (o *Extension[T]) SetProfile(value string) *Extension[T] {
+	o.Super().AsXRPositionalTracker().SetProfile(value)
+	return o
+}
+
+// Hand is promoted from [XRPositionalTracker.Instance.Hand].
+func (o *Extension[T]) Hand() XRPositionalTracker.TrackerHand { return o.Super().AsXRPositionalTracker().Hand() }
+
+// SetHand is promoted from [XRPositionalTracker.Instance.SetHand].
+func (o *Extension[T]) SetHand(value XRPositionalTracker.TrackerHand) *Extension[T] {
+	o.Super().AsXRPositionalTracker().SetHand(value)
+	return o
+}
+
+// Type is promoted from [XRTracker.Instance.Type].
+func (o *Extension[T]) Type() XRTracker.Type { return o.Super().AsXRTracker().Type() }
+
+// SetType is promoted from [XRTracker.Instance.SetType].
+func (o *Extension[T]) SetType(value XRTracker.Type) *Extension[T] {
+	o.Super().AsXRTracker().SetType(value)
+	return o
+}
+
+// Name is promoted from [XRTracker.Instance.Name].
+func (o *Extension[T]) Name() string { return o.Super().AsXRTracker().Name() }
+
+// SetName is promoted from [XRTracker.Instance.SetName].
+func (o *Extension[T]) SetName(value string) *Extension[T] {
+	o.Super().AsXRTracker().SetName(value)
+	return o
+}
+
+// Description is promoted from [XRTracker.Instance.Description].
+func (o *Extension[T]) Description() string { return o.Super().AsXRTracker().Description() }
+
+// SetDescription is promoted from [XRTracker.Instance.SetDescription].
+func (o *Extension[T]) SetDescription(value string) *Extension[T] {
+	o.Super().AsXRTracker().SetDescription(value)
 	return o
 }
 

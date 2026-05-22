@@ -294,6 +294,51 @@ func (o *Extension[T]) SetInput(name string, value any) *Extension[T] {
 	return o
 }
 
+// Profile is promoted from [XRPositionalTracker.Instance.Profile].
+func (o *Extension[T]) Profile() string { return o.Super().AsXRPositionalTracker().Profile() }
+
+// SetProfile is promoted from [XRPositionalTracker.Instance.SetProfile].
+func (o *Extension[T]) SetProfile(value string) *Extension[T] {
+	o.Super().AsXRPositionalTracker().SetProfile(value)
+	return o
+}
+
+// Hand is promoted from [XRPositionalTracker.Instance.Hand].
+func (o *Extension[T]) Hand() XRPositionalTracker.TrackerHand { return o.Super().AsXRPositionalTracker().Hand() }
+
+// SetHand is promoted from [XRPositionalTracker.Instance.SetHand].
+func (o *Extension[T]) SetHand(value XRPositionalTracker.TrackerHand) *Extension[T] {
+	o.Super().AsXRPositionalTracker().SetHand(value)
+	return o
+}
+
+// Type is promoted from [XRTracker.Instance.Type].
+func (o *Extension[T]) Type() XRTracker.Type { return o.Super().AsXRTracker().Type() }
+
+// SetType is promoted from [XRTracker.Instance.SetType].
+func (o *Extension[T]) SetType(value XRTracker.Type) *Extension[T] {
+	o.Super().AsXRTracker().SetType(value)
+	return o
+}
+
+// Name is promoted from [XRTracker.Instance.Name].
+func (o *Extension[T]) Name() string { return o.Super().AsXRTracker().Name() }
+
+// SetName is promoted from [XRTracker.Instance.SetName].
+func (o *Extension[T]) SetName(value string) *Extension[T] {
+	o.Super().AsXRTracker().SetName(value)
+	return o
+}
+
+// Description is promoted from [XRTracker.Instance.Description].
+func (o *Extension[T]) Description() string { return o.Super().AsXRTracker().Description() }
+
+// SetDescription is promoted from [XRTracker.Instance.SetDescription].
+func (o *Extension[T]) SetDescription(value string) *Extension[T] {
+	o.Super().AsXRTracker().SetDescription(value)
+	return o
+}
+
 func (self class) Virtual(name string) reflect.Value {
 	switch name {
 	default: return gd.VirtualByName(XRPositionalTracker.Advanced(self.AsXRPositionalTracker()), name)

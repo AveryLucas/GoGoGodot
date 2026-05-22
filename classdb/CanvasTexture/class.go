@@ -166,15 +166,24 @@ func (self Instance) DiffuseTexture() Texture2D.Instance { //gd:CanvasTexture.di
 		return Texture2D.Instance(class(self).GetDiffuseTexture())
 }
 
+func (o *Extension[T]) DiffuseTexture() Texture2D.Instance { return o.Super().DiffuseTexture() }
+
 // SetDiffuseTexture sets the property returned by [GetDiffuseTexture]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDiffuseTexture(value Texture2D.Instance) Instance { //gd:CanvasTexture.diffuse_texture
 	class(self).SetDiffuseTexture(value)
 	return self
 }
 
+func (o *Extension[T]) SetDiffuseTexture(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetDiffuseTexture(value)
+	return o
+}
+
 func (self Instance) NormalTexture() Texture2D.Instance { //gd:CanvasTexture.normal_texture
 		return Texture2D.Instance(class(self).GetNormalTexture())
 }
+
+func (o *Extension[T]) NormalTexture() Texture2D.Instance { return o.Super().NormalTexture() }
 
 // SetNormalTexture sets the property returned by [GetNormalTexture]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetNormalTexture(value Texture2D.Instance) Instance { //gd:CanvasTexture.normal_texture
@@ -182,9 +191,16 @@ func (self Instance) SetNormalTexture(value Texture2D.Instance) Instance { //gd:
 	return self
 }
 
+func (o *Extension[T]) SetNormalTexture(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetNormalTexture(value)
+	return o
+}
+
 func (self Instance) SpecularTexture() Texture2D.Instance { //gd:CanvasTexture.specular_texture
 		return Texture2D.Instance(class(self).GetSpecularTexture())
 }
+
+func (o *Extension[T]) SpecularTexture() Texture2D.Instance { return o.Super().SpecularTexture() }
 
 // SetSpecularTexture sets the property returned by [GetSpecularTexture]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSpecularTexture(value Texture2D.Instance) Instance { //gd:CanvasTexture.specular_texture
@@ -192,9 +208,16 @@ func (self Instance) SetSpecularTexture(value Texture2D.Instance) Instance { //g
 	return self
 }
 
+func (o *Extension[T]) SetSpecularTexture(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetSpecularTexture(value)
+	return o
+}
+
 func (self Instance) SpecularColor() Color.RGBA { //gd:CanvasTexture.specular_color
 		return Color.RGBA(class(self).GetSpecularColor())
 }
+
+func (o *Extension[T]) SpecularColor() Color.RGBA { return o.Super().SpecularColor() }
 
 // SetSpecularColor sets the property returned by [GetSpecularColor]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSpecularColor(value Color.RGBA) Instance { //gd:CanvasTexture.specular_color
@@ -202,9 +225,16 @@ func (self Instance) SetSpecularColor(value Color.RGBA) Instance { //gd:CanvasTe
 	return self
 }
 
+func (o *Extension[T]) SetSpecularColor(value Color.RGBA) *Extension[T] {
+	o.Super().SetSpecularColor(value)
+	return o
+}
+
 func (self Instance) SpecularShininess() Float.X { //gd:CanvasTexture.specular_shininess
 		return Float.X(Float.X(class(self).GetSpecularShininess()))
 }
+
+func (o *Extension[T]) SpecularShininess() Float.X { return o.Super().SpecularShininess() }
 
 // SetSpecularShininess sets the property returned by [GetSpecularShininess]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSpecularShininess(value Float.X) Instance { //gd:CanvasTexture.specular_shininess
@@ -212,9 +242,16 @@ func (self Instance) SetSpecularShininess(value Float.X) Instance { //gd:CanvasT
 	return self
 }
 
+func (o *Extension[T]) SetSpecularShininess(value Float.X) *Extension[T] {
+	o.Super().SetSpecularShininess(value)
+	return o
+}
+
 func (self Instance) TextureFilter() CanvasItem.TextureFilter { //gd:CanvasTexture.texture_filter
 		return CanvasItem.TextureFilter(class(self).GetTextureFilter())
 }
+
+func (o *Extension[T]) TextureFilter() CanvasItem.TextureFilter { return o.Super().TextureFilter() }
 
 // SetTextureFilter sets the property returned by [GetTextureFilter]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTextureFilter(value CanvasItem.TextureFilter) Instance { //gd:CanvasTexture.texture_filter
@@ -222,14 +259,26 @@ func (self Instance) SetTextureFilter(value CanvasItem.TextureFilter) Instance {
 	return self
 }
 
+func (o *Extension[T]) SetTextureFilter(value CanvasItem.TextureFilter) *Extension[T] {
+	o.Super().SetTextureFilter(value)
+	return o
+}
+
 func (self Instance) TextureRepeat() CanvasItem.TextureRepeat { //gd:CanvasTexture.texture_repeat
 		return CanvasItem.TextureRepeat(class(self).GetTextureRepeat())
 }
+
+func (o *Extension[T]) TextureRepeat() CanvasItem.TextureRepeat { return o.Super().TextureRepeat() }
 
 // SetTextureRepeat sets the property returned by [GetTextureRepeat]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTextureRepeat(value CanvasItem.TextureRepeat) Instance { //gd:CanvasTexture.texture_repeat
 	class(self).SetTextureRepeat(value)
 	return self
+}
+
+func (o *Extension[T]) SetTextureRepeat(value CanvasItem.TextureRepeat) *Extension[T] {
+	o.Super().SetTextureRepeat(value)
+	return o
 }
 
 func (self class) SetDiffuseTexture(texture [1]gdclass.Texture2D)  { //gd:CanvasTexture.set_diffuse_texture
@@ -476,6 +525,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

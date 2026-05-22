@@ -172,10 +172,17 @@ func (self Instance) DataArray() []byte { //gd:StreamPeerBuffer.data_array
 		return []byte(class(self).GetDataArray().Bytes())
 }
 
+func (o *Extension[T]) DataArray() []byte { return o.Super().DataArray() }
+
 // SetDataArray sets the property returned by [GetDataArray]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDataArray(value []byte) Instance { //gd:StreamPeerBuffer.data_array
 	class(self).SetDataArray(Packed.BytesFrom(value...))
 	return self
+}
+
+func (o *Extension[T]) SetDataArray(value []byte) *Extension[T] {
+	o.Super().SetDataArray(value)
+	return o
 }
 
 func (self class) SeekTo(position int64)  { //gd:StreamPeerBuffer.seek
@@ -496,6 +503,15 @@ func (self Instance) GetDouble() Float.X {
 // GetDouble is promoted from [StreamPeer.Instance.GetDouble].
 func (o *Extension[T]) GetDouble() Float.X {
 	return o.Super().AsStreamPeer().GetDouble()
+}
+
+// BigEndian is promoted from [StreamPeer.Instance.BigEndian].
+func (o *Extension[T]) BigEndian() bool { return o.Super().AsStreamPeer().BigEndian() }
+
+// SetBigEndian is promoted from [StreamPeer.Instance.SetBigEndian].
+func (o *Extension[T]) SetBigEndian(value bool) *Extension[T] {
+	o.Super().AsStreamPeer().SetBigEndian(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

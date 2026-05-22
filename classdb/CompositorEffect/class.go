@@ -183,15 +183,24 @@ func (self Instance) Enabled() bool { //gd:CompositorEffect.enabled
 		return bool(class(self).GetEnabled())
 }
 
+func (o *Extension[T]) Enabled() bool { return o.Super().Enabled() }
+
 // SetEnabled sets the property returned by [GetEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEnabled(value bool) Instance { //gd:CompositorEffect.enabled
 	class(self).SetEnabled(value)
 	return self
 }
 
+func (o *Extension[T]) SetEnabled(value bool) *Extension[T] {
+	o.Super().SetEnabled(value)
+	return o
+}
+
 func (self Instance) EffectCallbackType() EffectCallbackType { //gd:CompositorEffect.effect_callback_type
 		return EffectCallbackType(class(self).GetEffectCallbackType())
 }
+
+func (o *Extension[T]) EffectCallbackType() EffectCallbackType { return o.Super().EffectCallbackType() }
 
 // SetEffectCallbackType sets the property returned by [GetEffectCallbackType]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEffectCallbackType(value EffectCallbackType) Instance { //gd:CompositorEffect.effect_callback_type
@@ -199,9 +208,16 @@ func (self Instance) SetEffectCallbackType(value EffectCallbackType) Instance { 
 	return self
 }
 
+func (o *Extension[T]) SetEffectCallbackType(value EffectCallbackType) *Extension[T] {
+	o.Super().SetEffectCallbackType(value)
+	return o
+}
+
 func (self Instance) AccessResolvedColor() bool { //gd:CompositorEffect.access_resolved_color
 		return bool(class(self).GetAccessResolvedColor())
 }
+
+func (o *Extension[T]) AccessResolvedColor() bool { return o.Super().AccessResolvedColor() }
 
 // SetAccessResolvedColor sets the property returned by [GetAccessResolvedColor]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAccessResolvedColor(value bool) Instance { //gd:CompositorEffect.access_resolved_color
@@ -209,9 +225,16 @@ func (self Instance) SetAccessResolvedColor(value bool) Instance { //gd:Composit
 	return self
 }
 
+func (o *Extension[T]) SetAccessResolvedColor(value bool) *Extension[T] {
+	o.Super().SetAccessResolvedColor(value)
+	return o
+}
+
 func (self Instance) AccessResolvedDepth() bool { //gd:CompositorEffect.access_resolved_depth
 		return bool(class(self).GetAccessResolvedDepth())
 }
+
+func (o *Extension[T]) AccessResolvedDepth() bool { return o.Super().AccessResolvedDepth() }
 
 // SetAccessResolvedDepth sets the property returned by [GetAccessResolvedDepth]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAccessResolvedDepth(value bool) Instance { //gd:CompositorEffect.access_resolved_depth
@@ -219,9 +242,16 @@ func (self Instance) SetAccessResolvedDepth(value bool) Instance { //gd:Composit
 	return self
 }
 
+func (o *Extension[T]) SetAccessResolvedDepth(value bool) *Extension[T] {
+	o.Super().SetAccessResolvedDepth(value)
+	return o
+}
+
 func (self Instance) NeedsMotionVectors() bool { //gd:CompositorEffect.needs_motion_vectors
 		return bool(class(self).GetNeedsMotionVectors())
 }
+
+func (o *Extension[T]) NeedsMotionVectors() bool { return o.Super().NeedsMotionVectors() }
 
 // SetNeedsMotionVectors sets the property returned by [GetNeedsMotionVectors]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetNeedsMotionVectors(value bool) Instance { //gd:CompositorEffect.needs_motion_vectors
@@ -229,9 +259,16 @@ func (self Instance) SetNeedsMotionVectors(value bool) Instance { //gd:Composito
 	return self
 }
 
+func (o *Extension[T]) SetNeedsMotionVectors(value bool) *Extension[T] {
+	o.Super().SetNeedsMotionVectors(value)
+	return o
+}
+
 func (self Instance) NeedsNormalRoughness() bool { //gd:CompositorEffect.needs_normal_roughness
 		return bool(class(self).GetNeedsNormalRoughness())
 }
+
+func (o *Extension[T]) NeedsNormalRoughness() bool { return o.Super().NeedsNormalRoughness() }
 
 // SetNeedsNormalRoughness sets the property returned by [GetNeedsNormalRoughness]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetNeedsNormalRoughness(value bool) Instance { //gd:CompositorEffect.needs_normal_roughness
@@ -239,14 +276,26 @@ func (self Instance) SetNeedsNormalRoughness(value bool) Instance { //gd:Composi
 	return self
 }
 
+func (o *Extension[T]) SetNeedsNormalRoughness(value bool) *Extension[T] {
+	o.Super().SetNeedsNormalRoughness(value)
+	return o
+}
+
 func (self Instance) NeedsSeparateSpecular() bool { //gd:CompositorEffect.needs_separate_specular
 		return bool(class(self).GetNeedsSeparateSpecular())
 }
+
+func (o *Extension[T]) NeedsSeparateSpecular() bool { return o.Super().NeedsSeparateSpecular() }
 
 // SetNeedsSeparateSpecular sets the property returned by [GetNeedsSeparateSpecular]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetNeedsSeparateSpecular(value bool) Instance { //gd:CompositorEffect.needs_separate_specular
 	class(self).SetNeedsSeparateSpecular(value)
 	return self
+}
+
+func (o *Extension[T]) SetNeedsSeparateSpecular(value bool) *Extension[T] {
+	o.Super().SetNeedsSeparateSpecular(value)
+	return o
 }
 func (class) _render_callback(impl func(ptr gdclass.Receiver, effect_callback_type int64, render_data [1]gdclass.RenderData) ) (cb gd.ExtensionClassCallVirtualFunc) {
 	return func(class any, p_args, p_back gdextension.Pointer) {
@@ -437,6 +486,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

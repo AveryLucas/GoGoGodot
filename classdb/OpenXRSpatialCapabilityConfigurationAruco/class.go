@@ -152,10 +152,17 @@ func (self Instance) ArucoDict() ArucoDict { //gd:OpenXRSpatialCapabilityConfigu
 		return ArucoDict(class(self).GetArucoDict())
 }
 
+func (o *Extension[T]) ArucoDict() ArucoDict { return o.Super().ArucoDict() }
+
 // SetArucoDict sets the property returned by [GetArucoDict]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetArucoDict(value ArucoDict) Instance { //gd:OpenXRSpatialCapabilityConfigurationAruco.aruco_dict
 	class(self).SetArucoDict(value)
 	return self
+}
+
+func (o *Extension[T]) SetArucoDict(value ArucoDict) *Extension[T] {
+	o.Super().SetArucoDict(value)
+	return o
 }
 
 func (self class) GetEnabledComponents() Packed.Array[int64] { //gd:OpenXRSpatialCapabilityConfigurationAruco.get_enabled_components

@@ -152,20 +152,34 @@ func (self Instance) Data() []Vector3.XYZ { //gd:ConcavePolygonShape3D.data
 		return []Vector3.XYZ(slices.Collect(class(self).GetFaces().Values()))
 }
 
+func (o *Extension[T]) Data() []Vector3.XYZ { return o.Super().Data() }
+
 // SetData sets the property returned by [GetFaces]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetData(value []Vector3.XYZ) Instance { //gd:ConcavePolygonShape3D.data
 	class(self).SetFaces(Packed.New(value...))
 	return self
 }
 
+func (o *Extension[T]) SetData(value []Vector3.XYZ) *Extension[T] {
+	o.Super().SetData(value)
+	return o
+}
+
 func (self Instance) BackfaceCollision() bool { //gd:ConcavePolygonShape3D.backface_collision
 		return bool(class(self).IsBackfaceCollisionEnabled())
 }
+
+func (o *Extension[T]) BackfaceCollision() bool { return o.Super().BackfaceCollision() }
 
 // SetBackfaceCollision sets the property returned by [IsBackfaceCollisionEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBackfaceCollision(value bool) Instance { //gd:ConcavePolygonShape3D.backface_collision
 	class(self).SetBackfaceCollisionEnabled(value)
 	return self
+}
+
+func (o *Extension[T]) SetBackfaceCollision(value bool) *Extension[T] {
+	o.Super().SetBackfaceCollision(value)
+	return o
 }
 
 func (self class) SetFaces(faces Packed.Array[Vector3.XYZ])  { //gd:ConcavePolygonShape3D.set_faces
@@ -309,6 +323,60 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// CustomSolverBias is promoted from [Shape3D.Instance.CustomSolverBias].
+func (o *Extension[T]) CustomSolverBias() Float.X { return o.Super().AsShape3D().CustomSolverBias() }
+
+// SetCustomSolverBias is promoted from [Shape3D.Instance.SetCustomSolverBias].
+func (o *Extension[T]) SetCustomSolverBias(value Float.X) *Extension[T] {
+	o.Super().AsShape3D().SetCustomSolverBias(value)
+	return o
+}
+
+// Margin is promoted from [Shape3D.Instance.Margin].
+func (o *Extension[T]) Margin() Float.X { return o.Super().AsShape3D().Margin() }
+
+// SetMargin is promoted from [Shape3D.Instance.SetMargin].
+func (o *Extension[T]) SetMargin(value Float.X) *Extension[T] {
+	o.Super().AsShape3D().SetMargin(value)
+	return o
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

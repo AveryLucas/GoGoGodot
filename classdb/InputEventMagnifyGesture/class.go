@@ -34,6 +34,7 @@ import "graphics.gd/variant/Path"
 import "graphics.gd/variant/RID"
 import "graphics.gd/variant/RefCounted"
 import "graphics.gd/variant/String"
+import "graphics.gd/variant/Vector2"
 
 var _ Object.ID
 type _ gdclass.Node
@@ -153,10 +154,17 @@ func (self Instance) Factor() Float.X { //gd:InputEventMagnifyGesture.factor
 		return Float.X(Float.X(class(self).GetFactor()))
 }
 
+func (o *Extension[T]) Factor() Float.X { return o.Super().Factor() }
+
 // SetFactor sets the property returned by [GetFactor]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFactor(value Float.X) Instance { //gd:InputEventMagnifyGesture.factor
 	class(self).SetFactor(float64(value))
 	return self
+}
+
+func (o *Extension[T]) SetFactor(value Float.X) *Extension[T] {
+	o.Super().SetFactor(value)
+	return o
 }
 
 func (self class) SetFactor(factor float64)  { //gd:InputEventMagnifyGesture.set_factor
@@ -391,6 +399,114 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// Position is promoted from [InputEventGesture.Instance.Position].
+func (o *Extension[T]) Position() Vector2.XY { return o.Super().AsInputEventGesture().Position() }
+
+// SetPosition is promoted from [InputEventGesture.Instance.SetPosition].
+func (o *Extension[T]) SetPosition(value Vector2.XY) *Extension[T] {
+	o.Super().AsInputEventGesture().SetPosition(value)
+	return o
+}
+
+// CommandOrControlAutoremap is promoted from [InputEventWithModifiers.Instance.CommandOrControlAutoremap].
+func (o *Extension[T]) CommandOrControlAutoremap() bool { return o.Super().AsInputEventWithModifiers().CommandOrControlAutoremap() }
+
+// SetCommandOrControlAutoremap is promoted from [InputEventWithModifiers.Instance.SetCommandOrControlAutoremap].
+func (o *Extension[T]) SetCommandOrControlAutoremap(value bool) *Extension[T] {
+	o.Super().AsInputEventWithModifiers().SetCommandOrControlAutoremap(value)
+	return o
+}
+
+// AltPressed is promoted from [InputEventWithModifiers.Instance.AltPressed].
+func (o *Extension[T]) AltPressed() bool { return o.Super().AsInputEventWithModifiers().AltPressed() }
+
+// SetAltPressed is promoted from [InputEventWithModifiers.Instance.SetAltPressed].
+func (o *Extension[T]) SetAltPressed(value bool) *Extension[T] {
+	o.Super().AsInputEventWithModifiers().SetAltPressed(value)
+	return o
+}
+
+// ShiftPressed is promoted from [InputEventWithModifiers.Instance.ShiftPressed].
+func (o *Extension[T]) ShiftPressed() bool { return o.Super().AsInputEventWithModifiers().ShiftPressed() }
+
+// SetShiftPressed is promoted from [InputEventWithModifiers.Instance.SetShiftPressed].
+func (o *Extension[T]) SetShiftPressed(value bool) *Extension[T] {
+	o.Super().AsInputEventWithModifiers().SetShiftPressed(value)
+	return o
+}
+
+// CtrlPressed is promoted from [InputEventWithModifiers.Instance.CtrlPressed].
+func (o *Extension[T]) CtrlPressed() bool { return o.Super().AsInputEventWithModifiers().CtrlPressed() }
+
+// SetCtrlPressed is promoted from [InputEventWithModifiers.Instance.SetCtrlPressed].
+func (o *Extension[T]) SetCtrlPressed(value bool) *Extension[T] {
+	o.Super().AsInputEventWithModifiers().SetCtrlPressed(value)
+	return o
+}
+
+// MetaPressed is promoted from [InputEventWithModifiers.Instance.MetaPressed].
+func (o *Extension[T]) MetaPressed() bool { return o.Super().AsInputEventWithModifiers().MetaPressed() }
+
+// SetMetaPressed is promoted from [InputEventWithModifiers.Instance.SetMetaPressed].
+func (o *Extension[T]) SetMetaPressed(value bool) *Extension[T] {
+	o.Super().AsInputEventWithModifiers().SetMetaPressed(value)
+	return o
+}
+
+// WindowId is promoted from [InputEventFromWindow.Instance.WindowId].
+func (o *Extension[T]) WindowId() int { return o.Super().AsInputEventFromWindow().WindowId() }
+
+// SetWindowId is promoted from [InputEventFromWindow.Instance.SetWindowId].
+func (o *Extension[T]) SetWindowId(value int) *Extension[T] {
+	o.Super().AsInputEventFromWindow().SetWindowId(value)
+	return o
+}
+
+// Device is promoted from [InputEvent.Instance.Device].
+func (o *Extension[T]) Device() int { return o.Super().AsInputEvent().Device() }
+
+// SetDevice is promoted from [InputEvent.Instance.SetDevice].
+func (o *Extension[T]) SetDevice(value int) *Extension[T] {
+	o.Super().AsInputEvent().SetDevice(value)
+	return o
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

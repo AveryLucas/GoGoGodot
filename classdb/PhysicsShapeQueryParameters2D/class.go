@@ -166,15 +166,24 @@ func (self Instance) CollisionMask() int { //gd:PhysicsShapeQueryParameters2D.co
 		return int(int(class(self).GetCollisionMask()))
 }
 
+func (o *Extension[T]) CollisionMask() int { return o.Super().CollisionMask() }
+
 // SetCollisionMask sets the property returned by [GetCollisionMask]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCollisionMask(value int) Instance { //gd:PhysicsShapeQueryParameters2D.collision_mask
 	class(self).SetCollisionMask(int64(value))
 	return self
 }
 
+func (o *Extension[T]) SetCollisionMask(value int) *Extension[T] {
+	o.Super().SetCollisionMask(value)
+	return o
+}
+
 func (self Instance) Exclude() []RID.Body2D { //gd:PhysicsShapeQueryParameters2D.exclude
 		return []RID.Body2D(gd.ArrayAs[[]RID.Body2D](gd.InternalArray(class(self).GetExclude())))
 }
+
+func (o *Extension[T]) Exclude() []RID.Body2D { return o.Super().Exclude() }
 
 // SetExclude sets the property returned by [GetExclude]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetExclude(value []RID.Body2D) Instance { //gd:PhysicsShapeQueryParameters2D.exclude
@@ -182,9 +191,16 @@ func (self Instance) SetExclude(value []RID.Body2D) Instance { //gd:PhysicsShape
 	return self
 }
 
+func (o *Extension[T]) SetExclude(value []RID.Body2D) *Extension[T] {
+	o.Super().SetExclude(value)
+	return o
+}
+
 func (self Instance) Margin() Float.X { //gd:PhysicsShapeQueryParameters2D.margin
 		return Float.X(Float.X(class(self).GetMargin()))
 }
+
+func (o *Extension[T]) Margin() Float.X { return o.Super().Margin() }
 
 // SetMargin sets the property returned by [GetMargin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMargin(value Float.X) Instance { //gd:PhysicsShapeQueryParameters2D.margin
@@ -192,9 +208,16 @@ func (self Instance) SetMargin(value Float.X) Instance { //gd:PhysicsShapeQueryP
 	return self
 }
 
+func (o *Extension[T]) SetMargin(value Float.X) *Extension[T] {
+	o.Super().SetMargin(value)
+	return o
+}
+
 func (self Instance) Motion() Vector2.XY { //gd:PhysicsShapeQueryParameters2D.motion
 		return Vector2.XY(class(self).GetMotion())
 }
+
+func (o *Extension[T]) Motion() Vector2.XY { return o.Super().Motion() }
 
 // SetMotion sets the property returned by [GetMotion]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMotion(value Vector2.XY) Instance { //gd:PhysicsShapeQueryParameters2D.motion
@@ -202,9 +225,16 @@ func (self Instance) SetMotion(value Vector2.XY) Instance { //gd:PhysicsShapeQue
 	return self
 }
 
+func (o *Extension[T]) SetMotion(value Vector2.XY) *Extension[T] {
+	o.Super().SetMotion(value)
+	return o
+}
+
 func (self Instance) Shape() Resource.Instance { //gd:PhysicsShapeQueryParameters2D.shape
 		return Resource.Instance(class(self).GetShape())
 }
+
+func (o *Extension[T]) Shape() Resource.Instance { return o.Super().Shape() }
 
 // SetShape sets the property returned by [GetShape]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetShape(value Resource.Instance) Instance { //gd:PhysicsShapeQueryParameters2D.shape
@@ -212,9 +242,16 @@ func (self Instance) SetShape(value Resource.Instance) Instance { //gd:PhysicsSh
 	return self
 }
 
+func (o *Extension[T]) SetShape(value Resource.Instance) *Extension[T] {
+	o.Super().SetShape(value)
+	return o
+}
+
 func (self Instance) ShapeRid() RID.Any { //gd:PhysicsShapeQueryParameters2D.shape_rid
 		return RID.Any(RID.Any(class(self).GetShapeRid()))
 }
+
+func (o *Extension[T]) ShapeRid() RID.Any { return o.Super().ShapeRid() }
 
 // SetShapeRid sets the property returned by [GetShapeRid]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetShapeRid(value RID.Any) Instance { //gd:PhysicsShapeQueryParameters2D.shape_rid
@@ -222,9 +259,16 @@ func (self Instance) SetShapeRid(value RID.Any) Instance { //gd:PhysicsShapeQuer
 	return self
 }
 
+func (o *Extension[T]) SetShapeRid(value RID.Any) *Extension[T] {
+	o.Super().SetShapeRid(value)
+	return o
+}
+
 func (self Instance) Transform() Transform2D.OriginXY { //gd:PhysicsShapeQueryParameters2D.transform
 		return Transform2D.OriginXY(class(self).GetTransform())
 }
+
+func (o *Extension[T]) Transform() Transform2D.OriginXY { return o.Super().Transform() }
 
 // SetTransform sets the property returned by [GetTransform]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTransform(value Transform2D.OriginXY) Instance { //gd:PhysicsShapeQueryParameters2D.transform
@@ -232,9 +276,16 @@ func (self Instance) SetTransform(value Transform2D.OriginXY) Instance { //gd:Ph
 	return self
 }
 
+func (o *Extension[T]) SetTransform(value Transform2D.OriginXY) *Extension[T] {
+	o.Super().SetTransform(value)
+	return o
+}
+
 func (self Instance) CollideWithBodies() bool { //gd:PhysicsShapeQueryParameters2D.collide_with_bodies
 		return bool(class(self).IsCollideWithBodiesEnabled())
 }
+
+func (o *Extension[T]) CollideWithBodies() bool { return o.Super().CollideWithBodies() }
 
 // SetCollideWithBodies sets the property returned by [IsCollideWithBodiesEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCollideWithBodies(value bool) Instance { //gd:PhysicsShapeQueryParameters2D.collide_with_bodies
@@ -242,14 +293,26 @@ func (self Instance) SetCollideWithBodies(value bool) Instance { //gd:PhysicsSha
 	return self
 }
 
+func (o *Extension[T]) SetCollideWithBodies(value bool) *Extension[T] {
+	o.Super().SetCollideWithBodies(value)
+	return o
+}
+
 func (self Instance) CollideWithAreas() bool { //gd:PhysicsShapeQueryParameters2D.collide_with_areas
 		return bool(class(self).IsCollideWithAreasEnabled())
 }
+
+func (o *Extension[T]) CollideWithAreas() bool { return o.Super().CollideWithAreas() }
 
 // SetCollideWithAreas sets the property returned by [IsCollideWithAreasEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCollideWithAreas(value bool) Instance { //gd:PhysicsShapeQueryParameters2D.collide_with_areas
 	class(self).SetCollideWithAreas(value)
 	return self
+}
+
+func (o *Extension[T]) SetCollideWithAreas(value bool) *Extension[T] {
+	o.Super().SetCollideWithAreas(value)
+	return o
 }
 
 func (self class) SetShape(shape [1]gdclass.Resource)  { //gd:PhysicsShapeQueryParameters2D.set_shape

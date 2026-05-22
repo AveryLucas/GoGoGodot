@@ -163,15 +163,24 @@ func (self Instance) HasTrackingData() bool { //gd:XRPose.has_tracking_data
 		return bool(class(self).GetHasTrackingData())
 }
 
+func (o *Extension[T]) HasTrackingData() bool { return o.Super().HasTrackingData() }
+
 // SetHasTrackingData sets the property returned by [GetHasTrackingData]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetHasTrackingData(value bool) Instance { //gd:XRPose.has_tracking_data
 	class(self).SetHasTrackingData(value)
 	return self
 }
 
+func (o *Extension[T]) SetHasTrackingData(value bool) *Extension[T] {
+	o.Super().SetHasTrackingData(value)
+	return o
+}
+
 func (self Instance) Name() string { //gd:XRPose.name
 		return string(class(self).GetName().String())
 }
+
+func (o *Extension[T]) Name() string { return o.Super().Name() }
 
 // SetName sets the property returned by [GetName]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetName(value string) Instance { //gd:XRPose.name
@@ -179,9 +188,16 @@ func (self Instance) SetName(value string) Instance { //gd:XRPose.name
 	return self
 }
 
+func (o *Extension[T]) SetName(value string) *Extension[T] {
+	o.Super().SetName(value)
+	return o
+}
+
 func (self Instance) Transform() Transform3D.BasisOrigin { //gd:XRPose.transform
 		return Transform3D.BasisOrigin(class(self).GetTransform())
 }
+
+func (o *Extension[T]) Transform() Transform3D.BasisOrigin { return o.Super().Transform() }
 
 // SetTransform sets the property returned by [GetTransform]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTransform(value Transform3D.BasisOrigin) Instance { //gd:XRPose.transform
@@ -189,9 +205,16 @@ func (self Instance) SetTransform(value Transform3D.BasisOrigin) Instance { //gd
 	return self
 }
 
+func (o *Extension[T]) SetTransform(value Transform3D.BasisOrigin) *Extension[T] {
+	o.Super().SetTransform(value)
+	return o
+}
+
 func (self Instance) LinearVelocity() Vector3.XYZ { //gd:XRPose.linear_velocity
 		return Vector3.XYZ(class(self).GetLinearVelocity())
 }
+
+func (o *Extension[T]) LinearVelocity() Vector3.XYZ { return o.Super().LinearVelocity() }
 
 // SetLinearVelocity sets the property returned by [GetLinearVelocity]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetLinearVelocity(value Vector3.XYZ) Instance { //gd:XRPose.linear_velocity
@@ -199,9 +222,16 @@ func (self Instance) SetLinearVelocity(value Vector3.XYZ) Instance { //gd:XRPose
 	return self
 }
 
+func (o *Extension[T]) SetLinearVelocity(value Vector3.XYZ) *Extension[T] {
+	o.Super().SetLinearVelocity(value)
+	return o
+}
+
 func (self Instance) AngularVelocity() Vector3.XYZ { //gd:XRPose.angular_velocity
 		return Vector3.XYZ(class(self).GetAngularVelocity())
 }
+
+func (o *Extension[T]) AngularVelocity() Vector3.XYZ { return o.Super().AngularVelocity() }
 
 // SetAngularVelocity sets the property returned by [GetAngularVelocity]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAngularVelocity(value Vector3.XYZ) Instance { //gd:XRPose.angular_velocity
@@ -209,14 +239,26 @@ func (self Instance) SetAngularVelocity(value Vector3.XYZ) Instance { //gd:XRPos
 	return self
 }
 
+func (o *Extension[T]) SetAngularVelocity(value Vector3.XYZ) *Extension[T] {
+	o.Super().SetAngularVelocity(value)
+	return o
+}
+
 func (self Instance) TrackingConfidence() TrackingConfidence { //gd:XRPose.tracking_confidence
 		return TrackingConfidence(class(self).GetTrackingConfidence())
 }
+
+func (o *Extension[T]) TrackingConfidence() TrackingConfidence { return o.Super().TrackingConfidence() }
 
 // SetTrackingConfidence sets the property returned by [GetTrackingConfidence]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTrackingConfidence(value TrackingConfidence) Instance { //gd:XRPose.tracking_confidence
 	class(self).SetTrackingConfidence(value)
 	return self
+}
+
+func (o *Extension[T]) SetTrackingConfidence(value TrackingConfidence) *Extension[T] {
+	o.Super().SetTrackingConfidence(value)
+	return o
 }
 
 func (self class) SetHasTrackingData(has_tracking_data bool)  { //gd:XRPose.set_has_tracking_data

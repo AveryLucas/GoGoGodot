@@ -230,15 +230,24 @@ func (self Instance) BlockingModeEnabled() bool { //gd:HTTPClient.blocking_mode_
 		return bool(class(self).IsBlockingModeEnabled())
 }
 
+func (o *Extension[T]) BlockingModeEnabled() bool { return o.Super().BlockingModeEnabled() }
+
 // SetBlockingModeEnabled sets the property returned by [IsBlockingModeEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBlockingModeEnabled(value bool) Instance { //gd:HTTPClient.blocking_mode_enabled
 	class(self).SetBlockingMode(value)
 	return self
 }
 
+func (o *Extension[T]) SetBlockingModeEnabled(value bool) *Extension[T] {
+	o.Super().SetBlockingModeEnabled(value)
+	return o
+}
+
 func (self Instance) Connection() StreamPeer.Instance { //gd:HTTPClient.connection
 		return StreamPeer.Instance(class(self).GetConnection())
 }
+
+func (o *Extension[T]) Connection() StreamPeer.Instance { return o.Super().Connection() }
 
 // SetConnection sets the property returned by [GetConnection]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetConnection(value StreamPeer.Instance) Instance { //gd:HTTPClient.connection
@@ -246,14 +255,26 @@ func (self Instance) SetConnection(value StreamPeer.Instance) Instance { //gd:HT
 	return self
 }
 
+func (o *Extension[T]) SetConnection(value StreamPeer.Instance) *Extension[T] {
+	o.Super().SetConnection(value)
+	return o
+}
+
 func (self Instance) ReadChunkSize() int { //gd:HTTPClient.read_chunk_size
 		return int(int(class(self).GetReadChunkSize()))
 }
+
+func (o *Extension[T]) ReadChunkSize() int { return o.Super().ReadChunkSize() }
 
 // SetReadChunkSize sets the property returned by [GetReadChunkSize]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetReadChunkSize(value int) Instance { //gd:HTTPClient.read_chunk_size
 	class(self).SetReadChunkSize(int64(value))
 	return self
+}
+
+func (o *Extension[T]) SetReadChunkSize(value int) *Extension[T] {
+	o.Super().SetReadChunkSize(value)
+	return o
 }
 
 func (self class) ConnectToHost(host String.Readable, port int64, tls_options [1]gdclass.TLSOptions) Error.Code { //gd:HTTPClient.connect_to_host

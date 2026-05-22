@@ -198,15 +198,24 @@ func (self Instance) BgColor() Color.RGBA { //gd:StyleBoxFlat.bg_color
 		return Color.RGBA(class(self).GetBgColor())
 }
 
+func (o *Extension[T]) BgColor() Color.RGBA { return o.Super().BgColor() }
+
 // SetBgColor sets the property returned by [GetBgColor]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBgColor(value Color.RGBA) Instance { //gd:StyleBoxFlat.bg_color
 	class(self).SetBgColor(Color.RGBA(value))
 	return self
 }
 
+func (o *Extension[T]) SetBgColor(value Color.RGBA) *Extension[T] {
+	o.Super().SetBgColor(value)
+	return o
+}
+
 func (self Instance) DrawCenter() bool { //gd:StyleBoxFlat.draw_center
 		return bool(class(self).IsDrawCenterEnabled())
 }
+
+func (o *Extension[T]) DrawCenter() bool { return o.Super().DrawCenter() }
 
 // SetDrawCenter sets the property returned by [IsDrawCenterEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDrawCenter(value bool) Instance { //gd:StyleBoxFlat.draw_center
@@ -214,9 +223,16 @@ func (self Instance) SetDrawCenter(value bool) Instance { //gd:StyleBoxFlat.draw
 	return self
 }
 
+func (o *Extension[T]) SetDrawCenter(value bool) *Extension[T] {
+	o.Super().SetDrawCenter(value)
+	return o
+}
+
 func (self Instance) Skew() Vector2.XY { //gd:StyleBoxFlat.skew
 		return Vector2.XY(class(self).GetSkew())
 }
+
+func (o *Extension[T]) Skew() Vector2.XY { return o.Super().Skew() }
 
 // SetSkew sets the property returned by [GetSkew]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSkew(value Vector2.XY) Instance { //gd:StyleBoxFlat.skew
@@ -224,9 +240,16 @@ func (self Instance) SetSkew(value Vector2.XY) Instance { //gd:StyleBoxFlat.skew
 	return self
 }
 
+func (o *Extension[T]) SetSkew(value Vector2.XY) *Extension[T] {
+	o.Super().SetSkew(value)
+	return o
+}
+
 func (self Instance) BorderWidthLeft() int { //gd:StyleBoxFlat.border_width_left
 		return int(int(class(self).GetBorderWidth(0)))
 }
+
+func (o *Extension[T]) BorderWidthLeft() int { return o.Super().BorderWidthLeft() }
 
 // SetBorderWidthLeft sets the property returned by [GetBorderWidth]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBorderWidthLeft(value int) Instance { //gd:StyleBoxFlat.border_width_left
@@ -234,9 +257,16 @@ func (self Instance) SetBorderWidthLeft(value int) Instance { //gd:StyleBoxFlat.
 	return self
 }
 
+func (o *Extension[T]) SetBorderWidthLeft(value int) *Extension[T] {
+	o.Super().SetBorderWidthLeft(value)
+	return o
+}
+
 func (self Instance) BorderWidthTop() int { //gd:StyleBoxFlat.border_width_top
 		return int(int(class(self).GetBorderWidth(1)))
 }
+
+func (o *Extension[T]) BorderWidthTop() int { return o.Super().BorderWidthTop() }
 
 // SetBorderWidthTop sets the property returned by [GetBorderWidth]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBorderWidthTop(value int) Instance { //gd:StyleBoxFlat.border_width_top
@@ -244,9 +274,16 @@ func (self Instance) SetBorderWidthTop(value int) Instance { //gd:StyleBoxFlat.b
 	return self
 }
 
+func (o *Extension[T]) SetBorderWidthTop(value int) *Extension[T] {
+	o.Super().SetBorderWidthTop(value)
+	return o
+}
+
 func (self Instance) BorderWidthRight() int { //gd:StyleBoxFlat.border_width_right
 		return int(int(class(self).GetBorderWidth(2)))
 }
+
+func (o *Extension[T]) BorderWidthRight() int { return o.Super().BorderWidthRight() }
 
 // SetBorderWidthRight sets the property returned by [GetBorderWidth]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBorderWidthRight(value int) Instance { //gd:StyleBoxFlat.border_width_right
@@ -254,9 +291,16 @@ func (self Instance) SetBorderWidthRight(value int) Instance { //gd:StyleBoxFlat
 	return self
 }
 
+func (o *Extension[T]) SetBorderWidthRight(value int) *Extension[T] {
+	o.Super().SetBorderWidthRight(value)
+	return o
+}
+
 func (self Instance) BorderWidthBottom() int { //gd:StyleBoxFlat.border_width_bottom
 		return int(int(class(self).GetBorderWidth(3)))
 }
+
+func (o *Extension[T]) BorderWidthBottom() int { return o.Super().BorderWidthBottom() }
 
 // SetBorderWidthBottom sets the property returned by [GetBorderWidth]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBorderWidthBottom(value int) Instance { //gd:StyleBoxFlat.border_width_bottom
@@ -264,9 +308,16 @@ func (self Instance) SetBorderWidthBottom(value int) Instance { //gd:StyleBoxFla
 	return self
 }
 
+func (o *Extension[T]) SetBorderWidthBottom(value int) *Extension[T] {
+	o.Super().SetBorderWidthBottom(value)
+	return o
+}
+
 func (self Instance) BorderColor() Color.RGBA { //gd:StyleBoxFlat.border_color
 		return Color.RGBA(class(self).GetBorderColor())
 }
+
+func (o *Extension[T]) BorderColor() Color.RGBA { return o.Super().BorderColor() }
 
 // SetBorderColor sets the property returned by [GetBorderColor]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBorderColor(value Color.RGBA) Instance { //gd:StyleBoxFlat.border_color
@@ -274,9 +325,16 @@ func (self Instance) SetBorderColor(value Color.RGBA) Instance { //gd:StyleBoxFl
 	return self
 }
 
+func (o *Extension[T]) SetBorderColor(value Color.RGBA) *Extension[T] {
+	o.Super().SetBorderColor(value)
+	return o
+}
+
 func (self Instance) BorderBlend() bool { //gd:StyleBoxFlat.border_blend
 		return bool(class(self).GetBorderBlend())
 }
+
+func (o *Extension[T]) BorderBlend() bool { return o.Super().BorderBlend() }
 
 // SetBorderBlend sets the property returned by [GetBorderBlend]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBorderBlend(value bool) Instance { //gd:StyleBoxFlat.border_blend
@@ -284,9 +342,16 @@ func (self Instance) SetBorderBlend(value bool) Instance { //gd:StyleBoxFlat.bor
 	return self
 }
 
+func (o *Extension[T]) SetBorderBlend(value bool) *Extension[T] {
+	o.Super().SetBorderBlend(value)
+	return o
+}
+
 func (self Instance) CornerRadiusTopLeft() int { //gd:StyleBoxFlat.corner_radius_top_left
 		return int(int(class(self).GetCornerRadius(0)))
 }
+
+func (o *Extension[T]) CornerRadiusTopLeft() int { return o.Super().CornerRadiusTopLeft() }
 
 // SetCornerRadiusTopLeft sets the property returned by [GetCornerRadius]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCornerRadiusTopLeft(value int) Instance { //gd:StyleBoxFlat.corner_radius_top_left
@@ -294,9 +359,16 @@ func (self Instance) SetCornerRadiusTopLeft(value int) Instance { //gd:StyleBoxF
 	return self
 }
 
+func (o *Extension[T]) SetCornerRadiusTopLeft(value int) *Extension[T] {
+	o.Super().SetCornerRadiusTopLeft(value)
+	return o
+}
+
 func (self Instance) CornerRadiusTopRight() int { //gd:StyleBoxFlat.corner_radius_top_right
 		return int(int(class(self).GetCornerRadius(1)))
 }
+
+func (o *Extension[T]) CornerRadiusTopRight() int { return o.Super().CornerRadiusTopRight() }
 
 // SetCornerRadiusTopRight sets the property returned by [GetCornerRadius]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCornerRadiusTopRight(value int) Instance { //gd:StyleBoxFlat.corner_radius_top_right
@@ -304,9 +376,16 @@ func (self Instance) SetCornerRadiusTopRight(value int) Instance { //gd:StyleBox
 	return self
 }
 
+func (o *Extension[T]) SetCornerRadiusTopRight(value int) *Extension[T] {
+	o.Super().SetCornerRadiusTopRight(value)
+	return o
+}
+
 func (self Instance) CornerRadiusBottomRight() int { //gd:StyleBoxFlat.corner_radius_bottom_right
 		return int(int(class(self).GetCornerRadius(2)))
 }
+
+func (o *Extension[T]) CornerRadiusBottomRight() int { return o.Super().CornerRadiusBottomRight() }
 
 // SetCornerRadiusBottomRight sets the property returned by [GetCornerRadius]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCornerRadiusBottomRight(value int) Instance { //gd:StyleBoxFlat.corner_radius_bottom_right
@@ -314,9 +393,16 @@ func (self Instance) SetCornerRadiusBottomRight(value int) Instance { //gd:Style
 	return self
 }
 
+func (o *Extension[T]) SetCornerRadiusBottomRight(value int) *Extension[T] {
+	o.Super().SetCornerRadiusBottomRight(value)
+	return o
+}
+
 func (self Instance) CornerRadiusBottomLeft() int { //gd:StyleBoxFlat.corner_radius_bottom_left
 		return int(int(class(self).GetCornerRadius(3)))
 }
+
+func (o *Extension[T]) CornerRadiusBottomLeft() int { return o.Super().CornerRadiusBottomLeft() }
 
 // SetCornerRadiusBottomLeft sets the property returned by [GetCornerRadius]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCornerRadiusBottomLeft(value int) Instance { //gd:StyleBoxFlat.corner_radius_bottom_left
@@ -324,9 +410,16 @@ func (self Instance) SetCornerRadiusBottomLeft(value int) Instance { //gd:StyleB
 	return self
 }
 
+func (o *Extension[T]) SetCornerRadiusBottomLeft(value int) *Extension[T] {
+	o.Super().SetCornerRadiusBottomLeft(value)
+	return o
+}
+
 func (self Instance) CornerDetail() int { //gd:StyleBoxFlat.corner_detail
 		return int(int(class(self).GetCornerDetail()))
 }
+
+func (o *Extension[T]) CornerDetail() int { return o.Super().CornerDetail() }
 
 // SetCornerDetail sets the property returned by [GetCornerDetail]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCornerDetail(value int) Instance { //gd:StyleBoxFlat.corner_detail
@@ -334,9 +427,16 @@ func (self Instance) SetCornerDetail(value int) Instance { //gd:StyleBoxFlat.cor
 	return self
 }
 
+func (o *Extension[T]) SetCornerDetail(value int) *Extension[T] {
+	o.Super().SetCornerDetail(value)
+	return o
+}
+
 func (self Instance) ExpandMarginLeft() Float.X { //gd:StyleBoxFlat.expand_margin_left
 		return Float.X(Float.X(class(self).GetExpandMargin(0)))
 }
+
+func (o *Extension[T]) ExpandMarginLeft() Float.X { return o.Super().ExpandMarginLeft() }
 
 // SetExpandMarginLeft sets the property returned by [GetExpandMargin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetExpandMarginLeft(value Float.X) Instance { //gd:StyleBoxFlat.expand_margin_left
@@ -344,9 +444,16 @@ func (self Instance) SetExpandMarginLeft(value Float.X) Instance { //gd:StyleBox
 	return self
 }
 
+func (o *Extension[T]) SetExpandMarginLeft(value Float.X) *Extension[T] {
+	o.Super().SetExpandMarginLeft(value)
+	return o
+}
+
 func (self Instance) ExpandMarginTop() Float.X { //gd:StyleBoxFlat.expand_margin_top
 		return Float.X(Float.X(class(self).GetExpandMargin(1)))
 }
+
+func (o *Extension[T]) ExpandMarginTop() Float.X { return o.Super().ExpandMarginTop() }
 
 // SetExpandMarginTop sets the property returned by [GetExpandMargin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetExpandMarginTop(value Float.X) Instance { //gd:StyleBoxFlat.expand_margin_top
@@ -354,9 +461,16 @@ func (self Instance) SetExpandMarginTop(value Float.X) Instance { //gd:StyleBoxF
 	return self
 }
 
+func (o *Extension[T]) SetExpandMarginTop(value Float.X) *Extension[T] {
+	o.Super().SetExpandMarginTop(value)
+	return o
+}
+
 func (self Instance) ExpandMarginRight() Float.X { //gd:StyleBoxFlat.expand_margin_right
 		return Float.X(Float.X(class(self).GetExpandMargin(2)))
 }
+
+func (o *Extension[T]) ExpandMarginRight() Float.X { return o.Super().ExpandMarginRight() }
 
 // SetExpandMarginRight sets the property returned by [GetExpandMargin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetExpandMarginRight(value Float.X) Instance { //gd:StyleBoxFlat.expand_margin_right
@@ -364,9 +478,16 @@ func (self Instance) SetExpandMarginRight(value Float.X) Instance { //gd:StyleBo
 	return self
 }
 
+func (o *Extension[T]) SetExpandMarginRight(value Float.X) *Extension[T] {
+	o.Super().SetExpandMarginRight(value)
+	return o
+}
+
 func (self Instance) ExpandMarginBottom() Float.X { //gd:StyleBoxFlat.expand_margin_bottom
 		return Float.X(Float.X(class(self).GetExpandMargin(3)))
 }
+
+func (o *Extension[T]) ExpandMarginBottom() Float.X { return o.Super().ExpandMarginBottom() }
 
 // SetExpandMarginBottom sets the property returned by [GetExpandMargin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetExpandMarginBottom(value Float.X) Instance { //gd:StyleBoxFlat.expand_margin_bottom
@@ -374,9 +495,16 @@ func (self Instance) SetExpandMarginBottom(value Float.X) Instance { //gd:StyleB
 	return self
 }
 
+func (o *Extension[T]) SetExpandMarginBottom(value Float.X) *Extension[T] {
+	o.Super().SetExpandMarginBottom(value)
+	return o
+}
+
 func (self Instance) ShadowColor() Color.RGBA { //gd:StyleBoxFlat.shadow_color
 		return Color.RGBA(class(self).GetShadowColor())
 }
+
+func (o *Extension[T]) ShadowColor() Color.RGBA { return o.Super().ShadowColor() }
 
 // SetShadowColor sets the property returned by [GetShadowColor]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetShadowColor(value Color.RGBA) Instance { //gd:StyleBoxFlat.shadow_color
@@ -384,9 +512,16 @@ func (self Instance) SetShadowColor(value Color.RGBA) Instance { //gd:StyleBoxFl
 	return self
 }
 
+func (o *Extension[T]) SetShadowColor(value Color.RGBA) *Extension[T] {
+	o.Super().SetShadowColor(value)
+	return o
+}
+
 func (self Instance) ShadowSize() int { //gd:StyleBoxFlat.shadow_size
 		return int(int(class(self).GetShadowSize()))
 }
+
+func (o *Extension[T]) ShadowSize() int { return o.Super().ShadowSize() }
 
 // SetShadowSize sets the property returned by [GetShadowSize]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetShadowSize(value int) Instance { //gd:StyleBoxFlat.shadow_size
@@ -394,9 +529,16 @@ func (self Instance) SetShadowSize(value int) Instance { //gd:StyleBoxFlat.shado
 	return self
 }
 
+func (o *Extension[T]) SetShadowSize(value int) *Extension[T] {
+	o.Super().SetShadowSize(value)
+	return o
+}
+
 func (self Instance) ShadowOffset() Vector2.XY { //gd:StyleBoxFlat.shadow_offset
 		return Vector2.XY(class(self).GetShadowOffset())
 }
+
+func (o *Extension[T]) ShadowOffset() Vector2.XY { return o.Super().ShadowOffset() }
 
 // SetShadowOffset sets the property returned by [GetShadowOffset]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetShadowOffset(value Vector2.XY) Instance { //gd:StyleBoxFlat.shadow_offset
@@ -404,9 +546,16 @@ func (self Instance) SetShadowOffset(value Vector2.XY) Instance { //gd:StyleBoxF
 	return self
 }
 
+func (o *Extension[T]) SetShadowOffset(value Vector2.XY) *Extension[T] {
+	o.Super().SetShadowOffset(value)
+	return o
+}
+
 func (self Instance) AntiAliasing() bool { //gd:StyleBoxFlat.anti_aliasing
 		return bool(class(self).IsAntiAliased())
 }
+
+func (o *Extension[T]) AntiAliasing() bool { return o.Super().AntiAliasing() }
 
 // SetAntiAliasing sets the property returned by [IsAntiAliased]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAntiAliasing(value bool) Instance { //gd:StyleBoxFlat.anti_aliasing
@@ -414,14 +563,26 @@ func (self Instance) SetAntiAliasing(value bool) Instance { //gd:StyleBoxFlat.an
 	return self
 }
 
+func (o *Extension[T]) SetAntiAliasing(value bool) *Extension[T] {
+	o.Super().SetAntiAliasing(value)
+	return o
+}
+
 func (self Instance) AntiAliasingSize() Float.X { //gd:StyleBoxFlat.anti_aliasing_size
 		return Float.X(Float.X(class(self).GetAaSize()))
 }
+
+func (o *Extension[T]) AntiAliasingSize() Float.X { return o.Super().AntiAliasingSize() }
 
 // SetAntiAliasingSize sets the property returned by [GetAaSize]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAntiAliasingSize(value Float.X) Instance { //gd:StyleBoxFlat.anti_aliasing_size
 	class(self).SetAaSize(float64(value))
 	return self
+}
+
+func (o *Extension[T]) SetAntiAliasingSize(value Float.X) *Extension[T] {
+	o.Super().SetAntiAliasingSize(value)
+	return o
 }
 
 func (self class) SetBgColor(color Color.RGBA)  { //gd:StyleBoxFlat.set_bg_color
@@ -752,6 +913,78 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ContentMarginLeft is promoted from [StyleBox.Instance.ContentMarginLeft].
+func (o *Extension[T]) ContentMarginLeft() Float.X { return o.Super().AsStyleBox().ContentMarginLeft() }
+
+// SetContentMarginLeft is promoted from [StyleBox.Instance.SetContentMarginLeft].
+func (o *Extension[T]) SetContentMarginLeft(value Float.X) *Extension[T] {
+	o.Super().AsStyleBox().SetContentMarginLeft(value)
+	return o
+}
+
+// ContentMarginTop is promoted from [StyleBox.Instance.ContentMarginTop].
+func (o *Extension[T]) ContentMarginTop() Float.X { return o.Super().AsStyleBox().ContentMarginTop() }
+
+// SetContentMarginTop is promoted from [StyleBox.Instance.SetContentMarginTop].
+func (o *Extension[T]) SetContentMarginTop(value Float.X) *Extension[T] {
+	o.Super().AsStyleBox().SetContentMarginTop(value)
+	return o
+}
+
+// ContentMarginRight is promoted from [StyleBox.Instance.ContentMarginRight].
+func (o *Extension[T]) ContentMarginRight() Float.X { return o.Super().AsStyleBox().ContentMarginRight() }
+
+// SetContentMarginRight is promoted from [StyleBox.Instance.SetContentMarginRight].
+func (o *Extension[T]) SetContentMarginRight(value Float.X) *Extension[T] {
+	o.Super().AsStyleBox().SetContentMarginRight(value)
+	return o
+}
+
+// ContentMarginBottom is promoted from [StyleBox.Instance.ContentMarginBottom].
+func (o *Extension[T]) ContentMarginBottom() Float.X { return o.Super().AsStyleBox().ContentMarginBottom() }
+
+// SetContentMarginBottom is promoted from [StyleBox.Instance.SetContentMarginBottom].
+func (o *Extension[T]) SetContentMarginBottom(value Float.X) *Extension[T] {
+	o.Super().AsStyleBox().SetContentMarginBottom(value)
+	return o
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

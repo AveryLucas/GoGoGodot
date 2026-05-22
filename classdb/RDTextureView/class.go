@@ -156,15 +156,24 @@ func (self Instance) FormatOverride() Rendering.DataFormat { //gd:RDTextureView.
 		return Rendering.DataFormat(class(self).GetFormatOverride())
 }
 
+func (o *Extension[T]) FormatOverride() Rendering.DataFormat { return o.Super().FormatOverride() }
+
 // SetFormatOverride sets the property returned by [GetFormatOverride]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFormatOverride(value Rendering.DataFormat) Instance { //gd:RDTextureView.format_override
 	class(self).SetFormatOverride(value)
 	return self
 }
 
+func (o *Extension[T]) SetFormatOverride(value Rendering.DataFormat) *Extension[T] {
+	o.Super().SetFormatOverride(value)
+	return o
+}
+
 func (self Instance) SwizzleR() Rendering.TextureSwizzle { //gd:RDTextureView.swizzle_r
 		return Rendering.TextureSwizzle(class(self).GetSwizzleR())
 }
+
+func (o *Extension[T]) SwizzleR() Rendering.TextureSwizzle { return o.Super().SwizzleR() }
 
 // SetSwizzleR sets the property returned by [GetSwizzleR]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSwizzleR(value Rendering.TextureSwizzle) Instance { //gd:RDTextureView.swizzle_r
@@ -172,9 +181,16 @@ func (self Instance) SetSwizzleR(value Rendering.TextureSwizzle) Instance { //gd
 	return self
 }
 
+func (o *Extension[T]) SetSwizzleR(value Rendering.TextureSwizzle) *Extension[T] {
+	o.Super().SetSwizzleR(value)
+	return o
+}
+
 func (self Instance) SwizzleG() Rendering.TextureSwizzle { //gd:RDTextureView.swizzle_g
 		return Rendering.TextureSwizzle(class(self).GetSwizzleG())
 }
+
+func (o *Extension[T]) SwizzleG() Rendering.TextureSwizzle { return o.Super().SwizzleG() }
 
 // SetSwizzleG sets the property returned by [GetSwizzleG]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSwizzleG(value Rendering.TextureSwizzle) Instance { //gd:RDTextureView.swizzle_g
@@ -182,9 +198,16 @@ func (self Instance) SetSwizzleG(value Rendering.TextureSwizzle) Instance { //gd
 	return self
 }
 
+func (o *Extension[T]) SetSwizzleG(value Rendering.TextureSwizzle) *Extension[T] {
+	o.Super().SetSwizzleG(value)
+	return o
+}
+
 func (self Instance) SwizzleB() Rendering.TextureSwizzle { //gd:RDTextureView.swizzle_b
 		return Rendering.TextureSwizzle(class(self).GetSwizzleB())
 }
+
+func (o *Extension[T]) SwizzleB() Rendering.TextureSwizzle { return o.Super().SwizzleB() }
 
 // SetSwizzleB sets the property returned by [GetSwizzleB]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSwizzleB(value Rendering.TextureSwizzle) Instance { //gd:RDTextureView.swizzle_b
@@ -192,14 +215,26 @@ func (self Instance) SetSwizzleB(value Rendering.TextureSwizzle) Instance { //gd
 	return self
 }
 
+func (o *Extension[T]) SetSwizzleB(value Rendering.TextureSwizzle) *Extension[T] {
+	o.Super().SetSwizzleB(value)
+	return o
+}
+
 func (self Instance) SwizzleA() Rendering.TextureSwizzle { //gd:RDTextureView.swizzle_a
 		return Rendering.TextureSwizzle(class(self).GetSwizzleA())
 }
+
+func (o *Extension[T]) SwizzleA() Rendering.TextureSwizzle { return o.Super().SwizzleA() }
 
 // SetSwizzleA sets the property returned by [GetSwizzleA]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSwizzleA(value Rendering.TextureSwizzle) Instance { //gd:RDTextureView.swizzle_a
 	class(self).SetSwizzleA(value)
 	return self
+}
+
+func (o *Extension[T]) SetSwizzleA(value Rendering.TextureSwizzle) *Extension[T] {
+	o.Super().SetSwizzleA(value)
+	return o
 }
 
 func (self class) SetFormatOverride(p_member Rendering.DataFormat)  { //gd:RDTextureView.set_format_override

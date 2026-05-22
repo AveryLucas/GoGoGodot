@@ -153,15 +153,24 @@ func (self Instance) ButtonIndex() Input.JoyButton { //gd:InputEventJoypadButton
 		return Input.JoyButton(class(self).GetButtonIndex())
 }
 
+func (o *Extension[T]) ButtonIndex() Input.JoyButton { return o.Super().ButtonIndex() }
+
 // SetButtonIndex sets the property returned by [GetButtonIndex]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetButtonIndex(value Input.JoyButton) Instance { //gd:InputEventJoypadButton.button_index
 	class(self).SetButtonIndex(value)
 	return self
 }
 
+func (o *Extension[T]) SetButtonIndex(value Input.JoyButton) *Extension[T] {
+	o.Super().SetButtonIndex(value)
+	return o
+}
+
 func (self Instance) Pressure() Float.X { //gd:InputEventJoypadButton.pressure
 		return Float.X(Float.X(class(self).GetPressure()))
 }
+
+func (o *Extension[T]) Pressure() Float.X { return o.Super().Pressure() }
 
 // SetPressure sets the property returned by [GetPressure]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPressure(value Float.X) Instance { //gd:InputEventJoypadButton.pressure
@@ -169,9 +178,19 @@ func (self Instance) SetPressure(value Float.X) Instance { //gd:InputEventJoypad
 	return self
 }
 
+func (o *Extension[T]) SetPressure(value Float.X) *Extension[T] {
+	o.Super().SetPressure(value)
+	return o
+}
+
 func (self Instance) SetPressed(value bool) Instance { //gd:InputEventJoypadButton.pressed
 	class(self).SetPressed(value)
 	return self
+}
+
+func (o *Extension[T]) SetPressed(value bool) *Extension[T] {
+	o.Super().SetPressed(value)
+	return o
 }
 
 func (self class) SetButtonIndex(button_index Input.JoyButton)  { //gd:InputEventJoypadButton.set_button_index
@@ -388,6 +407,51 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// Device is promoted from [InputEvent.Instance.Device].
+func (o *Extension[T]) Device() int { return o.Super().AsInputEvent().Device() }
+
+// SetDevice is promoted from [InputEvent.Instance.SetDevice].
+func (o *Extension[T]) SetDevice(value int) *Extension[T] {
+	o.Super().AsInputEvent().SetDevice(value)
+	return o
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

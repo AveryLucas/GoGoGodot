@@ -20,6 +20,7 @@ import "graphics.gd/variant/Signal"
 import "graphics.gd/classdb/AudioServer"
 import "graphics.gd/classdb/AudioStream"
 import "graphics.gd/classdb/AudioStreamPlayback"
+import "graphics.gd/classdb/MultiplayerAPI"
 import "graphics.gd/classdb/Node"
 import "graphics.gd/classdb/Tween"
 import "graphics.gd/variant/Array"
@@ -203,15 +204,24 @@ func (self Instance) Stream() AudioStream.Instance { //gd:AudioStreamPlayer.stre
 		return AudioStream.Instance(class(self).GetStream())
 }
 
+func (o *Extension[T]) Stream() AudioStream.Instance { return o.Super().Stream() }
+
 // SetStream sets the property returned by [GetStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream(value AudioStream.Instance) Instance { //gd:AudioStreamPlayer.stream
 	class(self).SetStream(value)
 	return self
 }
 
+func (o *Extension[T]) SetStream(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream(value)
+	return o
+}
+
 func (self Instance) VolumeDb() Float.X { //gd:AudioStreamPlayer.volume_db
 		return Float.X(Float.X(class(self).GetVolumeDb()))
 }
+
+func (o *Extension[T]) VolumeDb() Float.X { return o.Super().VolumeDb() }
 
 // SetVolumeDb sets the property returned by [GetVolumeDb]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVolumeDb(value Float.X) Instance { //gd:AudioStreamPlayer.volume_db
@@ -219,9 +229,16 @@ func (self Instance) SetVolumeDb(value Float.X) Instance { //gd:AudioStreamPlaye
 	return self
 }
 
+func (o *Extension[T]) SetVolumeDb(value Float.X) *Extension[T] {
+	o.Super().SetVolumeDb(value)
+	return o
+}
+
 func (self Instance) VolumeLinear() Float.X { //gd:AudioStreamPlayer.volume_linear
 		return Float.X(Float.X(class(self).GetVolumeLinear()))
 }
+
+func (o *Extension[T]) VolumeLinear() Float.X { return o.Super().VolumeLinear() }
 
 // SetVolumeLinear sets the property returned by [GetVolumeLinear]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVolumeLinear(value Float.X) Instance { //gd:AudioStreamPlayer.volume_linear
@@ -229,9 +246,16 @@ func (self Instance) SetVolumeLinear(value Float.X) Instance { //gd:AudioStreamP
 	return self
 }
 
+func (o *Extension[T]) SetVolumeLinear(value Float.X) *Extension[T] {
+	o.Super().SetVolumeLinear(value)
+	return o
+}
+
 func (self Instance) PitchScale() Float.X { //gd:AudioStreamPlayer.pitch_scale
 		return Float.X(Float.X(class(self).GetPitchScale()))
 }
+
+func (o *Extension[T]) PitchScale() Float.X { return o.Super().PitchScale() }
 
 // SetPitchScale sets the property returned by [GetPitchScale]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPitchScale(value Float.X) Instance { //gd:AudioStreamPlayer.pitch_scale
@@ -239,9 +263,16 @@ func (self Instance) SetPitchScale(value Float.X) Instance { //gd:AudioStreamPla
 	return self
 }
 
+func (o *Extension[T]) SetPitchScale(value Float.X) *Extension[T] {
+	o.Super().SetPitchScale(value)
+	return o
+}
+
 func (self Instance) Playing() bool { //gd:AudioStreamPlayer.playing
 		return bool(class(self).IsPlaying())
 }
+
+func (o *Extension[T]) Playing() bool { return o.Super().Playing() }
 
 // SetPlaying sets the property returned by [IsPlaying]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPlaying(value bool) Instance { //gd:AudioStreamPlayer.playing
@@ -249,9 +280,16 @@ func (self Instance) SetPlaying(value bool) Instance { //gd:AudioStreamPlayer.pl
 	return self
 }
 
+func (o *Extension[T]) SetPlaying(value bool) *Extension[T] {
+	o.Super().SetPlaying(value)
+	return o
+}
+
 func (self Instance) Autoplay() bool { //gd:AudioStreamPlayer.autoplay
 		return bool(class(self).IsAutoplayEnabled())
 }
+
+func (o *Extension[T]) Autoplay() bool { return o.Super().Autoplay() }
 
 // SetAutoplay sets the property returned by [IsAutoplayEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAutoplay(value bool) Instance { //gd:AudioStreamPlayer.autoplay
@@ -259,9 +297,16 @@ func (self Instance) SetAutoplay(value bool) Instance { //gd:AudioStreamPlayer.a
 	return self
 }
 
+func (o *Extension[T]) SetAutoplay(value bool) *Extension[T] {
+	o.Super().SetAutoplay(value)
+	return o
+}
+
 func (self Instance) StreamPaused() bool { //gd:AudioStreamPlayer.stream_paused
 		return bool(class(self).GetStreamPaused())
 }
+
+func (o *Extension[T]) StreamPaused() bool { return o.Super().StreamPaused() }
 
 // SetStreamPaused sets the property returned by [GetStreamPaused]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStreamPaused(value bool) Instance { //gd:AudioStreamPlayer.stream_paused
@@ -269,9 +314,16 @@ func (self Instance) SetStreamPaused(value bool) Instance { //gd:AudioStreamPlay
 	return self
 }
 
+func (o *Extension[T]) SetStreamPaused(value bool) *Extension[T] {
+	o.Super().SetStreamPaused(value)
+	return o
+}
+
 func (self Instance) MixTarget() MixTarget { //gd:AudioStreamPlayer.mix_target
 		return MixTarget(class(self).GetMixTarget())
 }
+
+func (o *Extension[T]) MixTarget() MixTarget { return o.Super().MixTarget() }
 
 // SetMixTarget sets the property returned by [GetMixTarget]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMixTarget(value MixTarget) Instance { //gd:AudioStreamPlayer.mix_target
@@ -279,9 +331,16 @@ func (self Instance) SetMixTarget(value MixTarget) Instance { //gd:AudioStreamPl
 	return self
 }
 
+func (o *Extension[T]) SetMixTarget(value MixTarget) *Extension[T] {
+	o.Super().SetMixTarget(value)
+	return o
+}
+
 func (self Instance) MaxPolyphony() int { //gd:AudioStreamPlayer.max_polyphony
 		return int(int(class(self).GetMaxPolyphony()))
 }
+
+func (o *Extension[T]) MaxPolyphony() int { return o.Super().MaxPolyphony() }
 
 // SetMaxPolyphony sets the property returned by [GetMaxPolyphony]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMaxPolyphony(value int) Instance { //gd:AudioStreamPlayer.max_polyphony
@@ -289,9 +348,16 @@ func (self Instance) SetMaxPolyphony(value int) Instance { //gd:AudioStreamPlaye
 	return self
 }
 
+func (o *Extension[T]) SetMaxPolyphony(value int) *Extension[T] {
+	o.Super().SetMaxPolyphony(value)
+	return o
+}
+
 func (self Instance) Bus() string { //gd:AudioStreamPlayer.bus
 		return string(class(self).GetBus().String())
 }
+
+func (o *Extension[T]) Bus() string { return o.Super().Bus() }
 
 // SetBus sets the property returned by [GetBus]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBus(value string) Instance { //gd:AudioStreamPlayer.bus
@@ -299,14 +365,26 @@ func (self Instance) SetBus(value string) Instance { //gd:AudioStreamPlayer.bus
 	return self
 }
 
+func (o *Extension[T]) SetBus(value string) *Extension[T] {
+	o.Super().SetBus(value)
+	return o
+}
+
 func (self Instance) PlaybackType() AudioServer.PlaybackType { //gd:AudioStreamPlayer.playback_type
 		return AudioServer.PlaybackType(class(self).GetPlaybackType())
 }
+
+func (o *Extension[T]) PlaybackType() AudioServer.PlaybackType { return o.Super().PlaybackType() }
 
 // SetPlaybackType sets the property returned by [GetPlaybackType]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPlaybackType(value AudioServer.PlaybackType) Instance { //gd:AudioStreamPlayer.playback_type
 	class(self).SetPlaybackType(value)
 	return self
+}
+
+func (o *Extension[T]) SetPlaybackType(value AudioServer.PlaybackType) *Extension[T] {
+	o.Super().SetPlaybackType(value)
+	return o
 }
 
 func (self class) SetStream(stream [1]gdclass.AudioStream)  { //gd:AudioStreamPlayer.set_stream
@@ -1253,6 +1331,126 @@ func (self Instance) NotifyThreadSafe(what int) {
 // NotifyThreadSafe is promoted from [Node.Instance.NotifyThreadSafe].
 func (o *Extension[T]) NotifyThreadSafe(what int) {
 	o.Super().AsNode().NotifyThreadSafe(what)
+}
+
+// Name is promoted from [Node.Instance.Name].
+func (o *Extension[T]) Name() string { return o.Super().AsNode().Name() }
+
+// SetName is promoted from [Node.Instance.SetName].
+func (o *Extension[T]) SetName(value string) *Extension[T] {
+	o.Super().AsNode().SetName(value)
+	return o
+}
+
+// UniqueNameInOwner is promoted from [Node.Instance.UniqueNameInOwner].
+func (o *Extension[T]) UniqueNameInOwner() bool { return o.Super().AsNode().UniqueNameInOwner() }
+
+// SetUniqueNameInOwner is promoted from [Node.Instance.SetUniqueNameInOwner].
+func (o *Extension[T]) SetUniqueNameInOwner(value bool) *Extension[T] {
+	o.Super().AsNode().SetUniqueNameInOwner(value)
+	return o
+}
+
+// SceneFilePath is promoted from [Node.Instance.SceneFilePath].
+func (o *Extension[T]) SceneFilePath() string { return o.Super().AsNode().SceneFilePath() }
+
+// SetSceneFilePath is promoted from [Node.Instance.SetSceneFilePath].
+func (o *Extension[T]) SetSceneFilePath(value string) *Extension[T] {
+	o.Super().AsNode().SetSceneFilePath(value)
+	return o
+}
+
+// Owner is promoted from [Node.Instance.Owner].
+func (o *Extension[T]) Owner() Node.Instance { return o.Super().AsNode().Owner() }
+
+// SetOwner is promoted from [Node.Instance.SetOwner].
+func (o *Extension[T]) SetOwner(value Node.Instance) *Extension[T] {
+	o.Super().AsNode().SetOwner(value)
+	return o
+}
+
+// Multiplayer is promoted from [Node.Instance.Multiplayer].
+func (o *Extension[T]) Multiplayer() MultiplayerAPI.Instance { return o.Super().AsNode().Multiplayer() }
+
+// ProcessMode is promoted from [Node.Instance.ProcessMode].
+func (o *Extension[T]) ProcessMode() Node.ProcessMode { return o.Super().AsNode().ProcessMode() }
+
+// SetProcessMode is promoted from [Node.Instance.SetProcessMode].
+func (o *Extension[T]) SetProcessMode(value Node.ProcessMode) *Extension[T] {
+	o.Super().AsNode().SetProcessMode(value)
+	return o
+}
+
+// ProcessPriority is promoted from [Node.Instance.ProcessPriority].
+func (o *Extension[T]) ProcessPriority() int { return o.Super().AsNode().ProcessPriority() }
+
+// SetProcessPriority is promoted from [Node.Instance.SetProcessPriority].
+func (o *Extension[T]) SetProcessPriority(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessPriority(value)
+	return o
+}
+
+// ProcessPhysicsPriority is promoted from [Node.Instance.ProcessPhysicsPriority].
+func (o *Extension[T]) ProcessPhysicsPriority() int { return o.Super().AsNode().ProcessPhysicsPriority() }
+
+// SetProcessPhysicsPriority is promoted from [Node.Instance.SetProcessPhysicsPriority].
+func (o *Extension[T]) SetProcessPhysicsPriority(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessPhysicsPriority(value)
+	return o
+}
+
+// ProcessThreadGroup is promoted from [Node.Instance.ProcessThreadGroup].
+func (o *Extension[T]) ProcessThreadGroup() Node.ProcessThreadGroup { return o.Super().AsNode().ProcessThreadGroup() }
+
+// SetProcessThreadGroup is promoted from [Node.Instance.SetProcessThreadGroup].
+func (o *Extension[T]) SetProcessThreadGroup(value Node.ProcessThreadGroup) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadGroup(value)
+	return o
+}
+
+// ProcessThreadGroupOrder is promoted from [Node.Instance.ProcessThreadGroupOrder].
+func (o *Extension[T]) ProcessThreadGroupOrder() int { return o.Super().AsNode().ProcessThreadGroupOrder() }
+
+// SetProcessThreadGroupOrder is promoted from [Node.Instance.SetProcessThreadGroupOrder].
+func (o *Extension[T]) SetProcessThreadGroupOrder(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadGroupOrder(value)
+	return o
+}
+
+// ProcessThreadMessages is promoted from [Node.Instance.ProcessThreadMessages].
+func (o *Extension[T]) ProcessThreadMessages() Node.ProcessThreadMessages { return o.Super().AsNode().ProcessThreadMessages() }
+
+// SetProcessThreadMessages is promoted from [Node.Instance.SetProcessThreadMessages].
+func (o *Extension[T]) SetProcessThreadMessages(value Node.ProcessThreadMessages) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadMessages(value)
+	return o
+}
+
+// PhysicsInterpolationMode is promoted from [Node.Instance.PhysicsInterpolationMode].
+func (o *Extension[T]) PhysicsInterpolationMode() Node.PhysicsInterpolationMode { return o.Super().AsNode().PhysicsInterpolationMode() }
+
+// SetPhysicsInterpolationMode is promoted from [Node.Instance.SetPhysicsInterpolationMode].
+func (o *Extension[T]) SetPhysicsInterpolationMode(value Node.PhysicsInterpolationMode) *Extension[T] {
+	o.Super().AsNode().SetPhysicsInterpolationMode(value)
+	return o
+}
+
+// AutoTranslateMode is promoted from [Node.Instance.AutoTranslateMode].
+func (o *Extension[T]) AutoTranslateMode() Node.AutoTranslateMode { return o.Super().AsNode().AutoTranslateMode() }
+
+// SetAutoTranslateMode is promoted from [Node.Instance.SetAutoTranslateMode].
+func (o *Extension[T]) SetAutoTranslateMode(value Node.AutoTranslateMode) *Extension[T] {
+	o.Super().AsNode().SetAutoTranslateMode(value)
+	return o
+}
+
+// EditorDescription is promoted from [Node.Instance.EditorDescription].
+func (o *Extension[T]) EditorDescription() string { return o.Super().AsNode().EditorDescription() }
+
+// SetEditorDescription is promoted from [Node.Instance.SetEditorDescription].
+func (o *Extension[T]) SetEditorDescription(value string) *Extension[T] {
+	o.Super().AsNode().SetEditorDescription(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

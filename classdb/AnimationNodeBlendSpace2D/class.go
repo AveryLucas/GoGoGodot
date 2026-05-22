@@ -222,15 +222,24 @@ func (self Instance) AutoTriangles() bool { //gd:AnimationNodeBlendSpace2D.auto_
 		return bool(class(self).GetAutoTriangles())
 }
 
+func (o *Extension[T]) AutoTriangles() bool { return o.Super().AutoTriangles() }
+
 // SetAutoTriangles sets the property returned by [GetAutoTriangles]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAutoTriangles(value bool) Instance { //gd:AnimationNodeBlendSpace2D.auto_triangles
 	class(self).SetAutoTriangles(value)
 	return self
 }
 
+func (o *Extension[T]) SetAutoTriangles(value bool) *Extension[T] {
+	o.Super().SetAutoTriangles(value)
+	return o
+}
+
 func (self Instance) MinSpace() Vector2.XY { //gd:AnimationNodeBlendSpace2D.min_space
 		return Vector2.XY(class(self).GetMinSpace())
 }
+
+func (o *Extension[T]) MinSpace() Vector2.XY { return o.Super().MinSpace() }
 
 // SetMinSpace sets the property returned by [GetMinSpace]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMinSpace(value Vector2.XY) Instance { //gd:AnimationNodeBlendSpace2D.min_space
@@ -238,9 +247,16 @@ func (self Instance) SetMinSpace(value Vector2.XY) Instance { //gd:AnimationNode
 	return self
 }
 
+func (o *Extension[T]) SetMinSpace(value Vector2.XY) *Extension[T] {
+	o.Super().SetMinSpace(value)
+	return o
+}
+
 func (self Instance) MaxSpace() Vector2.XY { //gd:AnimationNodeBlendSpace2D.max_space
 		return Vector2.XY(class(self).GetMaxSpace())
 }
+
+func (o *Extension[T]) MaxSpace() Vector2.XY { return o.Super().MaxSpace() }
 
 // SetMaxSpace sets the property returned by [GetMaxSpace]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMaxSpace(value Vector2.XY) Instance { //gd:AnimationNodeBlendSpace2D.max_space
@@ -248,9 +264,16 @@ func (self Instance) SetMaxSpace(value Vector2.XY) Instance { //gd:AnimationNode
 	return self
 }
 
+func (o *Extension[T]) SetMaxSpace(value Vector2.XY) *Extension[T] {
+	o.Super().SetMaxSpace(value)
+	return o
+}
+
 func (self Instance) Snap() Vector2.XY { //gd:AnimationNodeBlendSpace2D.snap
 		return Vector2.XY(class(self).GetSnap())
 }
+
+func (o *Extension[T]) Snap() Vector2.XY { return o.Super().Snap() }
 
 // SetSnap sets the property returned by [GetSnap]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSnap(value Vector2.XY) Instance { //gd:AnimationNodeBlendSpace2D.snap
@@ -258,9 +281,16 @@ func (self Instance) SetSnap(value Vector2.XY) Instance { //gd:AnimationNodeBlen
 	return self
 }
 
+func (o *Extension[T]) SetSnap(value Vector2.XY) *Extension[T] {
+	o.Super().SetSnap(value)
+	return o
+}
+
 func (self Instance) XLabel() string { //gd:AnimationNodeBlendSpace2D.x_label
 		return string(class(self).GetXLabel().String())
 }
+
+func (o *Extension[T]) XLabel() string { return o.Super().XLabel() }
 
 // SetXLabel sets the property returned by [GetXLabel]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetXLabel(value string) Instance { //gd:AnimationNodeBlendSpace2D.x_label
@@ -268,9 +298,16 @@ func (self Instance) SetXLabel(value string) Instance { //gd:AnimationNodeBlendS
 	return self
 }
 
+func (o *Extension[T]) SetXLabel(value string) *Extension[T] {
+	o.Super().SetXLabel(value)
+	return o
+}
+
 func (self Instance) YLabel() string { //gd:AnimationNodeBlendSpace2D.y_label
 		return string(class(self).GetYLabel().String())
 }
+
+func (o *Extension[T]) YLabel() string { return o.Super().YLabel() }
 
 // SetYLabel sets the property returned by [GetYLabel]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetYLabel(value string) Instance { //gd:AnimationNodeBlendSpace2D.y_label
@@ -278,9 +315,16 @@ func (self Instance) SetYLabel(value string) Instance { //gd:AnimationNodeBlendS
 	return self
 }
 
+func (o *Extension[T]) SetYLabel(value string) *Extension[T] {
+	o.Super().SetYLabel(value)
+	return o
+}
+
 func (self Instance) BlendMode() BlendMode { //gd:AnimationNodeBlendSpace2D.blend_mode
 		return BlendMode(class(self).GetBlendMode())
 }
+
+func (o *Extension[T]) BlendMode() BlendMode { return o.Super().BlendMode() }
 
 // SetBlendMode sets the property returned by [GetBlendMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBlendMode(value BlendMode) Instance { //gd:AnimationNodeBlendSpace2D.blend_mode
@@ -288,14 +332,26 @@ func (self Instance) SetBlendMode(value BlendMode) Instance { //gd:AnimationNode
 	return self
 }
 
+func (o *Extension[T]) SetBlendMode(value BlendMode) *Extension[T] {
+	o.Super().SetBlendMode(value)
+	return o
+}
+
 func (self Instance) Sync() bool { //gd:AnimationNodeBlendSpace2D.sync
 		return bool(class(self).IsUsingSync())
 }
+
+func (o *Extension[T]) Sync() bool { return o.Super().Sync() }
 
 // SetSync sets the property returned by [IsUsingSync]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSync(value bool) Instance { //gd:AnimationNodeBlendSpace2D.sync
 	class(self).SetUseSync(value)
 	return self
+}
+
+func (o *Extension[T]) SetSync(value bool) *Extension[T] {
+	o.Super().SetSync(value)
+	return o
 }
 
 func (self class) AddBlendPoint(node [1]gdclass.AnimationRootNode, pos Vector2.XY, at_index int64)  { //gd:AnimationNodeBlendSpace2D.add_blend_point
@@ -730,6 +786,51 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// FilterEnabled is promoted from [AnimationNode.Instance.FilterEnabled].
+func (o *Extension[T]) FilterEnabled() bool { return o.Super().AsAnimationNode().FilterEnabled() }
+
+// SetFilterEnabled is promoted from [AnimationNode.Instance.SetFilterEnabled].
+func (o *Extension[T]) SetFilterEnabled(value bool) *Extension[T] {
+	o.Super().AsAnimationNode().SetFilterEnabled(value)
+	return o
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

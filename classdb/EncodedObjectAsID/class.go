@@ -147,10 +147,17 @@ func (self Instance) ObjectId() int { //gd:EncodedObjectAsID.object_id
 		return int(int(class(self).GetObjectId()))
 }
 
+func (o *Extension[T]) ObjectId() int { return o.Super().ObjectId() }
+
 // SetObjectId sets the property returned by [GetObjectId]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetObjectId(value int) Instance { //gd:EncodedObjectAsID.object_id
 	class(self).SetObjectId(int64(value))
 	return self
+}
+
+func (o *Extension[T]) SetObjectId(value int) *Extension[T] {
+	o.Super().SetObjectId(value)
+	return o
 }
 
 func (self class) SetObjectId(id int64)  { //gd:EncodedObjectAsID.set_object_id

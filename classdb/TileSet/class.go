@@ -529,15 +529,24 @@ func (self Instance) TileShape() TileShape { //gd:TileSet.tile_shape
 		return TileShape(class(self).GetTileShape())
 }
 
+func (o *Extension[T]) TileShape() TileShape { return o.Super().TileShape() }
+
 // SetTileShape sets the property returned by [GetTileShape]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTileShape(value TileShape) Instance { //gd:TileSet.tile_shape
 	class(self).SetTileShape(value)
 	return self
 }
 
+func (o *Extension[T]) SetTileShape(value TileShape) *Extension[T] {
+	o.Super().SetTileShape(value)
+	return o
+}
+
 func (self Instance) TileLayout() TileLayout { //gd:TileSet.tile_layout
 		return TileLayout(class(self).GetTileLayout())
 }
+
+func (o *Extension[T]) TileLayout() TileLayout { return o.Super().TileLayout() }
 
 // SetTileLayout sets the property returned by [GetTileLayout]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTileLayout(value TileLayout) Instance { //gd:TileSet.tile_layout
@@ -545,9 +554,16 @@ func (self Instance) SetTileLayout(value TileLayout) Instance { //gd:TileSet.til
 	return self
 }
 
+func (o *Extension[T]) SetTileLayout(value TileLayout) *Extension[T] {
+	o.Super().SetTileLayout(value)
+	return o
+}
+
 func (self Instance) TileOffsetAxis() TileOffsetAxis { //gd:TileSet.tile_offset_axis
 		return TileOffsetAxis(class(self).GetTileOffsetAxis())
 }
+
+func (o *Extension[T]) TileOffsetAxis() TileOffsetAxis { return o.Super().TileOffsetAxis() }
 
 // SetTileOffsetAxis sets the property returned by [GetTileOffsetAxis]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTileOffsetAxis(value TileOffsetAxis) Instance { //gd:TileSet.tile_offset_axis
@@ -555,9 +571,16 @@ func (self Instance) SetTileOffsetAxis(value TileOffsetAxis) Instance { //gd:Til
 	return self
 }
 
+func (o *Extension[T]) SetTileOffsetAxis(value TileOffsetAxis) *Extension[T] {
+	o.Super().SetTileOffsetAxis(value)
+	return o
+}
+
 func (self Instance) TileSize() Vector2i.XY { //gd:TileSet.tile_size
 		return Vector2i.XY(class(self).GetTileSize())
 }
+
+func (o *Extension[T]) TileSize() Vector2i.XY { return o.Super().TileSize() }
 
 // SetTileSize sets the property returned by [GetTileSize]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTileSize(value Vector2i.XY) Instance { //gd:TileSet.tile_size
@@ -565,14 +588,26 @@ func (self Instance) SetTileSize(value Vector2i.XY) Instance { //gd:TileSet.tile
 	return self
 }
 
+func (o *Extension[T]) SetTileSize(value Vector2i.XY) *Extension[T] {
+	o.Super().SetTileSize(value)
+	return o
+}
+
 func (self Instance) UvClipping() bool { //gd:TileSet.uv_clipping
 		return bool(class(self).IsUvClipping())
 }
+
+func (o *Extension[T]) UvClipping() bool { return o.Super().UvClipping() }
 
 // SetUvClipping sets the property returned by [IsUvClipping]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUvClipping(value bool) Instance { //gd:TileSet.uv_clipping
 	class(self).SetUvClipping(value)
 	return self
+}
+
+func (o *Extension[T]) SetUvClipping(value bool) *Extension[T] {
+	o.Super().SetUvClipping(value)
+	return o
 }
 
 func (self class) GetNextSourceId() int64 { //gd:TileSet.get_next_source_id
@@ -1266,6 +1301,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

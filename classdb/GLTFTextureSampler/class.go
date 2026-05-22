@@ -154,15 +154,24 @@ func (self Instance) MagFilter() int { //gd:GLTFTextureSampler.mag_filter
 		return int(int(class(self).GetMagFilter()))
 }
 
+func (o *Extension[T]) MagFilter() int { return o.Super().MagFilter() }
+
 // SetMagFilter sets the property returned by [GetMagFilter]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMagFilter(value int) Instance { //gd:GLTFTextureSampler.mag_filter
 	class(self).SetMagFilter(int64(value))
 	return self
 }
 
+func (o *Extension[T]) SetMagFilter(value int) *Extension[T] {
+	o.Super().SetMagFilter(value)
+	return o
+}
+
 func (self Instance) MinFilter() int { //gd:GLTFTextureSampler.min_filter
 		return int(int(class(self).GetMinFilter()))
 }
+
+func (o *Extension[T]) MinFilter() int { return o.Super().MinFilter() }
 
 // SetMinFilter sets the property returned by [GetMinFilter]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMinFilter(value int) Instance { //gd:GLTFTextureSampler.min_filter
@@ -170,9 +179,16 @@ func (self Instance) SetMinFilter(value int) Instance { //gd:GLTFTextureSampler.
 	return self
 }
 
+func (o *Extension[T]) SetMinFilter(value int) *Extension[T] {
+	o.Super().SetMinFilter(value)
+	return o
+}
+
 func (self Instance) WrapS() int { //gd:GLTFTextureSampler.wrap_s
 		return int(int(class(self).GetWrapS()))
 }
+
+func (o *Extension[T]) WrapS() int { return o.Super().WrapS() }
 
 // SetWrapS sets the property returned by [GetWrapS]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetWrapS(value int) Instance { //gd:GLTFTextureSampler.wrap_s
@@ -180,14 +196,26 @@ func (self Instance) SetWrapS(value int) Instance { //gd:GLTFTextureSampler.wrap
 	return self
 }
 
+func (o *Extension[T]) SetWrapS(value int) *Extension[T] {
+	o.Super().SetWrapS(value)
+	return o
+}
+
 func (self Instance) WrapT() int { //gd:GLTFTextureSampler.wrap_t
 		return int(int(class(self).GetWrapT()))
 }
+
+func (o *Extension[T]) WrapT() int { return o.Super().WrapT() }
 
 // SetWrapT sets the property returned by [GetWrapT]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetWrapT(value int) Instance { //gd:GLTFTextureSampler.wrap_t
 	class(self).SetWrapT(int64(value))
 	return self
+}
+
+func (o *Extension[T]) SetWrapT(value int) *Extension[T] {
+	o.Super().SetWrapT(value)
+	return o
 }
 
 func (self class) GetMagFilter() int64 { //gd:GLTFTextureSampler.get_mag_filter
@@ -344,6 +372,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

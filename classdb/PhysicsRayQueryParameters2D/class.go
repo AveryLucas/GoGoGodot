@@ -169,15 +169,24 @@ func (self Instance) From() Vector2.XY { //gd:PhysicsRayQueryParameters2D.from
 		return Vector2.XY(class(self).GetFrom())
 }
 
+func (o *Extension[T]) From() Vector2.XY { return o.Super().From() }
+
 // SetFrom sets the property returned by [GetFrom]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFrom(value Vector2.XY) Instance { //gd:PhysicsRayQueryParameters2D.from
 	class(self).SetFrom(Vector2.XY(value))
 	return self
 }
 
+func (o *Extension[T]) SetFrom(value Vector2.XY) *Extension[T] {
+	o.Super().SetFrom(value)
+	return o
+}
+
 func (self Instance) To() Vector2.XY { //gd:PhysicsRayQueryParameters2D.to
 		return Vector2.XY(class(self).GetTo())
 }
+
+func (o *Extension[T]) To() Vector2.XY { return o.Super().To() }
 
 // SetTo sets the property returned by [GetTo]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTo(value Vector2.XY) Instance { //gd:PhysicsRayQueryParameters2D.to
@@ -185,9 +194,16 @@ func (self Instance) SetTo(value Vector2.XY) Instance { //gd:PhysicsRayQueryPara
 	return self
 }
 
+func (o *Extension[T]) SetTo(value Vector2.XY) *Extension[T] {
+	o.Super().SetTo(value)
+	return o
+}
+
 func (self Instance) CollisionMask() int { //gd:PhysicsRayQueryParameters2D.collision_mask
 		return int(int(class(self).GetCollisionMask()))
 }
+
+func (o *Extension[T]) CollisionMask() int { return o.Super().CollisionMask() }
 
 // SetCollisionMask sets the property returned by [GetCollisionMask]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCollisionMask(value int) Instance { //gd:PhysicsRayQueryParameters2D.collision_mask
@@ -195,9 +211,16 @@ func (self Instance) SetCollisionMask(value int) Instance { //gd:PhysicsRayQuery
 	return self
 }
 
+func (o *Extension[T]) SetCollisionMask(value int) *Extension[T] {
+	o.Super().SetCollisionMask(value)
+	return o
+}
+
 func (self Instance) Exclude() []RID.Body2D { //gd:PhysicsRayQueryParameters2D.exclude
 		return []RID.Body2D(gd.ArrayAs[[]RID.Body2D](gd.InternalArray(class(self).GetExclude())))
 }
+
+func (o *Extension[T]) Exclude() []RID.Body2D { return o.Super().Exclude() }
 
 // SetExclude sets the property returned by [GetExclude]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetExclude(value []RID.Body2D) Instance { //gd:PhysicsRayQueryParameters2D.exclude
@@ -205,9 +228,16 @@ func (self Instance) SetExclude(value []RID.Body2D) Instance { //gd:PhysicsRayQu
 	return self
 }
 
+func (o *Extension[T]) SetExclude(value []RID.Body2D) *Extension[T] {
+	o.Super().SetExclude(value)
+	return o
+}
+
 func (self Instance) CollideWithBodies() bool { //gd:PhysicsRayQueryParameters2D.collide_with_bodies
 		return bool(class(self).IsCollideWithBodiesEnabled())
 }
+
+func (o *Extension[T]) CollideWithBodies() bool { return o.Super().CollideWithBodies() }
 
 // SetCollideWithBodies sets the property returned by [IsCollideWithBodiesEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCollideWithBodies(value bool) Instance { //gd:PhysicsRayQueryParameters2D.collide_with_bodies
@@ -215,9 +245,16 @@ func (self Instance) SetCollideWithBodies(value bool) Instance { //gd:PhysicsRay
 	return self
 }
 
+func (o *Extension[T]) SetCollideWithBodies(value bool) *Extension[T] {
+	o.Super().SetCollideWithBodies(value)
+	return o
+}
+
 func (self Instance) CollideWithAreas() bool { //gd:PhysicsRayQueryParameters2D.collide_with_areas
 		return bool(class(self).IsCollideWithAreasEnabled())
 }
+
+func (o *Extension[T]) CollideWithAreas() bool { return o.Super().CollideWithAreas() }
 
 // SetCollideWithAreas sets the property returned by [IsCollideWithAreasEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCollideWithAreas(value bool) Instance { //gd:PhysicsRayQueryParameters2D.collide_with_areas
@@ -225,14 +262,26 @@ func (self Instance) SetCollideWithAreas(value bool) Instance { //gd:PhysicsRayQ
 	return self
 }
 
+func (o *Extension[T]) SetCollideWithAreas(value bool) *Extension[T] {
+	o.Super().SetCollideWithAreas(value)
+	return o
+}
+
 func (self Instance) HitFromInside() bool { //gd:PhysicsRayQueryParameters2D.hit_from_inside
 		return bool(class(self).IsHitFromInsideEnabled())
 }
+
+func (o *Extension[T]) HitFromInside() bool { return o.Super().HitFromInside() }
 
 // SetHitFromInside sets the property returned by [IsHitFromInsideEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetHitFromInside(value bool) Instance { //gd:PhysicsRayQueryParameters2D.hit_from_inside
 	class(self).SetHitFromInside(value)
 	return self
+}
+
+func (o *Extension[T]) SetHitFromInside(value bool) *Extension[T] {
+	o.Super().SetHitFromInside(value)
+	return o
 }
 
 func (self class) Create(from Vector2.XY, to Vector2.XY, collision_mask int64, exclude Array.Contains[RID.Any]) [1]gdclass.PhysicsRayQueryParameters2D { //gd:PhysicsRayQueryParameters2D.create

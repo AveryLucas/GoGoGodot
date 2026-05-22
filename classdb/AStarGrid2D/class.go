@@ -281,15 +281,24 @@ func (self Instance) Region() Rect2i.PositionSize { //gd:AStarGrid2D.region
 		return Rect2i.PositionSize(class(self).GetRegion())
 }
 
+func (o *Extension[T]) Region() Rect2i.PositionSize { return o.Super().Region() }
+
 // SetRegion sets the property returned by [GetRegion]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRegion(value Rect2i.PositionSize) Instance { //gd:AStarGrid2D.region
 	class(self).SetRegion(Rect2i.PositionSize(value))
 	return self
 }
 
+func (o *Extension[T]) SetRegion(value Rect2i.PositionSize) *Extension[T] {
+	o.Super().SetRegion(value)
+	return o
+}
+
 func (self Instance) Size() Vector2i.XY { //gd:AStarGrid2D.size
 		return Vector2i.XY(class(self).GetSize())
 }
+
+func (o *Extension[T]) Size() Vector2i.XY { return o.Super().Size() }
 
 // SetSize sets the property returned by [GetSize]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSize(value Vector2i.XY) Instance { //gd:AStarGrid2D.size
@@ -297,9 +306,16 @@ func (self Instance) SetSize(value Vector2i.XY) Instance { //gd:AStarGrid2D.size
 	return self
 }
 
+func (o *Extension[T]) SetSize(value Vector2i.XY) *Extension[T] {
+	o.Super().SetSize(value)
+	return o
+}
+
 func (self Instance) Offset() Vector2.XY { //gd:AStarGrid2D.offset
 		return Vector2.XY(class(self).GetOffset())
 }
+
+func (o *Extension[T]) Offset() Vector2.XY { return o.Super().Offset() }
 
 // SetOffset sets the property returned by [GetOffset]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOffset(value Vector2.XY) Instance { //gd:AStarGrid2D.offset
@@ -307,9 +323,16 @@ func (self Instance) SetOffset(value Vector2.XY) Instance { //gd:AStarGrid2D.off
 	return self
 }
 
+func (o *Extension[T]) SetOffset(value Vector2.XY) *Extension[T] {
+	o.Super().SetOffset(value)
+	return o
+}
+
 func (self Instance) CellSize() Vector2.XY { //gd:AStarGrid2D.cell_size
 		return Vector2.XY(class(self).GetCellSize())
 }
+
+func (o *Extension[T]) CellSize() Vector2.XY { return o.Super().CellSize() }
 
 // SetCellSize sets the property returned by [GetCellSize]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCellSize(value Vector2.XY) Instance { //gd:AStarGrid2D.cell_size
@@ -317,9 +340,16 @@ func (self Instance) SetCellSize(value Vector2.XY) Instance { //gd:AStarGrid2D.c
 	return self
 }
 
+func (o *Extension[T]) SetCellSize(value Vector2.XY) *Extension[T] {
+	o.Super().SetCellSize(value)
+	return o
+}
+
 func (self Instance) CellShape() CellShape { //gd:AStarGrid2D.cell_shape
 		return CellShape(class(self).GetCellShape())
 }
+
+func (o *Extension[T]) CellShape() CellShape { return o.Super().CellShape() }
 
 // SetCellShape sets the property returned by [GetCellShape]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCellShape(value CellShape) Instance { //gd:AStarGrid2D.cell_shape
@@ -327,9 +357,16 @@ func (self Instance) SetCellShape(value CellShape) Instance { //gd:AStarGrid2D.c
 	return self
 }
 
+func (o *Extension[T]) SetCellShape(value CellShape) *Extension[T] {
+	o.Super().SetCellShape(value)
+	return o
+}
+
 func (self Instance) JumpingEnabled() bool { //gd:AStarGrid2D.jumping_enabled
 		return bool(class(self).IsJumpingEnabled())
 }
+
+func (o *Extension[T]) JumpingEnabled() bool { return o.Super().JumpingEnabled() }
 
 // SetJumpingEnabled sets the property returned by [IsJumpingEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetJumpingEnabled(value bool) Instance { //gd:AStarGrid2D.jumping_enabled
@@ -337,9 +374,16 @@ func (self Instance) SetJumpingEnabled(value bool) Instance { //gd:AStarGrid2D.j
 	return self
 }
 
+func (o *Extension[T]) SetJumpingEnabled(value bool) *Extension[T] {
+	o.Super().SetJumpingEnabled(value)
+	return o
+}
+
 func (self Instance) DefaultComputeHeuristic() Heuristic { //gd:AStarGrid2D.default_compute_heuristic
 		return Heuristic(class(self).GetDefaultComputeHeuristic())
 }
+
+func (o *Extension[T]) DefaultComputeHeuristic() Heuristic { return o.Super().DefaultComputeHeuristic() }
 
 // SetDefaultComputeHeuristic sets the property returned by [GetDefaultComputeHeuristic]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDefaultComputeHeuristic(value Heuristic) Instance { //gd:AStarGrid2D.default_compute_heuristic
@@ -347,9 +391,16 @@ func (self Instance) SetDefaultComputeHeuristic(value Heuristic) Instance { //gd
 	return self
 }
 
+func (o *Extension[T]) SetDefaultComputeHeuristic(value Heuristic) *Extension[T] {
+	o.Super().SetDefaultComputeHeuristic(value)
+	return o
+}
+
 func (self Instance) DefaultEstimateHeuristic() Heuristic { //gd:AStarGrid2D.default_estimate_heuristic
 		return Heuristic(class(self).GetDefaultEstimateHeuristic())
 }
+
+func (o *Extension[T]) DefaultEstimateHeuristic() Heuristic { return o.Super().DefaultEstimateHeuristic() }
 
 // SetDefaultEstimateHeuristic sets the property returned by [GetDefaultEstimateHeuristic]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDefaultEstimateHeuristic(value Heuristic) Instance { //gd:AStarGrid2D.default_estimate_heuristic
@@ -357,14 +408,26 @@ func (self Instance) SetDefaultEstimateHeuristic(value Heuristic) Instance { //g
 	return self
 }
 
+func (o *Extension[T]) SetDefaultEstimateHeuristic(value Heuristic) *Extension[T] {
+	o.Super().SetDefaultEstimateHeuristic(value)
+	return o
+}
+
 func (self Instance) DiagonalMode() DiagonalMode { //gd:AStarGrid2D.diagonal_mode
 		return DiagonalMode(class(self).GetDiagonalMode())
 }
+
+func (o *Extension[T]) DiagonalMode() DiagonalMode { return o.Super().DiagonalMode() }
 
 // SetDiagonalMode sets the property returned by [GetDiagonalMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDiagonalMode(value DiagonalMode) Instance { //gd:AStarGrid2D.diagonal_mode
 	class(self).SetDiagonalMode(value)
 	return self
+}
+
+func (o *Extension[T]) SetDiagonalMode(value DiagonalMode) *Extension[T] {
+	o.Super().SetDiagonalMode(value)
+	return o
 }
 func (class) _estimate_cost(impl func(ptr gdclass.Receiver, from_id Vector2i.XY, end_id Vector2i.XY) float64) (cb gd.ExtensionClassCallVirtualFunc) {
 	return func(class any, p_args, p_back gdextension.Pointer) {

@@ -207,10 +207,17 @@ func (self Instance) MultiplayerPeer() MultiplayerPeer.Instance { //gd:Multiplay
 		return MultiplayerPeer.Instance(class(self).GetMultiplayerPeer())
 }
 
+func (o *Extension[T]) MultiplayerPeer() MultiplayerPeer.Instance { return o.Super().MultiplayerPeer() }
+
 // SetMultiplayerPeer sets the property returned by [GetMultiplayerPeer]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMultiplayerPeer(value MultiplayerPeer.Instance) Instance { //gd:MultiplayerAPI.multiplayer_peer
 	class(self).SetMultiplayerPeer(value)
 	return self
+}
+
+func (o *Extension[T]) SetMultiplayerPeer(value MultiplayerPeer.Instance) *Extension[T] {
+	o.Super().SetMultiplayerPeer(value)
+	return o
 }
 
 func (self class) HasMultiplayerPeer() bool { //gd:MultiplayerAPI.has_multiplayer_peer

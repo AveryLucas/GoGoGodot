@@ -173,15 +173,24 @@ func (self Instance) EnableBlend() bool { //gd:RDPipelineColorBlendStateAttachme
 		return bool(class(self).GetEnableBlend())
 }
 
+func (o *Extension[T]) EnableBlend() bool { return o.Super().EnableBlend() }
+
 // SetEnableBlend sets the property returned by [GetEnableBlend]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEnableBlend(value bool) Instance { //gd:RDPipelineColorBlendStateAttachment.enable_blend
 	class(self).SetEnableBlend(value)
 	return self
 }
 
+func (o *Extension[T]) SetEnableBlend(value bool) *Extension[T] {
+	o.Super().SetEnableBlend(value)
+	return o
+}
+
 func (self Instance) SrcColorBlendFactor() Rendering.BlendFactor { //gd:RDPipelineColorBlendStateAttachment.src_color_blend_factor
 		return Rendering.BlendFactor(class(self).GetSrcColorBlendFactor())
 }
+
+func (o *Extension[T]) SrcColorBlendFactor() Rendering.BlendFactor { return o.Super().SrcColorBlendFactor() }
 
 // SetSrcColorBlendFactor sets the property returned by [GetSrcColorBlendFactor]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSrcColorBlendFactor(value Rendering.BlendFactor) Instance { //gd:RDPipelineColorBlendStateAttachment.src_color_blend_factor
@@ -189,9 +198,16 @@ func (self Instance) SetSrcColorBlendFactor(value Rendering.BlendFactor) Instanc
 	return self
 }
 
+func (o *Extension[T]) SetSrcColorBlendFactor(value Rendering.BlendFactor) *Extension[T] {
+	o.Super().SetSrcColorBlendFactor(value)
+	return o
+}
+
 func (self Instance) DstColorBlendFactor() Rendering.BlendFactor { //gd:RDPipelineColorBlendStateAttachment.dst_color_blend_factor
 		return Rendering.BlendFactor(class(self).GetDstColorBlendFactor())
 }
+
+func (o *Extension[T]) DstColorBlendFactor() Rendering.BlendFactor { return o.Super().DstColorBlendFactor() }
 
 // SetDstColorBlendFactor sets the property returned by [GetDstColorBlendFactor]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDstColorBlendFactor(value Rendering.BlendFactor) Instance { //gd:RDPipelineColorBlendStateAttachment.dst_color_blend_factor
@@ -199,9 +215,16 @@ func (self Instance) SetDstColorBlendFactor(value Rendering.BlendFactor) Instanc
 	return self
 }
 
+func (o *Extension[T]) SetDstColorBlendFactor(value Rendering.BlendFactor) *Extension[T] {
+	o.Super().SetDstColorBlendFactor(value)
+	return o
+}
+
 func (self Instance) ColorBlendOp() Rendering.BlendOperation { //gd:RDPipelineColorBlendStateAttachment.color_blend_op
 		return Rendering.BlendOperation(class(self).GetColorBlendOp())
 }
+
+func (o *Extension[T]) ColorBlendOp() Rendering.BlendOperation { return o.Super().ColorBlendOp() }
 
 // SetColorBlendOp sets the property returned by [GetColorBlendOp]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetColorBlendOp(value Rendering.BlendOperation) Instance { //gd:RDPipelineColorBlendStateAttachment.color_blend_op
@@ -209,9 +232,16 @@ func (self Instance) SetColorBlendOp(value Rendering.BlendOperation) Instance { 
 	return self
 }
 
+func (o *Extension[T]) SetColorBlendOp(value Rendering.BlendOperation) *Extension[T] {
+	o.Super().SetColorBlendOp(value)
+	return o
+}
+
 func (self Instance) SrcAlphaBlendFactor() Rendering.BlendFactor { //gd:RDPipelineColorBlendStateAttachment.src_alpha_blend_factor
 		return Rendering.BlendFactor(class(self).GetSrcAlphaBlendFactor())
 }
+
+func (o *Extension[T]) SrcAlphaBlendFactor() Rendering.BlendFactor { return o.Super().SrcAlphaBlendFactor() }
 
 // SetSrcAlphaBlendFactor sets the property returned by [GetSrcAlphaBlendFactor]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSrcAlphaBlendFactor(value Rendering.BlendFactor) Instance { //gd:RDPipelineColorBlendStateAttachment.src_alpha_blend_factor
@@ -219,9 +249,16 @@ func (self Instance) SetSrcAlphaBlendFactor(value Rendering.BlendFactor) Instanc
 	return self
 }
 
+func (o *Extension[T]) SetSrcAlphaBlendFactor(value Rendering.BlendFactor) *Extension[T] {
+	o.Super().SetSrcAlphaBlendFactor(value)
+	return o
+}
+
 func (self Instance) DstAlphaBlendFactor() Rendering.BlendFactor { //gd:RDPipelineColorBlendStateAttachment.dst_alpha_blend_factor
 		return Rendering.BlendFactor(class(self).GetDstAlphaBlendFactor())
 }
+
+func (o *Extension[T]) DstAlphaBlendFactor() Rendering.BlendFactor { return o.Super().DstAlphaBlendFactor() }
 
 // SetDstAlphaBlendFactor sets the property returned by [GetDstAlphaBlendFactor]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDstAlphaBlendFactor(value Rendering.BlendFactor) Instance { //gd:RDPipelineColorBlendStateAttachment.dst_alpha_blend_factor
@@ -229,9 +266,16 @@ func (self Instance) SetDstAlphaBlendFactor(value Rendering.BlendFactor) Instanc
 	return self
 }
 
+func (o *Extension[T]) SetDstAlphaBlendFactor(value Rendering.BlendFactor) *Extension[T] {
+	o.Super().SetDstAlphaBlendFactor(value)
+	return o
+}
+
 func (self Instance) AlphaBlendOp() Rendering.BlendOperation { //gd:RDPipelineColorBlendStateAttachment.alpha_blend_op
 		return Rendering.BlendOperation(class(self).GetAlphaBlendOp())
 }
+
+func (o *Extension[T]) AlphaBlendOp() Rendering.BlendOperation { return o.Super().AlphaBlendOp() }
 
 // SetAlphaBlendOp sets the property returned by [GetAlphaBlendOp]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAlphaBlendOp(value Rendering.BlendOperation) Instance { //gd:RDPipelineColorBlendStateAttachment.alpha_blend_op
@@ -239,9 +283,16 @@ func (self Instance) SetAlphaBlendOp(value Rendering.BlendOperation) Instance { 
 	return self
 }
 
+func (o *Extension[T]) SetAlphaBlendOp(value Rendering.BlendOperation) *Extension[T] {
+	o.Super().SetAlphaBlendOp(value)
+	return o
+}
+
 func (self Instance) WriteR() bool { //gd:RDPipelineColorBlendStateAttachment.write_r
 		return bool(class(self).GetWriteR())
 }
+
+func (o *Extension[T]) WriteR() bool { return o.Super().WriteR() }
 
 // SetWriteR sets the property returned by [GetWriteR]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetWriteR(value bool) Instance { //gd:RDPipelineColorBlendStateAttachment.write_r
@@ -249,9 +300,16 @@ func (self Instance) SetWriteR(value bool) Instance { //gd:RDPipelineColorBlendS
 	return self
 }
 
+func (o *Extension[T]) SetWriteR(value bool) *Extension[T] {
+	o.Super().SetWriteR(value)
+	return o
+}
+
 func (self Instance) WriteG() bool { //gd:RDPipelineColorBlendStateAttachment.write_g
 		return bool(class(self).GetWriteG())
 }
+
+func (o *Extension[T]) WriteG() bool { return o.Super().WriteG() }
 
 // SetWriteG sets the property returned by [GetWriteG]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetWriteG(value bool) Instance { //gd:RDPipelineColorBlendStateAttachment.write_g
@@ -259,9 +317,16 @@ func (self Instance) SetWriteG(value bool) Instance { //gd:RDPipelineColorBlendS
 	return self
 }
 
+func (o *Extension[T]) SetWriteG(value bool) *Extension[T] {
+	o.Super().SetWriteG(value)
+	return o
+}
+
 func (self Instance) WriteB() bool { //gd:RDPipelineColorBlendStateAttachment.write_b
 		return bool(class(self).GetWriteB())
 }
+
+func (o *Extension[T]) WriteB() bool { return o.Super().WriteB() }
 
 // SetWriteB sets the property returned by [GetWriteB]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetWriteB(value bool) Instance { //gd:RDPipelineColorBlendStateAttachment.write_b
@@ -269,14 +334,26 @@ func (self Instance) SetWriteB(value bool) Instance { //gd:RDPipelineColorBlendS
 	return self
 }
 
+func (o *Extension[T]) SetWriteB(value bool) *Extension[T] {
+	o.Super().SetWriteB(value)
+	return o
+}
+
 func (self Instance) WriteA() bool { //gd:RDPipelineColorBlendStateAttachment.write_a
 		return bool(class(self).GetWriteA())
 }
+
+func (o *Extension[T]) WriteA() bool { return o.Super().WriteA() }
 
 // SetWriteA sets the property returned by [GetWriteA]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetWriteA(value bool) Instance { //gd:RDPipelineColorBlendStateAttachment.write_a
 	class(self).SetWriteA(value)
 	return self
+}
+
+func (o *Extension[T]) SetWriteA(value bool) *Extension[T] {
+	o.Super().SetWriteA(value)
+	return o
 }
 
 func (self class) SetAsMix()  { //gd:RDPipelineColorBlendStateAttachment.set_as_mix

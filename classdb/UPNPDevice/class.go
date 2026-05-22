@@ -184,15 +184,24 @@ func (self Instance) DescriptionUrl() string { //gd:UPNPDevice.description_url
 		return string(class(self).GetDescriptionUrl().String())
 }
 
+func (o *Extension[T]) DescriptionUrl() string { return o.Super().DescriptionUrl() }
+
 // SetDescriptionUrl sets the property returned by [GetDescriptionUrl]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDescriptionUrl(value string) Instance { //gd:UPNPDevice.description_url
 	class(self).SetDescriptionUrl(String.From(value))
 	return self
 }
 
+func (o *Extension[T]) SetDescriptionUrl(value string) *Extension[T] {
+	o.Super().SetDescriptionUrl(value)
+	return o
+}
+
 func (self Instance) ServiceType() string { //gd:UPNPDevice.service_type
 		return string(class(self).GetServiceType().String())
 }
+
+func (o *Extension[T]) ServiceType() string { return o.Super().ServiceType() }
 
 // SetServiceType sets the property returned by [GetServiceType]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetServiceType(value string) Instance { //gd:UPNPDevice.service_type
@@ -200,9 +209,16 @@ func (self Instance) SetServiceType(value string) Instance { //gd:UPNPDevice.ser
 	return self
 }
 
+func (o *Extension[T]) SetServiceType(value string) *Extension[T] {
+	o.Super().SetServiceType(value)
+	return o
+}
+
 func (self Instance) IgdControlUrl() string { //gd:UPNPDevice.igd_control_url
 		return string(class(self).GetIgdControlUrl().String())
 }
+
+func (o *Extension[T]) IgdControlUrl() string { return o.Super().IgdControlUrl() }
 
 // SetIgdControlUrl sets the property returned by [GetIgdControlUrl]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetIgdControlUrl(value string) Instance { //gd:UPNPDevice.igd_control_url
@@ -210,9 +226,16 @@ func (self Instance) SetIgdControlUrl(value string) Instance { //gd:UPNPDevice.i
 	return self
 }
 
+func (o *Extension[T]) SetIgdControlUrl(value string) *Extension[T] {
+	o.Super().SetIgdControlUrl(value)
+	return o
+}
+
 func (self Instance) IgdServiceType() string { //gd:UPNPDevice.igd_service_type
 		return string(class(self).GetIgdServiceType().String())
 }
+
+func (o *Extension[T]) IgdServiceType() string { return o.Super().IgdServiceType() }
 
 // SetIgdServiceType sets the property returned by [GetIgdServiceType]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetIgdServiceType(value string) Instance { //gd:UPNPDevice.igd_service_type
@@ -220,9 +243,16 @@ func (self Instance) SetIgdServiceType(value string) Instance { //gd:UPNPDevice.
 	return self
 }
 
+func (o *Extension[T]) SetIgdServiceType(value string) *Extension[T] {
+	o.Super().SetIgdServiceType(value)
+	return o
+}
+
 func (self Instance) IgdOurAddr() string { //gd:UPNPDevice.igd_our_addr
 		return string(class(self).GetIgdOurAddr().String())
 }
+
+func (o *Extension[T]) IgdOurAddr() string { return o.Super().IgdOurAddr() }
 
 // SetIgdOurAddr sets the property returned by [GetIgdOurAddr]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetIgdOurAddr(value string) Instance { //gd:UPNPDevice.igd_our_addr
@@ -230,14 +260,26 @@ func (self Instance) SetIgdOurAddr(value string) Instance { //gd:UPNPDevice.igd_
 	return self
 }
 
+func (o *Extension[T]) SetIgdOurAddr(value string) *Extension[T] {
+	o.Super().SetIgdOurAddr(value)
+	return o
+}
+
 func (self Instance) IgdStatus() IGDStatus { //gd:UPNPDevice.igd_status
 		return IGDStatus(class(self).GetIgdStatus())
 }
+
+func (o *Extension[T]) IgdStatus() IGDStatus { return o.Super().IgdStatus() }
 
 // SetIgdStatus sets the property returned by [GetIgdStatus]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetIgdStatus(value IGDStatus) Instance { //gd:UPNPDevice.igd_status
 	class(self).SetIgdStatus(value)
 	return self
+}
+
+func (o *Extension[T]) SetIgdStatus(value IGDStatus) *Extension[T] {
+	o.Super().SetIgdStatus(value)
+	return o
 }
 
 func (self class) IsValidGateway() bool { //gd:UPNPDevice.is_valid_gateway

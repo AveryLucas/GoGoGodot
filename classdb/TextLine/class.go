@@ -274,15 +274,24 @@ func (self Instance) Direction() TextServer.Direction { //gd:TextLine.direction
 		return TextServer.Direction(class(self).GetDirection())
 }
 
+func (o *Extension[T]) Direction() TextServer.Direction { return o.Super().Direction() }
+
 // SetDirection sets the property returned by [GetDirection]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDirection(value TextServer.Direction) Instance { //gd:TextLine.direction
 	class(self).SetDirection(value)
 	return self
 }
 
+func (o *Extension[T]) SetDirection(value TextServer.Direction) *Extension[T] {
+	o.Super().SetDirection(value)
+	return o
+}
+
 func (self Instance) Orientation() TextServer.Orientation { //gd:TextLine.orientation
 		return TextServer.Orientation(class(self).GetOrientation())
 }
+
+func (o *Extension[T]) Orientation() TextServer.Orientation { return o.Super().Orientation() }
 
 // SetOrientation sets the property returned by [GetOrientation]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOrientation(value TextServer.Orientation) Instance { //gd:TextLine.orientation
@@ -290,9 +299,16 @@ func (self Instance) SetOrientation(value TextServer.Orientation) Instance { //g
 	return self
 }
 
+func (o *Extension[T]) SetOrientation(value TextServer.Orientation) *Extension[T] {
+	o.Super().SetOrientation(value)
+	return o
+}
+
 func (self Instance) PreserveInvalid() bool { //gd:TextLine.preserve_invalid
 		return bool(class(self).GetPreserveInvalid())
 }
+
+func (o *Extension[T]) PreserveInvalid() bool { return o.Super().PreserveInvalid() }
 
 // SetPreserveInvalid sets the property returned by [GetPreserveInvalid]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPreserveInvalid(value bool) Instance { //gd:TextLine.preserve_invalid
@@ -300,9 +316,16 @@ func (self Instance) SetPreserveInvalid(value bool) Instance { //gd:TextLine.pre
 	return self
 }
 
+func (o *Extension[T]) SetPreserveInvalid(value bool) *Extension[T] {
+	o.Super().SetPreserveInvalid(value)
+	return o
+}
+
 func (self Instance) PreserveControl() bool { //gd:TextLine.preserve_control
 		return bool(class(self).GetPreserveControl())
 }
+
+func (o *Extension[T]) PreserveControl() bool { return o.Super().PreserveControl() }
 
 // SetPreserveControl sets the property returned by [GetPreserveControl]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPreserveControl(value bool) Instance { //gd:TextLine.preserve_control
@@ -310,9 +333,16 @@ func (self Instance) SetPreserveControl(value bool) Instance { //gd:TextLine.pre
 	return self
 }
 
+func (o *Extension[T]) SetPreserveControl(value bool) *Extension[T] {
+	o.Super().SetPreserveControl(value)
+	return o
+}
+
 func (self Instance) Width() Float.X { //gd:TextLine.width
 		return Float.X(Float.X(class(self).GetWidth()))
 }
+
+func (o *Extension[T]) Width() Float.X { return o.Super().Width() }
 
 // SetWidth sets the property returned by [GetWidth]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetWidth(value Float.X) Instance { //gd:TextLine.width
@@ -320,9 +350,16 @@ func (self Instance) SetWidth(value Float.X) Instance { //gd:TextLine.width
 	return self
 }
 
+func (o *Extension[T]) SetWidth(value Float.X) *Extension[T] {
+	o.Super().SetWidth(value)
+	return o
+}
+
 func (self Instance) Alignment() GUI.HorizontalAlignment { //gd:TextLine.alignment
 		return GUI.HorizontalAlignment(class(self).GetHorizontalAlignment())
 }
+
+func (o *Extension[T]) Alignment() GUI.HorizontalAlignment { return o.Super().Alignment() }
 
 // SetAlignment sets the property returned by [GetHorizontalAlignment]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAlignment(value GUI.HorizontalAlignment) Instance { //gd:TextLine.alignment
@@ -330,9 +367,16 @@ func (self Instance) SetAlignment(value GUI.HorizontalAlignment) Instance { //gd
 	return self
 }
 
+func (o *Extension[T]) SetAlignment(value GUI.HorizontalAlignment) *Extension[T] {
+	o.Super().SetAlignment(value)
+	return o
+}
+
 func (self Instance) Flags() TextServer.JustificationFlag { //gd:TextLine.flags
 		return TextServer.JustificationFlag(class(self).GetFlags())
 }
+
+func (o *Extension[T]) Flags() TextServer.JustificationFlag { return o.Super().Flags() }
 
 // SetFlags sets the property returned by [GetFlags]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFlags(value TextServer.JustificationFlag) Instance { //gd:TextLine.flags
@@ -340,9 +384,16 @@ func (self Instance) SetFlags(value TextServer.JustificationFlag) Instance { //g
 	return self
 }
 
+func (o *Extension[T]) SetFlags(value TextServer.JustificationFlag) *Extension[T] {
+	o.Super().SetFlags(value)
+	return o
+}
+
 func (self Instance) TextOverrunBehavior() TextServer.OverrunBehavior { //gd:TextLine.text_overrun_behavior
 		return TextServer.OverrunBehavior(class(self).GetTextOverrunBehavior())
 }
+
+func (o *Extension[T]) TextOverrunBehavior() TextServer.OverrunBehavior { return o.Super().TextOverrunBehavior() }
 
 // SetTextOverrunBehavior sets the property returned by [GetTextOverrunBehavior]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTextOverrunBehavior(value TextServer.OverrunBehavior) Instance { //gd:TextLine.text_overrun_behavior
@@ -350,14 +401,26 @@ func (self Instance) SetTextOverrunBehavior(value TextServer.OverrunBehavior) In
 	return self
 }
 
+func (o *Extension[T]) SetTextOverrunBehavior(value TextServer.OverrunBehavior) *Extension[T] {
+	o.Super().SetTextOverrunBehavior(value)
+	return o
+}
+
 func (self Instance) EllipsisChar() string { //gd:TextLine.ellipsis_char
 		return string(class(self).GetEllipsisChar().String())
 }
+
+func (o *Extension[T]) EllipsisChar() string { return o.Super().EllipsisChar() }
 
 // SetEllipsisChar sets the property returned by [GetEllipsisChar]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEllipsisChar(value string) Instance { //gd:TextLine.ellipsis_char
 	class(self).SetEllipsisChar(String.From(value))
 	return self
+}
+
+func (o *Extension[T]) SetEllipsisChar(value string) *Extension[T] {
+	o.Super().SetEllipsisChar(value)
+	return o
 }
 
 func (self class) Clear()  { //gd:TextLine.clear

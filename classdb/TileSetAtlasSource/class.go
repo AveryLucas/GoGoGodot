@@ -313,15 +313,24 @@ func (self Instance) Texture() Texture2D.Instance { //gd:TileSetAtlasSource.text
 		return Texture2D.Instance(class(self).GetTexture())
 }
 
+func (o *Extension[T]) Texture() Texture2D.Instance { return o.Super().Texture() }
+
 // SetTexture sets the property returned by [GetTexture]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTexture(value Texture2D.Instance) Instance { //gd:TileSetAtlasSource.texture
 	class(self).SetTexture(value)
 	return self
 }
 
+func (o *Extension[T]) SetTexture(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetTexture(value)
+	return o
+}
+
 func (self Instance) Margins() Vector2i.XY { //gd:TileSetAtlasSource.margins
 		return Vector2i.XY(class(self).GetMargins())
 }
+
+func (o *Extension[T]) Margins() Vector2i.XY { return o.Super().Margins() }
 
 // SetMargins sets the property returned by [GetMargins]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMargins(value Vector2i.XY) Instance { //gd:TileSetAtlasSource.margins
@@ -329,9 +338,16 @@ func (self Instance) SetMargins(value Vector2i.XY) Instance { //gd:TileSetAtlasS
 	return self
 }
 
+func (o *Extension[T]) SetMargins(value Vector2i.XY) *Extension[T] {
+	o.Super().SetMargins(value)
+	return o
+}
+
 func (self Instance) Separation() Vector2i.XY { //gd:TileSetAtlasSource.separation
 		return Vector2i.XY(class(self).GetSeparation())
 }
+
+func (o *Extension[T]) Separation() Vector2i.XY { return o.Super().Separation() }
 
 // SetSeparation sets the property returned by [GetSeparation]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSeparation(value Vector2i.XY) Instance { //gd:TileSetAtlasSource.separation
@@ -339,9 +355,16 @@ func (self Instance) SetSeparation(value Vector2i.XY) Instance { //gd:TileSetAtl
 	return self
 }
 
+func (o *Extension[T]) SetSeparation(value Vector2i.XY) *Extension[T] {
+	o.Super().SetSeparation(value)
+	return o
+}
+
 func (self Instance) TextureRegionSize() Vector2i.XY { //gd:TileSetAtlasSource.texture_region_size
 		return Vector2i.XY(class(self).GetTextureRegionSize())
 }
+
+func (o *Extension[T]) TextureRegionSize() Vector2i.XY { return o.Super().TextureRegionSize() }
 
 // SetTextureRegionSize sets the property returned by [GetTextureRegionSize]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTextureRegionSize(value Vector2i.XY) Instance { //gd:TileSetAtlasSource.texture_region_size
@@ -349,14 +372,26 @@ func (self Instance) SetTextureRegionSize(value Vector2i.XY) Instance { //gd:Til
 	return self
 }
 
+func (o *Extension[T]) SetTextureRegionSize(value Vector2i.XY) *Extension[T] {
+	o.Super().SetTextureRegionSize(value)
+	return o
+}
+
 func (self Instance) UseTexturePadding() bool { //gd:TileSetAtlasSource.use_texture_padding
 		return bool(class(self).GetUseTexturePadding())
 }
+
+func (o *Extension[T]) UseTexturePadding() bool { return o.Super().UseTexturePadding() }
 
 // SetUseTexturePadding sets the property returned by [GetUseTexturePadding]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUseTexturePadding(value bool) Instance { //gd:TileSetAtlasSource.use_texture_padding
 	class(self).SetUseTexturePadding(value)
 	return self
+}
+
+func (o *Extension[T]) SetUseTexturePadding(value bool) *Extension[T] {
+	o.Super().SetUseTexturePadding(value)
+	return o
 }
 
 func (self class) SetTexture(texture [1]gdclass.Texture2D)  { //gd:TileSetAtlasSource.set_texture
@@ -800,6 +835,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

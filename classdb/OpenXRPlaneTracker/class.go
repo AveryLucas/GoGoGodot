@@ -194,15 +194,24 @@ func (self Instance) BoundsSize() Vector2.XY { //gd:OpenXRPlaneTracker.bounds_si
 		return Vector2.XY(class(self).GetBoundsSize())
 }
 
+func (o *Extension[T]) BoundsSize() Vector2.XY { return o.Super().BoundsSize() }
+
 // SetBoundsSize sets the property returned by [GetBoundsSize]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBoundsSize(value Vector2.XY) Instance { //gd:OpenXRPlaneTracker.bounds_size
 	class(self).SetBoundsSize(Vector2.XY(value))
 	return self
 }
 
+func (o *Extension[T]) SetBoundsSize(value Vector2.XY) *Extension[T] {
+	o.Super().SetBoundsSize(value)
+	return o
+}
+
 func (self Instance) PlaneAlignment() OpenXRSpatialComponentPlaneAlignmentList.PlaneAlignment { //gd:OpenXRPlaneTracker.plane_alignment
 		return OpenXRSpatialComponentPlaneAlignmentList.PlaneAlignment(class(self).GetPlaneAlignment())
 }
+
+func (o *Extension[T]) PlaneAlignment() OpenXRSpatialComponentPlaneAlignmentList.PlaneAlignment { return o.Super().PlaneAlignment() }
 
 // SetPlaneAlignment sets the property returned by [GetPlaneAlignment]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPlaneAlignment(value OpenXRSpatialComponentPlaneAlignmentList.PlaneAlignment) Instance { //gd:OpenXRPlaneTracker.plane_alignment
@@ -210,14 +219,26 @@ func (self Instance) SetPlaneAlignment(value OpenXRSpatialComponentPlaneAlignmen
 	return self
 }
 
+func (o *Extension[T]) SetPlaneAlignment(value OpenXRSpatialComponentPlaneAlignmentList.PlaneAlignment) *Extension[T] {
+	o.Super().SetPlaneAlignment(value)
+	return o
+}
+
 func (self Instance) PlaneLabel() string { //gd:OpenXRPlaneTracker.plane_label
 		return string(class(self).GetPlaneLabel().String())
 }
+
+func (o *Extension[T]) PlaneLabel() string { return o.Super().PlaneLabel() }
 
 // SetPlaneLabel sets the property returned by [GetPlaneLabel]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPlaneLabel(value string) Instance { //gd:OpenXRPlaneTracker.plane_label
 	class(self).SetPlaneLabel(String.From(value))
 	return self
+}
+
+func (o *Extension[T]) SetPlaneLabel(value string) *Extension[T] {
+	o.Super().SetPlaneLabel(value)
+	return o
 }
 
 func (self class) SetBoundsSize(bounds_size Vector2.XY)  { //gd:OpenXRPlaneTracker.set_bounds_size
@@ -445,6 +466,69 @@ func (self Instance) SetInput(name string, value any) Instance {
 // SetInput is promoted from [XRPositionalTracker.Instance.SetInput].
 func (o *Extension[T]) SetInput(name string, value any) *Extension[T] {
 	o.Super().AsXRPositionalTracker().SetInput(name, value)
+	return o
+}
+
+// Entity is promoted from [OpenXRSpatialEntityTracker.Instance.Entity].
+func (o *Extension[T]) Entity() RID.SpatialEntity { return o.Super().AsOpenXRSpatialEntityTracker().Entity() }
+
+// SetEntity is promoted from [OpenXRSpatialEntityTracker.Instance.SetEntity].
+func (o *Extension[T]) SetEntity(value RID.SpatialEntity) *Extension[T] {
+	o.Super().AsOpenXRSpatialEntityTracker().SetEntity(value)
+	return o
+}
+
+// SpatialTrackingState is promoted from [OpenXRSpatialEntityTracker.Instance.SpatialTrackingState].
+func (o *Extension[T]) SpatialTrackingState() OpenXRSpatialEntityTracker.EntityTrackingState { return o.Super().AsOpenXRSpatialEntityTracker().SpatialTrackingState() }
+
+// SetSpatialTrackingState is promoted from [OpenXRSpatialEntityTracker.Instance.SetSpatialTrackingState].
+func (o *Extension[T]) SetSpatialTrackingState(value OpenXRSpatialEntityTracker.EntityTrackingState) *Extension[T] {
+	o.Super().AsOpenXRSpatialEntityTracker().SetSpatialTrackingState(value)
+	return o
+}
+
+// Profile is promoted from [XRPositionalTracker.Instance.Profile].
+func (o *Extension[T]) Profile() string { return o.Super().AsXRPositionalTracker().Profile() }
+
+// SetProfile is promoted from [XRPositionalTracker.Instance.SetProfile].
+func (o *Extension[T]) SetProfile(value string) *Extension[T] {
+	o.Super().AsXRPositionalTracker().SetProfile(value)
+	return o
+}
+
+// Hand is promoted from [XRPositionalTracker.Instance.Hand].
+func (o *Extension[T]) Hand() XRPositionalTracker.TrackerHand { return o.Super().AsXRPositionalTracker().Hand() }
+
+// SetHand is promoted from [XRPositionalTracker.Instance.SetHand].
+func (o *Extension[T]) SetHand(value XRPositionalTracker.TrackerHand) *Extension[T] {
+	o.Super().AsXRPositionalTracker().SetHand(value)
+	return o
+}
+
+// Type is promoted from [XRTracker.Instance.Type].
+func (o *Extension[T]) Type() XRTracker.Type { return o.Super().AsXRTracker().Type() }
+
+// SetType is promoted from [XRTracker.Instance.SetType].
+func (o *Extension[T]) SetType(value XRTracker.Type) *Extension[T] {
+	o.Super().AsXRTracker().SetType(value)
+	return o
+}
+
+// Name is promoted from [XRTracker.Instance.Name].
+func (o *Extension[T]) Name() string { return o.Super().AsXRTracker().Name() }
+
+// SetName is promoted from [XRTracker.Instance.SetName].
+func (o *Extension[T]) SetName(value string) *Extension[T] {
+	o.Super().AsXRTracker().SetName(value)
+	return o
+}
+
+// Description is promoted from [XRTracker.Instance.Description].
+func (o *Extension[T]) Description() string { return o.Super().AsXRTracker().Description() }
+
+// SetDescription is promoted from [XRTracker.Instance.SetDescription].
+func (o *Extension[T]) SetDescription(value string) *Extension[T] {
+	o.Super().AsXRTracker().SetDescription(value)
 	return o
 }
 

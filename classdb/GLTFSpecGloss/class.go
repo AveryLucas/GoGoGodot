@@ -158,15 +158,24 @@ func (self Instance) DiffuseImg() Image.Instance { //gd:GLTFSpecGloss.diffuse_im
 		return Image.Instance(class(self).GetDiffuseImg())
 }
 
+func (o *Extension[T]) DiffuseImg() Image.Instance { return o.Super().DiffuseImg() }
+
 // SetDiffuseImg sets the property returned by [GetDiffuseImg]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDiffuseImg(value Image.Instance) Instance { //gd:GLTFSpecGloss.diffuse_img
 	class(self).SetDiffuseImg(value)
 	return self
 }
 
+func (o *Extension[T]) SetDiffuseImg(value Image.Instance) *Extension[T] {
+	o.Super().SetDiffuseImg(value)
+	return o
+}
+
 func (self Instance) DiffuseFactor() Color.RGBA { //gd:GLTFSpecGloss.diffuse_factor
 		return Color.RGBA(class(self).GetDiffuseFactor())
 }
+
+func (o *Extension[T]) DiffuseFactor() Color.RGBA { return o.Super().DiffuseFactor() }
 
 // SetDiffuseFactor sets the property returned by [GetDiffuseFactor]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDiffuseFactor(value Color.RGBA) Instance { //gd:GLTFSpecGloss.diffuse_factor
@@ -174,9 +183,16 @@ func (self Instance) SetDiffuseFactor(value Color.RGBA) Instance { //gd:GLTFSpec
 	return self
 }
 
+func (o *Extension[T]) SetDiffuseFactor(value Color.RGBA) *Extension[T] {
+	o.Super().SetDiffuseFactor(value)
+	return o
+}
+
 func (self Instance) GlossFactor() Float.X { //gd:GLTFSpecGloss.gloss_factor
 		return Float.X(Float.X(class(self).GetGlossFactor()))
 }
+
+func (o *Extension[T]) GlossFactor() Float.X { return o.Super().GlossFactor() }
 
 // SetGlossFactor sets the property returned by [GetGlossFactor]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetGlossFactor(value Float.X) Instance { //gd:GLTFSpecGloss.gloss_factor
@@ -184,9 +200,16 @@ func (self Instance) SetGlossFactor(value Float.X) Instance { //gd:GLTFSpecGloss
 	return self
 }
 
+func (o *Extension[T]) SetGlossFactor(value Float.X) *Extension[T] {
+	o.Super().SetGlossFactor(value)
+	return o
+}
+
 func (self Instance) SpecularFactor() Color.RGBA { //gd:GLTFSpecGloss.specular_factor
 		return Color.RGBA(class(self).GetSpecularFactor())
 }
+
+func (o *Extension[T]) SpecularFactor() Color.RGBA { return o.Super().SpecularFactor() }
 
 // SetSpecularFactor sets the property returned by [GetSpecularFactor]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSpecularFactor(value Color.RGBA) Instance { //gd:GLTFSpecGloss.specular_factor
@@ -194,14 +217,26 @@ func (self Instance) SetSpecularFactor(value Color.RGBA) Instance { //gd:GLTFSpe
 	return self
 }
 
+func (o *Extension[T]) SetSpecularFactor(value Color.RGBA) *Extension[T] {
+	o.Super().SetSpecularFactor(value)
+	return o
+}
+
 func (self Instance) SpecGlossImg() Image.Instance { //gd:GLTFSpecGloss.spec_gloss_img
 		return Image.Instance(class(self).GetSpecGlossImg())
 }
+
+func (o *Extension[T]) SpecGlossImg() Image.Instance { return o.Super().SpecGlossImg() }
 
 // SetSpecGlossImg sets the property returned by [GetSpecGlossImg]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSpecGlossImg(value Image.Instance) Instance { //gd:GLTFSpecGloss.spec_gloss_img
 	class(self).SetSpecGlossImg(value)
 	return self
+}
+
+func (o *Extension[T]) SetSpecGlossImg(value Image.Instance) *Extension[T] {
+	o.Super().SetSpecGlossImg(value)
+	return o
 }
 
 func (self class) GetDiffuseImg() [1]gdclass.Image { //gd:GLTFSpecGloss.get_diffuse_img
@@ -366,6 +401,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

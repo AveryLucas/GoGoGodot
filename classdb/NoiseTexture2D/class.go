@@ -175,14 +175,26 @@ func (self Instance) SetWidth(value int) Instance { //gd:NoiseTexture2D.width
 	return self
 }
 
+func (o *Extension[T]) SetWidth(value int) *Extension[T] {
+	o.Super().SetWidth(value)
+	return o
+}
+
 func (self Instance) SetHeight(value int) Instance { //gd:NoiseTexture2D.height
 	class(self).SetHeight(int64(value))
 	return self
 }
 
+func (o *Extension[T]) SetHeight(value int) *Extension[T] {
+	o.Super().SetHeight(value)
+	return o
+}
+
 func (self Instance) GenerateMipmaps() bool { //gd:NoiseTexture2D.generate_mipmaps
 		return bool(class(self).IsGeneratingMipmaps())
 }
+
+func (o *Extension[T]) GenerateMipmaps() bool { return o.Super().GenerateMipmaps() }
 
 // SetGenerateMipmaps sets the property returned by [IsGeneratingMipmaps]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetGenerateMipmaps(value bool) Instance { //gd:NoiseTexture2D.generate_mipmaps
@@ -190,9 +202,16 @@ func (self Instance) SetGenerateMipmaps(value bool) Instance { //gd:NoiseTexture
 	return self
 }
 
+func (o *Extension[T]) SetGenerateMipmaps(value bool) *Extension[T] {
+	o.Super().SetGenerateMipmaps(value)
+	return o
+}
+
 func (self Instance) Noise() Noise.Instance { //gd:NoiseTexture2D.noise
 		return Noise.Instance(class(self).GetNoise())
 }
+
+func (o *Extension[T]) Noise() Noise.Instance { return o.Super().Noise() }
 
 // SetNoise sets the property returned by [GetNoise]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetNoise(value Noise.Instance) Instance { //gd:NoiseTexture2D.noise
@@ -200,9 +219,16 @@ func (self Instance) SetNoise(value Noise.Instance) Instance { //gd:NoiseTexture
 	return self
 }
 
+func (o *Extension[T]) SetNoise(value Noise.Instance) *Extension[T] {
+	o.Super().SetNoise(value)
+	return o
+}
+
 func (self Instance) ColorRamp() Gradient.Instance { //gd:NoiseTexture2D.color_ramp
 		return Gradient.Instance(class(self).GetColorRamp())
 }
+
+func (o *Extension[T]) ColorRamp() Gradient.Instance { return o.Super().ColorRamp() }
 
 // SetColorRamp sets the property returned by [GetColorRamp]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetColorRamp(value Gradient.Instance) Instance { //gd:NoiseTexture2D.color_ramp
@@ -210,9 +236,16 @@ func (self Instance) SetColorRamp(value Gradient.Instance) Instance { //gd:Noise
 	return self
 }
 
+func (o *Extension[T]) SetColorRamp(value Gradient.Instance) *Extension[T] {
+	o.Super().SetColorRamp(value)
+	return o
+}
+
 func (self Instance) Seamless() bool { //gd:NoiseTexture2D.seamless
 		return bool(class(self).GetSeamless())
 }
+
+func (o *Extension[T]) Seamless() bool { return o.Super().Seamless() }
 
 // SetSeamless sets the property returned by [GetSeamless]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSeamless(value bool) Instance { //gd:NoiseTexture2D.seamless
@@ -220,9 +253,16 @@ func (self Instance) SetSeamless(value bool) Instance { //gd:NoiseTexture2D.seam
 	return self
 }
 
+func (o *Extension[T]) SetSeamless(value bool) *Extension[T] {
+	o.Super().SetSeamless(value)
+	return o
+}
+
 func (self Instance) Invert() bool { //gd:NoiseTexture2D.invert
 		return bool(class(self).GetInvert())
 }
+
+func (o *Extension[T]) Invert() bool { return o.Super().Invert() }
 
 // SetInvert sets the property returned by [GetInvert]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetInvert(value bool) Instance { //gd:NoiseTexture2D.invert
@@ -230,9 +270,16 @@ func (self Instance) SetInvert(value bool) Instance { //gd:NoiseTexture2D.invert
 	return self
 }
 
+func (o *Extension[T]) SetInvert(value bool) *Extension[T] {
+	o.Super().SetInvert(value)
+	return o
+}
+
 func (self Instance) In3dSpace() bool { //gd:NoiseTexture2D.in_3d_space
 		return bool(class(self).IsIn3dSpace())
 }
+
+func (o *Extension[T]) In3dSpace() bool { return o.Super().In3dSpace() }
 
 // SetIn3dSpace sets the property returned by [IsIn3dSpace]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetIn3dSpace(value bool) Instance { //gd:NoiseTexture2D.in_3d_space
@@ -240,9 +287,16 @@ func (self Instance) SetIn3dSpace(value bool) Instance { //gd:NoiseTexture2D.in_
 	return self
 }
 
+func (o *Extension[T]) SetIn3dSpace(value bool) *Extension[T] {
+	o.Super().SetIn3dSpace(value)
+	return o
+}
+
 func (self Instance) AsNormalMap() bool { //gd:NoiseTexture2D.as_normal_map
 		return bool(class(self).IsNormalMap())
 }
+
+func (o *Extension[T]) AsNormalMap() bool { return o.Super().AsNormalMap() }
 
 // SetAsNormalMap sets the property returned by [IsNormalMap]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAsNormalMap(value bool) Instance { //gd:NoiseTexture2D.as_normal_map
@@ -250,9 +304,16 @@ func (self Instance) SetAsNormalMap(value bool) Instance { //gd:NoiseTexture2D.a
 	return self
 }
 
+func (o *Extension[T]) SetAsNormalMap(value bool) *Extension[T] {
+	o.Super().SetAsNormalMap(value)
+	return o
+}
+
 func (self Instance) Normalize() bool { //gd:NoiseTexture2D.normalize
 		return bool(class(self).IsNormalized())
 }
+
+func (o *Extension[T]) Normalize() bool { return o.Super().Normalize() }
 
 // SetNormalize sets the property returned by [IsNormalized]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetNormalize(value bool) Instance { //gd:NoiseTexture2D.normalize
@@ -260,9 +321,16 @@ func (self Instance) SetNormalize(value bool) Instance { //gd:NoiseTexture2D.nor
 	return self
 }
 
+func (o *Extension[T]) SetNormalize(value bool) *Extension[T] {
+	o.Super().SetNormalize(value)
+	return o
+}
+
 func (self Instance) SeamlessBlendSkirt() Float.X { //gd:NoiseTexture2D.seamless_blend_skirt
 		return Float.X(Float.X(class(self).GetSeamlessBlendSkirt()))
 }
+
+func (o *Extension[T]) SeamlessBlendSkirt() Float.X { return o.Super().SeamlessBlendSkirt() }
 
 // SetSeamlessBlendSkirt sets the property returned by [GetSeamlessBlendSkirt]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSeamlessBlendSkirt(value Float.X) Instance { //gd:NoiseTexture2D.seamless_blend_skirt
@@ -270,14 +338,26 @@ func (self Instance) SetSeamlessBlendSkirt(value Float.X) Instance { //gd:NoiseT
 	return self
 }
 
+func (o *Extension[T]) SetSeamlessBlendSkirt(value Float.X) *Extension[T] {
+	o.Super().SetSeamlessBlendSkirt(value)
+	return o
+}
+
 func (self Instance) BumpStrength() Float.X { //gd:NoiseTexture2D.bump_strength
 		return Float.X(Float.X(class(self).GetBumpStrength()))
 }
+
+func (o *Extension[T]) BumpStrength() Float.X { return o.Super().BumpStrength() }
 
 // SetBumpStrength sets the property returned by [GetBumpStrength]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBumpStrength(value Float.X) Instance { //gd:NoiseTexture2D.bump_strength
 	class(self).SetBumpStrength(float64(value))
 	return self
+}
+
+func (o *Extension[T]) SetBumpStrength(value Float.X) *Extension[T] {
+	o.Super().SetBumpStrength(value)
+	return o
 }
 
 func (self class) SetWidth(width int64)  { //gd:NoiseTexture2D.set_width
@@ -554,6 +634,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

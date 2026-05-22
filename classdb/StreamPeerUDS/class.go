@@ -482,6 +482,15 @@ func (o *Extension[T]) GetDouble() Float.X {
 	return o.Super().AsStreamPeer().GetDouble()
 }
 
+// BigEndian is promoted from [StreamPeer.Instance.BigEndian].
+func (o *Extension[T]) BigEndian() bool { return o.Super().AsStreamPeer().BigEndian() }
+
+// SetBigEndian is promoted from [StreamPeer.Instance.SetBigEndian].
+func (o *Extension[T]) SetBigEndian(value bool) *Extension[T] {
+	o.Super().AsStreamPeer().SetBigEndian(value)
+	return o
+}
+
 func (self class) Virtual(name string) reflect.Value {
 	switch name {
 	default: return gd.VirtualByName(StreamPeerSocket.Advanced(self.AsStreamPeerSocket()), name)

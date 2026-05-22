@@ -36,6 +36,7 @@ import "graphics.gd/variant/RID"
 import "graphics.gd/variant/RefCounted"
 import "graphics.gd/variant/String"
 import "graphics.gd/variant/Transform3D"
+import "graphics.gd/variant/Vector2i"
 import "graphics.gd/variant/Vector3"
 
 var _ Object.ID
@@ -252,15 +253,24 @@ func (self Instance) BlendShapeMode() Mesh.BlendShapeMode { //gd:ArrayMesh.blend
 		return Mesh.BlendShapeMode(class(self).GetBlendShapeMode())
 }
 
+func (o *Extension[T]) BlendShapeMode() Mesh.BlendShapeMode { return o.Super().BlendShapeMode() }
+
 // SetBlendShapeMode sets the property returned by [GetBlendShapeMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBlendShapeMode(value Mesh.BlendShapeMode) Instance { //gd:ArrayMesh.blend_shape_mode
 	class(self).SetBlendShapeMode(value)
 	return self
 }
 
+func (o *Extension[T]) SetBlendShapeMode(value Mesh.BlendShapeMode) *Extension[T] {
+	o.Super().SetBlendShapeMode(value)
+	return o
+}
+
 func (self Instance) CustomAabb() AABB.PositionSize { //gd:ArrayMesh.custom_aabb
 		return AABB.PositionSize(class(self).GetCustomAabb())
 }
+
+func (o *Extension[T]) CustomAabb() AABB.PositionSize { return o.Super().CustomAabb() }
 
 // SetCustomAabb sets the property returned by [GetCustomAabb]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCustomAabb(value AABB.PositionSize) Instance { //gd:ArrayMesh.custom_aabb
@@ -268,14 +278,26 @@ func (self Instance) SetCustomAabb(value AABB.PositionSize) Instance { //gd:Arra
 	return self
 }
 
+func (o *Extension[T]) SetCustomAabb(value AABB.PositionSize) *Extension[T] {
+	o.Super().SetCustomAabb(value)
+	return o
+}
+
 func (self Instance) ShadowMesh() Instance { //gd:ArrayMesh.shadow_mesh
 		return Instance(class(self).GetShadowMesh())
 }
+
+func (o *Extension[T]) ShadowMesh() Instance { return o.Super().ShadowMesh() }
 
 // SetShadowMesh sets the property returned by [GetShadowMesh]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetShadowMesh(value Instance) Instance { //gd:ArrayMesh.shadow_mesh
 	class(self).SetShadowMesh(value)
 	return self
+}
+
+func (o *Extension[T]) SetShadowMesh(value Instance) *Extension[T] {
+	o.Super().SetShadowMesh(value)
+	return o
 }
 
 func (self class) AddBlendShape(name String.Name)  { //gd:ArrayMesh.add_blend_shape
@@ -673,6 +695,51 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// LightmapSizeHint is promoted from [Mesh.Instance.LightmapSizeHint].
+func (o *Extension[T]) LightmapSizeHint() Vector2i.XY { return o.Super().AsMesh().LightmapSizeHint() }
+
+// SetLightmapSizeHint is promoted from [Mesh.Instance.SetLightmapSizeHint].
+func (o *Extension[T]) SetLightmapSizeHint(value Vector2i.XY) *Extension[T] {
+	o.Super().AsMesh().SetLightmapSizeHint(value)
+	return o
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

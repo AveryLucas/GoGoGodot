@@ -168,15 +168,24 @@ func (self Instance) Buffer() int { //gd:GLTFBufferView.buffer
 		return int(int(class(self).GetBuffer()))
 }
 
+func (o *Extension[T]) Buffer() int { return o.Super().Buffer() }
+
 // SetBuffer sets the property returned by [GetBuffer]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBuffer(value int) Instance { //gd:GLTFBufferView.buffer
 	class(self).SetBuffer(int64(value))
 	return self
 }
 
+func (o *Extension[T]) SetBuffer(value int) *Extension[T] {
+	o.Super().SetBuffer(value)
+	return o
+}
+
 func (self Instance) ByteOffset() int { //gd:GLTFBufferView.byte_offset
 		return int(int(class(self).GetByteOffset()))
 }
+
+func (o *Extension[T]) ByteOffset() int { return o.Super().ByteOffset() }
 
 // SetByteOffset sets the property returned by [GetByteOffset]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetByteOffset(value int) Instance { //gd:GLTFBufferView.byte_offset
@@ -184,9 +193,16 @@ func (self Instance) SetByteOffset(value int) Instance { //gd:GLTFBufferView.byt
 	return self
 }
 
+func (o *Extension[T]) SetByteOffset(value int) *Extension[T] {
+	o.Super().SetByteOffset(value)
+	return o
+}
+
 func (self Instance) ByteLength() int { //gd:GLTFBufferView.byte_length
 		return int(int(class(self).GetByteLength()))
 }
+
+func (o *Extension[T]) ByteLength() int { return o.Super().ByteLength() }
 
 // SetByteLength sets the property returned by [GetByteLength]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetByteLength(value int) Instance { //gd:GLTFBufferView.byte_length
@@ -194,9 +210,16 @@ func (self Instance) SetByteLength(value int) Instance { //gd:GLTFBufferView.byt
 	return self
 }
 
+func (o *Extension[T]) SetByteLength(value int) *Extension[T] {
+	o.Super().SetByteLength(value)
+	return o
+}
+
 func (self Instance) ByteStride() int { //gd:GLTFBufferView.byte_stride
 		return int(int(class(self).GetByteStride()))
 }
+
+func (o *Extension[T]) ByteStride() int { return o.Super().ByteStride() }
 
 // SetByteStride sets the property returned by [GetByteStride]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetByteStride(value int) Instance { //gd:GLTFBufferView.byte_stride
@@ -204,9 +227,16 @@ func (self Instance) SetByteStride(value int) Instance { //gd:GLTFBufferView.byt
 	return self
 }
 
+func (o *Extension[T]) SetByteStride(value int) *Extension[T] {
+	o.Super().SetByteStride(value)
+	return o
+}
+
 func (self Instance) Indices() bool { //gd:GLTFBufferView.indices
 		return bool(class(self).GetIndices())
 }
+
+func (o *Extension[T]) Indices() bool { return o.Super().Indices() }
 
 // SetIndices sets the property returned by [GetIndices]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetIndices(value bool) Instance { //gd:GLTFBufferView.indices
@@ -214,14 +244,26 @@ func (self Instance) SetIndices(value bool) Instance { //gd:GLTFBufferView.indic
 	return self
 }
 
+func (o *Extension[T]) SetIndices(value bool) *Extension[T] {
+	o.Super().SetIndices(value)
+	return o
+}
+
 func (self Instance) VertexAttributes() bool { //gd:GLTFBufferView.vertex_attributes
 		return bool(class(self).GetVertexAttributes())
 }
+
+func (o *Extension[T]) VertexAttributes() bool { return o.Super().VertexAttributes() }
 
 // SetVertexAttributes sets the property returned by [GetVertexAttributes]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVertexAttributes(value bool) Instance { //gd:GLTFBufferView.vertex_attributes
 	class(self).SetVertexAttributes(value)
 	return self
+}
+
+func (o *Extension[T]) SetVertexAttributes(value bool) *Extension[T] {
+	o.Super().SetVertexAttributes(value)
+	return o
 }
 
 func (self class) LoadBufferViewData(state [1]gdclass.GLTFState) Packed.Bytes { //gd:GLTFBufferView.load_buffer_view_data
@@ -412,6 +454,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

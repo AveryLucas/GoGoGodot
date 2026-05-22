@@ -171,15 +171,24 @@ func (self Instance) RayleighCoefficient() Float.X { //gd:PhysicalSkyMaterial.ra
 		return Float.X(Float.X(class(self).GetRayleighCoefficient()))
 }
 
+func (o *Extension[T]) RayleighCoefficient() Float.X { return o.Super().RayleighCoefficient() }
+
 // SetRayleighCoefficient sets the property returned by [GetRayleighCoefficient]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRayleighCoefficient(value Float.X) Instance { //gd:PhysicalSkyMaterial.rayleigh_coefficient
 	class(self).SetRayleighCoefficient(float64(value))
 	return self
 }
 
+func (o *Extension[T]) SetRayleighCoefficient(value Float.X) *Extension[T] {
+	o.Super().SetRayleighCoefficient(value)
+	return o
+}
+
 func (self Instance) RayleighColor() Color.RGBA { //gd:PhysicalSkyMaterial.rayleigh_color
 		return Color.RGBA(class(self).GetRayleighColor())
 }
+
+func (o *Extension[T]) RayleighColor() Color.RGBA { return o.Super().RayleighColor() }
 
 // SetRayleighColor sets the property returned by [GetRayleighColor]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRayleighColor(value Color.RGBA) Instance { //gd:PhysicalSkyMaterial.rayleigh_color
@@ -187,9 +196,16 @@ func (self Instance) SetRayleighColor(value Color.RGBA) Instance { //gd:Physical
 	return self
 }
 
+func (o *Extension[T]) SetRayleighColor(value Color.RGBA) *Extension[T] {
+	o.Super().SetRayleighColor(value)
+	return o
+}
+
 func (self Instance) MieCoefficient() Float.X { //gd:PhysicalSkyMaterial.mie_coefficient
 		return Float.X(Float.X(class(self).GetMieCoefficient()))
 }
+
+func (o *Extension[T]) MieCoefficient() Float.X { return o.Super().MieCoefficient() }
 
 // SetMieCoefficient sets the property returned by [GetMieCoefficient]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMieCoefficient(value Float.X) Instance { //gd:PhysicalSkyMaterial.mie_coefficient
@@ -197,9 +213,16 @@ func (self Instance) SetMieCoefficient(value Float.X) Instance { //gd:PhysicalSk
 	return self
 }
 
+func (o *Extension[T]) SetMieCoefficient(value Float.X) *Extension[T] {
+	o.Super().SetMieCoefficient(value)
+	return o
+}
+
 func (self Instance) MieEccentricity() Float.X { //gd:PhysicalSkyMaterial.mie_eccentricity
 		return Float.X(Float.X(class(self).GetMieEccentricity()))
 }
+
+func (o *Extension[T]) MieEccentricity() Float.X { return o.Super().MieEccentricity() }
 
 // SetMieEccentricity sets the property returned by [GetMieEccentricity]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMieEccentricity(value Float.X) Instance { //gd:PhysicalSkyMaterial.mie_eccentricity
@@ -207,9 +230,16 @@ func (self Instance) SetMieEccentricity(value Float.X) Instance { //gd:PhysicalS
 	return self
 }
 
+func (o *Extension[T]) SetMieEccentricity(value Float.X) *Extension[T] {
+	o.Super().SetMieEccentricity(value)
+	return o
+}
+
 func (self Instance) MieColor() Color.RGBA { //gd:PhysicalSkyMaterial.mie_color
 		return Color.RGBA(class(self).GetMieColor())
 }
+
+func (o *Extension[T]) MieColor() Color.RGBA { return o.Super().MieColor() }
 
 // SetMieColor sets the property returned by [GetMieColor]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMieColor(value Color.RGBA) Instance { //gd:PhysicalSkyMaterial.mie_color
@@ -217,9 +247,16 @@ func (self Instance) SetMieColor(value Color.RGBA) Instance { //gd:PhysicalSkyMa
 	return self
 }
 
+func (o *Extension[T]) SetMieColor(value Color.RGBA) *Extension[T] {
+	o.Super().SetMieColor(value)
+	return o
+}
+
 func (self Instance) Turbidity() Float.X { //gd:PhysicalSkyMaterial.turbidity
 		return Float.X(Float.X(class(self).GetTurbidity()))
 }
+
+func (o *Extension[T]) Turbidity() Float.X { return o.Super().Turbidity() }
 
 // SetTurbidity sets the property returned by [GetTurbidity]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTurbidity(value Float.X) Instance { //gd:PhysicalSkyMaterial.turbidity
@@ -227,9 +264,16 @@ func (self Instance) SetTurbidity(value Float.X) Instance { //gd:PhysicalSkyMate
 	return self
 }
 
+func (o *Extension[T]) SetTurbidity(value Float.X) *Extension[T] {
+	o.Super().SetTurbidity(value)
+	return o
+}
+
 func (self Instance) SunDiskScale() Float.X { //gd:PhysicalSkyMaterial.sun_disk_scale
 		return Float.X(Float.X(class(self).GetSunDiskScale()))
 }
+
+func (o *Extension[T]) SunDiskScale() Float.X { return o.Super().SunDiskScale() }
 
 // SetSunDiskScale sets the property returned by [GetSunDiskScale]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSunDiskScale(value Float.X) Instance { //gd:PhysicalSkyMaterial.sun_disk_scale
@@ -237,9 +281,16 @@ func (self Instance) SetSunDiskScale(value Float.X) Instance { //gd:PhysicalSkyM
 	return self
 }
 
+func (o *Extension[T]) SetSunDiskScale(value Float.X) *Extension[T] {
+	o.Super().SetSunDiskScale(value)
+	return o
+}
+
 func (self Instance) GroundColor() Color.RGBA { //gd:PhysicalSkyMaterial.ground_color
 		return Color.RGBA(class(self).GetGroundColor())
 }
+
+func (o *Extension[T]) GroundColor() Color.RGBA { return o.Super().GroundColor() }
 
 // SetGroundColor sets the property returned by [GetGroundColor]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetGroundColor(value Color.RGBA) Instance { //gd:PhysicalSkyMaterial.ground_color
@@ -247,9 +298,16 @@ func (self Instance) SetGroundColor(value Color.RGBA) Instance { //gd:PhysicalSk
 	return self
 }
 
+func (o *Extension[T]) SetGroundColor(value Color.RGBA) *Extension[T] {
+	o.Super().SetGroundColor(value)
+	return o
+}
+
 func (self Instance) EnergyMultiplier() Float.X { //gd:PhysicalSkyMaterial.energy_multiplier
 		return Float.X(Float.X(class(self).GetEnergyMultiplier()))
 }
+
+func (o *Extension[T]) EnergyMultiplier() Float.X { return o.Super().EnergyMultiplier() }
 
 // SetEnergyMultiplier sets the property returned by [GetEnergyMultiplier]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEnergyMultiplier(value Float.X) Instance { //gd:PhysicalSkyMaterial.energy_multiplier
@@ -257,9 +315,16 @@ func (self Instance) SetEnergyMultiplier(value Float.X) Instance { //gd:Physical
 	return self
 }
 
+func (o *Extension[T]) SetEnergyMultiplier(value Float.X) *Extension[T] {
+	o.Super().SetEnergyMultiplier(value)
+	return o
+}
+
 func (self Instance) UseDebanding() bool { //gd:PhysicalSkyMaterial.use_debanding
 		return bool(class(self).GetUseDebanding())
 }
+
+func (o *Extension[T]) UseDebanding() bool { return o.Super().UseDebanding() }
 
 // SetUseDebanding sets the property returned by [GetUseDebanding]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUseDebanding(value bool) Instance { //gd:PhysicalSkyMaterial.use_debanding
@@ -267,14 +332,26 @@ func (self Instance) SetUseDebanding(value bool) Instance { //gd:PhysicalSkyMate
 	return self
 }
 
+func (o *Extension[T]) SetUseDebanding(value bool) *Extension[T] {
+	o.Super().SetUseDebanding(value)
+	return o
+}
+
 func (self Instance) NightSky() Texture2D.Instance { //gd:PhysicalSkyMaterial.night_sky
 		return Texture2D.Instance(class(self).GetNightSky())
 }
+
+func (o *Extension[T]) NightSky() Texture2D.Instance { return o.Super().NightSky() }
 
 // SetNightSky sets the property returned by [GetNightSky]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetNightSky(value Texture2D.Instance) Instance { //gd:PhysicalSkyMaterial.night_sky
 	class(self).SetNightSky(value)
 	return self
+}
+
+func (o *Extension[T]) SetNightSky(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetNightSky(value)
+	return o
 }
 
 func (self class) SetRayleighCoefficient(rayleigh float64)  { //gd:PhysicalSkyMaterial.set_rayleigh_coefficient
@@ -510,6 +587,60 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// RenderPriority is promoted from [Material.Instance.RenderPriority].
+func (o *Extension[T]) RenderPriority() Material.RenderPriority { return o.Super().AsMaterial().RenderPriority() }
+
+// SetRenderPriority is promoted from [Material.Instance.SetRenderPriority].
+func (o *Extension[T]) SetRenderPriority(value Material.RenderPriority) *Extension[T] {
+	o.Super().AsMaterial().SetRenderPriority(value)
+	return o
+}
+
+// NextPass is promoted from [Material.Instance.NextPass].
+func (o *Extension[T]) NextPass() Material.Instance { return o.Super().AsMaterial().NextPass() }
+
+// SetNextPass is promoted from [Material.Instance.SetNextPass].
+func (o *Extension[T]) SetNextPass(value Material.Instance) *Extension[T] {
+	o.Super().AsMaterial().SetNextPass(value)
+	return o
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

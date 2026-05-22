@@ -20,7 +20,9 @@ import "graphics.gd/variant/Signal"
 import "graphics.gd/classdb/CanvasItem"
 import "graphics.gd/classdb/CanvasLayer"
 import "graphics.gd/classdb/InputEvent"
+import "graphics.gd/classdb/Material"
 import "graphics.gd/classdb/MultiMesh"
+import "graphics.gd/classdb/MultiplayerAPI"
 import "graphics.gd/classdb/Node"
 import "graphics.gd/classdb/Node2D"
 import "graphics.gd/classdb/Texture2D"
@@ -28,6 +30,7 @@ import "graphics.gd/classdb/Tween"
 import "graphics.gd/classdb/World2D"
 import "graphics.gd/variant/Array"
 import "graphics.gd/variant/Callable"
+import "graphics.gd/variant/Color"
 import "graphics.gd/variant/Dictionary"
 import "graphics.gd/variant/Error"
 import "graphics.gd/variant/Float"
@@ -232,15 +235,24 @@ func (self Instance) Offset() Vector2.XY { //gd:Camera2D.offset
 		return Vector2.XY(class(self).GetOffset())
 }
 
+func (o *Extension[T]) Offset() Vector2.XY { return o.Super().Offset() }
+
 // SetOffset sets the property returned by [GetOffset]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOffset(value Vector2.XY) Instance { //gd:Camera2D.offset
 	class(self).SetOffset(Vector2.XY(value))
 	return self
 }
 
+func (o *Extension[T]) SetOffset(value Vector2.XY) *Extension[T] {
+	o.Super().SetOffset(value)
+	return o
+}
+
 func (self Instance) AnchorMode() AnchorMode { //gd:Camera2D.anchor_mode
 		return AnchorMode(class(self).GetAnchorMode())
 }
+
+func (o *Extension[T]) AnchorMode() AnchorMode { return o.Super().AnchorMode() }
 
 // SetAnchorMode sets the property returned by [GetAnchorMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAnchorMode(value AnchorMode) Instance { //gd:Camera2D.anchor_mode
@@ -248,9 +260,16 @@ func (self Instance) SetAnchorMode(value AnchorMode) Instance { //gd:Camera2D.an
 	return self
 }
 
+func (o *Extension[T]) SetAnchorMode(value AnchorMode) *Extension[T] {
+	o.Super().SetAnchorMode(value)
+	return o
+}
+
 func (self Instance) IgnoreRotation() bool { //gd:Camera2D.ignore_rotation
 		return bool(class(self).IsIgnoringRotation())
 }
+
+func (o *Extension[T]) IgnoreRotation() bool { return o.Super().IgnoreRotation() }
 
 // SetIgnoreRotation sets the property returned by [IsIgnoringRotation]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetIgnoreRotation(value bool) Instance { //gd:Camera2D.ignore_rotation
@@ -258,9 +277,16 @@ func (self Instance) SetIgnoreRotation(value bool) Instance { //gd:Camera2D.igno
 	return self
 }
 
+func (o *Extension[T]) SetIgnoreRotation(value bool) *Extension[T] {
+	o.Super().SetIgnoreRotation(value)
+	return o
+}
+
 func (self Instance) Enabled() bool { //gd:Camera2D.enabled
 		return bool(class(self).IsEnabled())
 }
+
+func (o *Extension[T]) Enabled() bool { return o.Super().Enabled() }
 
 // SetEnabled sets the property returned by [IsEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEnabled(value bool) Instance { //gd:Camera2D.enabled
@@ -268,9 +294,16 @@ func (self Instance) SetEnabled(value bool) Instance { //gd:Camera2D.enabled
 	return self
 }
 
+func (o *Extension[T]) SetEnabled(value bool) *Extension[T] {
+	o.Super().SetEnabled(value)
+	return o
+}
+
 func (self Instance) Zoom() Vector2.XY { //gd:Camera2D.zoom
 		return Vector2.XY(class(self).GetZoom())
 }
+
+func (o *Extension[T]) Zoom() Vector2.XY { return o.Super().Zoom() }
 
 // SetZoom sets the property returned by [GetZoom]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetZoom(value Vector2.XY) Instance { //gd:Camera2D.zoom
@@ -278,9 +311,16 @@ func (self Instance) SetZoom(value Vector2.XY) Instance { //gd:Camera2D.zoom
 	return self
 }
 
+func (o *Extension[T]) SetZoom(value Vector2.XY) *Extension[T] {
+	o.Super().SetZoom(value)
+	return o
+}
+
 func (self Instance) CustomViewport() Node.Instance { //gd:Camera2D.custom_viewport
 		return Node.Instance(class(self).GetCustomViewport())
 }
+
+func (o *Extension[T]) CustomViewport() Node.Instance { return o.Super().CustomViewport() }
 
 // SetCustomViewport sets the property returned by [GetCustomViewport]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCustomViewport(value Node.Instance) Instance { //gd:Camera2D.custom_viewport
@@ -288,9 +328,16 @@ func (self Instance) SetCustomViewport(value Node.Instance) Instance { //gd:Came
 	return self
 }
 
+func (o *Extension[T]) SetCustomViewport(value Node.Instance) *Extension[T] {
+	o.Super().SetCustomViewport(value)
+	return o
+}
+
 func (self Instance) ProcessCallback() Camera2DProcessCallback { //gd:Camera2D.process_callback
 		return Camera2DProcessCallback(class(self).GetProcessCallback())
 }
+
+func (o *Extension[T]) ProcessCallback() Camera2DProcessCallback { return o.Super().ProcessCallback() }
 
 // SetProcessCallback sets the property returned by [GetProcessCallback]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetProcessCallback(value Camera2DProcessCallback) Instance { //gd:Camera2D.process_callback
@@ -298,9 +345,16 @@ func (self Instance) SetProcessCallback(value Camera2DProcessCallback) Instance 
 	return self
 }
 
+func (o *Extension[T]) SetProcessCallback(value Camera2DProcessCallback) *Extension[T] {
+	o.Super().SetProcessCallback(value)
+	return o
+}
+
 func (self Instance) LimitEnabled() bool { //gd:Camera2D.limit_enabled
 		return bool(class(self).IsLimitEnabled())
 }
+
+func (o *Extension[T]) LimitEnabled() bool { return o.Super().LimitEnabled() }
 
 // SetLimitEnabled sets the property returned by [IsLimitEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetLimitEnabled(value bool) Instance { //gd:Camera2D.limit_enabled
@@ -308,9 +362,16 @@ func (self Instance) SetLimitEnabled(value bool) Instance { //gd:Camera2D.limit_
 	return self
 }
 
+func (o *Extension[T]) SetLimitEnabled(value bool) *Extension[T] {
+	o.Super().SetLimitEnabled(value)
+	return o
+}
+
 func (self Instance) LimitLeft() int { //gd:Camera2D.limit_left
 		return int(int(class(self).GetLimit(0)))
 }
+
+func (o *Extension[T]) LimitLeft() int { return o.Super().LimitLeft() }
 
 // SetLimitLeft sets the property returned by [GetLimit]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetLimitLeft(value int) Instance { //gd:Camera2D.limit_left
@@ -318,9 +379,16 @@ func (self Instance) SetLimitLeft(value int) Instance { //gd:Camera2D.limit_left
 	return self
 }
 
+func (o *Extension[T]) SetLimitLeft(value int) *Extension[T] {
+	o.Super().SetLimitLeft(value)
+	return o
+}
+
 func (self Instance) LimitTop() int { //gd:Camera2D.limit_top
 		return int(int(class(self).GetLimit(1)))
 }
+
+func (o *Extension[T]) LimitTop() int { return o.Super().LimitTop() }
 
 // SetLimitTop sets the property returned by [GetLimit]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetLimitTop(value int) Instance { //gd:Camera2D.limit_top
@@ -328,9 +396,16 @@ func (self Instance) SetLimitTop(value int) Instance { //gd:Camera2D.limit_top
 	return self
 }
 
+func (o *Extension[T]) SetLimitTop(value int) *Extension[T] {
+	o.Super().SetLimitTop(value)
+	return o
+}
+
 func (self Instance) LimitRight() int { //gd:Camera2D.limit_right
 		return int(int(class(self).GetLimit(2)))
 }
+
+func (o *Extension[T]) LimitRight() int { return o.Super().LimitRight() }
 
 // SetLimitRight sets the property returned by [GetLimit]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetLimitRight(value int) Instance { //gd:Camera2D.limit_right
@@ -338,9 +413,16 @@ func (self Instance) SetLimitRight(value int) Instance { //gd:Camera2D.limit_rig
 	return self
 }
 
+func (o *Extension[T]) SetLimitRight(value int) *Extension[T] {
+	o.Super().SetLimitRight(value)
+	return o
+}
+
 func (self Instance) LimitBottom() int { //gd:Camera2D.limit_bottom
 		return int(int(class(self).GetLimit(3)))
 }
+
+func (o *Extension[T]) LimitBottom() int { return o.Super().LimitBottom() }
 
 // SetLimitBottom sets the property returned by [GetLimit]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetLimitBottom(value int) Instance { //gd:Camera2D.limit_bottom
@@ -348,9 +430,16 @@ func (self Instance) SetLimitBottom(value int) Instance { //gd:Camera2D.limit_bo
 	return self
 }
 
+func (o *Extension[T]) SetLimitBottom(value int) *Extension[T] {
+	o.Super().SetLimitBottom(value)
+	return o
+}
+
 func (self Instance) LimitSmoothed() bool { //gd:Camera2D.limit_smoothed
 		return bool(class(self).IsLimitSmoothingEnabled())
 }
+
+func (o *Extension[T]) LimitSmoothed() bool { return o.Super().LimitSmoothed() }
 
 // SetLimitSmoothed sets the property returned by [IsLimitSmoothingEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetLimitSmoothed(value bool) Instance { //gd:Camera2D.limit_smoothed
@@ -358,9 +447,16 @@ func (self Instance) SetLimitSmoothed(value bool) Instance { //gd:Camera2D.limit
 	return self
 }
 
+func (o *Extension[T]) SetLimitSmoothed(value bool) *Extension[T] {
+	o.Super().SetLimitSmoothed(value)
+	return o
+}
+
 func (self Instance) PositionSmoothingEnabled() bool { //gd:Camera2D.position_smoothing_enabled
 		return bool(class(self).IsPositionSmoothingEnabled())
 }
+
+func (o *Extension[T]) PositionSmoothingEnabled() bool { return o.Super().PositionSmoothingEnabled() }
 
 // SetPositionSmoothingEnabled sets the property returned by [IsPositionSmoothingEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPositionSmoothingEnabled(value bool) Instance { //gd:Camera2D.position_smoothing_enabled
@@ -368,9 +464,16 @@ func (self Instance) SetPositionSmoothingEnabled(value bool) Instance { //gd:Cam
 	return self
 }
 
+func (o *Extension[T]) SetPositionSmoothingEnabled(value bool) *Extension[T] {
+	o.Super().SetPositionSmoothingEnabled(value)
+	return o
+}
+
 func (self Instance) PositionSmoothingSpeed() Float.X { //gd:Camera2D.position_smoothing_speed
 		return Float.X(Float.X(class(self).GetPositionSmoothingSpeed()))
 }
+
+func (o *Extension[T]) PositionSmoothingSpeed() Float.X { return o.Super().PositionSmoothingSpeed() }
 
 // SetPositionSmoothingSpeed sets the property returned by [GetPositionSmoothingSpeed]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPositionSmoothingSpeed(value Float.X) Instance { //gd:Camera2D.position_smoothing_speed
@@ -378,9 +481,16 @@ func (self Instance) SetPositionSmoothingSpeed(value Float.X) Instance { //gd:Ca
 	return self
 }
 
+func (o *Extension[T]) SetPositionSmoothingSpeed(value Float.X) *Extension[T] {
+	o.Super().SetPositionSmoothingSpeed(value)
+	return o
+}
+
 func (self Instance) RotationSmoothingEnabled() bool { //gd:Camera2D.rotation_smoothing_enabled
 		return bool(class(self).IsRotationSmoothingEnabled())
 }
+
+func (o *Extension[T]) RotationSmoothingEnabled() bool { return o.Super().RotationSmoothingEnabled() }
 
 // SetRotationSmoothingEnabled sets the property returned by [IsRotationSmoothingEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRotationSmoothingEnabled(value bool) Instance { //gd:Camera2D.rotation_smoothing_enabled
@@ -388,9 +498,16 @@ func (self Instance) SetRotationSmoothingEnabled(value bool) Instance { //gd:Cam
 	return self
 }
 
+func (o *Extension[T]) SetRotationSmoothingEnabled(value bool) *Extension[T] {
+	o.Super().SetRotationSmoothingEnabled(value)
+	return o
+}
+
 func (self Instance) RotationSmoothingSpeed() Float.X { //gd:Camera2D.rotation_smoothing_speed
 		return Float.X(Float.X(class(self).GetRotationSmoothingSpeed()))
 }
+
+func (o *Extension[T]) RotationSmoothingSpeed() Float.X { return o.Super().RotationSmoothingSpeed() }
 
 // SetRotationSmoothingSpeed sets the property returned by [GetRotationSmoothingSpeed]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRotationSmoothingSpeed(value Float.X) Instance { //gd:Camera2D.rotation_smoothing_speed
@@ -398,9 +515,16 @@ func (self Instance) SetRotationSmoothingSpeed(value Float.X) Instance { //gd:Ca
 	return self
 }
 
+func (o *Extension[T]) SetRotationSmoothingSpeed(value Float.X) *Extension[T] {
+	o.Super().SetRotationSmoothingSpeed(value)
+	return o
+}
+
 func (self Instance) DragHorizontalEnabled() bool { //gd:Camera2D.drag_horizontal_enabled
 		return bool(class(self).IsDragHorizontalEnabled())
 }
+
+func (o *Extension[T]) DragHorizontalEnabled() bool { return o.Super().DragHorizontalEnabled() }
 
 // SetDragHorizontalEnabled sets the property returned by [IsDragHorizontalEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDragHorizontalEnabled(value bool) Instance { //gd:Camera2D.drag_horizontal_enabled
@@ -408,9 +532,16 @@ func (self Instance) SetDragHorizontalEnabled(value bool) Instance { //gd:Camera
 	return self
 }
 
+func (o *Extension[T]) SetDragHorizontalEnabled(value bool) *Extension[T] {
+	o.Super().SetDragHorizontalEnabled(value)
+	return o
+}
+
 func (self Instance) DragVerticalEnabled() bool { //gd:Camera2D.drag_vertical_enabled
 		return bool(class(self).IsDragVerticalEnabled())
 }
+
+func (o *Extension[T]) DragVerticalEnabled() bool { return o.Super().DragVerticalEnabled() }
 
 // SetDragVerticalEnabled sets the property returned by [IsDragVerticalEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDragVerticalEnabled(value bool) Instance { //gd:Camera2D.drag_vertical_enabled
@@ -418,9 +549,16 @@ func (self Instance) SetDragVerticalEnabled(value bool) Instance { //gd:Camera2D
 	return self
 }
 
+func (o *Extension[T]) SetDragVerticalEnabled(value bool) *Extension[T] {
+	o.Super().SetDragVerticalEnabled(value)
+	return o
+}
+
 func (self Instance) DragHorizontalOffset() Float.X { //gd:Camera2D.drag_horizontal_offset
 		return Float.X(Float.X(class(self).GetDragHorizontalOffset()))
 }
+
+func (o *Extension[T]) DragHorizontalOffset() Float.X { return o.Super().DragHorizontalOffset() }
 
 // SetDragHorizontalOffset sets the property returned by [GetDragHorizontalOffset]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDragHorizontalOffset(value Float.X) Instance { //gd:Camera2D.drag_horizontal_offset
@@ -428,9 +566,16 @@ func (self Instance) SetDragHorizontalOffset(value Float.X) Instance { //gd:Came
 	return self
 }
 
+func (o *Extension[T]) SetDragHorizontalOffset(value Float.X) *Extension[T] {
+	o.Super().SetDragHorizontalOffset(value)
+	return o
+}
+
 func (self Instance) DragVerticalOffset() Float.X { //gd:Camera2D.drag_vertical_offset
 		return Float.X(Float.X(class(self).GetDragVerticalOffset()))
 }
+
+func (o *Extension[T]) DragVerticalOffset() Float.X { return o.Super().DragVerticalOffset() }
 
 // SetDragVerticalOffset sets the property returned by [GetDragVerticalOffset]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDragVerticalOffset(value Float.X) Instance { //gd:Camera2D.drag_vertical_offset
@@ -438,9 +583,16 @@ func (self Instance) SetDragVerticalOffset(value Float.X) Instance { //gd:Camera
 	return self
 }
 
+func (o *Extension[T]) SetDragVerticalOffset(value Float.X) *Extension[T] {
+	o.Super().SetDragVerticalOffset(value)
+	return o
+}
+
 func (self Instance) DragLeftMargin() Float.X { //gd:Camera2D.drag_left_margin
 		return Float.X(Float.X(class(self).GetDragMargin(0)))
 }
+
+func (o *Extension[T]) DragLeftMargin() Float.X { return o.Super().DragLeftMargin() }
 
 // SetDragLeftMargin sets the property returned by [GetDragMargin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDragLeftMargin(value Float.X) Instance { //gd:Camera2D.drag_left_margin
@@ -448,9 +600,16 @@ func (self Instance) SetDragLeftMargin(value Float.X) Instance { //gd:Camera2D.d
 	return self
 }
 
+func (o *Extension[T]) SetDragLeftMargin(value Float.X) *Extension[T] {
+	o.Super().SetDragLeftMargin(value)
+	return o
+}
+
 func (self Instance) DragTopMargin() Float.X { //gd:Camera2D.drag_top_margin
 		return Float.X(Float.X(class(self).GetDragMargin(1)))
 }
+
+func (o *Extension[T]) DragTopMargin() Float.X { return o.Super().DragTopMargin() }
 
 // SetDragTopMargin sets the property returned by [GetDragMargin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDragTopMargin(value Float.X) Instance { //gd:Camera2D.drag_top_margin
@@ -458,9 +617,16 @@ func (self Instance) SetDragTopMargin(value Float.X) Instance { //gd:Camera2D.dr
 	return self
 }
 
+func (o *Extension[T]) SetDragTopMargin(value Float.X) *Extension[T] {
+	o.Super().SetDragTopMargin(value)
+	return o
+}
+
 func (self Instance) DragRightMargin() Float.X { //gd:Camera2D.drag_right_margin
 		return Float.X(Float.X(class(self).GetDragMargin(2)))
 }
+
+func (o *Extension[T]) DragRightMargin() Float.X { return o.Super().DragRightMargin() }
 
 // SetDragRightMargin sets the property returned by [GetDragMargin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDragRightMargin(value Float.X) Instance { //gd:Camera2D.drag_right_margin
@@ -468,9 +634,16 @@ func (self Instance) SetDragRightMargin(value Float.X) Instance { //gd:Camera2D.
 	return self
 }
 
+func (o *Extension[T]) SetDragRightMargin(value Float.X) *Extension[T] {
+	o.Super().SetDragRightMargin(value)
+	return o
+}
+
 func (self Instance) DragBottomMargin() Float.X { //gd:Camera2D.drag_bottom_margin
 		return Float.X(Float.X(class(self).GetDragMargin(3)))
 }
+
+func (o *Extension[T]) DragBottomMargin() Float.X { return o.Super().DragBottomMargin() }
 
 // SetDragBottomMargin sets the property returned by [GetDragMargin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDragBottomMargin(value Float.X) Instance { //gd:Camera2D.drag_bottom_margin
@@ -478,9 +651,16 @@ func (self Instance) SetDragBottomMargin(value Float.X) Instance { //gd:Camera2D
 	return self
 }
 
+func (o *Extension[T]) SetDragBottomMargin(value Float.X) *Extension[T] {
+	o.Super().SetDragBottomMargin(value)
+	return o
+}
+
 func (self Instance) EditorDrawScreen() bool { //gd:Camera2D.editor_draw_screen
 		return bool(class(self).IsScreenDrawingEnabled())
 }
+
+func (o *Extension[T]) EditorDrawScreen() bool { return o.Super().EditorDrawScreen() }
 
 // SetEditorDrawScreen sets the property returned by [IsScreenDrawingEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEditorDrawScreen(value bool) Instance { //gd:Camera2D.editor_draw_screen
@@ -488,9 +668,16 @@ func (self Instance) SetEditorDrawScreen(value bool) Instance { //gd:Camera2D.ed
 	return self
 }
 
+func (o *Extension[T]) SetEditorDrawScreen(value bool) *Extension[T] {
+	o.Super().SetEditorDrawScreen(value)
+	return o
+}
+
 func (self Instance) EditorDrawLimits() bool { //gd:Camera2D.editor_draw_limits
 		return bool(class(self).IsLimitDrawingEnabled())
 }
+
+func (o *Extension[T]) EditorDrawLimits() bool { return o.Super().EditorDrawLimits() }
 
 // SetEditorDrawLimits sets the property returned by [IsLimitDrawingEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEditorDrawLimits(value bool) Instance { //gd:Camera2D.editor_draw_limits
@@ -498,14 +685,26 @@ func (self Instance) SetEditorDrawLimits(value bool) Instance { //gd:Camera2D.ed
 	return self
 }
 
+func (o *Extension[T]) SetEditorDrawLimits(value bool) *Extension[T] {
+	o.Super().SetEditorDrawLimits(value)
+	return o
+}
+
 func (self Instance) EditorDrawDragMargin() bool { //gd:Camera2D.editor_draw_drag_margin
 		return bool(class(self).IsMarginDrawingEnabled())
 }
+
+func (o *Extension[T]) EditorDrawDragMargin() bool { return o.Super().EditorDrawDragMargin() }
 
 // SetEditorDrawDragMargin sets the property returned by [IsMarginDrawingEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEditorDrawDragMargin(value bool) Instance { //gd:Camera2D.editor_draw_drag_margin
 	class(self).SetMarginDrawingEnabled(value)
 	return self
+}
+
+func (o *Extension[T]) SetEditorDrawDragMargin(value bool) *Extension[T] {
+	o.Super().SetEditorDrawDragMargin(value)
+	return o
 }
 
 func (self class) SetOffset(offset Vector2.XY)  { //gd:Camera2D.set_offset
@@ -2007,6 +2206,363 @@ func (self Instance) NotifyThreadSafe(what int) {
 // NotifyThreadSafe is promoted from [Node.Instance.NotifyThreadSafe].
 func (o *Extension[T]) NotifyThreadSafe(what int) {
 	o.Super().AsNode().NotifyThreadSafe(what)
+}
+
+// Position is promoted from [Node2D.Instance.Position].
+func (o *Extension[T]) Position() Vector2.XY { return o.Super().AsNode2D().Position() }
+
+// SetPosition is promoted from [Node2D.Instance.SetPosition].
+func (o *Extension[T]) SetPosition(value Vector2.XY) *Extension[T] {
+	o.Super().AsNode2D().SetPosition(value)
+	return o
+}
+
+// Rotation is promoted from [Node2D.Instance.Rotation].
+func (o *Extension[T]) Rotation() Angle.Radians { return o.Super().AsNode2D().Rotation() }
+
+// SetRotation is promoted from [Node2D.Instance.SetRotation].
+func (o *Extension[T]) SetRotation(value Angle.Radians) *Extension[T] {
+	o.Super().AsNode2D().SetRotation(value)
+	return o
+}
+
+// RotationDegrees is promoted from [Node2D.Instance.RotationDegrees].
+func (o *Extension[T]) RotationDegrees() Angle.Degrees { return o.Super().AsNode2D().RotationDegrees() }
+
+// SetRotationDegrees is promoted from [Node2D.Instance.SetRotationDegrees].
+func (o *Extension[T]) SetRotationDegrees(value Angle.Degrees) *Extension[T] {
+	o.Super().AsNode2D().SetRotationDegrees(value)
+	return o
+}
+
+// Scale is promoted from [Node2D.Instance.Scale].
+func (o *Extension[T]) Scale() Vector2.XY { return o.Super().AsNode2D().Scale() }
+
+// SetScale is promoted from [Node2D.Instance.SetScale].
+func (o *Extension[T]) SetScale(value Vector2.XY) *Extension[T] {
+	o.Super().AsNode2D().SetScale(value)
+	return o
+}
+
+// Skew is promoted from [Node2D.Instance.Skew].
+func (o *Extension[T]) Skew() Float.X { return o.Super().AsNode2D().Skew() }
+
+// SetSkew is promoted from [Node2D.Instance.SetSkew].
+func (o *Extension[T]) SetSkew(value Float.X) *Extension[T] {
+	o.Super().AsNode2D().SetSkew(value)
+	return o
+}
+
+// SetTransform is promoted from [Node2D.Instance.SetTransform].
+func (o *Extension[T]) SetTransform(value Transform2D.OriginXY) *Extension[T] {
+	o.Super().AsNode2D().SetTransform(value)
+	return o
+}
+
+// GlobalPosition is promoted from [Node2D.Instance.GlobalPosition].
+func (o *Extension[T]) GlobalPosition() Vector2.XY { return o.Super().AsNode2D().GlobalPosition() }
+
+// SetGlobalPosition is promoted from [Node2D.Instance.SetGlobalPosition].
+func (o *Extension[T]) SetGlobalPosition(value Vector2.XY) *Extension[T] {
+	o.Super().AsNode2D().SetGlobalPosition(value)
+	return o
+}
+
+// GlobalRotation is promoted from [Node2D.Instance.GlobalRotation].
+func (o *Extension[T]) GlobalRotation() Angle.Radians { return o.Super().AsNode2D().GlobalRotation() }
+
+// SetGlobalRotation is promoted from [Node2D.Instance.SetGlobalRotation].
+func (o *Extension[T]) SetGlobalRotation(value Angle.Radians) *Extension[T] {
+	o.Super().AsNode2D().SetGlobalRotation(value)
+	return o
+}
+
+// GlobalRotationDegrees is promoted from [Node2D.Instance.GlobalRotationDegrees].
+func (o *Extension[T]) GlobalRotationDegrees() Angle.Degrees { return o.Super().AsNode2D().GlobalRotationDegrees() }
+
+// SetGlobalRotationDegrees is promoted from [Node2D.Instance.SetGlobalRotationDegrees].
+func (o *Extension[T]) SetGlobalRotationDegrees(value Angle.Degrees) *Extension[T] {
+	o.Super().AsNode2D().SetGlobalRotationDegrees(value)
+	return o
+}
+
+// GlobalScale is promoted from [Node2D.Instance.GlobalScale].
+func (o *Extension[T]) GlobalScale() Vector2.XY { return o.Super().AsNode2D().GlobalScale() }
+
+// SetGlobalScale is promoted from [Node2D.Instance.SetGlobalScale].
+func (o *Extension[T]) SetGlobalScale(value Vector2.XY) *Extension[T] {
+	o.Super().AsNode2D().SetGlobalScale(value)
+	return o
+}
+
+// GlobalSkew is promoted from [Node2D.Instance.GlobalSkew].
+func (o *Extension[T]) GlobalSkew() Float.X { return o.Super().AsNode2D().GlobalSkew() }
+
+// SetGlobalSkew is promoted from [Node2D.Instance.SetGlobalSkew].
+func (o *Extension[T]) SetGlobalSkew(value Float.X) *Extension[T] {
+	o.Super().AsNode2D().SetGlobalSkew(value)
+	return o
+}
+
+// SetGlobalTransform is promoted from [Node2D.Instance.SetGlobalTransform].
+func (o *Extension[T]) SetGlobalTransform(value Transform2D.OriginXY) *Extension[T] {
+	o.Super().AsNode2D().SetGlobalTransform(value)
+	return o
+}
+
+// Visible is promoted from [CanvasItem.Instance.Visible].
+func (o *Extension[T]) Visible() bool { return o.Super().AsCanvasItem().Visible() }
+
+// SetVisible is promoted from [CanvasItem.Instance.SetVisible].
+func (o *Extension[T]) SetVisible(value bool) *Extension[T] {
+	o.Super().AsCanvasItem().SetVisible(value)
+	return o
+}
+
+// Modulate is promoted from [CanvasItem.Instance.Modulate].
+func (o *Extension[T]) Modulate() Color.RGBA { return o.Super().AsCanvasItem().Modulate() }
+
+// SetModulate is promoted from [CanvasItem.Instance.SetModulate].
+func (o *Extension[T]) SetModulate(value Color.RGBA) *Extension[T] {
+	o.Super().AsCanvasItem().SetModulate(value)
+	return o
+}
+
+// SelfModulate is promoted from [CanvasItem.Instance.SelfModulate].
+func (o *Extension[T]) SelfModulate() Color.RGBA { return o.Super().AsCanvasItem().SelfModulate() }
+
+// SetSelfModulate is promoted from [CanvasItem.Instance.SetSelfModulate].
+func (o *Extension[T]) SetSelfModulate(value Color.RGBA) *Extension[T] {
+	o.Super().AsCanvasItem().SetSelfModulate(value)
+	return o
+}
+
+// ShowBehindParent is promoted from [CanvasItem.Instance.ShowBehindParent].
+func (o *Extension[T]) ShowBehindParent() bool { return o.Super().AsCanvasItem().ShowBehindParent() }
+
+// SetShowBehindParent is promoted from [CanvasItem.Instance.SetShowBehindParent].
+func (o *Extension[T]) SetShowBehindParent(value bool) *Extension[T] {
+	o.Super().AsCanvasItem().SetShowBehindParent(value)
+	return o
+}
+
+// TopLevel is promoted from [CanvasItem.Instance.TopLevel].
+func (o *Extension[T]) TopLevel() bool { return o.Super().AsCanvasItem().TopLevel() }
+
+// SetTopLevel is promoted from [CanvasItem.Instance.SetTopLevel].
+func (o *Extension[T]) SetTopLevel(value bool) *Extension[T] {
+	o.Super().AsCanvasItem().SetTopLevel(value)
+	return o
+}
+
+// ClipChildren is promoted from [CanvasItem.Instance.ClipChildren].
+func (o *Extension[T]) ClipChildren() CanvasItem.ClipChildrenMode { return o.Super().AsCanvasItem().ClipChildren() }
+
+// SetClipChildren is promoted from [CanvasItem.Instance.SetClipChildren].
+func (o *Extension[T]) SetClipChildren(value CanvasItem.ClipChildrenMode) *Extension[T] {
+	o.Super().AsCanvasItem().SetClipChildren(value)
+	return o
+}
+
+// LightMask is promoted from [CanvasItem.Instance.LightMask].
+func (o *Extension[T]) LightMask() int { return o.Super().AsCanvasItem().LightMask() }
+
+// SetLightMask is promoted from [CanvasItem.Instance.SetLightMask].
+func (o *Extension[T]) SetLightMask(value int) *Extension[T] {
+	o.Super().AsCanvasItem().SetLightMask(value)
+	return o
+}
+
+// VisibilityLayer is promoted from [CanvasItem.Instance.VisibilityLayer].
+func (o *Extension[T]) VisibilityLayer() int { return o.Super().AsCanvasItem().VisibilityLayer() }
+
+// SetVisibilityLayer is promoted from [CanvasItem.Instance.SetVisibilityLayer].
+func (o *Extension[T]) SetVisibilityLayer(value int) *Extension[T] {
+	o.Super().AsCanvasItem().SetVisibilityLayer(value)
+	return o
+}
+
+// ZIndex is promoted from [CanvasItem.Instance.ZIndex].
+func (o *Extension[T]) ZIndex() int { return o.Super().AsCanvasItem().ZIndex() }
+
+// SetZIndex is promoted from [CanvasItem.Instance.SetZIndex].
+func (o *Extension[T]) SetZIndex(value int) *Extension[T] {
+	o.Super().AsCanvasItem().SetZIndex(value)
+	return o
+}
+
+// ZAsRelative is promoted from [CanvasItem.Instance.ZAsRelative].
+func (o *Extension[T]) ZAsRelative() bool { return o.Super().AsCanvasItem().ZAsRelative() }
+
+// SetZAsRelative is promoted from [CanvasItem.Instance.SetZAsRelative].
+func (o *Extension[T]) SetZAsRelative(value bool) *Extension[T] {
+	o.Super().AsCanvasItem().SetZAsRelative(value)
+	return o
+}
+
+// YSortEnabled is promoted from [CanvasItem.Instance.YSortEnabled].
+func (o *Extension[T]) YSortEnabled() bool { return o.Super().AsCanvasItem().YSortEnabled() }
+
+// SetYSortEnabled is promoted from [CanvasItem.Instance.SetYSortEnabled].
+func (o *Extension[T]) SetYSortEnabled(value bool) *Extension[T] {
+	o.Super().AsCanvasItem().SetYSortEnabled(value)
+	return o
+}
+
+// TextureFilter is promoted from [CanvasItem.Instance.TextureFilter].
+func (o *Extension[T]) TextureFilter() CanvasItem.TextureFilter { return o.Super().AsCanvasItem().TextureFilter() }
+
+// SetTextureFilter is promoted from [CanvasItem.Instance.SetTextureFilter].
+func (o *Extension[T]) SetTextureFilter(value CanvasItem.TextureFilter) *Extension[T] {
+	o.Super().AsCanvasItem().SetTextureFilter(value)
+	return o
+}
+
+// TextureRepeat is promoted from [CanvasItem.Instance.TextureRepeat].
+func (o *Extension[T]) TextureRepeat() CanvasItem.TextureRepeat { return o.Super().AsCanvasItem().TextureRepeat() }
+
+// SetTextureRepeat is promoted from [CanvasItem.Instance.SetTextureRepeat].
+func (o *Extension[T]) SetTextureRepeat(value CanvasItem.TextureRepeat) *Extension[T] {
+	o.Super().AsCanvasItem().SetTextureRepeat(value)
+	return o
+}
+
+// Material is promoted from [CanvasItem.Instance.Material].
+func (o *Extension[T]) Material() Material.Instance { return o.Super().AsCanvasItem().Material() }
+
+// SetMaterial is promoted from [CanvasItem.Instance.SetMaterial].
+func (o *Extension[T]) SetMaterial(value Material.Instance) *Extension[T] {
+	o.Super().AsCanvasItem().SetMaterial(value)
+	return o
+}
+
+// UseParentMaterial is promoted from [CanvasItem.Instance.UseParentMaterial].
+func (o *Extension[T]) UseParentMaterial() bool { return o.Super().AsCanvasItem().UseParentMaterial() }
+
+// SetUseParentMaterial is promoted from [CanvasItem.Instance.SetUseParentMaterial].
+func (o *Extension[T]) SetUseParentMaterial(value bool) *Extension[T] {
+	o.Super().AsCanvasItem().SetUseParentMaterial(value)
+	return o
+}
+
+// Name is promoted from [Node.Instance.Name].
+func (o *Extension[T]) Name() string { return o.Super().AsNode().Name() }
+
+// SetName is promoted from [Node.Instance.SetName].
+func (o *Extension[T]) SetName(value string) *Extension[T] {
+	o.Super().AsNode().SetName(value)
+	return o
+}
+
+// UniqueNameInOwner is promoted from [Node.Instance.UniqueNameInOwner].
+func (o *Extension[T]) UniqueNameInOwner() bool { return o.Super().AsNode().UniqueNameInOwner() }
+
+// SetUniqueNameInOwner is promoted from [Node.Instance.SetUniqueNameInOwner].
+func (o *Extension[T]) SetUniqueNameInOwner(value bool) *Extension[T] {
+	o.Super().AsNode().SetUniqueNameInOwner(value)
+	return o
+}
+
+// SceneFilePath is promoted from [Node.Instance.SceneFilePath].
+func (o *Extension[T]) SceneFilePath() string { return o.Super().AsNode().SceneFilePath() }
+
+// SetSceneFilePath is promoted from [Node.Instance.SetSceneFilePath].
+func (o *Extension[T]) SetSceneFilePath(value string) *Extension[T] {
+	o.Super().AsNode().SetSceneFilePath(value)
+	return o
+}
+
+// Owner is promoted from [Node.Instance.Owner].
+func (o *Extension[T]) Owner() Node.Instance { return o.Super().AsNode().Owner() }
+
+// SetOwner is promoted from [Node.Instance.SetOwner].
+func (o *Extension[T]) SetOwner(value Node.Instance) *Extension[T] {
+	o.Super().AsNode().SetOwner(value)
+	return o
+}
+
+// Multiplayer is promoted from [Node.Instance.Multiplayer].
+func (o *Extension[T]) Multiplayer() MultiplayerAPI.Instance { return o.Super().AsNode().Multiplayer() }
+
+// ProcessMode is promoted from [Node.Instance.ProcessMode].
+func (o *Extension[T]) ProcessMode() Node.ProcessMode { return o.Super().AsNode().ProcessMode() }
+
+// SetProcessMode is promoted from [Node.Instance.SetProcessMode].
+func (o *Extension[T]) SetProcessMode(value Node.ProcessMode) *Extension[T] {
+	o.Super().AsNode().SetProcessMode(value)
+	return o
+}
+
+// ProcessPriority is promoted from [Node.Instance.ProcessPriority].
+func (o *Extension[T]) ProcessPriority() int { return o.Super().AsNode().ProcessPriority() }
+
+// SetProcessPriority is promoted from [Node.Instance.SetProcessPriority].
+func (o *Extension[T]) SetProcessPriority(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessPriority(value)
+	return o
+}
+
+// ProcessPhysicsPriority is promoted from [Node.Instance.ProcessPhysicsPriority].
+func (o *Extension[T]) ProcessPhysicsPriority() int { return o.Super().AsNode().ProcessPhysicsPriority() }
+
+// SetProcessPhysicsPriority is promoted from [Node.Instance.SetProcessPhysicsPriority].
+func (o *Extension[T]) SetProcessPhysicsPriority(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessPhysicsPriority(value)
+	return o
+}
+
+// ProcessThreadGroup is promoted from [Node.Instance.ProcessThreadGroup].
+func (o *Extension[T]) ProcessThreadGroup() Node.ProcessThreadGroup { return o.Super().AsNode().ProcessThreadGroup() }
+
+// SetProcessThreadGroup is promoted from [Node.Instance.SetProcessThreadGroup].
+func (o *Extension[T]) SetProcessThreadGroup(value Node.ProcessThreadGroup) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadGroup(value)
+	return o
+}
+
+// ProcessThreadGroupOrder is promoted from [Node.Instance.ProcessThreadGroupOrder].
+func (o *Extension[T]) ProcessThreadGroupOrder() int { return o.Super().AsNode().ProcessThreadGroupOrder() }
+
+// SetProcessThreadGroupOrder is promoted from [Node.Instance.SetProcessThreadGroupOrder].
+func (o *Extension[T]) SetProcessThreadGroupOrder(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadGroupOrder(value)
+	return o
+}
+
+// ProcessThreadMessages is promoted from [Node.Instance.ProcessThreadMessages].
+func (o *Extension[T]) ProcessThreadMessages() Node.ProcessThreadMessages { return o.Super().AsNode().ProcessThreadMessages() }
+
+// SetProcessThreadMessages is promoted from [Node.Instance.SetProcessThreadMessages].
+func (o *Extension[T]) SetProcessThreadMessages(value Node.ProcessThreadMessages) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadMessages(value)
+	return o
+}
+
+// PhysicsInterpolationMode is promoted from [Node.Instance.PhysicsInterpolationMode].
+func (o *Extension[T]) PhysicsInterpolationMode() Node.PhysicsInterpolationMode { return o.Super().AsNode().PhysicsInterpolationMode() }
+
+// SetPhysicsInterpolationMode is promoted from [Node.Instance.SetPhysicsInterpolationMode].
+func (o *Extension[T]) SetPhysicsInterpolationMode(value Node.PhysicsInterpolationMode) *Extension[T] {
+	o.Super().AsNode().SetPhysicsInterpolationMode(value)
+	return o
+}
+
+// AutoTranslateMode is promoted from [Node.Instance.AutoTranslateMode].
+func (o *Extension[T]) AutoTranslateMode() Node.AutoTranslateMode { return o.Super().AsNode().AutoTranslateMode() }
+
+// SetAutoTranslateMode is promoted from [Node.Instance.SetAutoTranslateMode].
+func (o *Extension[T]) SetAutoTranslateMode(value Node.AutoTranslateMode) *Extension[T] {
+	o.Super().AsNode().SetAutoTranslateMode(value)
+	return o
+}
+
+// EditorDescription is promoted from [Node.Instance.EditorDescription].
+func (o *Extension[T]) EditorDescription() string { return o.Super().AsNode().EditorDescription() }
+
+// SetEditorDescription is promoted from [Node.Instance.SetEditorDescription].
+func (o *Extension[T]) SetEditorDescription(value string) *Extension[T] {
+	o.Super().AsNode().SetEditorDescription(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

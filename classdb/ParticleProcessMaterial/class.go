@@ -247,15 +247,24 @@ func (self Instance) LifetimeRandomness() Float.X { //gd:ParticleProcessMaterial
 		return Float.X(Float.X(class(self).GetLifetimeRandomness()))
 }
 
+func (o *Extension[T]) LifetimeRandomness() Float.X { return o.Super().LifetimeRandomness() }
+
 // SetLifetimeRandomness sets the property returned by [GetLifetimeRandomness]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetLifetimeRandomness(value Float.X) Instance { //gd:ParticleProcessMaterial.lifetime_randomness
 	class(self).SetLifetimeRandomness(float64(value))
 	return self
 }
 
+func (o *Extension[T]) SetLifetimeRandomness(value Float.X) *Extension[T] {
+	o.Super().SetLifetimeRandomness(value)
+	return o
+}
+
 func (self Instance) ParticleFlagAlignY() bool { //gd:ParticleProcessMaterial.particle_flag_align_y
 		return bool(class(self).GetParticleFlag(0))
 }
+
+func (o *Extension[T]) ParticleFlagAlignY() bool { return o.Super().ParticleFlagAlignY() }
 
 // SetParticleFlagAlignY sets the property returned by [GetParticleFlag]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetParticleFlagAlignY(value bool) Instance { //gd:ParticleProcessMaterial.particle_flag_align_y
@@ -263,9 +272,16 @@ func (self Instance) SetParticleFlagAlignY(value bool) Instance { //gd:ParticleP
 	return self
 }
 
+func (o *Extension[T]) SetParticleFlagAlignY(value bool) *Extension[T] {
+	o.Super().SetParticleFlagAlignY(value)
+	return o
+}
+
 func (self Instance) ParticleFlagRotateY() bool { //gd:ParticleProcessMaterial.particle_flag_rotate_y
 		return bool(class(self).GetParticleFlag(1))
 }
+
+func (o *Extension[T]) ParticleFlagRotateY() bool { return o.Super().ParticleFlagRotateY() }
 
 // SetParticleFlagRotateY sets the property returned by [GetParticleFlag]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetParticleFlagRotateY(value bool) Instance { //gd:ParticleProcessMaterial.particle_flag_rotate_y
@@ -273,9 +289,16 @@ func (self Instance) SetParticleFlagRotateY(value bool) Instance { //gd:Particle
 	return self
 }
 
+func (o *Extension[T]) SetParticleFlagRotateY(value bool) *Extension[T] {
+	o.Super().SetParticleFlagRotateY(value)
+	return o
+}
+
 func (self Instance) ParticleFlagDisableZ() bool { //gd:ParticleProcessMaterial.particle_flag_disable_z
 		return bool(class(self).GetParticleFlag(2))
 }
+
+func (o *Extension[T]) ParticleFlagDisableZ() bool { return o.Super().ParticleFlagDisableZ() }
 
 // SetParticleFlagDisableZ sets the property returned by [GetParticleFlag]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetParticleFlagDisableZ(value bool) Instance { //gd:ParticleProcessMaterial.particle_flag_disable_z
@@ -283,9 +306,16 @@ func (self Instance) SetParticleFlagDisableZ(value bool) Instance { //gd:Particl
 	return self
 }
 
+func (o *Extension[T]) SetParticleFlagDisableZ(value bool) *Extension[T] {
+	o.Super().SetParticleFlagDisableZ(value)
+	return o
+}
+
 func (self Instance) ParticleFlagDampingAsFriction() bool { //gd:ParticleProcessMaterial.particle_flag_damping_as_friction
 		return bool(class(self).GetParticleFlag(3))
 }
+
+func (o *Extension[T]) ParticleFlagDampingAsFriction() bool { return o.Super().ParticleFlagDampingAsFriction() }
 
 // SetParticleFlagDampingAsFriction sets the property returned by [GetParticleFlag]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetParticleFlagDampingAsFriction(value bool) Instance { //gd:ParticleProcessMaterial.particle_flag_damping_as_friction
@@ -293,9 +323,16 @@ func (self Instance) SetParticleFlagDampingAsFriction(value bool) Instance { //g
 	return self
 }
 
+func (o *Extension[T]) SetParticleFlagDampingAsFriction(value bool) *Extension[T] {
+	o.Super().SetParticleFlagDampingAsFriction(value)
+	return o
+}
+
 func (self Instance) EmissionShapeOffset() Vector3.XYZ { //gd:ParticleProcessMaterial.emission_shape_offset
 		return Vector3.XYZ(class(self).GetEmissionShapeOffset())
 }
+
+func (o *Extension[T]) EmissionShapeOffset() Vector3.XYZ { return o.Super().EmissionShapeOffset() }
 
 // SetEmissionShapeOffset sets the property returned by [GetEmissionShapeOffset]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEmissionShapeOffset(value Vector3.XYZ) Instance { //gd:ParticleProcessMaterial.emission_shape_offset
@@ -303,9 +340,16 @@ func (self Instance) SetEmissionShapeOffset(value Vector3.XYZ) Instance { //gd:P
 	return self
 }
 
+func (o *Extension[T]) SetEmissionShapeOffset(value Vector3.XYZ) *Extension[T] {
+	o.Super().SetEmissionShapeOffset(value)
+	return o
+}
+
 func (self Instance) EmissionShapeScale() Vector3.XYZ { //gd:ParticleProcessMaterial.emission_shape_scale
 		return Vector3.XYZ(class(self).GetEmissionShapeScale())
 }
+
+func (o *Extension[T]) EmissionShapeScale() Vector3.XYZ { return o.Super().EmissionShapeScale() }
 
 // SetEmissionShapeScale sets the property returned by [GetEmissionShapeScale]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEmissionShapeScale(value Vector3.XYZ) Instance { //gd:ParticleProcessMaterial.emission_shape_scale
@@ -313,9 +357,16 @@ func (self Instance) SetEmissionShapeScale(value Vector3.XYZ) Instance { //gd:Pa
 	return self
 }
 
+func (o *Extension[T]) SetEmissionShapeScale(value Vector3.XYZ) *Extension[T] {
+	o.Super().SetEmissionShapeScale(value)
+	return o
+}
+
 func (self Instance) EmissionShape() EmissionShape { //gd:ParticleProcessMaterial.emission_shape
 		return EmissionShape(class(self).GetEmissionShape())
 }
+
+func (o *Extension[T]) EmissionShape() EmissionShape { return o.Super().EmissionShape() }
 
 // SetEmissionShape sets the property returned by [GetEmissionShape]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEmissionShape(value EmissionShape) Instance { //gd:ParticleProcessMaterial.emission_shape
@@ -323,9 +374,16 @@ func (self Instance) SetEmissionShape(value EmissionShape) Instance { //gd:Parti
 	return self
 }
 
+func (o *Extension[T]) SetEmissionShape(value EmissionShape) *Extension[T] {
+	o.Super().SetEmissionShape(value)
+	return o
+}
+
 func (self Instance) EmissionSphereRadius() Float.X { //gd:ParticleProcessMaterial.emission_sphere_radius
 		return Float.X(Float.X(class(self).GetEmissionSphereRadius()))
 }
+
+func (o *Extension[T]) EmissionSphereRadius() Float.X { return o.Super().EmissionSphereRadius() }
 
 // SetEmissionSphereRadius sets the property returned by [GetEmissionSphereRadius]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEmissionSphereRadius(value Float.X) Instance { //gd:ParticleProcessMaterial.emission_sphere_radius
@@ -333,9 +391,16 @@ func (self Instance) SetEmissionSphereRadius(value Float.X) Instance { //gd:Part
 	return self
 }
 
+func (o *Extension[T]) SetEmissionSphereRadius(value Float.X) *Extension[T] {
+	o.Super().SetEmissionSphereRadius(value)
+	return o
+}
+
 func (self Instance) EmissionBoxExtents() Vector3.XYZ { //gd:ParticleProcessMaterial.emission_box_extents
 		return Vector3.XYZ(class(self).GetEmissionBoxExtents())
 }
+
+func (o *Extension[T]) EmissionBoxExtents() Vector3.XYZ { return o.Super().EmissionBoxExtents() }
 
 // SetEmissionBoxExtents sets the property returned by [GetEmissionBoxExtents]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEmissionBoxExtents(value Vector3.XYZ) Instance { //gd:ParticleProcessMaterial.emission_box_extents
@@ -343,9 +408,16 @@ func (self Instance) SetEmissionBoxExtents(value Vector3.XYZ) Instance { //gd:Pa
 	return self
 }
 
+func (o *Extension[T]) SetEmissionBoxExtents(value Vector3.XYZ) *Extension[T] {
+	o.Super().SetEmissionBoxExtents(value)
+	return o
+}
+
 func (self Instance) EmissionPointTexture() Texture2D.Instance { //gd:ParticleProcessMaterial.emission_point_texture
 		return Texture2D.Instance(class(self).GetEmissionPointTexture())
 }
+
+func (o *Extension[T]) EmissionPointTexture() Texture2D.Instance { return o.Super().EmissionPointTexture() }
 
 // SetEmissionPointTexture sets the property returned by [GetEmissionPointTexture]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEmissionPointTexture(value Texture2D.Instance) Instance { //gd:ParticleProcessMaterial.emission_point_texture
@@ -353,9 +425,16 @@ func (self Instance) SetEmissionPointTexture(value Texture2D.Instance) Instance 
 	return self
 }
 
+func (o *Extension[T]) SetEmissionPointTexture(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetEmissionPointTexture(value)
+	return o
+}
+
 func (self Instance) EmissionNormalTexture() Texture2D.Instance { //gd:ParticleProcessMaterial.emission_normal_texture
 		return Texture2D.Instance(class(self).GetEmissionNormalTexture())
 }
+
+func (o *Extension[T]) EmissionNormalTexture() Texture2D.Instance { return o.Super().EmissionNormalTexture() }
 
 // SetEmissionNormalTexture sets the property returned by [GetEmissionNormalTexture]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEmissionNormalTexture(value Texture2D.Instance) Instance { //gd:ParticleProcessMaterial.emission_normal_texture
@@ -363,9 +442,16 @@ func (self Instance) SetEmissionNormalTexture(value Texture2D.Instance) Instance
 	return self
 }
 
+func (o *Extension[T]) SetEmissionNormalTexture(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetEmissionNormalTexture(value)
+	return o
+}
+
 func (self Instance) EmissionColorTexture() Texture2D.Instance { //gd:ParticleProcessMaterial.emission_color_texture
 		return Texture2D.Instance(class(self).GetEmissionColorTexture())
 }
+
+func (o *Extension[T]) EmissionColorTexture() Texture2D.Instance { return o.Super().EmissionColorTexture() }
 
 // SetEmissionColorTexture sets the property returned by [GetEmissionColorTexture]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEmissionColorTexture(value Texture2D.Instance) Instance { //gd:ParticleProcessMaterial.emission_color_texture
@@ -373,9 +459,16 @@ func (self Instance) SetEmissionColorTexture(value Texture2D.Instance) Instance 
 	return self
 }
 
+func (o *Extension[T]) SetEmissionColorTexture(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetEmissionColorTexture(value)
+	return o
+}
+
 func (self Instance) EmissionPointCount() int { //gd:ParticleProcessMaterial.emission_point_count
 		return int(int(class(self).GetEmissionPointCount()))
 }
+
+func (o *Extension[T]) EmissionPointCount() int { return o.Super().EmissionPointCount() }
 
 // SetEmissionPointCount sets the property returned by [GetEmissionPointCount]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEmissionPointCount(value int) Instance { //gd:ParticleProcessMaterial.emission_point_count
@@ -383,9 +476,16 @@ func (self Instance) SetEmissionPointCount(value int) Instance { //gd:ParticlePr
 	return self
 }
 
+func (o *Extension[T]) SetEmissionPointCount(value int) *Extension[T] {
+	o.Super().SetEmissionPointCount(value)
+	return o
+}
+
 func (self Instance) EmissionRingAxis() Vector3.XYZ { //gd:ParticleProcessMaterial.emission_ring_axis
 		return Vector3.XYZ(class(self).GetEmissionRingAxis())
 }
+
+func (o *Extension[T]) EmissionRingAxis() Vector3.XYZ { return o.Super().EmissionRingAxis() }
 
 // SetEmissionRingAxis sets the property returned by [GetEmissionRingAxis]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEmissionRingAxis(value Vector3.XYZ) Instance { //gd:ParticleProcessMaterial.emission_ring_axis
@@ -393,9 +493,16 @@ func (self Instance) SetEmissionRingAxis(value Vector3.XYZ) Instance { //gd:Part
 	return self
 }
 
+func (o *Extension[T]) SetEmissionRingAxis(value Vector3.XYZ) *Extension[T] {
+	o.Super().SetEmissionRingAxis(value)
+	return o
+}
+
 func (self Instance) EmissionRingHeight() Float.X { //gd:ParticleProcessMaterial.emission_ring_height
 		return Float.X(Float.X(class(self).GetEmissionRingHeight()))
 }
+
+func (o *Extension[T]) EmissionRingHeight() Float.X { return o.Super().EmissionRingHeight() }
 
 // SetEmissionRingHeight sets the property returned by [GetEmissionRingHeight]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEmissionRingHeight(value Float.X) Instance { //gd:ParticleProcessMaterial.emission_ring_height
@@ -403,9 +510,16 @@ func (self Instance) SetEmissionRingHeight(value Float.X) Instance { //gd:Partic
 	return self
 }
 
+func (o *Extension[T]) SetEmissionRingHeight(value Float.X) *Extension[T] {
+	o.Super().SetEmissionRingHeight(value)
+	return o
+}
+
 func (self Instance) EmissionRingRadius() Float.X { //gd:ParticleProcessMaterial.emission_ring_radius
 		return Float.X(Float.X(class(self).GetEmissionRingRadius()))
 }
+
+func (o *Extension[T]) EmissionRingRadius() Float.X { return o.Super().EmissionRingRadius() }
 
 // SetEmissionRingRadius sets the property returned by [GetEmissionRingRadius]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEmissionRingRadius(value Float.X) Instance { //gd:ParticleProcessMaterial.emission_ring_radius
@@ -413,9 +527,16 @@ func (self Instance) SetEmissionRingRadius(value Float.X) Instance { //gd:Partic
 	return self
 }
 
+func (o *Extension[T]) SetEmissionRingRadius(value Float.X) *Extension[T] {
+	o.Super().SetEmissionRingRadius(value)
+	return o
+}
+
 func (self Instance) EmissionRingInnerRadius() Float.X { //gd:ParticleProcessMaterial.emission_ring_inner_radius
 		return Float.X(Float.X(class(self).GetEmissionRingInnerRadius()))
 }
+
+func (o *Extension[T]) EmissionRingInnerRadius() Float.X { return o.Super().EmissionRingInnerRadius() }
 
 // SetEmissionRingInnerRadius sets the property returned by [GetEmissionRingInnerRadius]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEmissionRingInnerRadius(value Float.X) Instance { //gd:ParticleProcessMaterial.emission_ring_inner_radius
@@ -423,9 +544,16 @@ func (self Instance) SetEmissionRingInnerRadius(value Float.X) Instance { //gd:P
 	return self
 }
 
+func (o *Extension[T]) SetEmissionRingInnerRadius(value Float.X) *Extension[T] {
+	o.Super().SetEmissionRingInnerRadius(value)
+	return o
+}
+
 func (self Instance) EmissionRingConeAngle() Angle.Radians { //gd:ParticleProcessMaterial.emission_ring_cone_angle
 		return Angle.Radians(Float.X(class(self).GetEmissionRingConeAngle()))
 }
+
+func (o *Extension[T]) EmissionRingConeAngle() Angle.Radians { return o.Super().EmissionRingConeAngle() }
 
 // SetEmissionRingConeAngle sets the property returned by [GetEmissionRingConeAngle]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEmissionRingConeAngle(value Angle.Radians) Instance { //gd:ParticleProcessMaterial.emission_ring_cone_angle
@@ -433,9 +561,16 @@ func (self Instance) SetEmissionRingConeAngle(value Angle.Radians) Instance { //
 	return self
 }
 
+func (o *Extension[T]) SetEmissionRingConeAngle(value Angle.Radians) *Extension[T] {
+	o.Super().SetEmissionRingConeAngle(value)
+	return o
+}
+
 func (self Instance) Angle() Vector2.XY { //gd:ParticleProcessMaterial.angle
 		return Vector2.XY(class(self).GetParam(7))
 }
+
+func (o *Extension[T]) Angle() Vector2.XY { return o.Super().Angle() }
 
 // SetAngle sets the property returned by [GetParam]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAngle(value Vector2.XY) Instance { //gd:ParticleProcessMaterial.angle
@@ -443,9 +578,16 @@ func (self Instance) SetAngle(value Vector2.XY) Instance { //gd:ParticleProcessM
 	return self
 }
 
+func (o *Extension[T]) SetAngle(value Vector2.XY) *Extension[T] {
+	o.Super().SetAngle(value)
+	return o
+}
+
 func (self Instance) AngleMin() Angle.Radians { //gd:ParticleProcessMaterial.angle_min
 		return Angle.Radians(Float.X(class(self).GetParamMin(7)))
 }
+
+func (o *Extension[T]) AngleMin() Angle.Radians { return o.Super().AngleMin() }
 
 // SetAngleMin sets the property returned by [GetParamMin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAngleMin(value Angle.Radians) Instance { //gd:ParticleProcessMaterial.angle_min
@@ -453,9 +595,16 @@ func (self Instance) SetAngleMin(value Angle.Radians) Instance { //gd:ParticlePr
 	return self
 }
 
+func (o *Extension[T]) SetAngleMin(value Angle.Radians) *Extension[T] {
+	o.Super().SetAngleMin(value)
+	return o
+}
+
 func (self Instance) AngleMax() Angle.Radians { //gd:ParticleProcessMaterial.angle_max
 		return Angle.Radians(Float.X(class(self).GetParamMax(7)))
 }
+
+func (o *Extension[T]) AngleMax() Angle.Radians { return o.Super().AngleMax() }
 
 // SetAngleMax sets the property returned by [GetParamMax]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAngleMax(value Angle.Radians) Instance { //gd:ParticleProcessMaterial.angle_max
@@ -463,9 +612,16 @@ func (self Instance) SetAngleMax(value Angle.Radians) Instance { //gd:ParticlePr
 	return self
 }
 
+func (o *Extension[T]) SetAngleMax(value Angle.Radians) *Extension[T] {
+	o.Super().SetAngleMax(value)
+	return o
+}
+
 func (self Instance) AngleCurve() Texture2D.Instance { //gd:ParticleProcessMaterial.angle_curve
 		return Texture2D.Instance(class(self).GetParamTexture(7))
 }
+
+func (o *Extension[T]) AngleCurve() Texture2D.Instance { return o.Super().AngleCurve() }
 
 // SetAngleCurve sets the property returned by [GetParamTexture]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAngleCurve(value Texture2D.Instance) Instance { //gd:ParticleProcessMaterial.angle_curve
@@ -473,9 +629,16 @@ func (self Instance) SetAngleCurve(value Texture2D.Instance) Instance { //gd:Par
 	return self
 }
 
+func (o *Extension[T]) SetAngleCurve(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetAngleCurve(value)
+	return o
+}
+
 func (self Instance) InheritVelocityRatio() Float.X { //gd:ParticleProcessMaterial.inherit_velocity_ratio
 		return Float.X(Float.X(class(self).GetInheritVelocityRatio()))
 }
+
+func (o *Extension[T]) InheritVelocityRatio() Float.X { return o.Super().InheritVelocityRatio() }
 
 // SetInheritVelocityRatio sets the property returned by [GetInheritVelocityRatio]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetInheritVelocityRatio(value Float.X) Instance { //gd:ParticleProcessMaterial.inherit_velocity_ratio
@@ -483,9 +646,16 @@ func (self Instance) SetInheritVelocityRatio(value Float.X) Instance { //gd:Part
 	return self
 }
 
+func (o *Extension[T]) SetInheritVelocityRatio(value Float.X) *Extension[T] {
+	o.Super().SetInheritVelocityRatio(value)
+	return o
+}
+
 func (self Instance) VelocityPivot() Vector3.XYZ { //gd:ParticleProcessMaterial.velocity_pivot
 		return Vector3.XYZ(class(self).GetVelocityPivot())
 }
+
+func (o *Extension[T]) VelocityPivot() Vector3.XYZ { return o.Super().VelocityPivot() }
 
 // SetVelocityPivot sets the property returned by [GetVelocityPivot]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVelocityPivot(value Vector3.XYZ) Instance { //gd:ParticleProcessMaterial.velocity_pivot
@@ -493,9 +663,16 @@ func (self Instance) SetVelocityPivot(value Vector3.XYZ) Instance { //gd:Particl
 	return self
 }
 
+func (o *Extension[T]) SetVelocityPivot(value Vector3.XYZ) *Extension[T] {
+	o.Super().SetVelocityPivot(value)
+	return o
+}
+
 func (self Instance) Direction() Vector3.XYZ { //gd:ParticleProcessMaterial.direction
 		return Vector3.XYZ(class(self).GetDirection())
 }
+
+func (o *Extension[T]) Direction() Vector3.XYZ { return o.Super().Direction() }
 
 // SetDirection sets the property returned by [GetDirection]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDirection(value Vector3.XYZ) Instance { //gd:ParticleProcessMaterial.direction
@@ -503,9 +680,16 @@ func (self Instance) SetDirection(value Vector3.XYZ) Instance { //gd:ParticlePro
 	return self
 }
 
+func (o *Extension[T]) SetDirection(value Vector3.XYZ) *Extension[T] {
+	o.Super().SetDirection(value)
+	return o
+}
+
 func (self Instance) Spread() Float.X { //gd:ParticleProcessMaterial.spread
 		return Float.X(Float.X(class(self).GetSpread()))
 }
+
+func (o *Extension[T]) Spread() Float.X { return o.Super().Spread() }
 
 // SetSpread sets the property returned by [GetSpread]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSpread(value Float.X) Instance { //gd:ParticleProcessMaterial.spread
@@ -513,9 +697,16 @@ func (self Instance) SetSpread(value Float.X) Instance { //gd:ParticleProcessMat
 	return self
 }
 
+func (o *Extension[T]) SetSpread(value Float.X) *Extension[T] {
+	o.Super().SetSpread(value)
+	return o
+}
+
 func (self Instance) Flatness() Float.X { //gd:ParticleProcessMaterial.flatness
 		return Float.X(Float.X(class(self).GetFlatness()))
 }
+
+func (o *Extension[T]) Flatness() Float.X { return o.Super().Flatness() }
 
 // SetFlatness sets the property returned by [GetFlatness]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFlatness(value Float.X) Instance { //gd:ParticleProcessMaterial.flatness
@@ -523,9 +714,16 @@ func (self Instance) SetFlatness(value Float.X) Instance { //gd:ParticleProcessM
 	return self
 }
 
+func (o *Extension[T]) SetFlatness(value Float.X) *Extension[T] {
+	o.Super().SetFlatness(value)
+	return o
+}
+
 func (self Instance) InitialVelocity() Vector2.XY { //gd:ParticleProcessMaterial.initial_velocity
 		return Vector2.XY(class(self).GetParam(0))
 }
+
+func (o *Extension[T]) InitialVelocity() Vector2.XY { return o.Super().InitialVelocity() }
 
 // SetInitialVelocity sets the property returned by [GetParam]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetInitialVelocity(value Vector2.XY) Instance { //gd:ParticleProcessMaterial.initial_velocity
@@ -533,9 +731,16 @@ func (self Instance) SetInitialVelocity(value Vector2.XY) Instance { //gd:Partic
 	return self
 }
 
+func (o *Extension[T]) SetInitialVelocity(value Vector2.XY) *Extension[T] {
+	o.Super().SetInitialVelocity(value)
+	return o
+}
+
 func (self Instance) InitialVelocityMin() Float.X { //gd:ParticleProcessMaterial.initial_velocity_min
 		return Float.X(Float.X(class(self).GetParamMin(0)))
 }
+
+func (o *Extension[T]) InitialVelocityMin() Float.X { return o.Super().InitialVelocityMin() }
 
 // SetInitialVelocityMin sets the property returned by [GetParamMin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetInitialVelocityMin(value Float.X) Instance { //gd:ParticleProcessMaterial.initial_velocity_min
@@ -543,9 +748,16 @@ func (self Instance) SetInitialVelocityMin(value Float.X) Instance { //gd:Partic
 	return self
 }
 
+func (o *Extension[T]) SetInitialVelocityMin(value Float.X) *Extension[T] {
+	o.Super().SetInitialVelocityMin(value)
+	return o
+}
+
 func (self Instance) InitialVelocityMax() Float.X { //gd:ParticleProcessMaterial.initial_velocity_max
 		return Float.X(Float.X(class(self).GetParamMax(0)))
 }
+
+func (o *Extension[T]) InitialVelocityMax() Float.X { return o.Super().InitialVelocityMax() }
 
 // SetInitialVelocityMax sets the property returned by [GetParamMax]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetInitialVelocityMax(value Float.X) Instance { //gd:ParticleProcessMaterial.initial_velocity_max
@@ -553,9 +765,16 @@ func (self Instance) SetInitialVelocityMax(value Float.X) Instance { //gd:Partic
 	return self
 }
 
+func (o *Extension[T]) SetInitialVelocityMax(value Float.X) *Extension[T] {
+	o.Super().SetInitialVelocityMax(value)
+	return o
+}
+
 func (self Instance) AngularVelocity() Vector2.XY { //gd:ParticleProcessMaterial.angular_velocity
 		return Vector2.XY(class(self).GetParam(1))
 }
+
+func (o *Extension[T]) AngularVelocity() Vector2.XY { return o.Super().AngularVelocity() }
 
 // SetAngularVelocity sets the property returned by [GetParam]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAngularVelocity(value Vector2.XY) Instance { //gd:ParticleProcessMaterial.angular_velocity
@@ -563,9 +782,16 @@ func (self Instance) SetAngularVelocity(value Vector2.XY) Instance { //gd:Partic
 	return self
 }
 
+func (o *Extension[T]) SetAngularVelocity(value Vector2.XY) *Extension[T] {
+	o.Super().SetAngularVelocity(value)
+	return o
+}
+
 func (self Instance) AngularVelocityMin() Float.X { //gd:ParticleProcessMaterial.angular_velocity_min
 		return Float.X(Float.X(class(self).GetParamMin(1)))
 }
+
+func (o *Extension[T]) AngularVelocityMin() Float.X { return o.Super().AngularVelocityMin() }
 
 // SetAngularVelocityMin sets the property returned by [GetParamMin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAngularVelocityMin(value Float.X) Instance { //gd:ParticleProcessMaterial.angular_velocity_min
@@ -573,9 +799,16 @@ func (self Instance) SetAngularVelocityMin(value Float.X) Instance { //gd:Partic
 	return self
 }
 
+func (o *Extension[T]) SetAngularVelocityMin(value Float.X) *Extension[T] {
+	o.Super().SetAngularVelocityMin(value)
+	return o
+}
+
 func (self Instance) AngularVelocityMax() Float.X { //gd:ParticleProcessMaterial.angular_velocity_max
 		return Float.X(Float.X(class(self).GetParamMax(1)))
 }
+
+func (o *Extension[T]) AngularVelocityMax() Float.X { return o.Super().AngularVelocityMax() }
 
 // SetAngularVelocityMax sets the property returned by [GetParamMax]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAngularVelocityMax(value Float.X) Instance { //gd:ParticleProcessMaterial.angular_velocity_max
@@ -583,9 +816,16 @@ func (self Instance) SetAngularVelocityMax(value Float.X) Instance { //gd:Partic
 	return self
 }
 
+func (o *Extension[T]) SetAngularVelocityMax(value Float.X) *Extension[T] {
+	o.Super().SetAngularVelocityMax(value)
+	return o
+}
+
 func (self Instance) AngularVelocityCurve() Texture2D.Instance { //gd:ParticleProcessMaterial.angular_velocity_curve
 		return Texture2D.Instance(class(self).GetParamTexture(1))
 }
+
+func (o *Extension[T]) AngularVelocityCurve() Texture2D.Instance { return o.Super().AngularVelocityCurve() }
 
 // SetAngularVelocityCurve sets the property returned by [GetParamTexture]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAngularVelocityCurve(value Texture2D.Instance) Instance { //gd:ParticleProcessMaterial.angular_velocity_curve
@@ -593,9 +833,16 @@ func (self Instance) SetAngularVelocityCurve(value Texture2D.Instance) Instance 
 	return self
 }
 
+func (o *Extension[T]) SetAngularVelocityCurve(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetAngularVelocityCurve(value)
+	return o
+}
+
 func (self Instance) DirectionalVelocity() Vector2.XY { //gd:ParticleProcessMaterial.directional_velocity
 		return Vector2.XY(class(self).GetParam(16))
 }
+
+func (o *Extension[T]) DirectionalVelocity() Vector2.XY { return o.Super().DirectionalVelocity() }
 
 // SetDirectionalVelocity sets the property returned by [GetParam]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDirectionalVelocity(value Vector2.XY) Instance { //gd:ParticleProcessMaterial.directional_velocity
@@ -603,9 +850,16 @@ func (self Instance) SetDirectionalVelocity(value Vector2.XY) Instance { //gd:Pa
 	return self
 }
 
+func (o *Extension[T]) SetDirectionalVelocity(value Vector2.XY) *Extension[T] {
+	o.Super().SetDirectionalVelocity(value)
+	return o
+}
+
 func (self Instance) DirectionalVelocityMin() Float.X { //gd:ParticleProcessMaterial.directional_velocity_min
 		return Float.X(Float.X(class(self).GetParamMin(16)))
 }
+
+func (o *Extension[T]) DirectionalVelocityMin() Float.X { return o.Super().DirectionalVelocityMin() }
 
 // SetDirectionalVelocityMin sets the property returned by [GetParamMin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDirectionalVelocityMin(value Float.X) Instance { //gd:ParticleProcessMaterial.directional_velocity_min
@@ -613,9 +867,16 @@ func (self Instance) SetDirectionalVelocityMin(value Float.X) Instance { //gd:Pa
 	return self
 }
 
+func (o *Extension[T]) SetDirectionalVelocityMin(value Float.X) *Extension[T] {
+	o.Super().SetDirectionalVelocityMin(value)
+	return o
+}
+
 func (self Instance) DirectionalVelocityMax() Float.X { //gd:ParticleProcessMaterial.directional_velocity_max
 		return Float.X(Float.X(class(self).GetParamMax(16)))
 }
+
+func (o *Extension[T]) DirectionalVelocityMax() Float.X { return o.Super().DirectionalVelocityMax() }
 
 // SetDirectionalVelocityMax sets the property returned by [GetParamMax]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDirectionalVelocityMax(value Float.X) Instance { //gd:ParticleProcessMaterial.directional_velocity_max
@@ -623,9 +884,16 @@ func (self Instance) SetDirectionalVelocityMax(value Float.X) Instance { //gd:Pa
 	return self
 }
 
+func (o *Extension[T]) SetDirectionalVelocityMax(value Float.X) *Extension[T] {
+	o.Super().SetDirectionalVelocityMax(value)
+	return o
+}
+
 func (self Instance) DirectionalVelocityCurve() Texture2D.Instance { //gd:ParticleProcessMaterial.directional_velocity_curve
 		return Texture2D.Instance(class(self).GetParamTexture(16))
 }
+
+func (o *Extension[T]) DirectionalVelocityCurve() Texture2D.Instance { return o.Super().DirectionalVelocityCurve() }
 
 // SetDirectionalVelocityCurve sets the property returned by [GetParamTexture]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDirectionalVelocityCurve(value Texture2D.Instance) Instance { //gd:ParticleProcessMaterial.directional_velocity_curve
@@ -633,9 +901,16 @@ func (self Instance) SetDirectionalVelocityCurve(value Texture2D.Instance) Insta
 	return self
 }
 
+func (o *Extension[T]) SetDirectionalVelocityCurve(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetDirectionalVelocityCurve(value)
+	return o
+}
+
 func (self Instance) OrbitVelocity() Vector2.XY { //gd:ParticleProcessMaterial.orbit_velocity
 		return Vector2.XY(class(self).GetParam(2))
 }
+
+func (o *Extension[T]) OrbitVelocity() Vector2.XY { return o.Super().OrbitVelocity() }
 
 // SetOrbitVelocity sets the property returned by [GetParam]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOrbitVelocity(value Vector2.XY) Instance { //gd:ParticleProcessMaterial.orbit_velocity
@@ -643,9 +918,16 @@ func (self Instance) SetOrbitVelocity(value Vector2.XY) Instance { //gd:Particle
 	return self
 }
 
+func (o *Extension[T]) SetOrbitVelocity(value Vector2.XY) *Extension[T] {
+	o.Super().SetOrbitVelocity(value)
+	return o
+}
+
 func (self Instance) OrbitVelocityMin() Float.X { //gd:ParticleProcessMaterial.orbit_velocity_min
 		return Float.X(Float.X(class(self).GetParamMin(2)))
 }
+
+func (o *Extension[T]) OrbitVelocityMin() Float.X { return o.Super().OrbitVelocityMin() }
 
 // SetOrbitVelocityMin sets the property returned by [GetParamMin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOrbitVelocityMin(value Float.X) Instance { //gd:ParticleProcessMaterial.orbit_velocity_min
@@ -653,9 +935,16 @@ func (self Instance) SetOrbitVelocityMin(value Float.X) Instance { //gd:Particle
 	return self
 }
 
+func (o *Extension[T]) SetOrbitVelocityMin(value Float.X) *Extension[T] {
+	o.Super().SetOrbitVelocityMin(value)
+	return o
+}
+
 func (self Instance) OrbitVelocityMax() Float.X { //gd:ParticleProcessMaterial.orbit_velocity_max
 		return Float.X(Float.X(class(self).GetParamMax(2)))
 }
+
+func (o *Extension[T]) OrbitVelocityMax() Float.X { return o.Super().OrbitVelocityMax() }
 
 // SetOrbitVelocityMax sets the property returned by [GetParamMax]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOrbitVelocityMax(value Float.X) Instance { //gd:ParticleProcessMaterial.orbit_velocity_max
@@ -663,9 +952,16 @@ func (self Instance) SetOrbitVelocityMax(value Float.X) Instance { //gd:Particle
 	return self
 }
 
+func (o *Extension[T]) SetOrbitVelocityMax(value Float.X) *Extension[T] {
+	o.Super().SetOrbitVelocityMax(value)
+	return o
+}
+
 func (self Instance) OrbitVelocityCurve() Texture2D.Instance { //gd:ParticleProcessMaterial.orbit_velocity_curve
 		return Texture2D.Instance(class(self).GetParamTexture(2))
 }
+
+func (o *Extension[T]) OrbitVelocityCurve() Texture2D.Instance { return o.Super().OrbitVelocityCurve() }
 
 // SetOrbitVelocityCurve sets the property returned by [GetParamTexture]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOrbitVelocityCurve(value Texture2D.Instance) Instance { //gd:ParticleProcessMaterial.orbit_velocity_curve
@@ -673,9 +969,16 @@ func (self Instance) SetOrbitVelocityCurve(value Texture2D.Instance) Instance { 
 	return self
 }
 
+func (o *Extension[T]) SetOrbitVelocityCurve(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetOrbitVelocityCurve(value)
+	return o
+}
+
 func (self Instance) RadialVelocity() Vector2.XY { //gd:ParticleProcessMaterial.radial_velocity
 		return Vector2.XY(class(self).GetParam(15))
 }
+
+func (o *Extension[T]) RadialVelocity() Vector2.XY { return o.Super().RadialVelocity() }
 
 // SetRadialVelocity sets the property returned by [GetParam]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRadialVelocity(value Vector2.XY) Instance { //gd:ParticleProcessMaterial.radial_velocity
@@ -683,9 +986,16 @@ func (self Instance) SetRadialVelocity(value Vector2.XY) Instance { //gd:Particl
 	return self
 }
 
+func (o *Extension[T]) SetRadialVelocity(value Vector2.XY) *Extension[T] {
+	o.Super().SetRadialVelocity(value)
+	return o
+}
+
 func (self Instance) RadialVelocityMin() Float.X { //gd:ParticleProcessMaterial.radial_velocity_min
 		return Float.X(Float.X(class(self).GetParamMin(15)))
 }
+
+func (o *Extension[T]) RadialVelocityMin() Float.X { return o.Super().RadialVelocityMin() }
 
 // SetRadialVelocityMin sets the property returned by [GetParamMin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRadialVelocityMin(value Float.X) Instance { //gd:ParticleProcessMaterial.radial_velocity_min
@@ -693,9 +1003,16 @@ func (self Instance) SetRadialVelocityMin(value Float.X) Instance { //gd:Particl
 	return self
 }
 
+func (o *Extension[T]) SetRadialVelocityMin(value Float.X) *Extension[T] {
+	o.Super().SetRadialVelocityMin(value)
+	return o
+}
+
 func (self Instance) RadialVelocityMax() Float.X { //gd:ParticleProcessMaterial.radial_velocity_max
 		return Float.X(Float.X(class(self).GetParamMax(15)))
 }
+
+func (o *Extension[T]) RadialVelocityMax() Float.X { return o.Super().RadialVelocityMax() }
 
 // SetRadialVelocityMax sets the property returned by [GetParamMax]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRadialVelocityMax(value Float.X) Instance { //gd:ParticleProcessMaterial.radial_velocity_max
@@ -703,9 +1020,16 @@ func (self Instance) SetRadialVelocityMax(value Float.X) Instance { //gd:Particl
 	return self
 }
 
+func (o *Extension[T]) SetRadialVelocityMax(value Float.X) *Extension[T] {
+	o.Super().SetRadialVelocityMax(value)
+	return o
+}
+
 func (self Instance) RadialVelocityCurve() Texture2D.Instance { //gd:ParticleProcessMaterial.radial_velocity_curve
 		return Texture2D.Instance(class(self).GetParamTexture(15))
 }
+
+func (o *Extension[T]) RadialVelocityCurve() Texture2D.Instance { return o.Super().RadialVelocityCurve() }
 
 // SetRadialVelocityCurve sets the property returned by [GetParamTexture]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRadialVelocityCurve(value Texture2D.Instance) Instance { //gd:ParticleProcessMaterial.radial_velocity_curve
@@ -713,9 +1037,16 @@ func (self Instance) SetRadialVelocityCurve(value Texture2D.Instance) Instance {
 	return self
 }
 
+func (o *Extension[T]) SetRadialVelocityCurve(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetRadialVelocityCurve(value)
+	return o
+}
+
 func (self Instance) VelocityLimitCurve() Texture2D.Instance { //gd:ParticleProcessMaterial.velocity_limit_curve
 		return Texture2D.Instance(class(self).GetVelocityLimitCurve())
 }
+
+func (o *Extension[T]) VelocityLimitCurve() Texture2D.Instance { return o.Super().VelocityLimitCurve() }
 
 // SetVelocityLimitCurve sets the property returned by [GetVelocityLimitCurve]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVelocityLimitCurve(value Texture2D.Instance) Instance { //gd:ParticleProcessMaterial.velocity_limit_curve
@@ -723,9 +1054,16 @@ func (self Instance) SetVelocityLimitCurve(value Texture2D.Instance) Instance { 
 	return self
 }
 
+func (o *Extension[T]) SetVelocityLimitCurve(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetVelocityLimitCurve(value)
+	return o
+}
+
 func (self Instance) Gravity() Vector3.XYZ { //gd:ParticleProcessMaterial.gravity
 		return Vector3.XYZ(class(self).GetGravity())
 }
+
+func (o *Extension[T]) Gravity() Vector3.XYZ { return o.Super().Gravity() }
 
 // SetGravity sets the property returned by [GetGravity]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetGravity(value Vector3.XYZ) Instance { //gd:ParticleProcessMaterial.gravity
@@ -733,9 +1071,16 @@ func (self Instance) SetGravity(value Vector3.XYZ) Instance { //gd:ParticleProce
 	return self
 }
 
+func (o *Extension[T]) SetGravity(value Vector3.XYZ) *Extension[T] {
+	o.Super().SetGravity(value)
+	return o
+}
+
 func (self Instance) LinearAccel() Vector2.XY { //gd:ParticleProcessMaterial.linear_accel
 		return Vector2.XY(class(self).GetParam(3))
 }
+
+func (o *Extension[T]) LinearAccel() Vector2.XY { return o.Super().LinearAccel() }
 
 // SetLinearAccel sets the property returned by [GetParam]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetLinearAccel(value Vector2.XY) Instance { //gd:ParticleProcessMaterial.linear_accel
@@ -743,9 +1088,16 @@ func (self Instance) SetLinearAccel(value Vector2.XY) Instance { //gd:ParticlePr
 	return self
 }
 
+func (o *Extension[T]) SetLinearAccel(value Vector2.XY) *Extension[T] {
+	o.Super().SetLinearAccel(value)
+	return o
+}
+
 func (self Instance) LinearAccelMin() Float.X { //gd:ParticleProcessMaterial.linear_accel_min
 		return Float.X(Float.X(class(self).GetParamMin(3)))
 }
+
+func (o *Extension[T]) LinearAccelMin() Float.X { return o.Super().LinearAccelMin() }
 
 // SetLinearAccelMin sets the property returned by [GetParamMin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetLinearAccelMin(value Float.X) Instance { //gd:ParticleProcessMaterial.linear_accel_min
@@ -753,9 +1105,16 @@ func (self Instance) SetLinearAccelMin(value Float.X) Instance { //gd:ParticlePr
 	return self
 }
 
+func (o *Extension[T]) SetLinearAccelMin(value Float.X) *Extension[T] {
+	o.Super().SetLinearAccelMin(value)
+	return o
+}
+
 func (self Instance) LinearAccelMax() Float.X { //gd:ParticleProcessMaterial.linear_accel_max
 		return Float.X(Float.X(class(self).GetParamMax(3)))
 }
+
+func (o *Extension[T]) LinearAccelMax() Float.X { return o.Super().LinearAccelMax() }
 
 // SetLinearAccelMax sets the property returned by [GetParamMax]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetLinearAccelMax(value Float.X) Instance { //gd:ParticleProcessMaterial.linear_accel_max
@@ -763,9 +1122,16 @@ func (self Instance) SetLinearAccelMax(value Float.X) Instance { //gd:ParticlePr
 	return self
 }
 
+func (o *Extension[T]) SetLinearAccelMax(value Float.X) *Extension[T] {
+	o.Super().SetLinearAccelMax(value)
+	return o
+}
+
 func (self Instance) LinearAccelCurve() Texture2D.Instance { //gd:ParticleProcessMaterial.linear_accel_curve
 		return Texture2D.Instance(class(self).GetParamTexture(3))
 }
+
+func (o *Extension[T]) LinearAccelCurve() Texture2D.Instance { return o.Super().LinearAccelCurve() }
 
 // SetLinearAccelCurve sets the property returned by [GetParamTexture]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetLinearAccelCurve(value Texture2D.Instance) Instance { //gd:ParticleProcessMaterial.linear_accel_curve
@@ -773,9 +1139,16 @@ func (self Instance) SetLinearAccelCurve(value Texture2D.Instance) Instance { //
 	return self
 }
 
+func (o *Extension[T]) SetLinearAccelCurve(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetLinearAccelCurve(value)
+	return o
+}
+
 func (self Instance) RadialAccel() Vector2.XY { //gd:ParticleProcessMaterial.radial_accel
 		return Vector2.XY(class(self).GetParam(4))
 }
+
+func (o *Extension[T]) RadialAccel() Vector2.XY { return o.Super().RadialAccel() }
 
 // SetRadialAccel sets the property returned by [GetParam]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRadialAccel(value Vector2.XY) Instance { //gd:ParticleProcessMaterial.radial_accel
@@ -783,9 +1156,16 @@ func (self Instance) SetRadialAccel(value Vector2.XY) Instance { //gd:ParticlePr
 	return self
 }
 
+func (o *Extension[T]) SetRadialAccel(value Vector2.XY) *Extension[T] {
+	o.Super().SetRadialAccel(value)
+	return o
+}
+
 func (self Instance) RadialAccelMin() Float.X { //gd:ParticleProcessMaterial.radial_accel_min
 		return Float.X(Float.X(class(self).GetParamMin(4)))
 }
+
+func (o *Extension[T]) RadialAccelMin() Float.X { return o.Super().RadialAccelMin() }
 
 // SetRadialAccelMin sets the property returned by [GetParamMin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRadialAccelMin(value Float.X) Instance { //gd:ParticleProcessMaterial.radial_accel_min
@@ -793,9 +1173,16 @@ func (self Instance) SetRadialAccelMin(value Float.X) Instance { //gd:ParticlePr
 	return self
 }
 
+func (o *Extension[T]) SetRadialAccelMin(value Float.X) *Extension[T] {
+	o.Super().SetRadialAccelMin(value)
+	return o
+}
+
 func (self Instance) RadialAccelMax() Float.X { //gd:ParticleProcessMaterial.radial_accel_max
 		return Float.X(Float.X(class(self).GetParamMax(4)))
 }
+
+func (o *Extension[T]) RadialAccelMax() Float.X { return o.Super().RadialAccelMax() }
 
 // SetRadialAccelMax sets the property returned by [GetParamMax]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRadialAccelMax(value Float.X) Instance { //gd:ParticleProcessMaterial.radial_accel_max
@@ -803,9 +1190,16 @@ func (self Instance) SetRadialAccelMax(value Float.X) Instance { //gd:ParticlePr
 	return self
 }
 
+func (o *Extension[T]) SetRadialAccelMax(value Float.X) *Extension[T] {
+	o.Super().SetRadialAccelMax(value)
+	return o
+}
+
 func (self Instance) RadialAccelCurve() Texture2D.Instance { //gd:ParticleProcessMaterial.radial_accel_curve
 		return Texture2D.Instance(class(self).GetParamTexture(4))
 }
+
+func (o *Extension[T]) RadialAccelCurve() Texture2D.Instance { return o.Super().RadialAccelCurve() }
 
 // SetRadialAccelCurve sets the property returned by [GetParamTexture]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRadialAccelCurve(value Texture2D.Instance) Instance { //gd:ParticleProcessMaterial.radial_accel_curve
@@ -813,9 +1207,16 @@ func (self Instance) SetRadialAccelCurve(value Texture2D.Instance) Instance { //
 	return self
 }
 
+func (o *Extension[T]) SetRadialAccelCurve(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetRadialAccelCurve(value)
+	return o
+}
+
 func (self Instance) TangentialAccel() Vector2.XY { //gd:ParticleProcessMaterial.tangential_accel
 		return Vector2.XY(class(self).GetParam(5))
 }
+
+func (o *Extension[T]) TangentialAccel() Vector2.XY { return o.Super().TangentialAccel() }
 
 // SetTangentialAccel sets the property returned by [GetParam]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTangentialAccel(value Vector2.XY) Instance { //gd:ParticleProcessMaterial.tangential_accel
@@ -823,9 +1224,16 @@ func (self Instance) SetTangentialAccel(value Vector2.XY) Instance { //gd:Partic
 	return self
 }
 
+func (o *Extension[T]) SetTangentialAccel(value Vector2.XY) *Extension[T] {
+	o.Super().SetTangentialAccel(value)
+	return o
+}
+
 func (self Instance) TangentialAccelMin() Float.X { //gd:ParticleProcessMaterial.tangential_accel_min
 		return Float.X(Float.X(class(self).GetParamMin(5)))
 }
+
+func (o *Extension[T]) TangentialAccelMin() Float.X { return o.Super().TangentialAccelMin() }
 
 // SetTangentialAccelMin sets the property returned by [GetParamMin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTangentialAccelMin(value Float.X) Instance { //gd:ParticleProcessMaterial.tangential_accel_min
@@ -833,9 +1241,16 @@ func (self Instance) SetTangentialAccelMin(value Float.X) Instance { //gd:Partic
 	return self
 }
 
+func (o *Extension[T]) SetTangentialAccelMin(value Float.X) *Extension[T] {
+	o.Super().SetTangentialAccelMin(value)
+	return o
+}
+
 func (self Instance) TangentialAccelMax() Float.X { //gd:ParticleProcessMaterial.tangential_accel_max
 		return Float.X(Float.X(class(self).GetParamMax(5)))
 }
+
+func (o *Extension[T]) TangentialAccelMax() Float.X { return o.Super().TangentialAccelMax() }
 
 // SetTangentialAccelMax sets the property returned by [GetParamMax]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTangentialAccelMax(value Float.X) Instance { //gd:ParticleProcessMaterial.tangential_accel_max
@@ -843,9 +1258,16 @@ func (self Instance) SetTangentialAccelMax(value Float.X) Instance { //gd:Partic
 	return self
 }
 
+func (o *Extension[T]) SetTangentialAccelMax(value Float.X) *Extension[T] {
+	o.Super().SetTangentialAccelMax(value)
+	return o
+}
+
 func (self Instance) TangentialAccelCurve() Texture2D.Instance { //gd:ParticleProcessMaterial.tangential_accel_curve
 		return Texture2D.Instance(class(self).GetParamTexture(5))
 }
+
+func (o *Extension[T]) TangentialAccelCurve() Texture2D.Instance { return o.Super().TangentialAccelCurve() }
 
 // SetTangentialAccelCurve sets the property returned by [GetParamTexture]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTangentialAccelCurve(value Texture2D.Instance) Instance { //gd:ParticleProcessMaterial.tangential_accel_curve
@@ -853,9 +1275,16 @@ func (self Instance) SetTangentialAccelCurve(value Texture2D.Instance) Instance 
 	return self
 }
 
+func (o *Extension[T]) SetTangentialAccelCurve(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetTangentialAccelCurve(value)
+	return o
+}
+
 func (self Instance) Damping() Vector2.XY { //gd:ParticleProcessMaterial.damping
 		return Vector2.XY(class(self).GetParam(6))
 }
+
+func (o *Extension[T]) Damping() Vector2.XY { return o.Super().Damping() }
 
 // SetDamping sets the property returned by [GetParam]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDamping(value Vector2.XY) Instance { //gd:ParticleProcessMaterial.damping
@@ -863,9 +1292,16 @@ func (self Instance) SetDamping(value Vector2.XY) Instance { //gd:ParticleProces
 	return self
 }
 
+func (o *Extension[T]) SetDamping(value Vector2.XY) *Extension[T] {
+	o.Super().SetDamping(value)
+	return o
+}
+
 func (self Instance) DampingMin() Float.X { //gd:ParticleProcessMaterial.damping_min
 		return Float.X(Float.X(class(self).GetParamMin(6)))
 }
+
+func (o *Extension[T]) DampingMin() Float.X { return o.Super().DampingMin() }
 
 // SetDampingMin sets the property returned by [GetParamMin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDampingMin(value Float.X) Instance { //gd:ParticleProcessMaterial.damping_min
@@ -873,9 +1309,16 @@ func (self Instance) SetDampingMin(value Float.X) Instance { //gd:ParticleProces
 	return self
 }
 
+func (o *Extension[T]) SetDampingMin(value Float.X) *Extension[T] {
+	o.Super().SetDampingMin(value)
+	return o
+}
+
 func (self Instance) DampingMax() Float.X { //gd:ParticleProcessMaterial.damping_max
 		return Float.X(Float.X(class(self).GetParamMax(6)))
 }
+
+func (o *Extension[T]) DampingMax() Float.X { return o.Super().DampingMax() }
 
 // SetDampingMax sets the property returned by [GetParamMax]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDampingMax(value Float.X) Instance { //gd:ParticleProcessMaterial.damping_max
@@ -883,9 +1326,16 @@ func (self Instance) SetDampingMax(value Float.X) Instance { //gd:ParticleProces
 	return self
 }
 
+func (o *Extension[T]) SetDampingMax(value Float.X) *Extension[T] {
+	o.Super().SetDampingMax(value)
+	return o
+}
+
 func (self Instance) DampingCurve() Texture2D.Instance { //gd:ParticleProcessMaterial.damping_curve
 		return Texture2D.Instance(class(self).GetParamTexture(6))
 }
+
+func (o *Extension[T]) DampingCurve() Texture2D.Instance { return o.Super().DampingCurve() }
 
 // SetDampingCurve sets the property returned by [GetParamTexture]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDampingCurve(value Texture2D.Instance) Instance { //gd:ParticleProcessMaterial.damping_curve
@@ -893,9 +1343,16 @@ func (self Instance) SetDampingCurve(value Texture2D.Instance) Instance { //gd:P
 	return self
 }
 
+func (o *Extension[T]) SetDampingCurve(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetDampingCurve(value)
+	return o
+}
+
 func (self Instance) AttractorInteractionEnabled() bool { //gd:ParticleProcessMaterial.attractor_interaction_enabled
 		return bool(class(self).IsAttractorInteractionEnabled())
 }
+
+func (o *Extension[T]) AttractorInteractionEnabled() bool { return o.Super().AttractorInteractionEnabled() }
 
 // SetAttractorInteractionEnabled sets the property returned by [IsAttractorInteractionEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAttractorInteractionEnabled(value bool) Instance { //gd:ParticleProcessMaterial.attractor_interaction_enabled
@@ -903,9 +1360,16 @@ func (self Instance) SetAttractorInteractionEnabled(value bool) Instance { //gd:
 	return self
 }
 
+func (o *Extension[T]) SetAttractorInteractionEnabled(value bool) *Extension[T] {
+	o.Super().SetAttractorInteractionEnabled(value)
+	return o
+}
+
 func (self Instance) Scale() Vector2.XY { //gd:ParticleProcessMaterial.scale
 		return Vector2.XY(class(self).GetParam(8))
 }
+
+func (o *Extension[T]) Scale() Vector2.XY { return o.Super().Scale() }
 
 // SetScale sets the property returned by [GetParam]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetScale(value Vector2.XY) Instance { //gd:ParticleProcessMaterial.scale
@@ -913,9 +1377,16 @@ func (self Instance) SetScale(value Vector2.XY) Instance { //gd:ParticleProcessM
 	return self
 }
 
+func (o *Extension[T]) SetScale(value Vector2.XY) *Extension[T] {
+	o.Super().SetScale(value)
+	return o
+}
+
 func (self Instance) ScaleMin() Float.X { //gd:ParticleProcessMaterial.scale_min
 		return Float.X(Float.X(class(self).GetParamMin(8)))
 }
+
+func (o *Extension[T]) ScaleMin() Float.X { return o.Super().ScaleMin() }
 
 // SetScaleMin sets the property returned by [GetParamMin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetScaleMin(value Float.X) Instance { //gd:ParticleProcessMaterial.scale_min
@@ -923,9 +1394,16 @@ func (self Instance) SetScaleMin(value Float.X) Instance { //gd:ParticleProcessM
 	return self
 }
 
+func (o *Extension[T]) SetScaleMin(value Float.X) *Extension[T] {
+	o.Super().SetScaleMin(value)
+	return o
+}
+
 func (self Instance) ScaleMax() Float.X { //gd:ParticleProcessMaterial.scale_max
 		return Float.X(Float.X(class(self).GetParamMax(8)))
 }
+
+func (o *Extension[T]) ScaleMax() Float.X { return o.Super().ScaleMax() }
 
 // SetScaleMax sets the property returned by [GetParamMax]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetScaleMax(value Float.X) Instance { //gd:ParticleProcessMaterial.scale_max
@@ -933,9 +1411,16 @@ func (self Instance) SetScaleMax(value Float.X) Instance { //gd:ParticleProcessM
 	return self
 }
 
+func (o *Extension[T]) SetScaleMax(value Float.X) *Extension[T] {
+	o.Super().SetScaleMax(value)
+	return o
+}
+
 func (self Instance) ScaleCurve() Texture2D.Instance { //gd:ParticleProcessMaterial.scale_curve
 		return Texture2D.Instance(class(self).GetParamTexture(8))
 }
+
+func (o *Extension[T]) ScaleCurve() Texture2D.Instance { return o.Super().ScaleCurve() }
 
 // SetScaleCurve sets the property returned by [GetParamTexture]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetScaleCurve(value Texture2D.Instance) Instance { //gd:ParticleProcessMaterial.scale_curve
@@ -943,9 +1428,16 @@ func (self Instance) SetScaleCurve(value Texture2D.Instance) Instance { //gd:Par
 	return self
 }
 
+func (o *Extension[T]) SetScaleCurve(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetScaleCurve(value)
+	return o
+}
+
 func (self Instance) ScaleOverVelocity() Vector2.XY { //gd:ParticleProcessMaterial.scale_over_velocity
 		return Vector2.XY(class(self).GetParam(17))
 }
+
+func (o *Extension[T]) ScaleOverVelocity() Vector2.XY { return o.Super().ScaleOverVelocity() }
 
 // SetScaleOverVelocity sets the property returned by [GetParam]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetScaleOverVelocity(value Vector2.XY) Instance { //gd:ParticleProcessMaterial.scale_over_velocity
@@ -953,9 +1445,16 @@ func (self Instance) SetScaleOverVelocity(value Vector2.XY) Instance { //gd:Part
 	return self
 }
 
+func (o *Extension[T]) SetScaleOverVelocity(value Vector2.XY) *Extension[T] {
+	o.Super().SetScaleOverVelocity(value)
+	return o
+}
+
 func (self Instance) ScaleOverVelocityMin() Float.X { //gd:ParticleProcessMaterial.scale_over_velocity_min
 		return Float.X(Float.X(class(self).GetParamMin(17)))
 }
+
+func (o *Extension[T]) ScaleOverVelocityMin() Float.X { return o.Super().ScaleOverVelocityMin() }
 
 // SetScaleOverVelocityMin sets the property returned by [GetParamMin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetScaleOverVelocityMin(value Float.X) Instance { //gd:ParticleProcessMaterial.scale_over_velocity_min
@@ -963,9 +1462,16 @@ func (self Instance) SetScaleOverVelocityMin(value Float.X) Instance { //gd:Part
 	return self
 }
 
+func (o *Extension[T]) SetScaleOverVelocityMin(value Float.X) *Extension[T] {
+	o.Super().SetScaleOverVelocityMin(value)
+	return o
+}
+
 func (self Instance) ScaleOverVelocityMax() Float.X { //gd:ParticleProcessMaterial.scale_over_velocity_max
 		return Float.X(Float.X(class(self).GetParamMax(17)))
 }
+
+func (o *Extension[T]) ScaleOverVelocityMax() Float.X { return o.Super().ScaleOverVelocityMax() }
 
 // SetScaleOverVelocityMax sets the property returned by [GetParamMax]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetScaleOverVelocityMax(value Float.X) Instance { //gd:ParticleProcessMaterial.scale_over_velocity_max
@@ -973,9 +1479,16 @@ func (self Instance) SetScaleOverVelocityMax(value Float.X) Instance { //gd:Part
 	return self
 }
 
+func (o *Extension[T]) SetScaleOverVelocityMax(value Float.X) *Extension[T] {
+	o.Super().SetScaleOverVelocityMax(value)
+	return o
+}
+
 func (self Instance) ScaleOverVelocityCurve() Texture2D.Instance { //gd:ParticleProcessMaterial.scale_over_velocity_curve
 		return Texture2D.Instance(class(self).GetParamTexture(17))
 }
+
+func (o *Extension[T]) ScaleOverVelocityCurve() Texture2D.Instance { return o.Super().ScaleOverVelocityCurve() }
 
 // SetScaleOverVelocityCurve sets the property returned by [GetParamTexture]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetScaleOverVelocityCurve(value Texture2D.Instance) Instance { //gd:ParticleProcessMaterial.scale_over_velocity_curve
@@ -983,9 +1496,16 @@ func (self Instance) SetScaleOverVelocityCurve(value Texture2D.Instance) Instanc
 	return self
 }
 
+func (o *Extension[T]) SetScaleOverVelocityCurve(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetScaleOverVelocityCurve(value)
+	return o
+}
+
 func (self Instance) Color() Color.RGBA { //gd:ParticleProcessMaterial.color
 		return Color.RGBA(class(self).GetColor())
 }
+
+func (o *Extension[T]) Color() Color.RGBA { return o.Super().Color() }
 
 // SetColor sets the property returned by [GetColor]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetColor(value Color.RGBA) Instance { //gd:ParticleProcessMaterial.color
@@ -993,9 +1513,16 @@ func (self Instance) SetColor(value Color.RGBA) Instance { //gd:ParticleProcessM
 	return self
 }
 
+func (o *Extension[T]) SetColor(value Color.RGBA) *Extension[T] {
+	o.Super().SetColor(value)
+	return o
+}
+
 func (self Instance) ColorRamp() Texture2D.Instance { //gd:ParticleProcessMaterial.color_ramp
 		return Texture2D.Instance(class(self).GetColorRamp())
 }
+
+func (o *Extension[T]) ColorRamp() Texture2D.Instance { return o.Super().ColorRamp() }
 
 // SetColorRamp sets the property returned by [GetColorRamp]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetColorRamp(value Texture2D.Instance) Instance { //gd:ParticleProcessMaterial.color_ramp
@@ -1003,9 +1530,16 @@ func (self Instance) SetColorRamp(value Texture2D.Instance) Instance { //gd:Part
 	return self
 }
 
+func (o *Extension[T]) SetColorRamp(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetColorRamp(value)
+	return o
+}
+
 func (self Instance) ColorInitialRamp() Texture2D.Instance { //gd:ParticleProcessMaterial.color_initial_ramp
 		return Texture2D.Instance(class(self).GetColorInitialRamp())
 }
+
+func (o *Extension[T]) ColorInitialRamp() Texture2D.Instance { return o.Super().ColorInitialRamp() }
 
 // SetColorInitialRamp sets the property returned by [GetColorInitialRamp]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetColorInitialRamp(value Texture2D.Instance) Instance { //gd:ParticleProcessMaterial.color_initial_ramp
@@ -1013,9 +1547,16 @@ func (self Instance) SetColorInitialRamp(value Texture2D.Instance) Instance { //
 	return self
 }
 
+func (o *Extension[T]) SetColorInitialRamp(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetColorInitialRamp(value)
+	return o
+}
+
 func (self Instance) AlphaCurve() Texture2D.Instance { //gd:ParticleProcessMaterial.alpha_curve
 		return Texture2D.Instance(class(self).GetAlphaCurve())
 }
+
+func (o *Extension[T]) AlphaCurve() Texture2D.Instance { return o.Super().AlphaCurve() }
 
 // SetAlphaCurve sets the property returned by [GetAlphaCurve]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAlphaCurve(value Texture2D.Instance) Instance { //gd:ParticleProcessMaterial.alpha_curve
@@ -1023,9 +1564,16 @@ func (self Instance) SetAlphaCurve(value Texture2D.Instance) Instance { //gd:Par
 	return self
 }
 
+func (o *Extension[T]) SetAlphaCurve(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetAlphaCurve(value)
+	return o
+}
+
 func (self Instance) EmissionCurve() Texture2D.Instance { //gd:ParticleProcessMaterial.emission_curve
 		return Texture2D.Instance(class(self).GetEmissionCurve())
 }
+
+func (o *Extension[T]) EmissionCurve() Texture2D.Instance { return o.Super().EmissionCurve() }
 
 // SetEmissionCurve sets the property returned by [GetEmissionCurve]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEmissionCurve(value Texture2D.Instance) Instance { //gd:ParticleProcessMaterial.emission_curve
@@ -1033,9 +1581,16 @@ func (self Instance) SetEmissionCurve(value Texture2D.Instance) Instance { //gd:
 	return self
 }
 
+func (o *Extension[T]) SetEmissionCurve(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetEmissionCurve(value)
+	return o
+}
+
 func (self Instance) HueVariation() Vector2.XY { //gd:ParticleProcessMaterial.hue_variation
 		return Vector2.XY(class(self).GetParam(9))
 }
+
+func (o *Extension[T]) HueVariation() Vector2.XY { return o.Super().HueVariation() }
 
 // SetHueVariation sets the property returned by [GetParam]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetHueVariation(value Vector2.XY) Instance { //gd:ParticleProcessMaterial.hue_variation
@@ -1043,9 +1598,16 @@ func (self Instance) SetHueVariation(value Vector2.XY) Instance { //gd:ParticleP
 	return self
 }
 
+func (o *Extension[T]) SetHueVariation(value Vector2.XY) *Extension[T] {
+	o.Super().SetHueVariation(value)
+	return o
+}
+
 func (self Instance) HueVariationMin() Float.X { //gd:ParticleProcessMaterial.hue_variation_min
 		return Float.X(Float.X(class(self).GetParamMin(9)))
 }
+
+func (o *Extension[T]) HueVariationMin() Float.X { return o.Super().HueVariationMin() }
 
 // SetHueVariationMin sets the property returned by [GetParamMin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetHueVariationMin(value Float.X) Instance { //gd:ParticleProcessMaterial.hue_variation_min
@@ -1053,9 +1615,16 @@ func (self Instance) SetHueVariationMin(value Float.X) Instance { //gd:ParticleP
 	return self
 }
 
+func (o *Extension[T]) SetHueVariationMin(value Float.X) *Extension[T] {
+	o.Super().SetHueVariationMin(value)
+	return o
+}
+
 func (self Instance) HueVariationMax() Float.X { //gd:ParticleProcessMaterial.hue_variation_max
 		return Float.X(Float.X(class(self).GetParamMax(9)))
 }
+
+func (o *Extension[T]) HueVariationMax() Float.X { return o.Super().HueVariationMax() }
 
 // SetHueVariationMax sets the property returned by [GetParamMax]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetHueVariationMax(value Float.X) Instance { //gd:ParticleProcessMaterial.hue_variation_max
@@ -1063,9 +1632,16 @@ func (self Instance) SetHueVariationMax(value Float.X) Instance { //gd:ParticleP
 	return self
 }
 
+func (o *Extension[T]) SetHueVariationMax(value Float.X) *Extension[T] {
+	o.Super().SetHueVariationMax(value)
+	return o
+}
+
 func (self Instance) HueVariationCurve() Texture2D.Instance { //gd:ParticleProcessMaterial.hue_variation_curve
 		return Texture2D.Instance(class(self).GetParamTexture(9))
 }
+
+func (o *Extension[T]) HueVariationCurve() Texture2D.Instance { return o.Super().HueVariationCurve() }
 
 // SetHueVariationCurve sets the property returned by [GetParamTexture]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetHueVariationCurve(value Texture2D.Instance) Instance { //gd:ParticleProcessMaterial.hue_variation_curve
@@ -1073,9 +1649,16 @@ func (self Instance) SetHueVariationCurve(value Texture2D.Instance) Instance { /
 	return self
 }
 
+func (o *Extension[T]) SetHueVariationCurve(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetHueVariationCurve(value)
+	return o
+}
+
 func (self Instance) AnimSpeed() Vector2.XY { //gd:ParticleProcessMaterial.anim_speed
 		return Vector2.XY(class(self).GetParam(10))
 }
+
+func (o *Extension[T]) AnimSpeed() Vector2.XY { return o.Super().AnimSpeed() }
 
 // SetAnimSpeed sets the property returned by [GetParam]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAnimSpeed(value Vector2.XY) Instance { //gd:ParticleProcessMaterial.anim_speed
@@ -1083,9 +1666,16 @@ func (self Instance) SetAnimSpeed(value Vector2.XY) Instance { //gd:ParticleProc
 	return self
 }
 
+func (o *Extension[T]) SetAnimSpeed(value Vector2.XY) *Extension[T] {
+	o.Super().SetAnimSpeed(value)
+	return o
+}
+
 func (self Instance) AnimSpeedMin() Float.X { //gd:ParticleProcessMaterial.anim_speed_min
 		return Float.X(Float.X(class(self).GetParamMin(10)))
 }
+
+func (o *Extension[T]) AnimSpeedMin() Float.X { return o.Super().AnimSpeedMin() }
 
 // SetAnimSpeedMin sets the property returned by [GetParamMin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAnimSpeedMin(value Float.X) Instance { //gd:ParticleProcessMaterial.anim_speed_min
@@ -1093,9 +1683,16 @@ func (self Instance) SetAnimSpeedMin(value Float.X) Instance { //gd:ParticleProc
 	return self
 }
 
+func (o *Extension[T]) SetAnimSpeedMin(value Float.X) *Extension[T] {
+	o.Super().SetAnimSpeedMin(value)
+	return o
+}
+
 func (self Instance) AnimSpeedMax() Float.X { //gd:ParticleProcessMaterial.anim_speed_max
 		return Float.X(Float.X(class(self).GetParamMax(10)))
 }
+
+func (o *Extension[T]) AnimSpeedMax() Float.X { return o.Super().AnimSpeedMax() }
 
 // SetAnimSpeedMax sets the property returned by [GetParamMax]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAnimSpeedMax(value Float.X) Instance { //gd:ParticleProcessMaterial.anim_speed_max
@@ -1103,9 +1700,16 @@ func (self Instance) SetAnimSpeedMax(value Float.X) Instance { //gd:ParticleProc
 	return self
 }
 
+func (o *Extension[T]) SetAnimSpeedMax(value Float.X) *Extension[T] {
+	o.Super().SetAnimSpeedMax(value)
+	return o
+}
+
 func (self Instance) AnimSpeedCurve() Texture2D.Instance { //gd:ParticleProcessMaterial.anim_speed_curve
 		return Texture2D.Instance(class(self).GetParamTexture(10))
 }
+
+func (o *Extension[T]) AnimSpeedCurve() Texture2D.Instance { return o.Super().AnimSpeedCurve() }
 
 // SetAnimSpeedCurve sets the property returned by [GetParamTexture]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAnimSpeedCurve(value Texture2D.Instance) Instance { //gd:ParticleProcessMaterial.anim_speed_curve
@@ -1113,9 +1717,16 @@ func (self Instance) SetAnimSpeedCurve(value Texture2D.Instance) Instance { //gd
 	return self
 }
 
+func (o *Extension[T]) SetAnimSpeedCurve(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetAnimSpeedCurve(value)
+	return o
+}
+
 func (self Instance) AnimOffset() Vector2.XY { //gd:ParticleProcessMaterial.anim_offset
 		return Vector2.XY(class(self).GetParam(11))
 }
+
+func (o *Extension[T]) AnimOffset() Vector2.XY { return o.Super().AnimOffset() }
 
 // SetAnimOffset sets the property returned by [GetParam]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAnimOffset(value Vector2.XY) Instance { //gd:ParticleProcessMaterial.anim_offset
@@ -1123,9 +1734,16 @@ func (self Instance) SetAnimOffset(value Vector2.XY) Instance { //gd:ParticlePro
 	return self
 }
 
+func (o *Extension[T]) SetAnimOffset(value Vector2.XY) *Extension[T] {
+	o.Super().SetAnimOffset(value)
+	return o
+}
+
 func (self Instance) AnimOffsetMin() Float.X { //gd:ParticleProcessMaterial.anim_offset_min
 		return Float.X(Float.X(class(self).GetParamMin(11)))
 }
+
+func (o *Extension[T]) AnimOffsetMin() Float.X { return o.Super().AnimOffsetMin() }
 
 // SetAnimOffsetMin sets the property returned by [GetParamMin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAnimOffsetMin(value Float.X) Instance { //gd:ParticleProcessMaterial.anim_offset_min
@@ -1133,9 +1751,16 @@ func (self Instance) SetAnimOffsetMin(value Float.X) Instance { //gd:ParticlePro
 	return self
 }
 
+func (o *Extension[T]) SetAnimOffsetMin(value Float.X) *Extension[T] {
+	o.Super().SetAnimOffsetMin(value)
+	return o
+}
+
 func (self Instance) AnimOffsetMax() Float.X { //gd:ParticleProcessMaterial.anim_offset_max
 		return Float.X(Float.X(class(self).GetParamMax(11)))
 }
+
+func (o *Extension[T]) AnimOffsetMax() Float.X { return o.Super().AnimOffsetMax() }
 
 // SetAnimOffsetMax sets the property returned by [GetParamMax]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAnimOffsetMax(value Float.X) Instance { //gd:ParticleProcessMaterial.anim_offset_max
@@ -1143,9 +1768,16 @@ func (self Instance) SetAnimOffsetMax(value Float.X) Instance { //gd:ParticlePro
 	return self
 }
 
+func (o *Extension[T]) SetAnimOffsetMax(value Float.X) *Extension[T] {
+	o.Super().SetAnimOffsetMax(value)
+	return o
+}
+
 func (self Instance) AnimOffsetCurve() Texture2D.Instance { //gd:ParticleProcessMaterial.anim_offset_curve
 		return Texture2D.Instance(class(self).GetParamTexture(11))
 }
+
+func (o *Extension[T]) AnimOffsetCurve() Texture2D.Instance { return o.Super().AnimOffsetCurve() }
 
 // SetAnimOffsetCurve sets the property returned by [GetParamTexture]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAnimOffsetCurve(value Texture2D.Instance) Instance { //gd:ParticleProcessMaterial.anim_offset_curve
@@ -1153,9 +1785,16 @@ func (self Instance) SetAnimOffsetCurve(value Texture2D.Instance) Instance { //g
 	return self
 }
 
+func (o *Extension[T]) SetAnimOffsetCurve(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetAnimOffsetCurve(value)
+	return o
+}
+
 func (self Instance) TurbulenceEnabled() bool { //gd:ParticleProcessMaterial.turbulence_enabled
 		return bool(class(self).GetTurbulenceEnabled())
 }
+
+func (o *Extension[T]) TurbulenceEnabled() bool { return o.Super().TurbulenceEnabled() }
 
 // SetTurbulenceEnabled sets the property returned by [GetTurbulenceEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTurbulenceEnabled(value bool) Instance { //gd:ParticleProcessMaterial.turbulence_enabled
@@ -1163,9 +1802,16 @@ func (self Instance) SetTurbulenceEnabled(value bool) Instance { //gd:ParticlePr
 	return self
 }
 
+func (o *Extension[T]) SetTurbulenceEnabled(value bool) *Extension[T] {
+	o.Super().SetTurbulenceEnabled(value)
+	return o
+}
+
 func (self Instance) TurbulenceNoiseStrength() Float.X { //gd:ParticleProcessMaterial.turbulence_noise_strength
 		return Float.X(Float.X(class(self).GetTurbulenceNoiseStrength()))
 }
+
+func (o *Extension[T]) TurbulenceNoiseStrength() Float.X { return o.Super().TurbulenceNoiseStrength() }
 
 // SetTurbulenceNoiseStrength sets the property returned by [GetTurbulenceNoiseStrength]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTurbulenceNoiseStrength(value Float.X) Instance { //gd:ParticleProcessMaterial.turbulence_noise_strength
@@ -1173,9 +1819,16 @@ func (self Instance) SetTurbulenceNoiseStrength(value Float.X) Instance { //gd:P
 	return self
 }
 
+func (o *Extension[T]) SetTurbulenceNoiseStrength(value Float.X) *Extension[T] {
+	o.Super().SetTurbulenceNoiseStrength(value)
+	return o
+}
+
 func (self Instance) TurbulenceNoiseScale() Float.X { //gd:ParticleProcessMaterial.turbulence_noise_scale
 		return Float.X(Float.X(class(self).GetTurbulenceNoiseScale()))
 }
+
+func (o *Extension[T]) TurbulenceNoiseScale() Float.X { return o.Super().TurbulenceNoiseScale() }
 
 // SetTurbulenceNoiseScale sets the property returned by [GetTurbulenceNoiseScale]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTurbulenceNoiseScale(value Float.X) Instance { //gd:ParticleProcessMaterial.turbulence_noise_scale
@@ -1183,9 +1836,16 @@ func (self Instance) SetTurbulenceNoiseScale(value Float.X) Instance { //gd:Part
 	return self
 }
 
+func (o *Extension[T]) SetTurbulenceNoiseScale(value Float.X) *Extension[T] {
+	o.Super().SetTurbulenceNoiseScale(value)
+	return o
+}
+
 func (self Instance) TurbulenceNoiseSpeed() Vector3.XYZ { //gd:ParticleProcessMaterial.turbulence_noise_speed
 		return Vector3.XYZ(class(self).GetTurbulenceNoiseSpeed())
 }
+
+func (o *Extension[T]) TurbulenceNoiseSpeed() Vector3.XYZ { return o.Super().TurbulenceNoiseSpeed() }
 
 // SetTurbulenceNoiseSpeed sets the property returned by [GetTurbulenceNoiseSpeed]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTurbulenceNoiseSpeed(value Vector3.XYZ) Instance { //gd:ParticleProcessMaterial.turbulence_noise_speed
@@ -1193,9 +1853,16 @@ func (self Instance) SetTurbulenceNoiseSpeed(value Vector3.XYZ) Instance { //gd:
 	return self
 }
 
+func (o *Extension[T]) SetTurbulenceNoiseSpeed(value Vector3.XYZ) *Extension[T] {
+	o.Super().SetTurbulenceNoiseSpeed(value)
+	return o
+}
+
 func (self Instance) TurbulenceNoiseSpeedRandom() Float.X { //gd:ParticleProcessMaterial.turbulence_noise_speed_random
 		return Float.X(Float.X(class(self).GetTurbulenceNoiseSpeedRandom()))
 }
+
+func (o *Extension[T]) TurbulenceNoiseSpeedRandom() Float.X { return o.Super().TurbulenceNoiseSpeedRandom() }
 
 // SetTurbulenceNoiseSpeedRandom sets the property returned by [GetTurbulenceNoiseSpeedRandom]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTurbulenceNoiseSpeedRandom(value Float.X) Instance { //gd:ParticleProcessMaterial.turbulence_noise_speed_random
@@ -1203,9 +1870,16 @@ func (self Instance) SetTurbulenceNoiseSpeedRandom(value Float.X) Instance { //g
 	return self
 }
 
+func (o *Extension[T]) SetTurbulenceNoiseSpeedRandom(value Float.X) *Extension[T] {
+	o.Super().SetTurbulenceNoiseSpeedRandom(value)
+	return o
+}
+
 func (self Instance) TurbulenceInfluence() Vector2.XY { //gd:ParticleProcessMaterial.turbulence_influence
 		return Vector2.XY(class(self).GetParam(13))
 }
+
+func (o *Extension[T]) TurbulenceInfluence() Vector2.XY { return o.Super().TurbulenceInfluence() }
 
 // SetTurbulenceInfluence sets the property returned by [GetParam]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTurbulenceInfluence(value Vector2.XY) Instance { //gd:ParticleProcessMaterial.turbulence_influence
@@ -1213,9 +1887,16 @@ func (self Instance) SetTurbulenceInfluence(value Vector2.XY) Instance { //gd:Pa
 	return self
 }
 
+func (o *Extension[T]) SetTurbulenceInfluence(value Vector2.XY) *Extension[T] {
+	o.Super().SetTurbulenceInfluence(value)
+	return o
+}
+
 func (self Instance) TurbulenceInfluenceMin() Float.X { //gd:ParticleProcessMaterial.turbulence_influence_min
 		return Float.X(Float.X(class(self).GetParamMin(13)))
 }
+
+func (o *Extension[T]) TurbulenceInfluenceMin() Float.X { return o.Super().TurbulenceInfluenceMin() }
 
 // SetTurbulenceInfluenceMin sets the property returned by [GetParamMin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTurbulenceInfluenceMin(value Float.X) Instance { //gd:ParticleProcessMaterial.turbulence_influence_min
@@ -1223,9 +1904,16 @@ func (self Instance) SetTurbulenceInfluenceMin(value Float.X) Instance { //gd:Pa
 	return self
 }
 
+func (o *Extension[T]) SetTurbulenceInfluenceMin(value Float.X) *Extension[T] {
+	o.Super().SetTurbulenceInfluenceMin(value)
+	return o
+}
+
 func (self Instance) TurbulenceInfluenceMax() Float.X { //gd:ParticleProcessMaterial.turbulence_influence_max
 		return Float.X(Float.X(class(self).GetParamMax(13)))
 }
+
+func (o *Extension[T]) TurbulenceInfluenceMax() Float.X { return o.Super().TurbulenceInfluenceMax() }
 
 // SetTurbulenceInfluenceMax sets the property returned by [GetParamMax]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTurbulenceInfluenceMax(value Float.X) Instance { //gd:ParticleProcessMaterial.turbulence_influence_max
@@ -1233,9 +1921,16 @@ func (self Instance) SetTurbulenceInfluenceMax(value Float.X) Instance { //gd:Pa
 	return self
 }
 
+func (o *Extension[T]) SetTurbulenceInfluenceMax(value Float.X) *Extension[T] {
+	o.Super().SetTurbulenceInfluenceMax(value)
+	return o
+}
+
 func (self Instance) TurbulenceInitialDisplacement() Vector2.XY { //gd:ParticleProcessMaterial.turbulence_initial_displacement
 		return Vector2.XY(class(self).GetParam(14))
 }
+
+func (o *Extension[T]) TurbulenceInitialDisplacement() Vector2.XY { return o.Super().TurbulenceInitialDisplacement() }
 
 // SetTurbulenceInitialDisplacement sets the property returned by [GetParam]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTurbulenceInitialDisplacement(value Vector2.XY) Instance { //gd:ParticleProcessMaterial.turbulence_initial_displacement
@@ -1243,9 +1938,16 @@ func (self Instance) SetTurbulenceInitialDisplacement(value Vector2.XY) Instance
 	return self
 }
 
+func (o *Extension[T]) SetTurbulenceInitialDisplacement(value Vector2.XY) *Extension[T] {
+	o.Super().SetTurbulenceInitialDisplacement(value)
+	return o
+}
+
 func (self Instance) TurbulenceInitialDisplacementMin() Float.X { //gd:ParticleProcessMaterial.turbulence_initial_displacement_min
 		return Float.X(Float.X(class(self).GetParamMin(14)))
 }
+
+func (o *Extension[T]) TurbulenceInitialDisplacementMin() Float.X { return o.Super().TurbulenceInitialDisplacementMin() }
 
 // SetTurbulenceInitialDisplacementMin sets the property returned by [GetParamMin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTurbulenceInitialDisplacementMin(value Float.X) Instance { //gd:ParticleProcessMaterial.turbulence_initial_displacement_min
@@ -1253,9 +1955,16 @@ func (self Instance) SetTurbulenceInitialDisplacementMin(value Float.X) Instance
 	return self
 }
 
+func (o *Extension[T]) SetTurbulenceInitialDisplacementMin(value Float.X) *Extension[T] {
+	o.Super().SetTurbulenceInitialDisplacementMin(value)
+	return o
+}
+
 func (self Instance) TurbulenceInitialDisplacementMax() Float.X { //gd:ParticleProcessMaterial.turbulence_initial_displacement_max
 		return Float.X(Float.X(class(self).GetParamMax(14)))
 }
+
+func (o *Extension[T]) TurbulenceInitialDisplacementMax() Float.X { return o.Super().TurbulenceInitialDisplacementMax() }
 
 // SetTurbulenceInitialDisplacementMax sets the property returned by [GetParamMax]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTurbulenceInitialDisplacementMax(value Float.X) Instance { //gd:ParticleProcessMaterial.turbulence_initial_displacement_max
@@ -1263,9 +1972,16 @@ func (self Instance) SetTurbulenceInitialDisplacementMax(value Float.X) Instance
 	return self
 }
 
+func (o *Extension[T]) SetTurbulenceInitialDisplacementMax(value Float.X) *Extension[T] {
+	o.Super().SetTurbulenceInitialDisplacementMax(value)
+	return o
+}
+
 func (self Instance) TurbulenceInfluenceOverLife() Texture2D.Instance { //gd:ParticleProcessMaterial.turbulence_influence_over_life
 		return Texture2D.Instance(class(self).GetParamTexture(12))
 }
+
+func (o *Extension[T]) TurbulenceInfluenceOverLife() Texture2D.Instance { return o.Super().TurbulenceInfluenceOverLife() }
 
 // SetTurbulenceInfluenceOverLife sets the property returned by [GetParamTexture]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTurbulenceInfluenceOverLife(value Texture2D.Instance) Instance { //gd:ParticleProcessMaterial.turbulence_influence_over_life
@@ -1273,9 +1989,16 @@ func (self Instance) SetTurbulenceInfluenceOverLife(value Texture2D.Instance) In
 	return self
 }
 
+func (o *Extension[T]) SetTurbulenceInfluenceOverLife(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetTurbulenceInfluenceOverLife(value)
+	return o
+}
+
 func (self Instance) CollisionMode() CollisionMode { //gd:ParticleProcessMaterial.collision_mode
 		return CollisionMode(class(self).GetCollisionMode())
 }
+
+func (o *Extension[T]) CollisionMode() CollisionMode { return o.Super().CollisionMode() }
 
 // SetCollisionMode sets the property returned by [GetCollisionMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCollisionMode(value CollisionMode) Instance { //gd:ParticleProcessMaterial.collision_mode
@@ -1283,9 +2006,16 @@ func (self Instance) SetCollisionMode(value CollisionMode) Instance { //gd:Parti
 	return self
 }
 
+func (o *Extension[T]) SetCollisionMode(value CollisionMode) *Extension[T] {
+	o.Super().SetCollisionMode(value)
+	return o
+}
+
 func (self Instance) CollisionFriction() Float.X { //gd:ParticleProcessMaterial.collision_friction
 		return Float.X(Float.X(class(self).GetCollisionFriction()))
 }
+
+func (o *Extension[T]) CollisionFriction() Float.X { return o.Super().CollisionFriction() }
 
 // SetCollisionFriction sets the property returned by [GetCollisionFriction]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCollisionFriction(value Float.X) Instance { //gd:ParticleProcessMaterial.collision_friction
@@ -1293,9 +2023,16 @@ func (self Instance) SetCollisionFriction(value Float.X) Instance { //gd:Particl
 	return self
 }
 
+func (o *Extension[T]) SetCollisionFriction(value Float.X) *Extension[T] {
+	o.Super().SetCollisionFriction(value)
+	return o
+}
+
 func (self Instance) CollisionBounce() Float.X { //gd:ParticleProcessMaterial.collision_bounce
 		return Float.X(Float.X(class(self).GetCollisionBounce()))
 }
+
+func (o *Extension[T]) CollisionBounce() Float.X { return o.Super().CollisionBounce() }
 
 // SetCollisionBounce sets the property returned by [GetCollisionBounce]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCollisionBounce(value Float.X) Instance { //gd:ParticleProcessMaterial.collision_bounce
@@ -1303,9 +2040,16 @@ func (self Instance) SetCollisionBounce(value Float.X) Instance { //gd:ParticleP
 	return self
 }
 
+func (o *Extension[T]) SetCollisionBounce(value Float.X) *Extension[T] {
+	o.Super().SetCollisionBounce(value)
+	return o
+}
+
 func (self Instance) CollisionUseScale() bool { //gd:ParticleProcessMaterial.collision_use_scale
 		return bool(class(self).IsCollisionUsingScale())
 }
+
+func (o *Extension[T]) CollisionUseScale() bool { return o.Super().CollisionUseScale() }
 
 // SetCollisionUseScale sets the property returned by [IsCollisionUsingScale]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCollisionUseScale(value bool) Instance { //gd:ParticleProcessMaterial.collision_use_scale
@@ -1313,9 +2057,16 @@ func (self Instance) SetCollisionUseScale(value bool) Instance { //gd:ParticlePr
 	return self
 }
 
+func (o *Extension[T]) SetCollisionUseScale(value bool) *Extension[T] {
+	o.Super().SetCollisionUseScale(value)
+	return o
+}
+
 func (self Instance) SubEmitterMode() SubEmitterMode { //gd:ParticleProcessMaterial.sub_emitter_mode
 		return SubEmitterMode(class(self).GetSubEmitterMode())
 }
+
+func (o *Extension[T]) SubEmitterMode() SubEmitterMode { return o.Super().SubEmitterMode() }
 
 // SetSubEmitterMode sets the property returned by [GetSubEmitterMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSubEmitterMode(value SubEmitterMode) Instance { //gd:ParticleProcessMaterial.sub_emitter_mode
@@ -1323,9 +2074,16 @@ func (self Instance) SetSubEmitterMode(value SubEmitterMode) Instance { //gd:Par
 	return self
 }
 
+func (o *Extension[T]) SetSubEmitterMode(value SubEmitterMode) *Extension[T] {
+	o.Super().SetSubEmitterMode(value)
+	return o
+}
+
 func (self Instance) SubEmitterFrequency() Float.X { //gd:ParticleProcessMaterial.sub_emitter_frequency
 		return Float.X(Float.X(class(self).GetSubEmitterFrequency()))
 }
+
+func (o *Extension[T]) SubEmitterFrequency() Float.X { return o.Super().SubEmitterFrequency() }
 
 // SetSubEmitterFrequency sets the property returned by [GetSubEmitterFrequency]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSubEmitterFrequency(value Float.X) Instance { //gd:ParticleProcessMaterial.sub_emitter_frequency
@@ -1333,9 +2091,16 @@ func (self Instance) SetSubEmitterFrequency(value Float.X) Instance { //gd:Parti
 	return self
 }
 
+func (o *Extension[T]) SetSubEmitterFrequency(value Float.X) *Extension[T] {
+	o.Super().SetSubEmitterFrequency(value)
+	return o
+}
+
 func (self Instance) SubEmitterAmountAtEnd() int { //gd:ParticleProcessMaterial.sub_emitter_amount_at_end
 		return int(int(class(self).GetSubEmitterAmountAtEnd()))
 }
+
+func (o *Extension[T]) SubEmitterAmountAtEnd() int { return o.Super().SubEmitterAmountAtEnd() }
 
 // SetSubEmitterAmountAtEnd sets the property returned by [GetSubEmitterAmountAtEnd]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSubEmitterAmountAtEnd(value int) Instance { //gd:ParticleProcessMaterial.sub_emitter_amount_at_end
@@ -1343,9 +2108,16 @@ func (self Instance) SetSubEmitterAmountAtEnd(value int) Instance { //gd:Particl
 	return self
 }
 
+func (o *Extension[T]) SetSubEmitterAmountAtEnd(value int) *Extension[T] {
+	o.Super().SetSubEmitterAmountAtEnd(value)
+	return o
+}
+
 func (self Instance) SubEmitterAmountAtCollision() int { //gd:ParticleProcessMaterial.sub_emitter_amount_at_collision
 		return int(int(class(self).GetSubEmitterAmountAtCollision()))
 }
+
+func (o *Extension[T]) SubEmitterAmountAtCollision() int { return o.Super().SubEmitterAmountAtCollision() }
 
 // SetSubEmitterAmountAtCollision sets the property returned by [GetSubEmitterAmountAtCollision]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSubEmitterAmountAtCollision(value int) Instance { //gd:ParticleProcessMaterial.sub_emitter_amount_at_collision
@@ -1353,9 +2125,16 @@ func (self Instance) SetSubEmitterAmountAtCollision(value int) Instance { //gd:P
 	return self
 }
 
+func (o *Extension[T]) SetSubEmitterAmountAtCollision(value int) *Extension[T] {
+	o.Super().SetSubEmitterAmountAtCollision(value)
+	return o
+}
+
 func (self Instance) SubEmitterAmountAtStart() int { //gd:ParticleProcessMaterial.sub_emitter_amount_at_start
 		return int(int(class(self).GetSubEmitterAmountAtStart()))
 }
+
+func (o *Extension[T]) SubEmitterAmountAtStart() int { return o.Super().SubEmitterAmountAtStart() }
 
 // SetSubEmitterAmountAtStart sets the property returned by [GetSubEmitterAmountAtStart]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSubEmitterAmountAtStart(value int) Instance { //gd:ParticleProcessMaterial.sub_emitter_amount_at_start
@@ -1363,14 +2142,26 @@ func (self Instance) SetSubEmitterAmountAtStart(value int) Instance { //gd:Parti
 	return self
 }
 
+func (o *Extension[T]) SetSubEmitterAmountAtStart(value int) *Extension[T] {
+	o.Super().SetSubEmitterAmountAtStart(value)
+	return o
+}
+
 func (self Instance) SubEmitterKeepVelocity() bool { //gd:ParticleProcessMaterial.sub_emitter_keep_velocity
 		return bool(class(self).GetSubEmitterKeepVelocity())
 }
+
+func (o *Extension[T]) SubEmitterKeepVelocity() bool { return o.Super().SubEmitterKeepVelocity() }
 
 // SetSubEmitterKeepVelocity sets the property returned by [GetSubEmitterKeepVelocity]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSubEmitterKeepVelocity(value bool) Instance { //gd:ParticleProcessMaterial.sub_emitter_keep_velocity
 	class(self).SetSubEmitterKeepVelocity(value)
 	return self
+}
+
+func (o *Extension[T]) SetSubEmitterKeepVelocity(value bool) *Extension[T] {
+	o.Super().SetSubEmitterKeepVelocity(value)
+	return o
 }
 
 func (self class) SetDirection(degrees Vector3.XYZ)  { //gd:ParticleProcessMaterial.set_direction
@@ -1916,6 +2707,60 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// RenderPriority is promoted from [Material.Instance.RenderPriority].
+func (o *Extension[T]) RenderPriority() Material.RenderPriority { return o.Super().AsMaterial().RenderPriority() }
+
+// SetRenderPriority is promoted from [Material.Instance.SetRenderPriority].
+func (o *Extension[T]) SetRenderPriority(value Material.RenderPriority) *Extension[T] {
+	o.Super().AsMaterial().SetRenderPriority(value)
+	return o
+}
+
+// NextPass is promoted from [Material.Instance.NextPass].
+func (o *Extension[T]) NextPass() Material.Instance { return o.Super().AsMaterial().NextPass() }
+
+// SetNextPass is promoted from [Material.Instance.SetNextPass].
+func (o *Extension[T]) SetNextPass(value Material.Instance) *Extension[T] {
+	o.Super().AsMaterial().SetNextPass(value)
+	return o
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

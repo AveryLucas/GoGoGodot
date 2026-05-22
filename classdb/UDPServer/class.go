@@ -184,10 +184,17 @@ func (self Instance) MaxPendingConnections() int { //gd:UDPServer.max_pending_co
 		return int(int(class(self).GetMaxPendingConnections()))
 }
 
+func (o *Extension[T]) MaxPendingConnections() int { return o.Super().MaxPendingConnections() }
+
 // SetMaxPendingConnections sets the property returned by [GetMaxPendingConnections]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMaxPendingConnections(value int) Instance { //gd:UDPServer.max_pending_connections
 	class(self).SetMaxPendingConnections(int64(value))
 	return self
+}
+
+func (o *Extension[T]) SetMaxPendingConnections(value int) *Extension[T] {
+	o.Super().SetMaxPendingConnections(value)
+	return o
 }
 
 func (self class) Listen(port int64, bind_address String.Readable) Error.Code { //gd:UDPServer.listen

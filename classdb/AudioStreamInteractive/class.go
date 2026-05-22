@@ -241,20 +241,34 @@ func (self Instance) ClipCount() Clip { //gd:AudioStreamInteractive.clip_count
 		return Clip(Clip(class(self).GetClipCount()))
 }
 
+func (o *Extension[T]) ClipCount() Clip { return o.Super().ClipCount() }
+
 // SetClipCount sets the property returned by [GetClipCount]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetClipCount(value Clip) Instance { //gd:AudioStreamInteractive.clip_count
 	class(self).SetClipCount(int64(value))
 	return self
 }
 
+func (o *Extension[T]) SetClipCount(value Clip) *Extension[T] {
+	o.Super().SetClipCount(value)
+	return o
+}
+
 func (self Instance) InitialClip() Clip { //gd:AudioStreamInteractive.initial_clip
 		return Clip(Clip(class(self).GetInitialClip()))
 }
+
+func (o *Extension[T]) InitialClip() Clip { return o.Super().InitialClip() }
 
 // SetInitialClip sets the property returned by [GetInitialClip]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetInitialClip(value Clip) Instance { //gd:AudioStreamInteractive.initial_clip
 	class(self).SetInitialClip(int64(value))
 	return self
+}
+
+func (o *Extension[T]) SetInitialClip(value Clip) *Extension[T] {
+	o.Super().SetInitialClip(value)
+	return o
 }
 
 func (self class) SetClipCount(clip_count int64)  { //gd:AudioStreamInteractive.set_clip_count
@@ -609,6 +623,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

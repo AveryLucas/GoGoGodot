@@ -153,15 +153,24 @@ func (self Instance) PitchScale() Float.X { //gd:AudioEffectPitchShift.pitch_sca
 		return Float.X(Float.X(class(self).GetPitchScale()))
 }
 
+func (o *Extension[T]) PitchScale() Float.X { return o.Super().PitchScale() }
+
 // SetPitchScale sets the property returned by [GetPitchScale]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPitchScale(value Float.X) Instance { //gd:AudioEffectPitchShift.pitch_scale
 	class(self).SetPitchScale(float64(value))
 	return self
 }
 
+func (o *Extension[T]) SetPitchScale(value Float.X) *Extension[T] {
+	o.Super().SetPitchScale(value)
+	return o
+}
+
 func (self Instance) Oversampling() int { //gd:AudioEffectPitchShift.oversampling
 		return int(int(class(self).GetOversampling()))
 }
+
+func (o *Extension[T]) Oversampling() int { return o.Super().Oversampling() }
 
 // SetOversampling sets the property returned by [GetOversampling]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOversampling(value int) Instance { //gd:AudioEffectPitchShift.oversampling
@@ -169,14 +178,26 @@ func (self Instance) SetOversampling(value int) Instance { //gd:AudioEffectPitch
 	return self
 }
 
+func (o *Extension[T]) SetOversampling(value int) *Extension[T] {
+	o.Super().SetOversampling(value)
+	return o
+}
+
 func (self Instance) FftSize() FFTSize { //gd:AudioEffectPitchShift.fft_size
 		return FFTSize(class(self).GetFftSize())
 }
+
+func (o *Extension[T]) FftSize() FFTSize { return o.Super().FftSize() }
 
 // SetFftSize sets the property returned by [GetFftSize]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFftSize(value FFTSize) Instance { //gd:AudioEffectPitchShift.fft_size
 	class(self).SetFftSize(value)
 	return self
+}
+
+func (o *Extension[T]) SetFftSize(value FFTSize) *Extension[T] {
+	o.Super().SetFftSize(value)
+	return o
 }
 
 func (self class) SetPitchScale(rate float64)  { //gd:AudioEffectPitchShift.set_pitch_scale
@@ -328,6 +349,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

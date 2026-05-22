@@ -359,6 +359,60 @@ func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
 }
 
+// Enabled is promoted from [SkeletonModification2D.Instance.Enabled].
+func (o *Extension[T]) Enabled() bool { return o.Super().AsSkeletonModification2D().Enabled() }
+
+// SetEnabled is promoted from [SkeletonModification2D.Instance.SetEnabled].
+func (o *Extension[T]) SetEnabled(value bool) *Extension[T] {
+	o.Super().AsSkeletonModification2D().SetEnabled(value)
+	return o
+}
+
+// ExecutionMode is promoted from [SkeletonModification2D.Instance.ExecutionMode].
+func (o *Extension[T]) ExecutionMode() int { return o.Super().AsSkeletonModification2D().ExecutionMode() }
+
+// SetExecutionMode is promoted from [SkeletonModification2D.Instance.SetExecutionMode].
+func (o *Extension[T]) SetExecutionMode(value int) *Extension[T] {
+	o.Super().AsSkeletonModification2D().SetExecutionMode(value)
+	return o
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
+}
+
 func (self class) Virtual(name string) reflect.Value {
 	switch name {
 	default: return gd.VirtualByName(SkeletonModification2D.Advanced(self.AsSkeletonModification2D()), name)

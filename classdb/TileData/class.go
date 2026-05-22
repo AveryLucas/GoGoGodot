@@ -328,15 +328,24 @@ func (self Instance) FlipH() bool { //gd:TileData.flip_h
 		return bool(class(self).GetFlipH())
 }
 
+func (o *Extension[T]) FlipH() bool { return o.Super().FlipH() }
+
 // SetFlipH sets the property returned by [GetFlipH]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFlipH(value bool) Instance { //gd:TileData.flip_h
 	class(self).SetFlipH(value)
 	return self
 }
 
+func (o *Extension[T]) SetFlipH(value bool) *Extension[T] {
+	o.Super().SetFlipH(value)
+	return o
+}
+
 func (self Instance) FlipV() bool { //gd:TileData.flip_v
 		return bool(class(self).GetFlipV())
 }
+
+func (o *Extension[T]) FlipV() bool { return o.Super().FlipV() }
 
 // SetFlipV sets the property returned by [GetFlipV]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFlipV(value bool) Instance { //gd:TileData.flip_v
@@ -344,9 +353,16 @@ func (self Instance) SetFlipV(value bool) Instance { //gd:TileData.flip_v
 	return self
 }
 
+func (o *Extension[T]) SetFlipV(value bool) *Extension[T] {
+	o.Super().SetFlipV(value)
+	return o
+}
+
 func (self Instance) Transpose() bool { //gd:TileData.transpose
 		return bool(class(self).GetTranspose())
 }
+
+func (o *Extension[T]) Transpose() bool { return o.Super().Transpose() }
 
 // SetTranspose sets the property returned by [GetTranspose]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTranspose(value bool) Instance { //gd:TileData.transpose
@@ -354,9 +370,16 @@ func (self Instance) SetTranspose(value bool) Instance { //gd:TileData.transpose
 	return self
 }
 
+func (o *Extension[T]) SetTranspose(value bool) *Extension[T] {
+	o.Super().SetTranspose(value)
+	return o
+}
+
 func (self Instance) TextureOrigin() Vector2i.XY { //gd:TileData.texture_origin
 		return Vector2i.XY(class(self).GetTextureOrigin())
 }
+
+func (o *Extension[T]) TextureOrigin() Vector2i.XY { return o.Super().TextureOrigin() }
 
 // SetTextureOrigin sets the property returned by [GetTextureOrigin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTextureOrigin(value Vector2i.XY) Instance { //gd:TileData.texture_origin
@@ -364,9 +387,16 @@ func (self Instance) SetTextureOrigin(value Vector2i.XY) Instance { //gd:TileDat
 	return self
 }
 
+func (o *Extension[T]) SetTextureOrigin(value Vector2i.XY) *Extension[T] {
+	o.Super().SetTextureOrigin(value)
+	return o
+}
+
 func (self Instance) Modulate() Color.RGBA { //gd:TileData.modulate
 		return Color.RGBA(class(self).GetModulate())
 }
+
+func (o *Extension[T]) Modulate() Color.RGBA { return o.Super().Modulate() }
 
 // SetModulate sets the property returned by [GetModulate]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetModulate(value Color.RGBA) Instance { //gd:TileData.modulate
@@ -374,9 +404,16 @@ func (self Instance) SetModulate(value Color.RGBA) Instance { //gd:TileData.modu
 	return self
 }
 
+func (o *Extension[T]) SetModulate(value Color.RGBA) *Extension[T] {
+	o.Super().SetModulate(value)
+	return o
+}
+
 func (self Instance) Material() Material.Instance { //gd:TileData.material
 		return Material.Instance(class(self).GetMaterial())
 }
+
+func (o *Extension[T]) Material() Material.Instance { return o.Super().Material() }
 
 // SetMaterial sets the property returned by [GetMaterial]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMaterial(value Material.Instance) Instance { //gd:TileData.material
@@ -384,9 +421,16 @@ func (self Instance) SetMaterial(value Material.Instance) Instance { //gd:TileDa
 	return self
 }
 
+func (o *Extension[T]) SetMaterial(value Material.Instance) *Extension[T] {
+	o.Super().SetMaterial(value)
+	return o
+}
+
 func (self Instance) ZIndex() int { //gd:TileData.z_index
 		return int(int(class(self).GetZIndex()))
 }
+
+func (o *Extension[T]) ZIndex() int { return o.Super().ZIndex() }
 
 // SetZIndex sets the property returned by [GetZIndex]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetZIndex(value int) Instance { //gd:TileData.z_index
@@ -394,9 +438,16 @@ func (self Instance) SetZIndex(value int) Instance { //gd:TileData.z_index
 	return self
 }
 
+func (o *Extension[T]) SetZIndex(value int) *Extension[T] {
+	o.Super().SetZIndex(value)
+	return o
+}
+
 func (self Instance) YSortOrigin() int { //gd:TileData.y_sort_origin
 		return int(int(class(self).GetYSortOrigin()))
 }
+
+func (o *Extension[T]) YSortOrigin() int { return o.Super().YSortOrigin() }
 
 // SetYSortOrigin sets the property returned by [GetYSortOrigin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetYSortOrigin(value int) Instance { //gd:TileData.y_sort_origin
@@ -404,9 +455,16 @@ func (self Instance) SetYSortOrigin(value int) Instance { //gd:TileData.y_sort_o
 	return self
 }
 
+func (o *Extension[T]) SetYSortOrigin(value int) *Extension[T] {
+	o.Super().SetYSortOrigin(value)
+	return o
+}
+
 func (self Instance) TerrainSet() int { //gd:TileData.terrain_set
 		return int(int(class(self).GetTerrainSet()))
 }
+
+func (o *Extension[T]) TerrainSet() int { return o.Super().TerrainSet() }
 
 // SetTerrainSet sets the property returned by [GetTerrainSet]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTerrainSet(value int) Instance { //gd:TileData.terrain_set
@@ -414,9 +472,16 @@ func (self Instance) SetTerrainSet(value int) Instance { //gd:TileData.terrain_s
 	return self
 }
 
+func (o *Extension[T]) SetTerrainSet(value int) *Extension[T] {
+	o.Super().SetTerrainSet(value)
+	return o
+}
+
 func (self Instance) Terrain() int { //gd:TileData.terrain
 		return int(int(class(self).GetTerrain()))
 }
+
+func (o *Extension[T]) Terrain() int { return o.Super().Terrain() }
 
 // SetTerrain sets the property returned by [GetTerrain]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTerrain(value int) Instance { //gd:TileData.terrain
@@ -424,14 +489,26 @@ func (self Instance) SetTerrain(value int) Instance { //gd:TileData.terrain
 	return self
 }
 
+func (o *Extension[T]) SetTerrain(value int) *Extension[T] {
+	o.Super().SetTerrain(value)
+	return o
+}
+
 func (self Instance) Probability() Float.X { //gd:TileData.probability
 		return Float.X(Float.X(class(self).GetProbability()))
 }
+
+func (o *Extension[T]) Probability() Float.X { return o.Super().Probability() }
 
 // SetProbability sets the property returned by [GetProbability]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetProbability(value Float.X) Instance { //gd:TileData.probability
 	class(self).SetProbability(float64(value))
 	return self
+}
+
+func (o *Extension[T]) SetProbability(value Float.X) *Extension[T] {
+	o.Super().SetProbability(value)
+	return o
 }
 
 func (self class) SetFlipH(flip_h bool)  { //gd:TileData.set_flip_h

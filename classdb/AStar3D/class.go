@@ -321,10 +321,17 @@ func (self Instance) NeighborFilterEnabled() bool { //gd:AStar3D.neighbor_filter
 		return bool(class(self).IsNeighborFilterEnabled())
 }
 
+func (o *Extension[T]) NeighborFilterEnabled() bool { return o.Super().NeighborFilterEnabled() }
+
 // SetNeighborFilterEnabled sets the property returned by [IsNeighborFilterEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetNeighborFilterEnabled(value bool) Instance { //gd:AStar3D.neighbor_filter_enabled
 	class(self).SetNeighborFilterEnabled(value)
 	return self
+}
+
+func (o *Extension[T]) SetNeighborFilterEnabled(value bool) *Extension[T] {
+	o.Super().SetNeighborFilterEnabled(value)
+	return o
 }
 func (class) _filter_neighbor(impl func(ptr gdclass.Receiver, from_id int64, neighbor_id int64) bool) (cb gd.ExtensionClassCallVirtualFunc) {
 	return func(class any, p_args, p_back gdextension.Pointer) {

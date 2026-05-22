@@ -191,15 +191,24 @@ func (self Instance) SessionMode() string { //gd:WebXRInterface.session_mode
 		return string(class(self).GetSessionMode().String())
 }
 
+func (o *Extension[T]) SessionMode() string { return o.Super().SessionMode() }
+
 // SetSessionMode sets the property returned by [GetSessionMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSessionMode(value string) Instance { //gd:WebXRInterface.session_mode
 	class(self).SetSessionMode(String.From(value))
 	return self
 }
 
+func (o *Extension[T]) SetSessionMode(value string) *Extension[T] {
+	o.Super().SetSessionMode(value)
+	return o
+}
+
 func (self Instance) RequiredFeatures() string { //gd:WebXRInterface.required_features
 		return string(class(self).GetRequiredFeatures().String())
 }
+
+func (o *Extension[T]) RequiredFeatures() string { return o.Super().RequiredFeatures() }
 
 // SetRequiredFeatures sets the property returned by [GetRequiredFeatures]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRequiredFeatures(value string) Instance { //gd:WebXRInterface.required_features
@@ -207,9 +216,16 @@ func (self Instance) SetRequiredFeatures(value string) Instance { //gd:WebXRInte
 	return self
 }
 
+func (o *Extension[T]) SetRequiredFeatures(value string) *Extension[T] {
+	o.Super().SetRequiredFeatures(value)
+	return o
+}
+
 func (self Instance) OptionalFeatures() string { //gd:WebXRInterface.optional_features
 		return string(class(self).GetOptionalFeatures().String())
 }
+
+func (o *Extension[T]) OptionalFeatures() string { return o.Super().OptionalFeatures() }
 
 // SetOptionalFeatures sets the property returned by [GetOptionalFeatures]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOptionalFeatures(value string) Instance { //gd:WebXRInterface.optional_features
@@ -217,9 +233,16 @@ func (self Instance) SetOptionalFeatures(value string) Instance { //gd:WebXRInte
 	return self
 }
 
+func (o *Extension[T]) SetOptionalFeatures(value string) *Extension[T] {
+	o.Super().SetOptionalFeatures(value)
+	return o
+}
+
 func (self Instance) RequestedReferenceSpaceTypes() string { //gd:WebXRInterface.requested_reference_space_types
 		return string(class(self).GetRequestedReferenceSpaceTypes().String())
 }
+
+func (o *Extension[T]) RequestedReferenceSpaceTypes() string { return o.Super().RequestedReferenceSpaceTypes() }
 
 // SetRequestedReferenceSpaceTypes sets the property returned by [GetRequestedReferenceSpaceTypes]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRequestedReferenceSpaceTypes(value string) Instance { //gd:WebXRInterface.requested_reference_space_types
@@ -227,17 +250,28 @@ func (self Instance) SetRequestedReferenceSpaceTypes(value string) Instance { //
 	return self
 }
 
+func (o *Extension[T]) SetRequestedReferenceSpaceTypes(value string) *Extension[T] {
+	o.Super().SetRequestedReferenceSpaceTypes(value)
+	return o
+}
+
 func (self Instance) ReferenceSpaceType() string { //gd:WebXRInterface.reference_space_type
 		return string(class(self).GetReferenceSpaceType().String())
 }
+
+func (o *Extension[T]) ReferenceSpaceType() string { return o.Super().ReferenceSpaceType() }
 
 func (self Instance) EnabledFeatures() string { //gd:WebXRInterface.enabled_features
 		return string(class(self).GetEnabledFeatures().String())
 }
 
+func (o *Extension[T]) EnabledFeatures() string { return o.Super().EnabledFeatures() }
+
 func (self Instance) VisibilityState() string { //gd:WebXRInterface.visibility_state
 		return string(class(self).GetVisibilityState().String())
 }
+
+func (o *Extension[T]) VisibilityState() string { return o.Super().VisibilityState() }
 
 func (self class) IsSessionSupported(session_mode String.Readable)  { //gd:WebXRInterface.is_session_supported
 noescape.Call[struct{}]( gd.ObjectChecked(self.AsObject()), methods.is_session_supported, 0|(gdextension.SizeString<<4), &struct{session_mode gdextension.String}{pointers.Get(gd.InternalString(session_mode))})
@@ -739,6 +773,42 @@ func (self Instance) GetSupportedEnvironmentBlendModes() []XRInterface.Environme
 // GetSupportedEnvironmentBlendModes is promoted from [XRInterface.Instance.GetSupportedEnvironmentBlendModes].
 func (o *Extension[T]) GetSupportedEnvironmentBlendModes() []XRInterface.EnvironmentBlendMode {
 	return o.Super().AsXRInterface().GetSupportedEnvironmentBlendModes()
+}
+
+// InterfaceIsPrimary is promoted from [XRInterface.Instance.InterfaceIsPrimary].
+func (o *Extension[T]) InterfaceIsPrimary() bool { return o.Super().AsXRInterface().InterfaceIsPrimary() }
+
+// SetInterfaceIsPrimary is promoted from [XRInterface.Instance.SetInterfaceIsPrimary].
+func (o *Extension[T]) SetInterfaceIsPrimary(value bool) *Extension[T] {
+	o.Super().AsXRInterface().SetInterfaceIsPrimary(value)
+	return o
+}
+
+// XrPlayAreaMode is promoted from [XRInterface.Instance.XrPlayAreaMode].
+func (o *Extension[T]) XrPlayAreaMode() XRInterface.PlayAreaMode { return o.Super().AsXRInterface().XrPlayAreaMode() }
+
+// SetXrPlayAreaMode is promoted from [XRInterface.Instance.SetXrPlayAreaMode].
+func (o *Extension[T]) SetXrPlayAreaMode(value XRInterface.PlayAreaMode) *Extension[T] {
+	o.Super().AsXRInterface().SetXrPlayAreaMode(value)
+	return o
+}
+
+// EnvironmentBlendMode is promoted from [XRInterface.Instance.EnvironmentBlendMode].
+func (o *Extension[T]) EnvironmentBlendMode() XRInterface.EnvironmentBlendMode { return o.Super().AsXRInterface().EnvironmentBlendMode() }
+
+// SetEnvironmentBlendMode is promoted from [XRInterface.Instance.SetEnvironmentBlendMode].
+func (o *Extension[T]) SetEnvironmentBlendMode(value XRInterface.EnvironmentBlendMode) *Extension[T] {
+	o.Super().AsXRInterface().SetEnvironmentBlendMode(value)
+	return o
+}
+
+// ArIsAnchorDetectionEnabled is promoted from [XRInterface.Instance.ArIsAnchorDetectionEnabled].
+func (o *Extension[T]) ArIsAnchorDetectionEnabled() bool { return o.Super().AsXRInterface().ArIsAnchorDetectionEnabled() }
+
+// SetArIsAnchorDetectionEnabled is promoted from [XRInterface.Instance.SetArIsAnchorDetectionEnabled].
+func (o *Extension[T]) SetArIsAnchorDetectionEnabled(value bool) *Extension[T] {
+	o.Super().AsXRInterface().SetArIsAnchorDetectionEnabled(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

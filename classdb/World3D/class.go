@@ -159,15 +159,24 @@ func (self Instance) Environment() Environment.Instance { //gd:World3D.environme
 		return Environment.Instance(class(self).GetEnvironment())
 }
 
+func (o *Extension[T]) Environment() Environment.Instance { return o.Super().Environment() }
+
 // SetEnvironment sets the property returned by [GetEnvironment]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEnvironment(value Environment.Instance) Instance { //gd:World3D.environment
 	class(self).SetEnvironment(value)
 	return self
 }
 
+func (o *Extension[T]) SetEnvironment(value Environment.Instance) *Extension[T] {
+	o.Super().SetEnvironment(value)
+	return o
+}
+
 func (self Instance) FallbackEnvironment() Environment.Instance { //gd:World3D.fallback_environment
 		return Environment.Instance(class(self).GetFallbackEnvironment())
 }
+
+func (o *Extension[T]) FallbackEnvironment() Environment.Instance { return o.Super().FallbackEnvironment() }
 
 // SetFallbackEnvironment sets the property returned by [GetFallbackEnvironment]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFallbackEnvironment(value Environment.Instance) Instance { //gd:World3D.fallback_environment
@@ -175,9 +184,16 @@ func (self Instance) SetFallbackEnvironment(value Environment.Instance) Instance
 	return self
 }
 
+func (o *Extension[T]) SetFallbackEnvironment(value Environment.Instance) *Extension[T] {
+	o.Super().SetFallbackEnvironment(value)
+	return o
+}
+
 func (self Instance) CameraAttributes() CameraAttributes.Instance { //gd:World3D.camera_attributes
 		return CameraAttributes.Instance(class(self).GetCameraAttributes())
 }
+
+func (o *Extension[T]) CameraAttributes() CameraAttributes.Instance { return o.Super().CameraAttributes() }
 
 // SetCameraAttributes sets the property returned by [GetCameraAttributes]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCameraAttributes(value CameraAttributes.Instance) Instance { //gd:World3D.camera_attributes
@@ -185,21 +201,34 @@ func (self Instance) SetCameraAttributes(value CameraAttributes.Instance) Instan
 	return self
 }
 
+func (o *Extension[T]) SetCameraAttributes(value CameraAttributes.Instance) *Extension[T] {
+	o.Super().SetCameraAttributes(value)
+	return o
+}
+
 func (self Instance) Space() RID.Space3D { //gd:World3D.space
 		return RID.Space3D(RID.Space3D(class(self).GetSpace()))
 }
+
+func (o *Extension[T]) Space() RID.Space3D { return o.Super().Space() }
 
 func (self Instance) NavigationMap() RID.NavigationMap3D { //gd:World3D.navigation_map
 		return RID.NavigationMap3D(RID.NavigationMap3D(class(self).GetNavigationMap()))
 }
 
+func (o *Extension[T]) NavigationMap() RID.NavigationMap3D { return o.Super().NavigationMap() }
+
 func (self Instance) Scenario() RID.Scenario { //gd:World3D.scenario
 		return RID.Scenario(RID.Scenario(class(self).GetScenario()))
 }
 
+func (o *Extension[T]) Scenario() RID.Scenario { return o.Super().Scenario() }
+
 func (self Instance) DirectSpaceState() PhysicsDirectSpaceState3D.Instance { //gd:World3D.direct_space_state
 		return PhysicsDirectSpaceState3D.Instance(class(self).GetDirectSpaceState())
 }
+
+func (o *Extension[T]) DirectSpaceState() PhysicsDirectSpaceState3D.Instance { return o.Super().DirectSpaceState() }
 
 func (self class) GetSpace() RID.Any { //gd:World3D.get_space
 	var r_ret = noescape.Call[RID.Any]( gd.ObjectChecked(self.AsObject()), methods.get_space, gdextension.SizeRID, &struct{}{})
@@ -367,6 +396,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

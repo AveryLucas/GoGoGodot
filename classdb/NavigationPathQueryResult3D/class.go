@@ -160,15 +160,24 @@ func (self Instance) Path() []Vector3.XYZ { //gd:NavigationPathQueryResult3D.pat
 		return []Vector3.XYZ(slices.Collect(class(self).GetPath().Values()))
 }
 
+func (o *Extension[T]) Path() []Vector3.XYZ { return o.Super().Path() }
+
 // SetPath sets the property returned by [GetPath]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPath(value []Vector3.XYZ) Instance { //gd:NavigationPathQueryResult3D.path
 	class(self).SetPath(Packed.New(value...))
 	return self
 }
 
+func (o *Extension[T]) SetPath(value []Vector3.XYZ) *Extension[T] {
+	o.Super().SetPath(value)
+	return o
+}
+
 func (self Instance) PathTypes() []int32 { //gd:NavigationPathQueryResult3D.path_types
 		return []int32(slices.Collect(class(self).GetPathTypes().Values()))
 }
+
+func (o *Extension[T]) PathTypes() []int32 { return o.Super().PathTypes() }
 
 // SetPathTypes sets the property returned by [GetPathTypes]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPathTypes(value []int32) Instance { //gd:NavigationPathQueryResult3D.path_types
@@ -176,9 +185,16 @@ func (self Instance) SetPathTypes(value []int32) Instance { //gd:NavigationPathQ
 	return self
 }
 
+func (o *Extension[T]) SetPathTypes(value []int32) *Extension[T] {
+	o.Super().SetPathTypes(value)
+	return o
+}
+
 func (self Instance) PathRids() []RID.Either[RID.NavigationLink3D,RID.NavigationRegion3D] { //gd:NavigationPathQueryResult3D.path_rids
 		return []RID.Either[RID.NavigationLink3D,RID.NavigationRegion3D](gd.ArrayAs[[]RID.Either[RID.NavigationLink3D,RID.NavigationRegion3D]](gd.InternalArray(class(self).GetPathRids())))
 }
+
+func (o *Extension[T]) PathRids() []RID.Either[RID.NavigationLink3D,RID.NavigationRegion3D] { return o.Super().PathRids() }
 
 // SetPathRids sets the property returned by [GetPathRids]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPathRids(value []RID.Either[RID.NavigationLink3D,RID.NavigationRegion3D]) Instance { //gd:NavigationPathQueryResult3D.path_rids
@@ -186,9 +202,16 @@ func (self Instance) SetPathRids(value []RID.Either[RID.NavigationLink3D,RID.Nav
 	return self
 }
 
+func (o *Extension[T]) SetPathRids(value []RID.Either[RID.NavigationLink3D,RID.NavigationRegion3D]) *Extension[T] {
+	o.Super().SetPathRids(value)
+	return o
+}
+
 func (self Instance) PathOwnerIds() []int64 { //gd:NavigationPathQueryResult3D.path_owner_ids
 		return []int64(slices.Collect(class(self).GetPathOwnerIds().Values()))
 }
+
+func (o *Extension[T]) PathOwnerIds() []int64 { return o.Super().PathOwnerIds() }
 
 // SetPathOwnerIds sets the property returned by [GetPathOwnerIds]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPathOwnerIds(value []int64) Instance { //gd:NavigationPathQueryResult3D.path_owner_ids
@@ -196,14 +219,26 @@ func (self Instance) SetPathOwnerIds(value []int64) Instance { //gd:NavigationPa
 	return self
 }
 
+func (o *Extension[T]) SetPathOwnerIds(value []int64) *Extension[T] {
+	o.Super().SetPathOwnerIds(value)
+	return o
+}
+
 func (self Instance) PathLength() Float.X { //gd:NavigationPathQueryResult3D.path_length
 		return Float.X(Float.X(class(self).GetPathLength()))
 }
+
+func (o *Extension[T]) PathLength() Float.X { return o.Super().PathLength() }
 
 // SetPathLength sets the property returned by [GetPathLength]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPathLength(value Float.X) Instance { //gd:NavigationPathQueryResult3D.path_length
 	class(self).SetPathLength(float64(value))
 	return self
+}
+
+func (o *Extension[T]) SetPathLength(value Float.X) *Extension[T] {
+	o.Super().SetPathLength(value)
+	return o
 }
 
 func (self class) SetPath(path Packed.Array[Vector3.XYZ])  { //gd:NavigationPathQueryResult3D.set_path

@@ -176,15 +176,24 @@ func (self Instance) Map() RID.NavigationMap3D { //gd:NavigationPathQueryParamet
 		return RID.NavigationMap3D(RID.NavigationMap3D(class(self).GetMap()))
 }
 
+func (o *Extension[T]) Map() RID.NavigationMap3D { return o.Super().Map() }
+
 // SetMap sets the property returned by [GetMap]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMap(value RID.NavigationMap3D) Instance { //gd:NavigationPathQueryParameters3D.map
 	class(self).SetMap(RID.Any(value))
 	return self
 }
 
+func (o *Extension[T]) SetMap(value RID.NavigationMap3D) *Extension[T] {
+	o.Super().SetMap(value)
+	return o
+}
+
 func (self Instance) StartPosition() Vector3.XYZ { //gd:NavigationPathQueryParameters3D.start_position
 		return Vector3.XYZ(class(self).GetStartPosition())
 }
+
+func (o *Extension[T]) StartPosition() Vector3.XYZ { return o.Super().StartPosition() }
 
 // SetStartPosition sets the property returned by [GetStartPosition]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStartPosition(value Vector3.XYZ) Instance { //gd:NavigationPathQueryParameters3D.start_position
@@ -192,9 +201,16 @@ func (self Instance) SetStartPosition(value Vector3.XYZ) Instance { //gd:Navigat
 	return self
 }
 
+func (o *Extension[T]) SetStartPosition(value Vector3.XYZ) *Extension[T] {
+	o.Super().SetStartPosition(value)
+	return o
+}
+
 func (self Instance) TargetPosition() Vector3.XYZ { //gd:NavigationPathQueryParameters3D.target_position
 		return Vector3.XYZ(class(self).GetTargetPosition())
 }
+
+func (o *Extension[T]) TargetPosition() Vector3.XYZ { return o.Super().TargetPosition() }
 
 // SetTargetPosition sets the property returned by [GetTargetPosition]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTargetPosition(value Vector3.XYZ) Instance { //gd:NavigationPathQueryParameters3D.target_position
@@ -202,9 +218,16 @@ func (self Instance) SetTargetPosition(value Vector3.XYZ) Instance { //gd:Naviga
 	return self
 }
 
+func (o *Extension[T]) SetTargetPosition(value Vector3.XYZ) *Extension[T] {
+	o.Super().SetTargetPosition(value)
+	return o
+}
+
 func (self Instance) NavigationLayers() int { //gd:NavigationPathQueryParameters3D.navigation_layers
 		return int(int(class(self).GetNavigationLayers()))
 }
+
+func (o *Extension[T]) NavigationLayers() int { return o.Super().NavigationLayers() }
 
 // SetNavigationLayers sets the property returned by [GetNavigationLayers]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetNavigationLayers(value int) Instance { //gd:NavigationPathQueryParameters3D.navigation_layers
@@ -212,9 +235,16 @@ func (self Instance) SetNavigationLayers(value int) Instance { //gd:NavigationPa
 	return self
 }
 
+func (o *Extension[T]) SetNavigationLayers(value int) *Extension[T] {
+	o.Super().SetNavigationLayers(value)
+	return o
+}
+
 func (self Instance) PathfindingAlgorithm() PathfindingAlgorithm { //gd:NavigationPathQueryParameters3D.pathfinding_algorithm
 		return PathfindingAlgorithm(class(self).GetPathfindingAlgorithm())
 }
+
+func (o *Extension[T]) PathfindingAlgorithm() PathfindingAlgorithm { return o.Super().PathfindingAlgorithm() }
 
 // SetPathfindingAlgorithm sets the property returned by [GetPathfindingAlgorithm]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPathfindingAlgorithm(value PathfindingAlgorithm) Instance { //gd:NavigationPathQueryParameters3D.pathfinding_algorithm
@@ -222,9 +252,16 @@ func (self Instance) SetPathfindingAlgorithm(value PathfindingAlgorithm) Instanc
 	return self
 }
 
+func (o *Extension[T]) SetPathfindingAlgorithm(value PathfindingAlgorithm) *Extension[T] {
+	o.Super().SetPathfindingAlgorithm(value)
+	return o
+}
+
 func (self Instance) PathPostprocessing() PathPostProcessing { //gd:NavigationPathQueryParameters3D.path_postprocessing
 		return PathPostProcessing(class(self).GetPathPostprocessing())
 }
+
+func (o *Extension[T]) PathPostprocessing() PathPostProcessing { return o.Super().PathPostprocessing() }
 
 // SetPathPostprocessing sets the property returned by [GetPathPostprocessing]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPathPostprocessing(value PathPostProcessing) Instance { //gd:NavigationPathQueryParameters3D.path_postprocessing
@@ -232,9 +269,16 @@ func (self Instance) SetPathPostprocessing(value PathPostProcessing) Instance { 
 	return self
 }
 
+func (o *Extension[T]) SetPathPostprocessing(value PathPostProcessing) *Extension[T] {
+	o.Super().SetPathPostprocessing(value)
+	return o
+}
+
 func (self Instance) MetadataFlags() PathMetadataFlags { //gd:NavigationPathQueryParameters3D.metadata_flags
 		return PathMetadataFlags(class(self).GetMetadataFlags())
 }
+
+func (o *Extension[T]) MetadataFlags() PathMetadataFlags { return o.Super().MetadataFlags() }
 
 // SetMetadataFlags sets the property returned by [GetMetadataFlags]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMetadataFlags(value PathMetadataFlags) Instance { //gd:NavigationPathQueryParameters3D.metadata_flags
@@ -242,9 +286,16 @@ func (self Instance) SetMetadataFlags(value PathMetadataFlags) Instance { //gd:N
 	return self
 }
 
+func (o *Extension[T]) SetMetadataFlags(value PathMetadataFlags) *Extension[T] {
+	o.Super().SetMetadataFlags(value)
+	return o
+}
+
 func (self Instance) SimplifyPath() bool { //gd:NavigationPathQueryParameters3D.simplify_path
 		return bool(class(self).GetSimplifyPath())
 }
+
+func (o *Extension[T]) SimplifyPath() bool { return o.Super().SimplifyPath() }
 
 // SetSimplifyPath sets the property returned by [GetSimplifyPath]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSimplifyPath(value bool) Instance { //gd:NavigationPathQueryParameters3D.simplify_path
@@ -252,9 +303,16 @@ func (self Instance) SetSimplifyPath(value bool) Instance { //gd:NavigationPathQ
 	return self
 }
 
+func (o *Extension[T]) SetSimplifyPath(value bool) *Extension[T] {
+	o.Super().SetSimplifyPath(value)
+	return o
+}
+
 func (self Instance) SimplifyEpsilon() Float.X { //gd:NavigationPathQueryParameters3D.simplify_epsilon
 		return Float.X(Float.X(class(self).GetSimplifyEpsilon()))
 }
+
+func (o *Extension[T]) SimplifyEpsilon() Float.X { return o.Super().SimplifyEpsilon() }
 
 // SetSimplifyEpsilon sets the property returned by [GetSimplifyEpsilon]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSimplifyEpsilon(value Float.X) Instance { //gd:NavigationPathQueryParameters3D.simplify_epsilon
@@ -262,9 +320,16 @@ func (self Instance) SetSimplifyEpsilon(value Float.X) Instance { //gd:Navigatio
 	return self
 }
 
+func (o *Extension[T]) SetSimplifyEpsilon(value Float.X) *Extension[T] {
+	o.Super().SetSimplifyEpsilon(value)
+	return o
+}
+
 func (self Instance) ExcludedRegions() []RID.Any { //gd:NavigationPathQueryParameters3D.excluded_regions
 		return []RID.Any(gd.ArrayAs[[]RID.Any](gd.InternalArray(class(self).GetExcludedRegions())))
 }
+
+func (o *Extension[T]) ExcludedRegions() []RID.Any { return o.Super().ExcludedRegions() }
 
 // SetExcludedRegions sets the property returned by [GetExcludedRegions]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetExcludedRegions(value []RID.Any) Instance { //gd:NavigationPathQueryParameters3D.excluded_regions
@@ -272,9 +337,16 @@ func (self Instance) SetExcludedRegions(value []RID.Any) Instance { //gd:Navigat
 	return self
 }
 
+func (o *Extension[T]) SetExcludedRegions(value []RID.Any) *Extension[T] {
+	o.Super().SetExcludedRegions(value)
+	return o
+}
+
 func (self Instance) IncludedRegions() []RID.Any { //gd:NavigationPathQueryParameters3D.included_regions
 		return []RID.Any(gd.ArrayAs[[]RID.Any](gd.InternalArray(class(self).GetIncludedRegions())))
 }
+
+func (o *Extension[T]) IncludedRegions() []RID.Any { return o.Super().IncludedRegions() }
 
 // SetIncludedRegions sets the property returned by [GetIncludedRegions]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetIncludedRegions(value []RID.Any) Instance { //gd:NavigationPathQueryParameters3D.included_regions
@@ -282,9 +354,16 @@ func (self Instance) SetIncludedRegions(value []RID.Any) Instance { //gd:Navigat
 	return self
 }
 
+func (o *Extension[T]) SetIncludedRegions(value []RID.Any) *Extension[T] {
+	o.Super().SetIncludedRegions(value)
+	return o
+}
+
 func (self Instance) PathReturnMaxLength() Float.X { //gd:NavigationPathQueryParameters3D.path_return_max_length
 		return Float.X(Float.X(class(self).GetPathReturnMaxLength()))
 }
+
+func (o *Extension[T]) PathReturnMaxLength() Float.X { return o.Super().PathReturnMaxLength() }
 
 // SetPathReturnMaxLength sets the property returned by [GetPathReturnMaxLength]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPathReturnMaxLength(value Float.X) Instance { //gd:NavigationPathQueryParameters3D.path_return_max_length
@@ -292,9 +371,16 @@ func (self Instance) SetPathReturnMaxLength(value Float.X) Instance { //gd:Navig
 	return self
 }
 
+func (o *Extension[T]) SetPathReturnMaxLength(value Float.X) *Extension[T] {
+	o.Super().SetPathReturnMaxLength(value)
+	return o
+}
+
 func (self Instance) PathReturnMaxRadius() Float.X { //gd:NavigationPathQueryParameters3D.path_return_max_radius
 		return Float.X(Float.X(class(self).GetPathReturnMaxRadius()))
 }
+
+func (o *Extension[T]) PathReturnMaxRadius() Float.X { return o.Super().PathReturnMaxRadius() }
 
 // SetPathReturnMaxRadius sets the property returned by [GetPathReturnMaxRadius]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPathReturnMaxRadius(value Float.X) Instance { //gd:NavigationPathQueryParameters3D.path_return_max_radius
@@ -302,9 +388,16 @@ func (self Instance) SetPathReturnMaxRadius(value Float.X) Instance { //gd:Navig
 	return self
 }
 
+func (o *Extension[T]) SetPathReturnMaxRadius(value Float.X) *Extension[T] {
+	o.Super().SetPathReturnMaxRadius(value)
+	return o
+}
+
 func (self Instance) PathSearchMaxPolygons() int { //gd:NavigationPathQueryParameters3D.path_search_max_polygons
 		return int(int(class(self).GetPathSearchMaxPolygons()))
 }
+
+func (o *Extension[T]) PathSearchMaxPolygons() int { return o.Super().PathSearchMaxPolygons() }
 
 // SetPathSearchMaxPolygons sets the property returned by [GetPathSearchMaxPolygons]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPathSearchMaxPolygons(value int) Instance { //gd:NavigationPathQueryParameters3D.path_search_max_polygons
@@ -312,14 +405,26 @@ func (self Instance) SetPathSearchMaxPolygons(value int) Instance { //gd:Navigat
 	return self
 }
 
+func (o *Extension[T]) SetPathSearchMaxPolygons(value int) *Extension[T] {
+	o.Super().SetPathSearchMaxPolygons(value)
+	return o
+}
+
 func (self Instance) PathSearchMaxDistance() Float.X { //gd:NavigationPathQueryParameters3D.path_search_max_distance
 		return Float.X(Float.X(class(self).GetPathSearchMaxDistance()))
 }
+
+func (o *Extension[T]) PathSearchMaxDistance() Float.X { return o.Super().PathSearchMaxDistance() }
 
 // SetPathSearchMaxDistance sets the property returned by [GetPathSearchMaxDistance]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPathSearchMaxDistance(value Float.X) Instance { //gd:NavigationPathQueryParameters3D.path_search_max_distance
 	class(self).SetPathSearchMaxDistance(float64(value))
 	return self
+}
+
+func (o *Extension[T]) SetPathSearchMaxDistance(value Float.X) *Extension[T] {
+	o.Super().SetPathSearchMaxDistance(value)
+	return o
 }
 
 func (self class) SetPathfindingAlgorithm(pathfinding_algorithm PathfindingAlgorithm)  { //gd:NavigationPathQueryParameters3D.set_pathfinding_algorithm

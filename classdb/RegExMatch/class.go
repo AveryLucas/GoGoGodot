@@ -178,13 +178,19 @@ func (self Instance) Subject() string { //gd:RegExMatch.subject
 		return string(class(self).GetSubject().String())
 }
 
+func (o *Extension[T]) Subject() string { return o.Super().Subject() }
+
 func (self Instance) Names() map[string]int { //gd:RegExMatch.names
 		return map[string]int(gd.DictionaryAs[map[string]int](class(self).GetNames()))
 }
 
+func (o *Extension[T]) Names() map[string]int { return o.Super().Names() }
+
 func (self Instance) Strings() []string { //gd:RegExMatch.strings
 		return []string(class(self).GetStrings().Strings())
 }
+
+func (o *Extension[T]) Strings() []string { return o.Super().Strings() }
 
 func (self class) GetSubject() String.Readable { //gd:RegExMatch.get_subject
 	var r_ret = noescape.Call[gdextension.String]( gd.ObjectChecked(self.AsObject()), methods.get_subject, gdextension.SizeString, &struct{}{})

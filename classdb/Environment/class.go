@@ -345,15 +345,24 @@ func (self Instance) BackgroundMode() BGMode { //gd:Environment.background_mode
 		return BGMode(class(self).GetBackground())
 }
 
+func (o *Extension[T]) BackgroundMode() BGMode { return o.Super().BackgroundMode() }
+
 // SetBackgroundMode sets the property returned by [GetBackground]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBackgroundMode(value BGMode) Instance { //gd:Environment.background_mode
 	class(self).SetBackground(value)
 	return self
 }
 
+func (o *Extension[T]) SetBackgroundMode(value BGMode) *Extension[T] {
+	o.Super().SetBackgroundMode(value)
+	return o
+}
+
 func (self Instance) BackgroundColor() Color.RGBA { //gd:Environment.background_color
 		return Color.RGBA(class(self).GetBgColor())
 }
+
+func (o *Extension[T]) BackgroundColor() Color.RGBA { return o.Super().BackgroundColor() }
 
 // SetBackgroundColor sets the property returned by [GetBgColor]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBackgroundColor(value Color.RGBA) Instance { //gd:Environment.background_color
@@ -361,9 +370,16 @@ func (self Instance) SetBackgroundColor(value Color.RGBA) Instance { //gd:Enviro
 	return self
 }
 
+func (o *Extension[T]) SetBackgroundColor(value Color.RGBA) *Extension[T] {
+	o.Super().SetBackgroundColor(value)
+	return o
+}
+
 func (self Instance) BackgroundEnergyMultiplier() Float.X { //gd:Environment.background_energy_multiplier
 		return Float.X(Float.X(class(self).GetBgEnergyMultiplier()))
 }
+
+func (o *Extension[T]) BackgroundEnergyMultiplier() Float.X { return o.Super().BackgroundEnergyMultiplier() }
 
 // SetBackgroundEnergyMultiplier sets the property returned by [GetBgEnergyMultiplier]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBackgroundEnergyMultiplier(value Float.X) Instance { //gd:Environment.background_energy_multiplier
@@ -371,9 +387,16 @@ func (self Instance) SetBackgroundEnergyMultiplier(value Float.X) Instance { //g
 	return self
 }
 
+func (o *Extension[T]) SetBackgroundEnergyMultiplier(value Float.X) *Extension[T] {
+	o.Super().SetBackgroundEnergyMultiplier(value)
+	return o
+}
+
 func (self Instance) BackgroundIntensity() Float.X { //gd:Environment.background_intensity
 		return Float.X(Float.X(class(self).GetBgIntensity()))
 }
+
+func (o *Extension[T]) BackgroundIntensity() Float.X { return o.Super().BackgroundIntensity() }
 
 // SetBackgroundIntensity sets the property returned by [GetBgIntensity]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBackgroundIntensity(value Float.X) Instance { //gd:Environment.background_intensity
@@ -381,9 +404,16 @@ func (self Instance) SetBackgroundIntensity(value Float.X) Instance { //gd:Envir
 	return self
 }
 
+func (o *Extension[T]) SetBackgroundIntensity(value Float.X) *Extension[T] {
+	o.Super().SetBackgroundIntensity(value)
+	return o
+}
+
 func (self Instance) BackgroundCanvasMaxLayer() int { //gd:Environment.background_canvas_max_layer
 		return int(int(class(self).GetCanvasMaxLayer()))
 }
+
+func (o *Extension[T]) BackgroundCanvasMaxLayer() int { return o.Super().BackgroundCanvasMaxLayer() }
 
 // SetBackgroundCanvasMaxLayer sets the property returned by [GetCanvasMaxLayer]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBackgroundCanvasMaxLayer(value int) Instance { //gd:Environment.background_canvas_max_layer
@@ -391,9 +421,16 @@ func (self Instance) SetBackgroundCanvasMaxLayer(value int) Instance { //gd:Envi
 	return self
 }
 
+func (o *Extension[T]) SetBackgroundCanvasMaxLayer(value int) *Extension[T] {
+	o.Super().SetBackgroundCanvasMaxLayer(value)
+	return o
+}
+
 func (self Instance) BackgroundCameraFeedId() int { //gd:Environment.background_camera_feed_id
 		return int(int(class(self).GetCameraFeedId()))
 }
+
+func (o *Extension[T]) BackgroundCameraFeedId() int { return o.Super().BackgroundCameraFeedId() }
 
 // SetBackgroundCameraFeedId sets the property returned by [GetCameraFeedId]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBackgroundCameraFeedId(value int) Instance { //gd:Environment.background_camera_feed_id
@@ -401,9 +438,16 @@ func (self Instance) SetBackgroundCameraFeedId(value int) Instance { //gd:Enviro
 	return self
 }
 
+func (o *Extension[T]) SetBackgroundCameraFeedId(value int) *Extension[T] {
+	o.Super().SetBackgroundCameraFeedId(value)
+	return o
+}
+
 func (self Instance) Sky() Sky.Instance { //gd:Environment.sky
 		return Sky.Instance(class(self).GetSky())
 }
+
+func (o *Extension[T]) Sky() Sky.Instance { return o.Super().Sky() }
 
 // SetSky sets the property returned by [GetSky]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSky(value Sky.Instance) Instance { //gd:Environment.sky
@@ -411,9 +455,16 @@ func (self Instance) SetSky(value Sky.Instance) Instance { //gd:Environment.sky
 	return self
 }
 
+func (o *Extension[T]) SetSky(value Sky.Instance) *Extension[T] {
+	o.Super().SetSky(value)
+	return o
+}
+
 func (self Instance) SkyCustomFov() Float.X { //gd:Environment.sky_custom_fov
 		return Float.X(Float.X(class(self).GetSkyCustomFov()))
 }
+
+func (o *Extension[T]) SkyCustomFov() Float.X { return o.Super().SkyCustomFov() }
 
 // SetSkyCustomFov sets the property returned by [GetSkyCustomFov]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSkyCustomFov(value Float.X) Instance { //gd:Environment.sky_custom_fov
@@ -421,9 +472,16 @@ func (self Instance) SetSkyCustomFov(value Float.X) Instance { //gd:Environment.
 	return self
 }
 
+func (o *Extension[T]) SetSkyCustomFov(value Float.X) *Extension[T] {
+	o.Super().SetSkyCustomFov(value)
+	return o
+}
+
 func (self Instance) SkyRotation() Euler.Radians { //gd:Environment.sky_rotation
 		return Euler.Radians(Vector3.EulerRadians(class(self).GetSkyRotation()))
 }
+
+func (o *Extension[T]) SkyRotation() Euler.Radians { return o.Super().SkyRotation() }
 
 // SetSkyRotation sets the property returned by [GetSkyRotation]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSkyRotation(value Euler.Radians) Instance { //gd:Environment.sky_rotation
@@ -431,9 +489,16 @@ func (self Instance) SetSkyRotation(value Euler.Radians) Instance { //gd:Environ
 	return self
 }
 
+func (o *Extension[T]) SetSkyRotation(value Euler.Radians) *Extension[T] {
+	o.Super().SetSkyRotation(value)
+	return o
+}
+
 func (self Instance) AmbientLightSource() AmbientSource { //gd:Environment.ambient_light_source
 		return AmbientSource(class(self).GetAmbientSource())
 }
+
+func (o *Extension[T]) AmbientLightSource() AmbientSource { return o.Super().AmbientLightSource() }
 
 // SetAmbientLightSource sets the property returned by [GetAmbientSource]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAmbientLightSource(value AmbientSource) Instance { //gd:Environment.ambient_light_source
@@ -441,9 +506,16 @@ func (self Instance) SetAmbientLightSource(value AmbientSource) Instance { //gd:
 	return self
 }
 
+func (o *Extension[T]) SetAmbientLightSource(value AmbientSource) *Extension[T] {
+	o.Super().SetAmbientLightSource(value)
+	return o
+}
+
 func (self Instance) AmbientLightColor() Color.RGBA { //gd:Environment.ambient_light_color
 		return Color.RGBA(class(self).GetAmbientLightColor())
 }
+
+func (o *Extension[T]) AmbientLightColor() Color.RGBA { return o.Super().AmbientLightColor() }
 
 // SetAmbientLightColor sets the property returned by [GetAmbientLightColor]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAmbientLightColor(value Color.RGBA) Instance { //gd:Environment.ambient_light_color
@@ -451,9 +523,16 @@ func (self Instance) SetAmbientLightColor(value Color.RGBA) Instance { //gd:Envi
 	return self
 }
 
+func (o *Extension[T]) SetAmbientLightColor(value Color.RGBA) *Extension[T] {
+	o.Super().SetAmbientLightColor(value)
+	return o
+}
+
 func (self Instance) AmbientLightSkyContribution() Float.X { //gd:Environment.ambient_light_sky_contribution
 		return Float.X(Float.X(class(self).GetAmbientLightSkyContribution()))
 }
+
+func (o *Extension[T]) AmbientLightSkyContribution() Float.X { return o.Super().AmbientLightSkyContribution() }
 
 // SetAmbientLightSkyContribution sets the property returned by [GetAmbientLightSkyContribution]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAmbientLightSkyContribution(value Float.X) Instance { //gd:Environment.ambient_light_sky_contribution
@@ -461,9 +540,16 @@ func (self Instance) SetAmbientLightSkyContribution(value Float.X) Instance { //
 	return self
 }
 
+func (o *Extension[T]) SetAmbientLightSkyContribution(value Float.X) *Extension[T] {
+	o.Super().SetAmbientLightSkyContribution(value)
+	return o
+}
+
 func (self Instance) AmbientLightEnergy() Float.X { //gd:Environment.ambient_light_energy
 		return Float.X(Float.X(class(self).GetAmbientLightEnergy()))
 }
+
+func (o *Extension[T]) AmbientLightEnergy() Float.X { return o.Super().AmbientLightEnergy() }
 
 // SetAmbientLightEnergy sets the property returned by [GetAmbientLightEnergy]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAmbientLightEnergy(value Float.X) Instance { //gd:Environment.ambient_light_energy
@@ -471,9 +557,16 @@ func (self Instance) SetAmbientLightEnergy(value Float.X) Instance { //gd:Enviro
 	return self
 }
 
+func (o *Extension[T]) SetAmbientLightEnergy(value Float.X) *Extension[T] {
+	o.Super().SetAmbientLightEnergy(value)
+	return o
+}
+
 func (self Instance) ReflectedLightSource() ReflectionSource { //gd:Environment.reflected_light_source
 		return ReflectionSource(class(self).GetReflectionSource())
 }
+
+func (o *Extension[T]) ReflectedLightSource() ReflectionSource { return o.Super().ReflectedLightSource() }
 
 // SetReflectedLightSource sets the property returned by [GetReflectionSource]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetReflectedLightSource(value ReflectionSource) Instance { //gd:Environment.reflected_light_source
@@ -481,9 +574,16 @@ func (self Instance) SetReflectedLightSource(value ReflectionSource) Instance { 
 	return self
 }
 
+func (o *Extension[T]) SetReflectedLightSource(value ReflectionSource) *Extension[T] {
+	o.Super().SetReflectedLightSource(value)
+	return o
+}
+
 func (self Instance) TonemapMode() ToneMapper { //gd:Environment.tonemap_mode
 		return ToneMapper(class(self).GetTonemapper())
 }
+
+func (o *Extension[T]) TonemapMode() ToneMapper { return o.Super().TonemapMode() }
 
 // SetTonemapMode sets the property returned by [GetTonemapper]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTonemapMode(value ToneMapper) Instance { //gd:Environment.tonemap_mode
@@ -491,9 +591,16 @@ func (self Instance) SetTonemapMode(value ToneMapper) Instance { //gd:Environmen
 	return self
 }
 
+func (o *Extension[T]) SetTonemapMode(value ToneMapper) *Extension[T] {
+	o.Super().SetTonemapMode(value)
+	return o
+}
+
 func (self Instance) TonemapExposure() Float.X { //gd:Environment.tonemap_exposure
 		return Float.X(Float.X(class(self).GetTonemapExposure()))
 }
+
+func (o *Extension[T]) TonemapExposure() Float.X { return o.Super().TonemapExposure() }
 
 // SetTonemapExposure sets the property returned by [GetTonemapExposure]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTonemapExposure(value Float.X) Instance { //gd:Environment.tonemap_exposure
@@ -501,9 +608,16 @@ func (self Instance) SetTonemapExposure(value Float.X) Instance { //gd:Environme
 	return self
 }
 
+func (o *Extension[T]) SetTonemapExposure(value Float.X) *Extension[T] {
+	o.Super().SetTonemapExposure(value)
+	return o
+}
+
 func (self Instance) TonemapWhite() Float.X { //gd:Environment.tonemap_white
 		return Float.X(Float.X(class(self).GetTonemapWhite()))
 }
+
+func (o *Extension[T]) TonemapWhite() Float.X { return o.Super().TonemapWhite() }
 
 // SetTonemapWhite sets the property returned by [GetTonemapWhite]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTonemapWhite(value Float.X) Instance { //gd:Environment.tonemap_white
@@ -511,9 +625,16 @@ func (self Instance) SetTonemapWhite(value Float.X) Instance { //gd:Environment.
 	return self
 }
 
+func (o *Extension[T]) SetTonemapWhite(value Float.X) *Extension[T] {
+	o.Super().SetTonemapWhite(value)
+	return o
+}
+
 func (self Instance) TonemapAgxWhite() Float.X { //gd:Environment.tonemap_agx_white
 		return Float.X(Float.X(class(self).GetTonemapAgxWhite()))
 }
+
+func (o *Extension[T]) TonemapAgxWhite() Float.X { return o.Super().TonemapAgxWhite() }
 
 // SetTonemapAgxWhite sets the property returned by [GetTonemapAgxWhite]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTonemapAgxWhite(value Float.X) Instance { //gd:Environment.tonemap_agx_white
@@ -521,9 +642,16 @@ func (self Instance) SetTonemapAgxWhite(value Float.X) Instance { //gd:Environme
 	return self
 }
 
+func (o *Extension[T]) SetTonemapAgxWhite(value Float.X) *Extension[T] {
+	o.Super().SetTonemapAgxWhite(value)
+	return o
+}
+
 func (self Instance) TonemapAgxContrast() Float.X { //gd:Environment.tonemap_agx_contrast
 		return Float.X(Float.X(class(self).GetTonemapAgxContrast()))
 }
+
+func (o *Extension[T]) TonemapAgxContrast() Float.X { return o.Super().TonemapAgxContrast() }
 
 // SetTonemapAgxContrast sets the property returned by [GetTonemapAgxContrast]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTonemapAgxContrast(value Float.X) Instance { //gd:Environment.tonemap_agx_contrast
@@ -531,9 +659,16 @@ func (self Instance) SetTonemapAgxContrast(value Float.X) Instance { //gd:Enviro
 	return self
 }
 
+func (o *Extension[T]) SetTonemapAgxContrast(value Float.X) *Extension[T] {
+	o.Super().SetTonemapAgxContrast(value)
+	return o
+}
+
 func (self Instance) SsrEnabled() bool { //gd:Environment.ssr_enabled
 		return bool(class(self).IsSsrEnabled())
 }
+
+func (o *Extension[T]) SsrEnabled() bool { return o.Super().SsrEnabled() }
 
 // SetSsrEnabled sets the property returned by [IsSsrEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSsrEnabled(value bool) Instance { //gd:Environment.ssr_enabled
@@ -541,9 +676,16 @@ func (self Instance) SetSsrEnabled(value bool) Instance { //gd:Environment.ssr_e
 	return self
 }
 
+func (o *Extension[T]) SetSsrEnabled(value bool) *Extension[T] {
+	o.Super().SetSsrEnabled(value)
+	return o
+}
+
 func (self Instance) SsrMaxSteps() int { //gd:Environment.ssr_max_steps
 		return int(int(class(self).GetSsrMaxSteps()))
 }
+
+func (o *Extension[T]) SsrMaxSteps() int { return o.Super().SsrMaxSteps() }
 
 // SetSsrMaxSteps sets the property returned by [GetSsrMaxSteps]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSsrMaxSteps(value int) Instance { //gd:Environment.ssr_max_steps
@@ -551,9 +693,16 @@ func (self Instance) SetSsrMaxSteps(value int) Instance { //gd:Environment.ssr_m
 	return self
 }
 
+func (o *Extension[T]) SetSsrMaxSteps(value int) *Extension[T] {
+	o.Super().SetSsrMaxSteps(value)
+	return o
+}
+
 func (self Instance) SsrFadeIn() Float.X { //gd:Environment.ssr_fade_in
 		return Float.X(Float.X(class(self).GetSsrFadeIn()))
 }
+
+func (o *Extension[T]) SsrFadeIn() Float.X { return o.Super().SsrFadeIn() }
 
 // SetSsrFadeIn sets the property returned by [GetSsrFadeIn]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSsrFadeIn(value Float.X) Instance { //gd:Environment.ssr_fade_in
@@ -561,9 +710,16 @@ func (self Instance) SetSsrFadeIn(value Float.X) Instance { //gd:Environment.ssr
 	return self
 }
 
+func (o *Extension[T]) SetSsrFadeIn(value Float.X) *Extension[T] {
+	o.Super().SetSsrFadeIn(value)
+	return o
+}
+
 func (self Instance) SsrFadeOut() Float.X { //gd:Environment.ssr_fade_out
 		return Float.X(Float.X(class(self).GetSsrFadeOut()))
 }
+
+func (o *Extension[T]) SsrFadeOut() Float.X { return o.Super().SsrFadeOut() }
 
 // SetSsrFadeOut sets the property returned by [GetSsrFadeOut]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSsrFadeOut(value Float.X) Instance { //gd:Environment.ssr_fade_out
@@ -571,9 +727,16 @@ func (self Instance) SetSsrFadeOut(value Float.X) Instance { //gd:Environment.ss
 	return self
 }
 
+func (o *Extension[T]) SetSsrFadeOut(value Float.X) *Extension[T] {
+	o.Super().SetSsrFadeOut(value)
+	return o
+}
+
 func (self Instance) SsrDepthTolerance() Float.X { //gd:Environment.ssr_depth_tolerance
 		return Float.X(Float.X(class(self).GetSsrDepthTolerance()))
 }
+
+func (o *Extension[T]) SsrDepthTolerance() Float.X { return o.Super().SsrDepthTolerance() }
 
 // SetSsrDepthTolerance sets the property returned by [GetSsrDepthTolerance]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSsrDepthTolerance(value Float.X) Instance { //gd:Environment.ssr_depth_tolerance
@@ -581,9 +744,16 @@ func (self Instance) SetSsrDepthTolerance(value Float.X) Instance { //gd:Environ
 	return self
 }
 
+func (o *Extension[T]) SetSsrDepthTolerance(value Float.X) *Extension[T] {
+	o.Super().SetSsrDepthTolerance(value)
+	return o
+}
+
 func (self Instance) SsaoEnabled() bool { //gd:Environment.ssao_enabled
 		return bool(class(self).IsSsaoEnabled())
 }
+
+func (o *Extension[T]) SsaoEnabled() bool { return o.Super().SsaoEnabled() }
 
 // SetSsaoEnabled sets the property returned by [IsSsaoEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSsaoEnabled(value bool) Instance { //gd:Environment.ssao_enabled
@@ -591,9 +761,16 @@ func (self Instance) SetSsaoEnabled(value bool) Instance { //gd:Environment.ssao
 	return self
 }
 
+func (o *Extension[T]) SetSsaoEnabled(value bool) *Extension[T] {
+	o.Super().SetSsaoEnabled(value)
+	return o
+}
+
 func (self Instance) SsaoRadius() Float.X { //gd:Environment.ssao_radius
 		return Float.X(Float.X(class(self).GetSsaoRadius()))
 }
+
+func (o *Extension[T]) SsaoRadius() Float.X { return o.Super().SsaoRadius() }
 
 // SetSsaoRadius sets the property returned by [GetSsaoRadius]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSsaoRadius(value Float.X) Instance { //gd:Environment.ssao_radius
@@ -601,9 +778,16 @@ func (self Instance) SetSsaoRadius(value Float.X) Instance { //gd:Environment.ss
 	return self
 }
 
+func (o *Extension[T]) SetSsaoRadius(value Float.X) *Extension[T] {
+	o.Super().SetSsaoRadius(value)
+	return o
+}
+
 func (self Instance) SsaoIntensity() Float.X { //gd:Environment.ssao_intensity
 		return Float.X(Float.X(class(self).GetSsaoIntensity()))
 }
+
+func (o *Extension[T]) SsaoIntensity() Float.X { return o.Super().SsaoIntensity() }
 
 // SetSsaoIntensity sets the property returned by [GetSsaoIntensity]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSsaoIntensity(value Float.X) Instance { //gd:Environment.ssao_intensity
@@ -611,9 +795,16 @@ func (self Instance) SetSsaoIntensity(value Float.X) Instance { //gd:Environment
 	return self
 }
 
+func (o *Extension[T]) SetSsaoIntensity(value Float.X) *Extension[T] {
+	o.Super().SetSsaoIntensity(value)
+	return o
+}
+
 func (self Instance) SsaoPower() Float.X { //gd:Environment.ssao_power
 		return Float.X(Float.X(class(self).GetSsaoPower()))
 }
+
+func (o *Extension[T]) SsaoPower() Float.X { return o.Super().SsaoPower() }
 
 // SetSsaoPower sets the property returned by [GetSsaoPower]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSsaoPower(value Float.X) Instance { //gd:Environment.ssao_power
@@ -621,9 +812,16 @@ func (self Instance) SetSsaoPower(value Float.X) Instance { //gd:Environment.ssa
 	return self
 }
 
+func (o *Extension[T]) SetSsaoPower(value Float.X) *Extension[T] {
+	o.Super().SetSsaoPower(value)
+	return o
+}
+
 func (self Instance) SsaoDetail() Float.X { //gd:Environment.ssao_detail
 		return Float.X(Float.X(class(self).GetSsaoDetail()))
 }
+
+func (o *Extension[T]) SsaoDetail() Float.X { return o.Super().SsaoDetail() }
 
 // SetSsaoDetail sets the property returned by [GetSsaoDetail]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSsaoDetail(value Float.X) Instance { //gd:Environment.ssao_detail
@@ -631,9 +829,16 @@ func (self Instance) SetSsaoDetail(value Float.X) Instance { //gd:Environment.ss
 	return self
 }
 
+func (o *Extension[T]) SetSsaoDetail(value Float.X) *Extension[T] {
+	o.Super().SetSsaoDetail(value)
+	return o
+}
+
 func (self Instance) SsaoHorizon() Float.X { //gd:Environment.ssao_horizon
 		return Float.X(Float.X(class(self).GetSsaoHorizon()))
 }
+
+func (o *Extension[T]) SsaoHorizon() Float.X { return o.Super().SsaoHorizon() }
 
 // SetSsaoHorizon sets the property returned by [GetSsaoHorizon]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSsaoHorizon(value Float.X) Instance { //gd:Environment.ssao_horizon
@@ -641,9 +846,16 @@ func (self Instance) SetSsaoHorizon(value Float.X) Instance { //gd:Environment.s
 	return self
 }
 
+func (o *Extension[T]) SetSsaoHorizon(value Float.X) *Extension[T] {
+	o.Super().SetSsaoHorizon(value)
+	return o
+}
+
 func (self Instance) SsaoSharpness() Float.X { //gd:Environment.ssao_sharpness
 		return Float.X(Float.X(class(self).GetSsaoSharpness()))
 }
+
+func (o *Extension[T]) SsaoSharpness() Float.X { return o.Super().SsaoSharpness() }
 
 // SetSsaoSharpness sets the property returned by [GetSsaoSharpness]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSsaoSharpness(value Float.X) Instance { //gd:Environment.ssao_sharpness
@@ -651,9 +863,16 @@ func (self Instance) SetSsaoSharpness(value Float.X) Instance { //gd:Environment
 	return self
 }
 
+func (o *Extension[T]) SetSsaoSharpness(value Float.X) *Extension[T] {
+	o.Super().SetSsaoSharpness(value)
+	return o
+}
+
 func (self Instance) SsaoLightAffect() Float.X { //gd:Environment.ssao_light_affect
 		return Float.X(Float.X(class(self).GetSsaoDirectLightAffect()))
 }
+
+func (o *Extension[T]) SsaoLightAffect() Float.X { return o.Super().SsaoLightAffect() }
 
 // SetSsaoLightAffect sets the property returned by [GetSsaoDirectLightAffect]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSsaoLightAffect(value Float.X) Instance { //gd:Environment.ssao_light_affect
@@ -661,9 +880,16 @@ func (self Instance) SetSsaoLightAffect(value Float.X) Instance { //gd:Environme
 	return self
 }
 
+func (o *Extension[T]) SetSsaoLightAffect(value Float.X) *Extension[T] {
+	o.Super().SetSsaoLightAffect(value)
+	return o
+}
+
 func (self Instance) SsaoAoChannelAffect() Float.X { //gd:Environment.ssao_ao_channel_affect
 		return Float.X(Float.X(class(self).GetSsaoAoChannelAffect()))
 }
+
+func (o *Extension[T]) SsaoAoChannelAffect() Float.X { return o.Super().SsaoAoChannelAffect() }
 
 // SetSsaoAoChannelAffect sets the property returned by [GetSsaoAoChannelAffect]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSsaoAoChannelAffect(value Float.X) Instance { //gd:Environment.ssao_ao_channel_affect
@@ -671,9 +897,16 @@ func (self Instance) SetSsaoAoChannelAffect(value Float.X) Instance { //gd:Envir
 	return self
 }
 
+func (o *Extension[T]) SetSsaoAoChannelAffect(value Float.X) *Extension[T] {
+	o.Super().SetSsaoAoChannelAffect(value)
+	return o
+}
+
 func (self Instance) SsilEnabled() bool { //gd:Environment.ssil_enabled
 		return bool(class(self).IsSsilEnabled())
 }
+
+func (o *Extension[T]) SsilEnabled() bool { return o.Super().SsilEnabled() }
 
 // SetSsilEnabled sets the property returned by [IsSsilEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSsilEnabled(value bool) Instance { //gd:Environment.ssil_enabled
@@ -681,9 +914,16 @@ func (self Instance) SetSsilEnabled(value bool) Instance { //gd:Environment.ssil
 	return self
 }
 
+func (o *Extension[T]) SetSsilEnabled(value bool) *Extension[T] {
+	o.Super().SetSsilEnabled(value)
+	return o
+}
+
 func (self Instance) SsilRadius() Float.X { //gd:Environment.ssil_radius
 		return Float.X(Float.X(class(self).GetSsilRadius()))
 }
+
+func (o *Extension[T]) SsilRadius() Float.X { return o.Super().SsilRadius() }
 
 // SetSsilRadius sets the property returned by [GetSsilRadius]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSsilRadius(value Float.X) Instance { //gd:Environment.ssil_radius
@@ -691,9 +931,16 @@ func (self Instance) SetSsilRadius(value Float.X) Instance { //gd:Environment.ss
 	return self
 }
 
+func (o *Extension[T]) SetSsilRadius(value Float.X) *Extension[T] {
+	o.Super().SetSsilRadius(value)
+	return o
+}
+
 func (self Instance) SsilIntensity() Float.X { //gd:Environment.ssil_intensity
 		return Float.X(Float.X(class(self).GetSsilIntensity()))
 }
+
+func (o *Extension[T]) SsilIntensity() Float.X { return o.Super().SsilIntensity() }
 
 // SetSsilIntensity sets the property returned by [GetSsilIntensity]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSsilIntensity(value Float.X) Instance { //gd:Environment.ssil_intensity
@@ -701,9 +948,16 @@ func (self Instance) SetSsilIntensity(value Float.X) Instance { //gd:Environment
 	return self
 }
 
+func (o *Extension[T]) SetSsilIntensity(value Float.X) *Extension[T] {
+	o.Super().SetSsilIntensity(value)
+	return o
+}
+
 func (self Instance) SsilSharpness() Float.X { //gd:Environment.ssil_sharpness
 		return Float.X(Float.X(class(self).GetSsilSharpness()))
 }
+
+func (o *Extension[T]) SsilSharpness() Float.X { return o.Super().SsilSharpness() }
 
 // SetSsilSharpness sets the property returned by [GetSsilSharpness]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSsilSharpness(value Float.X) Instance { //gd:Environment.ssil_sharpness
@@ -711,9 +965,16 @@ func (self Instance) SetSsilSharpness(value Float.X) Instance { //gd:Environment
 	return self
 }
 
+func (o *Extension[T]) SetSsilSharpness(value Float.X) *Extension[T] {
+	o.Super().SetSsilSharpness(value)
+	return o
+}
+
 func (self Instance) SsilNormalRejection() Float.X { //gd:Environment.ssil_normal_rejection
 		return Float.X(Float.X(class(self).GetSsilNormalRejection()))
 }
+
+func (o *Extension[T]) SsilNormalRejection() Float.X { return o.Super().SsilNormalRejection() }
 
 // SetSsilNormalRejection sets the property returned by [GetSsilNormalRejection]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSsilNormalRejection(value Float.X) Instance { //gd:Environment.ssil_normal_rejection
@@ -721,9 +982,16 @@ func (self Instance) SetSsilNormalRejection(value Float.X) Instance { //gd:Envir
 	return self
 }
 
+func (o *Extension[T]) SetSsilNormalRejection(value Float.X) *Extension[T] {
+	o.Super().SetSsilNormalRejection(value)
+	return o
+}
+
 func (self Instance) SdfgiEnabled() bool { //gd:Environment.sdfgi_enabled
 		return bool(class(self).IsSdfgiEnabled())
 }
+
+func (o *Extension[T]) SdfgiEnabled() bool { return o.Super().SdfgiEnabled() }
 
 // SetSdfgiEnabled sets the property returned by [IsSdfgiEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSdfgiEnabled(value bool) Instance { //gd:Environment.sdfgi_enabled
@@ -731,9 +999,16 @@ func (self Instance) SetSdfgiEnabled(value bool) Instance { //gd:Environment.sdf
 	return self
 }
 
+func (o *Extension[T]) SetSdfgiEnabled(value bool) *Extension[T] {
+	o.Super().SetSdfgiEnabled(value)
+	return o
+}
+
 func (self Instance) SdfgiUseOcclusion() bool { //gd:Environment.sdfgi_use_occlusion
 		return bool(class(self).IsSdfgiUsingOcclusion())
 }
+
+func (o *Extension[T]) SdfgiUseOcclusion() bool { return o.Super().SdfgiUseOcclusion() }
 
 // SetSdfgiUseOcclusion sets the property returned by [IsSdfgiUsingOcclusion]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSdfgiUseOcclusion(value bool) Instance { //gd:Environment.sdfgi_use_occlusion
@@ -741,9 +1016,16 @@ func (self Instance) SetSdfgiUseOcclusion(value bool) Instance { //gd:Environmen
 	return self
 }
 
+func (o *Extension[T]) SetSdfgiUseOcclusion(value bool) *Extension[T] {
+	o.Super().SetSdfgiUseOcclusion(value)
+	return o
+}
+
 func (self Instance) SdfgiReadSkyLight() bool { //gd:Environment.sdfgi_read_sky_light
 		return bool(class(self).IsSdfgiReadingSkyLight())
 }
+
+func (o *Extension[T]) SdfgiReadSkyLight() bool { return o.Super().SdfgiReadSkyLight() }
 
 // SetSdfgiReadSkyLight sets the property returned by [IsSdfgiReadingSkyLight]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSdfgiReadSkyLight(value bool) Instance { //gd:Environment.sdfgi_read_sky_light
@@ -751,9 +1033,16 @@ func (self Instance) SetSdfgiReadSkyLight(value bool) Instance { //gd:Environmen
 	return self
 }
 
+func (o *Extension[T]) SetSdfgiReadSkyLight(value bool) *Extension[T] {
+	o.Super().SetSdfgiReadSkyLight(value)
+	return o
+}
+
 func (self Instance) SdfgiBounceFeedback() Float.X { //gd:Environment.sdfgi_bounce_feedback
 		return Float.X(Float.X(class(self).GetSdfgiBounceFeedback()))
 }
+
+func (o *Extension[T]) SdfgiBounceFeedback() Float.X { return o.Super().SdfgiBounceFeedback() }
 
 // SetSdfgiBounceFeedback sets the property returned by [GetSdfgiBounceFeedback]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSdfgiBounceFeedback(value Float.X) Instance { //gd:Environment.sdfgi_bounce_feedback
@@ -761,9 +1050,16 @@ func (self Instance) SetSdfgiBounceFeedback(value Float.X) Instance { //gd:Envir
 	return self
 }
 
+func (o *Extension[T]) SetSdfgiBounceFeedback(value Float.X) *Extension[T] {
+	o.Super().SetSdfgiBounceFeedback(value)
+	return o
+}
+
 func (self Instance) SdfgiCascades() int { //gd:Environment.sdfgi_cascades
 		return int(int(class(self).GetSdfgiCascades()))
 }
+
+func (o *Extension[T]) SdfgiCascades() int { return o.Super().SdfgiCascades() }
 
 // SetSdfgiCascades sets the property returned by [GetSdfgiCascades]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSdfgiCascades(value int) Instance { //gd:Environment.sdfgi_cascades
@@ -771,9 +1067,16 @@ func (self Instance) SetSdfgiCascades(value int) Instance { //gd:Environment.sdf
 	return self
 }
 
+func (o *Extension[T]) SetSdfgiCascades(value int) *Extension[T] {
+	o.Super().SetSdfgiCascades(value)
+	return o
+}
+
 func (self Instance) SdfgiMinCellSize() Float.X { //gd:Environment.sdfgi_min_cell_size
 		return Float.X(Float.X(class(self).GetSdfgiMinCellSize()))
 }
+
+func (o *Extension[T]) SdfgiMinCellSize() Float.X { return o.Super().SdfgiMinCellSize() }
 
 // SetSdfgiMinCellSize sets the property returned by [GetSdfgiMinCellSize]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSdfgiMinCellSize(value Float.X) Instance { //gd:Environment.sdfgi_min_cell_size
@@ -781,9 +1084,16 @@ func (self Instance) SetSdfgiMinCellSize(value Float.X) Instance { //gd:Environm
 	return self
 }
 
+func (o *Extension[T]) SetSdfgiMinCellSize(value Float.X) *Extension[T] {
+	o.Super().SetSdfgiMinCellSize(value)
+	return o
+}
+
 func (self Instance) SdfgiCascade0Distance() Float.X { //gd:Environment.sdfgi_cascade0_distance
 		return Float.X(Float.X(class(self).GetSdfgiCascade0Distance()))
 }
+
+func (o *Extension[T]) SdfgiCascade0Distance() Float.X { return o.Super().SdfgiCascade0Distance() }
 
 // SetSdfgiCascade0Distance sets the property returned by [GetSdfgiCascade0Distance]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSdfgiCascade0Distance(value Float.X) Instance { //gd:Environment.sdfgi_cascade0_distance
@@ -791,9 +1101,16 @@ func (self Instance) SetSdfgiCascade0Distance(value Float.X) Instance { //gd:Env
 	return self
 }
 
+func (o *Extension[T]) SetSdfgiCascade0Distance(value Float.X) *Extension[T] {
+	o.Super().SetSdfgiCascade0Distance(value)
+	return o
+}
+
 func (self Instance) SdfgiMaxDistance() Float.X { //gd:Environment.sdfgi_max_distance
 		return Float.X(Float.X(class(self).GetSdfgiMaxDistance()))
 }
+
+func (o *Extension[T]) SdfgiMaxDistance() Float.X { return o.Super().SdfgiMaxDistance() }
 
 // SetSdfgiMaxDistance sets the property returned by [GetSdfgiMaxDistance]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSdfgiMaxDistance(value Float.X) Instance { //gd:Environment.sdfgi_max_distance
@@ -801,9 +1118,16 @@ func (self Instance) SetSdfgiMaxDistance(value Float.X) Instance { //gd:Environm
 	return self
 }
 
+func (o *Extension[T]) SetSdfgiMaxDistance(value Float.X) *Extension[T] {
+	o.Super().SetSdfgiMaxDistance(value)
+	return o
+}
+
 func (self Instance) SdfgiYScale() SDFGIYScale { //gd:Environment.sdfgi_y_scale
 		return SDFGIYScale(class(self).GetSdfgiYScale())
 }
+
+func (o *Extension[T]) SdfgiYScale() SDFGIYScale { return o.Super().SdfgiYScale() }
 
 // SetSdfgiYScale sets the property returned by [GetSdfgiYScale]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSdfgiYScale(value SDFGIYScale) Instance { //gd:Environment.sdfgi_y_scale
@@ -811,9 +1135,16 @@ func (self Instance) SetSdfgiYScale(value SDFGIYScale) Instance { //gd:Environme
 	return self
 }
 
+func (o *Extension[T]) SetSdfgiYScale(value SDFGIYScale) *Extension[T] {
+	o.Super().SetSdfgiYScale(value)
+	return o
+}
+
 func (self Instance) SdfgiEnergy() Float.X { //gd:Environment.sdfgi_energy
 		return Float.X(Float.X(class(self).GetSdfgiEnergy()))
 }
+
+func (o *Extension[T]) SdfgiEnergy() Float.X { return o.Super().SdfgiEnergy() }
 
 // SetSdfgiEnergy sets the property returned by [GetSdfgiEnergy]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSdfgiEnergy(value Float.X) Instance { //gd:Environment.sdfgi_energy
@@ -821,9 +1152,16 @@ func (self Instance) SetSdfgiEnergy(value Float.X) Instance { //gd:Environment.s
 	return self
 }
 
+func (o *Extension[T]) SetSdfgiEnergy(value Float.X) *Extension[T] {
+	o.Super().SetSdfgiEnergy(value)
+	return o
+}
+
 func (self Instance) SdfgiNormalBias() Float.X { //gd:Environment.sdfgi_normal_bias
 		return Float.X(Float.X(class(self).GetSdfgiNormalBias()))
 }
+
+func (o *Extension[T]) SdfgiNormalBias() Float.X { return o.Super().SdfgiNormalBias() }
 
 // SetSdfgiNormalBias sets the property returned by [GetSdfgiNormalBias]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSdfgiNormalBias(value Float.X) Instance { //gd:Environment.sdfgi_normal_bias
@@ -831,9 +1169,16 @@ func (self Instance) SetSdfgiNormalBias(value Float.X) Instance { //gd:Environme
 	return self
 }
 
+func (o *Extension[T]) SetSdfgiNormalBias(value Float.X) *Extension[T] {
+	o.Super().SetSdfgiNormalBias(value)
+	return o
+}
+
 func (self Instance) SdfgiProbeBias() Float.X { //gd:Environment.sdfgi_probe_bias
 		return Float.X(Float.X(class(self).GetSdfgiProbeBias()))
 }
+
+func (o *Extension[T]) SdfgiProbeBias() Float.X { return o.Super().SdfgiProbeBias() }
 
 // SetSdfgiProbeBias sets the property returned by [GetSdfgiProbeBias]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSdfgiProbeBias(value Float.X) Instance { //gd:Environment.sdfgi_probe_bias
@@ -841,9 +1186,16 @@ func (self Instance) SetSdfgiProbeBias(value Float.X) Instance { //gd:Environmen
 	return self
 }
 
+func (o *Extension[T]) SetSdfgiProbeBias(value Float.X) *Extension[T] {
+	o.Super().SetSdfgiProbeBias(value)
+	return o
+}
+
 func (self Instance) GlowEnabled() bool { //gd:Environment.glow_enabled
 		return bool(class(self).IsGlowEnabled())
 }
+
+func (o *Extension[T]) GlowEnabled() bool { return o.Super().GlowEnabled() }
 
 // SetGlowEnabled sets the property returned by [IsGlowEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetGlowEnabled(value bool) Instance { //gd:Environment.glow_enabled
@@ -851,9 +1203,16 @@ func (self Instance) SetGlowEnabled(value bool) Instance { //gd:Environment.glow
 	return self
 }
 
+func (o *Extension[T]) SetGlowEnabled(value bool) *Extension[T] {
+	o.Super().SetGlowEnabled(value)
+	return o
+}
+
 func (self Instance) GlowNormalized() bool { //gd:Environment.glow_normalized
 		return bool(class(self).IsGlowNormalized())
 }
+
+func (o *Extension[T]) GlowNormalized() bool { return o.Super().GlowNormalized() }
 
 // SetGlowNormalized sets the property returned by [IsGlowNormalized]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetGlowNormalized(value bool) Instance { //gd:Environment.glow_normalized
@@ -861,9 +1220,16 @@ func (self Instance) SetGlowNormalized(value bool) Instance { //gd:Environment.g
 	return self
 }
 
+func (o *Extension[T]) SetGlowNormalized(value bool) *Extension[T] {
+	o.Super().SetGlowNormalized(value)
+	return o
+}
+
 func (self Instance) GlowIntensity() Float.X { //gd:Environment.glow_intensity
 		return Float.X(Float.X(class(self).GetGlowIntensity()))
 }
+
+func (o *Extension[T]) GlowIntensity() Float.X { return o.Super().GlowIntensity() }
 
 // SetGlowIntensity sets the property returned by [GetGlowIntensity]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetGlowIntensity(value Float.X) Instance { //gd:Environment.glow_intensity
@@ -871,9 +1237,16 @@ func (self Instance) SetGlowIntensity(value Float.X) Instance { //gd:Environment
 	return self
 }
 
+func (o *Extension[T]) SetGlowIntensity(value Float.X) *Extension[T] {
+	o.Super().SetGlowIntensity(value)
+	return o
+}
+
 func (self Instance) GlowStrength() Float.X { //gd:Environment.glow_strength
 		return Float.X(Float.X(class(self).GetGlowStrength()))
 }
+
+func (o *Extension[T]) GlowStrength() Float.X { return o.Super().GlowStrength() }
 
 // SetGlowStrength sets the property returned by [GetGlowStrength]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetGlowStrength(value Float.X) Instance { //gd:Environment.glow_strength
@@ -881,9 +1254,16 @@ func (self Instance) SetGlowStrength(value Float.X) Instance { //gd:Environment.
 	return self
 }
 
+func (o *Extension[T]) SetGlowStrength(value Float.X) *Extension[T] {
+	o.Super().SetGlowStrength(value)
+	return o
+}
+
 func (self Instance) GlowMix() Float.X { //gd:Environment.glow_mix
 		return Float.X(Float.X(class(self).GetGlowMix()))
 }
+
+func (o *Extension[T]) GlowMix() Float.X { return o.Super().GlowMix() }
 
 // SetGlowMix sets the property returned by [GetGlowMix]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetGlowMix(value Float.X) Instance { //gd:Environment.glow_mix
@@ -891,9 +1271,16 @@ func (self Instance) SetGlowMix(value Float.X) Instance { //gd:Environment.glow_
 	return self
 }
 
+func (o *Extension[T]) SetGlowMix(value Float.X) *Extension[T] {
+	o.Super().SetGlowMix(value)
+	return o
+}
+
 func (self Instance) GlowBloom() Float.X { //gd:Environment.glow_bloom
 		return Float.X(Float.X(class(self).GetGlowBloom()))
 }
+
+func (o *Extension[T]) GlowBloom() Float.X { return o.Super().GlowBloom() }
 
 // SetGlowBloom sets the property returned by [GetGlowBloom]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetGlowBloom(value Float.X) Instance { //gd:Environment.glow_bloom
@@ -901,9 +1288,16 @@ func (self Instance) SetGlowBloom(value Float.X) Instance { //gd:Environment.glo
 	return self
 }
 
+func (o *Extension[T]) SetGlowBloom(value Float.X) *Extension[T] {
+	o.Super().SetGlowBloom(value)
+	return o
+}
+
 func (self Instance) GlowBlendMode() GlowBlendMode { //gd:Environment.glow_blend_mode
 		return GlowBlendMode(class(self).GetGlowBlendMode())
 }
+
+func (o *Extension[T]) GlowBlendMode() GlowBlendMode { return o.Super().GlowBlendMode() }
 
 // SetGlowBlendMode sets the property returned by [GetGlowBlendMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetGlowBlendMode(value GlowBlendMode) Instance { //gd:Environment.glow_blend_mode
@@ -911,9 +1305,16 @@ func (self Instance) SetGlowBlendMode(value GlowBlendMode) Instance { //gd:Envir
 	return self
 }
 
+func (o *Extension[T]) SetGlowBlendMode(value GlowBlendMode) *Extension[T] {
+	o.Super().SetGlowBlendMode(value)
+	return o
+}
+
 func (self Instance) GlowHdrThreshold() Float.X { //gd:Environment.glow_hdr_threshold
 		return Float.X(Float.X(class(self).GetGlowHdrBleedThreshold()))
 }
+
+func (o *Extension[T]) GlowHdrThreshold() Float.X { return o.Super().GlowHdrThreshold() }
 
 // SetGlowHdrThreshold sets the property returned by [GetGlowHdrBleedThreshold]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetGlowHdrThreshold(value Float.X) Instance { //gd:Environment.glow_hdr_threshold
@@ -921,9 +1322,16 @@ func (self Instance) SetGlowHdrThreshold(value Float.X) Instance { //gd:Environm
 	return self
 }
 
+func (o *Extension[T]) SetGlowHdrThreshold(value Float.X) *Extension[T] {
+	o.Super().SetGlowHdrThreshold(value)
+	return o
+}
+
 func (self Instance) GlowHdrScale() Float.X { //gd:Environment.glow_hdr_scale
 		return Float.X(Float.X(class(self).GetGlowHdrBleedScale()))
 }
+
+func (o *Extension[T]) GlowHdrScale() Float.X { return o.Super().GlowHdrScale() }
 
 // SetGlowHdrScale sets the property returned by [GetGlowHdrBleedScale]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetGlowHdrScale(value Float.X) Instance { //gd:Environment.glow_hdr_scale
@@ -931,9 +1339,16 @@ func (self Instance) SetGlowHdrScale(value Float.X) Instance { //gd:Environment.
 	return self
 }
 
+func (o *Extension[T]) SetGlowHdrScale(value Float.X) *Extension[T] {
+	o.Super().SetGlowHdrScale(value)
+	return o
+}
+
 func (self Instance) GlowHdrLuminanceCap() Float.X { //gd:Environment.glow_hdr_luminance_cap
 		return Float.X(Float.X(class(self).GetGlowHdrLuminanceCap()))
 }
+
+func (o *Extension[T]) GlowHdrLuminanceCap() Float.X { return o.Super().GlowHdrLuminanceCap() }
 
 // SetGlowHdrLuminanceCap sets the property returned by [GetGlowHdrLuminanceCap]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetGlowHdrLuminanceCap(value Float.X) Instance { //gd:Environment.glow_hdr_luminance_cap
@@ -941,9 +1356,16 @@ func (self Instance) SetGlowHdrLuminanceCap(value Float.X) Instance { //gd:Envir
 	return self
 }
 
+func (o *Extension[T]) SetGlowHdrLuminanceCap(value Float.X) *Extension[T] {
+	o.Super().SetGlowHdrLuminanceCap(value)
+	return o
+}
+
 func (self Instance) GlowMapStrength() Float.X { //gd:Environment.glow_map_strength
 		return Float.X(Float.X(class(self).GetGlowMapStrength()))
 }
+
+func (o *Extension[T]) GlowMapStrength() Float.X { return o.Super().GlowMapStrength() }
 
 // SetGlowMapStrength sets the property returned by [GetGlowMapStrength]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetGlowMapStrength(value Float.X) Instance { //gd:Environment.glow_map_strength
@@ -951,9 +1373,16 @@ func (self Instance) SetGlowMapStrength(value Float.X) Instance { //gd:Environme
 	return self
 }
 
+func (o *Extension[T]) SetGlowMapStrength(value Float.X) *Extension[T] {
+	o.Super().SetGlowMapStrength(value)
+	return o
+}
+
 func (self Instance) GlowMap() Texture.Instance { //gd:Environment.glow_map
 		return Texture.Instance(class(self).GetGlowMap())
 }
+
+func (o *Extension[T]) GlowMap() Texture.Instance { return o.Super().GlowMap() }
 
 // SetGlowMap sets the property returned by [GetGlowMap]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetGlowMap(value Texture.Instance) Instance { //gd:Environment.glow_map
@@ -961,9 +1390,16 @@ func (self Instance) SetGlowMap(value Texture.Instance) Instance { //gd:Environm
 	return self
 }
 
+func (o *Extension[T]) SetGlowMap(value Texture.Instance) *Extension[T] {
+	o.Super().SetGlowMap(value)
+	return o
+}
+
 func (self Instance) FogEnabled() bool { //gd:Environment.fog_enabled
 		return bool(class(self).IsFogEnabled())
 }
+
+func (o *Extension[T]) FogEnabled() bool { return o.Super().FogEnabled() }
 
 // SetFogEnabled sets the property returned by [IsFogEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFogEnabled(value bool) Instance { //gd:Environment.fog_enabled
@@ -971,9 +1407,16 @@ func (self Instance) SetFogEnabled(value bool) Instance { //gd:Environment.fog_e
 	return self
 }
 
+func (o *Extension[T]) SetFogEnabled(value bool) *Extension[T] {
+	o.Super().SetFogEnabled(value)
+	return o
+}
+
 func (self Instance) FogMode() FogMode { //gd:Environment.fog_mode
 		return FogMode(class(self).GetFogMode())
 }
+
+func (o *Extension[T]) FogMode() FogMode { return o.Super().FogMode() }
 
 // SetFogMode sets the property returned by [GetFogMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFogMode(value FogMode) Instance { //gd:Environment.fog_mode
@@ -981,9 +1424,16 @@ func (self Instance) SetFogMode(value FogMode) Instance { //gd:Environment.fog_m
 	return self
 }
 
+func (o *Extension[T]) SetFogMode(value FogMode) *Extension[T] {
+	o.Super().SetFogMode(value)
+	return o
+}
+
 func (self Instance) FogLightColor() Color.RGBA { //gd:Environment.fog_light_color
 		return Color.RGBA(class(self).GetFogLightColor())
 }
+
+func (o *Extension[T]) FogLightColor() Color.RGBA { return o.Super().FogLightColor() }
 
 // SetFogLightColor sets the property returned by [GetFogLightColor]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFogLightColor(value Color.RGBA) Instance { //gd:Environment.fog_light_color
@@ -991,9 +1441,16 @@ func (self Instance) SetFogLightColor(value Color.RGBA) Instance { //gd:Environm
 	return self
 }
 
+func (o *Extension[T]) SetFogLightColor(value Color.RGBA) *Extension[T] {
+	o.Super().SetFogLightColor(value)
+	return o
+}
+
 func (self Instance) FogLightEnergy() Float.X { //gd:Environment.fog_light_energy
 		return Float.X(Float.X(class(self).GetFogLightEnergy()))
 }
+
+func (o *Extension[T]) FogLightEnergy() Float.X { return o.Super().FogLightEnergy() }
 
 // SetFogLightEnergy sets the property returned by [GetFogLightEnergy]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFogLightEnergy(value Float.X) Instance { //gd:Environment.fog_light_energy
@@ -1001,9 +1458,16 @@ func (self Instance) SetFogLightEnergy(value Float.X) Instance { //gd:Environmen
 	return self
 }
 
+func (o *Extension[T]) SetFogLightEnergy(value Float.X) *Extension[T] {
+	o.Super().SetFogLightEnergy(value)
+	return o
+}
+
 func (self Instance) FogSunScatter() Float.X { //gd:Environment.fog_sun_scatter
 		return Float.X(Float.X(class(self).GetFogSunScatter()))
 }
+
+func (o *Extension[T]) FogSunScatter() Float.X { return o.Super().FogSunScatter() }
 
 // SetFogSunScatter sets the property returned by [GetFogSunScatter]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFogSunScatter(value Float.X) Instance { //gd:Environment.fog_sun_scatter
@@ -1011,9 +1475,16 @@ func (self Instance) SetFogSunScatter(value Float.X) Instance { //gd:Environment
 	return self
 }
 
+func (o *Extension[T]) SetFogSunScatter(value Float.X) *Extension[T] {
+	o.Super().SetFogSunScatter(value)
+	return o
+}
+
 func (self Instance) FogDensity() Float.X { //gd:Environment.fog_density
 		return Float.X(Float.X(class(self).GetFogDensity()))
 }
+
+func (o *Extension[T]) FogDensity() Float.X { return o.Super().FogDensity() }
 
 // SetFogDensity sets the property returned by [GetFogDensity]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFogDensity(value Float.X) Instance { //gd:Environment.fog_density
@@ -1021,9 +1492,16 @@ func (self Instance) SetFogDensity(value Float.X) Instance { //gd:Environment.fo
 	return self
 }
 
+func (o *Extension[T]) SetFogDensity(value Float.X) *Extension[T] {
+	o.Super().SetFogDensity(value)
+	return o
+}
+
 func (self Instance) FogAerialPerspective() Float.X { //gd:Environment.fog_aerial_perspective
 		return Float.X(Float.X(class(self).GetFogAerialPerspective()))
 }
+
+func (o *Extension[T]) FogAerialPerspective() Float.X { return o.Super().FogAerialPerspective() }
 
 // SetFogAerialPerspective sets the property returned by [GetFogAerialPerspective]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFogAerialPerspective(value Float.X) Instance { //gd:Environment.fog_aerial_perspective
@@ -1031,9 +1509,16 @@ func (self Instance) SetFogAerialPerspective(value Float.X) Instance { //gd:Envi
 	return self
 }
 
+func (o *Extension[T]) SetFogAerialPerspective(value Float.X) *Extension[T] {
+	o.Super().SetFogAerialPerspective(value)
+	return o
+}
+
 func (self Instance) FogSkyAffect() Float.X { //gd:Environment.fog_sky_affect
 		return Float.X(Float.X(class(self).GetFogSkyAffect()))
 }
+
+func (o *Extension[T]) FogSkyAffect() Float.X { return o.Super().FogSkyAffect() }
 
 // SetFogSkyAffect sets the property returned by [GetFogSkyAffect]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFogSkyAffect(value Float.X) Instance { //gd:Environment.fog_sky_affect
@@ -1041,9 +1526,16 @@ func (self Instance) SetFogSkyAffect(value Float.X) Instance { //gd:Environment.
 	return self
 }
 
+func (o *Extension[T]) SetFogSkyAffect(value Float.X) *Extension[T] {
+	o.Super().SetFogSkyAffect(value)
+	return o
+}
+
 func (self Instance) FogHeight() Float.X { //gd:Environment.fog_height
 		return Float.X(Float.X(class(self).GetFogHeight()))
 }
+
+func (o *Extension[T]) FogHeight() Float.X { return o.Super().FogHeight() }
 
 // SetFogHeight sets the property returned by [GetFogHeight]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFogHeight(value Float.X) Instance { //gd:Environment.fog_height
@@ -1051,9 +1543,16 @@ func (self Instance) SetFogHeight(value Float.X) Instance { //gd:Environment.fog
 	return self
 }
 
+func (o *Extension[T]) SetFogHeight(value Float.X) *Extension[T] {
+	o.Super().SetFogHeight(value)
+	return o
+}
+
 func (self Instance) FogHeightDensity() Float.X { //gd:Environment.fog_height_density
 		return Float.X(Float.X(class(self).GetFogHeightDensity()))
 }
+
+func (o *Extension[T]) FogHeightDensity() Float.X { return o.Super().FogHeightDensity() }
 
 // SetFogHeightDensity sets the property returned by [GetFogHeightDensity]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFogHeightDensity(value Float.X) Instance { //gd:Environment.fog_height_density
@@ -1061,9 +1560,16 @@ func (self Instance) SetFogHeightDensity(value Float.X) Instance { //gd:Environm
 	return self
 }
 
+func (o *Extension[T]) SetFogHeightDensity(value Float.X) *Extension[T] {
+	o.Super().SetFogHeightDensity(value)
+	return o
+}
+
 func (self Instance) FogDepthCurve() Float.X { //gd:Environment.fog_depth_curve
 		return Float.X(Float.X(class(self).GetFogDepthCurve()))
 }
+
+func (o *Extension[T]) FogDepthCurve() Float.X { return o.Super().FogDepthCurve() }
 
 // SetFogDepthCurve sets the property returned by [GetFogDepthCurve]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFogDepthCurve(value Float.X) Instance { //gd:Environment.fog_depth_curve
@@ -1071,9 +1577,16 @@ func (self Instance) SetFogDepthCurve(value Float.X) Instance { //gd:Environment
 	return self
 }
 
+func (o *Extension[T]) SetFogDepthCurve(value Float.X) *Extension[T] {
+	o.Super().SetFogDepthCurve(value)
+	return o
+}
+
 func (self Instance) FogDepthBegin() Float.X { //gd:Environment.fog_depth_begin
 		return Float.X(Float.X(class(self).GetFogDepthBegin()))
 }
+
+func (o *Extension[T]) FogDepthBegin() Float.X { return o.Super().FogDepthBegin() }
 
 // SetFogDepthBegin sets the property returned by [GetFogDepthBegin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFogDepthBegin(value Float.X) Instance { //gd:Environment.fog_depth_begin
@@ -1081,9 +1594,16 @@ func (self Instance) SetFogDepthBegin(value Float.X) Instance { //gd:Environment
 	return self
 }
 
+func (o *Extension[T]) SetFogDepthBegin(value Float.X) *Extension[T] {
+	o.Super().SetFogDepthBegin(value)
+	return o
+}
+
 func (self Instance) FogDepthEnd() Float.X { //gd:Environment.fog_depth_end
 		return Float.X(Float.X(class(self).GetFogDepthEnd()))
 }
+
+func (o *Extension[T]) FogDepthEnd() Float.X { return o.Super().FogDepthEnd() }
 
 // SetFogDepthEnd sets the property returned by [GetFogDepthEnd]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFogDepthEnd(value Float.X) Instance { //gd:Environment.fog_depth_end
@@ -1091,9 +1611,16 @@ func (self Instance) SetFogDepthEnd(value Float.X) Instance { //gd:Environment.f
 	return self
 }
 
+func (o *Extension[T]) SetFogDepthEnd(value Float.X) *Extension[T] {
+	o.Super().SetFogDepthEnd(value)
+	return o
+}
+
 func (self Instance) VolumetricFogEnabled() bool { //gd:Environment.volumetric_fog_enabled
 		return bool(class(self).IsVolumetricFogEnabled())
 }
+
+func (o *Extension[T]) VolumetricFogEnabled() bool { return o.Super().VolumetricFogEnabled() }
 
 // SetVolumetricFogEnabled sets the property returned by [IsVolumetricFogEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVolumetricFogEnabled(value bool) Instance { //gd:Environment.volumetric_fog_enabled
@@ -1101,9 +1628,16 @@ func (self Instance) SetVolumetricFogEnabled(value bool) Instance { //gd:Environ
 	return self
 }
 
+func (o *Extension[T]) SetVolumetricFogEnabled(value bool) *Extension[T] {
+	o.Super().SetVolumetricFogEnabled(value)
+	return o
+}
+
 func (self Instance) VolumetricFogDensity() Float.X { //gd:Environment.volumetric_fog_density
 		return Float.X(Float.X(class(self).GetVolumetricFogDensity()))
 }
+
+func (o *Extension[T]) VolumetricFogDensity() Float.X { return o.Super().VolumetricFogDensity() }
 
 // SetVolumetricFogDensity sets the property returned by [GetVolumetricFogDensity]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVolumetricFogDensity(value Float.X) Instance { //gd:Environment.volumetric_fog_density
@@ -1111,9 +1645,16 @@ func (self Instance) SetVolumetricFogDensity(value Float.X) Instance { //gd:Envi
 	return self
 }
 
+func (o *Extension[T]) SetVolumetricFogDensity(value Float.X) *Extension[T] {
+	o.Super().SetVolumetricFogDensity(value)
+	return o
+}
+
 func (self Instance) VolumetricFogAlbedo() Color.RGBA { //gd:Environment.volumetric_fog_albedo
 		return Color.RGBA(class(self).GetVolumetricFogAlbedo())
 }
+
+func (o *Extension[T]) VolumetricFogAlbedo() Color.RGBA { return o.Super().VolumetricFogAlbedo() }
 
 // SetVolumetricFogAlbedo sets the property returned by [GetVolumetricFogAlbedo]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVolumetricFogAlbedo(value Color.RGBA) Instance { //gd:Environment.volumetric_fog_albedo
@@ -1121,9 +1662,16 @@ func (self Instance) SetVolumetricFogAlbedo(value Color.RGBA) Instance { //gd:En
 	return self
 }
 
+func (o *Extension[T]) SetVolumetricFogAlbedo(value Color.RGBA) *Extension[T] {
+	o.Super().SetVolumetricFogAlbedo(value)
+	return o
+}
+
 func (self Instance) VolumetricFogEmission() Color.RGBA { //gd:Environment.volumetric_fog_emission
 		return Color.RGBA(class(self).GetVolumetricFogEmission())
 }
+
+func (o *Extension[T]) VolumetricFogEmission() Color.RGBA { return o.Super().VolumetricFogEmission() }
 
 // SetVolumetricFogEmission sets the property returned by [GetVolumetricFogEmission]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVolumetricFogEmission(value Color.RGBA) Instance { //gd:Environment.volumetric_fog_emission
@@ -1131,9 +1679,16 @@ func (self Instance) SetVolumetricFogEmission(value Color.RGBA) Instance { //gd:
 	return self
 }
 
+func (o *Extension[T]) SetVolumetricFogEmission(value Color.RGBA) *Extension[T] {
+	o.Super().SetVolumetricFogEmission(value)
+	return o
+}
+
 func (self Instance) VolumetricFogEmissionEnergy() Float.X { //gd:Environment.volumetric_fog_emission_energy
 		return Float.X(Float.X(class(self).GetVolumetricFogEmissionEnergy()))
 }
+
+func (o *Extension[T]) VolumetricFogEmissionEnergy() Float.X { return o.Super().VolumetricFogEmissionEnergy() }
 
 // SetVolumetricFogEmissionEnergy sets the property returned by [GetVolumetricFogEmissionEnergy]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVolumetricFogEmissionEnergy(value Float.X) Instance { //gd:Environment.volumetric_fog_emission_energy
@@ -1141,9 +1696,16 @@ func (self Instance) SetVolumetricFogEmissionEnergy(value Float.X) Instance { //
 	return self
 }
 
+func (o *Extension[T]) SetVolumetricFogEmissionEnergy(value Float.X) *Extension[T] {
+	o.Super().SetVolumetricFogEmissionEnergy(value)
+	return o
+}
+
 func (self Instance) VolumetricFogGiInject() Float.X { //gd:Environment.volumetric_fog_gi_inject
 		return Float.X(Float.X(class(self).GetVolumetricFogGiInject()))
 }
+
+func (o *Extension[T]) VolumetricFogGiInject() Float.X { return o.Super().VolumetricFogGiInject() }
 
 // SetVolumetricFogGiInject sets the property returned by [GetVolumetricFogGiInject]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVolumetricFogGiInject(value Float.X) Instance { //gd:Environment.volumetric_fog_gi_inject
@@ -1151,9 +1713,16 @@ func (self Instance) SetVolumetricFogGiInject(value Float.X) Instance { //gd:Env
 	return self
 }
 
+func (o *Extension[T]) SetVolumetricFogGiInject(value Float.X) *Extension[T] {
+	o.Super().SetVolumetricFogGiInject(value)
+	return o
+}
+
 func (self Instance) VolumetricFogAnisotropy() Float.X { //gd:Environment.volumetric_fog_anisotropy
 		return Float.X(Float.X(class(self).GetVolumetricFogAnisotropy()))
 }
+
+func (o *Extension[T]) VolumetricFogAnisotropy() Float.X { return o.Super().VolumetricFogAnisotropy() }
 
 // SetVolumetricFogAnisotropy sets the property returned by [GetVolumetricFogAnisotropy]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVolumetricFogAnisotropy(value Float.X) Instance { //gd:Environment.volumetric_fog_anisotropy
@@ -1161,9 +1730,16 @@ func (self Instance) SetVolumetricFogAnisotropy(value Float.X) Instance { //gd:E
 	return self
 }
 
+func (o *Extension[T]) SetVolumetricFogAnisotropy(value Float.X) *Extension[T] {
+	o.Super().SetVolumetricFogAnisotropy(value)
+	return o
+}
+
 func (self Instance) VolumetricFogLength() Float.X { //gd:Environment.volumetric_fog_length
 		return Float.X(Float.X(class(self).GetVolumetricFogLength()))
 }
+
+func (o *Extension[T]) VolumetricFogLength() Float.X { return o.Super().VolumetricFogLength() }
 
 // SetVolumetricFogLength sets the property returned by [GetVolumetricFogLength]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVolumetricFogLength(value Float.X) Instance { //gd:Environment.volumetric_fog_length
@@ -1171,9 +1747,16 @@ func (self Instance) SetVolumetricFogLength(value Float.X) Instance { //gd:Envir
 	return self
 }
 
+func (o *Extension[T]) SetVolumetricFogLength(value Float.X) *Extension[T] {
+	o.Super().SetVolumetricFogLength(value)
+	return o
+}
+
 func (self Instance) VolumetricFogDetailSpread() Float.X { //gd:Environment.volumetric_fog_detail_spread
 		return Float.X(Float.X(class(self).GetVolumetricFogDetailSpread()))
 }
+
+func (o *Extension[T]) VolumetricFogDetailSpread() Float.X { return o.Super().VolumetricFogDetailSpread() }
 
 // SetVolumetricFogDetailSpread sets the property returned by [GetVolumetricFogDetailSpread]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVolumetricFogDetailSpread(value Float.X) Instance { //gd:Environment.volumetric_fog_detail_spread
@@ -1181,9 +1764,16 @@ func (self Instance) SetVolumetricFogDetailSpread(value Float.X) Instance { //gd
 	return self
 }
 
+func (o *Extension[T]) SetVolumetricFogDetailSpread(value Float.X) *Extension[T] {
+	o.Super().SetVolumetricFogDetailSpread(value)
+	return o
+}
+
 func (self Instance) VolumetricFogAmbientInject() Float.X { //gd:Environment.volumetric_fog_ambient_inject
 		return Float.X(Float.X(class(self).GetVolumetricFogAmbientInject()))
 }
+
+func (o *Extension[T]) VolumetricFogAmbientInject() Float.X { return o.Super().VolumetricFogAmbientInject() }
 
 // SetVolumetricFogAmbientInject sets the property returned by [GetVolumetricFogAmbientInject]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVolumetricFogAmbientInject(value Float.X) Instance { //gd:Environment.volumetric_fog_ambient_inject
@@ -1191,9 +1781,16 @@ func (self Instance) SetVolumetricFogAmbientInject(value Float.X) Instance { //g
 	return self
 }
 
+func (o *Extension[T]) SetVolumetricFogAmbientInject(value Float.X) *Extension[T] {
+	o.Super().SetVolumetricFogAmbientInject(value)
+	return o
+}
+
 func (self Instance) VolumetricFogSkyAffect() Float.X { //gd:Environment.volumetric_fog_sky_affect
 		return Float.X(Float.X(class(self).GetVolumetricFogSkyAffect()))
 }
+
+func (o *Extension[T]) VolumetricFogSkyAffect() Float.X { return o.Super().VolumetricFogSkyAffect() }
 
 // SetVolumetricFogSkyAffect sets the property returned by [GetVolumetricFogSkyAffect]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVolumetricFogSkyAffect(value Float.X) Instance { //gd:Environment.volumetric_fog_sky_affect
@@ -1201,9 +1798,16 @@ func (self Instance) SetVolumetricFogSkyAffect(value Float.X) Instance { //gd:En
 	return self
 }
 
+func (o *Extension[T]) SetVolumetricFogSkyAffect(value Float.X) *Extension[T] {
+	o.Super().SetVolumetricFogSkyAffect(value)
+	return o
+}
+
 func (self Instance) VolumetricFogTemporalReprojectionEnabled() bool { //gd:Environment.volumetric_fog_temporal_reprojection_enabled
 		return bool(class(self).IsVolumetricFogTemporalReprojectionEnabled())
 }
+
+func (o *Extension[T]) VolumetricFogTemporalReprojectionEnabled() bool { return o.Super().VolumetricFogTemporalReprojectionEnabled() }
 
 // SetVolumetricFogTemporalReprojectionEnabled sets the property returned by [IsVolumetricFogTemporalReprojectionEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVolumetricFogTemporalReprojectionEnabled(value bool) Instance { //gd:Environment.volumetric_fog_temporal_reprojection_enabled
@@ -1211,9 +1815,16 @@ func (self Instance) SetVolumetricFogTemporalReprojectionEnabled(value bool) Ins
 	return self
 }
 
+func (o *Extension[T]) SetVolumetricFogTemporalReprojectionEnabled(value bool) *Extension[T] {
+	o.Super().SetVolumetricFogTemporalReprojectionEnabled(value)
+	return o
+}
+
 func (self Instance) VolumetricFogTemporalReprojectionAmount() Float.X { //gd:Environment.volumetric_fog_temporal_reprojection_amount
 		return Float.X(Float.X(class(self).GetVolumetricFogTemporalReprojectionAmount()))
 }
+
+func (o *Extension[T]) VolumetricFogTemporalReprojectionAmount() Float.X { return o.Super().VolumetricFogTemporalReprojectionAmount() }
 
 // SetVolumetricFogTemporalReprojectionAmount sets the property returned by [GetVolumetricFogTemporalReprojectionAmount]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVolumetricFogTemporalReprojectionAmount(value Float.X) Instance { //gd:Environment.volumetric_fog_temporal_reprojection_amount
@@ -1221,9 +1832,16 @@ func (self Instance) SetVolumetricFogTemporalReprojectionAmount(value Float.X) I
 	return self
 }
 
+func (o *Extension[T]) SetVolumetricFogTemporalReprojectionAmount(value Float.X) *Extension[T] {
+	o.Super().SetVolumetricFogTemporalReprojectionAmount(value)
+	return o
+}
+
 func (self Instance) AdjustmentEnabled() bool { //gd:Environment.adjustment_enabled
 		return bool(class(self).IsAdjustmentEnabled())
 }
+
+func (o *Extension[T]) AdjustmentEnabled() bool { return o.Super().AdjustmentEnabled() }
 
 // SetAdjustmentEnabled sets the property returned by [IsAdjustmentEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAdjustmentEnabled(value bool) Instance { //gd:Environment.adjustment_enabled
@@ -1231,9 +1849,16 @@ func (self Instance) SetAdjustmentEnabled(value bool) Instance { //gd:Environmen
 	return self
 }
 
+func (o *Extension[T]) SetAdjustmentEnabled(value bool) *Extension[T] {
+	o.Super().SetAdjustmentEnabled(value)
+	return o
+}
+
 func (self Instance) AdjustmentBrightness() Float.X { //gd:Environment.adjustment_brightness
 		return Float.X(Float.X(class(self).GetAdjustmentBrightness()))
 }
+
+func (o *Extension[T]) AdjustmentBrightness() Float.X { return o.Super().AdjustmentBrightness() }
 
 // SetAdjustmentBrightness sets the property returned by [GetAdjustmentBrightness]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAdjustmentBrightness(value Float.X) Instance { //gd:Environment.adjustment_brightness
@@ -1241,9 +1866,16 @@ func (self Instance) SetAdjustmentBrightness(value Float.X) Instance { //gd:Envi
 	return self
 }
 
+func (o *Extension[T]) SetAdjustmentBrightness(value Float.X) *Extension[T] {
+	o.Super().SetAdjustmentBrightness(value)
+	return o
+}
+
 func (self Instance) AdjustmentContrast() Float.X { //gd:Environment.adjustment_contrast
 		return Float.X(Float.X(class(self).GetAdjustmentContrast()))
 }
+
+func (o *Extension[T]) AdjustmentContrast() Float.X { return o.Super().AdjustmentContrast() }
 
 // SetAdjustmentContrast sets the property returned by [GetAdjustmentContrast]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAdjustmentContrast(value Float.X) Instance { //gd:Environment.adjustment_contrast
@@ -1251,9 +1883,16 @@ func (self Instance) SetAdjustmentContrast(value Float.X) Instance { //gd:Enviro
 	return self
 }
 
+func (o *Extension[T]) SetAdjustmentContrast(value Float.X) *Extension[T] {
+	o.Super().SetAdjustmentContrast(value)
+	return o
+}
+
 func (self Instance) AdjustmentSaturation() Float.X { //gd:Environment.adjustment_saturation
 		return Float.X(Float.X(class(self).GetAdjustmentSaturation()))
 }
+
+func (o *Extension[T]) AdjustmentSaturation() Float.X { return o.Super().AdjustmentSaturation() }
 
 // SetAdjustmentSaturation sets the property returned by [GetAdjustmentSaturation]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAdjustmentSaturation(value Float.X) Instance { //gd:Environment.adjustment_saturation
@@ -1261,14 +1900,26 @@ func (self Instance) SetAdjustmentSaturation(value Float.X) Instance { //gd:Envi
 	return self
 }
 
+func (o *Extension[T]) SetAdjustmentSaturation(value Float.X) *Extension[T] {
+	o.Super().SetAdjustmentSaturation(value)
+	return o
+}
+
 func (self Instance) AdjustmentColorCorrection() Texture.Instance { //gd:Environment.adjustment_color_correction
 		return Texture.Instance(class(self).GetAdjustmentColorCorrection())
 }
+
+func (o *Extension[T]) AdjustmentColorCorrection() Texture.Instance { return o.Super().AdjustmentColorCorrection() }
 
 // SetAdjustmentColorCorrection sets the property returned by [GetAdjustmentColorCorrection]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAdjustmentColorCorrection(value Texture.Instance) Instance { //gd:Environment.adjustment_color_correction
 	class(self).SetAdjustmentColorCorrection(value)
 	return self
+}
+
+func (o *Extension[T]) SetAdjustmentColorCorrection(value Texture.Instance) *Extension[T] {
+	o.Super().SetAdjustmentColorCorrection(value)
+	return o
 }
 
 func (self class) SetBackground(mode BGMode)  { //gd:Environment.set_background
@@ -2152,6 +2803,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

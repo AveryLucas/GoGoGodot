@@ -176,15 +176,24 @@ func (self Instance) MagFilter() Rendering.SamplerFilter { //gd:RDSamplerState.m
 		return Rendering.SamplerFilter(class(self).GetMagFilter())
 }
 
+func (o *Extension[T]) MagFilter() Rendering.SamplerFilter { return o.Super().MagFilter() }
+
 // SetMagFilter sets the property returned by [GetMagFilter]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMagFilter(value Rendering.SamplerFilter) Instance { //gd:RDSamplerState.mag_filter
 	class(self).SetMagFilter(value)
 	return self
 }
 
+func (o *Extension[T]) SetMagFilter(value Rendering.SamplerFilter) *Extension[T] {
+	o.Super().SetMagFilter(value)
+	return o
+}
+
 func (self Instance) MinFilter() Rendering.SamplerFilter { //gd:RDSamplerState.min_filter
 		return Rendering.SamplerFilter(class(self).GetMinFilter())
 }
+
+func (o *Extension[T]) MinFilter() Rendering.SamplerFilter { return o.Super().MinFilter() }
 
 // SetMinFilter sets the property returned by [GetMinFilter]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMinFilter(value Rendering.SamplerFilter) Instance { //gd:RDSamplerState.min_filter
@@ -192,9 +201,16 @@ func (self Instance) SetMinFilter(value Rendering.SamplerFilter) Instance { //gd
 	return self
 }
 
+func (o *Extension[T]) SetMinFilter(value Rendering.SamplerFilter) *Extension[T] {
+	o.Super().SetMinFilter(value)
+	return o
+}
+
 func (self Instance) MipFilter() Rendering.SamplerFilter { //gd:RDSamplerState.mip_filter
 		return Rendering.SamplerFilter(class(self).GetMipFilter())
 }
+
+func (o *Extension[T]) MipFilter() Rendering.SamplerFilter { return o.Super().MipFilter() }
 
 // SetMipFilter sets the property returned by [GetMipFilter]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMipFilter(value Rendering.SamplerFilter) Instance { //gd:RDSamplerState.mip_filter
@@ -202,9 +218,16 @@ func (self Instance) SetMipFilter(value Rendering.SamplerFilter) Instance { //gd
 	return self
 }
 
+func (o *Extension[T]) SetMipFilter(value Rendering.SamplerFilter) *Extension[T] {
+	o.Super().SetMipFilter(value)
+	return o
+}
+
 func (self Instance) RepeatU() Rendering.SamplerRepeatMode { //gd:RDSamplerState.repeat_u
 		return Rendering.SamplerRepeatMode(class(self).GetRepeatU())
 }
+
+func (o *Extension[T]) RepeatU() Rendering.SamplerRepeatMode { return o.Super().RepeatU() }
 
 // SetRepeatU sets the property returned by [GetRepeatU]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRepeatU(value Rendering.SamplerRepeatMode) Instance { //gd:RDSamplerState.repeat_u
@@ -212,9 +235,16 @@ func (self Instance) SetRepeatU(value Rendering.SamplerRepeatMode) Instance { //
 	return self
 }
 
+func (o *Extension[T]) SetRepeatU(value Rendering.SamplerRepeatMode) *Extension[T] {
+	o.Super().SetRepeatU(value)
+	return o
+}
+
 func (self Instance) RepeatV() Rendering.SamplerRepeatMode { //gd:RDSamplerState.repeat_v
 		return Rendering.SamplerRepeatMode(class(self).GetRepeatV())
 }
+
+func (o *Extension[T]) RepeatV() Rendering.SamplerRepeatMode { return o.Super().RepeatV() }
 
 // SetRepeatV sets the property returned by [GetRepeatV]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRepeatV(value Rendering.SamplerRepeatMode) Instance { //gd:RDSamplerState.repeat_v
@@ -222,9 +252,16 @@ func (self Instance) SetRepeatV(value Rendering.SamplerRepeatMode) Instance { //
 	return self
 }
 
+func (o *Extension[T]) SetRepeatV(value Rendering.SamplerRepeatMode) *Extension[T] {
+	o.Super().SetRepeatV(value)
+	return o
+}
+
 func (self Instance) RepeatW() Rendering.SamplerRepeatMode { //gd:RDSamplerState.repeat_w
 		return Rendering.SamplerRepeatMode(class(self).GetRepeatW())
 }
+
+func (o *Extension[T]) RepeatW() Rendering.SamplerRepeatMode { return o.Super().RepeatW() }
 
 // SetRepeatW sets the property returned by [GetRepeatW]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRepeatW(value Rendering.SamplerRepeatMode) Instance { //gd:RDSamplerState.repeat_w
@@ -232,9 +269,16 @@ func (self Instance) SetRepeatW(value Rendering.SamplerRepeatMode) Instance { //
 	return self
 }
 
+func (o *Extension[T]) SetRepeatW(value Rendering.SamplerRepeatMode) *Extension[T] {
+	o.Super().SetRepeatW(value)
+	return o
+}
+
 func (self Instance) LodBias() Float.X { //gd:RDSamplerState.lod_bias
 		return Float.X(Float.X(class(self).GetLodBias()))
 }
+
+func (o *Extension[T]) LodBias() Float.X { return o.Super().LodBias() }
 
 // SetLodBias sets the property returned by [GetLodBias]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetLodBias(value Float.X) Instance { //gd:RDSamplerState.lod_bias
@@ -242,9 +286,16 @@ func (self Instance) SetLodBias(value Float.X) Instance { //gd:RDSamplerState.lo
 	return self
 }
 
+func (o *Extension[T]) SetLodBias(value Float.X) *Extension[T] {
+	o.Super().SetLodBias(value)
+	return o
+}
+
 func (self Instance) UseAnisotropy() bool { //gd:RDSamplerState.use_anisotropy
 		return bool(class(self).GetUseAnisotropy())
 }
+
+func (o *Extension[T]) UseAnisotropy() bool { return o.Super().UseAnisotropy() }
 
 // SetUseAnisotropy sets the property returned by [GetUseAnisotropy]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUseAnisotropy(value bool) Instance { //gd:RDSamplerState.use_anisotropy
@@ -252,9 +303,16 @@ func (self Instance) SetUseAnisotropy(value bool) Instance { //gd:RDSamplerState
 	return self
 }
 
+func (o *Extension[T]) SetUseAnisotropy(value bool) *Extension[T] {
+	o.Super().SetUseAnisotropy(value)
+	return o
+}
+
 func (self Instance) AnisotropyMax() Float.X { //gd:RDSamplerState.anisotropy_max
 		return Float.X(Float.X(class(self).GetAnisotropyMax()))
 }
+
+func (o *Extension[T]) AnisotropyMax() Float.X { return o.Super().AnisotropyMax() }
 
 // SetAnisotropyMax sets the property returned by [GetAnisotropyMax]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAnisotropyMax(value Float.X) Instance { //gd:RDSamplerState.anisotropy_max
@@ -262,9 +320,16 @@ func (self Instance) SetAnisotropyMax(value Float.X) Instance { //gd:RDSamplerSt
 	return self
 }
 
+func (o *Extension[T]) SetAnisotropyMax(value Float.X) *Extension[T] {
+	o.Super().SetAnisotropyMax(value)
+	return o
+}
+
 func (self Instance) EnableCompare() bool { //gd:RDSamplerState.enable_compare
 		return bool(class(self).GetEnableCompare())
 }
+
+func (o *Extension[T]) EnableCompare() bool { return o.Super().EnableCompare() }
 
 // SetEnableCompare sets the property returned by [GetEnableCompare]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEnableCompare(value bool) Instance { //gd:RDSamplerState.enable_compare
@@ -272,9 +337,16 @@ func (self Instance) SetEnableCompare(value bool) Instance { //gd:RDSamplerState
 	return self
 }
 
+func (o *Extension[T]) SetEnableCompare(value bool) *Extension[T] {
+	o.Super().SetEnableCompare(value)
+	return o
+}
+
 func (self Instance) CompareOp() Rendering.CompareOperator { //gd:RDSamplerState.compare_op
 		return Rendering.CompareOperator(class(self).GetCompareOp())
 }
+
+func (o *Extension[T]) CompareOp() Rendering.CompareOperator { return o.Super().CompareOp() }
 
 // SetCompareOp sets the property returned by [GetCompareOp]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCompareOp(value Rendering.CompareOperator) Instance { //gd:RDSamplerState.compare_op
@@ -282,9 +354,16 @@ func (self Instance) SetCompareOp(value Rendering.CompareOperator) Instance { //
 	return self
 }
 
+func (o *Extension[T]) SetCompareOp(value Rendering.CompareOperator) *Extension[T] {
+	o.Super().SetCompareOp(value)
+	return o
+}
+
 func (self Instance) MinLod() Float.X { //gd:RDSamplerState.min_lod
 		return Float.X(Float.X(class(self).GetMinLod()))
 }
+
+func (o *Extension[T]) MinLod() Float.X { return o.Super().MinLod() }
 
 // SetMinLod sets the property returned by [GetMinLod]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMinLod(value Float.X) Instance { //gd:RDSamplerState.min_lod
@@ -292,9 +371,16 @@ func (self Instance) SetMinLod(value Float.X) Instance { //gd:RDSamplerState.min
 	return self
 }
 
+func (o *Extension[T]) SetMinLod(value Float.X) *Extension[T] {
+	o.Super().SetMinLod(value)
+	return o
+}
+
 func (self Instance) MaxLod() Float.X { //gd:RDSamplerState.max_lod
 		return Float.X(Float.X(class(self).GetMaxLod()))
 }
+
+func (o *Extension[T]) MaxLod() Float.X { return o.Super().MaxLod() }
 
 // SetMaxLod sets the property returned by [GetMaxLod]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMaxLod(value Float.X) Instance { //gd:RDSamplerState.max_lod
@@ -302,9 +388,16 @@ func (self Instance) SetMaxLod(value Float.X) Instance { //gd:RDSamplerState.max
 	return self
 }
 
+func (o *Extension[T]) SetMaxLod(value Float.X) *Extension[T] {
+	o.Super().SetMaxLod(value)
+	return o
+}
+
 func (self Instance) BorderColor() Rendering.SamplerBorderColor { //gd:RDSamplerState.border_color
 		return Rendering.SamplerBorderColor(class(self).GetBorderColor())
 }
+
+func (o *Extension[T]) BorderColor() Rendering.SamplerBorderColor { return o.Super().BorderColor() }
 
 // SetBorderColor sets the property returned by [GetBorderColor]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBorderColor(value Rendering.SamplerBorderColor) Instance { //gd:RDSamplerState.border_color
@@ -312,14 +405,26 @@ func (self Instance) SetBorderColor(value Rendering.SamplerBorderColor) Instance
 	return self
 }
 
+func (o *Extension[T]) SetBorderColor(value Rendering.SamplerBorderColor) *Extension[T] {
+	o.Super().SetBorderColor(value)
+	return o
+}
+
 func (self Instance) UnnormalizedUvw() bool { //gd:RDSamplerState.unnormalized_uvw
 		return bool(class(self).GetUnnormalizedUvw())
 }
+
+func (o *Extension[T]) UnnormalizedUvw() bool { return o.Super().UnnormalizedUvw() }
 
 // SetUnnormalizedUvw sets the property returned by [GetUnnormalizedUvw]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUnnormalizedUvw(value bool) Instance { //gd:RDSamplerState.unnormalized_uvw
 	class(self).SetUnnormalizedUvw(value)
 	return self
+}
+
+func (o *Extension[T]) SetUnnormalizedUvw(value bool) *Extension[T] {
+	o.Super().SetUnnormalizedUvw(value)
+	return o
 }
 
 func (self class) SetMagFilter(p_member Rendering.SamplerFilter)  { //gd:RDSamplerState.set_mag_filter

@@ -24,6 +24,7 @@ import "graphics.gd/classdb/InputEvent"
 import "graphics.gd/classdb/Material"
 import "graphics.gd/classdb/Mesh"
 import "graphics.gd/classdb/MultiMesh"
+import "graphics.gd/classdb/MultiplayerAPI"
 import "graphics.gd/classdb/Node"
 import "graphics.gd/classdb/TextServer"
 import "graphics.gd/classdb/Texture2D"
@@ -543,15 +544,24 @@ func (self Instance) Visible() bool { //gd:CanvasItem.visible
 		return bool(class(self).IsVisible())
 }
 
+func (o *Extension[T]) Visible() bool { return o.Super().Visible() }
+
 // SetVisible sets the property returned by [IsVisible]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVisible(value bool) Instance { //gd:CanvasItem.visible
 	class(self).SetVisible(value)
 	return self
 }
 
+func (o *Extension[T]) SetVisible(value bool) *Extension[T] {
+	o.Super().SetVisible(value)
+	return o
+}
+
 func (self Instance) Modulate() Color.RGBA { //gd:CanvasItem.modulate
 		return Color.RGBA(class(self).GetModulate())
 }
+
+func (o *Extension[T]) Modulate() Color.RGBA { return o.Super().Modulate() }
 
 // SetModulate sets the property returned by [GetModulate]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetModulate(value Color.RGBA) Instance { //gd:CanvasItem.modulate
@@ -559,9 +569,16 @@ func (self Instance) SetModulate(value Color.RGBA) Instance { //gd:CanvasItem.mo
 	return self
 }
 
+func (o *Extension[T]) SetModulate(value Color.RGBA) *Extension[T] {
+	o.Super().SetModulate(value)
+	return o
+}
+
 func (self Instance) SelfModulate() Color.RGBA { //gd:CanvasItem.self_modulate
 		return Color.RGBA(class(self).GetSelfModulate())
 }
+
+func (o *Extension[T]) SelfModulate() Color.RGBA { return o.Super().SelfModulate() }
 
 // SetSelfModulate sets the property returned by [GetSelfModulate]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSelfModulate(value Color.RGBA) Instance { //gd:CanvasItem.self_modulate
@@ -569,9 +586,16 @@ func (self Instance) SetSelfModulate(value Color.RGBA) Instance { //gd:CanvasIte
 	return self
 }
 
+func (o *Extension[T]) SetSelfModulate(value Color.RGBA) *Extension[T] {
+	o.Super().SetSelfModulate(value)
+	return o
+}
+
 func (self Instance) ShowBehindParent() bool { //gd:CanvasItem.show_behind_parent
 		return bool(class(self).IsDrawBehindParentEnabled())
 }
+
+func (o *Extension[T]) ShowBehindParent() bool { return o.Super().ShowBehindParent() }
 
 // SetShowBehindParent sets the property returned by [IsDrawBehindParentEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetShowBehindParent(value bool) Instance { //gd:CanvasItem.show_behind_parent
@@ -579,9 +603,16 @@ func (self Instance) SetShowBehindParent(value bool) Instance { //gd:CanvasItem.
 	return self
 }
 
+func (o *Extension[T]) SetShowBehindParent(value bool) *Extension[T] {
+	o.Super().SetShowBehindParent(value)
+	return o
+}
+
 func (self Instance) TopLevel() bool { //gd:CanvasItem.top_level
 		return bool(class(self).IsSetAsTopLevel())
 }
+
+func (o *Extension[T]) TopLevel() bool { return o.Super().TopLevel() }
 
 // SetTopLevel sets the property returned by [IsSetAsTopLevel]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTopLevel(value bool) Instance { //gd:CanvasItem.top_level
@@ -589,9 +620,16 @@ func (self Instance) SetTopLevel(value bool) Instance { //gd:CanvasItem.top_leve
 	return self
 }
 
+func (o *Extension[T]) SetTopLevel(value bool) *Extension[T] {
+	o.Super().SetTopLevel(value)
+	return o
+}
+
 func (self Instance) ClipChildren() ClipChildrenMode { //gd:CanvasItem.clip_children
 		return ClipChildrenMode(class(self).GetClipChildrenMode())
 }
+
+func (o *Extension[T]) ClipChildren() ClipChildrenMode { return o.Super().ClipChildren() }
 
 // SetClipChildren sets the property returned by [GetClipChildrenMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetClipChildren(value ClipChildrenMode) Instance { //gd:CanvasItem.clip_children
@@ -599,9 +637,16 @@ func (self Instance) SetClipChildren(value ClipChildrenMode) Instance { //gd:Can
 	return self
 }
 
+func (o *Extension[T]) SetClipChildren(value ClipChildrenMode) *Extension[T] {
+	o.Super().SetClipChildren(value)
+	return o
+}
+
 func (self Instance) LightMask() int { //gd:CanvasItem.light_mask
 		return int(int(class(self).GetLightMask()))
 }
+
+func (o *Extension[T]) LightMask() int { return o.Super().LightMask() }
 
 // SetLightMask sets the property returned by [GetLightMask]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetLightMask(value int) Instance { //gd:CanvasItem.light_mask
@@ -609,9 +654,16 @@ func (self Instance) SetLightMask(value int) Instance { //gd:CanvasItem.light_ma
 	return self
 }
 
+func (o *Extension[T]) SetLightMask(value int) *Extension[T] {
+	o.Super().SetLightMask(value)
+	return o
+}
+
 func (self Instance) VisibilityLayer() int { //gd:CanvasItem.visibility_layer
 		return int(int(class(self).GetVisibilityLayer()))
 }
+
+func (o *Extension[T]) VisibilityLayer() int { return o.Super().VisibilityLayer() }
 
 // SetVisibilityLayer sets the property returned by [GetVisibilityLayer]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVisibilityLayer(value int) Instance { //gd:CanvasItem.visibility_layer
@@ -619,9 +671,16 @@ func (self Instance) SetVisibilityLayer(value int) Instance { //gd:CanvasItem.vi
 	return self
 }
 
+func (o *Extension[T]) SetVisibilityLayer(value int) *Extension[T] {
+	o.Super().SetVisibilityLayer(value)
+	return o
+}
+
 func (self Instance) ZIndex() int { //gd:CanvasItem.z_index
 		return int(int(class(self).GetZIndex()))
 }
+
+func (o *Extension[T]) ZIndex() int { return o.Super().ZIndex() }
 
 // SetZIndex sets the property returned by [GetZIndex]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetZIndex(value int) Instance { //gd:CanvasItem.z_index
@@ -629,9 +688,16 @@ func (self Instance) SetZIndex(value int) Instance { //gd:CanvasItem.z_index
 	return self
 }
 
+func (o *Extension[T]) SetZIndex(value int) *Extension[T] {
+	o.Super().SetZIndex(value)
+	return o
+}
+
 func (self Instance) ZAsRelative() bool { //gd:CanvasItem.z_as_relative
 		return bool(class(self).IsZRelative())
 }
+
+func (o *Extension[T]) ZAsRelative() bool { return o.Super().ZAsRelative() }
 
 // SetZAsRelative sets the property returned by [IsZRelative]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetZAsRelative(value bool) Instance { //gd:CanvasItem.z_as_relative
@@ -639,9 +705,16 @@ func (self Instance) SetZAsRelative(value bool) Instance { //gd:CanvasItem.z_as_
 	return self
 }
 
+func (o *Extension[T]) SetZAsRelative(value bool) *Extension[T] {
+	o.Super().SetZAsRelative(value)
+	return o
+}
+
 func (self Instance) YSortEnabled() bool { //gd:CanvasItem.y_sort_enabled
 		return bool(class(self).IsYSortEnabled())
 }
+
+func (o *Extension[T]) YSortEnabled() bool { return o.Super().YSortEnabled() }
 
 // SetYSortEnabled sets the property returned by [IsYSortEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetYSortEnabled(value bool) Instance { //gd:CanvasItem.y_sort_enabled
@@ -649,9 +722,16 @@ func (self Instance) SetYSortEnabled(value bool) Instance { //gd:CanvasItem.y_so
 	return self
 }
 
+func (o *Extension[T]) SetYSortEnabled(value bool) *Extension[T] {
+	o.Super().SetYSortEnabled(value)
+	return o
+}
+
 func (self Instance) TextureFilter() TextureFilter { //gd:CanvasItem.texture_filter
 		return TextureFilter(class(self).GetTextureFilter())
 }
+
+func (o *Extension[T]) TextureFilter() TextureFilter { return o.Super().TextureFilter() }
 
 // SetTextureFilter sets the property returned by [GetTextureFilter]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTextureFilter(value TextureFilter) Instance { //gd:CanvasItem.texture_filter
@@ -659,9 +739,16 @@ func (self Instance) SetTextureFilter(value TextureFilter) Instance { //gd:Canva
 	return self
 }
 
+func (o *Extension[T]) SetTextureFilter(value TextureFilter) *Extension[T] {
+	o.Super().SetTextureFilter(value)
+	return o
+}
+
 func (self Instance) TextureRepeat() TextureRepeat { //gd:CanvasItem.texture_repeat
 		return TextureRepeat(class(self).GetTextureRepeat())
 }
+
+func (o *Extension[T]) TextureRepeat() TextureRepeat { return o.Super().TextureRepeat() }
 
 // SetTextureRepeat sets the property returned by [GetTextureRepeat]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTextureRepeat(value TextureRepeat) Instance { //gd:CanvasItem.texture_repeat
@@ -669,9 +756,16 @@ func (self Instance) SetTextureRepeat(value TextureRepeat) Instance { //gd:Canva
 	return self
 }
 
+func (o *Extension[T]) SetTextureRepeat(value TextureRepeat) *Extension[T] {
+	o.Super().SetTextureRepeat(value)
+	return o
+}
+
 func (self Instance) Material() Material.Instance { //gd:CanvasItem.material
 		return Material.Instance(class(self).GetMaterial())
 }
+
+func (o *Extension[T]) Material() Material.Instance { return o.Super().Material() }
 
 // SetMaterial sets the property returned by [GetMaterial]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMaterial(value Material.Instance) Instance { //gd:CanvasItem.material
@@ -679,14 +773,26 @@ func (self Instance) SetMaterial(value Material.Instance) Instance { //gd:Canvas
 	return self
 }
 
+func (o *Extension[T]) SetMaterial(value Material.Instance) *Extension[T] {
+	o.Super().SetMaterial(value)
+	return o
+}
+
 func (self Instance) UseParentMaterial() bool { //gd:CanvasItem.use_parent_material
 		return bool(class(self).GetUseParentMaterial())
 }
+
+func (o *Extension[T]) UseParentMaterial() bool { return o.Super().UseParentMaterial() }
 
 // SetUseParentMaterial sets the property returned by [GetUseParentMaterial]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUseParentMaterial(value bool) Instance { //gd:CanvasItem.use_parent_material
 	class(self).SetUseParentMaterial(value)
 	return self
+}
+
+func (o *Extension[T]) SetUseParentMaterial(value bool) *Extension[T] {
+	o.Super().SetUseParentMaterial(value)
+	return o
 }
 func (class) _draw(impl func(ptr gdclass.Receiver) ) (cb gd.ExtensionClassCallVirtualFunc) {
 	return func(class any, p_args, p_back gdextension.Pointer) {
@@ -1997,6 +2103,126 @@ func (self Instance) NotifyThreadSafe(what int) {
 // NotifyThreadSafe is promoted from [Node.Instance.NotifyThreadSafe].
 func (o *Extension[T]) NotifyThreadSafe(what int) {
 	o.Super().AsNode().NotifyThreadSafe(what)
+}
+
+// Name is promoted from [Node.Instance.Name].
+func (o *Extension[T]) Name() string { return o.Super().AsNode().Name() }
+
+// SetName is promoted from [Node.Instance.SetName].
+func (o *Extension[T]) SetName(value string) *Extension[T] {
+	o.Super().AsNode().SetName(value)
+	return o
+}
+
+// UniqueNameInOwner is promoted from [Node.Instance.UniqueNameInOwner].
+func (o *Extension[T]) UniqueNameInOwner() bool { return o.Super().AsNode().UniqueNameInOwner() }
+
+// SetUniqueNameInOwner is promoted from [Node.Instance.SetUniqueNameInOwner].
+func (o *Extension[T]) SetUniqueNameInOwner(value bool) *Extension[T] {
+	o.Super().AsNode().SetUniqueNameInOwner(value)
+	return o
+}
+
+// SceneFilePath is promoted from [Node.Instance.SceneFilePath].
+func (o *Extension[T]) SceneFilePath() string { return o.Super().AsNode().SceneFilePath() }
+
+// SetSceneFilePath is promoted from [Node.Instance.SetSceneFilePath].
+func (o *Extension[T]) SetSceneFilePath(value string) *Extension[T] {
+	o.Super().AsNode().SetSceneFilePath(value)
+	return o
+}
+
+// Owner is promoted from [Node.Instance.Owner].
+func (o *Extension[T]) Owner() Node.Instance { return o.Super().AsNode().Owner() }
+
+// SetOwner is promoted from [Node.Instance.SetOwner].
+func (o *Extension[T]) SetOwner(value Node.Instance) *Extension[T] {
+	o.Super().AsNode().SetOwner(value)
+	return o
+}
+
+// Multiplayer is promoted from [Node.Instance.Multiplayer].
+func (o *Extension[T]) Multiplayer() MultiplayerAPI.Instance { return o.Super().AsNode().Multiplayer() }
+
+// ProcessMode is promoted from [Node.Instance.ProcessMode].
+func (o *Extension[T]) ProcessMode() Node.ProcessMode { return o.Super().AsNode().ProcessMode() }
+
+// SetProcessMode is promoted from [Node.Instance.SetProcessMode].
+func (o *Extension[T]) SetProcessMode(value Node.ProcessMode) *Extension[T] {
+	o.Super().AsNode().SetProcessMode(value)
+	return o
+}
+
+// ProcessPriority is promoted from [Node.Instance.ProcessPriority].
+func (o *Extension[T]) ProcessPriority() int { return o.Super().AsNode().ProcessPriority() }
+
+// SetProcessPriority is promoted from [Node.Instance.SetProcessPriority].
+func (o *Extension[T]) SetProcessPriority(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessPriority(value)
+	return o
+}
+
+// ProcessPhysicsPriority is promoted from [Node.Instance.ProcessPhysicsPriority].
+func (o *Extension[T]) ProcessPhysicsPriority() int { return o.Super().AsNode().ProcessPhysicsPriority() }
+
+// SetProcessPhysicsPriority is promoted from [Node.Instance.SetProcessPhysicsPriority].
+func (o *Extension[T]) SetProcessPhysicsPriority(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessPhysicsPriority(value)
+	return o
+}
+
+// ProcessThreadGroup is promoted from [Node.Instance.ProcessThreadGroup].
+func (o *Extension[T]) ProcessThreadGroup() Node.ProcessThreadGroup { return o.Super().AsNode().ProcessThreadGroup() }
+
+// SetProcessThreadGroup is promoted from [Node.Instance.SetProcessThreadGroup].
+func (o *Extension[T]) SetProcessThreadGroup(value Node.ProcessThreadGroup) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadGroup(value)
+	return o
+}
+
+// ProcessThreadGroupOrder is promoted from [Node.Instance.ProcessThreadGroupOrder].
+func (o *Extension[T]) ProcessThreadGroupOrder() int { return o.Super().AsNode().ProcessThreadGroupOrder() }
+
+// SetProcessThreadGroupOrder is promoted from [Node.Instance.SetProcessThreadGroupOrder].
+func (o *Extension[T]) SetProcessThreadGroupOrder(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadGroupOrder(value)
+	return o
+}
+
+// ProcessThreadMessages is promoted from [Node.Instance.ProcessThreadMessages].
+func (o *Extension[T]) ProcessThreadMessages() Node.ProcessThreadMessages { return o.Super().AsNode().ProcessThreadMessages() }
+
+// SetProcessThreadMessages is promoted from [Node.Instance.SetProcessThreadMessages].
+func (o *Extension[T]) SetProcessThreadMessages(value Node.ProcessThreadMessages) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadMessages(value)
+	return o
+}
+
+// PhysicsInterpolationMode is promoted from [Node.Instance.PhysicsInterpolationMode].
+func (o *Extension[T]) PhysicsInterpolationMode() Node.PhysicsInterpolationMode { return o.Super().AsNode().PhysicsInterpolationMode() }
+
+// SetPhysicsInterpolationMode is promoted from [Node.Instance.SetPhysicsInterpolationMode].
+func (o *Extension[T]) SetPhysicsInterpolationMode(value Node.PhysicsInterpolationMode) *Extension[T] {
+	o.Super().AsNode().SetPhysicsInterpolationMode(value)
+	return o
+}
+
+// AutoTranslateMode is promoted from [Node.Instance.AutoTranslateMode].
+func (o *Extension[T]) AutoTranslateMode() Node.AutoTranslateMode { return o.Super().AsNode().AutoTranslateMode() }
+
+// SetAutoTranslateMode is promoted from [Node.Instance.SetAutoTranslateMode].
+func (o *Extension[T]) SetAutoTranslateMode(value Node.AutoTranslateMode) *Extension[T] {
+	o.Super().AsNode().SetAutoTranslateMode(value)
+	return o
+}
+
+// EditorDescription is promoted from [Node.Instance.EditorDescription].
+func (o *Extension[T]) EditorDescription() string { return o.Super().AsNode().EditorDescription() }
+
+// SetEditorDescription is promoted from [Node.Instance.SetEditorDescription].
+func (o *Extension[T]) SetEditorDescription(value string) *Extension[T] {
+	o.Super().AsNode().SetEditorDescription(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

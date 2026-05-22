@@ -304,15 +304,24 @@ func (self Instance) Transparency() Transparency { //gd:BaseMaterial3D.transpare
 		return Transparency(class(self).GetTransparency())
 }
 
+func (o *Extension[T]) Transparency() Transparency { return o.Super().Transparency() }
+
 // SetTransparency sets the property returned by [GetTransparency]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTransparency(value Transparency) Instance { //gd:BaseMaterial3D.transparency
 	class(self).SetTransparency(value)
 	return self
 }
 
+func (o *Extension[T]) SetTransparency(value Transparency) *Extension[T] {
+	o.Super().SetTransparency(value)
+	return o
+}
+
 func (self Instance) AlphaScissorThreshold() Float.X { //gd:BaseMaterial3D.alpha_scissor_threshold
 		return Float.X(Float.X(class(self).GetAlphaScissorThreshold()))
 }
+
+func (o *Extension[T]) AlphaScissorThreshold() Float.X { return o.Super().AlphaScissorThreshold() }
 
 // SetAlphaScissorThreshold sets the property returned by [GetAlphaScissorThreshold]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAlphaScissorThreshold(value Float.X) Instance { //gd:BaseMaterial3D.alpha_scissor_threshold
@@ -320,9 +329,16 @@ func (self Instance) SetAlphaScissorThreshold(value Float.X) Instance { //gd:Bas
 	return self
 }
 
+func (o *Extension[T]) SetAlphaScissorThreshold(value Float.X) *Extension[T] {
+	o.Super().SetAlphaScissorThreshold(value)
+	return o
+}
+
 func (self Instance) AlphaHashScale() Float.X { //gd:BaseMaterial3D.alpha_hash_scale
 		return Float.X(Float.X(class(self).GetAlphaHashScale()))
 }
+
+func (o *Extension[T]) AlphaHashScale() Float.X { return o.Super().AlphaHashScale() }
 
 // SetAlphaHashScale sets the property returned by [GetAlphaHashScale]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAlphaHashScale(value Float.X) Instance { //gd:BaseMaterial3D.alpha_hash_scale
@@ -330,9 +346,16 @@ func (self Instance) SetAlphaHashScale(value Float.X) Instance { //gd:BaseMateri
 	return self
 }
 
+func (o *Extension[T]) SetAlphaHashScale(value Float.X) *Extension[T] {
+	o.Super().SetAlphaHashScale(value)
+	return o
+}
+
 func (self Instance) AlphaAntialiasingMode() AlphaAntiAliasing { //gd:BaseMaterial3D.alpha_antialiasing_mode
 		return AlphaAntiAliasing(class(self).GetAlphaAntialiasing())
 }
+
+func (o *Extension[T]) AlphaAntialiasingMode() AlphaAntiAliasing { return o.Super().AlphaAntialiasingMode() }
 
 // SetAlphaAntialiasingMode sets the property returned by [GetAlphaAntialiasing]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAlphaAntialiasingMode(value AlphaAntiAliasing) Instance { //gd:BaseMaterial3D.alpha_antialiasing_mode
@@ -340,9 +363,16 @@ func (self Instance) SetAlphaAntialiasingMode(value AlphaAntiAliasing) Instance 
 	return self
 }
 
+func (o *Extension[T]) SetAlphaAntialiasingMode(value AlphaAntiAliasing) *Extension[T] {
+	o.Super().SetAlphaAntialiasingMode(value)
+	return o
+}
+
 func (self Instance) AlphaAntialiasingEdge() Float.X { //gd:BaseMaterial3D.alpha_antialiasing_edge
 		return Float.X(Float.X(class(self).GetAlphaAntialiasingEdge()))
 }
+
+func (o *Extension[T]) AlphaAntialiasingEdge() Float.X { return o.Super().AlphaAntialiasingEdge() }
 
 // SetAlphaAntialiasingEdge sets the property returned by [GetAlphaAntialiasingEdge]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAlphaAntialiasingEdge(value Float.X) Instance { //gd:BaseMaterial3D.alpha_antialiasing_edge
@@ -350,9 +380,16 @@ func (self Instance) SetAlphaAntialiasingEdge(value Float.X) Instance { //gd:Bas
 	return self
 }
 
+func (o *Extension[T]) SetAlphaAntialiasingEdge(value Float.X) *Extension[T] {
+	o.Super().SetAlphaAntialiasingEdge(value)
+	return o
+}
+
 func (self Instance) BlendMode() BlendMode { //gd:BaseMaterial3D.blend_mode
 		return BlendMode(class(self).GetBlendMode())
 }
+
+func (o *Extension[T]) BlendMode() BlendMode { return o.Super().BlendMode() }
 
 // SetBlendMode sets the property returned by [GetBlendMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBlendMode(value BlendMode) Instance { //gd:BaseMaterial3D.blend_mode
@@ -360,9 +397,16 @@ func (self Instance) SetBlendMode(value BlendMode) Instance { //gd:BaseMaterial3
 	return self
 }
 
+func (o *Extension[T]) SetBlendMode(value BlendMode) *Extension[T] {
+	o.Super().SetBlendMode(value)
+	return o
+}
+
 func (self Instance) CullMode() CullMode { //gd:BaseMaterial3D.cull_mode
 		return CullMode(class(self).GetCullMode())
 }
+
+func (o *Extension[T]) CullMode() CullMode { return o.Super().CullMode() }
 
 // SetCullMode sets the property returned by [GetCullMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCullMode(value CullMode) Instance { //gd:BaseMaterial3D.cull_mode
@@ -370,9 +414,16 @@ func (self Instance) SetCullMode(value CullMode) Instance { //gd:BaseMaterial3D.
 	return self
 }
 
+func (o *Extension[T]) SetCullMode(value CullMode) *Extension[T] {
+	o.Super().SetCullMode(value)
+	return o
+}
+
 func (self Instance) DepthDrawMode() DepthDrawMode { //gd:BaseMaterial3D.depth_draw_mode
 		return DepthDrawMode(class(self).GetDepthDrawMode())
 }
+
+func (o *Extension[T]) DepthDrawMode() DepthDrawMode { return o.Super().DepthDrawMode() }
 
 // SetDepthDrawMode sets the property returned by [GetDepthDrawMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDepthDrawMode(value DepthDrawMode) Instance { //gd:BaseMaterial3D.depth_draw_mode
@@ -380,9 +431,16 @@ func (self Instance) SetDepthDrawMode(value DepthDrawMode) Instance { //gd:BaseM
 	return self
 }
 
+func (o *Extension[T]) SetDepthDrawMode(value DepthDrawMode) *Extension[T] {
+	o.Super().SetDepthDrawMode(value)
+	return o
+}
+
 func (self Instance) NoDepthTest() bool { //gd:BaseMaterial3D.no_depth_test
 		return bool(class(self).GetFlag(0))
 }
+
+func (o *Extension[T]) NoDepthTest() bool { return o.Super().NoDepthTest() }
 
 // SetNoDepthTest sets the property returned by [GetFlag]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetNoDepthTest(value bool) Instance { //gd:BaseMaterial3D.no_depth_test
@@ -390,9 +448,16 @@ func (self Instance) SetNoDepthTest(value bool) Instance { //gd:BaseMaterial3D.n
 	return self
 }
 
+func (o *Extension[T]) SetNoDepthTest(value bool) *Extension[T] {
+	o.Super().SetNoDepthTest(value)
+	return o
+}
+
 func (self Instance) DepthTest() DepthTest { //gd:BaseMaterial3D.depth_test
 		return DepthTest(class(self).GetDepthTest())
 }
+
+func (o *Extension[T]) DepthTest() DepthTest { return o.Super().DepthTest() }
 
 // SetDepthTest sets the property returned by [GetDepthTest]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDepthTest(value DepthTest) Instance { //gd:BaseMaterial3D.depth_test
@@ -400,9 +465,16 @@ func (self Instance) SetDepthTest(value DepthTest) Instance { //gd:BaseMaterial3
 	return self
 }
 
+func (o *Extension[T]) SetDepthTest(value DepthTest) *Extension[T] {
+	o.Super().SetDepthTest(value)
+	return o
+}
+
 func (self Instance) ShadingMode() ShadingMode { //gd:BaseMaterial3D.shading_mode
 		return ShadingMode(class(self).GetShadingMode())
 }
+
+func (o *Extension[T]) ShadingMode() ShadingMode { return o.Super().ShadingMode() }
 
 // SetShadingMode sets the property returned by [GetShadingMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetShadingMode(value ShadingMode) Instance { //gd:BaseMaterial3D.shading_mode
@@ -410,9 +482,16 @@ func (self Instance) SetShadingMode(value ShadingMode) Instance { //gd:BaseMater
 	return self
 }
 
+func (o *Extension[T]) SetShadingMode(value ShadingMode) *Extension[T] {
+	o.Super().SetShadingMode(value)
+	return o
+}
+
 func (self Instance) DiffuseMode() DiffuseMode { //gd:BaseMaterial3D.diffuse_mode
 		return DiffuseMode(class(self).GetDiffuseMode())
 }
+
+func (o *Extension[T]) DiffuseMode() DiffuseMode { return o.Super().DiffuseMode() }
 
 // SetDiffuseMode sets the property returned by [GetDiffuseMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDiffuseMode(value DiffuseMode) Instance { //gd:BaseMaterial3D.diffuse_mode
@@ -420,9 +499,16 @@ func (self Instance) SetDiffuseMode(value DiffuseMode) Instance { //gd:BaseMater
 	return self
 }
 
+func (o *Extension[T]) SetDiffuseMode(value DiffuseMode) *Extension[T] {
+	o.Super().SetDiffuseMode(value)
+	return o
+}
+
 func (self Instance) SpecularMode() SpecularMode { //gd:BaseMaterial3D.specular_mode
 		return SpecularMode(class(self).GetSpecularMode())
 }
+
+func (o *Extension[T]) SpecularMode() SpecularMode { return o.Super().SpecularMode() }
 
 // SetSpecularMode sets the property returned by [GetSpecularMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSpecularMode(value SpecularMode) Instance { //gd:BaseMaterial3D.specular_mode
@@ -430,9 +516,16 @@ func (self Instance) SetSpecularMode(value SpecularMode) Instance { //gd:BaseMat
 	return self
 }
 
+func (o *Extension[T]) SetSpecularMode(value SpecularMode) *Extension[T] {
+	o.Super().SetSpecularMode(value)
+	return o
+}
+
 func (self Instance) DisableAmbientLight() bool { //gd:BaseMaterial3D.disable_ambient_light
 		return bool(class(self).GetFlag(14))
 }
+
+func (o *Extension[T]) DisableAmbientLight() bool { return o.Super().DisableAmbientLight() }
 
 // SetDisableAmbientLight sets the property returned by [GetFlag]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDisableAmbientLight(value bool) Instance { //gd:BaseMaterial3D.disable_ambient_light
@@ -440,9 +533,16 @@ func (self Instance) SetDisableAmbientLight(value bool) Instance { //gd:BaseMate
 	return self
 }
 
+func (o *Extension[T]) SetDisableAmbientLight(value bool) *Extension[T] {
+	o.Super().SetDisableAmbientLight(value)
+	return o
+}
+
 func (self Instance) DisableFog() bool { //gd:BaseMaterial3D.disable_fog
 		return bool(class(self).GetFlag(21))
 }
+
+func (o *Extension[T]) DisableFog() bool { return o.Super().DisableFog() }
 
 // SetDisableFog sets the property returned by [GetFlag]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDisableFog(value bool) Instance { //gd:BaseMaterial3D.disable_fog
@@ -450,9 +550,16 @@ func (self Instance) SetDisableFog(value bool) Instance { //gd:BaseMaterial3D.di
 	return self
 }
 
+func (o *Extension[T]) SetDisableFog(value bool) *Extension[T] {
+	o.Super().SetDisableFog(value)
+	return o
+}
+
 func (self Instance) DisableSpecularOcclusion() bool { //gd:BaseMaterial3D.disable_specular_occlusion
 		return bool(class(self).GetFlag(22))
 }
+
+func (o *Extension[T]) DisableSpecularOcclusion() bool { return o.Super().DisableSpecularOcclusion() }
 
 // SetDisableSpecularOcclusion sets the property returned by [GetFlag]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDisableSpecularOcclusion(value bool) Instance { //gd:BaseMaterial3D.disable_specular_occlusion
@@ -460,9 +567,16 @@ func (self Instance) SetDisableSpecularOcclusion(value bool) Instance { //gd:Bas
 	return self
 }
 
+func (o *Extension[T]) SetDisableSpecularOcclusion(value bool) *Extension[T] {
+	o.Super().SetDisableSpecularOcclusion(value)
+	return o
+}
+
 func (self Instance) VertexColorUseAsAlbedo() bool { //gd:BaseMaterial3D.vertex_color_use_as_albedo
 		return bool(class(self).GetFlag(1))
 }
+
+func (o *Extension[T]) VertexColorUseAsAlbedo() bool { return o.Super().VertexColorUseAsAlbedo() }
 
 // SetVertexColorUseAsAlbedo sets the property returned by [GetFlag]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVertexColorUseAsAlbedo(value bool) Instance { //gd:BaseMaterial3D.vertex_color_use_as_albedo
@@ -470,9 +584,16 @@ func (self Instance) SetVertexColorUseAsAlbedo(value bool) Instance { //gd:BaseM
 	return self
 }
 
+func (o *Extension[T]) SetVertexColorUseAsAlbedo(value bool) *Extension[T] {
+	o.Super().SetVertexColorUseAsAlbedo(value)
+	return o
+}
+
 func (self Instance) VertexColorIsSrgb() bool { //gd:BaseMaterial3D.vertex_color_is_srgb
 		return bool(class(self).GetFlag(2))
 }
+
+func (o *Extension[T]) VertexColorIsSrgb() bool { return o.Super().VertexColorIsSrgb() }
 
 // SetVertexColorIsSrgb sets the property returned by [GetFlag]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVertexColorIsSrgb(value bool) Instance { //gd:BaseMaterial3D.vertex_color_is_srgb
@@ -480,9 +601,16 @@ func (self Instance) SetVertexColorIsSrgb(value bool) Instance { //gd:BaseMateri
 	return self
 }
 
+func (o *Extension[T]) SetVertexColorIsSrgb(value bool) *Extension[T] {
+	o.Super().SetVertexColorIsSrgb(value)
+	return o
+}
+
 func (self Instance) AlbedoColor() Color.RGBA { //gd:BaseMaterial3D.albedo_color
 		return Color.RGBA(class(self).GetAlbedo())
 }
+
+func (o *Extension[T]) AlbedoColor() Color.RGBA { return o.Super().AlbedoColor() }
 
 // SetAlbedoColor sets the property returned by [GetAlbedo]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAlbedoColor(value Color.RGBA) Instance { //gd:BaseMaterial3D.albedo_color
@@ -490,9 +618,16 @@ func (self Instance) SetAlbedoColor(value Color.RGBA) Instance { //gd:BaseMateri
 	return self
 }
 
+func (o *Extension[T]) SetAlbedoColor(value Color.RGBA) *Extension[T] {
+	o.Super().SetAlbedoColor(value)
+	return o
+}
+
 func (self Instance) AlbedoTexture() Texture2D.Instance { //gd:BaseMaterial3D.albedo_texture
 		return Texture2D.Instance(class(self).GetTexture(0))
 }
+
+func (o *Extension[T]) AlbedoTexture() Texture2D.Instance { return o.Super().AlbedoTexture() }
 
 // SetAlbedoTexture sets the property returned by [GetTexture]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAlbedoTexture(value Texture2D.Instance) Instance { //gd:BaseMaterial3D.albedo_texture
@@ -500,9 +635,16 @@ func (self Instance) SetAlbedoTexture(value Texture2D.Instance) Instance { //gd:
 	return self
 }
 
+func (o *Extension[T]) SetAlbedoTexture(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetAlbedoTexture(value)
+	return o
+}
+
 func (self Instance) AlbedoTextureForceSrgb() bool { //gd:BaseMaterial3D.albedo_texture_force_srgb
 		return bool(class(self).GetFlag(12))
 }
+
+func (o *Extension[T]) AlbedoTextureForceSrgb() bool { return o.Super().AlbedoTextureForceSrgb() }
 
 // SetAlbedoTextureForceSrgb sets the property returned by [GetFlag]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAlbedoTextureForceSrgb(value bool) Instance { //gd:BaseMaterial3D.albedo_texture_force_srgb
@@ -510,9 +652,16 @@ func (self Instance) SetAlbedoTextureForceSrgb(value bool) Instance { //gd:BaseM
 	return self
 }
 
+func (o *Extension[T]) SetAlbedoTextureForceSrgb(value bool) *Extension[T] {
+	o.Super().SetAlbedoTextureForceSrgb(value)
+	return o
+}
+
 func (self Instance) AlbedoTextureMsdf() bool { //gd:BaseMaterial3D.albedo_texture_msdf
 		return bool(class(self).GetFlag(20))
 }
+
+func (o *Extension[T]) AlbedoTextureMsdf() bool { return o.Super().AlbedoTextureMsdf() }
 
 // SetAlbedoTextureMsdf sets the property returned by [GetFlag]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAlbedoTextureMsdf(value bool) Instance { //gd:BaseMaterial3D.albedo_texture_msdf
@@ -520,9 +669,16 @@ func (self Instance) SetAlbedoTextureMsdf(value bool) Instance { //gd:BaseMateri
 	return self
 }
 
+func (o *Extension[T]) SetAlbedoTextureMsdf(value bool) *Extension[T] {
+	o.Super().SetAlbedoTextureMsdf(value)
+	return o
+}
+
 func (self Instance) OrmTexture() Texture2D.Instance { //gd:BaseMaterial3D.orm_texture
 		return Texture2D.Instance(class(self).GetTexture(17))
 }
+
+func (o *Extension[T]) OrmTexture() Texture2D.Instance { return o.Super().OrmTexture() }
 
 // SetOrmTexture sets the property returned by [GetTexture]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOrmTexture(value Texture2D.Instance) Instance { //gd:BaseMaterial3D.orm_texture
@@ -530,9 +686,16 @@ func (self Instance) SetOrmTexture(value Texture2D.Instance) Instance { //gd:Bas
 	return self
 }
 
+func (o *Extension[T]) SetOrmTexture(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetOrmTexture(value)
+	return o
+}
+
 func (self Instance) Metallic() Float.X { //gd:BaseMaterial3D.metallic
 		return Float.X(Float.X(class(self).GetMetallic()))
 }
+
+func (o *Extension[T]) Metallic() Float.X { return o.Super().Metallic() }
 
 // SetMetallic sets the property returned by [GetMetallic]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMetallic(value Float.X) Instance { //gd:BaseMaterial3D.metallic
@@ -540,9 +703,16 @@ func (self Instance) SetMetallic(value Float.X) Instance { //gd:BaseMaterial3D.m
 	return self
 }
 
+func (o *Extension[T]) SetMetallic(value Float.X) *Extension[T] {
+	o.Super().SetMetallic(value)
+	return o
+}
+
 func (self Instance) MetallicSpecular() Float.X { //gd:BaseMaterial3D.metallic_specular
 		return Float.X(Float.X(class(self).GetSpecular()))
 }
+
+func (o *Extension[T]) MetallicSpecular() Float.X { return o.Super().MetallicSpecular() }
 
 // SetMetallicSpecular sets the property returned by [GetSpecular]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMetallicSpecular(value Float.X) Instance { //gd:BaseMaterial3D.metallic_specular
@@ -550,9 +720,16 @@ func (self Instance) SetMetallicSpecular(value Float.X) Instance { //gd:BaseMate
 	return self
 }
 
+func (o *Extension[T]) SetMetallicSpecular(value Float.X) *Extension[T] {
+	o.Super().SetMetallicSpecular(value)
+	return o
+}
+
 func (self Instance) MetallicTexture() Texture2D.Instance { //gd:BaseMaterial3D.metallic_texture
 		return Texture2D.Instance(class(self).GetTexture(1))
 }
+
+func (o *Extension[T]) MetallicTexture() Texture2D.Instance { return o.Super().MetallicTexture() }
 
 // SetMetallicTexture sets the property returned by [GetTexture]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMetallicTexture(value Texture2D.Instance) Instance { //gd:BaseMaterial3D.metallic_texture
@@ -560,9 +737,16 @@ func (self Instance) SetMetallicTexture(value Texture2D.Instance) Instance { //g
 	return self
 }
 
+func (o *Extension[T]) SetMetallicTexture(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetMetallicTexture(value)
+	return o
+}
+
 func (self Instance) MetallicTextureChannel() TextureChannel { //gd:BaseMaterial3D.metallic_texture_channel
 		return TextureChannel(class(self).GetMetallicTextureChannel())
 }
+
+func (o *Extension[T]) MetallicTextureChannel() TextureChannel { return o.Super().MetallicTextureChannel() }
 
 // SetMetallicTextureChannel sets the property returned by [GetMetallicTextureChannel]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMetallicTextureChannel(value TextureChannel) Instance { //gd:BaseMaterial3D.metallic_texture_channel
@@ -570,9 +754,16 @@ func (self Instance) SetMetallicTextureChannel(value TextureChannel) Instance { 
 	return self
 }
 
+func (o *Extension[T]) SetMetallicTextureChannel(value TextureChannel) *Extension[T] {
+	o.Super().SetMetallicTextureChannel(value)
+	return o
+}
+
 func (self Instance) Roughness() Float.X { //gd:BaseMaterial3D.roughness
 		return Float.X(Float.X(class(self).GetRoughness()))
 }
+
+func (o *Extension[T]) Roughness() Float.X { return o.Super().Roughness() }
 
 // SetRoughness sets the property returned by [GetRoughness]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRoughness(value Float.X) Instance { //gd:BaseMaterial3D.roughness
@@ -580,9 +771,16 @@ func (self Instance) SetRoughness(value Float.X) Instance { //gd:BaseMaterial3D.
 	return self
 }
 
+func (o *Extension[T]) SetRoughness(value Float.X) *Extension[T] {
+	o.Super().SetRoughness(value)
+	return o
+}
+
 func (self Instance) RoughnessTexture() Texture2D.Instance { //gd:BaseMaterial3D.roughness_texture
 		return Texture2D.Instance(class(self).GetTexture(2))
 }
+
+func (o *Extension[T]) RoughnessTexture() Texture2D.Instance { return o.Super().RoughnessTexture() }
 
 // SetRoughnessTexture sets the property returned by [GetTexture]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRoughnessTexture(value Texture2D.Instance) Instance { //gd:BaseMaterial3D.roughness_texture
@@ -590,9 +788,16 @@ func (self Instance) SetRoughnessTexture(value Texture2D.Instance) Instance { //
 	return self
 }
 
+func (o *Extension[T]) SetRoughnessTexture(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetRoughnessTexture(value)
+	return o
+}
+
 func (self Instance) RoughnessTextureChannel() TextureChannel { //gd:BaseMaterial3D.roughness_texture_channel
 		return TextureChannel(class(self).GetRoughnessTextureChannel())
 }
+
+func (o *Extension[T]) RoughnessTextureChannel() TextureChannel { return o.Super().RoughnessTextureChannel() }
 
 // SetRoughnessTextureChannel sets the property returned by [GetRoughnessTextureChannel]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRoughnessTextureChannel(value TextureChannel) Instance { //gd:BaseMaterial3D.roughness_texture_channel
@@ -600,9 +805,16 @@ func (self Instance) SetRoughnessTextureChannel(value TextureChannel) Instance {
 	return self
 }
 
+func (o *Extension[T]) SetRoughnessTextureChannel(value TextureChannel) *Extension[T] {
+	o.Super().SetRoughnessTextureChannel(value)
+	return o
+}
+
 func (self Instance) EmissionEnabled() bool { //gd:BaseMaterial3D.emission_enabled
 		return bool(class(self).GetFeature(0))
 }
+
+func (o *Extension[T]) EmissionEnabled() bool { return o.Super().EmissionEnabled() }
 
 // SetEmissionEnabled sets the property returned by [GetFeature]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEmissionEnabled(value bool) Instance { //gd:BaseMaterial3D.emission_enabled
@@ -610,9 +822,16 @@ func (self Instance) SetEmissionEnabled(value bool) Instance { //gd:BaseMaterial
 	return self
 }
 
+func (o *Extension[T]) SetEmissionEnabled(value bool) *Extension[T] {
+	o.Super().SetEmissionEnabled(value)
+	return o
+}
+
 func (self Instance) Emission() Color.RGBA { //gd:BaseMaterial3D.emission
 		return Color.RGBA(class(self).GetEmission())
 }
+
+func (o *Extension[T]) Emission() Color.RGBA { return o.Super().Emission() }
 
 // SetEmission sets the property returned by [GetEmission]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEmission(value Color.RGBA) Instance { //gd:BaseMaterial3D.emission
@@ -620,9 +839,16 @@ func (self Instance) SetEmission(value Color.RGBA) Instance { //gd:BaseMaterial3
 	return self
 }
 
+func (o *Extension[T]) SetEmission(value Color.RGBA) *Extension[T] {
+	o.Super().SetEmission(value)
+	return o
+}
+
 func (self Instance) EmissionEnergyMultiplier() Float.X { //gd:BaseMaterial3D.emission_energy_multiplier
 		return Float.X(Float.X(class(self).GetEmissionEnergyMultiplier()))
 }
+
+func (o *Extension[T]) EmissionEnergyMultiplier() Float.X { return o.Super().EmissionEnergyMultiplier() }
 
 // SetEmissionEnergyMultiplier sets the property returned by [GetEmissionEnergyMultiplier]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEmissionEnergyMultiplier(value Float.X) Instance { //gd:BaseMaterial3D.emission_energy_multiplier
@@ -630,9 +856,16 @@ func (self Instance) SetEmissionEnergyMultiplier(value Float.X) Instance { //gd:
 	return self
 }
 
+func (o *Extension[T]) SetEmissionEnergyMultiplier(value Float.X) *Extension[T] {
+	o.Super().SetEmissionEnergyMultiplier(value)
+	return o
+}
+
 func (self Instance) EmissionIntensity() Float.X { //gd:BaseMaterial3D.emission_intensity
 		return Float.X(Float.X(class(self).GetEmissionIntensity()))
 }
+
+func (o *Extension[T]) EmissionIntensity() Float.X { return o.Super().EmissionIntensity() }
 
 // SetEmissionIntensity sets the property returned by [GetEmissionIntensity]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEmissionIntensity(value Float.X) Instance { //gd:BaseMaterial3D.emission_intensity
@@ -640,9 +873,16 @@ func (self Instance) SetEmissionIntensity(value Float.X) Instance { //gd:BaseMat
 	return self
 }
 
+func (o *Extension[T]) SetEmissionIntensity(value Float.X) *Extension[T] {
+	o.Super().SetEmissionIntensity(value)
+	return o
+}
+
 func (self Instance) EmissionOperator() EmissionOperator { //gd:BaseMaterial3D.emission_operator
 		return EmissionOperator(class(self).GetEmissionOperator())
 }
+
+func (o *Extension[T]) EmissionOperator() EmissionOperator { return o.Super().EmissionOperator() }
 
 // SetEmissionOperator sets the property returned by [GetEmissionOperator]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEmissionOperator(value EmissionOperator) Instance { //gd:BaseMaterial3D.emission_operator
@@ -650,9 +890,16 @@ func (self Instance) SetEmissionOperator(value EmissionOperator) Instance { //gd
 	return self
 }
 
+func (o *Extension[T]) SetEmissionOperator(value EmissionOperator) *Extension[T] {
+	o.Super().SetEmissionOperator(value)
+	return o
+}
+
 func (self Instance) EmissionOnUv2() bool { //gd:BaseMaterial3D.emission_on_uv2
 		return bool(class(self).GetFlag(11))
 }
+
+func (o *Extension[T]) EmissionOnUv2() bool { return o.Super().EmissionOnUv2() }
 
 // SetEmissionOnUv2 sets the property returned by [GetFlag]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEmissionOnUv2(value bool) Instance { //gd:BaseMaterial3D.emission_on_uv2
@@ -660,9 +907,16 @@ func (self Instance) SetEmissionOnUv2(value bool) Instance { //gd:BaseMaterial3D
 	return self
 }
 
+func (o *Extension[T]) SetEmissionOnUv2(value bool) *Extension[T] {
+	o.Super().SetEmissionOnUv2(value)
+	return o
+}
+
 func (self Instance) EmissionTexture() Texture2D.Instance { //gd:BaseMaterial3D.emission_texture
 		return Texture2D.Instance(class(self).GetTexture(3))
 }
+
+func (o *Extension[T]) EmissionTexture() Texture2D.Instance { return o.Super().EmissionTexture() }
 
 // SetEmissionTexture sets the property returned by [GetTexture]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEmissionTexture(value Texture2D.Instance) Instance { //gd:BaseMaterial3D.emission_texture
@@ -670,9 +924,16 @@ func (self Instance) SetEmissionTexture(value Texture2D.Instance) Instance { //g
 	return self
 }
 
+func (o *Extension[T]) SetEmissionTexture(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetEmissionTexture(value)
+	return o
+}
+
 func (self Instance) NormalEnabled() bool { //gd:BaseMaterial3D.normal_enabled
 		return bool(class(self).GetFeature(1))
 }
+
+func (o *Extension[T]) NormalEnabled() bool { return o.Super().NormalEnabled() }
 
 // SetNormalEnabled sets the property returned by [GetFeature]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetNormalEnabled(value bool) Instance { //gd:BaseMaterial3D.normal_enabled
@@ -680,9 +941,16 @@ func (self Instance) SetNormalEnabled(value bool) Instance { //gd:BaseMaterial3D
 	return self
 }
 
+func (o *Extension[T]) SetNormalEnabled(value bool) *Extension[T] {
+	o.Super().SetNormalEnabled(value)
+	return o
+}
+
 func (self Instance) NormalScale() Float.X { //gd:BaseMaterial3D.normal_scale
 		return Float.X(Float.X(class(self).GetNormalScale()))
 }
+
+func (o *Extension[T]) NormalScale() Float.X { return o.Super().NormalScale() }
 
 // SetNormalScale sets the property returned by [GetNormalScale]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetNormalScale(value Float.X) Instance { //gd:BaseMaterial3D.normal_scale
@@ -690,9 +958,16 @@ func (self Instance) SetNormalScale(value Float.X) Instance { //gd:BaseMaterial3
 	return self
 }
 
+func (o *Extension[T]) SetNormalScale(value Float.X) *Extension[T] {
+	o.Super().SetNormalScale(value)
+	return o
+}
+
 func (self Instance) NormalTexture() Texture2D.Instance { //gd:BaseMaterial3D.normal_texture
 		return Texture2D.Instance(class(self).GetTexture(4))
 }
+
+func (o *Extension[T]) NormalTexture() Texture2D.Instance { return o.Super().NormalTexture() }
 
 // SetNormalTexture sets the property returned by [GetTexture]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetNormalTexture(value Texture2D.Instance) Instance { //gd:BaseMaterial3D.normal_texture
@@ -700,9 +975,16 @@ func (self Instance) SetNormalTexture(value Texture2D.Instance) Instance { //gd:
 	return self
 }
 
+func (o *Extension[T]) SetNormalTexture(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetNormalTexture(value)
+	return o
+}
+
 func (self Instance) BentNormalEnabled() bool { //gd:BaseMaterial3D.bent_normal_enabled
 		return bool(class(self).GetFeature(12))
 }
+
+func (o *Extension[T]) BentNormalEnabled() bool { return o.Super().BentNormalEnabled() }
 
 // SetBentNormalEnabled sets the property returned by [GetFeature]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBentNormalEnabled(value bool) Instance { //gd:BaseMaterial3D.bent_normal_enabled
@@ -710,9 +992,16 @@ func (self Instance) SetBentNormalEnabled(value bool) Instance { //gd:BaseMateri
 	return self
 }
 
+func (o *Extension[T]) SetBentNormalEnabled(value bool) *Extension[T] {
+	o.Super().SetBentNormalEnabled(value)
+	return o
+}
+
 func (self Instance) BentNormalTexture() Texture2D.Instance { //gd:BaseMaterial3D.bent_normal_texture
 		return Texture2D.Instance(class(self).GetTexture(18))
 }
+
+func (o *Extension[T]) BentNormalTexture() Texture2D.Instance { return o.Super().BentNormalTexture() }
 
 // SetBentNormalTexture sets the property returned by [GetTexture]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBentNormalTexture(value Texture2D.Instance) Instance { //gd:BaseMaterial3D.bent_normal_texture
@@ -720,9 +1009,16 @@ func (self Instance) SetBentNormalTexture(value Texture2D.Instance) Instance { /
 	return self
 }
 
+func (o *Extension[T]) SetBentNormalTexture(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetBentNormalTexture(value)
+	return o
+}
+
 func (self Instance) RimEnabled() bool { //gd:BaseMaterial3D.rim_enabled
 		return bool(class(self).GetFeature(2))
 }
+
+func (o *Extension[T]) RimEnabled() bool { return o.Super().RimEnabled() }
 
 // SetRimEnabled sets the property returned by [GetFeature]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRimEnabled(value bool) Instance { //gd:BaseMaterial3D.rim_enabled
@@ -730,9 +1026,16 @@ func (self Instance) SetRimEnabled(value bool) Instance { //gd:BaseMaterial3D.ri
 	return self
 }
 
+func (o *Extension[T]) SetRimEnabled(value bool) *Extension[T] {
+	o.Super().SetRimEnabled(value)
+	return o
+}
+
 func (self Instance) Rim() Float.X { //gd:BaseMaterial3D.rim
 		return Float.X(Float.X(class(self).GetRim()))
 }
+
+func (o *Extension[T]) Rim() Float.X { return o.Super().Rim() }
 
 // SetRim sets the property returned by [GetRim]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRim(value Float.X) Instance { //gd:BaseMaterial3D.rim
@@ -740,9 +1043,16 @@ func (self Instance) SetRim(value Float.X) Instance { //gd:BaseMaterial3D.rim
 	return self
 }
 
+func (o *Extension[T]) SetRim(value Float.X) *Extension[T] {
+	o.Super().SetRim(value)
+	return o
+}
+
 func (self Instance) RimTint() Float.X { //gd:BaseMaterial3D.rim_tint
 		return Float.X(Float.X(class(self).GetRimTint()))
 }
+
+func (o *Extension[T]) RimTint() Float.X { return o.Super().RimTint() }
 
 // SetRimTint sets the property returned by [GetRimTint]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRimTint(value Float.X) Instance { //gd:BaseMaterial3D.rim_tint
@@ -750,9 +1060,16 @@ func (self Instance) SetRimTint(value Float.X) Instance { //gd:BaseMaterial3D.ri
 	return self
 }
 
+func (o *Extension[T]) SetRimTint(value Float.X) *Extension[T] {
+	o.Super().SetRimTint(value)
+	return o
+}
+
 func (self Instance) RimTexture() Texture2D.Instance { //gd:BaseMaterial3D.rim_texture
 		return Texture2D.Instance(class(self).GetTexture(5))
 }
+
+func (o *Extension[T]) RimTexture() Texture2D.Instance { return o.Super().RimTexture() }
 
 // SetRimTexture sets the property returned by [GetTexture]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRimTexture(value Texture2D.Instance) Instance { //gd:BaseMaterial3D.rim_texture
@@ -760,9 +1077,16 @@ func (self Instance) SetRimTexture(value Texture2D.Instance) Instance { //gd:Bas
 	return self
 }
 
+func (o *Extension[T]) SetRimTexture(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetRimTexture(value)
+	return o
+}
+
 func (self Instance) ClearcoatEnabled() bool { //gd:BaseMaterial3D.clearcoat_enabled
 		return bool(class(self).GetFeature(3))
 }
+
+func (o *Extension[T]) ClearcoatEnabled() bool { return o.Super().ClearcoatEnabled() }
 
 // SetClearcoatEnabled sets the property returned by [GetFeature]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetClearcoatEnabled(value bool) Instance { //gd:BaseMaterial3D.clearcoat_enabled
@@ -770,9 +1094,16 @@ func (self Instance) SetClearcoatEnabled(value bool) Instance { //gd:BaseMateria
 	return self
 }
 
+func (o *Extension[T]) SetClearcoatEnabled(value bool) *Extension[T] {
+	o.Super().SetClearcoatEnabled(value)
+	return o
+}
+
 func (self Instance) Clearcoat() Float.X { //gd:BaseMaterial3D.clearcoat
 		return Float.X(Float.X(class(self).GetClearcoat()))
 }
+
+func (o *Extension[T]) Clearcoat() Float.X { return o.Super().Clearcoat() }
 
 // SetClearcoat sets the property returned by [GetClearcoat]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetClearcoat(value Float.X) Instance { //gd:BaseMaterial3D.clearcoat
@@ -780,9 +1111,16 @@ func (self Instance) SetClearcoat(value Float.X) Instance { //gd:BaseMaterial3D.
 	return self
 }
 
+func (o *Extension[T]) SetClearcoat(value Float.X) *Extension[T] {
+	o.Super().SetClearcoat(value)
+	return o
+}
+
 func (self Instance) ClearcoatRoughness() Float.X { //gd:BaseMaterial3D.clearcoat_roughness
 		return Float.X(Float.X(class(self).GetClearcoatRoughness()))
 }
+
+func (o *Extension[T]) ClearcoatRoughness() Float.X { return o.Super().ClearcoatRoughness() }
 
 // SetClearcoatRoughness sets the property returned by [GetClearcoatRoughness]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetClearcoatRoughness(value Float.X) Instance { //gd:BaseMaterial3D.clearcoat_roughness
@@ -790,9 +1128,16 @@ func (self Instance) SetClearcoatRoughness(value Float.X) Instance { //gd:BaseMa
 	return self
 }
 
+func (o *Extension[T]) SetClearcoatRoughness(value Float.X) *Extension[T] {
+	o.Super().SetClearcoatRoughness(value)
+	return o
+}
+
 func (self Instance) ClearcoatTexture() Texture2D.Instance { //gd:BaseMaterial3D.clearcoat_texture
 		return Texture2D.Instance(class(self).GetTexture(6))
 }
+
+func (o *Extension[T]) ClearcoatTexture() Texture2D.Instance { return o.Super().ClearcoatTexture() }
 
 // SetClearcoatTexture sets the property returned by [GetTexture]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetClearcoatTexture(value Texture2D.Instance) Instance { //gd:BaseMaterial3D.clearcoat_texture
@@ -800,9 +1145,16 @@ func (self Instance) SetClearcoatTexture(value Texture2D.Instance) Instance { //
 	return self
 }
 
+func (o *Extension[T]) SetClearcoatTexture(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetClearcoatTexture(value)
+	return o
+}
+
 func (self Instance) AnisotropyEnabled() bool { //gd:BaseMaterial3D.anisotropy_enabled
 		return bool(class(self).GetFeature(4))
 }
+
+func (o *Extension[T]) AnisotropyEnabled() bool { return o.Super().AnisotropyEnabled() }
 
 // SetAnisotropyEnabled sets the property returned by [GetFeature]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAnisotropyEnabled(value bool) Instance { //gd:BaseMaterial3D.anisotropy_enabled
@@ -810,9 +1162,16 @@ func (self Instance) SetAnisotropyEnabled(value bool) Instance { //gd:BaseMateri
 	return self
 }
 
+func (o *Extension[T]) SetAnisotropyEnabled(value bool) *Extension[T] {
+	o.Super().SetAnisotropyEnabled(value)
+	return o
+}
+
 func (self Instance) Anisotropy() Float.X { //gd:BaseMaterial3D.anisotropy
 		return Float.X(Float.X(class(self).GetAnisotropy()))
 }
+
+func (o *Extension[T]) Anisotropy() Float.X { return o.Super().Anisotropy() }
 
 // SetAnisotropy sets the property returned by [GetAnisotropy]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAnisotropy(value Float.X) Instance { //gd:BaseMaterial3D.anisotropy
@@ -820,9 +1179,16 @@ func (self Instance) SetAnisotropy(value Float.X) Instance { //gd:BaseMaterial3D
 	return self
 }
 
+func (o *Extension[T]) SetAnisotropy(value Float.X) *Extension[T] {
+	o.Super().SetAnisotropy(value)
+	return o
+}
+
 func (self Instance) AnisotropyFlowmap() Texture2D.Instance { //gd:BaseMaterial3D.anisotropy_flowmap
 		return Texture2D.Instance(class(self).GetTexture(7))
 }
+
+func (o *Extension[T]) AnisotropyFlowmap() Texture2D.Instance { return o.Super().AnisotropyFlowmap() }
 
 // SetAnisotropyFlowmap sets the property returned by [GetTexture]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAnisotropyFlowmap(value Texture2D.Instance) Instance { //gd:BaseMaterial3D.anisotropy_flowmap
@@ -830,9 +1196,16 @@ func (self Instance) SetAnisotropyFlowmap(value Texture2D.Instance) Instance { /
 	return self
 }
 
+func (o *Extension[T]) SetAnisotropyFlowmap(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetAnisotropyFlowmap(value)
+	return o
+}
+
 func (self Instance) AoEnabled() bool { //gd:BaseMaterial3D.ao_enabled
 		return bool(class(self).GetFeature(5))
 }
+
+func (o *Extension[T]) AoEnabled() bool { return o.Super().AoEnabled() }
 
 // SetAoEnabled sets the property returned by [GetFeature]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAoEnabled(value bool) Instance { //gd:BaseMaterial3D.ao_enabled
@@ -840,9 +1213,16 @@ func (self Instance) SetAoEnabled(value bool) Instance { //gd:BaseMaterial3D.ao_
 	return self
 }
 
+func (o *Extension[T]) SetAoEnabled(value bool) *Extension[T] {
+	o.Super().SetAoEnabled(value)
+	return o
+}
+
 func (self Instance) AoLightAffect() Float.X { //gd:BaseMaterial3D.ao_light_affect
 		return Float.X(Float.X(class(self).GetAoLightAffect()))
 }
+
+func (o *Extension[T]) AoLightAffect() Float.X { return o.Super().AoLightAffect() }
 
 // SetAoLightAffect sets the property returned by [GetAoLightAffect]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAoLightAffect(value Float.X) Instance { //gd:BaseMaterial3D.ao_light_affect
@@ -850,9 +1230,16 @@ func (self Instance) SetAoLightAffect(value Float.X) Instance { //gd:BaseMateria
 	return self
 }
 
+func (o *Extension[T]) SetAoLightAffect(value Float.X) *Extension[T] {
+	o.Super().SetAoLightAffect(value)
+	return o
+}
+
 func (self Instance) AoTexture() Texture2D.Instance { //gd:BaseMaterial3D.ao_texture
 		return Texture2D.Instance(class(self).GetTexture(8))
 }
+
+func (o *Extension[T]) AoTexture() Texture2D.Instance { return o.Super().AoTexture() }
 
 // SetAoTexture sets the property returned by [GetTexture]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAoTexture(value Texture2D.Instance) Instance { //gd:BaseMaterial3D.ao_texture
@@ -860,9 +1247,16 @@ func (self Instance) SetAoTexture(value Texture2D.Instance) Instance { //gd:Base
 	return self
 }
 
+func (o *Extension[T]) SetAoTexture(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetAoTexture(value)
+	return o
+}
+
 func (self Instance) AoOnUv2() bool { //gd:BaseMaterial3D.ao_on_uv2
 		return bool(class(self).GetFlag(10))
 }
+
+func (o *Extension[T]) AoOnUv2() bool { return o.Super().AoOnUv2() }
 
 // SetAoOnUv2 sets the property returned by [GetFlag]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAoOnUv2(value bool) Instance { //gd:BaseMaterial3D.ao_on_uv2
@@ -870,9 +1264,16 @@ func (self Instance) SetAoOnUv2(value bool) Instance { //gd:BaseMaterial3D.ao_on
 	return self
 }
 
+func (o *Extension[T]) SetAoOnUv2(value bool) *Extension[T] {
+	o.Super().SetAoOnUv2(value)
+	return o
+}
+
 func (self Instance) AoTextureChannel() TextureChannel { //gd:BaseMaterial3D.ao_texture_channel
 		return TextureChannel(class(self).GetAoTextureChannel())
 }
+
+func (o *Extension[T]) AoTextureChannel() TextureChannel { return o.Super().AoTextureChannel() }
 
 // SetAoTextureChannel sets the property returned by [GetAoTextureChannel]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAoTextureChannel(value TextureChannel) Instance { //gd:BaseMaterial3D.ao_texture_channel
@@ -880,9 +1281,16 @@ func (self Instance) SetAoTextureChannel(value TextureChannel) Instance { //gd:B
 	return self
 }
 
+func (o *Extension[T]) SetAoTextureChannel(value TextureChannel) *Extension[T] {
+	o.Super().SetAoTextureChannel(value)
+	return o
+}
+
 func (self Instance) HeightmapEnabled() bool { //gd:BaseMaterial3D.heightmap_enabled
 		return bool(class(self).GetFeature(6))
 }
+
+func (o *Extension[T]) HeightmapEnabled() bool { return o.Super().HeightmapEnabled() }
 
 // SetHeightmapEnabled sets the property returned by [GetFeature]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetHeightmapEnabled(value bool) Instance { //gd:BaseMaterial3D.heightmap_enabled
@@ -890,9 +1298,16 @@ func (self Instance) SetHeightmapEnabled(value bool) Instance { //gd:BaseMateria
 	return self
 }
 
+func (o *Extension[T]) SetHeightmapEnabled(value bool) *Extension[T] {
+	o.Super().SetHeightmapEnabled(value)
+	return o
+}
+
 func (self Instance) HeightmapScale() Float.X { //gd:BaseMaterial3D.heightmap_scale
 		return Float.X(Float.X(class(self).GetHeightmapScale()))
 }
+
+func (o *Extension[T]) HeightmapScale() Float.X { return o.Super().HeightmapScale() }
 
 // SetHeightmapScale sets the property returned by [GetHeightmapScale]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetHeightmapScale(value Float.X) Instance { //gd:BaseMaterial3D.heightmap_scale
@@ -900,9 +1315,16 @@ func (self Instance) SetHeightmapScale(value Float.X) Instance { //gd:BaseMateri
 	return self
 }
 
+func (o *Extension[T]) SetHeightmapScale(value Float.X) *Extension[T] {
+	o.Super().SetHeightmapScale(value)
+	return o
+}
+
 func (self Instance) HeightmapDeepParallax() bool { //gd:BaseMaterial3D.heightmap_deep_parallax
 		return bool(class(self).IsHeightmapDeepParallaxEnabled())
 }
+
+func (o *Extension[T]) HeightmapDeepParallax() bool { return o.Super().HeightmapDeepParallax() }
 
 // SetHeightmapDeepParallax sets the property returned by [IsHeightmapDeepParallaxEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetHeightmapDeepParallax(value bool) Instance { //gd:BaseMaterial3D.heightmap_deep_parallax
@@ -910,9 +1332,16 @@ func (self Instance) SetHeightmapDeepParallax(value bool) Instance { //gd:BaseMa
 	return self
 }
 
+func (o *Extension[T]) SetHeightmapDeepParallax(value bool) *Extension[T] {
+	o.Super().SetHeightmapDeepParallax(value)
+	return o
+}
+
 func (self Instance) HeightmapMinLayers() int { //gd:BaseMaterial3D.heightmap_min_layers
 		return int(int(class(self).GetHeightmapDeepParallaxMinLayers()))
 }
+
+func (o *Extension[T]) HeightmapMinLayers() int { return o.Super().HeightmapMinLayers() }
 
 // SetHeightmapMinLayers sets the property returned by [GetHeightmapDeepParallaxMinLayers]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetHeightmapMinLayers(value int) Instance { //gd:BaseMaterial3D.heightmap_min_layers
@@ -920,9 +1349,16 @@ func (self Instance) SetHeightmapMinLayers(value int) Instance { //gd:BaseMateri
 	return self
 }
 
+func (o *Extension[T]) SetHeightmapMinLayers(value int) *Extension[T] {
+	o.Super().SetHeightmapMinLayers(value)
+	return o
+}
+
 func (self Instance) HeightmapMaxLayers() int { //gd:BaseMaterial3D.heightmap_max_layers
 		return int(int(class(self).GetHeightmapDeepParallaxMaxLayers()))
 }
+
+func (o *Extension[T]) HeightmapMaxLayers() int { return o.Super().HeightmapMaxLayers() }
 
 // SetHeightmapMaxLayers sets the property returned by [GetHeightmapDeepParallaxMaxLayers]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetHeightmapMaxLayers(value int) Instance { //gd:BaseMaterial3D.heightmap_max_layers
@@ -930,9 +1366,16 @@ func (self Instance) SetHeightmapMaxLayers(value int) Instance { //gd:BaseMateri
 	return self
 }
 
+func (o *Extension[T]) SetHeightmapMaxLayers(value int) *Extension[T] {
+	o.Super().SetHeightmapMaxLayers(value)
+	return o
+}
+
 func (self Instance) HeightmapFlipTangent() bool { //gd:BaseMaterial3D.heightmap_flip_tangent
 		return bool(class(self).GetHeightmapDeepParallaxFlipTangent())
 }
+
+func (o *Extension[T]) HeightmapFlipTangent() bool { return o.Super().HeightmapFlipTangent() }
 
 // SetHeightmapFlipTangent sets the property returned by [GetHeightmapDeepParallaxFlipTangent]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetHeightmapFlipTangent(value bool) Instance { //gd:BaseMaterial3D.heightmap_flip_tangent
@@ -940,9 +1383,16 @@ func (self Instance) SetHeightmapFlipTangent(value bool) Instance { //gd:BaseMat
 	return self
 }
 
+func (o *Extension[T]) SetHeightmapFlipTangent(value bool) *Extension[T] {
+	o.Super().SetHeightmapFlipTangent(value)
+	return o
+}
+
 func (self Instance) HeightmapFlipBinormal() bool { //gd:BaseMaterial3D.heightmap_flip_binormal
 		return bool(class(self).GetHeightmapDeepParallaxFlipBinormal())
 }
+
+func (o *Extension[T]) HeightmapFlipBinormal() bool { return o.Super().HeightmapFlipBinormal() }
 
 // SetHeightmapFlipBinormal sets the property returned by [GetHeightmapDeepParallaxFlipBinormal]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetHeightmapFlipBinormal(value bool) Instance { //gd:BaseMaterial3D.heightmap_flip_binormal
@@ -950,9 +1400,16 @@ func (self Instance) SetHeightmapFlipBinormal(value bool) Instance { //gd:BaseMa
 	return self
 }
 
+func (o *Extension[T]) SetHeightmapFlipBinormal(value bool) *Extension[T] {
+	o.Super().SetHeightmapFlipBinormal(value)
+	return o
+}
+
 func (self Instance) HeightmapTexture() Texture2D.Instance { //gd:BaseMaterial3D.heightmap_texture
 		return Texture2D.Instance(class(self).GetTexture(9))
 }
+
+func (o *Extension[T]) HeightmapTexture() Texture2D.Instance { return o.Super().HeightmapTexture() }
 
 // SetHeightmapTexture sets the property returned by [GetTexture]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetHeightmapTexture(value Texture2D.Instance) Instance { //gd:BaseMaterial3D.heightmap_texture
@@ -960,9 +1417,16 @@ func (self Instance) SetHeightmapTexture(value Texture2D.Instance) Instance { //
 	return self
 }
 
+func (o *Extension[T]) SetHeightmapTexture(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetHeightmapTexture(value)
+	return o
+}
+
 func (self Instance) HeightmapFlipTexture() bool { //gd:BaseMaterial3D.heightmap_flip_texture
 		return bool(class(self).GetFlag(17))
 }
+
+func (o *Extension[T]) HeightmapFlipTexture() bool { return o.Super().HeightmapFlipTexture() }
 
 // SetHeightmapFlipTexture sets the property returned by [GetFlag]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetHeightmapFlipTexture(value bool) Instance { //gd:BaseMaterial3D.heightmap_flip_texture
@@ -970,9 +1434,16 @@ func (self Instance) SetHeightmapFlipTexture(value bool) Instance { //gd:BaseMat
 	return self
 }
 
+func (o *Extension[T]) SetHeightmapFlipTexture(value bool) *Extension[T] {
+	o.Super().SetHeightmapFlipTexture(value)
+	return o
+}
+
 func (self Instance) SubsurfScatterEnabled() bool { //gd:BaseMaterial3D.subsurf_scatter_enabled
 		return bool(class(self).GetFeature(7))
 }
+
+func (o *Extension[T]) SubsurfScatterEnabled() bool { return o.Super().SubsurfScatterEnabled() }
 
 // SetSubsurfScatterEnabled sets the property returned by [GetFeature]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSubsurfScatterEnabled(value bool) Instance { //gd:BaseMaterial3D.subsurf_scatter_enabled
@@ -980,9 +1451,16 @@ func (self Instance) SetSubsurfScatterEnabled(value bool) Instance { //gd:BaseMa
 	return self
 }
 
+func (o *Extension[T]) SetSubsurfScatterEnabled(value bool) *Extension[T] {
+	o.Super().SetSubsurfScatterEnabled(value)
+	return o
+}
+
 func (self Instance) SubsurfScatterStrength() Float.X { //gd:BaseMaterial3D.subsurf_scatter_strength
 		return Float.X(Float.X(class(self).GetSubsurfaceScatteringStrength()))
 }
+
+func (o *Extension[T]) SubsurfScatterStrength() Float.X { return o.Super().SubsurfScatterStrength() }
 
 // SetSubsurfScatterStrength sets the property returned by [GetSubsurfaceScatteringStrength]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSubsurfScatterStrength(value Float.X) Instance { //gd:BaseMaterial3D.subsurf_scatter_strength
@@ -990,9 +1468,16 @@ func (self Instance) SetSubsurfScatterStrength(value Float.X) Instance { //gd:Ba
 	return self
 }
 
+func (o *Extension[T]) SetSubsurfScatterStrength(value Float.X) *Extension[T] {
+	o.Super().SetSubsurfScatterStrength(value)
+	return o
+}
+
 func (self Instance) SubsurfScatterSkinMode() bool { //gd:BaseMaterial3D.subsurf_scatter_skin_mode
 		return bool(class(self).GetFlag(18))
 }
+
+func (o *Extension[T]) SubsurfScatterSkinMode() bool { return o.Super().SubsurfScatterSkinMode() }
 
 // SetSubsurfScatterSkinMode sets the property returned by [GetFlag]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSubsurfScatterSkinMode(value bool) Instance { //gd:BaseMaterial3D.subsurf_scatter_skin_mode
@@ -1000,9 +1485,16 @@ func (self Instance) SetSubsurfScatterSkinMode(value bool) Instance { //gd:BaseM
 	return self
 }
 
+func (o *Extension[T]) SetSubsurfScatterSkinMode(value bool) *Extension[T] {
+	o.Super().SetSubsurfScatterSkinMode(value)
+	return o
+}
+
 func (self Instance) SubsurfScatterTexture() Texture2D.Instance { //gd:BaseMaterial3D.subsurf_scatter_texture
 		return Texture2D.Instance(class(self).GetTexture(10))
 }
+
+func (o *Extension[T]) SubsurfScatterTexture() Texture2D.Instance { return o.Super().SubsurfScatterTexture() }
 
 // SetSubsurfScatterTexture sets the property returned by [GetTexture]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSubsurfScatterTexture(value Texture2D.Instance) Instance { //gd:BaseMaterial3D.subsurf_scatter_texture
@@ -1010,9 +1502,16 @@ func (self Instance) SetSubsurfScatterTexture(value Texture2D.Instance) Instance
 	return self
 }
 
+func (o *Extension[T]) SetSubsurfScatterTexture(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetSubsurfScatterTexture(value)
+	return o
+}
+
 func (self Instance) SubsurfScatterTransmittanceEnabled() bool { //gd:BaseMaterial3D.subsurf_scatter_transmittance_enabled
 		return bool(class(self).GetFeature(8))
 }
+
+func (o *Extension[T]) SubsurfScatterTransmittanceEnabled() bool { return o.Super().SubsurfScatterTransmittanceEnabled() }
 
 // SetSubsurfScatterTransmittanceEnabled sets the property returned by [GetFeature]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSubsurfScatterTransmittanceEnabled(value bool) Instance { //gd:BaseMaterial3D.subsurf_scatter_transmittance_enabled
@@ -1020,9 +1519,16 @@ func (self Instance) SetSubsurfScatterTransmittanceEnabled(value bool) Instance 
 	return self
 }
 
+func (o *Extension[T]) SetSubsurfScatterTransmittanceEnabled(value bool) *Extension[T] {
+	o.Super().SetSubsurfScatterTransmittanceEnabled(value)
+	return o
+}
+
 func (self Instance) SubsurfScatterTransmittanceColor() Color.RGBA { //gd:BaseMaterial3D.subsurf_scatter_transmittance_color
 		return Color.RGBA(class(self).GetTransmittanceColor())
 }
+
+func (o *Extension[T]) SubsurfScatterTransmittanceColor() Color.RGBA { return o.Super().SubsurfScatterTransmittanceColor() }
 
 // SetSubsurfScatterTransmittanceColor sets the property returned by [GetTransmittanceColor]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSubsurfScatterTransmittanceColor(value Color.RGBA) Instance { //gd:BaseMaterial3D.subsurf_scatter_transmittance_color
@@ -1030,9 +1536,16 @@ func (self Instance) SetSubsurfScatterTransmittanceColor(value Color.RGBA) Insta
 	return self
 }
 
+func (o *Extension[T]) SetSubsurfScatterTransmittanceColor(value Color.RGBA) *Extension[T] {
+	o.Super().SetSubsurfScatterTransmittanceColor(value)
+	return o
+}
+
 func (self Instance) SubsurfScatterTransmittanceTexture() Texture2D.Instance { //gd:BaseMaterial3D.subsurf_scatter_transmittance_texture
 		return Texture2D.Instance(class(self).GetTexture(11))
 }
+
+func (o *Extension[T]) SubsurfScatterTransmittanceTexture() Texture2D.Instance { return o.Super().SubsurfScatterTransmittanceTexture() }
 
 // SetSubsurfScatterTransmittanceTexture sets the property returned by [GetTexture]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSubsurfScatterTransmittanceTexture(value Texture2D.Instance) Instance { //gd:BaseMaterial3D.subsurf_scatter_transmittance_texture
@@ -1040,9 +1553,16 @@ func (self Instance) SetSubsurfScatterTransmittanceTexture(value Texture2D.Insta
 	return self
 }
 
+func (o *Extension[T]) SetSubsurfScatterTransmittanceTexture(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetSubsurfScatterTransmittanceTexture(value)
+	return o
+}
+
 func (self Instance) SubsurfScatterTransmittanceDepth() Float.X { //gd:BaseMaterial3D.subsurf_scatter_transmittance_depth
 		return Float.X(Float.X(class(self).GetTransmittanceDepth()))
 }
+
+func (o *Extension[T]) SubsurfScatterTransmittanceDepth() Float.X { return o.Super().SubsurfScatterTransmittanceDepth() }
 
 // SetSubsurfScatterTransmittanceDepth sets the property returned by [GetTransmittanceDepth]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSubsurfScatterTransmittanceDepth(value Float.X) Instance { //gd:BaseMaterial3D.subsurf_scatter_transmittance_depth
@@ -1050,9 +1570,16 @@ func (self Instance) SetSubsurfScatterTransmittanceDepth(value Float.X) Instance
 	return self
 }
 
+func (o *Extension[T]) SetSubsurfScatterTransmittanceDepth(value Float.X) *Extension[T] {
+	o.Super().SetSubsurfScatterTransmittanceDepth(value)
+	return o
+}
+
 func (self Instance) SubsurfScatterTransmittanceBoost() Float.X { //gd:BaseMaterial3D.subsurf_scatter_transmittance_boost
 		return Float.X(Float.X(class(self).GetTransmittanceBoost()))
 }
+
+func (o *Extension[T]) SubsurfScatterTransmittanceBoost() Float.X { return o.Super().SubsurfScatterTransmittanceBoost() }
 
 // SetSubsurfScatterTransmittanceBoost sets the property returned by [GetTransmittanceBoost]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSubsurfScatterTransmittanceBoost(value Float.X) Instance { //gd:BaseMaterial3D.subsurf_scatter_transmittance_boost
@@ -1060,9 +1587,16 @@ func (self Instance) SetSubsurfScatterTransmittanceBoost(value Float.X) Instance
 	return self
 }
 
+func (o *Extension[T]) SetSubsurfScatterTransmittanceBoost(value Float.X) *Extension[T] {
+	o.Super().SetSubsurfScatterTransmittanceBoost(value)
+	return o
+}
+
 func (self Instance) BacklightEnabled() bool { //gd:BaseMaterial3D.backlight_enabled
 		return bool(class(self).GetFeature(9))
 }
+
+func (o *Extension[T]) BacklightEnabled() bool { return o.Super().BacklightEnabled() }
 
 // SetBacklightEnabled sets the property returned by [GetFeature]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBacklightEnabled(value bool) Instance { //gd:BaseMaterial3D.backlight_enabled
@@ -1070,9 +1604,16 @@ func (self Instance) SetBacklightEnabled(value bool) Instance { //gd:BaseMateria
 	return self
 }
 
+func (o *Extension[T]) SetBacklightEnabled(value bool) *Extension[T] {
+	o.Super().SetBacklightEnabled(value)
+	return o
+}
+
 func (self Instance) Backlight() Color.RGBA { //gd:BaseMaterial3D.backlight
 		return Color.RGBA(class(self).GetBacklight())
 }
+
+func (o *Extension[T]) Backlight() Color.RGBA { return o.Super().Backlight() }
 
 // SetBacklight sets the property returned by [GetBacklight]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBacklight(value Color.RGBA) Instance { //gd:BaseMaterial3D.backlight
@@ -1080,9 +1621,16 @@ func (self Instance) SetBacklight(value Color.RGBA) Instance { //gd:BaseMaterial
 	return self
 }
 
+func (o *Extension[T]) SetBacklight(value Color.RGBA) *Extension[T] {
+	o.Super().SetBacklight(value)
+	return o
+}
+
 func (self Instance) BacklightTexture() Texture2D.Instance { //gd:BaseMaterial3D.backlight_texture
 		return Texture2D.Instance(class(self).GetTexture(12))
 }
+
+func (o *Extension[T]) BacklightTexture() Texture2D.Instance { return o.Super().BacklightTexture() }
 
 // SetBacklightTexture sets the property returned by [GetTexture]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBacklightTexture(value Texture2D.Instance) Instance { //gd:BaseMaterial3D.backlight_texture
@@ -1090,9 +1638,16 @@ func (self Instance) SetBacklightTexture(value Texture2D.Instance) Instance { //
 	return self
 }
 
+func (o *Extension[T]) SetBacklightTexture(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetBacklightTexture(value)
+	return o
+}
+
 func (self Instance) RefractionEnabled() bool { //gd:BaseMaterial3D.refraction_enabled
 		return bool(class(self).GetFeature(10))
 }
+
+func (o *Extension[T]) RefractionEnabled() bool { return o.Super().RefractionEnabled() }
 
 // SetRefractionEnabled sets the property returned by [GetFeature]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRefractionEnabled(value bool) Instance { //gd:BaseMaterial3D.refraction_enabled
@@ -1100,9 +1655,16 @@ func (self Instance) SetRefractionEnabled(value bool) Instance { //gd:BaseMateri
 	return self
 }
 
+func (o *Extension[T]) SetRefractionEnabled(value bool) *Extension[T] {
+	o.Super().SetRefractionEnabled(value)
+	return o
+}
+
 func (self Instance) RefractionScale() Float.X { //gd:BaseMaterial3D.refraction_scale
 		return Float.X(Float.X(class(self).GetRefraction()))
 }
+
+func (o *Extension[T]) RefractionScale() Float.X { return o.Super().RefractionScale() }
 
 // SetRefractionScale sets the property returned by [GetRefraction]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRefractionScale(value Float.X) Instance { //gd:BaseMaterial3D.refraction_scale
@@ -1110,9 +1672,16 @@ func (self Instance) SetRefractionScale(value Float.X) Instance { //gd:BaseMater
 	return self
 }
 
+func (o *Extension[T]) SetRefractionScale(value Float.X) *Extension[T] {
+	o.Super().SetRefractionScale(value)
+	return o
+}
+
 func (self Instance) RefractionTexture() Texture2D.Instance { //gd:BaseMaterial3D.refraction_texture
 		return Texture2D.Instance(class(self).GetTexture(13))
 }
+
+func (o *Extension[T]) RefractionTexture() Texture2D.Instance { return o.Super().RefractionTexture() }
 
 // SetRefractionTexture sets the property returned by [GetTexture]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRefractionTexture(value Texture2D.Instance) Instance { //gd:BaseMaterial3D.refraction_texture
@@ -1120,9 +1689,16 @@ func (self Instance) SetRefractionTexture(value Texture2D.Instance) Instance { /
 	return self
 }
 
+func (o *Extension[T]) SetRefractionTexture(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetRefractionTexture(value)
+	return o
+}
+
 func (self Instance) RefractionTextureChannel() TextureChannel { //gd:BaseMaterial3D.refraction_texture_channel
 		return TextureChannel(class(self).GetRefractionTextureChannel())
 }
+
+func (o *Extension[T]) RefractionTextureChannel() TextureChannel { return o.Super().RefractionTextureChannel() }
 
 // SetRefractionTextureChannel sets the property returned by [GetRefractionTextureChannel]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRefractionTextureChannel(value TextureChannel) Instance { //gd:BaseMaterial3D.refraction_texture_channel
@@ -1130,9 +1706,16 @@ func (self Instance) SetRefractionTextureChannel(value TextureChannel) Instance 
 	return self
 }
 
+func (o *Extension[T]) SetRefractionTextureChannel(value TextureChannel) *Extension[T] {
+	o.Super().SetRefractionTextureChannel(value)
+	return o
+}
+
 func (self Instance) DetailEnabled() bool { //gd:BaseMaterial3D.detail_enabled
 		return bool(class(self).GetFeature(11))
 }
+
+func (o *Extension[T]) DetailEnabled() bool { return o.Super().DetailEnabled() }
 
 // SetDetailEnabled sets the property returned by [GetFeature]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDetailEnabled(value bool) Instance { //gd:BaseMaterial3D.detail_enabled
@@ -1140,9 +1723,16 @@ func (self Instance) SetDetailEnabled(value bool) Instance { //gd:BaseMaterial3D
 	return self
 }
 
+func (o *Extension[T]) SetDetailEnabled(value bool) *Extension[T] {
+	o.Super().SetDetailEnabled(value)
+	return o
+}
+
 func (self Instance) DetailMask() Texture2D.Instance { //gd:BaseMaterial3D.detail_mask
 		return Texture2D.Instance(class(self).GetTexture(14))
 }
+
+func (o *Extension[T]) DetailMask() Texture2D.Instance { return o.Super().DetailMask() }
 
 // SetDetailMask sets the property returned by [GetTexture]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDetailMask(value Texture2D.Instance) Instance { //gd:BaseMaterial3D.detail_mask
@@ -1150,9 +1740,16 @@ func (self Instance) SetDetailMask(value Texture2D.Instance) Instance { //gd:Bas
 	return self
 }
 
+func (o *Extension[T]) SetDetailMask(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetDetailMask(value)
+	return o
+}
+
 func (self Instance) DetailBlendMode() BlendMode { //gd:BaseMaterial3D.detail_blend_mode
 		return BlendMode(class(self).GetDetailBlendMode())
 }
+
+func (o *Extension[T]) DetailBlendMode() BlendMode { return o.Super().DetailBlendMode() }
 
 // SetDetailBlendMode sets the property returned by [GetDetailBlendMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDetailBlendMode(value BlendMode) Instance { //gd:BaseMaterial3D.detail_blend_mode
@@ -1160,9 +1757,16 @@ func (self Instance) SetDetailBlendMode(value BlendMode) Instance { //gd:BaseMat
 	return self
 }
 
+func (o *Extension[T]) SetDetailBlendMode(value BlendMode) *Extension[T] {
+	o.Super().SetDetailBlendMode(value)
+	return o
+}
+
 func (self Instance) DetailUvLayer() DetailUV { //gd:BaseMaterial3D.detail_uv_layer
 		return DetailUV(class(self).GetDetailUv())
 }
+
+func (o *Extension[T]) DetailUvLayer() DetailUV { return o.Super().DetailUvLayer() }
 
 // SetDetailUvLayer sets the property returned by [GetDetailUv]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDetailUvLayer(value DetailUV) Instance { //gd:BaseMaterial3D.detail_uv_layer
@@ -1170,9 +1774,16 @@ func (self Instance) SetDetailUvLayer(value DetailUV) Instance { //gd:BaseMateri
 	return self
 }
 
+func (o *Extension[T]) SetDetailUvLayer(value DetailUV) *Extension[T] {
+	o.Super().SetDetailUvLayer(value)
+	return o
+}
+
 func (self Instance) DetailAlbedo() Texture2D.Instance { //gd:BaseMaterial3D.detail_albedo
 		return Texture2D.Instance(class(self).GetTexture(15))
 }
+
+func (o *Extension[T]) DetailAlbedo() Texture2D.Instance { return o.Super().DetailAlbedo() }
 
 // SetDetailAlbedo sets the property returned by [GetTexture]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDetailAlbedo(value Texture2D.Instance) Instance { //gd:BaseMaterial3D.detail_albedo
@@ -1180,9 +1791,16 @@ func (self Instance) SetDetailAlbedo(value Texture2D.Instance) Instance { //gd:B
 	return self
 }
 
+func (o *Extension[T]) SetDetailAlbedo(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetDetailAlbedo(value)
+	return o
+}
+
 func (self Instance) DetailNormal() Texture2D.Instance { //gd:BaseMaterial3D.detail_normal
 		return Texture2D.Instance(class(self).GetTexture(16))
 }
+
+func (o *Extension[T]) DetailNormal() Texture2D.Instance { return o.Super().DetailNormal() }
 
 // SetDetailNormal sets the property returned by [GetTexture]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDetailNormal(value Texture2D.Instance) Instance { //gd:BaseMaterial3D.detail_normal
@@ -1190,9 +1808,16 @@ func (self Instance) SetDetailNormal(value Texture2D.Instance) Instance { //gd:B
 	return self
 }
 
+func (o *Extension[T]) SetDetailNormal(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetDetailNormal(value)
+	return o
+}
+
 func (self Instance) Uv1Scale() Vector3.XYZ { //gd:BaseMaterial3D.uv1_scale
 		return Vector3.XYZ(class(self).GetUv1Scale())
 }
+
+func (o *Extension[T]) Uv1Scale() Vector3.XYZ { return o.Super().Uv1Scale() }
 
 // SetUv1Scale sets the property returned by [GetUv1Scale]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUv1Scale(value Vector3.XYZ) Instance { //gd:BaseMaterial3D.uv1_scale
@@ -1200,9 +1825,16 @@ func (self Instance) SetUv1Scale(value Vector3.XYZ) Instance { //gd:BaseMaterial
 	return self
 }
 
+func (o *Extension[T]) SetUv1Scale(value Vector3.XYZ) *Extension[T] {
+	o.Super().SetUv1Scale(value)
+	return o
+}
+
 func (self Instance) Uv1Offset() Vector3.XYZ { //gd:BaseMaterial3D.uv1_offset
 		return Vector3.XYZ(class(self).GetUv1Offset())
 }
+
+func (o *Extension[T]) Uv1Offset() Vector3.XYZ { return o.Super().Uv1Offset() }
 
 // SetUv1Offset sets the property returned by [GetUv1Offset]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUv1Offset(value Vector3.XYZ) Instance { //gd:BaseMaterial3D.uv1_offset
@@ -1210,9 +1842,16 @@ func (self Instance) SetUv1Offset(value Vector3.XYZ) Instance { //gd:BaseMateria
 	return self
 }
 
+func (o *Extension[T]) SetUv1Offset(value Vector3.XYZ) *Extension[T] {
+	o.Super().SetUv1Offset(value)
+	return o
+}
+
 func (self Instance) Uv1Triplanar() bool { //gd:BaseMaterial3D.uv1_triplanar
 		return bool(class(self).GetFlag(6))
 }
+
+func (o *Extension[T]) Uv1Triplanar() bool { return o.Super().Uv1Triplanar() }
 
 // SetUv1Triplanar sets the property returned by [GetFlag]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUv1Triplanar(value bool) Instance { //gd:BaseMaterial3D.uv1_triplanar
@@ -1220,9 +1859,16 @@ func (self Instance) SetUv1Triplanar(value bool) Instance { //gd:BaseMaterial3D.
 	return self
 }
 
+func (o *Extension[T]) SetUv1Triplanar(value bool) *Extension[T] {
+	o.Super().SetUv1Triplanar(value)
+	return o
+}
+
 func (self Instance) Uv1TriplanarSharpness() Float.X { //gd:BaseMaterial3D.uv1_triplanar_sharpness
 		return Float.X(Float.X(class(self).GetUv1TriplanarBlendSharpness()))
 }
+
+func (o *Extension[T]) Uv1TriplanarSharpness() Float.X { return o.Super().Uv1TriplanarSharpness() }
 
 // SetUv1TriplanarSharpness sets the property returned by [GetUv1TriplanarBlendSharpness]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUv1TriplanarSharpness(value Float.X) Instance { //gd:BaseMaterial3D.uv1_triplanar_sharpness
@@ -1230,9 +1876,16 @@ func (self Instance) SetUv1TriplanarSharpness(value Float.X) Instance { //gd:Bas
 	return self
 }
 
+func (o *Extension[T]) SetUv1TriplanarSharpness(value Float.X) *Extension[T] {
+	o.Super().SetUv1TriplanarSharpness(value)
+	return o
+}
+
 func (self Instance) Uv1WorldTriplanar() bool { //gd:BaseMaterial3D.uv1_world_triplanar
 		return bool(class(self).GetFlag(8))
 }
+
+func (o *Extension[T]) Uv1WorldTriplanar() bool { return o.Super().Uv1WorldTriplanar() }
 
 // SetUv1WorldTriplanar sets the property returned by [GetFlag]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUv1WorldTriplanar(value bool) Instance { //gd:BaseMaterial3D.uv1_world_triplanar
@@ -1240,9 +1893,16 @@ func (self Instance) SetUv1WorldTriplanar(value bool) Instance { //gd:BaseMateri
 	return self
 }
 
+func (o *Extension[T]) SetUv1WorldTriplanar(value bool) *Extension[T] {
+	o.Super().SetUv1WorldTriplanar(value)
+	return o
+}
+
 func (self Instance) Uv2Scale() Vector3.XYZ { //gd:BaseMaterial3D.uv2_scale
 		return Vector3.XYZ(class(self).GetUv2Scale())
 }
+
+func (o *Extension[T]) Uv2Scale() Vector3.XYZ { return o.Super().Uv2Scale() }
 
 // SetUv2Scale sets the property returned by [GetUv2Scale]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUv2Scale(value Vector3.XYZ) Instance { //gd:BaseMaterial3D.uv2_scale
@@ -1250,9 +1910,16 @@ func (self Instance) SetUv2Scale(value Vector3.XYZ) Instance { //gd:BaseMaterial
 	return self
 }
 
+func (o *Extension[T]) SetUv2Scale(value Vector3.XYZ) *Extension[T] {
+	o.Super().SetUv2Scale(value)
+	return o
+}
+
 func (self Instance) Uv2Offset() Vector3.XYZ { //gd:BaseMaterial3D.uv2_offset
 		return Vector3.XYZ(class(self).GetUv2Offset())
 }
+
+func (o *Extension[T]) Uv2Offset() Vector3.XYZ { return o.Super().Uv2Offset() }
 
 // SetUv2Offset sets the property returned by [GetUv2Offset]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUv2Offset(value Vector3.XYZ) Instance { //gd:BaseMaterial3D.uv2_offset
@@ -1260,9 +1927,16 @@ func (self Instance) SetUv2Offset(value Vector3.XYZ) Instance { //gd:BaseMateria
 	return self
 }
 
+func (o *Extension[T]) SetUv2Offset(value Vector3.XYZ) *Extension[T] {
+	o.Super().SetUv2Offset(value)
+	return o
+}
+
 func (self Instance) Uv2Triplanar() bool { //gd:BaseMaterial3D.uv2_triplanar
 		return bool(class(self).GetFlag(7))
 }
+
+func (o *Extension[T]) Uv2Triplanar() bool { return o.Super().Uv2Triplanar() }
 
 // SetUv2Triplanar sets the property returned by [GetFlag]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUv2Triplanar(value bool) Instance { //gd:BaseMaterial3D.uv2_triplanar
@@ -1270,9 +1944,16 @@ func (self Instance) SetUv2Triplanar(value bool) Instance { //gd:BaseMaterial3D.
 	return self
 }
 
+func (o *Extension[T]) SetUv2Triplanar(value bool) *Extension[T] {
+	o.Super().SetUv2Triplanar(value)
+	return o
+}
+
 func (self Instance) Uv2TriplanarSharpness() Float.X { //gd:BaseMaterial3D.uv2_triplanar_sharpness
 		return Float.X(Float.X(class(self).GetUv2TriplanarBlendSharpness()))
 }
+
+func (o *Extension[T]) Uv2TriplanarSharpness() Float.X { return o.Super().Uv2TriplanarSharpness() }
 
 // SetUv2TriplanarSharpness sets the property returned by [GetUv2TriplanarBlendSharpness]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUv2TriplanarSharpness(value Float.X) Instance { //gd:BaseMaterial3D.uv2_triplanar_sharpness
@@ -1280,9 +1961,16 @@ func (self Instance) SetUv2TriplanarSharpness(value Float.X) Instance { //gd:Bas
 	return self
 }
 
+func (o *Extension[T]) SetUv2TriplanarSharpness(value Float.X) *Extension[T] {
+	o.Super().SetUv2TriplanarSharpness(value)
+	return o
+}
+
 func (self Instance) Uv2WorldTriplanar() bool { //gd:BaseMaterial3D.uv2_world_triplanar
 		return bool(class(self).GetFlag(9))
 }
+
+func (o *Extension[T]) Uv2WorldTriplanar() bool { return o.Super().Uv2WorldTriplanar() }
 
 // SetUv2WorldTriplanar sets the property returned by [GetFlag]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUv2WorldTriplanar(value bool) Instance { //gd:BaseMaterial3D.uv2_world_triplanar
@@ -1290,9 +1978,16 @@ func (self Instance) SetUv2WorldTriplanar(value bool) Instance { //gd:BaseMateri
 	return self
 }
 
+func (o *Extension[T]) SetUv2WorldTriplanar(value bool) *Extension[T] {
+	o.Super().SetUv2WorldTriplanar(value)
+	return o
+}
+
 func (self Instance) TextureFilter() TextureFilter { //gd:BaseMaterial3D.texture_filter
 		return TextureFilter(class(self).GetTextureFilter())
 }
+
+func (o *Extension[T]) TextureFilter() TextureFilter { return o.Super().TextureFilter() }
 
 // SetTextureFilter sets the property returned by [GetTextureFilter]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTextureFilter(value TextureFilter) Instance { //gd:BaseMaterial3D.texture_filter
@@ -1300,9 +1995,16 @@ func (self Instance) SetTextureFilter(value TextureFilter) Instance { //gd:BaseM
 	return self
 }
 
+func (o *Extension[T]) SetTextureFilter(value TextureFilter) *Extension[T] {
+	o.Super().SetTextureFilter(value)
+	return o
+}
+
 func (self Instance) TextureRepeat() bool { //gd:BaseMaterial3D.texture_repeat
 		return bool(class(self).GetFlag(16))
 }
+
+func (o *Extension[T]) TextureRepeat() bool { return o.Super().TextureRepeat() }
 
 // SetTextureRepeat sets the property returned by [GetFlag]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTextureRepeat(value bool) Instance { //gd:BaseMaterial3D.texture_repeat
@@ -1310,9 +2012,16 @@ func (self Instance) SetTextureRepeat(value bool) Instance { //gd:BaseMaterial3D
 	return self
 }
 
+func (o *Extension[T]) SetTextureRepeat(value bool) *Extension[T] {
+	o.Super().SetTextureRepeat(value)
+	return o
+}
+
 func (self Instance) DisableReceiveShadows() bool { //gd:BaseMaterial3D.disable_receive_shadows
 		return bool(class(self).GetFlag(13))
 }
+
+func (o *Extension[T]) DisableReceiveShadows() bool { return o.Super().DisableReceiveShadows() }
 
 // SetDisableReceiveShadows sets the property returned by [GetFlag]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDisableReceiveShadows(value bool) Instance { //gd:BaseMaterial3D.disable_receive_shadows
@@ -1320,9 +2029,16 @@ func (self Instance) SetDisableReceiveShadows(value bool) Instance { //gd:BaseMa
 	return self
 }
 
+func (o *Extension[T]) SetDisableReceiveShadows(value bool) *Extension[T] {
+	o.Super().SetDisableReceiveShadows(value)
+	return o
+}
+
 func (self Instance) ShadowToOpacity() bool { //gd:BaseMaterial3D.shadow_to_opacity
 		return bool(class(self).GetFlag(15))
 }
+
+func (o *Extension[T]) ShadowToOpacity() bool { return o.Super().ShadowToOpacity() }
 
 // SetShadowToOpacity sets the property returned by [GetFlag]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetShadowToOpacity(value bool) Instance { //gd:BaseMaterial3D.shadow_to_opacity
@@ -1330,9 +2046,16 @@ func (self Instance) SetShadowToOpacity(value bool) Instance { //gd:BaseMaterial
 	return self
 }
 
+func (o *Extension[T]) SetShadowToOpacity(value bool) *Extension[T] {
+	o.Super().SetShadowToOpacity(value)
+	return o
+}
+
 func (self Instance) BillboardMode() BillboardMode { //gd:BaseMaterial3D.billboard_mode
 		return BillboardMode(class(self).GetBillboardMode())
 }
+
+func (o *Extension[T]) BillboardMode() BillboardMode { return o.Super().BillboardMode() }
 
 // SetBillboardMode sets the property returned by [GetBillboardMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBillboardMode(value BillboardMode) Instance { //gd:BaseMaterial3D.billboard_mode
@@ -1340,9 +2063,16 @@ func (self Instance) SetBillboardMode(value BillboardMode) Instance { //gd:BaseM
 	return self
 }
 
+func (o *Extension[T]) SetBillboardMode(value BillboardMode) *Extension[T] {
+	o.Super().SetBillboardMode(value)
+	return o
+}
+
 func (self Instance) BillboardKeepScale() bool { //gd:BaseMaterial3D.billboard_keep_scale
 		return bool(class(self).GetFlag(5))
 }
+
+func (o *Extension[T]) BillboardKeepScale() bool { return o.Super().BillboardKeepScale() }
 
 // SetBillboardKeepScale sets the property returned by [GetFlag]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBillboardKeepScale(value bool) Instance { //gd:BaseMaterial3D.billboard_keep_scale
@@ -1350,9 +2080,16 @@ func (self Instance) SetBillboardKeepScale(value bool) Instance { //gd:BaseMater
 	return self
 }
 
+func (o *Extension[T]) SetBillboardKeepScale(value bool) *Extension[T] {
+	o.Super().SetBillboardKeepScale(value)
+	return o
+}
+
 func (self Instance) ParticlesAnimHFrames() int { //gd:BaseMaterial3D.particles_anim_h_frames
 		return int(int(class(self).GetParticlesAnimHFrames()))
 }
+
+func (o *Extension[T]) ParticlesAnimHFrames() int { return o.Super().ParticlesAnimHFrames() }
 
 // SetParticlesAnimHFrames sets the property returned by [GetParticlesAnimHFrames]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetParticlesAnimHFrames(value int) Instance { //gd:BaseMaterial3D.particles_anim_h_frames
@@ -1360,9 +2097,16 @@ func (self Instance) SetParticlesAnimHFrames(value int) Instance { //gd:BaseMate
 	return self
 }
 
+func (o *Extension[T]) SetParticlesAnimHFrames(value int) *Extension[T] {
+	o.Super().SetParticlesAnimHFrames(value)
+	return o
+}
+
 func (self Instance) ParticlesAnimVFrames() int { //gd:BaseMaterial3D.particles_anim_v_frames
 		return int(int(class(self).GetParticlesAnimVFrames()))
 }
+
+func (o *Extension[T]) ParticlesAnimVFrames() int { return o.Super().ParticlesAnimVFrames() }
 
 // SetParticlesAnimVFrames sets the property returned by [GetParticlesAnimVFrames]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetParticlesAnimVFrames(value int) Instance { //gd:BaseMaterial3D.particles_anim_v_frames
@@ -1370,9 +2114,16 @@ func (self Instance) SetParticlesAnimVFrames(value int) Instance { //gd:BaseMate
 	return self
 }
 
+func (o *Extension[T]) SetParticlesAnimVFrames(value int) *Extension[T] {
+	o.Super().SetParticlesAnimVFrames(value)
+	return o
+}
+
 func (self Instance) ParticlesAnimLoop() bool { //gd:BaseMaterial3D.particles_anim_loop
 		return bool(class(self).GetParticlesAnimLoop())
 }
+
+func (o *Extension[T]) ParticlesAnimLoop() bool { return o.Super().ParticlesAnimLoop() }
 
 // SetParticlesAnimLoop sets the property returned by [GetParticlesAnimLoop]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetParticlesAnimLoop(value bool) Instance { //gd:BaseMaterial3D.particles_anim_loop
@@ -1380,9 +2131,16 @@ func (self Instance) SetParticlesAnimLoop(value bool) Instance { //gd:BaseMateri
 	return self
 }
 
+func (o *Extension[T]) SetParticlesAnimLoop(value bool) *Extension[T] {
+	o.Super().SetParticlesAnimLoop(value)
+	return o
+}
+
 func (self Instance) Grow() bool { //gd:BaseMaterial3D.grow
 		return bool(class(self).IsGrowEnabled())
 }
+
+func (o *Extension[T]) Grow() bool { return o.Super().Grow() }
 
 // SetGrow sets the property returned by [IsGrowEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetGrow(value bool) Instance { //gd:BaseMaterial3D.grow
@@ -1390,9 +2148,16 @@ func (self Instance) SetGrow(value bool) Instance { //gd:BaseMaterial3D.grow
 	return self
 }
 
+func (o *Extension[T]) SetGrow(value bool) *Extension[T] {
+	o.Super().SetGrow(value)
+	return o
+}
+
 func (self Instance) GrowAmount() Float.X { //gd:BaseMaterial3D.grow_amount
 		return Float.X(Float.X(class(self).GetGrow()))
 }
+
+func (o *Extension[T]) GrowAmount() Float.X { return o.Super().GrowAmount() }
 
 // SetGrowAmount sets the property returned by [GetGrow]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetGrowAmount(value Float.X) Instance { //gd:BaseMaterial3D.grow_amount
@@ -1400,9 +2165,16 @@ func (self Instance) SetGrowAmount(value Float.X) Instance { //gd:BaseMaterial3D
 	return self
 }
 
+func (o *Extension[T]) SetGrowAmount(value Float.X) *Extension[T] {
+	o.Super().SetGrowAmount(value)
+	return o
+}
+
 func (self Instance) FixedSize() bool { //gd:BaseMaterial3D.fixed_size
 		return bool(class(self).GetFlag(4))
 }
+
+func (o *Extension[T]) FixedSize() bool { return o.Super().FixedSize() }
 
 // SetFixedSize sets the property returned by [GetFlag]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFixedSize(value bool) Instance { //gd:BaseMaterial3D.fixed_size
@@ -1410,9 +2182,16 @@ func (self Instance) SetFixedSize(value bool) Instance { //gd:BaseMaterial3D.fix
 	return self
 }
 
+func (o *Extension[T]) SetFixedSize(value bool) *Extension[T] {
+	o.Super().SetFixedSize(value)
+	return o
+}
+
 func (self Instance) UsePointSize() bool { //gd:BaseMaterial3D.use_point_size
 		return bool(class(self).GetFlag(3))
 }
+
+func (o *Extension[T]) UsePointSize() bool { return o.Super().UsePointSize() }
 
 // SetUsePointSize sets the property returned by [GetFlag]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUsePointSize(value bool) Instance { //gd:BaseMaterial3D.use_point_size
@@ -1420,9 +2199,16 @@ func (self Instance) SetUsePointSize(value bool) Instance { //gd:BaseMaterial3D.
 	return self
 }
 
+func (o *Extension[T]) SetUsePointSize(value bool) *Extension[T] {
+	o.Super().SetUsePointSize(value)
+	return o
+}
+
 func (self Instance) PointSize() Float.X { //gd:BaseMaterial3D.point_size
 		return Float.X(Float.X(class(self).GetPointSize()))
 }
+
+func (o *Extension[T]) PointSize() Float.X { return o.Super().PointSize() }
 
 // SetPointSize sets the property returned by [GetPointSize]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPointSize(value Float.X) Instance { //gd:BaseMaterial3D.point_size
@@ -1430,9 +2216,16 @@ func (self Instance) SetPointSize(value Float.X) Instance { //gd:BaseMaterial3D.
 	return self
 }
 
+func (o *Extension[T]) SetPointSize(value Float.X) *Extension[T] {
+	o.Super().SetPointSize(value)
+	return o
+}
+
 func (self Instance) UseParticleTrails() bool { //gd:BaseMaterial3D.use_particle_trails
 		return bool(class(self).GetFlag(19))
 }
+
+func (o *Extension[T]) UseParticleTrails() bool { return o.Super().UseParticleTrails() }
 
 // SetUseParticleTrails sets the property returned by [GetFlag]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUseParticleTrails(value bool) Instance { //gd:BaseMaterial3D.use_particle_trails
@@ -1440,9 +2233,16 @@ func (self Instance) SetUseParticleTrails(value bool) Instance { //gd:BaseMateri
 	return self
 }
 
+func (o *Extension[T]) SetUseParticleTrails(value bool) *Extension[T] {
+	o.Super().SetUseParticleTrails(value)
+	return o
+}
+
 func (self Instance) UseZClipScale() bool { //gd:BaseMaterial3D.use_z_clip_scale
 		return bool(class(self).GetFlag(23))
 }
+
+func (o *Extension[T]) UseZClipScale() bool { return o.Super().UseZClipScale() }
 
 // SetUseZClipScale sets the property returned by [GetFlag]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUseZClipScale(value bool) Instance { //gd:BaseMaterial3D.use_z_clip_scale
@@ -1450,9 +2250,16 @@ func (self Instance) SetUseZClipScale(value bool) Instance { //gd:BaseMaterial3D
 	return self
 }
 
+func (o *Extension[T]) SetUseZClipScale(value bool) *Extension[T] {
+	o.Super().SetUseZClipScale(value)
+	return o
+}
+
 func (self Instance) ZClipScale() Float.X { //gd:BaseMaterial3D.z_clip_scale
 		return Float.X(Float.X(class(self).GetZClipScale()))
 }
+
+func (o *Extension[T]) ZClipScale() Float.X { return o.Super().ZClipScale() }
 
 // SetZClipScale sets the property returned by [GetZClipScale]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetZClipScale(value Float.X) Instance { //gd:BaseMaterial3D.z_clip_scale
@@ -1460,9 +2267,16 @@ func (self Instance) SetZClipScale(value Float.X) Instance { //gd:BaseMaterial3D
 	return self
 }
 
+func (o *Extension[T]) SetZClipScale(value Float.X) *Extension[T] {
+	o.Super().SetZClipScale(value)
+	return o
+}
+
 func (self Instance) UseFovOverride() bool { //gd:BaseMaterial3D.use_fov_override
 		return bool(class(self).GetFlag(24))
 }
+
+func (o *Extension[T]) UseFovOverride() bool { return o.Super().UseFovOverride() }
 
 // SetUseFovOverride sets the property returned by [GetFlag]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUseFovOverride(value bool) Instance { //gd:BaseMaterial3D.use_fov_override
@@ -1470,9 +2284,16 @@ func (self Instance) SetUseFovOverride(value bool) Instance { //gd:BaseMaterial3
 	return self
 }
 
+func (o *Extension[T]) SetUseFovOverride(value bool) *Extension[T] {
+	o.Super().SetUseFovOverride(value)
+	return o
+}
+
 func (self Instance) FovOverride() Float.X { //gd:BaseMaterial3D.fov_override
 		return Float.X(Float.X(class(self).GetFovOverride()))
 }
+
+func (o *Extension[T]) FovOverride() Float.X { return o.Super().FovOverride() }
 
 // SetFovOverride sets the property returned by [GetFovOverride]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFovOverride(value Float.X) Instance { //gd:BaseMaterial3D.fov_override
@@ -1480,9 +2301,16 @@ func (self Instance) SetFovOverride(value Float.X) Instance { //gd:BaseMaterial3
 	return self
 }
 
+func (o *Extension[T]) SetFovOverride(value Float.X) *Extension[T] {
+	o.Super().SetFovOverride(value)
+	return o
+}
+
 func (self Instance) ProximityFadeEnabled() bool { //gd:BaseMaterial3D.proximity_fade_enabled
 		return bool(class(self).IsProximityFadeEnabled())
 }
+
+func (o *Extension[T]) ProximityFadeEnabled() bool { return o.Super().ProximityFadeEnabled() }
 
 // SetProximityFadeEnabled sets the property returned by [IsProximityFadeEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetProximityFadeEnabled(value bool) Instance { //gd:BaseMaterial3D.proximity_fade_enabled
@@ -1490,9 +2318,16 @@ func (self Instance) SetProximityFadeEnabled(value bool) Instance { //gd:BaseMat
 	return self
 }
 
+func (o *Extension[T]) SetProximityFadeEnabled(value bool) *Extension[T] {
+	o.Super().SetProximityFadeEnabled(value)
+	return o
+}
+
 func (self Instance) ProximityFadeDistance() Float.X { //gd:BaseMaterial3D.proximity_fade_distance
 		return Float.X(Float.X(class(self).GetProximityFadeDistance()))
 }
+
+func (o *Extension[T]) ProximityFadeDistance() Float.X { return o.Super().ProximityFadeDistance() }
 
 // SetProximityFadeDistance sets the property returned by [GetProximityFadeDistance]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetProximityFadeDistance(value Float.X) Instance { //gd:BaseMaterial3D.proximity_fade_distance
@@ -1500,9 +2335,16 @@ func (self Instance) SetProximityFadeDistance(value Float.X) Instance { //gd:Bas
 	return self
 }
 
+func (o *Extension[T]) SetProximityFadeDistance(value Float.X) *Extension[T] {
+	o.Super().SetProximityFadeDistance(value)
+	return o
+}
+
 func (self Instance) MsdfPixelRange() Float.X { //gd:BaseMaterial3D.msdf_pixel_range
 		return Float.X(Float.X(class(self).GetMsdfPixelRange()))
 }
+
+func (o *Extension[T]) MsdfPixelRange() Float.X { return o.Super().MsdfPixelRange() }
 
 // SetMsdfPixelRange sets the property returned by [GetMsdfPixelRange]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMsdfPixelRange(value Float.X) Instance { //gd:BaseMaterial3D.msdf_pixel_range
@@ -1510,9 +2352,16 @@ func (self Instance) SetMsdfPixelRange(value Float.X) Instance { //gd:BaseMateri
 	return self
 }
 
+func (o *Extension[T]) SetMsdfPixelRange(value Float.X) *Extension[T] {
+	o.Super().SetMsdfPixelRange(value)
+	return o
+}
+
 func (self Instance) MsdfOutlineSize() Float.X { //gd:BaseMaterial3D.msdf_outline_size
 		return Float.X(Float.X(class(self).GetMsdfOutlineSize()))
 }
+
+func (o *Extension[T]) MsdfOutlineSize() Float.X { return o.Super().MsdfOutlineSize() }
 
 // SetMsdfOutlineSize sets the property returned by [GetMsdfOutlineSize]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMsdfOutlineSize(value Float.X) Instance { //gd:BaseMaterial3D.msdf_outline_size
@@ -1520,9 +2369,16 @@ func (self Instance) SetMsdfOutlineSize(value Float.X) Instance { //gd:BaseMater
 	return self
 }
 
+func (o *Extension[T]) SetMsdfOutlineSize(value Float.X) *Extension[T] {
+	o.Super().SetMsdfOutlineSize(value)
+	return o
+}
+
 func (self Instance) DistanceFadeMode() DistanceFadeMode { //gd:BaseMaterial3D.distance_fade_mode
 		return DistanceFadeMode(class(self).GetDistanceFade())
 }
+
+func (o *Extension[T]) DistanceFadeMode() DistanceFadeMode { return o.Super().DistanceFadeMode() }
 
 // SetDistanceFadeMode sets the property returned by [GetDistanceFade]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDistanceFadeMode(value DistanceFadeMode) Instance { //gd:BaseMaterial3D.distance_fade_mode
@@ -1530,9 +2386,16 @@ func (self Instance) SetDistanceFadeMode(value DistanceFadeMode) Instance { //gd
 	return self
 }
 
+func (o *Extension[T]) SetDistanceFadeMode(value DistanceFadeMode) *Extension[T] {
+	o.Super().SetDistanceFadeMode(value)
+	return o
+}
+
 func (self Instance) DistanceFadeMinDistance() Float.X { //gd:BaseMaterial3D.distance_fade_min_distance
 		return Float.X(Float.X(class(self).GetDistanceFadeMinDistance()))
 }
+
+func (o *Extension[T]) DistanceFadeMinDistance() Float.X { return o.Super().DistanceFadeMinDistance() }
 
 // SetDistanceFadeMinDistance sets the property returned by [GetDistanceFadeMinDistance]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDistanceFadeMinDistance(value Float.X) Instance { //gd:BaseMaterial3D.distance_fade_min_distance
@@ -1540,9 +2403,16 @@ func (self Instance) SetDistanceFadeMinDistance(value Float.X) Instance { //gd:B
 	return self
 }
 
+func (o *Extension[T]) SetDistanceFadeMinDistance(value Float.X) *Extension[T] {
+	o.Super().SetDistanceFadeMinDistance(value)
+	return o
+}
+
 func (self Instance) DistanceFadeMaxDistance() Float.X { //gd:BaseMaterial3D.distance_fade_max_distance
 		return Float.X(Float.X(class(self).GetDistanceFadeMaxDistance()))
 }
+
+func (o *Extension[T]) DistanceFadeMaxDistance() Float.X { return o.Super().DistanceFadeMaxDistance() }
 
 // SetDistanceFadeMaxDistance sets the property returned by [GetDistanceFadeMaxDistance]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDistanceFadeMaxDistance(value Float.X) Instance { //gd:BaseMaterial3D.distance_fade_max_distance
@@ -1550,9 +2420,16 @@ func (self Instance) SetDistanceFadeMaxDistance(value Float.X) Instance { //gd:B
 	return self
 }
 
+func (o *Extension[T]) SetDistanceFadeMaxDistance(value Float.X) *Extension[T] {
+	o.Super().SetDistanceFadeMaxDistance(value)
+	return o
+}
+
 func (self Instance) StencilMode() StencilMode { //gd:BaseMaterial3D.stencil_mode
 		return StencilMode(class(self).GetStencilMode())
 }
+
+func (o *Extension[T]) StencilMode() StencilMode { return o.Super().StencilMode() }
 
 // SetStencilMode sets the property returned by [GetStencilMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStencilMode(value StencilMode) Instance { //gd:BaseMaterial3D.stencil_mode
@@ -1560,9 +2437,16 @@ func (self Instance) SetStencilMode(value StencilMode) Instance { //gd:BaseMater
 	return self
 }
 
+func (o *Extension[T]) SetStencilMode(value StencilMode) *Extension[T] {
+	o.Super().SetStencilMode(value)
+	return o
+}
+
 func (self Instance) StencilFlags() int { //gd:BaseMaterial3D.stencil_flags
 		return int(int(class(self).GetStencilFlags()))
 }
+
+func (o *Extension[T]) StencilFlags() int { return o.Super().StencilFlags() }
 
 // SetStencilFlags sets the property returned by [GetStencilFlags]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStencilFlags(value int) Instance { //gd:BaseMaterial3D.stencil_flags
@@ -1570,9 +2454,16 @@ func (self Instance) SetStencilFlags(value int) Instance { //gd:BaseMaterial3D.s
 	return self
 }
 
+func (o *Extension[T]) SetStencilFlags(value int) *Extension[T] {
+	o.Super().SetStencilFlags(value)
+	return o
+}
+
 func (self Instance) StencilCompare() StencilCompare { //gd:BaseMaterial3D.stencil_compare
 		return StencilCompare(class(self).GetStencilCompare())
 }
+
+func (o *Extension[T]) StencilCompare() StencilCompare { return o.Super().StencilCompare() }
 
 // SetStencilCompare sets the property returned by [GetStencilCompare]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStencilCompare(value StencilCompare) Instance { //gd:BaseMaterial3D.stencil_compare
@@ -1580,9 +2471,16 @@ func (self Instance) SetStencilCompare(value StencilCompare) Instance { //gd:Bas
 	return self
 }
 
+func (o *Extension[T]) SetStencilCompare(value StencilCompare) *Extension[T] {
+	o.Super().SetStencilCompare(value)
+	return o
+}
+
 func (self Instance) StencilReference() int { //gd:BaseMaterial3D.stencil_reference
 		return int(int(class(self).GetStencilReference()))
 }
+
+func (o *Extension[T]) StencilReference() int { return o.Super().StencilReference() }
 
 // SetStencilReference sets the property returned by [GetStencilReference]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStencilReference(value int) Instance { //gd:BaseMaterial3D.stencil_reference
@@ -1590,9 +2488,16 @@ func (self Instance) SetStencilReference(value int) Instance { //gd:BaseMaterial
 	return self
 }
 
+func (o *Extension[T]) SetStencilReference(value int) *Extension[T] {
+	o.Super().SetStencilReference(value)
+	return o
+}
+
 func (self Instance) StencilColor() Color.RGBA { //gd:BaseMaterial3D.stencil_color
 		return Color.RGBA(class(self).GetStencilEffectColor())
 }
+
+func (o *Extension[T]) StencilColor() Color.RGBA { return o.Super().StencilColor() }
 
 // SetStencilColor sets the property returned by [GetStencilEffectColor]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStencilColor(value Color.RGBA) Instance { //gd:BaseMaterial3D.stencil_color
@@ -1600,14 +2505,26 @@ func (self Instance) SetStencilColor(value Color.RGBA) Instance { //gd:BaseMater
 	return self
 }
 
+func (o *Extension[T]) SetStencilColor(value Color.RGBA) *Extension[T] {
+	o.Super().SetStencilColor(value)
+	return o
+}
+
 func (self Instance) StencilOutlineThickness() Float.X { //gd:BaseMaterial3D.stencil_outline_thickness
 		return Float.X(Float.X(class(self).GetStencilEffectOutlineThickness()))
 }
+
+func (o *Extension[T]) StencilOutlineThickness() Float.X { return o.Super().StencilOutlineThickness() }
 
 // SetStencilOutlineThickness sets the property returned by [GetStencilEffectOutlineThickness]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStencilOutlineThickness(value Float.X) Instance { //gd:BaseMaterial3D.stencil_outline_thickness
 	class(self).SetStencilEffectOutlineThickness(float64(value))
 	return self
+}
+
+func (o *Extension[T]) SetStencilOutlineThickness(value Float.X) *Extension[T] {
+	o.Super().SetStencilOutlineThickness(value)
+	return o
 }
 
 func (self class) SetAlbedo(albedo Color.RGBA)  { //gd:BaseMaterial3D.set_albedo
@@ -2371,6 +3288,60 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// RenderPriority is promoted from [Material.Instance.RenderPriority].
+func (o *Extension[T]) RenderPriority() Material.RenderPriority { return o.Super().AsMaterial().RenderPriority() }
+
+// SetRenderPriority is promoted from [Material.Instance.SetRenderPriority].
+func (o *Extension[T]) SetRenderPriority(value Material.RenderPriority) *Extension[T] {
+	o.Super().AsMaterial().SetRenderPriority(value)
+	return o
+}
+
+// NextPass is promoted from [Material.Instance.NextPass].
+func (o *Extension[T]) NextPass() Material.Instance { return o.Super().AsMaterial().NextPass() }
+
+// SetNextPass is promoted from [Material.Instance.SetNextPass].
+func (o *Extension[T]) SetNextPass(value Material.Instance) *Extension[T] {
+	o.Super().AsMaterial().SetNextPass(value)
+	return o
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

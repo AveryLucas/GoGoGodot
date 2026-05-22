@@ -35,6 +35,7 @@ import "graphics.gd/variant/Path"
 import "graphics.gd/variant/RID"
 import "graphics.gd/variant/RefCounted"
 import "graphics.gd/variant/String"
+import "graphics.gd/variant/Vector2i"
 import "graphics.gd/variant/Vector3"
 
 var _ Object.ID
@@ -161,15 +162,24 @@ func (self Instance) InnerRadius() Float.X { //gd:TorusMesh.inner_radius
 		return Float.X(Float.X(class(self).GetInnerRadius()))
 }
 
+func (o *Extension[T]) InnerRadius() Float.X { return o.Super().InnerRadius() }
+
 // SetInnerRadius sets the property returned by [GetInnerRadius]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetInnerRadius(value Float.X) Instance { //gd:TorusMesh.inner_radius
 	class(self).SetInnerRadius(float64(value))
 	return self
 }
 
+func (o *Extension[T]) SetInnerRadius(value Float.X) *Extension[T] {
+	o.Super().SetInnerRadius(value)
+	return o
+}
+
 func (self Instance) OuterRadius() Float.X { //gd:TorusMesh.outer_radius
 		return Float.X(Float.X(class(self).GetOuterRadius()))
 }
+
+func (o *Extension[T]) OuterRadius() Float.X { return o.Super().OuterRadius() }
 
 // SetOuterRadius sets the property returned by [GetOuterRadius]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOuterRadius(value Float.X) Instance { //gd:TorusMesh.outer_radius
@@ -177,9 +187,16 @@ func (self Instance) SetOuterRadius(value Float.X) Instance { //gd:TorusMesh.out
 	return self
 }
 
+func (o *Extension[T]) SetOuterRadius(value Float.X) *Extension[T] {
+	o.Super().SetOuterRadius(value)
+	return o
+}
+
 func (self Instance) Rings() int { //gd:TorusMesh.rings
 		return int(int(class(self).GetRings()))
 }
+
+func (o *Extension[T]) Rings() int { return o.Super().Rings() }
 
 // SetRings sets the property returned by [GetRings]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRings(value int) Instance { //gd:TorusMesh.rings
@@ -187,14 +204,26 @@ func (self Instance) SetRings(value int) Instance { //gd:TorusMesh.rings
 	return self
 }
 
+func (o *Extension[T]) SetRings(value int) *Extension[T] {
+	o.Super().SetRings(value)
+	return o
+}
+
 func (self Instance) RingSegments() int { //gd:TorusMesh.ring_segments
 		return int(int(class(self).GetRingSegments()))
 }
+
+func (o *Extension[T]) RingSegments() int { return o.Super().RingSegments() }
 
 // SetRingSegments sets the property returned by [GetRingSegments]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRingSegments(value int) Instance { //gd:TorusMesh.ring_segments
 	class(self).SetRingSegments(int64(value))
 	return self
+}
+
+func (o *Extension[T]) SetRingSegments(value int) *Extension[T] {
+	o.Super().SetRingSegments(value)
+	return o
 }
 
 func (self class) SetInnerRadius(radius float64)  { //gd:TorusMesh.set_inner_radius
@@ -487,6 +516,96 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// Material is promoted from [PrimitiveMesh.Instance.Material].
+func (o *Extension[T]) Material() Material.Instance { return o.Super().AsPrimitiveMesh().Material() }
+
+// SetMaterial is promoted from [PrimitiveMesh.Instance.SetMaterial].
+func (o *Extension[T]) SetMaterial(value Material.Instance) *Extension[T] {
+	o.Super().AsPrimitiveMesh().SetMaterial(value)
+	return o
+}
+
+// CustomAabb is promoted from [PrimitiveMesh.Instance.CustomAabb].
+func (o *Extension[T]) CustomAabb() AABB.PositionSize { return o.Super().AsPrimitiveMesh().CustomAabb() }
+
+// SetCustomAabb is promoted from [PrimitiveMesh.Instance.SetCustomAabb].
+func (o *Extension[T]) SetCustomAabb(value AABB.PositionSize) *Extension[T] {
+	o.Super().AsPrimitiveMesh().SetCustomAabb(value)
+	return o
+}
+
+// FlipFaces is promoted from [PrimitiveMesh.Instance.FlipFaces].
+func (o *Extension[T]) FlipFaces() bool { return o.Super().AsPrimitiveMesh().FlipFaces() }
+
+// SetFlipFaces is promoted from [PrimitiveMesh.Instance.SetFlipFaces].
+func (o *Extension[T]) SetFlipFaces(value bool) *Extension[T] {
+	o.Super().AsPrimitiveMesh().SetFlipFaces(value)
+	return o
+}
+
+// AddUv2 is promoted from [PrimitiveMesh.Instance.AddUv2].
+func (o *Extension[T]) AddUv2() bool { return o.Super().AsPrimitiveMesh().AddUv2() }
+
+// SetAddUv2 is promoted from [PrimitiveMesh.Instance.SetAddUv2].
+func (o *Extension[T]) SetAddUv2(value bool) *Extension[T] {
+	o.Super().AsPrimitiveMesh().SetAddUv2(value)
+	return o
+}
+
+// Uv2Padding is promoted from [PrimitiveMesh.Instance.Uv2Padding].
+func (o *Extension[T]) Uv2Padding() Float.X { return o.Super().AsPrimitiveMesh().Uv2Padding() }
+
+// SetUv2Padding is promoted from [PrimitiveMesh.Instance.SetUv2Padding].
+func (o *Extension[T]) SetUv2Padding(value Float.X) *Extension[T] {
+	o.Super().AsPrimitiveMesh().SetUv2Padding(value)
+	return o
+}
+
+// LightmapSizeHint is promoted from [Mesh.Instance.LightmapSizeHint].
+func (o *Extension[T]) LightmapSizeHint() Vector2i.XY { return o.Super().AsMesh().LightmapSizeHint() }
+
+// SetLightmapSizeHint is promoted from [Mesh.Instance.SetLightmapSizeHint].
+func (o *Extension[T]) SetLightmapSizeHint(value Vector2i.XY) *Extension[T] {
+	o.Super().AsMesh().SetLightmapSizeHint(value)
+	return o
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

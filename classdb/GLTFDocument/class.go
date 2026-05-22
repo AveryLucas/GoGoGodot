@@ -228,15 +228,24 @@ func (self Instance) ImageFormat() string { //gd:GLTFDocument.image_format
 		return string(class(self).GetImageFormat().String())
 }
 
+func (o *Extension[T]) ImageFormat() string { return o.Super().ImageFormat() }
+
 // SetImageFormat sets the property returned by [GetImageFormat]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetImageFormat(value string) Instance { //gd:GLTFDocument.image_format
 	class(self).SetImageFormat(String.From(value))
 	return self
 }
 
+func (o *Extension[T]) SetImageFormat(value string) *Extension[T] {
+	o.Super().SetImageFormat(value)
+	return o
+}
+
 func (self Instance) LossyQuality() Float.X { //gd:GLTFDocument.lossy_quality
 		return Float.X(Float.X(class(self).GetLossyQuality()))
 }
+
+func (o *Extension[T]) LossyQuality() Float.X { return o.Super().LossyQuality() }
 
 // SetLossyQuality sets the property returned by [GetLossyQuality]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetLossyQuality(value Float.X) Instance { //gd:GLTFDocument.lossy_quality
@@ -244,9 +253,16 @@ func (self Instance) SetLossyQuality(value Float.X) Instance { //gd:GLTFDocument
 	return self
 }
 
+func (o *Extension[T]) SetLossyQuality(value Float.X) *Extension[T] {
+	o.Super().SetLossyQuality(value)
+	return o
+}
+
 func (self Instance) FallbackImageFormat() string { //gd:GLTFDocument.fallback_image_format
 		return string(class(self).GetFallbackImageFormat().String())
 }
+
+func (o *Extension[T]) FallbackImageFormat() string { return o.Super().FallbackImageFormat() }
 
 // SetFallbackImageFormat sets the property returned by [GetFallbackImageFormat]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFallbackImageFormat(value string) Instance { //gd:GLTFDocument.fallback_image_format
@@ -254,9 +270,16 @@ func (self Instance) SetFallbackImageFormat(value string) Instance { //gd:GLTFDo
 	return self
 }
 
+func (o *Extension[T]) SetFallbackImageFormat(value string) *Extension[T] {
+	o.Super().SetFallbackImageFormat(value)
+	return o
+}
+
 func (self Instance) FallbackImageQuality() Float.X { //gd:GLTFDocument.fallback_image_quality
 		return Float.X(Float.X(class(self).GetFallbackImageQuality()))
 }
+
+func (o *Extension[T]) FallbackImageQuality() Float.X { return o.Super().FallbackImageQuality() }
 
 // SetFallbackImageQuality sets the property returned by [GetFallbackImageQuality]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFallbackImageQuality(value Float.X) Instance { //gd:GLTFDocument.fallback_image_quality
@@ -264,9 +287,16 @@ func (self Instance) SetFallbackImageQuality(value Float.X) Instance { //gd:GLTF
 	return self
 }
 
+func (o *Extension[T]) SetFallbackImageQuality(value Float.X) *Extension[T] {
+	o.Super().SetFallbackImageQuality(value)
+	return o
+}
+
 func (self Instance) RootNodeMode() RootNodeMode { //gd:GLTFDocument.root_node_mode
 		return RootNodeMode(class(self).GetRootNodeMode())
 }
+
+func (o *Extension[T]) RootNodeMode() RootNodeMode { return o.Super().RootNodeMode() }
 
 // SetRootNodeMode sets the property returned by [GetRootNodeMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRootNodeMode(value RootNodeMode) Instance { //gd:GLTFDocument.root_node_mode
@@ -274,14 +304,26 @@ func (self Instance) SetRootNodeMode(value RootNodeMode) Instance { //gd:GLTFDoc
 	return self
 }
 
+func (o *Extension[T]) SetRootNodeMode(value RootNodeMode) *Extension[T] {
+	o.Super().SetRootNodeMode(value)
+	return o
+}
+
 func (self Instance) VisibilityMode() VisibilityMode { //gd:GLTFDocument.visibility_mode
 		return VisibilityMode(class(self).GetVisibilityMode())
 }
+
+func (o *Extension[T]) VisibilityMode() VisibilityMode { return o.Super().VisibilityMode() }
 
 // SetVisibilityMode sets the property returned by [GetVisibilityMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVisibilityMode(value VisibilityMode) Instance { //gd:GLTFDocument.visibility_mode
 	class(self).SetVisibilityMode(value)
 	return self
+}
+
+func (o *Extension[T]) SetVisibilityMode(value VisibilityMode) *Extension[T] {
+	o.Super().SetVisibilityMode(value)
+	return o
 }
 
 func (self class) SetImageFormat(image_format String.Readable)  { //gd:GLTFDocument.set_image_format
@@ -511,6 +553,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

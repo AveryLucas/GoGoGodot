@@ -168,15 +168,24 @@ func (self Instance) SkinRoot() int { //gd:GLTFSkin.skin_root
 		return int(int(class(self).GetSkinRoot()))
 }
 
+func (o *Extension[T]) SkinRoot() int { return o.Super().SkinRoot() }
+
 // SetSkinRoot sets the property returned by [GetSkinRoot]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSkinRoot(value int) Instance { //gd:GLTFSkin.skin_root
 	class(self).SetSkinRoot(int64(value))
 	return self
 }
 
+func (o *Extension[T]) SetSkinRoot(value int) *Extension[T] {
+	o.Super().SetSkinRoot(value)
+	return o
+}
+
 func (self Instance) JointsOriginal() []int32 { //gd:GLTFSkin.joints_original
 		return []int32(slices.Collect(class(self).GetJointsOriginal().Values()))
 }
+
+func (o *Extension[T]) JointsOriginal() []int32 { return o.Super().JointsOriginal() }
 
 // SetJointsOriginal sets the property returned by [GetJointsOriginal]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetJointsOriginal(value []int32) Instance { //gd:GLTFSkin.joints_original
@@ -184,9 +193,16 @@ func (self Instance) SetJointsOriginal(value []int32) Instance { //gd:GLTFSkin.j
 	return self
 }
 
+func (o *Extension[T]) SetJointsOriginal(value []int32) *Extension[T] {
+	o.Super().SetJointsOriginal(value)
+	return o
+}
+
 func (self Instance) InverseBinds() []Transform3D.BasisOrigin { //gd:GLTFSkin.inverse_binds
 		return []Transform3D.BasisOrigin(gd.ArrayAs[[]Transform3D.BasisOrigin](gd.InternalArray(class(self).GetInverseBinds())))
 }
+
+func (o *Extension[T]) InverseBinds() []Transform3D.BasisOrigin { return o.Super().InverseBinds() }
 
 // SetInverseBinds sets the property returned by [GetInverseBinds]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetInverseBinds(value []Transform3D.BasisOrigin) Instance { //gd:GLTFSkin.inverse_binds
@@ -194,9 +210,16 @@ func (self Instance) SetInverseBinds(value []Transform3D.BasisOrigin) Instance {
 	return self
 }
 
+func (o *Extension[T]) SetInverseBinds(value []Transform3D.BasisOrigin) *Extension[T] {
+	o.Super().SetInverseBinds(value)
+	return o
+}
+
 func (self Instance) Joints() []int32 { //gd:GLTFSkin.joints
 		return []int32(slices.Collect(class(self).GetJoints().Values()))
 }
+
+func (o *Extension[T]) Joints() []int32 { return o.Super().Joints() }
 
 // SetJoints sets the property returned by [GetJoints]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetJoints(value []int32) Instance { //gd:GLTFSkin.joints
@@ -204,9 +227,16 @@ func (self Instance) SetJoints(value []int32) Instance { //gd:GLTFSkin.joints
 	return self
 }
 
+func (o *Extension[T]) SetJoints(value []int32) *Extension[T] {
+	o.Super().SetJoints(value)
+	return o
+}
+
 func (self Instance) NonJoints() []int32 { //gd:GLTFSkin.non_joints
 		return []int32(slices.Collect(class(self).GetNonJoints().Values()))
 }
+
+func (o *Extension[T]) NonJoints() []int32 { return o.Super().NonJoints() }
 
 // SetNonJoints sets the property returned by [GetNonJoints]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetNonJoints(value []int32) Instance { //gd:GLTFSkin.non_joints
@@ -214,9 +244,16 @@ func (self Instance) SetNonJoints(value []int32) Instance { //gd:GLTFSkin.non_jo
 	return self
 }
 
+func (o *Extension[T]) SetNonJoints(value []int32) *Extension[T] {
+	o.Super().SetNonJoints(value)
+	return o
+}
+
 func (self Instance) Roots() []int32 { //gd:GLTFSkin.roots
 		return []int32(slices.Collect(class(self).GetRoots().Values()))
 }
+
+func (o *Extension[T]) Roots() []int32 { return o.Super().Roots() }
 
 // SetRoots sets the property returned by [GetRoots]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRoots(value []int32) Instance { //gd:GLTFSkin.roots
@@ -224,9 +261,16 @@ func (self Instance) SetRoots(value []int32) Instance { //gd:GLTFSkin.roots
 	return self
 }
 
+func (o *Extension[T]) SetRoots(value []int32) *Extension[T] {
+	o.Super().SetRoots(value)
+	return o
+}
+
 func (self Instance) Skeleton() int { //gd:GLTFSkin.skeleton
 		return int(int(class(self).GetSkeleton()))
 }
+
+func (o *Extension[T]) Skeleton() int { return o.Super().Skeleton() }
 
 // SetSkeleton sets the property returned by [GetSkeleton]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSkeleton(value int) Instance { //gd:GLTFSkin.skeleton
@@ -234,9 +278,16 @@ func (self Instance) SetSkeleton(value int) Instance { //gd:GLTFSkin.skeleton
 	return self
 }
 
+func (o *Extension[T]) SetSkeleton(value int) *Extension[T] {
+	o.Super().SetSkeleton(value)
+	return o
+}
+
 func (self Instance) JointIToBoneI() map[int]int { //gd:GLTFSkin.joint_i_to_bone_i
 		return map[int]int(gd.DictionaryAs[map[int]int](class(self).GetJointIToBoneI()))
 }
+
+func (o *Extension[T]) JointIToBoneI() map[int]int { return o.Super().JointIToBoneI() }
 
 // SetJointIToBoneI sets the property returned by [GetJointIToBoneI]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetJointIToBoneI(value map[int]int) Instance { //gd:GLTFSkin.joint_i_to_bone_i
@@ -244,9 +295,16 @@ func (self Instance) SetJointIToBoneI(value map[int]int) Instance { //gd:GLTFSki
 	return self
 }
 
+func (o *Extension[T]) SetJointIToBoneI(value map[int]int) *Extension[T] {
+	o.Super().SetJointIToBoneI(value)
+	return o
+}
+
 func (self Instance) JointIToName() map[int]string { //gd:GLTFSkin.joint_i_to_name
 		return map[int]string(gd.DictionaryAs[map[int]string](class(self).GetJointIToName()))
 }
+
+func (o *Extension[T]) JointIToName() map[int]string { return o.Super().JointIToName() }
 
 // SetJointIToName sets the property returned by [GetJointIToName]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetJointIToName(value map[int]string) Instance { //gd:GLTFSkin.joint_i_to_name
@@ -254,14 +312,26 @@ func (self Instance) SetJointIToName(value map[int]string) Instance { //gd:GLTFS
 	return self
 }
 
+func (o *Extension[T]) SetJointIToName(value map[int]string) *Extension[T] {
+	o.Super().SetJointIToName(value)
+	return o
+}
+
 func (self Instance) GodotSkin() Skin.Instance { //gd:GLTFSkin.godot_skin
 		return Skin.Instance(class(self).GetGodotSkin())
 }
+
+func (o *Extension[T]) GodotSkin() Skin.Instance { return o.Super().GodotSkin() }
 
 // SetGodotSkin sets the property returned by [GetGodotSkin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetGodotSkin(value Skin.Instance) Instance { //gd:GLTFSkin.godot_skin
 	class(self).SetGodotSkin(value)
 	return self
+}
+
+func (o *Extension[T]) SetGodotSkin(value Skin.Instance) *Extension[T] {
+	o.Super().SetGodotSkin(value)
+	return o
 }
 
 func (self class) GetSkinRoot() int64 { //gd:GLTFSkin.get_skin_root
@@ -466,6 +536,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

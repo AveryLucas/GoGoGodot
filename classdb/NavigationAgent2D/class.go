@@ -17,6 +17,7 @@ import "graphics.gd/variant"
 import "graphics.gd/variant/Angle"
 import "graphics.gd/variant/Euler"
 import "graphics.gd/variant/Signal"
+import "graphics.gd/classdb/MultiplayerAPI"
 import "graphics.gd/classdb/NavigationPathQueryParameters2D"
 import "graphics.gd/classdb/NavigationPathQueryResult2D"
 import "graphics.gd/classdb/Node"
@@ -295,15 +296,24 @@ func (self Instance) TargetPosition() Vector2.XY { //gd:NavigationAgent2D.target
 		return Vector2.XY(class(self).GetTargetPosition())
 }
 
+func (o *Extension[T]) TargetPosition() Vector2.XY { return o.Super().TargetPosition() }
+
 // SetTargetPosition sets the property returned by [GetTargetPosition]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTargetPosition(value Vector2.XY) Instance { //gd:NavigationAgent2D.target_position
 	class(self).SetTargetPosition(Vector2.XY(value))
 	return self
 }
 
+func (o *Extension[T]) SetTargetPosition(value Vector2.XY) *Extension[T] {
+	o.Super().SetTargetPosition(value)
+	return o
+}
+
 func (self Instance) PathDesiredDistance() Float.X { //gd:NavigationAgent2D.path_desired_distance
 		return Float.X(Float.X(class(self).GetPathDesiredDistance()))
 }
+
+func (o *Extension[T]) PathDesiredDistance() Float.X { return o.Super().PathDesiredDistance() }
 
 // SetPathDesiredDistance sets the property returned by [GetPathDesiredDistance]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPathDesiredDistance(value Float.X) Instance { //gd:NavigationAgent2D.path_desired_distance
@@ -311,9 +321,16 @@ func (self Instance) SetPathDesiredDistance(value Float.X) Instance { //gd:Navig
 	return self
 }
 
+func (o *Extension[T]) SetPathDesiredDistance(value Float.X) *Extension[T] {
+	o.Super().SetPathDesiredDistance(value)
+	return o
+}
+
 func (self Instance) TargetDesiredDistance() Float.X { //gd:NavigationAgent2D.target_desired_distance
 		return Float.X(Float.X(class(self).GetTargetDesiredDistance()))
 }
+
+func (o *Extension[T]) TargetDesiredDistance() Float.X { return o.Super().TargetDesiredDistance() }
 
 // SetTargetDesiredDistance sets the property returned by [GetTargetDesiredDistance]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTargetDesiredDistance(value Float.X) Instance { //gd:NavigationAgent2D.target_desired_distance
@@ -321,9 +338,16 @@ func (self Instance) SetTargetDesiredDistance(value Float.X) Instance { //gd:Nav
 	return self
 }
 
+func (o *Extension[T]) SetTargetDesiredDistance(value Float.X) *Extension[T] {
+	o.Super().SetTargetDesiredDistance(value)
+	return o
+}
+
 func (self Instance) PathMaxDistance() Float.X { //gd:NavigationAgent2D.path_max_distance
 		return Float.X(Float.X(class(self).GetPathMaxDistance()))
 }
+
+func (o *Extension[T]) PathMaxDistance() Float.X { return o.Super().PathMaxDistance() }
 
 // SetPathMaxDistance sets the property returned by [GetPathMaxDistance]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPathMaxDistance(value Float.X) Instance { //gd:NavigationAgent2D.path_max_distance
@@ -331,9 +355,16 @@ func (self Instance) SetPathMaxDistance(value Float.X) Instance { //gd:Navigatio
 	return self
 }
 
+func (o *Extension[T]) SetPathMaxDistance(value Float.X) *Extension[T] {
+	o.Super().SetPathMaxDistance(value)
+	return o
+}
+
 func (self Instance) NavigationLayers() int { //gd:NavigationAgent2D.navigation_layers
 		return int(int(class(self).GetNavigationLayers()))
 }
+
+func (o *Extension[T]) NavigationLayers() int { return o.Super().NavigationLayers() }
 
 // SetNavigationLayers sets the property returned by [GetNavigationLayers]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetNavigationLayers(value int) Instance { //gd:NavigationAgent2D.navigation_layers
@@ -341,9 +372,16 @@ func (self Instance) SetNavigationLayers(value int) Instance { //gd:NavigationAg
 	return self
 }
 
+func (o *Extension[T]) SetNavigationLayers(value int) *Extension[T] {
+	o.Super().SetNavigationLayers(value)
+	return o
+}
+
 func (self Instance) PathfindingAlgorithm() NavigationPathQueryParameters2D.PathfindingAlgorithm { //gd:NavigationAgent2D.pathfinding_algorithm
 		return NavigationPathQueryParameters2D.PathfindingAlgorithm(class(self).GetPathfindingAlgorithm())
 }
+
+func (o *Extension[T]) PathfindingAlgorithm() NavigationPathQueryParameters2D.PathfindingAlgorithm { return o.Super().PathfindingAlgorithm() }
 
 // SetPathfindingAlgorithm sets the property returned by [GetPathfindingAlgorithm]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPathfindingAlgorithm(value NavigationPathQueryParameters2D.PathfindingAlgorithm) Instance { //gd:NavigationAgent2D.pathfinding_algorithm
@@ -351,9 +389,16 @@ func (self Instance) SetPathfindingAlgorithm(value NavigationPathQueryParameters
 	return self
 }
 
+func (o *Extension[T]) SetPathfindingAlgorithm(value NavigationPathQueryParameters2D.PathfindingAlgorithm) *Extension[T] {
+	o.Super().SetPathfindingAlgorithm(value)
+	return o
+}
+
 func (self Instance) PathPostprocessing() NavigationPathQueryParameters2D.PathPostProcessing { //gd:NavigationAgent2D.path_postprocessing
 		return NavigationPathQueryParameters2D.PathPostProcessing(class(self).GetPathPostprocessing())
 }
+
+func (o *Extension[T]) PathPostprocessing() NavigationPathQueryParameters2D.PathPostProcessing { return o.Super().PathPostprocessing() }
 
 // SetPathPostprocessing sets the property returned by [GetPathPostprocessing]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPathPostprocessing(value NavigationPathQueryParameters2D.PathPostProcessing) Instance { //gd:NavigationAgent2D.path_postprocessing
@@ -361,9 +406,16 @@ func (self Instance) SetPathPostprocessing(value NavigationPathQueryParameters2D
 	return self
 }
 
+func (o *Extension[T]) SetPathPostprocessing(value NavigationPathQueryParameters2D.PathPostProcessing) *Extension[T] {
+	o.Super().SetPathPostprocessing(value)
+	return o
+}
+
 func (self Instance) PathMetadataFlags() NavigationPathQueryParameters2D.PathMetadataFlags { //gd:NavigationAgent2D.path_metadata_flags
 		return NavigationPathQueryParameters2D.PathMetadataFlags(class(self).GetPathMetadataFlags())
 }
+
+func (o *Extension[T]) PathMetadataFlags() NavigationPathQueryParameters2D.PathMetadataFlags { return o.Super().PathMetadataFlags() }
 
 // SetPathMetadataFlags sets the property returned by [GetPathMetadataFlags]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPathMetadataFlags(value NavigationPathQueryParameters2D.PathMetadataFlags) Instance { //gd:NavigationAgent2D.path_metadata_flags
@@ -371,9 +423,16 @@ func (self Instance) SetPathMetadataFlags(value NavigationPathQueryParameters2D.
 	return self
 }
 
+func (o *Extension[T]) SetPathMetadataFlags(value NavigationPathQueryParameters2D.PathMetadataFlags) *Extension[T] {
+	o.Super().SetPathMetadataFlags(value)
+	return o
+}
+
 func (self Instance) SimplifyPath() bool { //gd:NavigationAgent2D.simplify_path
 		return bool(class(self).GetSimplifyPath())
 }
+
+func (o *Extension[T]) SimplifyPath() bool { return o.Super().SimplifyPath() }
 
 // SetSimplifyPath sets the property returned by [GetSimplifyPath]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSimplifyPath(value bool) Instance { //gd:NavigationAgent2D.simplify_path
@@ -381,9 +440,16 @@ func (self Instance) SetSimplifyPath(value bool) Instance { //gd:NavigationAgent
 	return self
 }
 
+func (o *Extension[T]) SetSimplifyPath(value bool) *Extension[T] {
+	o.Super().SetSimplifyPath(value)
+	return o
+}
+
 func (self Instance) SimplifyEpsilon() Float.X { //gd:NavigationAgent2D.simplify_epsilon
 		return Float.X(Float.X(class(self).GetSimplifyEpsilon()))
 }
+
+func (o *Extension[T]) SimplifyEpsilon() Float.X { return o.Super().SimplifyEpsilon() }
 
 // SetSimplifyEpsilon sets the property returned by [GetSimplifyEpsilon]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSimplifyEpsilon(value Float.X) Instance { //gd:NavigationAgent2D.simplify_epsilon
@@ -391,9 +457,16 @@ func (self Instance) SetSimplifyEpsilon(value Float.X) Instance { //gd:Navigatio
 	return self
 }
 
+func (o *Extension[T]) SetSimplifyEpsilon(value Float.X) *Extension[T] {
+	o.Super().SetSimplifyEpsilon(value)
+	return o
+}
+
 func (self Instance) PathReturnMaxLength() Float.X { //gd:NavigationAgent2D.path_return_max_length
 		return Float.X(Float.X(class(self).GetPathReturnMaxLength()))
 }
+
+func (o *Extension[T]) PathReturnMaxLength() Float.X { return o.Super().PathReturnMaxLength() }
 
 // SetPathReturnMaxLength sets the property returned by [GetPathReturnMaxLength]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPathReturnMaxLength(value Float.X) Instance { //gd:NavigationAgent2D.path_return_max_length
@@ -401,9 +474,16 @@ func (self Instance) SetPathReturnMaxLength(value Float.X) Instance { //gd:Navig
 	return self
 }
 
+func (o *Extension[T]) SetPathReturnMaxLength(value Float.X) *Extension[T] {
+	o.Super().SetPathReturnMaxLength(value)
+	return o
+}
+
 func (self Instance) PathReturnMaxRadius() Float.X { //gd:NavigationAgent2D.path_return_max_radius
 		return Float.X(Float.X(class(self).GetPathReturnMaxRadius()))
 }
+
+func (o *Extension[T]) PathReturnMaxRadius() Float.X { return o.Super().PathReturnMaxRadius() }
 
 // SetPathReturnMaxRadius sets the property returned by [GetPathReturnMaxRadius]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPathReturnMaxRadius(value Float.X) Instance { //gd:NavigationAgent2D.path_return_max_radius
@@ -411,9 +491,16 @@ func (self Instance) SetPathReturnMaxRadius(value Float.X) Instance { //gd:Navig
 	return self
 }
 
+func (o *Extension[T]) SetPathReturnMaxRadius(value Float.X) *Extension[T] {
+	o.Super().SetPathReturnMaxRadius(value)
+	return o
+}
+
 func (self Instance) PathSearchMaxPolygons() int { //gd:NavigationAgent2D.path_search_max_polygons
 		return int(int(class(self).GetPathSearchMaxPolygons()))
 }
+
+func (o *Extension[T]) PathSearchMaxPolygons() int { return o.Super().PathSearchMaxPolygons() }
 
 // SetPathSearchMaxPolygons sets the property returned by [GetPathSearchMaxPolygons]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPathSearchMaxPolygons(value int) Instance { //gd:NavigationAgent2D.path_search_max_polygons
@@ -421,9 +508,16 @@ func (self Instance) SetPathSearchMaxPolygons(value int) Instance { //gd:Navigat
 	return self
 }
 
+func (o *Extension[T]) SetPathSearchMaxPolygons(value int) *Extension[T] {
+	o.Super().SetPathSearchMaxPolygons(value)
+	return o
+}
+
 func (self Instance) PathSearchMaxDistance() Float.X { //gd:NavigationAgent2D.path_search_max_distance
 		return Float.X(Float.X(class(self).GetPathSearchMaxDistance()))
 }
+
+func (o *Extension[T]) PathSearchMaxDistance() Float.X { return o.Super().PathSearchMaxDistance() }
 
 // SetPathSearchMaxDistance sets the property returned by [GetPathSearchMaxDistance]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPathSearchMaxDistance(value Float.X) Instance { //gd:NavigationAgent2D.path_search_max_distance
@@ -431,9 +525,16 @@ func (self Instance) SetPathSearchMaxDistance(value Float.X) Instance { //gd:Nav
 	return self
 }
 
+func (o *Extension[T]) SetPathSearchMaxDistance(value Float.X) *Extension[T] {
+	o.Super().SetPathSearchMaxDistance(value)
+	return o
+}
+
 func (self Instance) AvoidanceEnabled() bool { //gd:NavigationAgent2D.avoidance_enabled
 		return bool(class(self).GetAvoidanceEnabled())
 }
+
+func (o *Extension[T]) AvoidanceEnabled() bool { return o.Super().AvoidanceEnabled() }
 
 // SetAvoidanceEnabled sets the property returned by [GetAvoidanceEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAvoidanceEnabled(value bool) Instance { //gd:NavigationAgent2D.avoidance_enabled
@@ -441,9 +542,16 @@ func (self Instance) SetAvoidanceEnabled(value bool) Instance { //gd:NavigationA
 	return self
 }
 
+func (o *Extension[T]) SetAvoidanceEnabled(value bool) *Extension[T] {
+	o.Super().SetAvoidanceEnabled(value)
+	return o
+}
+
 func (self Instance) Velocity() Vector2.XY { //gd:NavigationAgent2D.velocity
 		return Vector2.XY(class(self).GetVelocity())
 }
+
+func (o *Extension[T]) Velocity() Vector2.XY { return o.Super().Velocity() }
 
 // SetVelocity sets the property returned by [GetVelocity]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVelocity(value Vector2.XY) Instance { //gd:NavigationAgent2D.velocity
@@ -451,9 +559,16 @@ func (self Instance) SetVelocity(value Vector2.XY) Instance { //gd:NavigationAge
 	return self
 }
 
+func (o *Extension[T]) SetVelocity(value Vector2.XY) *Extension[T] {
+	o.Super().SetVelocity(value)
+	return o
+}
+
 func (self Instance) Radius() Float.X { //gd:NavigationAgent2D.radius
 		return Float.X(Float.X(class(self).GetRadius()))
 }
+
+func (o *Extension[T]) Radius() Float.X { return o.Super().Radius() }
 
 // SetRadius sets the property returned by [GetRadius]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRadius(value Float.X) Instance { //gd:NavigationAgent2D.radius
@@ -461,9 +576,16 @@ func (self Instance) SetRadius(value Float.X) Instance { //gd:NavigationAgent2D.
 	return self
 }
 
+func (o *Extension[T]) SetRadius(value Float.X) *Extension[T] {
+	o.Super().SetRadius(value)
+	return o
+}
+
 func (self Instance) NeighborDistance() Float.X { //gd:NavigationAgent2D.neighbor_distance
 		return Float.X(Float.X(class(self).GetNeighborDistance()))
 }
+
+func (o *Extension[T]) NeighborDistance() Float.X { return o.Super().NeighborDistance() }
 
 // SetNeighborDistance sets the property returned by [GetNeighborDistance]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetNeighborDistance(value Float.X) Instance { //gd:NavigationAgent2D.neighbor_distance
@@ -471,9 +593,16 @@ func (self Instance) SetNeighborDistance(value Float.X) Instance { //gd:Navigati
 	return self
 }
 
+func (o *Extension[T]) SetNeighborDistance(value Float.X) *Extension[T] {
+	o.Super().SetNeighborDistance(value)
+	return o
+}
+
 func (self Instance) MaxNeighbors() int { //gd:NavigationAgent2D.max_neighbors
 		return int(int(class(self).GetMaxNeighbors()))
 }
+
+func (o *Extension[T]) MaxNeighbors() int { return o.Super().MaxNeighbors() }
 
 // SetMaxNeighbors sets the property returned by [GetMaxNeighbors]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMaxNeighbors(value int) Instance { //gd:NavigationAgent2D.max_neighbors
@@ -481,9 +610,16 @@ func (self Instance) SetMaxNeighbors(value int) Instance { //gd:NavigationAgent2
 	return self
 }
 
+func (o *Extension[T]) SetMaxNeighbors(value int) *Extension[T] {
+	o.Super().SetMaxNeighbors(value)
+	return o
+}
+
 func (self Instance) TimeHorizonAgents() Float.X { //gd:NavigationAgent2D.time_horizon_agents
 		return Float.X(Float.X(class(self).GetTimeHorizonAgents()))
 }
+
+func (o *Extension[T]) TimeHorizonAgents() Float.X { return o.Super().TimeHorizonAgents() }
 
 // SetTimeHorizonAgents sets the property returned by [GetTimeHorizonAgents]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTimeHorizonAgents(value Float.X) Instance { //gd:NavigationAgent2D.time_horizon_agents
@@ -491,9 +627,16 @@ func (self Instance) SetTimeHorizonAgents(value Float.X) Instance { //gd:Navigat
 	return self
 }
 
+func (o *Extension[T]) SetTimeHorizonAgents(value Float.X) *Extension[T] {
+	o.Super().SetTimeHorizonAgents(value)
+	return o
+}
+
 func (self Instance) TimeHorizonObstacles() Float.X { //gd:NavigationAgent2D.time_horizon_obstacles
 		return Float.X(Float.X(class(self).GetTimeHorizonObstacles()))
 }
+
+func (o *Extension[T]) TimeHorizonObstacles() Float.X { return o.Super().TimeHorizonObstacles() }
 
 // SetTimeHorizonObstacles sets the property returned by [GetTimeHorizonObstacles]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTimeHorizonObstacles(value Float.X) Instance { //gd:NavigationAgent2D.time_horizon_obstacles
@@ -501,9 +644,16 @@ func (self Instance) SetTimeHorizonObstacles(value Float.X) Instance { //gd:Navi
 	return self
 }
 
+func (o *Extension[T]) SetTimeHorizonObstacles(value Float.X) *Extension[T] {
+	o.Super().SetTimeHorizonObstacles(value)
+	return o
+}
+
 func (self Instance) MaxSpeed() Float.X { //gd:NavigationAgent2D.max_speed
 		return Float.X(Float.X(class(self).GetMaxSpeed()))
 }
+
+func (o *Extension[T]) MaxSpeed() Float.X { return o.Super().MaxSpeed() }
 
 // SetMaxSpeed sets the property returned by [GetMaxSpeed]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMaxSpeed(value Float.X) Instance { //gd:NavigationAgent2D.max_speed
@@ -511,9 +661,16 @@ func (self Instance) SetMaxSpeed(value Float.X) Instance { //gd:NavigationAgent2
 	return self
 }
 
+func (o *Extension[T]) SetMaxSpeed(value Float.X) *Extension[T] {
+	o.Super().SetMaxSpeed(value)
+	return o
+}
+
 func (self Instance) AvoidanceLayers() int { //gd:NavigationAgent2D.avoidance_layers
 		return int(int(class(self).GetAvoidanceLayers()))
 }
+
+func (o *Extension[T]) AvoidanceLayers() int { return o.Super().AvoidanceLayers() }
 
 // SetAvoidanceLayers sets the property returned by [GetAvoidanceLayers]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAvoidanceLayers(value int) Instance { //gd:NavigationAgent2D.avoidance_layers
@@ -521,9 +678,16 @@ func (self Instance) SetAvoidanceLayers(value int) Instance { //gd:NavigationAge
 	return self
 }
 
+func (o *Extension[T]) SetAvoidanceLayers(value int) *Extension[T] {
+	o.Super().SetAvoidanceLayers(value)
+	return o
+}
+
 func (self Instance) AvoidanceMask() int { //gd:NavigationAgent2D.avoidance_mask
 		return int(int(class(self).GetAvoidanceMask()))
 }
+
+func (o *Extension[T]) AvoidanceMask() int { return o.Super().AvoidanceMask() }
 
 // SetAvoidanceMask sets the property returned by [GetAvoidanceMask]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAvoidanceMask(value int) Instance { //gd:NavigationAgent2D.avoidance_mask
@@ -531,9 +695,16 @@ func (self Instance) SetAvoidanceMask(value int) Instance { //gd:NavigationAgent
 	return self
 }
 
+func (o *Extension[T]) SetAvoidanceMask(value int) *Extension[T] {
+	o.Super().SetAvoidanceMask(value)
+	return o
+}
+
 func (self Instance) AvoidancePriority() Float.X { //gd:NavigationAgent2D.avoidance_priority
 		return Float.X(Float.X(class(self).GetAvoidancePriority()))
 }
+
+func (o *Extension[T]) AvoidancePriority() Float.X { return o.Super().AvoidancePriority() }
 
 // SetAvoidancePriority sets the property returned by [GetAvoidancePriority]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAvoidancePriority(value Float.X) Instance { //gd:NavigationAgent2D.avoidance_priority
@@ -541,9 +712,16 @@ func (self Instance) SetAvoidancePriority(value Float.X) Instance { //gd:Navigat
 	return self
 }
 
+func (o *Extension[T]) SetAvoidancePriority(value Float.X) *Extension[T] {
+	o.Super().SetAvoidancePriority(value)
+	return o
+}
+
 func (self Instance) DebugEnabled() bool { //gd:NavigationAgent2D.debug_enabled
 		return bool(class(self).GetDebugEnabled())
 }
+
+func (o *Extension[T]) DebugEnabled() bool { return o.Super().DebugEnabled() }
 
 // SetDebugEnabled sets the property returned by [GetDebugEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDebugEnabled(value bool) Instance { //gd:NavigationAgent2D.debug_enabled
@@ -551,9 +729,16 @@ func (self Instance) SetDebugEnabled(value bool) Instance { //gd:NavigationAgent
 	return self
 }
 
+func (o *Extension[T]) SetDebugEnabled(value bool) *Extension[T] {
+	o.Super().SetDebugEnabled(value)
+	return o
+}
+
 func (self Instance) DebugUseCustom() bool { //gd:NavigationAgent2D.debug_use_custom
 		return bool(class(self).GetDebugUseCustom())
 }
+
+func (o *Extension[T]) DebugUseCustom() bool { return o.Super().DebugUseCustom() }
 
 // SetDebugUseCustom sets the property returned by [GetDebugUseCustom]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDebugUseCustom(value bool) Instance { //gd:NavigationAgent2D.debug_use_custom
@@ -561,9 +746,16 @@ func (self Instance) SetDebugUseCustom(value bool) Instance { //gd:NavigationAge
 	return self
 }
 
+func (o *Extension[T]) SetDebugUseCustom(value bool) *Extension[T] {
+	o.Super().SetDebugUseCustom(value)
+	return o
+}
+
 func (self Instance) DebugPathCustomColor() Color.RGBA { //gd:NavigationAgent2D.debug_path_custom_color
 		return Color.RGBA(class(self).GetDebugPathCustomColor())
 }
+
+func (o *Extension[T]) DebugPathCustomColor() Color.RGBA { return o.Super().DebugPathCustomColor() }
 
 // SetDebugPathCustomColor sets the property returned by [GetDebugPathCustomColor]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDebugPathCustomColor(value Color.RGBA) Instance { //gd:NavigationAgent2D.debug_path_custom_color
@@ -571,9 +763,16 @@ func (self Instance) SetDebugPathCustomColor(value Color.RGBA) Instance { //gd:N
 	return self
 }
 
+func (o *Extension[T]) SetDebugPathCustomColor(value Color.RGBA) *Extension[T] {
+	o.Super().SetDebugPathCustomColor(value)
+	return o
+}
+
 func (self Instance) DebugPathCustomPointSize() Float.X { //gd:NavigationAgent2D.debug_path_custom_point_size
 		return Float.X(Float.X(class(self).GetDebugPathCustomPointSize()))
 }
+
+func (o *Extension[T]) DebugPathCustomPointSize() Float.X { return o.Super().DebugPathCustomPointSize() }
 
 // SetDebugPathCustomPointSize sets the property returned by [GetDebugPathCustomPointSize]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDebugPathCustomPointSize(value Float.X) Instance { //gd:NavigationAgent2D.debug_path_custom_point_size
@@ -581,14 +780,26 @@ func (self Instance) SetDebugPathCustomPointSize(value Float.X) Instance { //gd:
 	return self
 }
 
+func (o *Extension[T]) SetDebugPathCustomPointSize(value Float.X) *Extension[T] {
+	o.Super().SetDebugPathCustomPointSize(value)
+	return o
+}
+
 func (self Instance) DebugPathCustomLineWidth() Float.X { //gd:NavigationAgent2D.debug_path_custom_line_width
 		return Float.X(Float.X(class(self).GetDebugPathCustomLineWidth()))
 }
+
+func (o *Extension[T]) DebugPathCustomLineWidth() Float.X { return o.Super().DebugPathCustomLineWidth() }
 
 // SetDebugPathCustomLineWidth sets the property returned by [GetDebugPathCustomLineWidth]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDebugPathCustomLineWidth(value Float.X) Instance { //gd:NavigationAgent2D.debug_path_custom_line_width
 	class(self).SetDebugPathCustomLineWidth(float64(value))
 	return self
+}
+
+func (o *Extension[T]) SetDebugPathCustomLineWidth(value Float.X) *Extension[T] {
+	o.Super().SetDebugPathCustomLineWidth(value)
+	return o
 }
 
 func (self class) GetRid() RID.Any { //gd:NavigationAgent2D.get_rid
@@ -1873,6 +2084,126 @@ func (self Instance) NotifyThreadSafe(what int) {
 // NotifyThreadSafe is promoted from [Node.Instance.NotifyThreadSafe].
 func (o *Extension[T]) NotifyThreadSafe(what int) {
 	o.Super().AsNode().NotifyThreadSafe(what)
+}
+
+// Name is promoted from [Node.Instance.Name].
+func (o *Extension[T]) Name() string { return o.Super().AsNode().Name() }
+
+// SetName is promoted from [Node.Instance.SetName].
+func (o *Extension[T]) SetName(value string) *Extension[T] {
+	o.Super().AsNode().SetName(value)
+	return o
+}
+
+// UniqueNameInOwner is promoted from [Node.Instance.UniqueNameInOwner].
+func (o *Extension[T]) UniqueNameInOwner() bool { return o.Super().AsNode().UniqueNameInOwner() }
+
+// SetUniqueNameInOwner is promoted from [Node.Instance.SetUniqueNameInOwner].
+func (o *Extension[T]) SetUniqueNameInOwner(value bool) *Extension[T] {
+	o.Super().AsNode().SetUniqueNameInOwner(value)
+	return o
+}
+
+// SceneFilePath is promoted from [Node.Instance.SceneFilePath].
+func (o *Extension[T]) SceneFilePath() string { return o.Super().AsNode().SceneFilePath() }
+
+// SetSceneFilePath is promoted from [Node.Instance.SetSceneFilePath].
+func (o *Extension[T]) SetSceneFilePath(value string) *Extension[T] {
+	o.Super().AsNode().SetSceneFilePath(value)
+	return o
+}
+
+// Owner is promoted from [Node.Instance.Owner].
+func (o *Extension[T]) Owner() Node.Instance { return o.Super().AsNode().Owner() }
+
+// SetOwner is promoted from [Node.Instance.SetOwner].
+func (o *Extension[T]) SetOwner(value Node.Instance) *Extension[T] {
+	o.Super().AsNode().SetOwner(value)
+	return o
+}
+
+// Multiplayer is promoted from [Node.Instance.Multiplayer].
+func (o *Extension[T]) Multiplayer() MultiplayerAPI.Instance { return o.Super().AsNode().Multiplayer() }
+
+// ProcessMode is promoted from [Node.Instance.ProcessMode].
+func (o *Extension[T]) ProcessMode() Node.ProcessMode { return o.Super().AsNode().ProcessMode() }
+
+// SetProcessMode is promoted from [Node.Instance.SetProcessMode].
+func (o *Extension[T]) SetProcessMode(value Node.ProcessMode) *Extension[T] {
+	o.Super().AsNode().SetProcessMode(value)
+	return o
+}
+
+// ProcessPriority is promoted from [Node.Instance.ProcessPriority].
+func (o *Extension[T]) ProcessPriority() int { return o.Super().AsNode().ProcessPriority() }
+
+// SetProcessPriority is promoted from [Node.Instance.SetProcessPriority].
+func (o *Extension[T]) SetProcessPriority(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessPriority(value)
+	return o
+}
+
+// ProcessPhysicsPriority is promoted from [Node.Instance.ProcessPhysicsPriority].
+func (o *Extension[T]) ProcessPhysicsPriority() int { return o.Super().AsNode().ProcessPhysicsPriority() }
+
+// SetProcessPhysicsPriority is promoted from [Node.Instance.SetProcessPhysicsPriority].
+func (o *Extension[T]) SetProcessPhysicsPriority(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessPhysicsPriority(value)
+	return o
+}
+
+// ProcessThreadGroup is promoted from [Node.Instance.ProcessThreadGroup].
+func (o *Extension[T]) ProcessThreadGroup() Node.ProcessThreadGroup { return o.Super().AsNode().ProcessThreadGroup() }
+
+// SetProcessThreadGroup is promoted from [Node.Instance.SetProcessThreadGroup].
+func (o *Extension[T]) SetProcessThreadGroup(value Node.ProcessThreadGroup) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadGroup(value)
+	return o
+}
+
+// ProcessThreadGroupOrder is promoted from [Node.Instance.ProcessThreadGroupOrder].
+func (o *Extension[T]) ProcessThreadGroupOrder() int { return o.Super().AsNode().ProcessThreadGroupOrder() }
+
+// SetProcessThreadGroupOrder is promoted from [Node.Instance.SetProcessThreadGroupOrder].
+func (o *Extension[T]) SetProcessThreadGroupOrder(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadGroupOrder(value)
+	return o
+}
+
+// ProcessThreadMessages is promoted from [Node.Instance.ProcessThreadMessages].
+func (o *Extension[T]) ProcessThreadMessages() Node.ProcessThreadMessages { return o.Super().AsNode().ProcessThreadMessages() }
+
+// SetProcessThreadMessages is promoted from [Node.Instance.SetProcessThreadMessages].
+func (o *Extension[T]) SetProcessThreadMessages(value Node.ProcessThreadMessages) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadMessages(value)
+	return o
+}
+
+// PhysicsInterpolationMode is promoted from [Node.Instance.PhysicsInterpolationMode].
+func (o *Extension[T]) PhysicsInterpolationMode() Node.PhysicsInterpolationMode { return o.Super().AsNode().PhysicsInterpolationMode() }
+
+// SetPhysicsInterpolationMode is promoted from [Node.Instance.SetPhysicsInterpolationMode].
+func (o *Extension[T]) SetPhysicsInterpolationMode(value Node.PhysicsInterpolationMode) *Extension[T] {
+	o.Super().AsNode().SetPhysicsInterpolationMode(value)
+	return o
+}
+
+// AutoTranslateMode is promoted from [Node.Instance.AutoTranslateMode].
+func (o *Extension[T]) AutoTranslateMode() Node.AutoTranslateMode { return o.Super().AsNode().AutoTranslateMode() }
+
+// SetAutoTranslateMode is promoted from [Node.Instance.SetAutoTranslateMode].
+func (o *Extension[T]) SetAutoTranslateMode(value Node.AutoTranslateMode) *Extension[T] {
+	o.Super().AsNode().SetAutoTranslateMode(value)
+	return o
+}
+
+// EditorDescription is promoted from [Node.Instance.EditorDescription].
+func (o *Extension[T]) EditorDescription() string { return o.Super().AsNode().EditorDescription() }
+
+// SetEditorDescription is promoted from [Node.Instance.SetEditorDescription].
+func (o *Extension[T]) SetEditorDescription(value string) *Extension[T] {
+	o.Super().AsNode().SetEditorDescription(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

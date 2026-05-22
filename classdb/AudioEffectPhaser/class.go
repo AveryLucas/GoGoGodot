@@ -157,15 +157,24 @@ func (self Instance) RangeMinHz() Float.X { //gd:AudioEffectPhaser.range_min_hz
 		return Float.X(Float.X(class(self).GetRangeMinHz()))
 }
 
+func (o *Extension[T]) RangeMinHz() Float.X { return o.Super().RangeMinHz() }
+
 // SetRangeMinHz sets the property returned by [GetRangeMinHz]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRangeMinHz(value Float.X) Instance { //gd:AudioEffectPhaser.range_min_hz
 	class(self).SetRangeMinHz(float64(value))
 	return self
 }
 
+func (o *Extension[T]) SetRangeMinHz(value Float.X) *Extension[T] {
+	o.Super().SetRangeMinHz(value)
+	return o
+}
+
 func (self Instance) RangeMaxHz() Float.X { //gd:AudioEffectPhaser.range_max_hz
 		return Float.X(Float.X(class(self).GetRangeMaxHz()))
 }
+
+func (o *Extension[T]) RangeMaxHz() Float.X { return o.Super().RangeMaxHz() }
 
 // SetRangeMaxHz sets the property returned by [GetRangeMaxHz]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRangeMaxHz(value Float.X) Instance { //gd:AudioEffectPhaser.range_max_hz
@@ -173,9 +182,16 @@ func (self Instance) SetRangeMaxHz(value Float.X) Instance { //gd:AudioEffectPha
 	return self
 }
 
+func (o *Extension[T]) SetRangeMaxHz(value Float.X) *Extension[T] {
+	o.Super().SetRangeMaxHz(value)
+	return o
+}
+
 func (self Instance) RateHz() Float.X { //gd:AudioEffectPhaser.rate_hz
 		return Float.X(Float.X(class(self).GetRateHz()))
 }
+
+func (o *Extension[T]) RateHz() Float.X { return o.Super().RateHz() }
 
 // SetRateHz sets the property returned by [GetRateHz]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRateHz(value Float.X) Instance { //gd:AudioEffectPhaser.rate_hz
@@ -183,9 +199,16 @@ func (self Instance) SetRateHz(value Float.X) Instance { //gd:AudioEffectPhaser.
 	return self
 }
 
+func (o *Extension[T]) SetRateHz(value Float.X) *Extension[T] {
+	o.Super().SetRateHz(value)
+	return o
+}
+
 func (self Instance) Feedback() Float.X { //gd:AudioEffectPhaser.feedback
 		return Float.X(Float.X(class(self).GetFeedback()))
 }
+
+func (o *Extension[T]) Feedback() Float.X { return o.Super().Feedback() }
 
 // SetFeedback sets the property returned by [GetFeedback]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFeedback(value Float.X) Instance { //gd:AudioEffectPhaser.feedback
@@ -193,14 +216,26 @@ func (self Instance) SetFeedback(value Float.X) Instance { //gd:AudioEffectPhase
 	return self
 }
 
+func (o *Extension[T]) SetFeedback(value Float.X) *Extension[T] {
+	o.Super().SetFeedback(value)
+	return o
+}
+
 func (self Instance) Depth() Float.X { //gd:AudioEffectPhaser.depth
 		return Float.X(Float.X(class(self).GetDepth()))
 }
+
+func (o *Extension[T]) Depth() Float.X { return o.Super().Depth() }
 
 // SetDepth sets the property returned by [GetDepth]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDepth(value Float.X) Instance { //gd:AudioEffectPhaser.depth
 	class(self).SetDepth(float64(value))
 	return self
+}
+
+func (o *Extension[T]) SetDepth(value Float.X) *Extension[T] {
+	o.Super().SetDepth(value)
+	return o
 }
 
 func (self class) SetRangeMinHz(hz float64)  { //gd:AudioEffectPhaser.set_range_min_hz
@@ -368,6 +403,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

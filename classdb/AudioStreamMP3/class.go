@@ -171,15 +171,24 @@ func (self Instance) Data() []byte { //gd:AudioStreamMP3.data
 		return []byte(class(self).GetData().Bytes())
 }
 
+func (o *Extension[T]) Data() []byte { return o.Super().Data() }
+
 // SetData sets the property returned by [GetData]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetData(value []byte) Instance { //gd:AudioStreamMP3.data
 	class(self).SetData(Packed.BytesFrom(value...))
 	return self
 }
 
+func (o *Extension[T]) SetData(value []byte) *Extension[T] {
+	o.Super().SetData(value)
+	return o
+}
+
 func (self Instance) Bpm() Float.X { //gd:AudioStreamMP3.bpm
 		return Float.X(Float.X(class(self).GetBpm()))
 }
+
+func (o *Extension[T]) Bpm() Float.X { return o.Super().Bpm() }
 
 // SetBpm sets the property returned by [GetBpm]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBpm(value Float.X) Instance { //gd:AudioStreamMP3.bpm
@@ -187,9 +196,16 @@ func (self Instance) SetBpm(value Float.X) Instance { //gd:AudioStreamMP3.bpm
 	return self
 }
 
+func (o *Extension[T]) SetBpm(value Float.X) *Extension[T] {
+	o.Super().SetBpm(value)
+	return o
+}
+
 func (self Instance) BeatCount() int { //gd:AudioStreamMP3.beat_count
 		return int(int(class(self).GetBeatCount()))
 }
+
+func (o *Extension[T]) BeatCount() int { return o.Super().BeatCount() }
 
 // SetBeatCount sets the property returned by [GetBeatCount]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBeatCount(value int) Instance { //gd:AudioStreamMP3.beat_count
@@ -197,9 +213,16 @@ func (self Instance) SetBeatCount(value int) Instance { //gd:AudioStreamMP3.beat
 	return self
 }
 
+func (o *Extension[T]) SetBeatCount(value int) *Extension[T] {
+	o.Super().SetBeatCount(value)
+	return o
+}
+
 func (self Instance) BarBeats() int { //gd:AudioStreamMP3.bar_beats
 		return int(int(class(self).GetBarBeats()))
 }
+
+func (o *Extension[T]) BarBeats() int { return o.Super().BarBeats() }
 
 // SetBarBeats sets the property returned by [GetBarBeats]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBarBeats(value int) Instance { //gd:AudioStreamMP3.bar_beats
@@ -207,9 +230,16 @@ func (self Instance) SetBarBeats(value int) Instance { //gd:AudioStreamMP3.bar_b
 	return self
 }
 
+func (o *Extension[T]) SetBarBeats(value int) *Extension[T] {
+	o.Super().SetBarBeats(value)
+	return o
+}
+
 func (self Instance) Loop() bool { //gd:AudioStreamMP3.loop
 		return bool(class(self).HasLoop())
 }
+
+func (o *Extension[T]) Loop() bool { return o.Super().Loop() }
 
 // SetLoop sets the property returned by [HasLoop]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetLoop(value bool) Instance { //gd:AudioStreamMP3.loop
@@ -217,14 +247,26 @@ func (self Instance) SetLoop(value bool) Instance { //gd:AudioStreamMP3.loop
 	return self
 }
 
+func (o *Extension[T]) SetLoop(value bool) *Extension[T] {
+	o.Super().SetLoop(value)
+	return o
+}
+
 func (self Instance) LoopOffset() Float.X { //gd:AudioStreamMP3.loop_offset
 		return Float.X(Float.X(class(self).GetLoopOffset()))
 }
+
+func (o *Extension[T]) LoopOffset() Float.X { return o.Super().LoopOffset() }
 
 // SetLoopOffset sets the property returned by [GetLoopOffset]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetLoopOffset(value Float.X) Instance { //gd:AudioStreamMP3.loop_offset
 	class(self).SetLoopOffset(float64(value))
 	return self
+}
+
+func (o *Extension[T]) SetLoopOffset(value Float.X) *Extension[T] {
+	o.Super().SetLoopOffset(value)
+	return o
 }
 
 func (self class) LoadFromBuffer(stream_data Packed.Bytes) [1]gdclass.AudioStreamMP3 { //gd:AudioStreamMP3.load_from_buffer
@@ -480,6 +522,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

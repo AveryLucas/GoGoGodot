@@ -185,15 +185,24 @@ func (self Instance) BufferView() int { //gd:GLTFAccessor.buffer_view
 		return int(int(class(self).GetBufferView()))
 }
 
+func (o *Extension[T]) BufferView() int { return o.Super().BufferView() }
+
 // SetBufferView sets the property returned by [GetBufferView]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBufferView(value int) Instance { //gd:GLTFAccessor.buffer_view
 	class(self).SetBufferView(int64(value))
 	return self
 }
 
+func (o *Extension[T]) SetBufferView(value int) *Extension[T] {
+	o.Super().SetBufferView(value)
+	return o
+}
+
 func (self Instance) ByteOffset() int { //gd:GLTFAccessor.byte_offset
 		return int(int(class(self).GetByteOffset()))
 }
+
+func (o *Extension[T]) ByteOffset() int { return o.Super().ByteOffset() }
 
 // SetByteOffset sets the property returned by [GetByteOffset]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetByteOffset(value int) Instance { //gd:GLTFAccessor.byte_offset
@@ -201,9 +210,16 @@ func (self Instance) SetByteOffset(value int) Instance { //gd:GLTFAccessor.byte_
 	return self
 }
 
+func (o *Extension[T]) SetByteOffset(value int) *Extension[T] {
+	o.Super().SetByteOffset(value)
+	return o
+}
+
 func (self Instance) ComponentType() GLTFComponentType { //gd:GLTFAccessor.component_type
 		return GLTFComponentType(class(self).GetComponentType())
 }
+
+func (o *Extension[T]) ComponentType() GLTFComponentType { return o.Super().ComponentType() }
 
 // SetComponentType sets the property returned by [GetComponentType]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetComponentType(value GLTFComponentType) Instance { //gd:GLTFAccessor.component_type
@@ -211,9 +227,16 @@ func (self Instance) SetComponentType(value GLTFComponentType) Instance { //gd:G
 	return self
 }
 
+func (o *Extension[T]) SetComponentType(value GLTFComponentType) *Extension[T] {
+	o.Super().SetComponentType(value)
+	return o
+}
+
 func (self Instance) Normalized() bool { //gd:GLTFAccessor.normalized
 		return bool(class(self).GetNormalized())
 }
+
+func (o *Extension[T]) Normalized() bool { return o.Super().Normalized() }
 
 // SetNormalized sets the property returned by [GetNormalized]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetNormalized(value bool) Instance { //gd:GLTFAccessor.normalized
@@ -221,9 +244,16 @@ func (self Instance) SetNormalized(value bool) Instance { //gd:GLTFAccessor.norm
 	return self
 }
 
+func (o *Extension[T]) SetNormalized(value bool) *Extension[T] {
+	o.Super().SetNormalized(value)
+	return o
+}
+
 func (self Instance) Count() int { //gd:GLTFAccessor.count
 		return int(int(class(self).GetCount()))
 }
+
+func (o *Extension[T]) Count() int { return o.Super().Count() }
 
 // SetCount sets the property returned by [GetCount]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCount(value int) Instance { //gd:GLTFAccessor.count
@@ -231,9 +261,16 @@ func (self Instance) SetCount(value int) Instance { //gd:GLTFAccessor.count
 	return self
 }
 
+func (o *Extension[T]) SetCount(value int) *Extension[T] {
+	o.Super().SetCount(value)
+	return o
+}
+
 func (self Instance) AccessorType() GLTFAccessorType { //gd:GLTFAccessor.accessor_type
 		return GLTFAccessorType(class(self).GetAccessorType())
 }
+
+func (o *Extension[T]) AccessorType() GLTFAccessorType { return o.Super().AccessorType() }
 
 // SetAccessorType sets the property returned by [GetAccessorType]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAccessorType(value GLTFAccessorType) Instance { //gd:GLTFAccessor.accessor_type
@@ -241,9 +278,16 @@ func (self Instance) SetAccessorType(value GLTFAccessorType) Instance { //gd:GLT
 	return self
 }
 
+func (o *Extension[T]) SetAccessorType(value GLTFAccessorType) *Extension[T] {
+	o.Super().SetAccessorType(value)
+	return o
+}
+
 func (self Instance) Type() int { //gd:GLTFAccessor.type
 		return int(int(class(self).GetType()))
 }
+
+func (o *Extension[T]) Type() int { return o.Super().Type() }
 
 // SetType sets the property returned by [GetType]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetType(value int) Instance { //gd:GLTFAccessor.type
@@ -251,9 +295,16 @@ func (self Instance) SetType(value int) Instance { //gd:GLTFAccessor.type
 	return self
 }
 
+func (o *Extension[T]) SetType(value int) *Extension[T] {
+	o.Super().SetType(value)
+	return o
+}
+
 func (self Instance) Min() []float64 { //gd:GLTFAccessor.min
 		return []float64(slices.Collect(class(self).GetMin().Values()))
 }
+
+func (o *Extension[T]) Min() []float64 { return o.Super().Min() }
 
 // SetMin sets the property returned by [GetMin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMin(value []float64) Instance { //gd:GLTFAccessor.min
@@ -261,9 +312,16 @@ func (self Instance) SetMin(value []float64) Instance { //gd:GLTFAccessor.min
 	return self
 }
 
+func (o *Extension[T]) SetMin(value []float64) *Extension[T] {
+	o.Super().SetMin(value)
+	return o
+}
+
 func (self Instance) Max() []float64 { //gd:GLTFAccessor.max
 		return []float64(slices.Collect(class(self).GetMax().Values()))
 }
+
+func (o *Extension[T]) Max() []float64 { return o.Super().Max() }
 
 // SetMax sets the property returned by [GetMax]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMax(value []float64) Instance { //gd:GLTFAccessor.max
@@ -271,9 +329,16 @@ func (self Instance) SetMax(value []float64) Instance { //gd:GLTFAccessor.max
 	return self
 }
 
+func (o *Extension[T]) SetMax(value []float64) *Extension[T] {
+	o.Super().SetMax(value)
+	return o
+}
+
 func (self Instance) SparseCount() int { //gd:GLTFAccessor.sparse_count
 		return int(int(class(self).GetSparseCount()))
 }
+
+func (o *Extension[T]) SparseCount() int { return o.Super().SparseCount() }
 
 // SetSparseCount sets the property returned by [GetSparseCount]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSparseCount(value int) Instance { //gd:GLTFAccessor.sparse_count
@@ -281,9 +346,16 @@ func (self Instance) SetSparseCount(value int) Instance { //gd:GLTFAccessor.spar
 	return self
 }
 
+func (o *Extension[T]) SetSparseCount(value int) *Extension[T] {
+	o.Super().SetSparseCount(value)
+	return o
+}
+
 func (self Instance) SparseIndicesBufferView() int { //gd:GLTFAccessor.sparse_indices_buffer_view
 		return int(int(class(self).GetSparseIndicesBufferView()))
 }
+
+func (o *Extension[T]) SparseIndicesBufferView() int { return o.Super().SparseIndicesBufferView() }
 
 // SetSparseIndicesBufferView sets the property returned by [GetSparseIndicesBufferView]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSparseIndicesBufferView(value int) Instance { //gd:GLTFAccessor.sparse_indices_buffer_view
@@ -291,9 +363,16 @@ func (self Instance) SetSparseIndicesBufferView(value int) Instance { //gd:GLTFA
 	return self
 }
 
+func (o *Extension[T]) SetSparseIndicesBufferView(value int) *Extension[T] {
+	o.Super().SetSparseIndicesBufferView(value)
+	return o
+}
+
 func (self Instance) SparseIndicesByteOffset() int { //gd:GLTFAccessor.sparse_indices_byte_offset
 		return int(int(class(self).GetSparseIndicesByteOffset()))
 }
+
+func (o *Extension[T]) SparseIndicesByteOffset() int { return o.Super().SparseIndicesByteOffset() }
 
 // SetSparseIndicesByteOffset sets the property returned by [GetSparseIndicesByteOffset]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSparseIndicesByteOffset(value int) Instance { //gd:GLTFAccessor.sparse_indices_byte_offset
@@ -301,9 +380,16 @@ func (self Instance) SetSparseIndicesByteOffset(value int) Instance { //gd:GLTFA
 	return self
 }
 
+func (o *Extension[T]) SetSparseIndicesByteOffset(value int) *Extension[T] {
+	o.Super().SetSparseIndicesByteOffset(value)
+	return o
+}
+
 func (self Instance) SparseIndicesComponentType() GLTFComponentType { //gd:GLTFAccessor.sparse_indices_component_type
 		return GLTFComponentType(class(self).GetSparseIndicesComponentType())
 }
+
+func (o *Extension[T]) SparseIndicesComponentType() GLTFComponentType { return o.Super().SparseIndicesComponentType() }
 
 // SetSparseIndicesComponentType sets the property returned by [GetSparseIndicesComponentType]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSparseIndicesComponentType(value GLTFComponentType) Instance { //gd:GLTFAccessor.sparse_indices_component_type
@@ -311,9 +397,16 @@ func (self Instance) SetSparseIndicesComponentType(value GLTFComponentType) Inst
 	return self
 }
 
+func (o *Extension[T]) SetSparseIndicesComponentType(value GLTFComponentType) *Extension[T] {
+	o.Super().SetSparseIndicesComponentType(value)
+	return o
+}
+
 func (self Instance) SparseValuesBufferView() int { //gd:GLTFAccessor.sparse_values_buffer_view
 		return int(int(class(self).GetSparseValuesBufferView()))
 }
+
+func (o *Extension[T]) SparseValuesBufferView() int { return o.Super().SparseValuesBufferView() }
 
 // SetSparseValuesBufferView sets the property returned by [GetSparseValuesBufferView]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSparseValuesBufferView(value int) Instance { //gd:GLTFAccessor.sparse_values_buffer_view
@@ -321,14 +414,26 @@ func (self Instance) SetSparseValuesBufferView(value int) Instance { //gd:GLTFAc
 	return self
 }
 
+func (o *Extension[T]) SetSparseValuesBufferView(value int) *Extension[T] {
+	o.Super().SetSparseValuesBufferView(value)
+	return o
+}
+
 func (self Instance) SparseValuesByteOffset() int { //gd:GLTFAccessor.sparse_values_byte_offset
 		return int(int(class(self).GetSparseValuesByteOffset()))
 }
+
+func (o *Extension[T]) SparseValuesByteOffset() int { return o.Super().SparseValuesByteOffset() }
 
 // SetSparseValuesByteOffset sets the property returned by [GetSparseValuesByteOffset]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSparseValuesByteOffset(value int) Instance { //gd:GLTFAccessor.sparse_values_byte_offset
 	class(self).SetSparseValuesByteOffset(int64(value))
 	return self
+}
+
+func (o *Extension[T]) SetSparseValuesByteOffset(value int) *Extension[T] {
+	o.Super().SetSparseValuesByteOffset(value)
+	return o
 }
 
 func (self class) FromDictionary(dictionary Dictionary.Any) [1]gdclass.GLTFAccessor { //gd:GLTFAccessor.from_dictionary
@@ -586,6 +691,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

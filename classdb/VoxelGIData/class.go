@@ -191,15 +191,24 @@ func (self Instance) DynamicRange() Float.X { //gd:VoxelGIData.dynamic_range
 		return Float.X(Float.X(class(self).GetDynamicRange()))
 }
 
+func (o *Extension[T]) DynamicRange() Float.X { return o.Super().DynamicRange() }
+
 // SetDynamicRange sets the property returned by [GetDynamicRange]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDynamicRange(value Float.X) Instance { //gd:VoxelGIData.dynamic_range
 	class(self).SetDynamicRange(float64(value))
 	return self
 }
 
+func (o *Extension[T]) SetDynamicRange(value Float.X) *Extension[T] {
+	o.Super().SetDynamicRange(value)
+	return o
+}
+
 func (self Instance) Energy() Float.X { //gd:VoxelGIData.energy
 		return Float.X(Float.X(class(self).GetEnergy()))
 }
+
+func (o *Extension[T]) Energy() Float.X { return o.Super().Energy() }
 
 // SetEnergy sets the property returned by [GetEnergy]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEnergy(value Float.X) Instance { //gd:VoxelGIData.energy
@@ -207,9 +216,16 @@ func (self Instance) SetEnergy(value Float.X) Instance { //gd:VoxelGIData.energy
 	return self
 }
 
+func (o *Extension[T]) SetEnergy(value Float.X) *Extension[T] {
+	o.Super().SetEnergy(value)
+	return o
+}
+
 func (self Instance) Bias() Float.X { //gd:VoxelGIData.bias
 		return Float.X(Float.X(class(self).GetBias()))
 }
+
+func (o *Extension[T]) Bias() Float.X { return o.Super().Bias() }
 
 // SetBias sets the property returned by [GetBias]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBias(value Float.X) Instance { //gd:VoxelGIData.bias
@@ -217,9 +233,16 @@ func (self Instance) SetBias(value Float.X) Instance { //gd:VoxelGIData.bias
 	return self
 }
 
+func (o *Extension[T]) SetBias(value Float.X) *Extension[T] {
+	o.Super().SetBias(value)
+	return o
+}
+
 func (self Instance) NormalBias() Float.X { //gd:VoxelGIData.normal_bias
 		return Float.X(Float.X(class(self).GetNormalBias()))
 }
+
+func (o *Extension[T]) NormalBias() Float.X { return o.Super().NormalBias() }
 
 // SetNormalBias sets the property returned by [GetNormalBias]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetNormalBias(value Float.X) Instance { //gd:VoxelGIData.normal_bias
@@ -227,9 +250,16 @@ func (self Instance) SetNormalBias(value Float.X) Instance { //gd:VoxelGIData.no
 	return self
 }
 
+func (o *Extension[T]) SetNormalBias(value Float.X) *Extension[T] {
+	o.Super().SetNormalBias(value)
+	return o
+}
+
 func (self Instance) Propagation() Float.X { //gd:VoxelGIData.propagation
 		return Float.X(Float.X(class(self).GetPropagation()))
 }
+
+func (o *Extension[T]) Propagation() Float.X { return o.Super().Propagation() }
 
 // SetPropagation sets the property returned by [GetPropagation]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPropagation(value Float.X) Instance { //gd:VoxelGIData.propagation
@@ -237,9 +267,16 @@ func (self Instance) SetPropagation(value Float.X) Instance { //gd:VoxelGIData.p
 	return self
 }
 
+func (o *Extension[T]) SetPropagation(value Float.X) *Extension[T] {
+	o.Super().SetPropagation(value)
+	return o
+}
+
 func (self Instance) UseTwoBounces() bool { //gd:VoxelGIData.use_two_bounces
 		return bool(class(self).IsUsingTwoBounces())
 }
+
+func (o *Extension[T]) UseTwoBounces() bool { return o.Super().UseTwoBounces() }
 
 // SetUseTwoBounces sets the property returned by [IsUsingTwoBounces]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUseTwoBounces(value bool) Instance { //gd:VoxelGIData.use_two_bounces
@@ -247,14 +284,26 @@ func (self Instance) SetUseTwoBounces(value bool) Instance { //gd:VoxelGIData.us
 	return self
 }
 
+func (o *Extension[T]) SetUseTwoBounces(value bool) *Extension[T] {
+	o.Super().SetUseTwoBounces(value)
+	return o
+}
+
 func (self Instance) Interior() bool { //gd:VoxelGIData.interior
 		return bool(class(self).IsInterior())
 }
+
+func (o *Extension[T]) Interior() bool { return o.Super().Interior() }
 
 // SetInterior sets the property returned by [IsInterior]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetInterior(value bool) Instance { //gd:VoxelGIData.interior
 	class(self).SetInterior(value)
 	return self
+}
+
+func (o *Extension[T]) SetInterior(value bool) *Extension[T] {
+	o.Super().SetInterior(value)
+	return o
 }
 
 func (self class) Allocate(to_cell_xform Transform3D.BasisOrigin, aabb AABB.PositionSize, octree_size Vector3.XYZ, octree_cells Packed.Bytes, data_cells Packed.Bytes, distance_field Packed.Bytes, level_counts Packed.Array[int32])  { //gd:VoxelGIData.allocate
@@ -489,6 +538,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

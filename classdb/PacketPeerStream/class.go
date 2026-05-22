@@ -153,15 +153,24 @@ func (self Instance) InputBufferMaxSize() int { //gd:PacketPeerStream.input_buff
 		return int(int(class(self).GetInputBufferMaxSize()))
 }
 
+func (o *Extension[T]) InputBufferMaxSize() int { return o.Super().InputBufferMaxSize() }
+
 // SetInputBufferMaxSize sets the property returned by [GetInputBufferMaxSize]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetInputBufferMaxSize(value int) Instance { //gd:PacketPeerStream.input_buffer_max_size
 	class(self).SetInputBufferMaxSize(int64(value))
 	return self
 }
 
+func (o *Extension[T]) SetInputBufferMaxSize(value int) *Extension[T] {
+	o.Super().SetInputBufferMaxSize(value)
+	return o
+}
+
 func (self Instance) OutputBufferMaxSize() int { //gd:PacketPeerStream.output_buffer_max_size
 		return int(int(class(self).GetOutputBufferMaxSize()))
 }
+
+func (o *Extension[T]) OutputBufferMaxSize() int { return o.Super().OutputBufferMaxSize() }
 
 // SetOutputBufferMaxSize sets the property returned by [GetOutputBufferMaxSize]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOutputBufferMaxSize(value int) Instance { //gd:PacketPeerStream.output_buffer_max_size
@@ -169,14 +178,26 @@ func (self Instance) SetOutputBufferMaxSize(value int) Instance { //gd:PacketPee
 	return self
 }
 
+func (o *Extension[T]) SetOutputBufferMaxSize(value int) *Extension[T] {
+	o.Super().SetOutputBufferMaxSize(value)
+	return o
+}
+
 func (self Instance) StreamPeer() StreamPeer.Instance { //gd:PacketPeerStream.stream_peer
 		return StreamPeer.Instance(class(self).GetStreamPeer())
 }
+
+func (o *Extension[T]) StreamPeer() StreamPeer.Instance { return o.Super().StreamPeer() }
 
 // SetStreamPeer sets the property returned by [GetStreamPeer]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStreamPeer(value StreamPeer.Instance) Instance { //gd:PacketPeerStream.stream_peer
 	class(self).SetStreamPeer(value)
 	return self
+}
+
+func (o *Extension[T]) SetStreamPeer(value StreamPeer.Instance) *Extension[T] {
+	o.Super().SetStreamPeer(value)
+	return o
 }
 
 func (self class) SetStreamPeer(peer [1]gdclass.StreamPeer)  { //gd:PacketPeerStream.set_stream_peer
@@ -251,6 +272,15 @@ func (self Instance) GetAvailablePacketCount() int {
 // GetAvailablePacketCount is promoted from [PacketPeer.Instance.GetAvailablePacketCount].
 func (o *Extension[T]) GetAvailablePacketCount() int {
 	return o.Super().AsPacketPeer().GetAvailablePacketCount()
+}
+
+// EncodeBufferMaxSize is promoted from [PacketPeer.Instance.EncodeBufferMaxSize].
+func (o *Extension[T]) EncodeBufferMaxSize() int { return o.Super().AsPacketPeer().EncodeBufferMaxSize() }
+
+// SetEncodeBufferMaxSize is promoted from [PacketPeer.Instance.SetEncodeBufferMaxSize].
+func (o *Extension[T]) SetEncodeBufferMaxSize(value int) *Extension[T] {
+	o.Super().AsPacketPeer().SetEncodeBufferMaxSize(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

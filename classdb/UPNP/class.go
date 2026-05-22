@@ -211,15 +211,24 @@ func (self Instance) DiscoverMulticastIf() string { //gd:UPNP.discover_multicast
 		return string(class(self).GetDiscoverMulticastIf().String())
 }
 
+func (o *Extension[T]) DiscoverMulticastIf() string { return o.Super().DiscoverMulticastIf() }
+
 // SetDiscoverMulticastIf sets the property returned by [GetDiscoverMulticastIf]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDiscoverMulticastIf(value string) Instance { //gd:UPNP.discover_multicast_if
 	class(self).SetDiscoverMulticastIf(String.From(value))
 	return self
 }
 
+func (o *Extension[T]) SetDiscoverMulticastIf(value string) *Extension[T] {
+	o.Super().SetDiscoverMulticastIf(value)
+	return o
+}
+
 func (self Instance) DiscoverLocalPort() int { //gd:UPNP.discover_local_port
 		return int(int(class(self).GetDiscoverLocalPort()))
 }
+
+func (o *Extension[T]) DiscoverLocalPort() int { return o.Super().DiscoverLocalPort() }
 
 // SetDiscoverLocalPort sets the property returned by [GetDiscoverLocalPort]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDiscoverLocalPort(value int) Instance { //gd:UPNP.discover_local_port
@@ -227,14 +236,26 @@ func (self Instance) SetDiscoverLocalPort(value int) Instance { //gd:UPNP.discov
 	return self
 }
 
+func (o *Extension[T]) SetDiscoverLocalPort(value int) *Extension[T] {
+	o.Super().SetDiscoverLocalPort(value)
+	return o
+}
+
 func (self Instance) DiscoverIpv6() bool { //gd:UPNP.discover_ipv6
 		return bool(class(self).IsDiscoverIpv6())
 }
+
+func (o *Extension[T]) DiscoverIpv6() bool { return o.Super().DiscoverIpv6() }
 
 // SetDiscoverIpv6 sets the property returned by [IsDiscoverIpv6]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDiscoverIpv6(value bool) Instance { //gd:UPNP.discover_ipv6
 	class(self).SetDiscoverIpv6(value)
 	return self
+}
+
+func (o *Extension[T]) SetDiscoverIpv6(value bool) *Extension[T] {
+	o.Super().SetDiscoverIpv6(value)
+	return o
 }
 
 func (self class) GetDeviceCount() int64 { //gd:UPNP.get_device_count

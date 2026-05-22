@@ -179,15 +179,24 @@ func (self Instance) Data() []byte { //gd:AudioStreamWAV.data
 		return []byte(class(self).GetData().Bytes())
 }
 
+func (o *Extension[T]) Data() []byte { return o.Super().Data() }
+
 // SetData sets the property returned by [GetData]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetData(value []byte) Instance { //gd:AudioStreamWAV.data
 	class(self).SetData(Packed.BytesFrom(value...))
 	return self
 }
 
+func (o *Extension[T]) SetData(value []byte) *Extension[T] {
+	o.Super().SetData(value)
+	return o
+}
+
 func (self Instance) Format() Format { //gd:AudioStreamWAV.format
 		return Format(class(self).GetFormat())
 }
+
+func (o *Extension[T]) Format() Format { return o.Super().Format() }
 
 // SetFormat sets the property returned by [GetFormat]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFormat(value Format) Instance { //gd:AudioStreamWAV.format
@@ -195,9 +204,16 @@ func (self Instance) SetFormat(value Format) Instance { //gd:AudioStreamWAV.form
 	return self
 }
 
+func (o *Extension[T]) SetFormat(value Format) *Extension[T] {
+	o.Super().SetFormat(value)
+	return o
+}
+
 func (self Instance) LoopMode() LoopMode { //gd:AudioStreamWAV.loop_mode
 		return LoopMode(class(self).GetLoopMode())
 }
+
+func (o *Extension[T]) LoopMode() LoopMode { return o.Super().LoopMode() }
 
 // SetLoopMode sets the property returned by [GetLoopMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetLoopMode(value LoopMode) Instance { //gd:AudioStreamWAV.loop_mode
@@ -205,9 +221,16 @@ func (self Instance) SetLoopMode(value LoopMode) Instance { //gd:AudioStreamWAV.
 	return self
 }
 
+func (o *Extension[T]) SetLoopMode(value LoopMode) *Extension[T] {
+	o.Super().SetLoopMode(value)
+	return o
+}
+
 func (self Instance) LoopBegin() int { //gd:AudioStreamWAV.loop_begin
 		return int(int(class(self).GetLoopBegin()))
 }
+
+func (o *Extension[T]) LoopBegin() int { return o.Super().LoopBegin() }
 
 // SetLoopBegin sets the property returned by [GetLoopBegin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetLoopBegin(value int) Instance { //gd:AudioStreamWAV.loop_begin
@@ -215,9 +238,16 @@ func (self Instance) SetLoopBegin(value int) Instance { //gd:AudioStreamWAV.loop
 	return self
 }
 
+func (o *Extension[T]) SetLoopBegin(value int) *Extension[T] {
+	o.Super().SetLoopBegin(value)
+	return o
+}
+
 func (self Instance) LoopEnd() int { //gd:AudioStreamWAV.loop_end
 		return int(int(class(self).GetLoopEnd()))
 }
+
+func (o *Extension[T]) LoopEnd() int { return o.Super().LoopEnd() }
 
 // SetLoopEnd sets the property returned by [GetLoopEnd]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetLoopEnd(value int) Instance { //gd:AudioStreamWAV.loop_end
@@ -225,9 +255,16 @@ func (self Instance) SetLoopEnd(value int) Instance { //gd:AudioStreamWAV.loop_e
 	return self
 }
 
+func (o *Extension[T]) SetLoopEnd(value int) *Extension[T] {
+	o.Super().SetLoopEnd(value)
+	return o
+}
+
 func (self Instance) MixRate() int { //gd:AudioStreamWAV.mix_rate
 		return int(int(class(self).GetMixRate()))
 }
+
+func (o *Extension[T]) MixRate() int { return o.Super().MixRate() }
 
 // SetMixRate sets the property returned by [GetMixRate]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMixRate(value int) Instance { //gd:AudioStreamWAV.mix_rate
@@ -235,9 +272,16 @@ func (self Instance) SetMixRate(value int) Instance { //gd:AudioStreamWAV.mix_ra
 	return self
 }
 
+func (o *Extension[T]) SetMixRate(value int) *Extension[T] {
+	o.Super().SetMixRate(value)
+	return o
+}
+
 func (self Instance) Stereo() bool { //gd:AudioStreamWAV.stereo
 		return bool(class(self).IsStereo())
 }
+
+func (o *Extension[T]) Stereo() bool { return o.Super().Stereo() }
 
 // SetStereo sets the property returned by [IsStereo]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStereo(value bool) Instance { //gd:AudioStreamWAV.stereo
@@ -245,14 +289,26 @@ func (self Instance) SetStereo(value bool) Instance { //gd:AudioStreamWAV.stereo
 	return self
 }
 
+func (o *Extension[T]) SetStereo(value bool) *Extension[T] {
+	o.Super().SetStereo(value)
+	return o
+}
+
 func (self Instance) Tags() map[string]any { //gd:AudioStreamWAV.tags
 		return map[string]any(gd.DictionaryAs[map[string]any](class(self).GetTags()))
 }
+
+func (o *Extension[T]) Tags() map[string]any { return o.Super().Tags() }
 
 // SetTags sets the property returned by [GetTags]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTags(value map[string]any) Instance { //gd:AudioStreamWAV.tags
 	class(self).SetTags(gd.DictionaryFromMap(value))
 	return self
+}
+
+func (o *Extension[T]) SetTags(value map[string]any) *Extension[T] {
+	o.Super().SetTags(value)
+	return o
 }
 
 func (self class) LoadFromBuffer(stream_data Packed.Bytes, options Dictionary.Any) [1]gdclass.AudioStreamWAV { //gd:AudioStreamWAV.load_from_buffer
@@ -532,6 +588,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

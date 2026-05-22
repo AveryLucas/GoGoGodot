@@ -481,15 +481,24 @@ func (self Instance) Data() []byte { //gd:FontFile.data
 		return []byte(class(self).GetData().Bytes())
 }
 
+func (o *Extension[T]) Data() []byte { return o.Super().Data() }
+
 // SetData sets the property returned by [GetData]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetData(value []byte) Instance { //gd:FontFile.data
 	class(self).SetData(Packed.BytesFrom(value...))
 	return self
 }
 
+func (o *Extension[T]) SetData(value []byte) *Extension[T] {
+	o.Super().SetData(value)
+	return o
+}
+
 func (self Instance) GenerateMipmaps() bool { //gd:FontFile.generate_mipmaps
 		return bool(class(self).GetGenerateMipmaps())
 }
+
+func (o *Extension[T]) GenerateMipmaps() bool { return o.Super().GenerateMipmaps() }
 
 // SetGenerateMipmaps sets the property returned by [GetGenerateMipmaps]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetGenerateMipmaps(value bool) Instance { //gd:FontFile.generate_mipmaps
@@ -497,9 +506,16 @@ func (self Instance) SetGenerateMipmaps(value bool) Instance { //gd:FontFile.gen
 	return self
 }
 
+func (o *Extension[T]) SetGenerateMipmaps(value bool) *Extension[T] {
+	o.Super().SetGenerateMipmaps(value)
+	return o
+}
+
 func (self Instance) DisableEmbeddedBitmaps() bool { //gd:FontFile.disable_embedded_bitmaps
 		return bool(class(self).GetDisableEmbeddedBitmaps())
 }
+
+func (o *Extension[T]) DisableEmbeddedBitmaps() bool { return o.Super().DisableEmbeddedBitmaps() }
 
 // SetDisableEmbeddedBitmaps sets the property returned by [GetDisableEmbeddedBitmaps]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDisableEmbeddedBitmaps(value bool) Instance { //gd:FontFile.disable_embedded_bitmaps
@@ -507,9 +523,16 @@ func (self Instance) SetDisableEmbeddedBitmaps(value bool) Instance { //gd:FontF
 	return self
 }
 
+func (o *Extension[T]) SetDisableEmbeddedBitmaps(value bool) *Extension[T] {
+	o.Super().SetDisableEmbeddedBitmaps(value)
+	return o
+}
+
 func (self Instance) Antialiasing() TextServer.FontAntialiasing { //gd:FontFile.antialiasing
 		return TextServer.FontAntialiasing(class(self).GetAntialiasing())
 }
+
+func (o *Extension[T]) Antialiasing() TextServer.FontAntialiasing { return o.Super().Antialiasing() }
 
 // SetAntialiasing sets the property returned by [GetAntialiasing]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAntialiasing(value TextServer.FontAntialiasing) Instance { //gd:FontFile.antialiasing
@@ -517,9 +540,19 @@ func (self Instance) SetAntialiasing(value TextServer.FontAntialiasing) Instance
 	return self
 }
 
+func (o *Extension[T]) SetAntialiasing(value TextServer.FontAntialiasing) *Extension[T] {
+	o.Super().SetAntialiasing(value)
+	return o
+}
+
 func (self Instance) SetFontName(value string) Instance { //gd:FontFile.font_name
 	class(self).SetFontName(String.From(value))
 	return self
+}
+
+func (o *Extension[T]) SetFontName(value string) *Extension[T] {
+	o.Super().SetFontName(value)
+	return o
 }
 
 func (self Instance) SetStyleName(value string) Instance { //gd:FontFile.style_name
@@ -527,9 +560,19 @@ func (self Instance) SetStyleName(value string) Instance { //gd:FontFile.style_n
 	return self
 }
 
+func (o *Extension[T]) SetStyleName(value string) *Extension[T] {
+	o.Super().SetStyleName(value)
+	return o
+}
+
 func (self Instance) SetFontStyle(value TextServer.FontStyle) Instance { //gd:FontFile.font_style
 	class(self).SetFontStyle(value)
 	return self
+}
+
+func (o *Extension[T]) SetFontStyle(value TextServer.FontStyle) *Extension[T] {
+	o.Super().SetFontStyle(value)
+	return o
 }
 
 func (self Instance) SetFontWeight(value int) Instance { //gd:FontFile.font_weight
@@ -537,14 +580,26 @@ func (self Instance) SetFontWeight(value int) Instance { //gd:FontFile.font_weig
 	return self
 }
 
+func (o *Extension[T]) SetFontWeight(value int) *Extension[T] {
+	o.Super().SetFontWeight(value)
+	return o
+}
+
 func (self Instance) SetFontStretch(value int) Instance { //gd:FontFile.font_stretch
 	class(self).SetFontStretch(int64(value))
 	return self
 }
 
+func (o *Extension[T]) SetFontStretch(value int) *Extension[T] {
+	o.Super().SetFontStretch(value)
+	return o
+}
+
 func (self Instance) SubpixelPositioning() TextServer.SubpixelPositioning { //gd:FontFile.subpixel_positioning
 		return TextServer.SubpixelPositioning(class(self).GetSubpixelPositioning())
 }
+
+func (o *Extension[T]) SubpixelPositioning() TextServer.SubpixelPositioning { return o.Super().SubpixelPositioning() }
 
 // SetSubpixelPositioning sets the property returned by [GetSubpixelPositioning]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSubpixelPositioning(value TextServer.SubpixelPositioning) Instance { //gd:FontFile.subpixel_positioning
@@ -552,9 +607,16 @@ func (self Instance) SetSubpixelPositioning(value TextServer.SubpixelPositioning
 	return self
 }
 
+func (o *Extension[T]) SetSubpixelPositioning(value TextServer.SubpixelPositioning) *Extension[T] {
+	o.Super().SetSubpixelPositioning(value)
+	return o
+}
+
 func (self Instance) KeepRoundingRemainders() bool { //gd:FontFile.keep_rounding_remainders
 		return bool(class(self).GetKeepRoundingRemainders())
 }
+
+func (o *Extension[T]) KeepRoundingRemainders() bool { return o.Super().KeepRoundingRemainders() }
 
 // SetKeepRoundingRemainders sets the property returned by [GetKeepRoundingRemainders]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetKeepRoundingRemainders(value bool) Instance { //gd:FontFile.keep_rounding_remainders
@@ -562,9 +624,16 @@ func (self Instance) SetKeepRoundingRemainders(value bool) Instance { //gd:FontF
 	return self
 }
 
+func (o *Extension[T]) SetKeepRoundingRemainders(value bool) *Extension[T] {
+	o.Super().SetKeepRoundingRemainders(value)
+	return o
+}
+
 func (self Instance) MultichannelSignedDistanceField() bool { //gd:FontFile.multichannel_signed_distance_field
 		return bool(class(self).IsMultichannelSignedDistanceField())
 }
+
+func (o *Extension[T]) MultichannelSignedDistanceField() bool { return o.Super().MultichannelSignedDistanceField() }
 
 // SetMultichannelSignedDistanceField sets the property returned by [IsMultichannelSignedDistanceField]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMultichannelSignedDistanceField(value bool) Instance { //gd:FontFile.multichannel_signed_distance_field
@@ -572,9 +641,16 @@ func (self Instance) SetMultichannelSignedDistanceField(value bool) Instance { /
 	return self
 }
 
+func (o *Extension[T]) SetMultichannelSignedDistanceField(value bool) *Extension[T] {
+	o.Super().SetMultichannelSignedDistanceField(value)
+	return o
+}
+
 func (self Instance) MsdfPixelRange() int { //gd:FontFile.msdf_pixel_range
 		return int(int(class(self).GetMsdfPixelRange()))
 }
+
+func (o *Extension[T]) MsdfPixelRange() int { return o.Super().MsdfPixelRange() }
 
 // SetMsdfPixelRange sets the property returned by [GetMsdfPixelRange]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMsdfPixelRange(value int) Instance { //gd:FontFile.msdf_pixel_range
@@ -582,9 +658,16 @@ func (self Instance) SetMsdfPixelRange(value int) Instance { //gd:FontFile.msdf_
 	return self
 }
 
+func (o *Extension[T]) SetMsdfPixelRange(value int) *Extension[T] {
+	o.Super().SetMsdfPixelRange(value)
+	return o
+}
+
 func (self Instance) MsdfSize() int { //gd:FontFile.msdf_size
 		return int(int(class(self).GetMsdfSize()))
 }
+
+func (o *Extension[T]) MsdfSize() int { return o.Super().MsdfSize() }
 
 // SetMsdfSize sets the property returned by [GetMsdfSize]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMsdfSize(value int) Instance { //gd:FontFile.msdf_size
@@ -592,9 +675,16 @@ func (self Instance) SetMsdfSize(value int) Instance { //gd:FontFile.msdf_size
 	return self
 }
 
+func (o *Extension[T]) SetMsdfSize(value int) *Extension[T] {
+	o.Super().SetMsdfSize(value)
+	return o
+}
+
 func (self Instance) AllowSystemFallback() bool { //gd:FontFile.allow_system_fallback
 		return bool(class(self).IsAllowSystemFallback())
 }
+
+func (o *Extension[T]) AllowSystemFallback() bool { return o.Super().AllowSystemFallback() }
 
 // SetAllowSystemFallback sets the property returned by [IsAllowSystemFallback]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAllowSystemFallback(value bool) Instance { //gd:FontFile.allow_system_fallback
@@ -602,9 +692,16 @@ func (self Instance) SetAllowSystemFallback(value bool) Instance { //gd:FontFile
 	return self
 }
 
+func (o *Extension[T]) SetAllowSystemFallback(value bool) *Extension[T] {
+	o.Super().SetAllowSystemFallback(value)
+	return o
+}
+
 func (self Instance) ForceAutohinter() bool { //gd:FontFile.force_autohinter
 		return bool(class(self).IsForceAutohinter())
 }
+
+func (o *Extension[T]) ForceAutohinter() bool { return o.Super().ForceAutohinter() }
 
 // SetForceAutohinter sets the property returned by [IsForceAutohinter]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetForceAutohinter(value bool) Instance { //gd:FontFile.force_autohinter
@@ -612,9 +709,16 @@ func (self Instance) SetForceAutohinter(value bool) Instance { //gd:FontFile.for
 	return self
 }
 
+func (o *Extension[T]) SetForceAutohinter(value bool) *Extension[T] {
+	o.Super().SetForceAutohinter(value)
+	return o
+}
+
 func (self Instance) ModulateColorGlyphs() bool { //gd:FontFile.modulate_color_glyphs
 		return bool(class(self).IsModulateColorGlyphs())
 }
+
+func (o *Extension[T]) ModulateColorGlyphs() bool { return o.Super().ModulateColorGlyphs() }
 
 // SetModulateColorGlyphs sets the property returned by [IsModulateColorGlyphs]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetModulateColorGlyphs(value bool) Instance { //gd:FontFile.modulate_color_glyphs
@@ -622,9 +726,16 @@ func (self Instance) SetModulateColorGlyphs(value bool) Instance { //gd:FontFile
 	return self
 }
 
+func (o *Extension[T]) SetModulateColorGlyphs(value bool) *Extension[T] {
+	o.Super().SetModulateColorGlyphs(value)
+	return o
+}
+
 func (self Instance) Hinting() TextServer.Hinting { //gd:FontFile.hinting
 		return TextServer.Hinting(class(self).GetHinting())
 }
+
+func (o *Extension[T]) Hinting() TextServer.Hinting { return o.Super().Hinting() }
 
 // SetHinting sets the property returned by [GetHinting]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetHinting(value TextServer.Hinting) Instance { //gd:FontFile.hinting
@@ -632,9 +743,16 @@ func (self Instance) SetHinting(value TextServer.Hinting) Instance { //gd:FontFi
 	return self
 }
 
+func (o *Extension[T]) SetHinting(value TextServer.Hinting) *Extension[T] {
+	o.Super().SetHinting(value)
+	return o
+}
+
 func (self Instance) FixedSize() int { //gd:FontFile.fixed_size
 		return int(int(class(self).GetFixedSize()))
 }
+
+func (o *Extension[T]) FixedSize() int { return o.Super().FixedSize() }
 
 // SetFixedSize sets the property returned by [GetFixedSize]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFixedSize(value int) Instance { //gd:FontFile.fixed_size
@@ -642,9 +760,16 @@ func (self Instance) SetFixedSize(value int) Instance { //gd:FontFile.fixed_size
 	return self
 }
 
+func (o *Extension[T]) SetFixedSize(value int) *Extension[T] {
+	o.Super().SetFixedSize(value)
+	return o
+}
+
 func (self Instance) FixedSizeScaleMode() TextServer.FixedSizeScaleMode { //gd:FontFile.fixed_size_scale_mode
 		return TextServer.FixedSizeScaleMode(class(self).GetFixedSizeScaleMode())
 }
+
+func (o *Extension[T]) FixedSizeScaleMode() TextServer.FixedSizeScaleMode { return o.Super().FixedSizeScaleMode() }
 
 // SetFixedSizeScaleMode sets the property returned by [GetFixedSizeScaleMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFixedSizeScaleMode(value TextServer.FixedSizeScaleMode) Instance { //gd:FontFile.fixed_size_scale_mode
@@ -652,9 +777,16 @@ func (self Instance) SetFixedSizeScaleMode(value TextServer.FixedSizeScaleMode) 
 	return self
 }
 
+func (o *Extension[T]) SetFixedSizeScaleMode(value TextServer.FixedSizeScaleMode) *Extension[T] {
+	o.Super().SetFixedSizeScaleMode(value)
+	return o
+}
+
 func (self Instance) OpentypeFeatureOverrides() map[any]any { //gd:FontFile.opentype_feature_overrides
 		return map[any]any(gd.DictionaryAs[map[any]any](class(self).GetOpentypeFeatureOverrides()))
 }
+
+func (o *Extension[T]) OpentypeFeatureOverrides() map[any]any { return o.Super().OpentypeFeatureOverrides() }
 
 // SetOpentypeFeatureOverrides sets the property returned by [GetOpentypeFeatureOverrides]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOpentypeFeatureOverrides(value map[any]any) Instance { //gd:FontFile.opentype_feature_overrides
@@ -662,14 +794,26 @@ func (self Instance) SetOpentypeFeatureOverrides(value map[any]any) Instance { /
 	return self
 }
 
+func (o *Extension[T]) SetOpentypeFeatureOverrides(value map[any]any) *Extension[T] {
+	o.Super().SetOpentypeFeatureOverrides(value)
+	return o
+}
+
 func (self Instance) Oversampling() Float.X { //gd:FontFile.oversampling
 		return Float.X(Float.X(class(self).GetOversampling()))
 }
+
+func (o *Extension[T]) Oversampling() Float.X { return o.Super().Oversampling() }
 
 // SetOversampling sets the property returned by [GetOversampling]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOversampling(value Float.X) Instance { //gd:FontFile.oversampling
 	class(self).SetOversampling(float64(value))
 	return self
+}
+
+func (o *Extension[T]) SetOversampling(value Float.X) *Extension[T] {
+	o.Super().SetOversampling(value)
+	return o
 }
 
 func (self class) LoadBitmapFont(path String.Readable) Error.Code { //gd:FontFile.load_bitmap_font
@@ -1617,6 +1761,51 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// Fallbacks is promoted from [Font.Instance.Fallbacks].
+func (o *Extension[T]) Fallbacks() []Font.Instance { return o.Super().AsFont().Fallbacks() }
+
+// SetFallbacks is promoted from [Font.Instance.SetFallbacks].
+func (o *Extension[T]) SetFallbacks(value []Font.Instance) *Extension[T] {
+	o.Super().AsFont().SetFallbacks(value)
+	return o
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

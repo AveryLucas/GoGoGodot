@@ -25,6 +25,7 @@ import "graphics.gd/classdb/Control"
 import "graphics.gd/classdb/DisplayServer"
 import "graphics.gd/classdb/Font"
 import "graphics.gd/classdb/InputEvent"
+import "graphics.gd/classdb/MultiplayerAPI"
 import "graphics.gd/classdb/Node"
 import "graphics.gd/classdb/StyleBox"
 import "graphics.gd/classdb/Texture2D"
@@ -611,15 +612,24 @@ func (self Instance) Mode() Mode { //gd:Window.mode
 		return Mode(class(self).GetMode())
 }
 
+func (o *Extension[T]) Mode() Mode { return o.Super().Mode() }
+
 // SetMode sets the property returned by [GetMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMode(value Mode) Instance { //gd:Window.mode
 	class(self).SetMode(value)
 	return self
 }
 
+func (o *Extension[T]) SetMode(value Mode) *Extension[T] {
+	o.Super().SetMode(value)
+	return o
+}
+
 func (self Instance) Title() string { //gd:Window.title
 		return string(class(self).GetTitle().String())
 }
+
+func (o *Extension[T]) Title() string { return o.Super().Title() }
 
 // SetTitle sets the property returned by [GetTitle]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTitle(value string) Instance { //gd:Window.title
@@ -627,9 +637,16 @@ func (self Instance) SetTitle(value string) Instance { //gd:Window.title
 	return self
 }
 
+func (o *Extension[T]) SetTitle(value string) *Extension[T] {
+	o.Super().SetTitle(value)
+	return o
+}
+
 func (self Instance) InitialPosition() WindowInitialPosition { //gd:Window.initial_position
 		return WindowInitialPosition(class(self).GetInitialPosition())
 }
+
+func (o *Extension[T]) InitialPosition() WindowInitialPosition { return o.Super().InitialPosition() }
 
 // SetInitialPosition sets the property returned by [GetInitialPosition]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetInitialPosition(value WindowInitialPosition) Instance { //gd:Window.initial_position
@@ -637,9 +654,16 @@ func (self Instance) SetInitialPosition(value WindowInitialPosition) Instance { 
 	return self
 }
 
+func (o *Extension[T]) SetInitialPosition(value WindowInitialPosition) *Extension[T] {
+	o.Super().SetInitialPosition(value)
+	return o
+}
+
 func (self Instance) Position() Vector2i.XY { //gd:Window.position
 		return Vector2i.XY(class(self).GetPosition())
 }
+
+func (o *Extension[T]) Position() Vector2i.XY { return o.Super().Position() }
 
 // SetPosition sets the property returned by [GetPosition]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPosition(value Vector2i.XY) Instance { //gd:Window.position
@@ -647,9 +671,16 @@ func (self Instance) SetPosition(value Vector2i.XY) Instance { //gd:Window.posit
 	return self
 }
 
+func (o *Extension[T]) SetPosition(value Vector2i.XY) *Extension[T] {
+	o.Super().SetPosition(value)
+	return o
+}
+
 func (self Instance) Size() Vector2i.XY { //gd:Window.size
 		return Vector2i.XY(class(self).GetSize())
 }
+
+func (o *Extension[T]) Size() Vector2i.XY { return o.Super().Size() }
 
 // SetSize sets the property returned by [GetSize]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSize(value Vector2i.XY) Instance { //gd:Window.size
@@ -657,9 +688,16 @@ func (self Instance) SetSize(value Vector2i.XY) Instance { //gd:Window.size
 	return self
 }
 
+func (o *Extension[T]) SetSize(value Vector2i.XY) *Extension[T] {
+	o.Super().SetSize(value)
+	return o
+}
+
 func (self Instance) CurrentScreen() int { //gd:Window.current_screen
 		return int(int(class(self).GetCurrentScreen()))
 }
+
+func (o *Extension[T]) CurrentScreen() int { return o.Super().CurrentScreen() }
 
 // SetCurrentScreen sets the property returned by [GetCurrentScreen]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCurrentScreen(value int) Instance { //gd:Window.current_screen
@@ -667,9 +705,16 @@ func (self Instance) SetCurrentScreen(value int) Instance { //gd:Window.current_
 	return self
 }
 
+func (o *Extension[T]) SetCurrentScreen(value int) *Extension[T] {
+	o.Super().SetCurrentScreen(value)
+	return o
+}
+
 func (self Instance) NonclientArea() Rect2i.PositionSize { //gd:Window.nonclient_area
 		return Rect2i.PositionSize(class(self).GetNonclientArea())
 }
+
+func (o *Extension[T]) NonclientArea() Rect2i.PositionSize { return o.Super().NonclientArea() }
 
 // SetNonclientArea sets the property returned by [GetNonclientArea]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetNonclientArea(value Rect2i.PositionSize) Instance { //gd:Window.nonclient_area
@@ -677,9 +722,16 @@ func (self Instance) SetNonclientArea(value Rect2i.PositionSize) Instance { //gd
 	return self
 }
 
+func (o *Extension[T]) SetNonclientArea(value Rect2i.PositionSize) *Extension[T] {
+	o.Super().SetNonclientArea(value)
+	return o
+}
+
 func (self Instance) MousePassthroughPolygon() []Vector2.XY { //gd:Window.mouse_passthrough_polygon
 		return []Vector2.XY(slices.Collect(class(self).GetMousePassthroughPolygon().Values()))
 }
+
+func (o *Extension[T]) MousePassthroughPolygon() []Vector2.XY { return o.Super().MousePassthroughPolygon() }
 
 // SetMousePassthroughPolygon sets the property returned by [GetMousePassthroughPolygon]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMousePassthroughPolygon(value []Vector2.XY) Instance { //gd:Window.mouse_passthrough_polygon
@@ -687,9 +739,16 @@ func (self Instance) SetMousePassthroughPolygon(value []Vector2.XY) Instance { /
 	return self
 }
 
+func (o *Extension[T]) SetMousePassthroughPolygon(value []Vector2.XY) *Extension[T] {
+	o.Super().SetMousePassthroughPolygon(value)
+	return o
+}
+
 func (self Instance) Visible() bool { //gd:Window.visible
 		return bool(class(self).IsVisible())
 }
+
+func (o *Extension[T]) Visible() bool { return o.Super().Visible() }
 
 // SetVisible sets the property returned by [IsVisible]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVisible(value bool) Instance { //gd:Window.visible
@@ -697,9 +756,16 @@ func (self Instance) SetVisible(value bool) Instance { //gd:Window.visible
 	return self
 }
 
+func (o *Extension[T]) SetVisible(value bool) *Extension[T] {
+	o.Super().SetVisible(value)
+	return o
+}
+
 func (self Instance) WrapControls() bool { //gd:Window.wrap_controls
 		return bool(class(self).IsWrappingControls())
 }
+
+func (o *Extension[T]) WrapControls() bool { return o.Super().WrapControls() }
 
 // SetWrapControls sets the property returned by [IsWrappingControls]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetWrapControls(value bool) Instance { //gd:Window.wrap_controls
@@ -707,9 +773,16 @@ func (self Instance) SetWrapControls(value bool) Instance { //gd:Window.wrap_con
 	return self
 }
 
+func (o *Extension[T]) SetWrapControls(value bool) *Extension[T] {
+	o.Super().SetWrapControls(value)
+	return o
+}
+
 func (self Instance) Transient() bool { //gd:Window.transient
 		return bool(class(self).IsTransient())
 }
+
+func (o *Extension[T]) Transient() bool { return o.Super().Transient() }
 
 // SetTransient sets the property returned by [IsTransient]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTransient(value bool) Instance { //gd:Window.transient
@@ -717,9 +790,16 @@ func (self Instance) SetTransient(value bool) Instance { //gd:Window.transient
 	return self
 }
 
+func (o *Extension[T]) SetTransient(value bool) *Extension[T] {
+	o.Super().SetTransient(value)
+	return o
+}
+
 func (self Instance) TransientToFocused() bool { //gd:Window.transient_to_focused
 		return bool(class(self).IsTransientToFocused())
 }
+
+func (o *Extension[T]) TransientToFocused() bool { return o.Super().TransientToFocused() }
 
 // SetTransientToFocused sets the property returned by [IsTransientToFocused]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTransientToFocused(value bool) Instance { //gd:Window.transient_to_focused
@@ -727,9 +807,16 @@ func (self Instance) SetTransientToFocused(value bool) Instance { //gd:Window.tr
 	return self
 }
 
+func (o *Extension[T]) SetTransientToFocused(value bool) *Extension[T] {
+	o.Super().SetTransientToFocused(value)
+	return o
+}
+
 func (self Instance) Exclusive() bool { //gd:Window.exclusive
 		return bool(class(self).IsExclusive())
 }
+
+func (o *Extension[T]) Exclusive() bool { return o.Super().Exclusive() }
 
 // SetExclusive sets the property returned by [IsExclusive]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetExclusive(value bool) Instance { //gd:Window.exclusive
@@ -737,9 +824,16 @@ func (self Instance) SetExclusive(value bool) Instance { //gd:Window.exclusive
 	return self
 }
 
+func (o *Extension[T]) SetExclusive(value bool) *Extension[T] {
+	o.Super().SetExclusive(value)
+	return o
+}
+
 func (self Instance) Unresizable() bool { //gd:Window.unresizable
 		return bool(class(self).GetFlag(0))
 }
+
+func (o *Extension[T]) Unresizable() bool { return o.Super().Unresizable() }
 
 // SetUnresizable sets the property returned by [GetFlag]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUnresizable(value bool) Instance { //gd:Window.unresizable
@@ -747,9 +841,16 @@ func (self Instance) SetUnresizable(value bool) Instance { //gd:Window.unresizab
 	return self
 }
 
+func (o *Extension[T]) SetUnresizable(value bool) *Extension[T] {
+	o.Super().SetUnresizable(value)
+	return o
+}
+
 func (self Instance) Borderless() bool { //gd:Window.borderless
 		return bool(class(self).GetFlag(1))
 }
+
+func (o *Extension[T]) Borderless() bool { return o.Super().Borderless() }
 
 // SetBorderless sets the property returned by [GetFlag]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBorderless(value bool) Instance { //gd:Window.borderless
@@ -757,9 +858,16 @@ func (self Instance) SetBorderless(value bool) Instance { //gd:Window.borderless
 	return self
 }
 
+func (o *Extension[T]) SetBorderless(value bool) *Extension[T] {
+	o.Super().SetBorderless(value)
+	return o
+}
+
 func (self Instance) AlwaysOnTop() bool { //gd:Window.always_on_top
 		return bool(class(self).GetFlag(2))
 }
+
+func (o *Extension[T]) AlwaysOnTop() bool { return o.Super().AlwaysOnTop() }
 
 // SetAlwaysOnTop sets the property returned by [GetFlag]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAlwaysOnTop(value bool) Instance { //gd:Window.always_on_top
@@ -767,9 +875,16 @@ func (self Instance) SetAlwaysOnTop(value bool) Instance { //gd:Window.always_on
 	return self
 }
 
+func (o *Extension[T]) SetAlwaysOnTop(value bool) *Extension[T] {
+	o.Super().SetAlwaysOnTop(value)
+	return o
+}
+
 func (self Instance) Transparent() bool { //gd:Window.transparent
 		return bool(class(self).GetFlag(3))
 }
+
+func (o *Extension[T]) Transparent() bool { return o.Super().Transparent() }
 
 // SetTransparent sets the property returned by [GetFlag]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTransparent(value bool) Instance { //gd:Window.transparent
@@ -777,9 +892,16 @@ func (self Instance) SetTransparent(value bool) Instance { //gd:Window.transpare
 	return self
 }
 
+func (o *Extension[T]) SetTransparent(value bool) *Extension[T] {
+	o.Super().SetTransparent(value)
+	return o
+}
+
 func (self Instance) Unfocusable() bool { //gd:Window.unfocusable
 		return bool(class(self).GetFlag(4))
 }
+
+func (o *Extension[T]) Unfocusable() bool { return o.Super().Unfocusable() }
 
 // SetUnfocusable sets the property returned by [GetFlag]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUnfocusable(value bool) Instance { //gd:Window.unfocusable
@@ -787,9 +909,16 @@ func (self Instance) SetUnfocusable(value bool) Instance { //gd:Window.unfocusab
 	return self
 }
 
+func (o *Extension[T]) SetUnfocusable(value bool) *Extension[T] {
+	o.Super().SetUnfocusable(value)
+	return o
+}
+
 func (self Instance) PopupWindow() bool { //gd:Window.popup_window
 		return bool(class(self).GetFlag(5))
 }
+
+func (o *Extension[T]) PopupWindow() bool { return o.Super().PopupWindow() }
 
 // SetPopupWindow sets the property returned by [GetFlag]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPopupWindow(value bool) Instance { //gd:Window.popup_window
@@ -797,9 +926,16 @@ func (self Instance) SetPopupWindow(value bool) Instance { //gd:Window.popup_win
 	return self
 }
 
+func (o *Extension[T]) SetPopupWindow(value bool) *Extension[T] {
+	o.Super().SetPopupWindow(value)
+	return o
+}
+
 func (self Instance) ExtendToTitle() bool { //gd:Window.extend_to_title
 		return bool(class(self).GetFlag(6))
 }
+
+func (o *Extension[T]) ExtendToTitle() bool { return o.Super().ExtendToTitle() }
 
 // SetExtendToTitle sets the property returned by [GetFlag]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetExtendToTitle(value bool) Instance { //gd:Window.extend_to_title
@@ -807,9 +943,16 @@ func (self Instance) SetExtendToTitle(value bool) Instance { //gd:Window.extend_
 	return self
 }
 
+func (o *Extension[T]) SetExtendToTitle(value bool) *Extension[T] {
+	o.Super().SetExtendToTitle(value)
+	return o
+}
+
 func (self Instance) MousePassthrough() bool { //gd:Window.mouse_passthrough
 		return bool(class(self).GetFlag(7))
 }
+
+func (o *Extension[T]) MousePassthrough() bool { return o.Super().MousePassthrough() }
 
 // SetMousePassthrough sets the property returned by [GetFlag]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMousePassthrough(value bool) Instance { //gd:Window.mouse_passthrough
@@ -817,9 +960,16 @@ func (self Instance) SetMousePassthrough(value bool) Instance { //gd:Window.mous
 	return self
 }
 
+func (o *Extension[T]) SetMousePassthrough(value bool) *Extension[T] {
+	o.Super().SetMousePassthrough(value)
+	return o
+}
+
 func (self Instance) SharpCorners() bool { //gd:Window.sharp_corners
 		return bool(class(self).GetFlag(8))
 }
+
+func (o *Extension[T]) SharpCorners() bool { return o.Super().SharpCorners() }
 
 // SetSharpCorners sets the property returned by [GetFlag]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSharpCorners(value bool) Instance { //gd:Window.sharp_corners
@@ -827,9 +977,16 @@ func (self Instance) SetSharpCorners(value bool) Instance { //gd:Window.sharp_co
 	return self
 }
 
+func (o *Extension[T]) SetSharpCorners(value bool) *Extension[T] {
+	o.Super().SetSharpCorners(value)
+	return o
+}
+
 func (self Instance) ExcludeFromCapture() bool { //gd:Window.exclude_from_capture
 		return bool(class(self).GetFlag(9))
 }
+
+func (o *Extension[T]) ExcludeFromCapture() bool { return o.Super().ExcludeFromCapture() }
 
 // SetExcludeFromCapture sets the property returned by [GetFlag]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetExcludeFromCapture(value bool) Instance { //gd:Window.exclude_from_capture
@@ -837,9 +994,16 @@ func (self Instance) SetExcludeFromCapture(value bool) Instance { //gd:Window.ex
 	return self
 }
 
+func (o *Extension[T]) SetExcludeFromCapture(value bool) *Extension[T] {
+	o.Super().SetExcludeFromCapture(value)
+	return o
+}
+
 func (self Instance) PopupWmHint() bool { //gd:Window.popup_wm_hint
 		return bool(class(self).GetFlag(10))
 }
+
+func (o *Extension[T]) PopupWmHint() bool { return o.Super().PopupWmHint() }
 
 // SetPopupWmHint sets the property returned by [GetFlag]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPopupWmHint(value bool) Instance { //gd:Window.popup_wm_hint
@@ -847,9 +1011,16 @@ func (self Instance) SetPopupWmHint(value bool) Instance { //gd:Window.popup_wm_
 	return self
 }
 
+func (o *Extension[T]) SetPopupWmHint(value bool) *Extension[T] {
+	o.Super().SetPopupWmHint(value)
+	return o
+}
+
 func (self Instance) MinimizeDisabled() bool { //gd:Window.minimize_disabled
 		return bool(class(self).GetFlag(11))
 }
+
+func (o *Extension[T]) MinimizeDisabled() bool { return o.Super().MinimizeDisabled() }
 
 // SetMinimizeDisabled sets the property returned by [GetFlag]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMinimizeDisabled(value bool) Instance { //gd:Window.minimize_disabled
@@ -857,9 +1028,16 @@ func (self Instance) SetMinimizeDisabled(value bool) Instance { //gd:Window.mini
 	return self
 }
 
+func (o *Extension[T]) SetMinimizeDisabled(value bool) *Extension[T] {
+	o.Super().SetMinimizeDisabled(value)
+	return o
+}
+
 func (self Instance) MaximizeDisabled() bool { //gd:Window.maximize_disabled
 		return bool(class(self).GetFlag(12))
 }
+
+func (o *Extension[T]) MaximizeDisabled() bool { return o.Super().MaximizeDisabled() }
 
 // SetMaximizeDisabled sets the property returned by [GetFlag]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMaximizeDisabled(value bool) Instance { //gd:Window.maximize_disabled
@@ -867,9 +1045,16 @@ func (self Instance) SetMaximizeDisabled(value bool) Instance { //gd:Window.maxi
 	return self
 }
 
+func (o *Extension[T]) SetMaximizeDisabled(value bool) *Extension[T] {
+	o.Super().SetMaximizeDisabled(value)
+	return o
+}
+
 func (self Instance) ForceNative() bool { //gd:Window.force_native
 		return bool(class(self).GetForceNative())
 }
+
+func (o *Extension[T]) ForceNative() bool { return o.Super().ForceNative() }
 
 // SetForceNative sets the property returned by [GetForceNative]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetForceNative(value bool) Instance { //gd:Window.force_native
@@ -877,9 +1062,16 @@ func (self Instance) SetForceNative(value bool) Instance { //gd:Window.force_nat
 	return self
 }
 
+func (o *Extension[T]) SetForceNative(value bool) *Extension[T] {
+	o.Super().SetForceNative(value)
+	return o
+}
+
 func (self Instance) MinSize() Vector2i.XY { //gd:Window.min_size
 		return Vector2i.XY(class(self).GetMinSize())
 }
+
+func (o *Extension[T]) MinSize() Vector2i.XY { return o.Super().MinSize() }
 
 // SetMinSize sets the property returned by [GetMinSize]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMinSize(value Vector2i.XY) Instance { //gd:Window.min_size
@@ -887,9 +1079,16 @@ func (self Instance) SetMinSize(value Vector2i.XY) Instance { //gd:Window.min_si
 	return self
 }
 
+func (o *Extension[T]) SetMinSize(value Vector2i.XY) *Extension[T] {
+	o.Super().SetMinSize(value)
+	return o
+}
+
 func (self Instance) MaxSize() Vector2i.XY { //gd:Window.max_size
 		return Vector2i.XY(class(self).GetMaxSize())
 }
+
+func (o *Extension[T]) MaxSize() Vector2i.XY { return o.Super().MaxSize() }
 
 // SetMaxSize sets the property returned by [GetMaxSize]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMaxSize(value Vector2i.XY) Instance { //gd:Window.max_size
@@ -897,9 +1096,16 @@ func (self Instance) SetMaxSize(value Vector2i.XY) Instance { //gd:Window.max_si
 	return self
 }
 
+func (o *Extension[T]) SetMaxSize(value Vector2i.XY) *Extension[T] {
+	o.Super().SetMaxSize(value)
+	return o
+}
+
 func (self Instance) KeepTitleVisible() bool { //gd:Window.keep_title_visible
 		return bool(class(self).GetKeepTitleVisible())
 }
+
+func (o *Extension[T]) KeepTitleVisible() bool { return o.Super().KeepTitleVisible() }
 
 // SetKeepTitleVisible sets the property returned by [GetKeepTitleVisible]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetKeepTitleVisible(value bool) Instance { //gd:Window.keep_title_visible
@@ -907,9 +1113,16 @@ func (self Instance) SetKeepTitleVisible(value bool) Instance { //gd:Window.keep
 	return self
 }
 
+func (o *Extension[T]) SetKeepTitleVisible(value bool) *Extension[T] {
+	o.Super().SetKeepTitleVisible(value)
+	return o
+}
+
 func (self Instance) ContentScaleSize() Vector2i.XY { //gd:Window.content_scale_size
 		return Vector2i.XY(class(self).GetContentScaleSize())
 }
+
+func (o *Extension[T]) ContentScaleSize() Vector2i.XY { return o.Super().ContentScaleSize() }
 
 // SetContentScaleSize sets the property returned by [GetContentScaleSize]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetContentScaleSize(value Vector2i.XY) Instance { //gd:Window.content_scale_size
@@ -917,9 +1130,16 @@ func (self Instance) SetContentScaleSize(value Vector2i.XY) Instance { //gd:Wind
 	return self
 }
 
+func (o *Extension[T]) SetContentScaleSize(value Vector2i.XY) *Extension[T] {
+	o.Super().SetContentScaleSize(value)
+	return o
+}
+
 func (self Instance) ContentScaleMode() ContentScaleMode { //gd:Window.content_scale_mode
 		return ContentScaleMode(class(self).GetContentScaleMode())
 }
+
+func (o *Extension[T]) ContentScaleMode() ContentScaleMode { return o.Super().ContentScaleMode() }
 
 // SetContentScaleMode sets the property returned by [GetContentScaleMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetContentScaleMode(value ContentScaleMode) Instance { //gd:Window.content_scale_mode
@@ -927,9 +1147,16 @@ func (self Instance) SetContentScaleMode(value ContentScaleMode) Instance { //gd
 	return self
 }
 
+func (o *Extension[T]) SetContentScaleMode(value ContentScaleMode) *Extension[T] {
+	o.Super().SetContentScaleMode(value)
+	return o
+}
+
 func (self Instance) ContentScaleAspect() ContentScaleAspect { //gd:Window.content_scale_aspect
 		return ContentScaleAspect(class(self).GetContentScaleAspect())
 }
+
+func (o *Extension[T]) ContentScaleAspect() ContentScaleAspect { return o.Super().ContentScaleAspect() }
 
 // SetContentScaleAspect sets the property returned by [GetContentScaleAspect]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetContentScaleAspect(value ContentScaleAspect) Instance { //gd:Window.content_scale_aspect
@@ -937,9 +1164,16 @@ func (self Instance) SetContentScaleAspect(value ContentScaleAspect) Instance { 
 	return self
 }
 
+func (o *Extension[T]) SetContentScaleAspect(value ContentScaleAspect) *Extension[T] {
+	o.Super().SetContentScaleAspect(value)
+	return o
+}
+
 func (self Instance) ContentScaleStretch() ContentScaleStretch { //gd:Window.content_scale_stretch
 		return ContentScaleStretch(class(self).GetContentScaleStretch())
 }
+
+func (o *Extension[T]) ContentScaleStretch() ContentScaleStretch { return o.Super().ContentScaleStretch() }
 
 // SetContentScaleStretch sets the property returned by [GetContentScaleStretch]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetContentScaleStretch(value ContentScaleStretch) Instance { //gd:Window.content_scale_stretch
@@ -947,9 +1181,16 @@ func (self Instance) SetContentScaleStretch(value ContentScaleStretch) Instance 
 	return self
 }
 
+func (o *Extension[T]) SetContentScaleStretch(value ContentScaleStretch) *Extension[T] {
+	o.Super().SetContentScaleStretch(value)
+	return o
+}
+
 func (self Instance) ContentScaleFactor() Float.X { //gd:Window.content_scale_factor
 		return Float.X(Float.X(class(self).GetContentScaleFactor()))
 }
+
+func (o *Extension[T]) ContentScaleFactor() Float.X { return o.Super().ContentScaleFactor() }
 
 // SetContentScaleFactor sets the property returned by [GetContentScaleFactor]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetContentScaleFactor(value Float.X) Instance { //gd:Window.content_scale_factor
@@ -957,9 +1198,16 @@ func (self Instance) SetContentScaleFactor(value Float.X) Instance { //gd:Window
 	return self
 }
 
+func (o *Extension[T]) SetContentScaleFactor(value Float.X) *Extension[T] {
+	o.Super().SetContentScaleFactor(value)
+	return o
+}
+
 func (self Instance) AutoTranslate() bool { //gd:Window.auto_translate
 		return bool(class(self).IsAutoTranslating())
 }
+
+func (o *Extension[T]) AutoTranslate() bool { return o.Super().AutoTranslate() }
 
 // SetAutoTranslate sets the property returned by [IsAutoTranslating]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAutoTranslate(value bool) Instance { //gd:Window.auto_translate
@@ -967,9 +1215,16 @@ func (self Instance) SetAutoTranslate(value bool) Instance { //gd:Window.auto_tr
 	return self
 }
 
+func (o *Extension[T]) SetAutoTranslate(value bool) *Extension[T] {
+	o.Super().SetAutoTranslate(value)
+	return o
+}
+
 func (self Instance) AccessibilityName() string { //gd:Window.accessibility_name
 		return string(class(self).GetAccessibilityName().String())
 }
+
+func (o *Extension[T]) AccessibilityName() string { return o.Super().AccessibilityName() }
 
 // SetAccessibilityName sets the property returned by [GetAccessibilityName]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAccessibilityName(value string) Instance { //gd:Window.accessibility_name
@@ -977,9 +1232,16 @@ func (self Instance) SetAccessibilityName(value string) Instance { //gd:Window.a
 	return self
 }
 
+func (o *Extension[T]) SetAccessibilityName(value string) *Extension[T] {
+	o.Super().SetAccessibilityName(value)
+	return o
+}
+
 func (self Instance) AccessibilityDescription() string { //gd:Window.accessibility_description
 		return string(class(self).GetAccessibilityDescription().String())
 }
+
+func (o *Extension[T]) AccessibilityDescription() string { return o.Super().AccessibilityDescription() }
 
 // SetAccessibilityDescription sets the property returned by [GetAccessibilityDescription]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAccessibilityDescription(value string) Instance { //gd:Window.accessibility_description
@@ -987,9 +1249,16 @@ func (self Instance) SetAccessibilityDescription(value string) Instance { //gd:W
 	return self
 }
 
+func (o *Extension[T]) SetAccessibilityDescription(value string) *Extension[T] {
+	o.Super().SetAccessibilityDescription(value)
+	return o
+}
+
 func (self Instance) Theme() Theme.Instance { //gd:Window.theme
 		return Theme.Instance(class(self).GetTheme())
 }
+
+func (o *Extension[T]) Theme() Theme.Instance { return o.Super().Theme() }
 
 // SetTheme sets the property returned by [GetTheme]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTheme(value Theme.Instance) Instance { //gd:Window.theme
@@ -997,14 +1266,26 @@ func (self Instance) SetTheme(value Theme.Instance) Instance { //gd:Window.theme
 	return self
 }
 
+func (o *Extension[T]) SetTheme(value Theme.Instance) *Extension[T] {
+	o.Super().SetTheme(value)
+	return o
+}
+
 func (self Instance) ThemeTypeVariation() string { //gd:Window.theme_type_variation
 		return string(class(self).GetThemeTypeVariation().String())
 }
+
+func (o *Extension[T]) ThemeTypeVariation() string { return o.Super().ThemeTypeVariation() }
 
 // SetThemeTypeVariation sets the property returned by [GetThemeTypeVariation]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetThemeTypeVariation(value string) Instance { //gd:Window.theme_type_variation
 	class(self).SetThemeTypeVariation(String.Name(String.From(value)))
 	return self
+}
+
+func (o *Extension[T]) SetThemeTypeVariation(value string) *Extension[T] {
+	o.Super().SetThemeTypeVariation(value)
+	return o
 }
 func (class) _get_contents_minimum_size(impl func(ptr gdclass.Receiver) Vector2.XY) (cb gd.ExtensionClassCallVirtualFunc) {
 	return func(class any, p_args, p_back gdextension.Pointer) {
@@ -3048,6 +3329,576 @@ func (self Instance) NotifyThreadSafe(what int) {
 // NotifyThreadSafe is promoted from [Node.Instance.NotifyThreadSafe].
 func (o *Extension[T]) NotifyThreadSafe(what int) {
 	o.Super().AsNode().NotifyThreadSafe(what)
+}
+
+// Disable3d is promoted from [Viewport.Instance.Disable3d].
+func (o *Extension[T]) Disable3d() bool { return o.Super().AsViewport().Disable3d() }
+
+// SetDisable3d is promoted from [Viewport.Instance.SetDisable3d].
+func (o *Extension[T]) SetDisable3d(value bool) *Extension[T] {
+	o.Super().AsViewport().SetDisable3d(value)
+	return o
+}
+
+// UseXr is promoted from [Viewport.Instance.UseXr].
+func (o *Extension[T]) UseXr() bool { return o.Super().AsViewport().UseXr() }
+
+// SetUseXr is promoted from [Viewport.Instance.SetUseXr].
+func (o *Extension[T]) SetUseXr(value bool) *Extension[T] {
+	o.Super().AsViewport().SetUseXr(value)
+	return o
+}
+
+// OwnWorld3d is promoted from [Viewport.Instance.OwnWorld3d].
+func (o *Extension[T]) OwnWorld3d() bool { return o.Super().AsViewport().OwnWorld3d() }
+
+// SetOwnWorld3d is promoted from [Viewport.Instance.SetOwnWorld3d].
+func (o *Extension[T]) SetOwnWorld3d(value bool) *Extension[T] {
+	o.Super().AsViewport().SetOwnWorld3d(value)
+	return o
+}
+
+// World3d is promoted from [Viewport.Instance.World3d].
+func (o *Extension[T]) World3d() World3D.Instance { return o.Super().AsViewport().World3d() }
+
+// SetWorld3d is promoted from [Viewport.Instance.SetWorld3d].
+func (o *Extension[T]) SetWorld3d(value World3D.Instance) *Extension[T] {
+	o.Super().AsViewport().SetWorld3d(value)
+	return o
+}
+
+// World2d is promoted from [Viewport.Instance.World2d].
+func (o *Extension[T]) World2d() World2D.Instance { return o.Super().AsViewport().World2d() }
+
+// SetWorld2d is promoted from [Viewport.Instance.SetWorld2d].
+func (o *Extension[T]) SetWorld2d(value World2D.Instance) *Extension[T] {
+	o.Super().AsViewport().SetWorld2d(value)
+	return o
+}
+
+// TransparentBg is promoted from [Viewport.Instance.TransparentBg].
+func (o *Extension[T]) TransparentBg() bool { return o.Super().AsViewport().TransparentBg() }
+
+// SetTransparentBg is promoted from [Viewport.Instance.SetTransparentBg].
+func (o *Extension[T]) SetTransparentBg(value bool) *Extension[T] {
+	o.Super().AsViewport().SetTransparentBg(value)
+	return o
+}
+
+// HandleInputLocally is promoted from [Viewport.Instance.HandleInputLocally].
+func (o *Extension[T]) HandleInputLocally() bool { return o.Super().AsViewport().HandleInputLocally() }
+
+// SetHandleInputLocally is promoted from [Viewport.Instance.SetHandleInputLocally].
+func (o *Extension[T]) SetHandleInputLocally(value bool) *Extension[T] {
+	o.Super().AsViewport().SetHandleInputLocally(value)
+	return o
+}
+
+// Snap2dTransformsToPixel is promoted from [Viewport.Instance.Snap2dTransformsToPixel].
+func (o *Extension[T]) Snap2dTransformsToPixel() bool { return o.Super().AsViewport().Snap2dTransformsToPixel() }
+
+// SetSnap2dTransformsToPixel is promoted from [Viewport.Instance.SetSnap2dTransformsToPixel].
+func (o *Extension[T]) SetSnap2dTransformsToPixel(value bool) *Extension[T] {
+	o.Super().AsViewport().SetSnap2dTransformsToPixel(value)
+	return o
+}
+
+// Snap2dVerticesToPixel is promoted from [Viewport.Instance.Snap2dVerticesToPixel].
+func (o *Extension[T]) Snap2dVerticesToPixel() bool { return o.Super().AsViewport().Snap2dVerticesToPixel() }
+
+// SetSnap2dVerticesToPixel is promoted from [Viewport.Instance.SetSnap2dVerticesToPixel].
+func (o *Extension[T]) SetSnap2dVerticesToPixel(value bool) *Extension[T] {
+	o.Super().AsViewport().SetSnap2dVerticesToPixel(value)
+	return o
+}
+
+// Msaa2d is promoted from [Viewport.Instance.Msaa2d].
+func (o *Extension[T]) Msaa2d() Viewport.MSAA { return o.Super().AsViewport().Msaa2d() }
+
+// SetMsaa2d is promoted from [Viewport.Instance.SetMsaa2d].
+func (o *Extension[T]) SetMsaa2d(value Viewport.MSAA) *Extension[T] {
+	o.Super().AsViewport().SetMsaa2d(value)
+	return o
+}
+
+// Msaa3d is promoted from [Viewport.Instance.Msaa3d].
+func (o *Extension[T]) Msaa3d() Viewport.MSAA { return o.Super().AsViewport().Msaa3d() }
+
+// SetMsaa3d is promoted from [Viewport.Instance.SetMsaa3d].
+func (o *Extension[T]) SetMsaa3d(value Viewport.MSAA) *Extension[T] {
+	o.Super().AsViewport().SetMsaa3d(value)
+	return o
+}
+
+// ScreenSpaceAa is promoted from [Viewport.Instance.ScreenSpaceAa].
+func (o *Extension[T]) ScreenSpaceAa() Viewport.ScreenSpaceAA { return o.Super().AsViewport().ScreenSpaceAa() }
+
+// SetScreenSpaceAa is promoted from [Viewport.Instance.SetScreenSpaceAa].
+func (o *Extension[T]) SetScreenSpaceAa(value Viewport.ScreenSpaceAA) *Extension[T] {
+	o.Super().AsViewport().SetScreenSpaceAa(value)
+	return o
+}
+
+// UseTaa is promoted from [Viewport.Instance.UseTaa].
+func (o *Extension[T]) UseTaa() bool { return o.Super().AsViewport().UseTaa() }
+
+// SetUseTaa is promoted from [Viewport.Instance.SetUseTaa].
+func (o *Extension[T]) SetUseTaa(value bool) *Extension[T] {
+	o.Super().AsViewport().SetUseTaa(value)
+	return o
+}
+
+// UseDebanding is promoted from [Viewport.Instance.UseDebanding].
+func (o *Extension[T]) UseDebanding() bool { return o.Super().AsViewport().UseDebanding() }
+
+// SetUseDebanding is promoted from [Viewport.Instance.SetUseDebanding].
+func (o *Extension[T]) SetUseDebanding(value bool) *Extension[T] {
+	o.Super().AsViewport().SetUseDebanding(value)
+	return o
+}
+
+// UseOcclusionCulling is promoted from [Viewport.Instance.UseOcclusionCulling].
+func (o *Extension[T]) UseOcclusionCulling() bool { return o.Super().AsViewport().UseOcclusionCulling() }
+
+// SetUseOcclusionCulling is promoted from [Viewport.Instance.SetUseOcclusionCulling].
+func (o *Extension[T]) SetUseOcclusionCulling(value bool) *Extension[T] {
+	o.Super().AsViewport().SetUseOcclusionCulling(value)
+	return o
+}
+
+// MeshLodThreshold is promoted from [Viewport.Instance.MeshLodThreshold].
+func (o *Extension[T]) MeshLodThreshold() Float.X { return o.Super().AsViewport().MeshLodThreshold() }
+
+// SetMeshLodThreshold is promoted from [Viewport.Instance.SetMeshLodThreshold].
+func (o *Extension[T]) SetMeshLodThreshold(value Float.X) *Extension[T] {
+	o.Super().AsViewport().SetMeshLodThreshold(value)
+	return o
+}
+
+// DebugDraw is promoted from [Viewport.Instance.DebugDraw].
+func (o *Extension[T]) DebugDraw() Viewport.DebugDraw { return o.Super().AsViewport().DebugDraw() }
+
+// SetDebugDraw is promoted from [Viewport.Instance.SetDebugDraw].
+func (o *Extension[T]) SetDebugDraw(value Viewport.DebugDraw) *Extension[T] {
+	o.Super().AsViewport().SetDebugDraw(value)
+	return o
+}
+
+// UseHdr2d is promoted from [Viewport.Instance.UseHdr2d].
+func (o *Extension[T]) UseHdr2d() bool { return o.Super().AsViewport().UseHdr2d() }
+
+// SetUseHdr2d is promoted from [Viewport.Instance.SetUseHdr2d].
+func (o *Extension[T]) SetUseHdr2d(value bool) *Extension[T] {
+	o.Super().AsViewport().SetUseHdr2d(value)
+	return o
+}
+
+// Scaling3dMode is promoted from [Viewport.Instance.Scaling3dMode].
+func (o *Extension[T]) Scaling3dMode() Viewport.Scaling3DMode { return o.Super().AsViewport().Scaling3dMode() }
+
+// SetScaling3dMode is promoted from [Viewport.Instance.SetScaling3dMode].
+func (o *Extension[T]) SetScaling3dMode(value Viewport.Scaling3DMode) *Extension[T] {
+	o.Super().AsViewport().SetScaling3dMode(value)
+	return o
+}
+
+// Scaling3dScale is promoted from [Viewport.Instance.Scaling3dScale].
+func (o *Extension[T]) Scaling3dScale() Float.X { return o.Super().AsViewport().Scaling3dScale() }
+
+// SetScaling3dScale is promoted from [Viewport.Instance.SetScaling3dScale].
+func (o *Extension[T]) SetScaling3dScale(value Float.X) *Extension[T] {
+	o.Super().AsViewport().SetScaling3dScale(value)
+	return o
+}
+
+// TextureMipmapBias is promoted from [Viewport.Instance.TextureMipmapBias].
+func (o *Extension[T]) TextureMipmapBias() Float.X { return o.Super().AsViewport().TextureMipmapBias() }
+
+// SetTextureMipmapBias is promoted from [Viewport.Instance.SetTextureMipmapBias].
+func (o *Extension[T]) SetTextureMipmapBias(value Float.X) *Extension[T] {
+	o.Super().AsViewport().SetTextureMipmapBias(value)
+	return o
+}
+
+// AnisotropicFilteringLevel is promoted from [Viewport.Instance.AnisotropicFilteringLevel].
+func (o *Extension[T]) AnisotropicFilteringLevel() Viewport.AnisotropicFiltering { return o.Super().AsViewport().AnisotropicFilteringLevel() }
+
+// SetAnisotropicFilteringLevel is promoted from [Viewport.Instance.SetAnisotropicFilteringLevel].
+func (o *Extension[T]) SetAnisotropicFilteringLevel(value Viewport.AnisotropicFiltering) *Extension[T] {
+	o.Super().AsViewport().SetAnisotropicFilteringLevel(value)
+	return o
+}
+
+// FsrSharpness is promoted from [Viewport.Instance.FsrSharpness].
+func (o *Extension[T]) FsrSharpness() Float.X { return o.Super().AsViewport().FsrSharpness() }
+
+// SetFsrSharpness is promoted from [Viewport.Instance.SetFsrSharpness].
+func (o *Extension[T]) SetFsrSharpness(value Float.X) *Extension[T] {
+	o.Super().AsViewport().SetFsrSharpness(value)
+	return o
+}
+
+// VrsMode is promoted from [Viewport.Instance.VrsMode].
+func (o *Extension[T]) VrsMode() Viewport.VRSMode { return o.Super().AsViewport().VrsMode() }
+
+// SetVrsMode is promoted from [Viewport.Instance.SetVrsMode].
+func (o *Extension[T]) SetVrsMode(value Viewport.VRSMode) *Extension[T] {
+	o.Super().AsViewport().SetVrsMode(value)
+	return o
+}
+
+// VrsUpdateMode is promoted from [Viewport.Instance.VrsUpdateMode].
+func (o *Extension[T]) VrsUpdateMode() Viewport.VRSUpdateMode { return o.Super().AsViewport().VrsUpdateMode() }
+
+// SetVrsUpdateMode is promoted from [Viewport.Instance.SetVrsUpdateMode].
+func (o *Extension[T]) SetVrsUpdateMode(value Viewport.VRSUpdateMode) *Extension[T] {
+	o.Super().AsViewport().SetVrsUpdateMode(value)
+	return o
+}
+
+// VrsTexture is promoted from [Viewport.Instance.VrsTexture].
+func (o *Extension[T]) VrsTexture() Texture2D.Instance { return o.Super().AsViewport().VrsTexture() }
+
+// SetVrsTexture is promoted from [Viewport.Instance.SetVrsTexture].
+func (o *Extension[T]) SetVrsTexture(value Texture2D.Instance) *Extension[T] {
+	o.Super().AsViewport().SetVrsTexture(value)
+	return o
+}
+
+// CanvasItemDefaultTextureFilter is promoted from [Viewport.Instance.CanvasItemDefaultTextureFilter].
+func (o *Extension[T]) CanvasItemDefaultTextureFilter() Viewport.DefaultCanvasItemTextureFilter { return o.Super().AsViewport().CanvasItemDefaultTextureFilter() }
+
+// SetCanvasItemDefaultTextureFilter is promoted from [Viewport.Instance.SetCanvasItemDefaultTextureFilter].
+func (o *Extension[T]) SetCanvasItemDefaultTextureFilter(value Viewport.DefaultCanvasItemTextureFilter) *Extension[T] {
+	o.Super().AsViewport().SetCanvasItemDefaultTextureFilter(value)
+	return o
+}
+
+// CanvasItemDefaultTextureRepeat is promoted from [Viewport.Instance.CanvasItemDefaultTextureRepeat].
+func (o *Extension[T]) CanvasItemDefaultTextureRepeat() Viewport.DefaultCanvasItemTextureRepeat { return o.Super().AsViewport().CanvasItemDefaultTextureRepeat() }
+
+// SetCanvasItemDefaultTextureRepeat is promoted from [Viewport.Instance.SetCanvasItemDefaultTextureRepeat].
+func (o *Extension[T]) SetCanvasItemDefaultTextureRepeat(value Viewport.DefaultCanvasItemTextureRepeat) *Extension[T] {
+	o.Super().AsViewport().SetCanvasItemDefaultTextureRepeat(value)
+	return o
+}
+
+// AudioListenerEnable2d is promoted from [Viewport.Instance.AudioListenerEnable2d].
+func (o *Extension[T]) AudioListenerEnable2d() bool { return o.Super().AsViewport().AudioListenerEnable2d() }
+
+// SetAudioListenerEnable2d is promoted from [Viewport.Instance.SetAudioListenerEnable2d].
+func (o *Extension[T]) SetAudioListenerEnable2d(value bool) *Extension[T] {
+	o.Super().AsViewport().SetAudioListenerEnable2d(value)
+	return o
+}
+
+// AudioListenerEnable3d is promoted from [Viewport.Instance.AudioListenerEnable3d].
+func (o *Extension[T]) AudioListenerEnable3d() bool { return o.Super().AsViewport().AudioListenerEnable3d() }
+
+// SetAudioListenerEnable3d is promoted from [Viewport.Instance.SetAudioListenerEnable3d].
+func (o *Extension[T]) SetAudioListenerEnable3d(value bool) *Extension[T] {
+	o.Super().AsViewport().SetAudioListenerEnable3d(value)
+	return o
+}
+
+// PhysicsObjectPicking is promoted from [Viewport.Instance.PhysicsObjectPicking].
+func (o *Extension[T]) PhysicsObjectPicking() bool { return o.Super().AsViewport().PhysicsObjectPicking() }
+
+// SetPhysicsObjectPicking is promoted from [Viewport.Instance.SetPhysicsObjectPicking].
+func (o *Extension[T]) SetPhysicsObjectPicking(value bool) *Extension[T] {
+	o.Super().AsViewport().SetPhysicsObjectPicking(value)
+	return o
+}
+
+// PhysicsObjectPickingSort is promoted from [Viewport.Instance.PhysicsObjectPickingSort].
+func (o *Extension[T]) PhysicsObjectPickingSort() bool { return o.Super().AsViewport().PhysicsObjectPickingSort() }
+
+// SetPhysicsObjectPickingSort is promoted from [Viewport.Instance.SetPhysicsObjectPickingSort].
+func (o *Extension[T]) SetPhysicsObjectPickingSort(value bool) *Extension[T] {
+	o.Super().AsViewport().SetPhysicsObjectPickingSort(value)
+	return o
+}
+
+// PhysicsObjectPickingFirstOnly is promoted from [Viewport.Instance.PhysicsObjectPickingFirstOnly].
+func (o *Extension[T]) PhysicsObjectPickingFirstOnly() bool { return o.Super().AsViewport().PhysicsObjectPickingFirstOnly() }
+
+// SetPhysicsObjectPickingFirstOnly is promoted from [Viewport.Instance.SetPhysicsObjectPickingFirstOnly].
+func (o *Extension[T]) SetPhysicsObjectPickingFirstOnly(value bool) *Extension[T] {
+	o.Super().AsViewport().SetPhysicsObjectPickingFirstOnly(value)
+	return o
+}
+
+// GuiDisableInput is promoted from [Viewport.Instance.GuiDisableInput].
+func (o *Extension[T]) GuiDisableInput() bool { return o.Super().AsViewport().GuiDisableInput() }
+
+// SetGuiDisableInput is promoted from [Viewport.Instance.SetGuiDisableInput].
+func (o *Extension[T]) SetGuiDisableInput(value bool) *Extension[T] {
+	o.Super().AsViewport().SetGuiDisableInput(value)
+	return o
+}
+
+// GuiSnapControlsToPixels is promoted from [Viewport.Instance.GuiSnapControlsToPixels].
+func (o *Extension[T]) GuiSnapControlsToPixels() bool { return o.Super().AsViewport().GuiSnapControlsToPixels() }
+
+// SetGuiSnapControlsToPixels is promoted from [Viewport.Instance.SetGuiSnapControlsToPixels].
+func (o *Extension[T]) SetGuiSnapControlsToPixels(value bool) *Extension[T] {
+	o.Super().AsViewport().SetGuiSnapControlsToPixels(value)
+	return o
+}
+
+// GuiEmbedSubwindows is promoted from [Viewport.Instance.GuiEmbedSubwindows].
+func (o *Extension[T]) GuiEmbedSubwindows() bool { return o.Super().AsViewport().GuiEmbedSubwindows() }
+
+// SetGuiEmbedSubwindows is promoted from [Viewport.Instance.SetGuiEmbedSubwindows].
+func (o *Extension[T]) SetGuiEmbedSubwindows(value bool) *Extension[T] {
+	o.Super().AsViewport().SetGuiEmbedSubwindows(value)
+	return o
+}
+
+// GuiDragThreshold is promoted from [Viewport.Instance.GuiDragThreshold].
+func (o *Extension[T]) GuiDragThreshold() int { return o.Super().AsViewport().GuiDragThreshold() }
+
+// SetGuiDragThreshold is promoted from [Viewport.Instance.SetGuiDragThreshold].
+func (o *Extension[T]) SetGuiDragThreshold(value int) *Extension[T] {
+	o.Super().AsViewport().SetGuiDragThreshold(value)
+	return o
+}
+
+// SdfOversize is promoted from [Viewport.Instance.SdfOversize].
+func (o *Extension[T]) SdfOversize() Viewport.SDFOversize { return o.Super().AsViewport().SdfOversize() }
+
+// SetSdfOversize is promoted from [Viewport.Instance.SetSdfOversize].
+func (o *Extension[T]) SetSdfOversize(value Viewport.SDFOversize) *Extension[T] {
+	o.Super().AsViewport().SetSdfOversize(value)
+	return o
+}
+
+// SdfScale is promoted from [Viewport.Instance.SdfScale].
+func (o *Extension[T]) SdfScale() Viewport.SDFScale { return o.Super().AsViewport().SdfScale() }
+
+// SetSdfScale is promoted from [Viewport.Instance.SetSdfScale].
+func (o *Extension[T]) SetSdfScale(value Viewport.SDFScale) *Extension[T] {
+	o.Super().AsViewport().SetSdfScale(value)
+	return o
+}
+
+// PositionalShadowAtlasSize is promoted from [Viewport.Instance.PositionalShadowAtlasSize].
+func (o *Extension[T]) PositionalShadowAtlasSize() int { return o.Super().AsViewport().PositionalShadowAtlasSize() }
+
+// SetPositionalShadowAtlasSize is promoted from [Viewport.Instance.SetPositionalShadowAtlasSize].
+func (o *Extension[T]) SetPositionalShadowAtlasSize(value int) *Extension[T] {
+	o.Super().AsViewport().SetPositionalShadowAtlasSize(value)
+	return o
+}
+
+// PositionalShadowAtlas16Bits is promoted from [Viewport.Instance.PositionalShadowAtlas16Bits].
+func (o *Extension[T]) PositionalShadowAtlas16Bits() bool { return o.Super().AsViewport().PositionalShadowAtlas16Bits() }
+
+// SetPositionalShadowAtlas16Bits is promoted from [Viewport.Instance.SetPositionalShadowAtlas16Bits].
+func (o *Extension[T]) SetPositionalShadowAtlas16Bits(value bool) *Extension[T] {
+	o.Super().AsViewport().SetPositionalShadowAtlas16Bits(value)
+	return o
+}
+
+// PositionalShadowAtlasQuad0 is promoted from [Viewport.Instance.PositionalShadowAtlasQuad0].
+func (o *Extension[T]) PositionalShadowAtlasQuad0() Viewport.PositionalShadowAtlasQuadrantSubdiv { return o.Super().AsViewport().PositionalShadowAtlasQuad0() }
+
+// SetPositionalShadowAtlasQuad0 is promoted from [Viewport.Instance.SetPositionalShadowAtlasQuad0].
+func (o *Extension[T]) SetPositionalShadowAtlasQuad0(value Viewport.PositionalShadowAtlasQuadrantSubdiv) *Extension[T] {
+	o.Super().AsViewport().SetPositionalShadowAtlasQuad0(value)
+	return o
+}
+
+// PositionalShadowAtlasQuad1 is promoted from [Viewport.Instance.PositionalShadowAtlasQuad1].
+func (o *Extension[T]) PositionalShadowAtlasQuad1() Viewport.PositionalShadowAtlasQuadrantSubdiv { return o.Super().AsViewport().PositionalShadowAtlasQuad1() }
+
+// SetPositionalShadowAtlasQuad1 is promoted from [Viewport.Instance.SetPositionalShadowAtlasQuad1].
+func (o *Extension[T]) SetPositionalShadowAtlasQuad1(value Viewport.PositionalShadowAtlasQuadrantSubdiv) *Extension[T] {
+	o.Super().AsViewport().SetPositionalShadowAtlasQuad1(value)
+	return o
+}
+
+// PositionalShadowAtlasQuad2 is promoted from [Viewport.Instance.PositionalShadowAtlasQuad2].
+func (o *Extension[T]) PositionalShadowAtlasQuad2() Viewport.PositionalShadowAtlasQuadrantSubdiv { return o.Super().AsViewport().PositionalShadowAtlasQuad2() }
+
+// SetPositionalShadowAtlasQuad2 is promoted from [Viewport.Instance.SetPositionalShadowAtlasQuad2].
+func (o *Extension[T]) SetPositionalShadowAtlasQuad2(value Viewport.PositionalShadowAtlasQuadrantSubdiv) *Extension[T] {
+	o.Super().AsViewport().SetPositionalShadowAtlasQuad2(value)
+	return o
+}
+
+// PositionalShadowAtlasQuad3 is promoted from [Viewport.Instance.PositionalShadowAtlasQuad3].
+func (o *Extension[T]) PositionalShadowAtlasQuad3() Viewport.PositionalShadowAtlasQuadrantSubdiv { return o.Super().AsViewport().PositionalShadowAtlasQuad3() }
+
+// SetPositionalShadowAtlasQuad3 is promoted from [Viewport.Instance.SetPositionalShadowAtlasQuad3].
+func (o *Extension[T]) SetPositionalShadowAtlasQuad3(value Viewport.PositionalShadowAtlasQuadrantSubdiv) *Extension[T] {
+	o.Super().AsViewport().SetPositionalShadowAtlasQuad3(value)
+	return o
+}
+
+// CanvasTransform is promoted from [Viewport.Instance.CanvasTransform].
+func (o *Extension[T]) CanvasTransform() Transform2D.OriginXY { return o.Super().AsViewport().CanvasTransform() }
+
+// SetCanvasTransform is promoted from [Viewport.Instance.SetCanvasTransform].
+func (o *Extension[T]) SetCanvasTransform(value Transform2D.OriginXY) *Extension[T] {
+	o.Super().AsViewport().SetCanvasTransform(value)
+	return o
+}
+
+// GlobalCanvasTransform is promoted from [Viewport.Instance.GlobalCanvasTransform].
+func (o *Extension[T]) GlobalCanvasTransform() Transform2D.OriginXY { return o.Super().AsViewport().GlobalCanvasTransform() }
+
+// SetGlobalCanvasTransform is promoted from [Viewport.Instance.SetGlobalCanvasTransform].
+func (o *Extension[T]) SetGlobalCanvasTransform(value Transform2D.OriginXY) *Extension[T] {
+	o.Super().AsViewport().SetGlobalCanvasTransform(value)
+	return o
+}
+
+// CanvasCullMask is promoted from [Viewport.Instance.CanvasCullMask].
+func (o *Extension[T]) CanvasCullMask() int { return o.Super().AsViewport().CanvasCullMask() }
+
+// SetCanvasCullMask is promoted from [Viewport.Instance.SetCanvasCullMask].
+func (o *Extension[T]) SetCanvasCullMask(value int) *Extension[T] {
+	o.Super().AsViewport().SetCanvasCullMask(value)
+	return o
+}
+
+// Oversampling is promoted from [Viewport.Instance.Oversampling].
+func (o *Extension[T]) Oversampling() bool { return o.Super().AsViewport().Oversampling() }
+
+// SetOversampling is promoted from [Viewport.Instance.SetOversampling].
+func (o *Extension[T]) SetOversampling(value bool) *Extension[T] {
+	o.Super().AsViewport().SetOversampling(value)
+	return o
+}
+
+// OversamplingOverride is promoted from [Viewport.Instance.OversamplingOverride].
+func (o *Extension[T]) OversamplingOverride() Float.X { return o.Super().AsViewport().OversamplingOverride() }
+
+// SetOversamplingOverride is promoted from [Viewport.Instance.SetOversamplingOverride].
+func (o *Extension[T]) SetOversamplingOverride(value Float.X) *Extension[T] {
+	o.Super().AsViewport().SetOversamplingOverride(value)
+	return o
+}
+
+// Name is promoted from [Node.Instance.Name].
+func (o *Extension[T]) Name() string { return o.Super().AsNode().Name() }
+
+// SetName is promoted from [Node.Instance.SetName].
+func (o *Extension[T]) SetName(value string) *Extension[T] {
+	o.Super().AsNode().SetName(value)
+	return o
+}
+
+// UniqueNameInOwner is promoted from [Node.Instance.UniqueNameInOwner].
+func (o *Extension[T]) UniqueNameInOwner() bool { return o.Super().AsNode().UniqueNameInOwner() }
+
+// SetUniqueNameInOwner is promoted from [Node.Instance.SetUniqueNameInOwner].
+func (o *Extension[T]) SetUniqueNameInOwner(value bool) *Extension[T] {
+	o.Super().AsNode().SetUniqueNameInOwner(value)
+	return o
+}
+
+// SceneFilePath is promoted from [Node.Instance.SceneFilePath].
+func (o *Extension[T]) SceneFilePath() string { return o.Super().AsNode().SceneFilePath() }
+
+// SetSceneFilePath is promoted from [Node.Instance.SetSceneFilePath].
+func (o *Extension[T]) SetSceneFilePath(value string) *Extension[T] {
+	o.Super().AsNode().SetSceneFilePath(value)
+	return o
+}
+
+// Owner is promoted from [Node.Instance.Owner].
+func (o *Extension[T]) Owner() Node.Instance { return o.Super().AsNode().Owner() }
+
+// SetOwner is promoted from [Node.Instance.SetOwner].
+func (o *Extension[T]) SetOwner(value Node.Instance) *Extension[T] {
+	o.Super().AsNode().SetOwner(value)
+	return o
+}
+
+// Multiplayer is promoted from [Node.Instance.Multiplayer].
+func (o *Extension[T]) Multiplayer() MultiplayerAPI.Instance { return o.Super().AsNode().Multiplayer() }
+
+// ProcessMode is promoted from [Node.Instance.ProcessMode].
+func (o *Extension[T]) ProcessMode() Node.ProcessMode { return o.Super().AsNode().ProcessMode() }
+
+// SetProcessMode is promoted from [Node.Instance.SetProcessMode].
+func (o *Extension[T]) SetProcessMode(value Node.ProcessMode) *Extension[T] {
+	o.Super().AsNode().SetProcessMode(value)
+	return o
+}
+
+// ProcessPriority is promoted from [Node.Instance.ProcessPriority].
+func (o *Extension[T]) ProcessPriority() int { return o.Super().AsNode().ProcessPriority() }
+
+// SetProcessPriority is promoted from [Node.Instance.SetProcessPriority].
+func (o *Extension[T]) SetProcessPriority(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessPriority(value)
+	return o
+}
+
+// ProcessPhysicsPriority is promoted from [Node.Instance.ProcessPhysicsPriority].
+func (o *Extension[T]) ProcessPhysicsPriority() int { return o.Super().AsNode().ProcessPhysicsPriority() }
+
+// SetProcessPhysicsPriority is promoted from [Node.Instance.SetProcessPhysicsPriority].
+func (o *Extension[T]) SetProcessPhysicsPriority(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessPhysicsPriority(value)
+	return o
+}
+
+// ProcessThreadGroup is promoted from [Node.Instance.ProcessThreadGroup].
+func (o *Extension[T]) ProcessThreadGroup() Node.ProcessThreadGroup { return o.Super().AsNode().ProcessThreadGroup() }
+
+// SetProcessThreadGroup is promoted from [Node.Instance.SetProcessThreadGroup].
+func (o *Extension[T]) SetProcessThreadGroup(value Node.ProcessThreadGroup) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadGroup(value)
+	return o
+}
+
+// ProcessThreadGroupOrder is promoted from [Node.Instance.ProcessThreadGroupOrder].
+func (o *Extension[T]) ProcessThreadGroupOrder() int { return o.Super().AsNode().ProcessThreadGroupOrder() }
+
+// SetProcessThreadGroupOrder is promoted from [Node.Instance.SetProcessThreadGroupOrder].
+func (o *Extension[T]) SetProcessThreadGroupOrder(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadGroupOrder(value)
+	return o
+}
+
+// ProcessThreadMessages is promoted from [Node.Instance.ProcessThreadMessages].
+func (o *Extension[T]) ProcessThreadMessages() Node.ProcessThreadMessages { return o.Super().AsNode().ProcessThreadMessages() }
+
+// SetProcessThreadMessages is promoted from [Node.Instance.SetProcessThreadMessages].
+func (o *Extension[T]) SetProcessThreadMessages(value Node.ProcessThreadMessages) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadMessages(value)
+	return o
+}
+
+// PhysicsInterpolationMode is promoted from [Node.Instance.PhysicsInterpolationMode].
+func (o *Extension[T]) PhysicsInterpolationMode() Node.PhysicsInterpolationMode { return o.Super().AsNode().PhysicsInterpolationMode() }
+
+// SetPhysicsInterpolationMode is promoted from [Node.Instance.SetPhysicsInterpolationMode].
+func (o *Extension[T]) SetPhysicsInterpolationMode(value Node.PhysicsInterpolationMode) *Extension[T] {
+	o.Super().AsNode().SetPhysicsInterpolationMode(value)
+	return o
+}
+
+// AutoTranslateMode is promoted from [Node.Instance.AutoTranslateMode].
+func (o *Extension[T]) AutoTranslateMode() Node.AutoTranslateMode { return o.Super().AsNode().AutoTranslateMode() }
+
+// SetAutoTranslateMode is promoted from [Node.Instance.SetAutoTranslateMode].
+func (o *Extension[T]) SetAutoTranslateMode(value Node.AutoTranslateMode) *Extension[T] {
+	o.Super().AsNode().SetAutoTranslateMode(value)
+	return o
+}
+
+// EditorDescription is promoted from [Node.Instance.EditorDescription].
+func (o *Extension[T]) EditorDescription() string { return o.Super().AsNode().EditorDescription() }
+
+// SetEditorDescription is promoted from [Node.Instance.SetEditorDescription].
+func (o *Extension[T]) SetEditorDescription(value string) *Extension[T] {
+	o.Super().AsNode().SetEditorDescription(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

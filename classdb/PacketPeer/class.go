@@ -182,10 +182,17 @@ func (self Instance) EncodeBufferMaxSize() int { //gd:PacketPeer.encode_buffer_m
 		return int(int(class(self).GetEncodeBufferMaxSize()))
 }
 
+func (o *Extension[T]) EncodeBufferMaxSize() int { return o.Super().EncodeBufferMaxSize() }
+
 // SetEncodeBufferMaxSize sets the property returned by [GetEncodeBufferMaxSize]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEncodeBufferMaxSize(value int) Instance { //gd:PacketPeer.encode_buffer_max_size
 	class(self).SetEncodeBufferMaxSize(int64(value))
 	return self
+}
+
+func (o *Extension[T]) SetEncodeBufferMaxSize(value int) *Extension[T] {
+	o.Super().SetEncodeBufferMaxSize(value)
+	return o
 }
 
 func (self class) GetVar(allow_objects bool) variant.Any { //gd:PacketPeer.get_var

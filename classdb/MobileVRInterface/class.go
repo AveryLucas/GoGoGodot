@@ -171,15 +171,24 @@ func (self Instance) EyeHeight() Float.X { //gd:MobileVRInterface.eye_height
 		return Float.X(Float.X(class(self).GetEyeHeight()))
 }
 
+func (o *Extension[T]) EyeHeight() Float.X { return o.Super().EyeHeight() }
+
 // SetEyeHeight sets the property returned by [GetEyeHeight]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEyeHeight(value Float.X) Instance { //gd:MobileVRInterface.eye_height
 	class(self).SetEyeHeight(float64(value))
 	return self
 }
 
+func (o *Extension[T]) SetEyeHeight(value Float.X) *Extension[T] {
+	o.Super().SetEyeHeight(value)
+	return o
+}
+
 func (self Instance) Iod() Float.X { //gd:MobileVRInterface.iod
 		return Float.X(Float.X(class(self).GetIod()))
 }
+
+func (o *Extension[T]) Iod() Float.X { return o.Super().Iod() }
 
 // SetIod sets the property returned by [GetIod]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetIod(value Float.X) Instance { //gd:MobileVRInterface.iod
@@ -187,9 +196,16 @@ func (self Instance) SetIod(value Float.X) Instance { //gd:MobileVRInterface.iod
 	return self
 }
 
+func (o *Extension[T]) SetIod(value Float.X) *Extension[T] {
+	o.Super().SetIod(value)
+	return o
+}
+
 func (self Instance) DisplayWidth() Float.X { //gd:MobileVRInterface.display_width
 		return Float.X(Float.X(class(self).GetDisplayWidth()))
 }
+
+func (o *Extension[T]) DisplayWidth() Float.X { return o.Super().DisplayWidth() }
 
 // SetDisplayWidth sets the property returned by [GetDisplayWidth]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDisplayWidth(value Float.X) Instance { //gd:MobileVRInterface.display_width
@@ -197,9 +213,16 @@ func (self Instance) SetDisplayWidth(value Float.X) Instance { //gd:MobileVRInte
 	return self
 }
 
+func (o *Extension[T]) SetDisplayWidth(value Float.X) *Extension[T] {
+	o.Super().SetDisplayWidth(value)
+	return o
+}
+
 func (self Instance) DisplayToLens() Float.X { //gd:MobileVRInterface.display_to_lens
 		return Float.X(Float.X(class(self).GetDisplayToLens()))
 }
+
+func (o *Extension[T]) DisplayToLens() Float.X { return o.Super().DisplayToLens() }
 
 // SetDisplayToLens sets the property returned by [GetDisplayToLens]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDisplayToLens(value Float.X) Instance { //gd:MobileVRInterface.display_to_lens
@@ -207,9 +230,16 @@ func (self Instance) SetDisplayToLens(value Float.X) Instance { //gd:MobileVRInt
 	return self
 }
 
+func (o *Extension[T]) SetDisplayToLens(value Float.X) *Extension[T] {
+	o.Super().SetDisplayToLens(value)
+	return o
+}
+
 func (self Instance) OffsetRect() Rect2.PositionSize { //gd:MobileVRInterface.offset_rect
 		return Rect2.PositionSize(class(self).GetOffsetRect())
 }
+
+func (o *Extension[T]) OffsetRect() Rect2.PositionSize { return o.Super().OffsetRect() }
 
 // SetOffsetRect sets the property returned by [GetOffsetRect]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOffsetRect(value Rect2.PositionSize) Instance { //gd:MobileVRInterface.offset_rect
@@ -217,9 +247,16 @@ func (self Instance) SetOffsetRect(value Rect2.PositionSize) Instance { //gd:Mob
 	return self
 }
 
+func (o *Extension[T]) SetOffsetRect(value Rect2.PositionSize) *Extension[T] {
+	o.Super().SetOffsetRect(value)
+	return o
+}
+
 func (self Instance) Oversample() Float.X { //gd:MobileVRInterface.oversample
 		return Float.X(Float.X(class(self).GetOversample()))
 }
+
+func (o *Extension[T]) Oversample() Float.X { return o.Super().Oversample() }
 
 // SetOversample sets the property returned by [GetOversample]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOversample(value Float.X) Instance { //gd:MobileVRInterface.oversample
@@ -227,9 +264,16 @@ func (self Instance) SetOversample(value Float.X) Instance { //gd:MobileVRInterf
 	return self
 }
 
+func (o *Extension[T]) SetOversample(value Float.X) *Extension[T] {
+	o.Super().SetOversample(value)
+	return o
+}
+
 func (self Instance) K1() Float.X { //gd:MobileVRInterface.k1
 		return Float.X(Float.X(class(self).GetK1()))
 }
+
+func (o *Extension[T]) K1() Float.X { return o.Super().K1() }
 
 // SetK1 sets the property returned by [GetK1]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetK1(value Float.X) Instance { //gd:MobileVRInterface.k1
@@ -237,9 +281,16 @@ func (self Instance) SetK1(value Float.X) Instance { //gd:MobileVRInterface.k1
 	return self
 }
 
+func (o *Extension[T]) SetK1(value Float.X) *Extension[T] {
+	o.Super().SetK1(value)
+	return o
+}
+
 func (self Instance) K2() Float.X { //gd:MobileVRInterface.k2
 		return Float.X(Float.X(class(self).GetK2()))
 }
+
+func (o *Extension[T]) K2() Float.X { return o.Super().K2() }
 
 // SetK2 sets the property returned by [GetK2]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetK2(value Float.X) Instance { //gd:MobileVRInterface.k2
@@ -247,9 +298,16 @@ func (self Instance) SetK2(value Float.X) Instance { //gd:MobileVRInterface.k2
 	return self
 }
 
+func (o *Extension[T]) SetK2(value Float.X) *Extension[T] {
+	o.Super().SetK2(value)
+	return o
+}
+
 func (self Instance) VrsMinRadius() Float.X { //gd:MobileVRInterface.vrs_min_radius
 		return Float.X(Float.X(class(self).GetVrsMinRadius()))
 }
+
+func (o *Extension[T]) VrsMinRadius() Float.X { return o.Super().VrsMinRadius() }
 
 // SetVrsMinRadius sets the property returned by [GetVrsMinRadius]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVrsMinRadius(value Float.X) Instance { //gd:MobileVRInterface.vrs_min_radius
@@ -257,14 +315,26 @@ func (self Instance) SetVrsMinRadius(value Float.X) Instance { //gd:MobileVRInte
 	return self
 }
 
+func (o *Extension[T]) SetVrsMinRadius(value Float.X) *Extension[T] {
+	o.Super().SetVrsMinRadius(value)
+	return o
+}
+
 func (self Instance) VrsStrength() Float.X { //gd:MobileVRInterface.vrs_strength
 		return Float.X(Float.X(class(self).GetVrsStrength()))
 }
+
+func (o *Extension[T]) VrsStrength() Float.X { return o.Super().VrsStrength() }
 
 // SetVrsStrength sets the property returned by [GetVrsStrength]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVrsStrength(value Float.X) Instance { //gd:MobileVRInterface.vrs_strength
 	class(self).SetVrsStrength(float64(value))
 	return self
+}
+
+func (o *Extension[T]) SetVrsStrength(value Float.X) *Extension[T] {
+	o.Super().SetVrsStrength(value)
+	return o
 }
 
 func (self class) SetEyeHeight(eye_height float64)  { //gd:MobileVRInterface.set_eye_height
@@ -565,6 +635,42 @@ func (self Instance) GetSupportedEnvironmentBlendModes() []XRInterface.Environme
 // GetSupportedEnvironmentBlendModes is promoted from [XRInterface.Instance.GetSupportedEnvironmentBlendModes].
 func (o *Extension[T]) GetSupportedEnvironmentBlendModes() []XRInterface.EnvironmentBlendMode {
 	return o.Super().AsXRInterface().GetSupportedEnvironmentBlendModes()
+}
+
+// InterfaceIsPrimary is promoted from [XRInterface.Instance.InterfaceIsPrimary].
+func (o *Extension[T]) InterfaceIsPrimary() bool { return o.Super().AsXRInterface().InterfaceIsPrimary() }
+
+// SetInterfaceIsPrimary is promoted from [XRInterface.Instance.SetInterfaceIsPrimary].
+func (o *Extension[T]) SetInterfaceIsPrimary(value bool) *Extension[T] {
+	o.Super().AsXRInterface().SetInterfaceIsPrimary(value)
+	return o
+}
+
+// XrPlayAreaMode is promoted from [XRInterface.Instance.XrPlayAreaMode].
+func (o *Extension[T]) XrPlayAreaMode() XRInterface.PlayAreaMode { return o.Super().AsXRInterface().XrPlayAreaMode() }
+
+// SetXrPlayAreaMode is promoted from [XRInterface.Instance.SetXrPlayAreaMode].
+func (o *Extension[T]) SetXrPlayAreaMode(value XRInterface.PlayAreaMode) *Extension[T] {
+	o.Super().AsXRInterface().SetXrPlayAreaMode(value)
+	return o
+}
+
+// EnvironmentBlendMode is promoted from [XRInterface.Instance.EnvironmentBlendMode].
+func (o *Extension[T]) EnvironmentBlendMode() XRInterface.EnvironmentBlendMode { return o.Super().AsXRInterface().EnvironmentBlendMode() }
+
+// SetEnvironmentBlendMode is promoted from [XRInterface.Instance.SetEnvironmentBlendMode].
+func (o *Extension[T]) SetEnvironmentBlendMode(value XRInterface.EnvironmentBlendMode) *Extension[T] {
+	o.Super().AsXRInterface().SetEnvironmentBlendMode(value)
+	return o
+}
+
+// ArIsAnchorDetectionEnabled is promoted from [XRInterface.Instance.ArIsAnchorDetectionEnabled].
+func (o *Extension[T]) ArIsAnchorDetectionEnabled() bool { return o.Super().AsXRInterface().ArIsAnchorDetectionEnabled() }
+
+// SetArIsAnchorDetectionEnabled is promoted from [XRInterface.Instance.SetArIsAnchorDetectionEnabled].
+func (o *Extension[T]) SetArIsAnchorDetectionEnabled(value bool) *Extension[T] {
+	o.Super().AsXRInterface().SetArIsAnchorDetectionEnabled(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

@@ -291,6 +291,96 @@ func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
 }
 
+// ImageFormat is promoted from [GLTFDocument.Instance.ImageFormat].
+func (o *Extension[T]) ImageFormat() string { return o.Super().AsGLTFDocument().ImageFormat() }
+
+// SetImageFormat is promoted from [GLTFDocument.Instance.SetImageFormat].
+func (o *Extension[T]) SetImageFormat(value string) *Extension[T] {
+	o.Super().AsGLTFDocument().SetImageFormat(value)
+	return o
+}
+
+// LossyQuality is promoted from [GLTFDocument.Instance.LossyQuality].
+func (o *Extension[T]) LossyQuality() Float.X { return o.Super().AsGLTFDocument().LossyQuality() }
+
+// SetLossyQuality is promoted from [GLTFDocument.Instance.SetLossyQuality].
+func (o *Extension[T]) SetLossyQuality(value Float.X) *Extension[T] {
+	o.Super().AsGLTFDocument().SetLossyQuality(value)
+	return o
+}
+
+// FallbackImageFormat is promoted from [GLTFDocument.Instance.FallbackImageFormat].
+func (o *Extension[T]) FallbackImageFormat() string { return o.Super().AsGLTFDocument().FallbackImageFormat() }
+
+// SetFallbackImageFormat is promoted from [GLTFDocument.Instance.SetFallbackImageFormat].
+func (o *Extension[T]) SetFallbackImageFormat(value string) *Extension[T] {
+	o.Super().AsGLTFDocument().SetFallbackImageFormat(value)
+	return o
+}
+
+// FallbackImageQuality is promoted from [GLTFDocument.Instance.FallbackImageQuality].
+func (o *Extension[T]) FallbackImageQuality() Float.X { return o.Super().AsGLTFDocument().FallbackImageQuality() }
+
+// SetFallbackImageQuality is promoted from [GLTFDocument.Instance.SetFallbackImageQuality].
+func (o *Extension[T]) SetFallbackImageQuality(value Float.X) *Extension[T] {
+	o.Super().AsGLTFDocument().SetFallbackImageQuality(value)
+	return o
+}
+
+// RootNodeMode is promoted from [GLTFDocument.Instance.RootNodeMode].
+func (o *Extension[T]) RootNodeMode() GLTFDocument.RootNodeMode { return o.Super().AsGLTFDocument().RootNodeMode() }
+
+// SetRootNodeMode is promoted from [GLTFDocument.Instance.SetRootNodeMode].
+func (o *Extension[T]) SetRootNodeMode(value GLTFDocument.RootNodeMode) *Extension[T] {
+	o.Super().AsGLTFDocument().SetRootNodeMode(value)
+	return o
+}
+
+// VisibilityMode is promoted from [GLTFDocument.Instance.VisibilityMode].
+func (o *Extension[T]) VisibilityMode() GLTFDocument.VisibilityMode { return o.Super().AsGLTFDocument().VisibilityMode() }
+
+// SetVisibilityMode is promoted from [GLTFDocument.Instance.SetVisibilityMode].
+func (o *Extension[T]) SetVisibilityMode(value GLTFDocument.VisibilityMode) *Extension[T] {
+	o.Super().AsGLTFDocument().SetVisibilityMode(value)
+	return o
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
+}
+
 func (self class) Virtual(name string) reflect.Value {
 	switch name {
 	default: return gd.VirtualByName(GLTFDocument.Advanced(self.AsGLTFDocument()), name)

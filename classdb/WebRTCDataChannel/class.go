@@ -196,10 +196,17 @@ func (self Instance) WriteMode() WriteMode { //gd:WebRTCDataChannel.write_mode
 		return WriteMode(class(self).GetWriteMode())
 }
 
+func (o *Extension[T]) WriteMode() WriteMode { return o.Super().WriteMode() }
+
 // SetWriteMode sets the property returned by [GetWriteMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetWriteMode(value WriteMode) Instance { //gd:WebRTCDataChannel.write_mode
 	class(self).SetWriteMode(value)
 	return self
+}
+
+func (o *Extension[T]) SetWriteMode(value WriteMode) *Extension[T] {
+	o.Super().SetWriteMode(value)
+	return o
 }
 
 func (self class) Poll() Error.Code { //gd:WebRTCDataChannel.poll
@@ -352,6 +359,15 @@ func (self Instance) GetAvailablePacketCount() int {
 // GetAvailablePacketCount is promoted from [PacketPeer.Instance.GetAvailablePacketCount].
 func (o *Extension[T]) GetAvailablePacketCount() int {
 	return o.Super().AsPacketPeer().GetAvailablePacketCount()
+}
+
+// EncodeBufferMaxSize is promoted from [PacketPeer.Instance.EncodeBufferMaxSize].
+func (o *Extension[T]) EncodeBufferMaxSize() int { return o.Super().AsPacketPeer().EncodeBufferMaxSize() }
+
+// SetEncodeBufferMaxSize is promoted from [PacketPeer.Instance.SetEncodeBufferMaxSize].
+func (o *Extension[T]) SetEncodeBufferMaxSize(value int) *Extension[T] {
+	o.Super().AsPacketPeer().SetEncodeBufferMaxSize(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

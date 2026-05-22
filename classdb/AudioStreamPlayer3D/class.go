@@ -20,12 +20,14 @@ import "graphics.gd/variant/Signal"
 import "graphics.gd/classdb/AudioServer"
 import "graphics.gd/classdb/AudioStream"
 import "graphics.gd/classdb/AudioStreamPlayback"
+import "graphics.gd/classdb/MultiplayerAPI"
 import "graphics.gd/classdb/Node"
 import "graphics.gd/classdb/Node3D"
 import "graphics.gd/classdb/Node3DGizmo"
 import "graphics.gd/classdb/Tween"
 import "graphics.gd/classdb/World3D"
 import "graphics.gd/variant/Array"
+import "graphics.gd/variant/Basis"
 import "graphics.gd/variant/Callable"
 import "graphics.gd/variant/Dictionary"
 import "graphics.gd/variant/Error"
@@ -33,6 +35,7 @@ import "graphics.gd/variant/Float"
 import "graphics.gd/variant/Object"
 import "graphics.gd/variant/Packed"
 import "graphics.gd/variant/Path"
+import "graphics.gd/variant/Quaternion"
 import "graphics.gd/variant/RID"
 import "graphics.gd/variant/RefCounted"
 import "graphics.gd/variant/String"
@@ -230,15 +233,24 @@ func (self Instance) Stream() AudioStream.Instance { //gd:AudioStreamPlayer3D.st
 		return AudioStream.Instance(class(self).GetStream())
 }
 
+func (o *Extension[T]) Stream() AudioStream.Instance { return o.Super().Stream() }
+
 // SetStream sets the property returned by [GetStream]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStream(value AudioStream.Instance) Instance { //gd:AudioStreamPlayer3D.stream
 	class(self).SetStream(value)
 	return self
 }
 
+func (o *Extension[T]) SetStream(value AudioStream.Instance) *Extension[T] {
+	o.Super().SetStream(value)
+	return o
+}
+
 func (self Instance) AttenuationModel() AttenuationModel { //gd:AudioStreamPlayer3D.attenuation_model
 		return AttenuationModel(class(self).GetAttenuationModel())
 }
+
+func (o *Extension[T]) AttenuationModel() AttenuationModel { return o.Super().AttenuationModel() }
 
 // SetAttenuationModel sets the property returned by [GetAttenuationModel]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAttenuationModel(value AttenuationModel) Instance { //gd:AudioStreamPlayer3D.attenuation_model
@@ -246,9 +258,16 @@ func (self Instance) SetAttenuationModel(value AttenuationModel) Instance { //gd
 	return self
 }
 
+func (o *Extension[T]) SetAttenuationModel(value AttenuationModel) *Extension[T] {
+	o.Super().SetAttenuationModel(value)
+	return o
+}
+
 func (self Instance) VolumeDb() Float.X { //gd:AudioStreamPlayer3D.volume_db
 		return Float.X(Float.X(class(self).GetVolumeDb()))
 }
+
+func (o *Extension[T]) VolumeDb() Float.X { return o.Super().VolumeDb() }
 
 // SetVolumeDb sets the property returned by [GetVolumeDb]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVolumeDb(value Float.X) Instance { //gd:AudioStreamPlayer3D.volume_db
@@ -256,9 +275,16 @@ func (self Instance) SetVolumeDb(value Float.X) Instance { //gd:AudioStreamPlaye
 	return self
 }
 
+func (o *Extension[T]) SetVolumeDb(value Float.X) *Extension[T] {
+	o.Super().SetVolumeDb(value)
+	return o
+}
+
 func (self Instance) VolumeLinear() Float.X { //gd:AudioStreamPlayer3D.volume_linear
 		return Float.X(Float.X(class(self).GetVolumeLinear()))
 }
+
+func (o *Extension[T]) VolumeLinear() Float.X { return o.Super().VolumeLinear() }
 
 // SetVolumeLinear sets the property returned by [GetVolumeLinear]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVolumeLinear(value Float.X) Instance { //gd:AudioStreamPlayer3D.volume_linear
@@ -266,9 +292,16 @@ func (self Instance) SetVolumeLinear(value Float.X) Instance { //gd:AudioStreamP
 	return self
 }
 
+func (o *Extension[T]) SetVolumeLinear(value Float.X) *Extension[T] {
+	o.Super().SetVolumeLinear(value)
+	return o
+}
+
 func (self Instance) UnitSize() Float.X { //gd:AudioStreamPlayer3D.unit_size
 		return Float.X(Float.X(class(self).GetUnitSize()))
 }
+
+func (o *Extension[T]) UnitSize() Float.X { return o.Super().UnitSize() }
 
 // SetUnitSize sets the property returned by [GetUnitSize]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUnitSize(value Float.X) Instance { //gd:AudioStreamPlayer3D.unit_size
@@ -276,9 +309,16 @@ func (self Instance) SetUnitSize(value Float.X) Instance { //gd:AudioStreamPlaye
 	return self
 }
 
+func (o *Extension[T]) SetUnitSize(value Float.X) *Extension[T] {
+	o.Super().SetUnitSize(value)
+	return o
+}
+
 func (self Instance) MaxDb() Float.X { //gd:AudioStreamPlayer3D.max_db
 		return Float.X(Float.X(class(self).GetMaxDb()))
 }
+
+func (o *Extension[T]) MaxDb() Float.X { return o.Super().MaxDb() }
 
 // SetMaxDb sets the property returned by [GetMaxDb]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMaxDb(value Float.X) Instance { //gd:AudioStreamPlayer3D.max_db
@@ -286,9 +326,16 @@ func (self Instance) SetMaxDb(value Float.X) Instance { //gd:AudioStreamPlayer3D
 	return self
 }
 
+func (o *Extension[T]) SetMaxDb(value Float.X) *Extension[T] {
+	o.Super().SetMaxDb(value)
+	return o
+}
+
 func (self Instance) PitchScale() Float.X { //gd:AudioStreamPlayer3D.pitch_scale
 		return Float.X(Float.X(class(self).GetPitchScale()))
 }
+
+func (o *Extension[T]) PitchScale() Float.X { return o.Super().PitchScale() }
 
 // SetPitchScale sets the property returned by [GetPitchScale]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPitchScale(value Float.X) Instance { //gd:AudioStreamPlayer3D.pitch_scale
@@ -296,9 +343,16 @@ func (self Instance) SetPitchScale(value Float.X) Instance { //gd:AudioStreamPla
 	return self
 }
 
+func (o *Extension[T]) SetPitchScale(value Float.X) *Extension[T] {
+	o.Super().SetPitchScale(value)
+	return o
+}
+
 func (self Instance) Playing() bool { //gd:AudioStreamPlayer3D.playing
 		return bool(class(self).IsPlaying())
 }
+
+func (o *Extension[T]) Playing() bool { return o.Super().Playing() }
 
 // SetPlaying sets the property returned by [IsPlaying]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPlaying(value bool) Instance { //gd:AudioStreamPlayer3D.playing
@@ -306,9 +360,16 @@ func (self Instance) SetPlaying(value bool) Instance { //gd:AudioStreamPlayer3D.
 	return self
 }
 
+func (o *Extension[T]) SetPlaying(value bool) *Extension[T] {
+	o.Super().SetPlaying(value)
+	return o
+}
+
 func (self Instance) Autoplay() bool { //gd:AudioStreamPlayer3D.autoplay
 		return bool(class(self).IsAutoplayEnabled())
 }
+
+func (o *Extension[T]) Autoplay() bool { return o.Super().Autoplay() }
 
 // SetAutoplay sets the property returned by [IsAutoplayEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAutoplay(value bool) Instance { //gd:AudioStreamPlayer3D.autoplay
@@ -316,9 +377,16 @@ func (self Instance) SetAutoplay(value bool) Instance { //gd:AudioStreamPlayer3D
 	return self
 }
 
+func (o *Extension[T]) SetAutoplay(value bool) *Extension[T] {
+	o.Super().SetAutoplay(value)
+	return o
+}
+
 func (self Instance) StreamPaused() bool { //gd:AudioStreamPlayer3D.stream_paused
 		return bool(class(self).GetStreamPaused())
 }
+
+func (o *Extension[T]) StreamPaused() bool { return o.Super().StreamPaused() }
 
 // SetStreamPaused sets the property returned by [GetStreamPaused]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStreamPaused(value bool) Instance { //gd:AudioStreamPlayer3D.stream_paused
@@ -326,9 +394,16 @@ func (self Instance) SetStreamPaused(value bool) Instance { //gd:AudioStreamPlay
 	return self
 }
 
+func (o *Extension[T]) SetStreamPaused(value bool) *Extension[T] {
+	o.Super().SetStreamPaused(value)
+	return o
+}
+
 func (self Instance) MaxDistance() Float.X { //gd:AudioStreamPlayer3D.max_distance
 		return Float.X(Float.X(class(self).GetMaxDistance()))
 }
+
+func (o *Extension[T]) MaxDistance() Float.X { return o.Super().MaxDistance() }
 
 // SetMaxDistance sets the property returned by [GetMaxDistance]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMaxDistance(value Float.X) Instance { //gd:AudioStreamPlayer3D.max_distance
@@ -336,9 +411,16 @@ func (self Instance) SetMaxDistance(value Float.X) Instance { //gd:AudioStreamPl
 	return self
 }
 
+func (o *Extension[T]) SetMaxDistance(value Float.X) *Extension[T] {
+	o.Super().SetMaxDistance(value)
+	return o
+}
+
 func (self Instance) MaxPolyphony() int { //gd:AudioStreamPlayer3D.max_polyphony
 		return int(int(class(self).GetMaxPolyphony()))
 }
+
+func (o *Extension[T]) MaxPolyphony() int { return o.Super().MaxPolyphony() }
 
 // SetMaxPolyphony sets the property returned by [GetMaxPolyphony]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMaxPolyphony(value int) Instance { //gd:AudioStreamPlayer3D.max_polyphony
@@ -346,9 +428,16 @@ func (self Instance) SetMaxPolyphony(value int) Instance { //gd:AudioStreamPlaye
 	return self
 }
 
+func (o *Extension[T]) SetMaxPolyphony(value int) *Extension[T] {
+	o.Super().SetMaxPolyphony(value)
+	return o
+}
+
 func (self Instance) PanningStrength() Float.X { //gd:AudioStreamPlayer3D.panning_strength
 		return Float.X(Float.X(class(self).GetPanningStrength()))
 }
+
+func (o *Extension[T]) PanningStrength() Float.X { return o.Super().PanningStrength() }
 
 // SetPanningStrength sets the property returned by [GetPanningStrength]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPanningStrength(value Float.X) Instance { //gd:AudioStreamPlayer3D.panning_strength
@@ -356,9 +445,16 @@ func (self Instance) SetPanningStrength(value Float.X) Instance { //gd:AudioStre
 	return self
 }
 
+func (o *Extension[T]) SetPanningStrength(value Float.X) *Extension[T] {
+	o.Super().SetPanningStrength(value)
+	return o
+}
+
 func (self Instance) Bus() string { //gd:AudioStreamPlayer3D.bus
 		return string(class(self).GetBus().String())
 }
+
+func (o *Extension[T]) Bus() string { return o.Super().Bus() }
 
 // SetBus sets the property returned by [GetBus]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBus(value string) Instance { //gd:AudioStreamPlayer3D.bus
@@ -366,9 +462,16 @@ func (self Instance) SetBus(value string) Instance { //gd:AudioStreamPlayer3D.bu
 	return self
 }
 
+func (o *Extension[T]) SetBus(value string) *Extension[T] {
+	o.Super().SetBus(value)
+	return o
+}
+
 func (self Instance) AreaMask() int { //gd:AudioStreamPlayer3D.area_mask
 		return int(int(class(self).GetAreaMask()))
 }
+
+func (o *Extension[T]) AreaMask() int { return o.Super().AreaMask() }
 
 // SetAreaMask sets the property returned by [GetAreaMask]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAreaMask(value int) Instance { //gd:AudioStreamPlayer3D.area_mask
@@ -376,9 +479,16 @@ func (self Instance) SetAreaMask(value int) Instance { //gd:AudioStreamPlayer3D.
 	return self
 }
 
+func (o *Extension[T]) SetAreaMask(value int) *Extension[T] {
+	o.Super().SetAreaMask(value)
+	return o
+}
+
 func (self Instance) PlaybackType() AudioServer.PlaybackType { //gd:AudioStreamPlayer3D.playback_type
 		return AudioServer.PlaybackType(class(self).GetPlaybackType())
 }
+
+func (o *Extension[T]) PlaybackType() AudioServer.PlaybackType { return o.Super().PlaybackType() }
 
 // SetPlaybackType sets the property returned by [GetPlaybackType]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPlaybackType(value AudioServer.PlaybackType) Instance { //gd:AudioStreamPlayer3D.playback_type
@@ -386,9 +496,16 @@ func (self Instance) SetPlaybackType(value AudioServer.PlaybackType) Instance { 
 	return self
 }
 
+func (o *Extension[T]) SetPlaybackType(value AudioServer.PlaybackType) *Extension[T] {
+	o.Super().SetPlaybackType(value)
+	return o
+}
+
 func (self Instance) EmissionAngleEnabled() bool { //gd:AudioStreamPlayer3D.emission_angle_enabled
 		return bool(class(self).IsEmissionAngleEnabled())
 }
+
+func (o *Extension[T]) EmissionAngleEnabled() bool { return o.Super().EmissionAngleEnabled() }
 
 // SetEmissionAngleEnabled sets the property returned by [IsEmissionAngleEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEmissionAngleEnabled(value bool) Instance { //gd:AudioStreamPlayer3D.emission_angle_enabled
@@ -396,9 +513,16 @@ func (self Instance) SetEmissionAngleEnabled(value bool) Instance { //gd:AudioSt
 	return self
 }
 
+func (o *Extension[T]) SetEmissionAngleEnabled(value bool) *Extension[T] {
+	o.Super().SetEmissionAngleEnabled(value)
+	return o
+}
+
 func (self Instance) EmissionAngleDegrees() Angle.Radians { //gd:AudioStreamPlayer3D.emission_angle_degrees
 		return Angle.Radians(Float.X(class(self).GetEmissionAngle()))
 }
+
+func (o *Extension[T]) EmissionAngleDegrees() Angle.Radians { return o.Super().EmissionAngleDegrees() }
 
 // SetEmissionAngleDegrees sets the property returned by [GetEmissionAngle]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEmissionAngleDegrees(value Angle.Radians) Instance { //gd:AudioStreamPlayer3D.emission_angle_degrees
@@ -406,9 +530,16 @@ func (self Instance) SetEmissionAngleDegrees(value Angle.Radians) Instance { //g
 	return self
 }
 
+func (o *Extension[T]) SetEmissionAngleDegrees(value Angle.Radians) *Extension[T] {
+	o.Super().SetEmissionAngleDegrees(value)
+	return o
+}
+
 func (self Instance) EmissionAngleFilterAttenuationDb() Angle.Radians { //gd:AudioStreamPlayer3D.emission_angle_filter_attenuation_db
 		return Angle.Radians(Float.X(class(self).GetEmissionAngleFilterAttenuationDb()))
 }
+
+func (o *Extension[T]) EmissionAngleFilterAttenuationDb() Angle.Radians { return o.Super().EmissionAngleFilterAttenuationDb() }
 
 // SetEmissionAngleFilterAttenuationDb sets the property returned by [GetEmissionAngleFilterAttenuationDb]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEmissionAngleFilterAttenuationDb(value Angle.Radians) Instance { //gd:AudioStreamPlayer3D.emission_angle_filter_attenuation_db
@@ -416,9 +547,16 @@ func (self Instance) SetEmissionAngleFilterAttenuationDb(value Angle.Radians) In
 	return self
 }
 
+func (o *Extension[T]) SetEmissionAngleFilterAttenuationDb(value Angle.Radians) *Extension[T] {
+	o.Super().SetEmissionAngleFilterAttenuationDb(value)
+	return o
+}
+
 func (self Instance) AttenuationFilterCutoffHz() Float.X { //gd:AudioStreamPlayer3D.attenuation_filter_cutoff_hz
 		return Float.X(Float.X(class(self).GetAttenuationFilterCutoffHz()))
 }
+
+func (o *Extension[T]) AttenuationFilterCutoffHz() Float.X { return o.Super().AttenuationFilterCutoffHz() }
 
 // SetAttenuationFilterCutoffHz sets the property returned by [GetAttenuationFilterCutoffHz]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAttenuationFilterCutoffHz(value Float.X) Instance { //gd:AudioStreamPlayer3D.attenuation_filter_cutoff_hz
@@ -426,9 +564,16 @@ func (self Instance) SetAttenuationFilterCutoffHz(value Float.X) Instance { //gd
 	return self
 }
 
+func (o *Extension[T]) SetAttenuationFilterCutoffHz(value Float.X) *Extension[T] {
+	o.Super().SetAttenuationFilterCutoffHz(value)
+	return o
+}
+
 func (self Instance) AttenuationFilterDb() Float.X { //gd:AudioStreamPlayer3D.attenuation_filter_db
 		return Float.X(Float.X(class(self).GetAttenuationFilterDb()))
 }
+
+func (o *Extension[T]) AttenuationFilterDb() Float.X { return o.Super().AttenuationFilterDb() }
 
 // SetAttenuationFilterDb sets the property returned by [GetAttenuationFilterDb]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAttenuationFilterDb(value Float.X) Instance { //gd:AudioStreamPlayer3D.attenuation_filter_db
@@ -436,14 +581,26 @@ func (self Instance) SetAttenuationFilterDb(value Float.X) Instance { //gd:Audio
 	return self
 }
 
+func (o *Extension[T]) SetAttenuationFilterDb(value Float.X) *Extension[T] {
+	o.Super().SetAttenuationFilterDb(value)
+	return o
+}
+
 func (self Instance) DopplerTracking() DopplerTracking { //gd:AudioStreamPlayer3D.doppler_tracking
 		return DopplerTracking(class(self).GetDopplerTracking())
 }
+
+func (o *Extension[T]) DopplerTracking() DopplerTracking { return o.Super().DopplerTracking() }
 
 // SetDopplerTracking sets the property returned by [GetDopplerTracking]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDopplerTracking(value DopplerTracking) Instance { //gd:AudioStreamPlayer3D.doppler_tracking
 	class(self).SetDopplerTracking(value)
 	return self
+}
+
+func (o *Extension[T]) SetDopplerTracking(value DopplerTracking) *Extension[T] {
+	o.Super().SetDopplerTracking(value)
+	return o
 }
 
 func (self class) SetStream(stream [1]gdclass.AudioStream)  { //gd:AudioStreamPlayer3D.set_stream
@@ -1853,6 +2010,279 @@ func (self Instance) NotifyThreadSafe(what int) {
 // NotifyThreadSafe is promoted from [Node.Instance.NotifyThreadSafe].
 func (o *Extension[T]) NotifyThreadSafe(what int) {
 	o.Super().AsNode().NotifyThreadSafe(what)
+}
+
+// Transform is promoted from [Node3D.Instance.Transform].
+func (o *Extension[T]) Transform() Transform3D.BasisOrigin { return o.Super().AsNode3D().Transform() }
+
+// SetTransform is promoted from [Node3D.Instance.SetTransform].
+func (o *Extension[T]) SetTransform(value Transform3D.BasisOrigin) *Extension[T] {
+	o.Super().AsNode3D().SetTransform(value)
+	return o
+}
+
+// GlobalTransform is promoted from [Node3D.Instance.GlobalTransform].
+func (o *Extension[T]) GlobalTransform() Transform3D.BasisOrigin { return o.Super().AsNode3D().GlobalTransform() }
+
+// SetGlobalTransform is promoted from [Node3D.Instance.SetGlobalTransform].
+func (o *Extension[T]) SetGlobalTransform(value Transform3D.BasisOrigin) *Extension[T] {
+	o.Super().AsNode3D().SetGlobalTransform(value)
+	return o
+}
+
+// Position is promoted from [Node3D.Instance.Position].
+func (o *Extension[T]) Position() Vector3.XYZ { return o.Super().AsNode3D().Position() }
+
+// SetPosition is promoted from [Node3D.Instance.SetPosition].
+func (o *Extension[T]) SetPosition(value Vector3.XYZ) *Extension[T] {
+	o.Super().AsNode3D().SetPosition(value)
+	return o
+}
+
+// Rotation is promoted from [Node3D.Instance.Rotation].
+func (o *Extension[T]) Rotation() Euler.Radians { return o.Super().AsNode3D().Rotation() }
+
+// SetRotation is promoted from [Node3D.Instance.SetRotation].
+func (o *Extension[T]) SetRotation(value Euler.Radians) *Extension[T] {
+	o.Super().AsNode3D().SetRotation(value)
+	return o
+}
+
+// RotationDegrees is promoted from [Node3D.Instance.RotationDegrees].
+func (o *Extension[T]) RotationDegrees() Euler.Degrees { return o.Super().AsNode3D().RotationDegrees() }
+
+// SetRotationDegrees is promoted from [Node3D.Instance.SetRotationDegrees].
+func (o *Extension[T]) SetRotationDegrees(value Euler.Degrees) *Extension[T] {
+	o.Super().AsNode3D().SetRotationDegrees(value)
+	return o
+}
+
+// Quaternion is promoted from [Node3D.Instance.Quaternion].
+func (o *Extension[T]) Quaternion() Quaternion.IJKX { return o.Super().AsNode3D().Quaternion() }
+
+// SetQuaternion is promoted from [Node3D.Instance.SetQuaternion].
+func (o *Extension[T]) SetQuaternion(value Quaternion.IJKX) *Extension[T] {
+	o.Super().AsNode3D().SetQuaternion(value)
+	return o
+}
+
+// Basis is promoted from [Node3D.Instance.Basis].
+func (o *Extension[T]) Basis() Basis.XYZ { return o.Super().AsNode3D().Basis() }
+
+// SetBasis is promoted from [Node3D.Instance.SetBasis].
+func (o *Extension[T]) SetBasis(value Basis.XYZ) *Extension[T] {
+	o.Super().AsNode3D().SetBasis(value)
+	return o
+}
+
+// Scale is promoted from [Node3D.Instance.Scale].
+func (o *Extension[T]) Scale() Vector3.XYZ { return o.Super().AsNode3D().Scale() }
+
+// SetScale is promoted from [Node3D.Instance.SetScale].
+func (o *Extension[T]) SetScale(value Vector3.XYZ) *Extension[T] {
+	o.Super().AsNode3D().SetScale(value)
+	return o
+}
+
+// RotationEditMode is promoted from [Node3D.Instance.RotationEditMode].
+func (o *Extension[T]) RotationEditMode() Node3D.RotationEditMode { return o.Super().AsNode3D().RotationEditMode() }
+
+// SetRotationEditMode is promoted from [Node3D.Instance.SetRotationEditMode].
+func (o *Extension[T]) SetRotationEditMode(value Node3D.RotationEditMode) *Extension[T] {
+	o.Super().AsNode3D().SetRotationEditMode(value)
+	return o
+}
+
+// RotationOrder is promoted from [Node3D.Instance.RotationOrder].
+func (o *Extension[T]) RotationOrder() Angle.Order { return o.Super().AsNode3D().RotationOrder() }
+
+// SetRotationOrder is promoted from [Node3D.Instance.SetRotationOrder].
+func (o *Extension[T]) SetRotationOrder(value Angle.Order) *Extension[T] {
+	o.Super().AsNode3D().SetRotationOrder(value)
+	return o
+}
+
+// TopLevel is promoted from [Node3D.Instance.TopLevel].
+func (o *Extension[T]) TopLevel() bool { return o.Super().AsNode3D().TopLevel() }
+
+// SetTopLevel is promoted from [Node3D.Instance.SetTopLevel].
+func (o *Extension[T]) SetTopLevel(value bool) *Extension[T] {
+	o.Super().AsNode3D().SetTopLevel(value)
+	return o
+}
+
+// GlobalPosition is promoted from [Node3D.Instance.GlobalPosition].
+func (o *Extension[T]) GlobalPosition() Vector3.XYZ { return o.Super().AsNode3D().GlobalPosition() }
+
+// SetGlobalPosition is promoted from [Node3D.Instance.SetGlobalPosition].
+func (o *Extension[T]) SetGlobalPosition(value Vector3.XYZ) *Extension[T] {
+	o.Super().AsNode3D().SetGlobalPosition(value)
+	return o
+}
+
+// GlobalBasis is promoted from [Node3D.Instance.GlobalBasis].
+func (o *Extension[T]) GlobalBasis() Basis.XYZ { return o.Super().AsNode3D().GlobalBasis() }
+
+// SetGlobalBasis is promoted from [Node3D.Instance.SetGlobalBasis].
+func (o *Extension[T]) SetGlobalBasis(value Basis.XYZ) *Extension[T] {
+	o.Super().AsNode3D().SetGlobalBasis(value)
+	return o
+}
+
+// GlobalRotation is promoted from [Node3D.Instance.GlobalRotation].
+func (o *Extension[T]) GlobalRotation() Euler.Radians { return o.Super().AsNode3D().GlobalRotation() }
+
+// SetGlobalRotation is promoted from [Node3D.Instance.SetGlobalRotation].
+func (o *Extension[T]) SetGlobalRotation(value Euler.Radians) *Extension[T] {
+	o.Super().AsNode3D().SetGlobalRotation(value)
+	return o
+}
+
+// GlobalRotationDegrees is promoted from [Node3D.Instance.GlobalRotationDegrees].
+func (o *Extension[T]) GlobalRotationDegrees() Euler.Degrees { return o.Super().AsNode3D().GlobalRotationDegrees() }
+
+// SetGlobalRotationDegrees is promoted from [Node3D.Instance.SetGlobalRotationDegrees].
+func (o *Extension[T]) SetGlobalRotationDegrees(value Euler.Degrees) *Extension[T] {
+	o.Super().AsNode3D().SetGlobalRotationDegrees(value)
+	return o
+}
+
+// Visible is promoted from [Node3D.Instance.Visible].
+func (o *Extension[T]) Visible() bool { return o.Super().AsNode3D().Visible() }
+
+// SetVisible is promoted from [Node3D.Instance.SetVisible].
+func (o *Extension[T]) SetVisible(value bool) *Extension[T] {
+	o.Super().AsNode3D().SetVisible(value)
+	return o
+}
+
+// VisibilityParent is promoted from [Node3D.Instance.VisibilityParent].
+func (o *Extension[T]) VisibilityParent() string { return o.Super().AsNode3D().VisibilityParent() }
+
+// SetVisibilityParent is promoted from [Node3D.Instance.SetVisibilityParent].
+func (o *Extension[T]) SetVisibilityParent(value string) *Extension[T] {
+	o.Super().AsNode3D().SetVisibilityParent(value)
+	return o
+}
+
+// Name is promoted from [Node.Instance.Name].
+func (o *Extension[T]) Name() string { return o.Super().AsNode().Name() }
+
+// SetName is promoted from [Node.Instance.SetName].
+func (o *Extension[T]) SetName(value string) *Extension[T] {
+	o.Super().AsNode().SetName(value)
+	return o
+}
+
+// UniqueNameInOwner is promoted from [Node.Instance.UniqueNameInOwner].
+func (o *Extension[T]) UniqueNameInOwner() bool { return o.Super().AsNode().UniqueNameInOwner() }
+
+// SetUniqueNameInOwner is promoted from [Node.Instance.SetUniqueNameInOwner].
+func (o *Extension[T]) SetUniqueNameInOwner(value bool) *Extension[T] {
+	o.Super().AsNode().SetUniqueNameInOwner(value)
+	return o
+}
+
+// SceneFilePath is promoted from [Node.Instance.SceneFilePath].
+func (o *Extension[T]) SceneFilePath() string { return o.Super().AsNode().SceneFilePath() }
+
+// SetSceneFilePath is promoted from [Node.Instance.SetSceneFilePath].
+func (o *Extension[T]) SetSceneFilePath(value string) *Extension[T] {
+	o.Super().AsNode().SetSceneFilePath(value)
+	return o
+}
+
+// Owner is promoted from [Node.Instance.Owner].
+func (o *Extension[T]) Owner() Node.Instance { return o.Super().AsNode().Owner() }
+
+// SetOwner is promoted from [Node.Instance.SetOwner].
+func (o *Extension[T]) SetOwner(value Node.Instance) *Extension[T] {
+	o.Super().AsNode().SetOwner(value)
+	return o
+}
+
+// Multiplayer is promoted from [Node.Instance.Multiplayer].
+func (o *Extension[T]) Multiplayer() MultiplayerAPI.Instance { return o.Super().AsNode().Multiplayer() }
+
+// ProcessMode is promoted from [Node.Instance.ProcessMode].
+func (o *Extension[T]) ProcessMode() Node.ProcessMode { return o.Super().AsNode().ProcessMode() }
+
+// SetProcessMode is promoted from [Node.Instance.SetProcessMode].
+func (o *Extension[T]) SetProcessMode(value Node.ProcessMode) *Extension[T] {
+	o.Super().AsNode().SetProcessMode(value)
+	return o
+}
+
+// ProcessPriority is promoted from [Node.Instance.ProcessPriority].
+func (o *Extension[T]) ProcessPriority() int { return o.Super().AsNode().ProcessPriority() }
+
+// SetProcessPriority is promoted from [Node.Instance.SetProcessPriority].
+func (o *Extension[T]) SetProcessPriority(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessPriority(value)
+	return o
+}
+
+// ProcessPhysicsPriority is promoted from [Node.Instance.ProcessPhysicsPriority].
+func (o *Extension[T]) ProcessPhysicsPriority() int { return o.Super().AsNode().ProcessPhysicsPriority() }
+
+// SetProcessPhysicsPriority is promoted from [Node.Instance.SetProcessPhysicsPriority].
+func (o *Extension[T]) SetProcessPhysicsPriority(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessPhysicsPriority(value)
+	return o
+}
+
+// ProcessThreadGroup is promoted from [Node.Instance.ProcessThreadGroup].
+func (o *Extension[T]) ProcessThreadGroup() Node.ProcessThreadGroup { return o.Super().AsNode().ProcessThreadGroup() }
+
+// SetProcessThreadGroup is promoted from [Node.Instance.SetProcessThreadGroup].
+func (o *Extension[T]) SetProcessThreadGroup(value Node.ProcessThreadGroup) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadGroup(value)
+	return o
+}
+
+// ProcessThreadGroupOrder is promoted from [Node.Instance.ProcessThreadGroupOrder].
+func (o *Extension[T]) ProcessThreadGroupOrder() int { return o.Super().AsNode().ProcessThreadGroupOrder() }
+
+// SetProcessThreadGroupOrder is promoted from [Node.Instance.SetProcessThreadGroupOrder].
+func (o *Extension[T]) SetProcessThreadGroupOrder(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadGroupOrder(value)
+	return o
+}
+
+// ProcessThreadMessages is promoted from [Node.Instance.ProcessThreadMessages].
+func (o *Extension[T]) ProcessThreadMessages() Node.ProcessThreadMessages { return o.Super().AsNode().ProcessThreadMessages() }
+
+// SetProcessThreadMessages is promoted from [Node.Instance.SetProcessThreadMessages].
+func (o *Extension[T]) SetProcessThreadMessages(value Node.ProcessThreadMessages) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadMessages(value)
+	return o
+}
+
+// PhysicsInterpolationMode is promoted from [Node.Instance.PhysicsInterpolationMode].
+func (o *Extension[T]) PhysicsInterpolationMode() Node.PhysicsInterpolationMode { return o.Super().AsNode().PhysicsInterpolationMode() }
+
+// SetPhysicsInterpolationMode is promoted from [Node.Instance.SetPhysicsInterpolationMode].
+func (o *Extension[T]) SetPhysicsInterpolationMode(value Node.PhysicsInterpolationMode) *Extension[T] {
+	o.Super().AsNode().SetPhysicsInterpolationMode(value)
+	return o
+}
+
+// AutoTranslateMode is promoted from [Node.Instance.AutoTranslateMode].
+func (o *Extension[T]) AutoTranslateMode() Node.AutoTranslateMode { return o.Super().AsNode().AutoTranslateMode() }
+
+// SetAutoTranslateMode is promoted from [Node.Instance.SetAutoTranslateMode].
+func (o *Extension[T]) SetAutoTranslateMode(value Node.AutoTranslateMode) *Extension[T] {
+	o.Super().AsNode().SetAutoTranslateMode(value)
+	return o
+}
+
+// EditorDescription is promoted from [Node.Instance.EditorDescription].
+func (o *Extension[T]) EditorDescription() string { return o.Super().AsNode().EditorDescription() }
+
+// SetEditorDescription is promoted from [Node.Instance.SetEditorDescription].
+func (o *Extension[T]) SetEditorDescription(value string) *Extension[T] {
+	o.Super().AsNode().SetEditorDescription(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

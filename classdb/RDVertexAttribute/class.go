@@ -158,15 +158,24 @@ func (self Instance) Binding() int { //gd:RDVertexAttribute.binding
 		return int(int(class(self).GetBinding()))
 }
 
+func (o *Extension[T]) Binding() int { return o.Super().Binding() }
+
 // SetBinding sets the property returned by [GetBinding]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBinding(value int) Instance { //gd:RDVertexAttribute.binding
 	class(self).SetBinding(int64(value))
 	return self
 }
 
+func (o *Extension[T]) SetBinding(value int) *Extension[T] {
+	o.Super().SetBinding(value)
+	return o
+}
+
 func (self Instance) Location() int { //gd:RDVertexAttribute.location
 		return int(int(class(self).GetLocation()))
 }
+
+func (o *Extension[T]) Location() int { return o.Super().Location() }
 
 // SetLocation sets the property returned by [GetLocation]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetLocation(value int) Instance { //gd:RDVertexAttribute.location
@@ -174,9 +183,16 @@ func (self Instance) SetLocation(value int) Instance { //gd:RDVertexAttribute.lo
 	return self
 }
 
+func (o *Extension[T]) SetLocation(value int) *Extension[T] {
+	o.Super().SetLocation(value)
+	return o
+}
+
 func (self Instance) Offset() int { //gd:RDVertexAttribute.offset
 		return int(int(class(self).GetOffset()))
 }
+
+func (o *Extension[T]) Offset() int { return o.Super().Offset() }
 
 // SetOffset sets the property returned by [GetOffset]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOffset(value int) Instance { //gd:RDVertexAttribute.offset
@@ -184,9 +200,16 @@ func (self Instance) SetOffset(value int) Instance { //gd:RDVertexAttribute.offs
 	return self
 }
 
+func (o *Extension[T]) SetOffset(value int) *Extension[T] {
+	o.Super().SetOffset(value)
+	return o
+}
+
 func (self Instance) Format() Rendering.DataFormat { //gd:RDVertexAttribute.format
 		return Rendering.DataFormat(class(self).GetFormat())
 }
+
+func (o *Extension[T]) Format() Rendering.DataFormat { return o.Super().Format() }
 
 // SetFormat sets the property returned by [GetFormat]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFormat(value Rendering.DataFormat) Instance { //gd:RDVertexAttribute.format
@@ -194,9 +217,16 @@ func (self Instance) SetFormat(value Rendering.DataFormat) Instance { //gd:RDVer
 	return self
 }
 
+func (o *Extension[T]) SetFormat(value Rendering.DataFormat) *Extension[T] {
+	o.Super().SetFormat(value)
+	return o
+}
+
 func (self Instance) Stride() int { //gd:RDVertexAttribute.stride
 		return int(int(class(self).GetStride()))
 }
+
+func (o *Extension[T]) Stride() int { return o.Super().Stride() }
 
 // SetStride sets the property returned by [GetStride]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStride(value int) Instance { //gd:RDVertexAttribute.stride
@@ -204,14 +234,26 @@ func (self Instance) SetStride(value int) Instance { //gd:RDVertexAttribute.stri
 	return self
 }
 
+func (o *Extension[T]) SetStride(value int) *Extension[T] {
+	o.Super().SetStride(value)
+	return o
+}
+
 func (self Instance) Frequency() Rendering.VertexFrequency { //gd:RDVertexAttribute.frequency
 		return Rendering.VertexFrequency(class(self).GetFrequency())
 }
+
+func (o *Extension[T]) Frequency() Rendering.VertexFrequency { return o.Super().Frequency() }
 
 // SetFrequency sets the property returned by [GetFrequency]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFrequency(value Rendering.VertexFrequency) Instance { //gd:RDVertexAttribute.frequency
 	class(self).SetFrequency(value)
 	return self
+}
+
+func (o *Extension[T]) SetFrequency(value Rendering.VertexFrequency) *Extension[T] {
+	o.Super().SetFrequency(value)
+	return o
 }
 
 func (self class) SetBinding(p_member int64)  { //gd:RDVertexAttribute.set_binding

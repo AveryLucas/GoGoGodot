@@ -222,15 +222,24 @@ func (self Instance) TransformFormat() TransformFormat { //gd:MultiMesh.transfor
 		return TransformFormat(class(self).GetTransformFormat())
 }
 
+func (o *Extension[T]) TransformFormat() TransformFormat { return o.Super().TransformFormat() }
+
 // SetTransformFormat sets the property returned by [GetTransformFormat]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTransformFormat(value TransformFormat) Instance { //gd:MultiMesh.transform_format
 	class(self).SetTransformFormat(value)
 	return self
 }
 
+func (o *Extension[T]) SetTransformFormat(value TransformFormat) *Extension[T] {
+	o.Super().SetTransformFormat(value)
+	return o
+}
+
 func (self Instance) UseColors() bool { //gd:MultiMesh.use_colors
 		return bool(class(self).IsUsingColors())
 }
+
+func (o *Extension[T]) UseColors() bool { return o.Super().UseColors() }
 
 // SetUseColors sets the property returned by [IsUsingColors]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUseColors(value bool) Instance { //gd:MultiMesh.use_colors
@@ -238,9 +247,16 @@ func (self Instance) SetUseColors(value bool) Instance { //gd:MultiMesh.use_colo
 	return self
 }
 
+func (o *Extension[T]) SetUseColors(value bool) *Extension[T] {
+	o.Super().SetUseColors(value)
+	return o
+}
+
 func (self Instance) UseCustomData() bool { //gd:MultiMesh.use_custom_data
 		return bool(class(self).IsUsingCustomData())
 }
+
+func (o *Extension[T]) UseCustomData() bool { return o.Super().UseCustomData() }
 
 // SetUseCustomData sets the property returned by [IsUsingCustomData]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUseCustomData(value bool) Instance { //gd:MultiMesh.use_custom_data
@@ -248,9 +264,16 @@ func (self Instance) SetUseCustomData(value bool) Instance { //gd:MultiMesh.use_
 	return self
 }
 
+func (o *Extension[T]) SetUseCustomData(value bool) *Extension[T] {
+	o.Super().SetUseCustomData(value)
+	return o
+}
+
 func (self Instance) CustomAabb() AABB.PositionSize { //gd:MultiMesh.custom_aabb
 		return AABB.PositionSize(class(self).GetCustomAabb())
 }
+
+func (o *Extension[T]) CustomAabb() AABB.PositionSize { return o.Super().CustomAabb() }
 
 // SetCustomAabb sets the property returned by [GetCustomAabb]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCustomAabb(value AABB.PositionSize) Instance { //gd:MultiMesh.custom_aabb
@@ -258,9 +281,16 @@ func (self Instance) SetCustomAabb(value AABB.PositionSize) Instance { //gd:Mult
 	return self
 }
 
+func (o *Extension[T]) SetCustomAabb(value AABB.PositionSize) *Extension[T] {
+	o.Super().SetCustomAabb(value)
+	return o
+}
+
 func (self Instance) InstanceCount() int { //gd:MultiMesh.instance_count
 		return int(int(class(self).GetInstanceCount()))
 }
+
+func (o *Extension[T]) InstanceCount() int { return o.Super().InstanceCount() }
 
 // SetInstanceCount sets the property returned by [GetInstanceCount]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetInstanceCount(value int) Instance { //gd:MultiMesh.instance_count
@@ -268,9 +298,16 @@ func (self Instance) SetInstanceCount(value int) Instance { //gd:MultiMesh.insta
 	return self
 }
 
+func (o *Extension[T]) SetInstanceCount(value int) *Extension[T] {
+	o.Super().SetInstanceCount(value)
+	return o
+}
+
 func (self Instance) VisibleInstanceCount() int { //gd:MultiMesh.visible_instance_count
 		return int(int(class(self).GetVisibleInstanceCount()))
 }
+
+func (o *Extension[T]) VisibleInstanceCount() int { return o.Super().VisibleInstanceCount() }
 
 // SetVisibleInstanceCount sets the property returned by [GetVisibleInstanceCount]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVisibleInstanceCount(value int) Instance { //gd:MultiMesh.visible_instance_count
@@ -278,9 +315,16 @@ func (self Instance) SetVisibleInstanceCount(value int) Instance { //gd:MultiMes
 	return self
 }
 
+func (o *Extension[T]) SetVisibleInstanceCount(value int) *Extension[T] {
+	o.Super().SetVisibleInstanceCount(value)
+	return o
+}
+
 func (self Instance) Mesh() Mesh.Instance { //gd:MultiMesh.mesh
 		return Mesh.Instance(class(self).GetMesh())
 }
+
+func (o *Extension[T]) Mesh() Mesh.Instance { return o.Super().Mesh() }
 
 // SetMesh sets the property returned by [GetMesh]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMesh(value Mesh.Instance) Instance { //gd:MultiMesh.mesh
@@ -288,9 +332,16 @@ func (self Instance) SetMesh(value Mesh.Instance) Instance { //gd:MultiMesh.mesh
 	return self
 }
 
+func (o *Extension[T]) SetMesh(value Mesh.Instance) *Extension[T] {
+	o.Super().SetMesh(value)
+	return o
+}
+
 func (self Instance) Buffer() []float32 { //gd:MultiMesh.buffer
 		return []float32(slices.Collect(class(self).GetBuffer().Values()))
 }
+
+func (o *Extension[T]) Buffer() []float32 { return o.Super().Buffer() }
 
 // SetBuffer sets the property returned by [GetBuffer]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBuffer(value []float32) Instance { //gd:MultiMesh.buffer
@@ -298,14 +349,26 @@ func (self Instance) SetBuffer(value []float32) Instance { //gd:MultiMesh.buffer
 	return self
 }
 
+func (o *Extension[T]) SetBuffer(value []float32) *Extension[T] {
+	o.Super().SetBuffer(value)
+	return o
+}
+
 func (self Instance) PhysicsInterpolationQuality() PhysicsInterpolationQuality { //gd:MultiMesh.physics_interpolation_quality
 		return PhysicsInterpolationQuality(class(self).GetPhysicsInterpolationQuality())
 }
+
+func (o *Extension[T]) PhysicsInterpolationQuality() PhysicsInterpolationQuality { return o.Super().PhysicsInterpolationQuality() }
 
 // SetPhysicsInterpolationQuality sets the property returned by [GetPhysicsInterpolationQuality]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPhysicsInterpolationQuality(value PhysicsInterpolationQuality) Instance { //gd:MultiMesh.physics_interpolation_quality
 	class(self).SetPhysicsInterpolationQuality(value)
 	return self
+}
+
+func (o *Extension[T]) SetPhysicsInterpolationQuality(value PhysicsInterpolationQuality) *Extension[T] {
+	o.Super().SetPhysicsInterpolationQuality(value)
+	return o
 }
 
 func (self class) SetMesh(mesh [1]gdclass.Mesh)  { //gd:MultiMesh.set_mesh
@@ -589,6 +652,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

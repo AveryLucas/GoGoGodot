@@ -1171,6 +1171,84 @@ func (o *Extension[T]) GetSpaceState() PhysicsDirectSpaceState2D.Instance {
 	return o.Super().AsPhysicsDirectBodyState2D().GetSpaceState()
 }
 
+// Step is promoted from [PhysicsDirectBodyState2D.Instance.Step].
+func (o *Extension[T]) Step() Float.X { return o.Super().AsPhysicsDirectBodyState2D().Step() }
+
+// InverseMass is promoted from [PhysicsDirectBodyState2D.Instance.InverseMass].
+func (o *Extension[T]) InverseMass() Float.X { return o.Super().AsPhysicsDirectBodyState2D().InverseMass() }
+
+// InverseInertia is promoted from [PhysicsDirectBodyState2D.Instance.InverseInertia].
+func (o *Extension[T]) InverseInertia() Float.X { return o.Super().AsPhysicsDirectBodyState2D().InverseInertia() }
+
+// TotalAngularDamp is promoted from [PhysicsDirectBodyState2D.Instance.TotalAngularDamp].
+func (o *Extension[T]) TotalAngularDamp() Float.X { return o.Super().AsPhysicsDirectBodyState2D().TotalAngularDamp() }
+
+// TotalLinearDamp is promoted from [PhysicsDirectBodyState2D.Instance.TotalLinearDamp].
+func (o *Extension[T]) TotalLinearDamp() Float.X { return o.Super().AsPhysicsDirectBodyState2D().TotalLinearDamp() }
+
+// TotalGravity is promoted from [PhysicsDirectBodyState2D.Instance.TotalGravity].
+func (o *Extension[T]) TotalGravity() Vector2.XY { return o.Super().AsPhysicsDirectBodyState2D().TotalGravity() }
+
+// CenterOfMass is promoted from [PhysicsDirectBodyState2D.Instance.CenterOfMass].
+func (o *Extension[T]) CenterOfMass() Vector2.XY { return o.Super().AsPhysicsDirectBodyState2D().CenterOfMass() }
+
+// CenterOfMassLocal is promoted from [PhysicsDirectBodyState2D.Instance.CenterOfMassLocal].
+func (o *Extension[T]) CenterOfMassLocal() Vector2.XY { return o.Super().AsPhysicsDirectBodyState2D().CenterOfMassLocal() }
+
+// AngularVelocity is promoted from [PhysicsDirectBodyState2D.Instance.AngularVelocity].
+func (o *Extension[T]) AngularVelocity() Float.X { return o.Super().AsPhysicsDirectBodyState2D().AngularVelocity() }
+
+// SetAngularVelocity is promoted from [PhysicsDirectBodyState2D.Instance.SetAngularVelocity].
+func (o *Extension[T]) SetAngularVelocity(value Float.X) *Extension[T] {
+	o.Super().AsPhysicsDirectBodyState2D().SetAngularVelocity(value)
+	return o
+}
+
+// LinearVelocity is promoted from [PhysicsDirectBodyState2D.Instance.LinearVelocity].
+func (o *Extension[T]) LinearVelocity() Vector2.XY { return o.Super().AsPhysicsDirectBodyState2D().LinearVelocity() }
+
+// SetLinearVelocity is promoted from [PhysicsDirectBodyState2D.Instance.SetLinearVelocity].
+func (o *Extension[T]) SetLinearVelocity(value Vector2.XY) *Extension[T] {
+	o.Super().AsPhysicsDirectBodyState2D().SetLinearVelocity(value)
+	return o
+}
+
+// Sleeping is promoted from [PhysicsDirectBodyState2D.Instance.Sleeping].
+func (o *Extension[T]) Sleeping() bool { return o.Super().AsPhysicsDirectBodyState2D().Sleeping() }
+
+// SetSleeping is promoted from [PhysicsDirectBodyState2D.Instance.SetSleeping].
+func (o *Extension[T]) SetSleeping(value bool) *Extension[T] {
+	o.Super().AsPhysicsDirectBodyState2D().SetSleeping(value)
+	return o
+}
+
+// CollisionLayer is promoted from [PhysicsDirectBodyState2D.Instance.CollisionLayer].
+func (o *Extension[T]) CollisionLayer() int { return o.Super().AsPhysicsDirectBodyState2D().CollisionLayer() }
+
+// SetCollisionLayer is promoted from [PhysicsDirectBodyState2D.Instance.SetCollisionLayer].
+func (o *Extension[T]) SetCollisionLayer(value int) *Extension[T] {
+	o.Super().AsPhysicsDirectBodyState2D().SetCollisionLayer(value)
+	return o
+}
+
+// CollisionMask is promoted from [PhysicsDirectBodyState2D.Instance.CollisionMask].
+func (o *Extension[T]) CollisionMask() int { return o.Super().AsPhysicsDirectBodyState2D().CollisionMask() }
+
+// SetCollisionMask is promoted from [PhysicsDirectBodyState2D.Instance.SetCollisionMask].
+func (o *Extension[T]) SetCollisionMask(value int) *Extension[T] {
+	o.Super().AsPhysicsDirectBodyState2D().SetCollisionMask(value)
+	return o
+}
+
+// Transform is promoted from [PhysicsDirectBodyState2D.Instance.Transform].
+func (o *Extension[T]) Transform() Transform2D.OriginXY { return o.Super().AsPhysicsDirectBodyState2D().Transform() }
+
+// SetTransform is promoted from [PhysicsDirectBodyState2D.Instance.SetTransform].
+func (o *Extension[T]) SetTransform(value Transform2D.OriginXY) *Extension[T] {
+	o.Super().AsPhysicsDirectBodyState2D().SetTransform(value)
+	return o
+}
+
 func (self class) Virtual(name string) reflect.Value {
 	switch name {
 	case "_get_total_gravity": return reflect.ValueOf(self._get_total_gravity);

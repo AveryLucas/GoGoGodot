@@ -165,15 +165,24 @@ func (self Instance) LocalizedName() string { //gd:OpenXRActionSet.localized_nam
 		return string(class(self).GetLocalizedName().String())
 }
 
+func (o *Extension[T]) LocalizedName() string { return o.Super().LocalizedName() }
+
 // SetLocalizedName sets the property returned by [GetLocalizedName]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetLocalizedName(value string) Instance { //gd:OpenXRActionSet.localized_name
 	class(self).SetLocalizedName(String.From(value))
 	return self
 }
 
+func (o *Extension[T]) SetLocalizedName(value string) *Extension[T] {
+	o.Super().SetLocalizedName(value)
+	return o
+}
+
 func (self Instance) Priority() int { //gd:OpenXRActionSet.priority
 		return int(int(class(self).GetPriority()))
 }
+
+func (o *Extension[T]) Priority() int { return o.Super().Priority() }
 
 // SetPriority sets the property returned by [GetPriority]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPriority(value int) Instance { //gd:OpenXRActionSet.priority
@@ -181,14 +190,26 @@ func (self Instance) SetPriority(value int) Instance { //gd:OpenXRActionSet.prio
 	return self
 }
 
+func (o *Extension[T]) SetPriority(value int) *Extension[T] {
+	o.Super().SetPriority(value)
+	return o
+}
+
 func (self Instance) Actions() []OpenXRAction.Instance { //gd:OpenXRActionSet.actions
 		return []OpenXRAction.Instance(gd.ArrayAs[[]OpenXRAction.Instance](gd.InternalArray(class(self).GetActions())))
 }
+
+func (o *Extension[T]) Actions() []OpenXRAction.Instance { return o.Super().Actions() }
 
 // SetActions sets the property returned by [GetActions]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetActions(value []OpenXRAction.Instance) Instance { //gd:OpenXRActionSet.actions
 	class(self).SetActions(gd.EngineArrayFromSlice(value))
 	return self
+}
+
+func (o *Extension[T]) SetActions(value []OpenXRAction.Instance) *Extension[T] {
+	o.Super().SetActions(value)
+	return o
 }
 
 func (self class) SetLocalizedName(localized_name String.Readable)  { //gd:OpenXRActionSet.set_localized_name
@@ -357,6 +378,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

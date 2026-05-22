@@ -153,15 +153,24 @@ func (self Instance) BufferLength() Float.X { //gd:AudioEffectSpectrumAnalyzer.b
 		return Float.X(Float.X(class(self).GetBufferLength()))
 }
 
+func (o *Extension[T]) BufferLength() Float.X { return o.Super().BufferLength() }
+
 // SetBufferLength sets the property returned by [GetBufferLength]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBufferLength(value Float.X) Instance { //gd:AudioEffectSpectrumAnalyzer.buffer_length
 	class(self).SetBufferLength(float64(value))
 	return self
 }
 
+func (o *Extension[T]) SetBufferLength(value Float.X) *Extension[T] {
+	o.Super().SetBufferLength(value)
+	return o
+}
+
 func (self Instance) TapBackPos() Float.X { //gd:AudioEffectSpectrumAnalyzer.tap_back_pos
 		return Float.X(Float.X(class(self).GetTapBackPos()))
 }
+
+func (o *Extension[T]) TapBackPos() Float.X { return o.Super().TapBackPos() }
 
 // SetTapBackPos sets the property returned by [GetTapBackPos]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTapBackPos(value Float.X) Instance { //gd:AudioEffectSpectrumAnalyzer.tap_back_pos
@@ -169,14 +178,26 @@ func (self Instance) SetTapBackPos(value Float.X) Instance { //gd:AudioEffectSpe
 	return self
 }
 
+func (o *Extension[T]) SetTapBackPos(value Float.X) *Extension[T] {
+	o.Super().SetTapBackPos(value)
+	return o
+}
+
 func (self Instance) FftSize() FFTSize { //gd:AudioEffectSpectrumAnalyzer.fft_size
 		return FFTSize(class(self).GetFftSize())
 }
+
+func (o *Extension[T]) FftSize() FFTSize { return o.Super().FftSize() }
 
 // SetFftSize sets the property returned by [GetFftSize]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFftSize(value FFTSize) Instance { //gd:AudioEffectSpectrumAnalyzer.fft_size
 	class(self).SetFftSize(value)
 	return self
+}
+
+func (o *Extension[T]) SetFftSize(value FFTSize) *Extension[T] {
+	o.Super().SetFftSize(value)
+	return o
 }
 
 func (self class) SetBufferLength(seconds float64)  { //gd:AudioEffectSpectrumAnalyzer.set_buffer_length
@@ -328,6 +349,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

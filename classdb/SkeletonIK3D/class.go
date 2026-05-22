@@ -17,6 +17,7 @@ import "graphics.gd/variant"
 import "graphics.gd/variant/Angle"
 import "graphics.gd/variant/Euler"
 import "graphics.gd/variant/Signal"
+import "graphics.gd/classdb/MultiplayerAPI"
 import "graphics.gd/classdb/Node"
 import "graphics.gd/classdb/Node3D"
 import "graphics.gd/classdb/Node3DGizmo"
@@ -25,6 +26,7 @@ import "graphics.gd/classdb/SkeletonModifier3D"
 import "graphics.gd/classdb/Tween"
 import "graphics.gd/classdb/World3D"
 import "graphics.gd/variant/Array"
+import "graphics.gd/variant/Basis"
 import "graphics.gd/variant/Callable"
 import "graphics.gd/variant/Dictionary"
 import "graphics.gd/variant/Error"
@@ -32,6 +34,7 @@ import "graphics.gd/variant/Float"
 import "graphics.gd/variant/Object"
 import "graphics.gd/variant/Packed"
 import "graphics.gd/variant/Path"
+import "graphics.gd/variant/Quaternion"
 import "graphics.gd/variant/RID"
 import "graphics.gd/variant/RefCounted"
 import "graphics.gd/variant/String"
@@ -197,15 +200,24 @@ func (self Instance) RootBone() string { //gd:SkeletonIK3D.root_bone
 		return string(class(self).GetRootBone().String())
 }
 
+func (o *Extension[T]) RootBone() string { return o.Super().RootBone() }
+
 // SetRootBone sets the property returned by [GetRootBone]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRootBone(value string) Instance { //gd:SkeletonIK3D.root_bone
 	class(self).SetRootBone(String.Name(String.From(value)))
 	return self
 }
 
+func (o *Extension[T]) SetRootBone(value string) *Extension[T] {
+	o.Super().SetRootBone(value)
+	return o
+}
+
 func (self Instance) TipBone() string { //gd:SkeletonIK3D.tip_bone
 		return string(class(self).GetTipBone().String())
 }
+
+func (o *Extension[T]) TipBone() string { return o.Super().TipBone() }
 
 // SetTipBone sets the property returned by [GetTipBone]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTipBone(value string) Instance { //gd:SkeletonIK3D.tip_bone
@@ -213,9 +225,16 @@ func (self Instance) SetTipBone(value string) Instance { //gd:SkeletonIK3D.tip_b
 	return self
 }
 
+func (o *Extension[T]) SetTipBone(value string) *Extension[T] {
+	o.Super().SetTipBone(value)
+	return o
+}
+
 func (self Instance) Target() Transform3D.BasisOrigin { //gd:SkeletonIK3D.target
 		return Transform3D.BasisOrigin(class(self).GetTargetTransform())
 }
+
+func (o *Extension[T]) Target() Transform3D.BasisOrigin { return o.Super().Target() }
 
 // SetTarget sets the property returned by [GetTargetTransform]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTarget(value Transform3D.BasisOrigin) Instance { //gd:SkeletonIK3D.target
@@ -223,9 +242,16 @@ func (self Instance) SetTarget(value Transform3D.BasisOrigin) Instance { //gd:Sk
 	return self
 }
 
+func (o *Extension[T]) SetTarget(value Transform3D.BasisOrigin) *Extension[T] {
+	o.Super().SetTarget(value)
+	return o
+}
+
 func (self Instance) OverrideTipBasis() bool { //gd:SkeletonIK3D.override_tip_basis
 		return bool(class(self).IsOverrideTipBasis())
 }
+
+func (o *Extension[T]) OverrideTipBasis() bool { return o.Super().OverrideTipBasis() }
 
 // SetOverrideTipBasis sets the property returned by [IsOverrideTipBasis]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOverrideTipBasis(value bool) Instance { //gd:SkeletonIK3D.override_tip_basis
@@ -233,9 +259,16 @@ func (self Instance) SetOverrideTipBasis(value bool) Instance { //gd:SkeletonIK3
 	return self
 }
 
+func (o *Extension[T]) SetOverrideTipBasis(value bool) *Extension[T] {
+	o.Super().SetOverrideTipBasis(value)
+	return o
+}
+
 func (self Instance) UseMagnet() bool { //gd:SkeletonIK3D.use_magnet
 		return bool(class(self).IsUsingMagnet())
 }
+
+func (o *Extension[T]) UseMagnet() bool { return o.Super().UseMagnet() }
 
 // SetUseMagnet sets the property returned by [IsUsingMagnet]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUseMagnet(value bool) Instance { //gd:SkeletonIK3D.use_magnet
@@ -243,9 +276,16 @@ func (self Instance) SetUseMagnet(value bool) Instance { //gd:SkeletonIK3D.use_m
 	return self
 }
 
+func (o *Extension[T]) SetUseMagnet(value bool) *Extension[T] {
+	o.Super().SetUseMagnet(value)
+	return o
+}
+
 func (self Instance) Magnet() Vector3.XYZ { //gd:SkeletonIK3D.magnet
 		return Vector3.XYZ(class(self).GetMagnetPosition())
 }
+
+func (o *Extension[T]) Magnet() Vector3.XYZ { return o.Super().Magnet() }
 
 // SetMagnet sets the property returned by [GetMagnetPosition]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMagnet(value Vector3.XYZ) Instance { //gd:SkeletonIK3D.magnet
@@ -253,9 +293,16 @@ func (self Instance) SetMagnet(value Vector3.XYZ) Instance { //gd:SkeletonIK3D.m
 	return self
 }
 
+func (o *Extension[T]) SetMagnet(value Vector3.XYZ) *Extension[T] {
+	o.Super().SetMagnet(value)
+	return o
+}
+
 func (self Instance) TargetNode() string { //gd:SkeletonIK3D.target_node
 		return string(class(self).GetTargetNode().String())
 }
+
+func (o *Extension[T]) TargetNode() string { return o.Super().TargetNode() }
 
 // SetTargetNode sets the property returned by [GetTargetNode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTargetNode(value string) Instance { //gd:SkeletonIK3D.target_node
@@ -263,9 +310,16 @@ func (self Instance) SetTargetNode(value string) Instance { //gd:SkeletonIK3D.ta
 	return self
 }
 
+func (o *Extension[T]) SetTargetNode(value string) *Extension[T] {
+	o.Super().SetTargetNode(value)
+	return o
+}
+
 func (self Instance) MinDistance() Float.X { //gd:SkeletonIK3D.min_distance
 		return Float.X(Float.X(class(self).GetMinDistance()))
 }
+
+func (o *Extension[T]) MinDistance() Float.X { return o.Super().MinDistance() }
 
 // SetMinDistance sets the property returned by [GetMinDistance]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMinDistance(value Float.X) Instance { //gd:SkeletonIK3D.min_distance
@@ -273,9 +327,16 @@ func (self Instance) SetMinDistance(value Float.X) Instance { //gd:SkeletonIK3D.
 	return self
 }
 
+func (o *Extension[T]) SetMinDistance(value Float.X) *Extension[T] {
+	o.Super().SetMinDistance(value)
+	return o
+}
+
 func (self Instance) MaxIterations() int { //gd:SkeletonIK3D.max_iterations
 		return int(int(class(self).GetMaxIterations()))
 }
+
+func (o *Extension[T]) MaxIterations() int { return o.Super().MaxIterations() }
 
 // SetMaxIterations sets the property returned by [GetMaxIterations]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMaxIterations(value int) Instance { //gd:SkeletonIK3D.max_iterations
@@ -283,14 +344,26 @@ func (self Instance) SetMaxIterations(value int) Instance { //gd:SkeletonIK3D.ma
 	return self
 }
 
+func (o *Extension[T]) SetMaxIterations(value int) *Extension[T] {
+	o.Super().SetMaxIterations(value)
+	return o
+}
+
 func (self Instance) Interpolation() Float.X { //gd:SkeletonIK3D.interpolation
 		return Float.X(Float.X(class(self).GetInterpolation()))
 }
+
+func (o *Extension[T]) Interpolation() Float.X { return o.Super().Interpolation() }
 
 // SetInterpolation sets the property returned by [GetInterpolation]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetInterpolation(value Float.X) Instance { //gd:SkeletonIK3D.interpolation
 	class(self).SetInterpolation(float64(value))
 	return self
+}
+
+func (o *Extension[T]) SetInterpolation(value Float.X) *Extension[T] {
+	o.Super().SetInterpolation(value)
+	return o
 }
 
 func (self class) SetRootBone(root_bone String.Name)  { //gd:SkeletonIK3D.set_root_bone
@@ -1599,6 +1672,297 @@ func (self Instance) NotifyThreadSafe(what int) {
 // NotifyThreadSafe is promoted from [Node.Instance.NotifyThreadSafe].
 func (o *Extension[T]) NotifyThreadSafe(what int) {
 	o.Super().AsNode().NotifyThreadSafe(what)
+}
+
+// Active is promoted from [SkeletonModifier3D.Instance.Active].
+func (o *Extension[T]) Active() bool { return o.Super().AsSkeletonModifier3D().Active() }
+
+// SetActive is promoted from [SkeletonModifier3D.Instance.SetActive].
+func (o *Extension[T]) SetActive(value bool) *Extension[T] {
+	o.Super().AsSkeletonModifier3D().SetActive(value)
+	return o
+}
+
+// Influence is promoted from [SkeletonModifier3D.Instance.Influence].
+func (o *Extension[T]) Influence() Float.X { return o.Super().AsSkeletonModifier3D().Influence() }
+
+// SetInfluence is promoted from [SkeletonModifier3D.Instance.SetInfluence].
+func (o *Extension[T]) SetInfluence(value Float.X) *Extension[T] {
+	o.Super().AsSkeletonModifier3D().SetInfluence(value)
+	return o
+}
+
+// Transform is promoted from [Node3D.Instance.Transform].
+func (o *Extension[T]) Transform() Transform3D.BasisOrigin { return o.Super().AsNode3D().Transform() }
+
+// SetTransform is promoted from [Node3D.Instance.SetTransform].
+func (o *Extension[T]) SetTransform(value Transform3D.BasisOrigin) *Extension[T] {
+	o.Super().AsNode3D().SetTransform(value)
+	return o
+}
+
+// GlobalTransform is promoted from [Node3D.Instance.GlobalTransform].
+func (o *Extension[T]) GlobalTransform() Transform3D.BasisOrigin { return o.Super().AsNode3D().GlobalTransform() }
+
+// SetGlobalTransform is promoted from [Node3D.Instance.SetGlobalTransform].
+func (o *Extension[T]) SetGlobalTransform(value Transform3D.BasisOrigin) *Extension[T] {
+	o.Super().AsNode3D().SetGlobalTransform(value)
+	return o
+}
+
+// Position is promoted from [Node3D.Instance.Position].
+func (o *Extension[T]) Position() Vector3.XYZ { return o.Super().AsNode3D().Position() }
+
+// SetPosition is promoted from [Node3D.Instance.SetPosition].
+func (o *Extension[T]) SetPosition(value Vector3.XYZ) *Extension[T] {
+	o.Super().AsNode3D().SetPosition(value)
+	return o
+}
+
+// Rotation is promoted from [Node3D.Instance.Rotation].
+func (o *Extension[T]) Rotation() Euler.Radians { return o.Super().AsNode3D().Rotation() }
+
+// SetRotation is promoted from [Node3D.Instance.SetRotation].
+func (o *Extension[T]) SetRotation(value Euler.Radians) *Extension[T] {
+	o.Super().AsNode3D().SetRotation(value)
+	return o
+}
+
+// RotationDegrees is promoted from [Node3D.Instance.RotationDegrees].
+func (o *Extension[T]) RotationDegrees() Euler.Degrees { return o.Super().AsNode3D().RotationDegrees() }
+
+// SetRotationDegrees is promoted from [Node3D.Instance.SetRotationDegrees].
+func (o *Extension[T]) SetRotationDegrees(value Euler.Degrees) *Extension[T] {
+	o.Super().AsNode3D().SetRotationDegrees(value)
+	return o
+}
+
+// Quaternion is promoted from [Node3D.Instance.Quaternion].
+func (o *Extension[T]) Quaternion() Quaternion.IJKX { return o.Super().AsNode3D().Quaternion() }
+
+// SetQuaternion is promoted from [Node3D.Instance.SetQuaternion].
+func (o *Extension[T]) SetQuaternion(value Quaternion.IJKX) *Extension[T] {
+	o.Super().AsNode3D().SetQuaternion(value)
+	return o
+}
+
+// Basis is promoted from [Node3D.Instance.Basis].
+func (o *Extension[T]) Basis() Basis.XYZ { return o.Super().AsNode3D().Basis() }
+
+// SetBasis is promoted from [Node3D.Instance.SetBasis].
+func (o *Extension[T]) SetBasis(value Basis.XYZ) *Extension[T] {
+	o.Super().AsNode3D().SetBasis(value)
+	return o
+}
+
+// Scale is promoted from [Node3D.Instance.Scale].
+func (o *Extension[T]) Scale() Vector3.XYZ { return o.Super().AsNode3D().Scale() }
+
+// SetScale is promoted from [Node3D.Instance.SetScale].
+func (o *Extension[T]) SetScale(value Vector3.XYZ) *Extension[T] {
+	o.Super().AsNode3D().SetScale(value)
+	return o
+}
+
+// RotationEditMode is promoted from [Node3D.Instance.RotationEditMode].
+func (o *Extension[T]) RotationEditMode() Node3D.RotationEditMode { return o.Super().AsNode3D().RotationEditMode() }
+
+// SetRotationEditMode is promoted from [Node3D.Instance.SetRotationEditMode].
+func (o *Extension[T]) SetRotationEditMode(value Node3D.RotationEditMode) *Extension[T] {
+	o.Super().AsNode3D().SetRotationEditMode(value)
+	return o
+}
+
+// RotationOrder is promoted from [Node3D.Instance.RotationOrder].
+func (o *Extension[T]) RotationOrder() Angle.Order { return o.Super().AsNode3D().RotationOrder() }
+
+// SetRotationOrder is promoted from [Node3D.Instance.SetRotationOrder].
+func (o *Extension[T]) SetRotationOrder(value Angle.Order) *Extension[T] {
+	o.Super().AsNode3D().SetRotationOrder(value)
+	return o
+}
+
+// TopLevel is promoted from [Node3D.Instance.TopLevel].
+func (o *Extension[T]) TopLevel() bool { return o.Super().AsNode3D().TopLevel() }
+
+// SetTopLevel is promoted from [Node3D.Instance.SetTopLevel].
+func (o *Extension[T]) SetTopLevel(value bool) *Extension[T] {
+	o.Super().AsNode3D().SetTopLevel(value)
+	return o
+}
+
+// GlobalPosition is promoted from [Node3D.Instance.GlobalPosition].
+func (o *Extension[T]) GlobalPosition() Vector3.XYZ { return o.Super().AsNode3D().GlobalPosition() }
+
+// SetGlobalPosition is promoted from [Node3D.Instance.SetGlobalPosition].
+func (o *Extension[T]) SetGlobalPosition(value Vector3.XYZ) *Extension[T] {
+	o.Super().AsNode3D().SetGlobalPosition(value)
+	return o
+}
+
+// GlobalBasis is promoted from [Node3D.Instance.GlobalBasis].
+func (o *Extension[T]) GlobalBasis() Basis.XYZ { return o.Super().AsNode3D().GlobalBasis() }
+
+// SetGlobalBasis is promoted from [Node3D.Instance.SetGlobalBasis].
+func (o *Extension[T]) SetGlobalBasis(value Basis.XYZ) *Extension[T] {
+	o.Super().AsNode3D().SetGlobalBasis(value)
+	return o
+}
+
+// GlobalRotation is promoted from [Node3D.Instance.GlobalRotation].
+func (o *Extension[T]) GlobalRotation() Euler.Radians { return o.Super().AsNode3D().GlobalRotation() }
+
+// SetGlobalRotation is promoted from [Node3D.Instance.SetGlobalRotation].
+func (o *Extension[T]) SetGlobalRotation(value Euler.Radians) *Extension[T] {
+	o.Super().AsNode3D().SetGlobalRotation(value)
+	return o
+}
+
+// GlobalRotationDegrees is promoted from [Node3D.Instance.GlobalRotationDegrees].
+func (o *Extension[T]) GlobalRotationDegrees() Euler.Degrees { return o.Super().AsNode3D().GlobalRotationDegrees() }
+
+// SetGlobalRotationDegrees is promoted from [Node3D.Instance.SetGlobalRotationDegrees].
+func (o *Extension[T]) SetGlobalRotationDegrees(value Euler.Degrees) *Extension[T] {
+	o.Super().AsNode3D().SetGlobalRotationDegrees(value)
+	return o
+}
+
+// Visible is promoted from [Node3D.Instance.Visible].
+func (o *Extension[T]) Visible() bool { return o.Super().AsNode3D().Visible() }
+
+// SetVisible is promoted from [Node3D.Instance.SetVisible].
+func (o *Extension[T]) SetVisible(value bool) *Extension[T] {
+	o.Super().AsNode3D().SetVisible(value)
+	return o
+}
+
+// VisibilityParent is promoted from [Node3D.Instance.VisibilityParent].
+func (o *Extension[T]) VisibilityParent() string { return o.Super().AsNode3D().VisibilityParent() }
+
+// SetVisibilityParent is promoted from [Node3D.Instance.SetVisibilityParent].
+func (o *Extension[T]) SetVisibilityParent(value string) *Extension[T] {
+	o.Super().AsNode3D().SetVisibilityParent(value)
+	return o
+}
+
+// Name is promoted from [Node.Instance.Name].
+func (o *Extension[T]) Name() string { return o.Super().AsNode().Name() }
+
+// SetName is promoted from [Node.Instance.SetName].
+func (o *Extension[T]) SetName(value string) *Extension[T] {
+	o.Super().AsNode().SetName(value)
+	return o
+}
+
+// UniqueNameInOwner is promoted from [Node.Instance.UniqueNameInOwner].
+func (o *Extension[T]) UniqueNameInOwner() bool { return o.Super().AsNode().UniqueNameInOwner() }
+
+// SetUniqueNameInOwner is promoted from [Node.Instance.SetUniqueNameInOwner].
+func (o *Extension[T]) SetUniqueNameInOwner(value bool) *Extension[T] {
+	o.Super().AsNode().SetUniqueNameInOwner(value)
+	return o
+}
+
+// SceneFilePath is promoted from [Node.Instance.SceneFilePath].
+func (o *Extension[T]) SceneFilePath() string { return o.Super().AsNode().SceneFilePath() }
+
+// SetSceneFilePath is promoted from [Node.Instance.SetSceneFilePath].
+func (o *Extension[T]) SetSceneFilePath(value string) *Extension[T] {
+	o.Super().AsNode().SetSceneFilePath(value)
+	return o
+}
+
+// Owner is promoted from [Node.Instance.Owner].
+func (o *Extension[T]) Owner() Node.Instance { return o.Super().AsNode().Owner() }
+
+// SetOwner is promoted from [Node.Instance.SetOwner].
+func (o *Extension[T]) SetOwner(value Node.Instance) *Extension[T] {
+	o.Super().AsNode().SetOwner(value)
+	return o
+}
+
+// Multiplayer is promoted from [Node.Instance.Multiplayer].
+func (o *Extension[T]) Multiplayer() MultiplayerAPI.Instance { return o.Super().AsNode().Multiplayer() }
+
+// ProcessMode is promoted from [Node.Instance.ProcessMode].
+func (o *Extension[T]) ProcessMode() Node.ProcessMode { return o.Super().AsNode().ProcessMode() }
+
+// SetProcessMode is promoted from [Node.Instance.SetProcessMode].
+func (o *Extension[T]) SetProcessMode(value Node.ProcessMode) *Extension[T] {
+	o.Super().AsNode().SetProcessMode(value)
+	return o
+}
+
+// ProcessPriority is promoted from [Node.Instance.ProcessPriority].
+func (o *Extension[T]) ProcessPriority() int { return o.Super().AsNode().ProcessPriority() }
+
+// SetProcessPriority is promoted from [Node.Instance.SetProcessPriority].
+func (o *Extension[T]) SetProcessPriority(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessPriority(value)
+	return o
+}
+
+// ProcessPhysicsPriority is promoted from [Node.Instance.ProcessPhysicsPriority].
+func (o *Extension[T]) ProcessPhysicsPriority() int { return o.Super().AsNode().ProcessPhysicsPriority() }
+
+// SetProcessPhysicsPriority is promoted from [Node.Instance.SetProcessPhysicsPriority].
+func (o *Extension[T]) SetProcessPhysicsPriority(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessPhysicsPriority(value)
+	return o
+}
+
+// ProcessThreadGroup is promoted from [Node.Instance.ProcessThreadGroup].
+func (o *Extension[T]) ProcessThreadGroup() Node.ProcessThreadGroup { return o.Super().AsNode().ProcessThreadGroup() }
+
+// SetProcessThreadGroup is promoted from [Node.Instance.SetProcessThreadGroup].
+func (o *Extension[T]) SetProcessThreadGroup(value Node.ProcessThreadGroup) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadGroup(value)
+	return o
+}
+
+// ProcessThreadGroupOrder is promoted from [Node.Instance.ProcessThreadGroupOrder].
+func (o *Extension[T]) ProcessThreadGroupOrder() int { return o.Super().AsNode().ProcessThreadGroupOrder() }
+
+// SetProcessThreadGroupOrder is promoted from [Node.Instance.SetProcessThreadGroupOrder].
+func (o *Extension[T]) SetProcessThreadGroupOrder(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadGroupOrder(value)
+	return o
+}
+
+// ProcessThreadMessages is promoted from [Node.Instance.ProcessThreadMessages].
+func (o *Extension[T]) ProcessThreadMessages() Node.ProcessThreadMessages { return o.Super().AsNode().ProcessThreadMessages() }
+
+// SetProcessThreadMessages is promoted from [Node.Instance.SetProcessThreadMessages].
+func (o *Extension[T]) SetProcessThreadMessages(value Node.ProcessThreadMessages) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadMessages(value)
+	return o
+}
+
+// PhysicsInterpolationMode is promoted from [Node.Instance.PhysicsInterpolationMode].
+func (o *Extension[T]) PhysicsInterpolationMode() Node.PhysicsInterpolationMode { return o.Super().AsNode().PhysicsInterpolationMode() }
+
+// SetPhysicsInterpolationMode is promoted from [Node.Instance.SetPhysicsInterpolationMode].
+func (o *Extension[T]) SetPhysicsInterpolationMode(value Node.PhysicsInterpolationMode) *Extension[T] {
+	o.Super().AsNode().SetPhysicsInterpolationMode(value)
+	return o
+}
+
+// AutoTranslateMode is promoted from [Node.Instance.AutoTranslateMode].
+func (o *Extension[T]) AutoTranslateMode() Node.AutoTranslateMode { return o.Super().AsNode().AutoTranslateMode() }
+
+// SetAutoTranslateMode is promoted from [Node.Instance.SetAutoTranslateMode].
+func (o *Extension[T]) SetAutoTranslateMode(value Node.AutoTranslateMode) *Extension[T] {
+	o.Super().AsNode().SetAutoTranslateMode(value)
+	return o
+}
+
+// EditorDescription is promoted from [Node.Instance.EditorDescription].
+func (o *Extension[T]) EditorDescription() string { return o.Super().AsNode().EditorDescription() }
+
+// SetEditorDescription is promoted from [Node.Instance.SetEditorDescription].
+func (o *Extension[T]) SetEditorDescription(value string) *Extension[T] {
+	o.Super().AsNode().SetEditorDescription(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

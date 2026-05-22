@@ -150,20 +150,34 @@ func (self Instance) SrcImage() int { //gd:GLTFTexture.src_image
 		return int(int(class(self).GetSrcImage()))
 }
 
+func (o *Extension[T]) SrcImage() int { return o.Super().SrcImage() }
+
 // SetSrcImage sets the property returned by [GetSrcImage]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSrcImage(value int) Instance { //gd:GLTFTexture.src_image
 	class(self).SetSrcImage(int64(value))
 	return self
 }
 
+func (o *Extension[T]) SetSrcImage(value int) *Extension[T] {
+	o.Super().SetSrcImage(value)
+	return o
+}
+
 func (self Instance) Sampler() int { //gd:GLTFTexture.sampler
 		return int(int(class(self).GetSampler()))
 }
+
+func (o *Extension[T]) Sampler() int { return o.Super().Sampler() }
 
 // SetSampler sets the property returned by [GetSampler]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSampler(value int) Instance { //gd:GLTFTexture.sampler
 	class(self).SetSampler(int64(value))
 	return self
+}
+
+func (o *Extension[T]) SetSampler(value int) *Extension[T] {
+	o.Super().SetSampler(value)
+	return o
 }
 
 func (self class) GetSrcImage() int64 { //gd:GLTFTexture.get_src_image
@@ -304,6 +318,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

@@ -157,15 +157,24 @@ func (self Instance) Radius() Float.X { //gd:CapsuleShape2D.radius
 		return Float.X(Float.X(class(self).GetRadius()))
 }
 
+func (o *Extension[T]) Radius() Float.X { return o.Super().Radius() }
+
 // SetRadius sets the property returned by [GetRadius]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRadius(value Float.X) Instance { //gd:CapsuleShape2D.radius
 	class(self).SetRadius(float64(value))
 	return self
 }
 
+func (o *Extension[T]) SetRadius(value Float.X) *Extension[T] {
+	o.Super().SetRadius(value)
+	return o
+}
+
 func (self Instance) Height() Float.X { //gd:CapsuleShape2D.height
 		return Float.X(Float.X(class(self).GetHeight()))
 }
+
+func (o *Extension[T]) Height() Float.X { return o.Super().Height() }
 
 // SetHeight sets the property returned by [GetHeight]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetHeight(value Float.X) Instance { //gd:CapsuleShape2D.height
@@ -173,14 +182,26 @@ func (self Instance) SetHeight(value Float.X) Instance { //gd:CapsuleShape2D.hei
 	return self
 }
 
+func (o *Extension[T]) SetHeight(value Float.X) *Extension[T] {
+	o.Super().SetHeight(value)
+	return o
+}
+
 func (self Instance) MidHeight() Float.X { //gd:CapsuleShape2D.mid_height
 		return Float.X(Float.X(class(self).GetMidHeight()))
 }
+
+func (o *Extension[T]) MidHeight() Float.X { return o.Super().MidHeight() }
 
 // SetMidHeight sets the property returned by [GetMidHeight]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMidHeight(value Float.X) Instance { //gd:CapsuleShape2D.mid_height
 	class(self).SetMidHeight(float64(value))
 	return self
+}
+
+func (o *Extension[T]) SetMidHeight(value Float.X) *Extension[T] {
+	o.Super().SetMidHeight(value)
+	return o
 }
 
 func (self class) SetRadius(radius float64)  { //gd:CapsuleShape2D.set_radius
@@ -392,6 +413,51 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// CustomSolverBias is promoted from [Shape2D.Instance.CustomSolverBias].
+func (o *Extension[T]) CustomSolverBias() Float.X { return o.Super().AsShape2D().CustomSolverBias() }
+
+// SetCustomSolverBias is promoted from [Shape2D.Instance.SetCustomSolverBias].
+func (o *Extension[T]) SetCustomSolverBias(value Float.X) *Extension[T] {
+	o.Super().AsShape2D().SetCustomSolverBias(value)
+	return o
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

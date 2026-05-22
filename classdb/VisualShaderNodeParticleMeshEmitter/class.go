@@ -155,15 +155,24 @@ func (self Instance) Mesh() Mesh.Instance { //gd:VisualShaderNodeParticleMeshEmi
 		return Mesh.Instance(class(self).GetMesh())
 }
 
+func (o *Extension[T]) Mesh() Mesh.Instance { return o.Super().Mesh() }
+
 // SetMesh sets the property returned by [GetMesh]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMesh(value Mesh.Instance) Instance { //gd:VisualShaderNodeParticleMeshEmitter.mesh
 	class(self).SetMesh(value)
 	return self
 }
 
+func (o *Extension[T]) SetMesh(value Mesh.Instance) *Extension[T] {
+	o.Super().SetMesh(value)
+	return o
+}
+
 func (self Instance) UseAllSurfaces() bool { //gd:VisualShaderNodeParticleMeshEmitter.use_all_surfaces
 		return bool(class(self).IsUseAllSurfaces())
 }
+
+func (o *Extension[T]) UseAllSurfaces() bool { return o.Super().UseAllSurfaces() }
 
 // SetUseAllSurfaces sets the property returned by [IsUseAllSurfaces]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUseAllSurfaces(value bool) Instance { //gd:VisualShaderNodeParticleMeshEmitter.use_all_surfaces
@@ -171,14 +180,26 @@ func (self Instance) SetUseAllSurfaces(value bool) Instance { //gd:VisualShaderN
 	return self
 }
 
+func (o *Extension[T]) SetUseAllSurfaces(value bool) *Extension[T] {
+	o.Super().SetUseAllSurfaces(value)
+	return o
+}
+
 func (self Instance) SurfaceIndex() int { //gd:VisualShaderNodeParticleMeshEmitter.surface_index
 		return int(int(class(self).GetSurfaceIndex()))
 }
+
+func (o *Extension[T]) SurfaceIndex() int { return o.Super().SurfaceIndex() }
 
 // SetSurfaceIndex sets the property returned by [GetSurfaceIndex]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSurfaceIndex(value int) Instance { //gd:VisualShaderNodeParticleMeshEmitter.surface_index
 	class(self).SetSurfaceIndex(int64(value))
 	return self
+}
+
+func (o *Extension[T]) SetSurfaceIndex(value int) *Extension[T] {
+	o.Super().SetSurfaceIndex(value)
+	return o
 }
 
 func (self class) SetMesh(mesh [1]gdclass.Mesh)  { //gd:VisualShaderNodeParticleMeshEmitter.set_mesh
@@ -373,6 +394,78 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// Mode2d is promoted from [VisualShaderNodeParticleEmitter.Instance.Mode2d].
+func (o *Extension[T]) Mode2d() bool { return o.Super().AsVisualShaderNodeParticleEmitter().Mode2d() }
+
+// SetMode2d is promoted from [VisualShaderNodeParticleEmitter.Instance.SetMode2d].
+func (o *Extension[T]) SetMode2d(value bool) *Extension[T] {
+	o.Super().AsVisualShaderNodeParticleEmitter().SetMode2d(value)
+	return o
+}
+
+// OutputPortForPreview is promoted from [VisualShaderNode.Instance.OutputPortForPreview].
+func (o *Extension[T]) OutputPortForPreview() int { return o.Super().AsVisualShaderNode().OutputPortForPreview() }
+
+// SetOutputPortForPreview is promoted from [VisualShaderNode.Instance.SetOutputPortForPreview].
+func (o *Extension[T]) SetOutputPortForPreview(value int) *Extension[T] {
+	o.Super().AsVisualShaderNode().SetOutputPortForPreview(value)
+	return o
+}
+
+// DefaultInputValues is promoted from [VisualShaderNode.Instance.DefaultInputValues].
+func (o *Extension[T]) DefaultInputValues() []any { return o.Super().AsVisualShaderNode().DefaultInputValues() }
+
+// SetDefaultInputValues is promoted from [VisualShaderNode.Instance.SetDefaultInputValues].
+func (o *Extension[T]) SetDefaultInputValues(value []any) *Extension[T] {
+	o.Super().AsVisualShaderNode().SetDefaultInputValues(value)
+	return o
+}
+
+// LinkedParentGraphFrame is promoted from [VisualShaderNode.Instance.LinkedParentGraphFrame].
+func (o *Extension[T]) LinkedParentGraphFrame() int { return o.Super().AsVisualShaderNode().LinkedParentGraphFrame() }
+
+// SetLinkedParentGraphFrame is promoted from [VisualShaderNode.Instance.SetLinkedParentGraphFrame].
+func (o *Extension[T]) SetLinkedParentGraphFrame(value int) *Extension[T] {
+	o.Super().AsVisualShaderNode().SetLinkedParentGraphFrame(value)
+	return o
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

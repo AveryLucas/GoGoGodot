@@ -151,20 +151,34 @@ func (self Instance) VolumeDb() Float.X { //gd:AudioEffectAmplify.volume_db
 		return Float.X(Float.X(class(self).GetVolumeDb()))
 }
 
+func (o *Extension[T]) VolumeDb() Float.X { return o.Super().VolumeDb() }
+
 // SetVolumeDb sets the property returned by [GetVolumeDb]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVolumeDb(value Float.X) Instance { //gd:AudioEffectAmplify.volume_db
 	class(self).SetVolumeDb(float64(value))
 	return self
 }
 
+func (o *Extension[T]) SetVolumeDb(value Float.X) *Extension[T] {
+	o.Super().SetVolumeDb(value)
+	return o
+}
+
 func (self Instance) VolumeLinear() Float.X { //gd:AudioEffectAmplify.volume_linear
 		return Float.X(Float.X(class(self).GetVolumeLinear()))
 }
+
+func (o *Extension[T]) VolumeLinear() Float.X { return o.Super().VolumeLinear() }
 
 // SetVolumeLinear sets the property returned by [GetVolumeLinear]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVolumeLinear(value Float.X) Instance { //gd:AudioEffectAmplify.volume_linear
 	class(self).SetVolumeLinear(float64(value))
 	return self
+}
+
+func (o *Extension[T]) SetVolumeLinear(value Float.X) *Extension[T] {
+	o.Super().SetVolumeLinear(value)
+	return o
 }
 
 func (self class) SetVolumeDb(volume float64)  { //gd:AudioEffectAmplify.set_volume_db
@@ -308,6 +322,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

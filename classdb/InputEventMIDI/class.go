@@ -163,15 +163,24 @@ func (self Instance) Channel() int { //gd:InputEventMIDI.channel
 		return int(int(class(self).GetChannel()))
 }
 
+func (o *Extension[T]) Channel() int { return o.Super().Channel() }
+
 // SetChannel sets the property returned by [GetChannel]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetChannel(value int) Instance { //gd:InputEventMIDI.channel
 	class(self).SetChannel(int64(value))
 	return self
 }
 
+func (o *Extension[T]) SetChannel(value int) *Extension[T] {
+	o.Super().SetChannel(value)
+	return o
+}
+
 func (self Instance) Message() Message { //gd:InputEventMIDI.message
 		return Message(class(self).GetMessage())
 }
+
+func (o *Extension[T]) Message() Message { return o.Super().Message() }
 
 // SetMessage sets the property returned by [GetMessage]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMessage(value Message) Instance { //gd:InputEventMIDI.message
@@ -179,9 +188,16 @@ func (self Instance) SetMessage(value Message) Instance { //gd:InputEventMIDI.me
 	return self
 }
 
+func (o *Extension[T]) SetMessage(value Message) *Extension[T] {
+	o.Super().SetMessage(value)
+	return o
+}
+
 func (self Instance) Pitch() int { //gd:InputEventMIDI.pitch
 		return int(int(class(self).GetPitch()))
 }
+
+func (o *Extension[T]) Pitch() int { return o.Super().Pitch() }
 
 // SetPitch sets the property returned by [GetPitch]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPitch(value int) Instance { //gd:InputEventMIDI.pitch
@@ -189,9 +205,16 @@ func (self Instance) SetPitch(value int) Instance { //gd:InputEventMIDI.pitch
 	return self
 }
 
+func (o *Extension[T]) SetPitch(value int) *Extension[T] {
+	o.Super().SetPitch(value)
+	return o
+}
+
 func (self Instance) Velocity() int { //gd:InputEventMIDI.velocity
 		return int(int(class(self).GetVelocity()))
 }
+
+func (o *Extension[T]) Velocity() int { return o.Super().Velocity() }
 
 // SetVelocity sets the property returned by [GetVelocity]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVelocity(value int) Instance { //gd:InputEventMIDI.velocity
@@ -199,9 +222,16 @@ func (self Instance) SetVelocity(value int) Instance { //gd:InputEventMIDI.veloc
 	return self
 }
 
+func (o *Extension[T]) SetVelocity(value int) *Extension[T] {
+	o.Super().SetVelocity(value)
+	return o
+}
+
 func (self Instance) Instrument() int { //gd:InputEventMIDI.instrument
 		return int(int(class(self).GetInstrument()))
 }
+
+func (o *Extension[T]) Instrument() int { return o.Super().Instrument() }
 
 // SetInstrument sets the property returned by [GetInstrument]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetInstrument(value int) Instance { //gd:InputEventMIDI.instrument
@@ -209,9 +239,16 @@ func (self Instance) SetInstrument(value int) Instance { //gd:InputEventMIDI.ins
 	return self
 }
 
+func (o *Extension[T]) SetInstrument(value int) *Extension[T] {
+	o.Super().SetInstrument(value)
+	return o
+}
+
 func (self Instance) Pressure() int { //gd:InputEventMIDI.pressure
 		return int(int(class(self).GetPressure()))
 }
+
+func (o *Extension[T]) Pressure() int { return o.Super().Pressure() }
 
 // SetPressure sets the property returned by [GetPressure]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPressure(value int) Instance { //gd:InputEventMIDI.pressure
@@ -219,9 +256,16 @@ func (self Instance) SetPressure(value int) Instance { //gd:InputEventMIDI.press
 	return self
 }
 
+func (o *Extension[T]) SetPressure(value int) *Extension[T] {
+	o.Super().SetPressure(value)
+	return o
+}
+
 func (self Instance) ControllerNumber() int { //gd:InputEventMIDI.controller_number
 		return int(int(class(self).GetControllerNumber()))
 }
+
+func (o *Extension[T]) ControllerNumber() int { return o.Super().ControllerNumber() }
 
 // SetControllerNumber sets the property returned by [GetControllerNumber]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetControllerNumber(value int) Instance { //gd:InputEventMIDI.controller_number
@@ -229,14 +273,26 @@ func (self Instance) SetControllerNumber(value int) Instance { //gd:InputEventMI
 	return self
 }
 
+func (o *Extension[T]) SetControllerNumber(value int) *Extension[T] {
+	o.Super().SetControllerNumber(value)
+	return o
+}
+
 func (self Instance) ControllerValue() int { //gd:InputEventMIDI.controller_value
 		return int(int(class(self).GetControllerValue()))
 }
+
+func (o *Extension[T]) ControllerValue() int { return o.Super().ControllerValue() }
 
 // SetControllerValue sets the property returned by [GetControllerValue]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetControllerValue(value int) Instance { //gd:InputEventMIDI.controller_value
 	class(self).SetControllerValue(int64(value))
 	return self
+}
+
+func (o *Extension[T]) SetControllerValue(value int) *Extension[T] {
+	o.Super().SetControllerValue(value)
+	return o
 }
 
 func (self class) SetChannel(channel int64)  { //gd:InputEventMIDI.set_channel
@@ -498,6 +554,51 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// Device is promoted from [InputEvent.Instance.Device].
+func (o *Extension[T]) Device() int { return o.Super().AsInputEvent().Device() }
+
+// SetDevice is promoted from [InputEvent.Instance.SetDevice].
+func (o *Extension[T]) SetDevice(value int) *Extension[T] {
+	o.Super().AsInputEvent().SetDevice(value)
+	return o
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

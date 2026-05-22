@@ -237,15 +237,24 @@ func (self Instance) InterfaceIsPrimary() bool { //gd:XRInterface.interface_is_p
 		return bool(class(self).IsPrimary())
 }
 
+func (o *Extension[T]) InterfaceIsPrimary() bool { return o.Super().InterfaceIsPrimary() }
+
 // SetInterfaceIsPrimary sets the property returned by [IsPrimary]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetInterfaceIsPrimary(value bool) Instance { //gd:XRInterface.interface_is_primary
 	class(self).SetPrimary(value)
 	return self
 }
 
+func (o *Extension[T]) SetInterfaceIsPrimary(value bool) *Extension[T] {
+	o.Super().SetInterfaceIsPrimary(value)
+	return o
+}
+
 func (self Instance) XrPlayAreaMode() PlayAreaMode { //gd:XRInterface.xr_play_area_mode
 		return PlayAreaMode(class(self).GetPlayAreaMode())
 }
+
+func (o *Extension[T]) XrPlayAreaMode() PlayAreaMode { return o.Super().XrPlayAreaMode() }
 
 // SetXrPlayAreaMode sets the property returned by [GetPlayAreaMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetXrPlayAreaMode(value PlayAreaMode) Instance { //gd:XRInterface.xr_play_area_mode
@@ -253,9 +262,16 @@ func (self Instance) SetXrPlayAreaMode(value PlayAreaMode) Instance { //gd:XRInt
 	return self
 }
 
+func (o *Extension[T]) SetXrPlayAreaMode(value PlayAreaMode) *Extension[T] {
+	o.Super().SetXrPlayAreaMode(value)
+	return o
+}
+
 func (self Instance) EnvironmentBlendMode() EnvironmentBlendMode { //gd:XRInterface.environment_blend_mode
 		return EnvironmentBlendMode(class(self).GetEnvironmentBlendMode())
 }
+
+func (o *Extension[T]) EnvironmentBlendMode() EnvironmentBlendMode { return o.Super().EnvironmentBlendMode() }
 
 // SetEnvironmentBlendMode sets the property returned by [GetEnvironmentBlendMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEnvironmentBlendMode(value EnvironmentBlendMode) Instance { //gd:XRInterface.environment_blend_mode
@@ -263,14 +279,26 @@ func (self Instance) SetEnvironmentBlendMode(value EnvironmentBlendMode) Instanc
 	return self
 }
 
+func (o *Extension[T]) SetEnvironmentBlendMode(value EnvironmentBlendMode) *Extension[T] {
+	o.Super().SetEnvironmentBlendMode(value)
+	return o
+}
+
 func (self Instance) ArIsAnchorDetectionEnabled() bool { //gd:XRInterface.ar_is_anchor_detection_enabled
 		return bool(class(self).GetAnchorDetectionIsEnabled())
 }
+
+func (o *Extension[T]) ArIsAnchorDetectionEnabled() bool { return o.Super().ArIsAnchorDetectionEnabled() }
 
 // SetArIsAnchorDetectionEnabled sets the property returned by [GetAnchorDetectionIsEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetArIsAnchorDetectionEnabled(value bool) Instance { //gd:XRInterface.ar_is_anchor_detection_enabled
 	class(self).SetAnchorDetectionIsEnabled(value)
 	return self
+}
+
+func (o *Extension[T]) SetArIsAnchorDetectionEnabled(value bool) *Extension[T] {
+	o.Super().SetArIsAnchorDetectionEnabled(value)
+	return o
 }
 
 func (self class) GetName() String.Name { //gd:XRInterface.get_name

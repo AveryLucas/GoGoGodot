@@ -178,15 +178,24 @@ func (self Instance) Texture() Texture2D.Instance { //gd:StyleBoxTexture.texture
 		return Texture2D.Instance(class(self).GetTexture())
 }
 
+func (o *Extension[T]) Texture() Texture2D.Instance { return o.Super().Texture() }
+
 // SetTexture sets the property returned by [GetTexture]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTexture(value Texture2D.Instance) Instance { //gd:StyleBoxTexture.texture
 	class(self).SetTexture(value)
 	return self
 }
 
+func (o *Extension[T]) SetTexture(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetTexture(value)
+	return o
+}
+
 func (self Instance) TextureMarginLeft() Float.X { //gd:StyleBoxTexture.texture_margin_left
 		return Float.X(Float.X(class(self).GetTextureMargin(0)))
 }
+
+func (o *Extension[T]) TextureMarginLeft() Float.X { return o.Super().TextureMarginLeft() }
 
 // SetTextureMarginLeft sets the property returned by [GetTextureMargin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTextureMarginLeft(value Float.X) Instance { //gd:StyleBoxTexture.texture_margin_left
@@ -194,9 +203,16 @@ func (self Instance) SetTextureMarginLeft(value Float.X) Instance { //gd:StyleBo
 	return self
 }
 
+func (o *Extension[T]) SetTextureMarginLeft(value Float.X) *Extension[T] {
+	o.Super().SetTextureMarginLeft(value)
+	return o
+}
+
 func (self Instance) TextureMarginTop() Float.X { //gd:StyleBoxTexture.texture_margin_top
 		return Float.X(Float.X(class(self).GetTextureMargin(1)))
 }
+
+func (o *Extension[T]) TextureMarginTop() Float.X { return o.Super().TextureMarginTop() }
 
 // SetTextureMarginTop sets the property returned by [GetTextureMargin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTextureMarginTop(value Float.X) Instance { //gd:StyleBoxTexture.texture_margin_top
@@ -204,9 +220,16 @@ func (self Instance) SetTextureMarginTop(value Float.X) Instance { //gd:StyleBox
 	return self
 }
 
+func (o *Extension[T]) SetTextureMarginTop(value Float.X) *Extension[T] {
+	o.Super().SetTextureMarginTop(value)
+	return o
+}
+
 func (self Instance) TextureMarginRight() Float.X { //gd:StyleBoxTexture.texture_margin_right
 		return Float.X(Float.X(class(self).GetTextureMargin(2)))
 }
+
+func (o *Extension[T]) TextureMarginRight() Float.X { return o.Super().TextureMarginRight() }
 
 // SetTextureMarginRight sets the property returned by [GetTextureMargin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTextureMarginRight(value Float.X) Instance { //gd:StyleBoxTexture.texture_margin_right
@@ -214,9 +237,16 @@ func (self Instance) SetTextureMarginRight(value Float.X) Instance { //gd:StyleB
 	return self
 }
 
+func (o *Extension[T]) SetTextureMarginRight(value Float.X) *Extension[T] {
+	o.Super().SetTextureMarginRight(value)
+	return o
+}
+
 func (self Instance) TextureMarginBottom() Float.X { //gd:StyleBoxTexture.texture_margin_bottom
 		return Float.X(Float.X(class(self).GetTextureMargin(3)))
 }
+
+func (o *Extension[T]) TextureMarginBottom() Float.X { return o.Super().TextureMarginBottom() }
 
 // SetTextureMarginBottom sets the property returned by [GetTextureMargin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTextureMarginBottom(value Float.X) Instance { //gd:StyleBoxTexture.texture_margin_bottom
@@ -224,9 +254,16 @@ func (self Instance) SetTextureMarginBottom(value Float.X) Instance { //gd:Style
 	return self
 }
 
+func (o *Extension[T]) SetTextureMarginBottom(value Float.X) *Extension[T] {
+	o.Super().SetTextureMarginBottom(value)
+	return o
+}
+
 func (self Instance) ExpandMarginLeft() Float.X { //gd:StyleBoxTexture.expand_margin_left
 		return Float.X(Float.X(class(self).GetExpandMargin(0)))
 }
+
+func (o *Extension[T]) ExpandMarginLeft() Float.X { return o.Super().ExpandMarginLeft() }
 
 // SetExpandMarginLeft sets the property returned by [GetExpandMargin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetExpandMarginLeft(value Float.X) Instance { //gd:StyleBoxTexture.expand_margin_left
@@ -234,9 +271,16 @@ func (self Instance) SetExpandMarginLeft(value Float.X) Instance { //gd:StyleBox
 	return self
 }
 
+func (o *Extension[T]) SetExpandMarginLeft(value Float.X) *Extension[T] {
+	o.Super().SetExpandMarginLeft(value)
+	return o
+}
+
 func (self Instance) ExpandMarginTop() Float.X { //gd:StyleBoxTexture.expand_margin_top
 		return Float.X(Float.X(class(self).GetExpandMargin(1)))
 }
+
+func (o *Extension[T]) ExpandMarginTop() Float.X { return o.Super().ExpandMarginTop() }
 
 // SetExpandMarginTop sets the property returned by [GetExpandMargin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetExpandMarginTop(value Float.X) Instance { //gd:StyleBoxTexture.expand_margin_top
@@ -244,9 +288,16 @@ func (self Instance) SetExpandMarginTop(value Float.X) Instance { //gd:StyleBoxT
 	return self
 }
 
+func (o *Extension[T]) SetExpandMarginTop(value Float.X) *Extension[T] {
+	o.Super().SetExpandMarginTop(value)
+	return o
+}
+
 func (self Instance) ExpandMarginRight() Float.X { //gd:StyleBoxTexture.expand_margin_right
 		return Float.X(Float.X(class(self).GetExpandMargin(2)))
 }
+
+func (o *Extension[T]) ExpandMarginRight() Float.X { return o.Super().ExpandMarginRight() }
 
 // SetExpandMarginRight sets the property returned by [GetExpandMargin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetExpandMarginRight(value Float.X) Instance { //gd:StyleBoxTexture.expand_margin_right
@@ -254,9 +305,16 @@ func (self Instance) SetExpandMarginRight(value Float.X) Instance { //gd:StyleBo
 	return self
 }
 
+func (o *Extension[T]) SetExpandMarginRight(value Float.X) *Extension[T] {
+	o.Super().SetExpandMarginRight(value)
+	return o
+}
+
 func (self Instance) ExpandMarginBottom() Float.X { //gd:StyleBoxTexture.expand_margin_bottom
 		return Float.X(Float.X(class(self).GetExpandMargin(3)))
 }
+
+func (o *Extension[T]) ExpandMarginBottom() Float.X { return o.Super().ExpandMarginBottom() }
 
 // SetExpandMarginBottom sets the property returned by [GetExpandMargin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetExpandMarginBottom(value Float.X) Instance { //gd:StyleBoxTexture.expand_margin_bottom
@@ -264,9 +322,16 @@ func (self Instance) SetExpandMarginBottom(value Float.X) Instance { //gd:StyleB
 	return self
 }
 
+func (o *Extension[T]) SetExpandMarginBottom(value Float.X) *Extension[T] {
+	o.Super().SetExpandMarginBottom(value)
+	return o
+}
+
 func (self Instance) AxisStretchHorizontal() AxisStretchMode { //gd:StyleBoxTexture.axis_stretch_horizontal
 		return AxisStretchMode(class(self).GetHAxisStretchMode())
 }
+
+func (o *Extension[T]) AxisStretchHorizontal() AxisStretchMode { return o.Super().AxisStretchHorizontal() }
 
 // SetAxisStretchHorizontal sets the property returned by [GetHAxisStretchMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAxisStretchHorizontal(value AxisStretchMode) Instance { //gd:StyleBoxTexture.axis_stretch_horizontal
@@ -274,9 +339,16 @@ func (self Instance) SetAxisStretchHorizontal(value AxisStretchMode) Instance { 
 	return self
 }
 
+func (o *Extension[T]) SetAxisStretchHorizontal(value AxisStretchMode) *Extension[T] {
+	o.Super().SetAxisStretchHorizontal(value)
+	return o
+}
+
 func (self Instance) AxisStretchVertical() AxisStretchMode { //gd:StyleBoxTexture.axis_stretch_vertical
 		return AxisStretchMode(class(self).GetVAxisStretchMode())
 }
+
+func (o *Extension[T]) AxisStretchVertical() AxisStretchMode { return o.Super().AxisStretchVertical() }
 
 // SetAxisStretchVertical sets the property returned by [GetVAxisStretchMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAxisStretchVertical(value AxisStretchMode) Instance { //gd:StyleBoxTexture.axis_stretch_vertical
@@ -284,9 +356,16 @@ func (self Instance) SetAxisStretchVertical(value AxisStretchMode) Instance { //
 	return self
 }
 
+func (o *Extension[T]) SetAxisStretchVertical(value AxisStretchMode) *Extension[T] {
+	o.Super().SetAxisStretchVertical(value)
+	return o
+}
+
 func (self Instance) RegionRect() Rect2.PositionSize { //gd:StyleBoxTexture.region_rect
 		return Rect2.PositionSize(class(self).GetRegionRect())
 }
+
+func (o *Extension[T]) RegionRect() Rect2.PositionSize { return o.Super().RegionRect() }
 
 // SetRegionRect sets the property returned by [GetRegionRect]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRegionRect(value Rect2.PositionSize) Instance { //gd:StyleBoxTexture.region_rect
@@ -294,9 +373,16 @@ func (self Instance) SetRegionRect(value Rect2.PositionSize) Instance { //gd:Sty
 	return self
 }
 
+func (o *Extension[T]) SetRegionRect(value Rect2.PositionSize) *Extension[T] {
+	o.Super().SetRegionRect(value)
+	return o
+}
+
 func (self Instance) ModulateColor() Color.RGBA { //gd:StyleBoxTexture.modulate_color
 		return Color.RGBA(class(self).GetModulate())
 }
+
+func (o *Extension[T]) ModulateColor() Color.RGBA { return o.Super().ModulateColor() }
 
 // SetModulateColor sets the property returned by [GetModulate]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetModulateColor(value Color.RGBA) Instance { //gd:StyleBoxTexture.modulate_color
@@ -304,14 +390,26 @@ func (self Instance) SetModulateColor(value Color.RGBA) Instance { //gd:StyleBox
 	return self
 }
 
+func (o *Extension[T]) SetModulateColor(value Color.RGBA) *Extension[T] {
+	o.Super().SetModulateColor(value)
+	return o
+}
+
 func (self Instance) DrawCenter() bool { //gd:StyleBoxTexture.draw_center
 		return bool(class(self).IsDrawCenterEnabled())
 }
+
+func (o *Extension[T]) DrawCenter() bool { return o.Super().DrawCenter() }
 
 // SetDrawCenter sets the property returned by [IsDrawCenterEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDrawCenter(value bool) Instance { //gd:StyleBoxTexture.draw_center
 	class(self).SetDrawCenter(value)
 	return self
+}
+
+func (o *Extension[T]) SetDrawCenter(value bool) *Extension[T] {
+	o.Super().SetDrawCenter(value)
+	return o
 }
 
 func (self class) SetTexture(texture [1]gdclass.Texture2D)  { //gd:StyleBoxTexture.set_texture
@@ -579,6 +677,78 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ContentMarginLeft is promoted from [StyleBox.Instance.ContentMarginLeft].
+func (o *Extension[T]) ContentMarginLeft() Float.X { return o.Super().AsStyleBox().ContentMarginLeft() }
+
+// SetContentMarginLeft is promoted from [StyleBox.Instance.SetContentMarginLeft].
+func (o *Extension[T]) SetContentMarginLeft(value Float.X) *Extension[T] {
+	o.Super().AsStyleBox().SetContentMarginLeft(value)
+	return o
+}
+
+// ContentMarginTop is promoted from [StyleBox.Instance.ContentMarginTop].
+func (o *Extension[T]) ContentMarginTop() Float.X { return o.Super().AsStyleBox().ContentMarginTop() }
+
+// SetContentMarginTop is promoted from [StyleBox.Instance.SetContentMarginTop].
+func (o *Extension[T]) SetContentMarginTop(value Float.X) *Extension[T] {
+	o.Super().AsStyleBox().SetContentMarginTop(value)
+	return o
+}
+
+// ContentMarginRight is promoted from [StyleBox.Instance.ContentMarginRight].
+func (o *Extension[T]) ContentMarginRight() Float.X { return o.Super().AsStyleBox().ContentMarginRight() }
+
+// SetContentMarginRight is promoted from [StyleBox.Instance.SetContentMarginRight].
+func (o *Extension[T]) SetContentMarginRight(value Float.X) *Extension[T] {
+	o.Super().AsStyleBox().SetContentMarginRight(value)
+	return o
+}
+
+// ContentMarginBottom is promoted from [StyleBox.Instance.ContentMarginBottom].
+func (o *Extension[T]) ContentMarginBottom() Float.X { return o.Super().AsStyleBox().ContentMarginBottom() }
+
+// SetContentMarginBottom is promoted from [StyleBox.Instance.SetContentMarginBottom].
+func (o *Extension[T]) SetContentMarginBottom(value Float.X) *Extension[T] {
+	o.Super().AsStyleBox().SetContentMarginBottom(value)
+	return o
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

@@ -227,15 +227,24 @@ func (self Instance) NumberColor() Color.RGBA { //gd:CodeHighlighter.number_colo
 		return Color.RGBA(class(self).GetNumberColor())
 }
 
+func (o *Extension[T]) NumberColor() Color.RGBA { return o.Super().NumberColor() }
+
 // SetNumberColor sets the property returned by [GetNumberColor]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetNumberColor(value Color.RGBA) Instance { //gd:CodeHighlighter.number_color
 	class(self).SetNumberColor(Color.RGBA(value))
 	return self
 }
 
+func (o *Extension[T]) SetNumberColor(value Color.RGBA) *Extension[T] {
+	o.Super().SetNumberColor(value)
+	return o
+}
+
 func (self Instance) SymbolColor() Color.RGBA { //gd:CodeHighlighter.symbol_color
 		return Color.RGBA(class(self).GetSymbolColor())
 }
+
+func (o *Extension[T]) SymbolColor() Color.RGBA { return o.Super().SymbolColor() }
 
 // SetSymbolColor sets the property returned by [GetSymbolColor]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSymbolColor(value Color.RGBA) Instance { //gd:CodeHighlighter.symbol_color
@@ -243,9 +252,16 @@ func (self Instance) SetSymbolColor(value Color.RGBA) Instance { //gd:CodeHighli
 	return self
 }
 
+func (o *Extension[T]) SetSymbolColor(value Color.RGBA) *Extension[T] {
+	o.Super().SetSymbolColor(value)
+	return o
+}
+
 func (self Instance) FunctionColor() Color.RGBA { //gd:CodeHighlighter.function_color
 		return Color.RGBA(class(self).GetFunctionColor())
 }
+
+func (o *Extension[T]) FunctionColor() Color.RGBA { return o.Super().FunctionColor() }
 
 // SetFunctionColor sets the property returned by [GetFunctionColor]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFunctionColor(value Color.RGBA) Instance { //gd:CodeHighlighter.function_color
@@ -253,9 +269,16 @@ func (self Instance) SetFunctionColor(value Color.RGBA) Instance { //gd:CodeHigh
 	return self
 }
 
+func (o *Extension[T]) SetFunctionColor(value Color.RGBA) *Extension[T] {
+	o.Super().SetFunctionColor(value)
+	return o
+}
+
 func (self Instance) MemberVariableColor() Color.RGBA { //gd:CodeHighlighter.member_variable_color
 		return Color.RGBA(class(self).GetMemberVariableColor())
 }
+
+func (o *Extension[T]) MemberVariableColor() Color.RGBA { return o.Super().MemberVariableColor() }
 
 // SetMemberVariableColor sets the property returned by [GetMemberVariableColor]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMemberVariableColor(value Color.RGBA) Instance { //gd:CodeHighlighter.member_variable_color
@@ -263,9 +286,16 @@ func (self Instance) SetMemberVariableColor(value Color.RGBA) Instance { //gd:Co
 	return self
 }
 
+func (o *Extension[T]) SetMemberVariableColor(value Color.RGBA) *Extension[T] {
+	o.Super().SetMemberVariableColor(value)
+	return o
+}
+
 func (self Instance) KeywordColors() map[any]any { //gd:CodeHighlighter.keyword_colors
 		return map[any]any(gd.DictionaryAs[map[any]any](class(self).GetKeywordColors()))
 }
+
+func (o *Extension[T]) KeywordColors() map[any]any { return o.Super().KeywordColors() }
 
 // SetKeywordColors sets the property returned by [GetKeywordColors]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetKeywordColors(value map[any]any) Instance { //gd:CodeHighlighter.keyword_colors
@@ -273,9 +303,16 @@ func (self Instance) SetKeywordColors(value map[any]any) Instance { //gd:CodeHig
 	return self
 }
 
+func (o *Extension[T]) SetKeywordColors(value map[any]any) *Extension[T] {
+	o.Super().SetKeywordColors(value)
+	return o
+}
+
 func (self Instance) MemberKeywordColors() map[any]any { //gd:CodeHighlighter.member_keyword_colors
 		return map[any]any(gd.DictionaryAs[map[any]any](class(self).GetMemberKeywordColors()))
 }
+
+func (o *Extension[T]) MemberKeywordColors() map[any]any { return o.Super().MemberKeywordColors() }
 
 // SetMemberKeywordColors sets the property returned by [GetMemberKeywordColors]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMemberKeywordColors(value map[any]any) Instance { //gd:CodeHighlighter.member_keyword_colors
@@ -283,14 +320,26 @@ func (self Instance) SetMemberKeywordColors(value map[any]any) Instance { //gd:C
 	return self
 }
 
+func (o *Extension[T]) SetMemberKeywordColors(value map[any]any) *Extension[T] {
+	o.Super().SetMemberKeywordColors(value)
+	return o
+}
+
 func (self Instance) ColorRegions() map[string]struct { R float32; G float32; B float32; A float32 } { //gd:CodeHighlighter.color_regions
 		return map[string]struct { R float32; G float32; B float32; A float32 }(gd.DictionaryAs[map[string]struct { R float32; G float32; B float32; A float32 }](class(self).GetColorRegions()))
 }
+
+func (o *Extension[T]) ColorRegions() map[string]struct { R float32; G float32; B float32; A float32 } { return o.Super().ColorRegions() }
 
 // SetColorRegions sets the property returned by [GetColorRegions]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetColorRegions(value map[string]struct { R float32; G float32; B float32; A float32 }) Instance { //gd:CodeHighlighter.color_regions
 	class(self).SetColorRegions(gd.DictionaryFromMap(value))
 	return self
+}
+
+func (o *Extension[T]) SetColorRegions(value map[string]struct { R float32; G float32; B float32; A float32 }) *Extension[T] {
+	o.Super().SetColorRegions(value)
+	return o
 }
 
 func (self class) AddKeywordColor(keyword String.Readable, color Color.RGBA)  { //gd:CodeHighlighter.add_keyword_color
@@ -605,6 +654,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

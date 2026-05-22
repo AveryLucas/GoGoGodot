@@ -156,15 +156,24 @@ func (self Instance) EnableLogicOp() bool { //gd:RDPipelineColorBlendState.enabl
 		return bool(class(self).GetEnableLogicOp())
 }
 
+func (o *Extension[T]) EnableLogicOp() bool { return o.Super().EnableLogicOp() }
+
 // SetEnableLogicOp sets the property returned by [GetEnableLogicOp]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEnableLogicOp(value bool) Instance { //gd:RDPipelineColorBlendState.enable_logic_op
 	class(self).SetEnableLogicOp(value)
 	return self
 }
 
+func (o *Extension[T]) SetEnableLogicOp(value bool) *Extension[T] {
+	o.Super().SetEnableLogicOp(value)
+	return o
+}
+
 func (self Instance) LogicOp() Rendering.LogicOperation { //gd:RDPipelineColorBlendState.logic_op
 		return Rendering.LogicOperation(class(self).GetLogicOp())
 }
+
+func (o *Extension[T]) LogicOp() Rendering.LogicOperation { return o.Super().LogicOp() }
 
 // SetLogicOp sets the property returned by [GetLogicOp]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetLogicOp(value Rendering.LogicOperation) Instance { //gd:RDPipelineColorBlendState.logic_op
@@ -172,9 +181,16 @@ func (self Instance) SetLogicOp(value Rendering.LogicOperation) Instance { //gd:
 	return self
 }
 
+func (o *Extension[T]) SetLogicOp(value Rendering.LogicOperation) *Extension[T] {
+	o.Super().SetLogicOp(value)
+	return o
+}
+
 func (self Instance) BlendConstant() Color.RGBA { //gd:RDPipelineColorBlendState.blend_constant
 		return Color.RGBA(class(self).GetBlendConstant())
 }
+
+func (o *Extension[T]) BlendConstant() Color.RGBA { return o.Super().BlendConstant() }
 
 // SetBlendConstant sets the property returned by [GetBlendConstant]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBlendConstant(value Color.RGBA) Instance { //gd:RDPipelineColorBlendState.blend_constant
@@ -182,14 +198,26 @@ func (self Instance) SetBlendConstant(value Color.RGBA) Instance { //gd:RDPipeli
 	return self
 }
 
+func (o *Extension[T]) SetBlendConstant(value Color.RGBA) *Extension[T] {
+	o.Super().SetBlendConstant(value)
+	return o
+}
+
 func (self Instance) Attachments() []RDPipelineColorBlendStateAttachment.Instance { //gd:RDPipelineColorBlendState.attachments
 		return []RDPipelineColorBlendStateAttachment.Instance(gd.ArrayAs[[]RDPipelineColorBlendStateAttachment.Instance](gd.InternalArray(class(self).GetAttachments())))
 }
+
+func (o *Extension[T]) Attachments() []RDPipelineColorBlendStateAttachment.Instance { return o.Super().Attachments() }
 
 // SetAttachments sets the property returned by [GetAttachments]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAttachments(value []RDPipelineColorBlendStateAttachment.Instance) Instance { //gd:RDPipelineColorBlendState.attachments
 	class(self).SetAttachments(gd.ArrayFromSlice[Array.Contains[[1]gdclass.RDPipelineColorBlendStateAttachment]](value))
 	return self
+}
+
+func (o *Extension[T]) SetAttachments(value []RDPipelineColorBlendStateAttachment.Instance) *Extension[T] {
+	o.Super().SetAttachments(value)
+	return o
 }
 
 func (self class) SetEnableLogicOp(p_member bool)  { //gd:RDPipelineColorBlendState.set_enable_logic_op

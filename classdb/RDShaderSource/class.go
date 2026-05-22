@@ -150,15 +150,24 @@ func (self Instance) SourceVertex() string { //gd:RDShaderSource.source_vertex
 		return string(class(self).GetStageSource(0).String())
 }
 
+func (o *Extension[T]) SourceVertex() string { return o.Super().SourceVertex() }
+
 // SetSourceVertex sets the property returned by [GetStageSource]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSourceVertex(value string) Instance { //gd:RDShaderSource.source_vertex
 	class(self).SetStageSource(0, String.From(value))
 	return self
 }
 
+func (o *Extension[T]) SetSourceVertex(value string) *Extension[T] {
+	o.Super().SetSourceVertex(value)
+	return o
+}
+
 func (self Instance) SourceFragment() string { //gd:RDShaderSource.source_fragment
 		return string(class(self).GetStageSource(1).String())
 }
+
+func (o *Extension[T]) SourceFragment() string { return o.Super().SourceFragment() }
 
 // SetSourceFragment sets the property returned by [GetStageSource]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSourceFragment(value string) Instance { //gd:RDShaderSource.source_fragment
@@ -166,9 +175,16 @@ func (self Instance) SetSourceFragment(value string) Instance { //gd:RDShaderSou
 	return self
 }
 
+func (o *Extension[T]) SetSourceFragment(value string) *Extension[T] {
+	o.Super().SetSourceFragment(value)
+	return o
+}
+
 func (self Instance) SourceTesselationControl() string { //gd:RDShaderSource.source_tesselation_control
 		return string(class(self).GetStageSource(2).String())
 }
+
+func (o *Extension[T]) SourceTesselationControl() string { return o.Super().SourceTesselationControl() }
 
 // SetSourceTesselationControl sets the property returned by [GetStageSource]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSourceTesselationControl(value string) Instance { //gd:RDShaderSource.source_tesselation_control
@@ -176,9 +192,16 @@ func (self Instance) SetSourceTesselationControl(value string) Instance { //gd:R
 	return self
 }
 
+func (o *Extension[T]) SetSourceTesselationControl(value string) *Extension[T] {
+	o.Super().SetSourceTesselationControl(value)
+	return o
+}
+
 func (self Instance) SourceTesselationEvaluation() string { //gd:RDShaderSource.source_tesselation_evaluation
 		return string(class(self).GetStageSource(3).String())
 }
+
+func (o *Extension[T]) SourceTesselationEvaluation() string { return o.Super().SourceTesselationEvaluation() }
 
 // SetSourceTesselationEvaluation sets the property returned by [GetStageSource]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSourceTesselationEvaluation(value string) Instance { //gd:RDShaderSource.source_tesselation_evaluation
@@ -186,9 +209,16 @@ func (self Instance) SetSourceTesselationEvaluation(value string) Instance { //g
 	return self
 }
 
+func (o *Extension[T]) SetSourceTesselationEvaluation(value string) *Extension[T] {
+	o.Super().SetSourceTesselationEvaluation(value)
+	return o
+}
+
 func (self Instance) SourceCompute() string { //gd:RDShaderSource.source_compute
 		return string(class(self).GetStageSource(4).String())
 }
+
+func (o *Extension[T]) SourceCompute() string { return o.Super().SourceCompute() }
 
 // SetSourceCompute sets the property returned by [GetStageSource]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSourceCompute(value string) Instance { //gd:RDShaderSource.source_compute
@@ -196,14 +226,26 @@ func (self Instance) SetSourceCompute(value string) Instance { //gd:RDShaderSour
 	return self
 }
 
+func (o *Extension[T]) SetSourceCompute(value string) *Extension[T] {
+	o.Super().SetSourceCompute(value)
+	return o
+}
+
 func (self Instance) Language() Rendering.ShaderLanguage { //gd:RDShaderSource.language
 		return Rendering.ShaderLanguage(class(self).GetLanguage())
 }
+
+func (o *Extension[T]) Language() Rendering.ShaderLanguage { return o.Super().Language() }
 
 // SetLanguage sets the property returned by [GetLanguage]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetLanguage(value Rendering.ShaderLanguage) Instance { //gd:RDShaderSource.language
 	class(self).SetLanguage(value)
 	return self
+}
+
+func (o *Extension[T]) SetLanguage(value Rendering.ShaderLanguage) *Extension[T] {
+	o.Super().SetLanguage(value)
+	return o
 }
 
 func (self class) SetStageSource(stage Rendering.ShaderStage, source String.Readable)  { //gd:RDShaderSource.set_stage_source

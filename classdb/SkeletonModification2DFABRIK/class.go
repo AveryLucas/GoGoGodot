@@ -189,20 +189,34 @@ func (self Instance) TargetNodepath() string { //gd:SkeletonModification2DFABRIK
 		return string(class(self).GetTargetNode().String())
 }
 
+func (o *Extension[T]) TargetNodepath() string { return o.Super().TargetNodepath() }
+
 // SetTargetNodepath sets the property returned by [GetTargetNode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTargetNodepath(value string) Instance { //gd:SkeletonModification2DFABRIK.target_nodepath
 	class(self).SetTargetNode(Path.ToNode(String.From(value)))
 	return self
 }
 
+func (o *Extension[T]) SetTargetNodepath(value string) *Extension[T] {
+	o.Super().SetTargetNodepath(value)
+	return o
+}
+
 func (self Instance) FabrikDataChainLength() int { //gd:SkeletonModification2DFABRIK.fabrik_data_chain_length
 		return int(int(class(self).GetFabrikDataChainLength()))
 }
+
+func (o *Extension[T]) FabrikDataChainLength() int { return o.Super().FabrikDataChainLength() }
 
 // SetFabrikDataChainLength sets the property returned by [GetFabrikDataChainLength]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFabrikDataChainLength(value int) Instance { //gd:SkeletonModification2DFABRIK.fabrik_data_chain_length
 	class(self).SetFabrikDataChainLength(int64(value))
 	return self
+}
+
+func (o *Extension[T]) SetFabrikDataChainLength(value int) *Extension[T] {
+	o.Super().SetFabrikDataChainLength(value)
+	return o
 }
 
 func (self class) SetTargetNode(target_nodepath Path.ToNode)  { //gd:SkeletonModification2DFABRIK.set_target_node
@@ -470,6 +484,60 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// Enabled is promoted from [SkeletonModification2D.Instance.Enabled].
+func (o *Extension[T]) Enabled() bool { return o.Super().AsSkeletonModification2D().Enabled() }
+
+// SetEnabled is promoted from [SkeletonModification2D.Instance.SetEnabled].
+func (o *Extension[T]) SetEnabled(value bool) *Extension[T] {
+	o.Super().AsSkeletonModification2D().SetEnabled(value)
+	return o
+}
+
+// ExecutionMode is promoted from [SkeletonModification2D.Instance.ExecutionMode].
+func (o *Extension[T]) ExecutionMode() int { return o.Super().AsSkeletonModification2D().ExecutionMode() }
+
+// SetExecutionMode is promoted from [SkeletonModification2D.Instance.SetExecutionMode].
+func (o *Extension[T]) SetExecutionMode(value int) *Extension[T] {
+	o.Super().AsSkeletonModification2D().SetExecutionMode(value)
+	return o
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

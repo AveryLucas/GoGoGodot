@@ -17,6 +17,7 @@ import "graphics.gd/variant"
 import "graphics.gd/variant/Angle"
 import "graphics.gd/variant/Euler"
 import "graphics.gd/variant/Signal"
+import "graphics.gd/classdb/MultiplayerAPI"
 import "graphics.gd/classdb/Node"
 import "graphics.gd/classdb/SceneReplicationConfig"
 import "graphics.gd/classdb/Tween"
@@ -188,15 +189,24 @@ func (self Instance) RootPath() string { //gd:MultiplayerSynchronizer.root_path
 		return string(class(self).GetRootPath().String())
 }
 
+func (o *Extension[T]) RootPath() string { return o.Super().RootPath() }
+
 // SetRootPath sets the property returned by [GetRootPath]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRootPath(value string) Instance { //gd:MultiplayerSynchronizer.root_path
 	class(self).SetRootPath(Path.ToNode(String.From(value)))
 	return self
 }
 
+func (o *Extension[T]) SetRootPath(value string) *Extension[T] {
+	o.Super().SetRootPath(value)
+	return o
+}
+
 func (self Instance) ReplicationInterval() Float.X { //gd:MultiplayerSynchronizer.replication_interval
 		return Float.X(Float.X(class(self).GetReplicationInterval()))
 }
+
+func (o *Extension[T]) ReplicationInterval() Float.X { return o.Super().ReplicationInterval() }
 
 // SetReplicationInterval sets the property returned by [GetReplicationInterval]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetReplicationInterval(value Float.X) Instance { //gd:MultiplayerSynchronizer.replication_interval
@@ -204,9 +214,16 @@ func (self Instance) SetReplicationInterval(value Float.X) Instance { //gd:Multi
 	return self
 }
 
+func (o *Extension[T]) SetReplicationInterval(value Float.X) *Extension[T] {
+	o.Super().SetReplicationInterval(value)
+	return o
+}
+
 func (self Instance) DeltaInterval() Float.X { //gd:MultiplayerSynchronizer.delta_interval
 		return Float.X(Float.X(class(self).GetDeltaInterval()))
 }
+
+func (o *Extension[T]) DeltaInterval() Float.X { return o.Super().DeltaInterval() }
 
 // SetDeltaInterval sets the property returned by [GetDeltaInterval]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDeltaInterval(value Float.X) Instance { //gd:MultiplayerSynchronizer.delta_interval
@@ -214,9 +231,16 @@ func (self Instance) SetDeltaInterval(value Float.X) Instance { //gd:Multiplayer
 	return self
 }
 
+func (o *Extension[T]) SetDeltaInterval(value Float.X) *Extension[T] {
+	o.Super().SetDeltaInterval(value)
+	return o
+}
+
 func (self Instance) ReplicationConfig() SceneReplicationConfig.Instance { //gd:MultiplayerSynchronizer.replication_config
 		return SceneReplicationConfig.Instance(class(self).GetReplicationConfig())
 }
+
+func (o *Extension[T]) ReplicationConfig() SceneReplicationConfig.Instance { return o.Super().ReplicationConfig() }
 
 // SetReplicationConfig sets the property returned by [GetReplicationConfig]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetReplicationConfig(value SceneReplicationConfig.Instance) Instance { //gd:MultiplayerSynchronizer.replication_config
@@ -224,9 +248,16 @@ func (self Instance) SetReplicationConfig(value SceneReplicationConfig.Instance)
 	return self
 }
 
+func (o *Extension[T]) SetReplicationConfig(value SceneReplicationConfig.Instance) *Extension[T] {
+	o.Super().SetReplicationConfig(value)
+	return o
+}
+
 func (self Instance) VisibilityUpdateMode() VisibilityUpdateMode { //gd:MultiplayerSynchronizer.visibility_update_mode
 		return VisibilityUpdateMode(class(self).GetVisibilityUpdateMode())
 }
+
+func (o *Extension[T]) VisibilityUpdateMode() VisibilityUpdateMode { return o.Super().VisibilityUpdateMode() }
 
 // SetVisibilityUpdateMode sets the property returned by [GetVisibilityUpdateMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVisibilityUpdateMode(value VisibilityUpdateMode) Instance { //gd:MultiplayerSynchronizer.visibility_update_mode
@@ -234,14 +265,26 @@ func (self Instance) SetVisibilityUpdateMode(value VisibilityUpdateMode) Instanc
 	return self
 }
 
+func (o *Extension[T]) SetVisibilityUpdateMode(value VisibilityUpdateMode) *Extension[T] {
+	o.Super().SetVisibilityUpdateMode(value)
+	return o
+}
+
 func (self Instance) PublicVisibility() bool { //gd:MultiplayerSynchronizer.public_visibility
 		return bool(class(self).IsVisibilityPublic())
 }
+
+func (o *Extension[T]) PublicVisibility() bool { return o.Super().PublicVisibility() }
 
 // SetPublicVisibility sets the property returned by [IsVisibilityPublic]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPublicVisibility(value bool) Instance { //gd:MultiplayerSynchronizer.public_visibility
 	class(self).SetVisibilityPublic(value)
 	return self
+}
+
+func (o *Extension[T]) SetPublicVisibility(value bool) *Extension[T] {
+	o.Super().SetPublicVisibility(value)
+	return o
 }
 
 func (self class) SetRootPath(path Path.ToNode)  { //gd:MultiplayerSynchronizer.set_root_path
@@ -1167,6 +1210,126 @@ func (self Instance) NotifyThreadSafe(what int) {
 // NotifyThreadSafe is promoted from [Node.Instance.NotifyThreadSafe].
 func (o *Extension[T]) NotifyThreadSafe(what int) {
 	o.Super().AsNode().NotifyThreadSafe(what)
+}
+
+// Name is promoted from [Node.Instance.Name].
+func (o *Extension[T]) Name() string { return o.Super().AsNode().Name() }
+
+// SetName is promoted from [Node.Instance.SetName].
+func (o *Extension[T]) SetName(value string) *Extension[T] {
+	o.Super().AsNode().SetName(value)
+	return o
+}
+
+// UniqueNameInOwner is promoted from [Node.Instance.UniqueNameInOwner].
+func (o *Extension[T]) UniqueNameInOwner() bool { return o.Super().AsNode().UniqueNameInOwner() }
+
+// SetUniqueNameInOwner is promoted from [Node.Instance.SetUniqueNameInOwner].
+func (o *Extension[T]) SetUniqueNameInOwner(value bool) *Extension[T] {
+	o.Super().AsNode().SetUniqueNameInOwner(value)
+	return o
+}
+
+// SceneFilePath is promoted from [Node.Instance.SceneFilePath].
+func (o *Extension[T]) SceneFilePath() string { return o.Super().AsNode().SceneFilePath() }
+
+// SetSceneFilePath is promoted from [Node.Instance.SetSceneFilePath].
+func (o *Extension[T]) SetSceneFilePath(value string) *Extension[T] {
+	o.Super().AsNode().SetSceneFilePath(value)
+	return o
+}
+
+// Owner is promoted from [Node.Instance.Owner].
+func (o *Extension[T]) Owner() Node.Instance { return o.Super().AsNode().Owner() }
+
+// SetOwner is promoted from [Node.Instance.SetOwner].
+func (o *Extension[T]) SetOwner(value Node.Instance) *Extension[T] {
+	o.Super().AsNode().SetOwner(value)
+	return o
+}
+
+// Multiplayer is promoted from [Node.Instance.Multiplayer].
+func (o *Extension[T]) Multiplayer() MultiplayerAPI.Instance { return o.Super().AsNode().Multiplayer() }
+
+// ProcessMode is promoted from [Node.Instance.ProcessMode].
+func (o *Extension[T]) ProcessMode() Node.ProcessMode { return o.Super().AsNode().ProcessMode() }
+
+// SetProcessMode is promoted from [Node.Instance.SetProcessMode].
+func (o *Extension[T]) SetProcessMode(value Node.ProcessMode) *Extension[T] {
+	o.Super().AsNode().SetProcessMode(value)
+	return o
+}
+
+// ProcessPriority is promoted from [Node.Instance.ProcessPriority].
+func (o *Extension[T]) ProcessPriority() int { return o.Super().AsNode().ProcessPriority() }
+
+// SetProcessPriority is promoted from [Node.Instance.SetProcessPriority].
+func (o *Extension[T]) SetProcessPriority(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessPriority(value)
+	return o
+}
+
+// ProcessPhysicsPriority is promoted from [Node.Instance.ProcessPhysicsPriority].
+func (o *Extension[T]) ProcessPhysicsPriority() int { return o.Super().AsNode().ProcessPhysicsPriority() }
+
+// SetProcessPhysicsPriority is promoted from [Node.Instance.SetProcessPhysicsPriority].
+func (o *Extension[T]) SetProcessPhysicsPriority(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessPhysicsPriority(value)
+	return o
+}
+
+// ProcessThreadGroup is promoted from [Node.Instance.ProcessThreadGroup].
+func (o *Extension[T]) ProcessThreadGroup() Node.ProcessThreadGroup { return o.Super().AsNode().ProcessThreadGroup() }
+
+// SetProcessThreadGroup is promoted from [Node.Instance.SetProcessThreadGroup].
+func (o *Extension[T]) SetProcessThreadGroup(value Node.ProcessThreadGroup) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadGroup(value)
+	return o
+}
+
+// ProcessThreadGroupOrder is promoted from [Node.Instance.ProcessThreadGroupOrder].
+func (o *Extension[T]) ProcessThreadGroupOrder() int { return o.Super().AsNode().ProcessThreadGroupOrder() }
+
+// SetProcessThreadGroupOrder is promoted from [Node.Instance.SetProcessThreadGroupOrder].
+func (o *Extension[T]) SetProcessThreadGroupOrder(value int) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadGroupOrder(value)
+	return o
+}
+
+// ProcessThreadMessages is promoted from [Node.Instance.ProcessThreadMessages].
+func (o *Extension[T]) ProcessThreadMessages() Node.ProcessThreadMessages { return o.Super().AsNode().ProcessThreadMessages() }
+
+// SetProcessThreadMessages is promoted from [Node.Instance.SetProcessThreadMessages].
+func (o *Extension[T]) SetProcessThreadMessages(value Node.ProcessThreadMessages) *Extension[T] {
+	o.Super().AsNode().SetProcessThreadMessages(value)
+	return o
+}
+
+// PhysicsInterpolationMode is promoted from [Node.Instance.PhysicsInterpolationMode].
+func (o *Extension[T]) PhysicsInterpolationMode() Node.PhysicsInterpolationMode { return o.Super().AsNode().PhysicsInterpolationMode() }
+
+// SetPhysicsInterpolationMode is promoted from [Node.Instance.SetPhysicsInterpolationMode].
+func (o *Extension[T]) SetPhysicsInterpolationMode(value Node.PhysicsInterpolationMode) *Extension[T] {
+	o.Super().AsNode().SetPhysicsInterpolationMode(value)
+	return o
+}
+
+// AutoTranslateMode is promoted from [Node.Instance.AutoTranslateMode].
+func (o *Extension[T]) AutoTranslateMode() Node.AutoTranslateMode { return o.Super().AsNode().AutoTranslateMode() }
+
+// SetAutoTranslateMode is promoted from [Node.Instance.SetAutoTranslateMode].
+func (o *Extension[T]) SetAutoTranslateMode(value Node.AutoTranslateMode) *Extension[T] {
+	o.Super().AsNode().SetAutoTranslateMode(value)
+	return o
+}
+
+// EditorDescription is promoted from [Node.Instance.EditorDescription].
+func (o *Extension[T]) EditorDescription() string { return o.Super().AsNode().EditorDescription() }
+
+// SetEditorDescription is promoted from [Node.Instance.SetEditorDescription].
+func (o *Extension[T]) SetEditorDescription(value string) *Extension[T] {
+	o.Super().AsNode().SetEditorDescription(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

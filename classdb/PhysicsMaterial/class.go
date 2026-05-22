@@ -154,15 +154,24 @@ func (self Instance) Friction() Float.X { //gd:PhysicsMaterial.friction
 		return Float.X(Float.X(class(self).GetFriction()))
 }
 
+func (o *Extension[T]) Friction() Float.X { return o.Super().Friction() }
+
 // SetFriction sets the property returned by [GetFriction]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFriction(value Float.X) Instance { //gd:PhysicsMaterial.friction
 	class(self).SetFriction(float64(value))
 	return self
 }
 
+func (o *Extension[T]) SetFriction(value Float.X) *Extension[T] {
+	o.Super().SetFriction(value)
+	return o
+}
+
 func (self Instance) Rough() bool { //gd:PhysicsMaterial.rough
 		return bool(class(self).IsRough())
 }
+
+func (o *Extension[T]) Rough() bool { return o.Super().Rough() }
 
 // SetRough sets the property returned by [IsRough]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRough(value bool) Instance { //gd:PhysicsMaterial.rough
@@ -170,9 +179,16 @@ func (self Instance) SetRough(value bool) Instance { //gd:PhysicsMaterial.rough
 	return self
 }
 
+func (o *Extension[T]) SetRough(value bool) *Extension[T] {
+	o.Super().SetRough(value)
+	return o
+}
+
 func (self Instance) Bounce() Float.X { //gd:PhysicsMaterial.bounce
 		return Float.X(Float.X(class(self).GetBounce()))
 }
+
+func (o *Extension[T]) Bounce() Float.X { return o.Super().Bounce() }
 
 // SetBounce sets the property returned by [GetBounce]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBounce(value Float.X) Instance { //gd:PhysicsMaterial.bounce
@@ -180,14 +196,26 @@ func (self Instance) SetBounce(value Float.X) Instance { //gd:PhysicsMaterial.bo
 	return self
 }
 
+func (o *Extension[T]) SetBounce(value Float.X) *Extension[T] {
+	o.Super().SetBounce(value)
+	return o
+}
+
 func (self Instance) Absorbent() bool { //gd:PhysicsMaterial.absorbent
 		return bool(class(self).IsAbsorbent())
 }
+
+func (o *Extension[T]) Absorbent() bool { return o.Super().Absorbent() }
 
 // SetAbsorbent sets the property returned by [IsAbsorbent]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAbsorbent(value bool) Instance { //gd:PhysicsMaterial.absorbent
 	class(self).SetAbsorbent(value)
 	return self
+}
+
+func (o *Extension[T]) SetAbsorbent(value bool) *Extension[T] {
+	o.Super().SetAbsorbent(value)
+	return o
 }
 
 func (self class) SetFriction(friction float64)  { //gd:PhysicsMaterial.set_friction
@@ -344,6 +372,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

@@ -154,15 +154,24 @@ func (self Instance) Panorama() Texture2D.Instance { //gd:PanoramaSkyMaterial.pa
 		return Texture2D.Instance(class(self).GetPanorama())
 }
 
+func (o *Extension[T]) Panorama() Texture2D.Instance { return o.Super().Panorama() }
+
 // SetPanorama sets the property returned by [GetPanorama]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPanorama(value Texture2D.Instance) Instance { //gd:PanoramaSkyMaterial.panorama
 	class(self).SetPanorama(value)
 	return self
 }
 
+func (o *Extension[T]) SetPanorama(value Texture2D.Instance) *Extension[T] {
+	o.Super().SetPanorama(value)
+	return o
+}
+
 func (self Instance) Filter() bool { //gd:PanoramaSkyMaterial.filter
 		return bool(class(self).IsFilteringEnabled())
 }
+
+func (o *Extension[T]) Filter() bool { return o.Super().Filter() }
 
 // SetFilter sets the property returned by [IsFilteringEnabled]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFilter(value bool) Instance { //gd:PanoramaSkyMaterial.filter
@@ -170,14 +179,26 @@ func (self Instance) SetFilter(value bool) Instance { //gd:PanoramaSkyMaterial.f
 	return self
 }
 
+func (o *Extension[T]) SetFilter(value bool) *Extension[T] {
+	o.Super().SetFilter(value)
+	return o
+}
+
 func (self Instance) EnergyMultiplier() Float.X { //gd:PanoramaSkyMaterial.energy_multiplier
 		return Float.X(Float.X(class(self).GetEnergyMultiplier()))
 }
+
+func (o *Extension[T]) EnergyMultiplier() Float.X { return o.Super().EnergyMultiplier() }
 
 // SetEnergyMultiplier sets the property returned by [GetEnergyMultiplier]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetEnergyMultiplier(value Float.X) Instance { //gd:PanoramaSkyMaterial.energy_multiplier
 	class(self).SetEnergyMultiplier(float64(value))
 	return self
+}
+
+func (o *Extension[T]) SetEnergyMultiplier(value Float.X) *Extension[T] {
+	o.Super().SetEnergyMultiplier(value)
+	return o
 }
 
 func (self class) SetPanorama(texture [1]gdclass.Texture2D)  { //gd:PanoramaSkyMaterial.set_panorama
@@ -349,6 +370,60 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// RenderPriority is promoted from [Material.Instance.RenderPriority].
+func (o *Extension[T]) RenderPriority() Material.RenderPriority { return o.Super().AsMaterial().RenderPriority() }
+
+// SetRenderPriority is promoted from [Material.Instance.SetRenderPriority].
+func (o *Extension[T]) SetRenderPriority(value Material.RenderPriority) *Extension[T] {
+	o.Super().AsMaterial().SetRenderPriority(value)
+	return o
+}
+
+// NextPass is promoted from [Material.Instance.NextPass].
+func (o *Extension[T]) NextPass() Material.Instance { return o.Super().AsMaterial().NextPass() }
+
+// SetNextPass is promoted from [Material.Instance.SetNextPass].
+func (o *Extension[T]) SetNextPass(value Material.Instance) *Extension[T] {
+	o.Super().AsMaterial().SetNextPass(value)
+	return o
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

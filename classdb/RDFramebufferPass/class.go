@@ -155,15 +155,24 @@ func (self Instance) ColorAttachments() []int32 { //gd:RDFramebufferPass.color_a
 		return []int32(slices.Collect(class(self).GetColorAttachments().Values()))
 }
 
+func (o *Extension[T]) ColorAttachments() []int32 { return o.Super().ColorAttachments() }
+
 // SetColorAttachments sets the property returned by [GetColorAttachments]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetColorAttachments(value []int32) Instance { //gd:RDFramebufferPass.color_attachments
 	class(self).SetColorAttachments(Packed.New(value...))
 	return self
 }
 
+func (o *Extension[T]) SetColorAttachments(value []int32) *Extension[T] {
+	o.Super().SetColorAttachments(value)
+	return o
+}
+
 func (self Instance) InputAttachments() []int32 { //gd:RDFramebufferPass.input_attachments
 		return []int32(slices.Collect(class(self).GetInputAttachments().Values()))
 }
+
+func (o *Extension[T]) InputAttachments() []int32 { return o.Super().InputAttachments() }
 
 // SetInputAttachments sets the property returned by [GetInputAttachments]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetInputAttachments(value []int32) Instance { //gd:RDFramebufferPass.input_attachments
@@ -171,9 +180,16 @@ func (self Instance) SetInputAttachments(value []int32) Instance { //gd:RDFrameb
 	return self
 }
 
+func (o *Extension[T]) SetInputAttachments(value []int32) *Extension[T] {
+	o.Super().SetInputAttachments(value)
+	return o
+}
+
 func (self Instance) ResolveAttachments() []int32 { //gd:RDFramebufferPass.resolve_attachments
 		return []int32(slices.Collect(class(self).GetResolveAttachments().Values()))
 }
+
+func (o *Extension[T]) ResolveAttachments() []int32 { return o.Super().ResolveAttachments() }
 
 // SetResolveAttachments sets the property returned by [GetResolveAttachments]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetResolveAttachments(value []int32) Instance { //gd:RDFramebufferPass.resolve_attachments
@@ -181,9 +197,16 @@ func (self Instance) SetResolveAttachments(value []int32) Instance { //gd:RDFram
 	return self
 }
 
+func (o *Extension[T]) SetResolveAttachments(value []int32) *Extension[T] {
+	o.Super().SetResolveAttachments(value)
+	return o
+}
+
 func (self Instance) PreserveAttachments() []int32 { //gd:RDFramebufferPass.preserve_attachments
 		return []int32(slices.Collect(class(self).GetPreserveAttachments().Values()))
 }
+
+func (o *Extension[T]) PreserveAttachments() []int32 { return o.Super().PreserveAttachments() }
 
 // SetPreserveAttachments sets the property returned by [GetPreserveAttachments]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPreserveAttachments(value []int32) Instance { //gd:RDFramebufferPass.preserve_attachments
@@ -191,14 +214,26 @@ func (self Instance) SetPreserveAttachments(value []int32) Instance { //gd:RDFra
 	return self
 }
 
+func (o *Extension[T]) SetPreserveAttachments(value []int32) *Extension[T] {
+	o.Super().SetPreserveAttachments(value)
+	return o
+}
+
 func (self Instance) DepthAttachment() int { //gd:RDFramebufferPass.depth_attachment
 		return int(int(class(self).GetDepthAttachment()))
 }
+
+func (o *Extension[T]) DepthAttachment() int { return o.Super().DepthAttachment() }
 
 // SetDepthAttachment sets the property returned by [GetDepthAttachment]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDepthAttachment(value int) Instance { //gd:RDFramebufferPass.depth_attachment
 	class(self).SetDepthAttachment(int64(value))
 	return self
+}
+
+func (o *Extension[T]) SetDepthAttachment(value int) *Extension[T] {
+	o.Super().SetDepthAttachment(value)
+	return o
 }
 
 func (self class) SetColorAttachments(p_member Packed.Array[int32])  { //gd:RDFramebufferPass.set_color_attachments

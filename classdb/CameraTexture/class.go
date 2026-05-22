@@ -157,15 +157,24 @@ func (self Instance) CameraFeedId() int { //gd:CameraTexture.camera_feed_id
 		return int(int(class(self).GetCameraFeedId()))
 }
 
+func (o *Extension[T]) CameraFeedId() int { return o.Super().CameraFeedId() }
+
 // SetCameraFeedId sets the property returned by [GetCameraFeedId]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCameraFeedId(value int) Instance { //gd:CameraTexture.camera_feed_id
 	class(self).SetCameraFeedId(int64(value))
 	return self
 }
 
+func (o *Extension[T]) SetCameraFeedId(value int) *Extension[T] {
+	o.Super().SetCameraFeedId(value)
+	return o
+}
+
 func (self Instance) WhichFeed() CameraFeed.ImageType { //gd:CameraTexture.which_feed
 		return CameraFeed.ImageType(class(self).GetWhichFeed())
 }
+
+func (o *Extension[T]) WhichFeed() CameraFeed.ImageType { return o.Super().WhichFeed() }
 
 // SetWhichFeed sets the property returned by [GetWhichFeed]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetWhichFeed(value CameraFeed.ImageType) Instance { //gd:CameraTexture.which_feed
@@ -173,14 +182,26 @@ func (self Instance) SetWhichFeed(value CameraFeed.ImageType) Instance { //gd:Ca
 	return self
 }
 
+func (o *Extension[T]) SetWhichFeed(value CameraFeed.ImageType) *Extension[T] {
+	o.Super().SetWhichFeed(value)
+	return o
+}
+
 func (self Instance) CameraIsActive() bool { //gd:CameraTexture.camera_is_active
 		return bool(class(self).GetCameraActive())
 }
+
+func (o *Extension[T]) CameraIsActive() bool { return o.Super().CameraIsActive() }
 
 // SetCameraIsActive sets the property returned by [GetCameraActive]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCameraIsActive(value bool) Instance { //gd:CameraTexture.camera_is_active
 	class(self).SetCameraActive(value)
 	return self
+}
+
+func (o *Extension[T]) SetCameraIsActive(value bool) *Extension[T] {
+	o.Super().SetCameraIsActive(value)
+	return o
 }
 
 func (self class) SetCameraFeedId(feed_id int64)  { //gd:CameraTexture.set_camera_feed_id
@@ -395,6 +416,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

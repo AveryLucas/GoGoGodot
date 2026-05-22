@@ -39,6 +39,7 @@ import "graphics.gd/variant/RID"
 import "graphics.gd/variant/RefCounted"
 import "graphics.gd/variant/String"
 import "graphics.gd/variant/Vector2"
+import "graphics.gd/variant/Vector2i"
 import "graphics.gd/variant/Vector3"
 
 var _ Object.ID
@@ -193,15 +194,24 @@ func (self Instance) Text() string { //gd:TextMesh.text
 		return string(class(self).GetText().String())
 }
 
+func (o *Extension[T]) Text() string { return o.Super().Text() }
+
 // SetText sets the property returned by [GetText]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetText(value string) Instance { //gd:TextMesh.text
 	class(self).SetText(String.From(value))
 	return self
 }
 
+func (o *Extension[T]) SetText(value string) *Extension[T] {
+	o.Super().SetText(value)
+	return o
+}
+
 func (self Instance) Font() Font.Instance { //gd:TextMesh.font
 		return Font.Instance(class(self).GetFont())
 }
+
+func (o *Extension[T]) Font() Font.Instance { return o.Super().Font() }
 
 // SetFont sets the property returned by [GetFont]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFont(value Font.Instance) Instance { //gd:TextMesh.font
@@ -209,9 +219,16 @@ func (self Instance) SetFont(value Font.Instance) Instance { //gd:TextMesh.font
 	return self
 }
 
+func (o *Extension[T]) SetFont(value Font.Instance) *Extension[T] {
+	o.Super().SetFont(value)
+	return o
+}
+
 func (self Instance) FontSize() int { //gd:TextMesh.font_size
 		return int(int(class(self).GetFontSize()))
 }
+
+func (o *Extension[T]) FontSize() int { return o.Super().FontSize() }
 
 // SetFontSize sets the property returned by [GetFontSize]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFontSize(value int) Instance { //gd:TextMesh.font_size
@@ -219,9 +236,16 @@ func (self Instance) SetFontSize(value int) Instance { //gd:TextMesh.font_size
 	return self
 }
 
+func (o *Extension[T]) SetFontSize(value int) *Extension[T] {
+	o.Super().SetFontSize(value)
+	return o
+}
+
 func (self Instance) HorizontalAlignment() GUI.HorizontalAlignment { //gd:TextMesh.horizontal_alignment
 		return GUI.HorizontalAlignment(class(self).GetHorizontalAlignment())
 }
+
+func (o *Extension[T]) HorizontalAlignment() GUI.HorizontalAlignment { return o.Super().HorizontalAlignment() }
 
 // SetHorizontalAlignment sets the property returned by [GetHorizontalAlignment]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetHorizontalAlignment(value GUI.HorizontalAlignment) Instance { //gd:TextMesh.horizontal_alignment
@@ -229,9 +253,16 @@ func (self Instance) SetHorizontalAlignment(value GUI.HorizontalAlignment) Insta
 	return self
 }
 
+func (o *Extension[T]) SetHorizontalAlignment(value GUI.HorizontalAlignment) *Extension[T] {
+	o.Super().SetHorizontalAlignment(value)
+	return o
+}
+
 func (self Instance) VerticalAlignment() GUI.VerticalAlignment { //gd:TextMesh.vertical_alignment
 		return GUI.VerticalAlignment(class(self).GetVerticalAlignment())
 }
+
+func (o *Extension[T]) VerticalAlignment() GUI.VerticalAlignment { return o.Super().VerticalAlignment() }
 
 // SetVerticalAlignment sets the property returned by [GetVerticalAlignment]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVerticalAlignment(value GUI.VerticalAlignment) Instance { //gd:TextMesh.vertical_alignment
@@ -239,9 +270,16 @@ func (self Instance) SetVerticalAlignment(value GUI.VerticalAlignment) Instance 
 	return self
 }
 
+func (o *Extension[T]) SetVerticalAlignment(value GUI.VerticalAlignment) *Extension[T] {
+	o.Super().SetVerticalAlignment(value)
+	return o
+}
+
 func (self Instance) Uppercase() bool { //gd:TextMesh.uppercase
 		return bool(class(self).IsUppercase())
 }
+
+func (o *Extension[T]) Uppercase() bool { return o.Super().Uppercase() }
 
 // SetUppercase sets the property returned by [IsUppercase]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUppercase(value bool) Instance { //gd:TextMesh.uppercase
@@ -249,9 +287,16 @@ func (self Instance) SetUppercase(value bool) Instance { //gd:TextMesh.uppercase
 	return self
 }
 
+func (o *Extension[T]) SetUppercase(value bool) *Extension[T] {
+	o.Super().SetUppercase(value)
+	return o
+}
+
 func (self Instance) LineSpacing() Float.X { //gd:TextMesh.line_spacing
 		return Float.X(Float.X(class(self).GetLineSpacing()))
 }
+
+func (o *Extension[T]) LineSpacing() Float.X { return o.Super().LineSpacing() }
 
 // SetLineSpacing sets the property returned by [GetLineSpacing]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetLineSpacing(value Float.X) Instance { //gd:TextMesh.line_spacing
@@ -259,9 +304,16 @@ func (self Instance) SetLineSpacing(value Float.X) Instance { //gd:TextMesh.line
 	return self
 }
 
+func (o *Extension[T]) SetLineSpacing(value Float.X) *Extension[T] {
+	o.Super().SetLineSpacing(value)
+	return o
+}
+
 func (self Instance) AutowrapMode() TextServer.AutowrapMode { //gd:TextMesh.autowrap_mode
 		return TextServer.AutowrapMode(class(self).GetAutowrapMode())
 }
+
+func (o *Extension[T]) AutowrapMode() TextServer.AutowrapMode { return o.Super().AutowrapMode() }
 
 // SetAutowrapMode sets the property returned by [GetAutowrapMode]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAutowrapMode(value TextServer.AutowrapMode) Instance { //gd:TextMesh.autowrap_mode
@@ -269,9 +321,16 @@ func (self Instance) SetAutowrapMode(value TextServer.AutowrapMode) Instance { /
 	return self
 }
 
+func (o *Extension[T]) SetAutowrapMode(value TextServer.AutowrapMode) *Extension[T] {
+	o.Super().SetAutowrapMode(value)
+	return o
+}
+
 func (self Instance) JustificationFlags() TextServer.JustificationFlag { //gd:TextMesh.justification_flags
 		return TextServer.JustificationFlag(class(self).GetJustificationFlags())
 }
+
+func (o *Extension[T]) JustificationFlags() TextServer.JustificationFlag { return o.Super().JustificationFlags() }
 
 // SetJustificationFlags sets the property returned by [GetJustificationFlags]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetJustificationFlags(value TextServer.JustificationFlag) Instance { //gd:TextMesh.justification_flags
@@ -279,9 +338,16 @@ func (self Instance) SetJustificationFlags(value TextServer.JustificationFlag) I
 	return self
 }
 
+func (o *Extension[T]) SetJustificationFlags(value TextServer.JustificationFlag) *Extension[T] {
+	o.Super().SetJustificationFlags(value)
+	return o
+}
+
 func (self Instance) PixelSize() Float.X { //gd:TextMesh.pixel_size
 		return Float.X(Float.X(class(self).GetPixelSize()))
 }
+
+func (o *Extension[T]) PixelSize() Float.X { return o.Super().PixelSize() }
 
 // SetPixelSize sets the property returned by [GetPixelSize]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetPixelSize(value Float.X) Instance { //gd:TextMesh.pixel_size
@@ -289,9 +355,16 @@ func (self Instance) SetPixelSize(value Float.X) Instance { //gd:TextMesh.pixel_
 	return self
 }
 
+func (o *Extension[T]) SetPixelSize(value Float.X) *Extension[T] {
+	o.Super().SetPixelSize(value)
+	return o
+}
+
 func (self Instance) CurveStep() Float.X { //gd:TextMesh.curve_step
 		return Float.X(Float.X(class(self).GetCurveStep()))
 }
+
+func (o *Extension[T]) CurveStep() Float.X { return o.Super().CurveStep() }
 
 // SetCurveStep sets the property returned by [GetCurveStep]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCurveStep(value Float.X) Instance { //gd:TextMesh.curve_step
@@ -299,9 +372,16 @@ func (self Instance) SetCurveStep(value Float.X) Instance { //gd:TextMesh.curve_
 	return self
 }
 
+func (o *Extension[T]) SetCurveStep(value Float.X) *Extension[T] {
+	o.Super().SetCurveStep(value)
+	return o
+}
+
 func (self Instance) Depth() Float.X { //gd:TextMesh.depth
 		return Float.X(Float.X(class(self).GetDepth()))
 }
+
+func (o *Extension[T]) Depth() Float.X { return o.Super().Depth() }
 
 // SetDepth sets the property returned by [GetDepth]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDepth(value Float.X) Instance { //gd:TextMesh.depth
@@ -309,9 +389,16 @@ func (self Instance) SetDepth(value Float.X) Instance { //gd:TextMesh.depth
 	return self
 }
 
+func (o *Extension[T]) SetDepth(value Float.X) *Extension[T] {
+	o.Super().SetDepth(value)
+	return o
+}
+
 func (self Instance) Width() Float.X { //gd:TextMesh.width
 		return Float.X(Float.X(class(self).GetWidth()))
 }
+
+func (o *Extension[T]) Width() Float.X { return o.Super().Width() }
 
 // SetWidth sets the property returned by [GetWidth]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetWidth(value Float.X) Instance { //gd:TextMesh.width
@@ -319,9 +406,16 @@ func (self Instance) SetWidth(value Float.X) Instance { //gd:TextMesh.width
 	return self
 }
 
+func (o *Extension[T]) SetWidth(value Float.X) *Extension[T] {
+	o.Super().SetWidth(value)
+	return o
+}
+
 func (self Instance) Offset() Vector2.XY { //gd:TextMesh.offset
 		return Vector2.XY(class(self).GetOffset())
 }
+
+func (o *Extension[T]) Offset() Vector2.XY { return o.Super().Offset() }
 
 // SetOffset sets the property returned by [GetOffset]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOffset(value Vector2.XY) Instance { //gd:TextMesh.offset
@@ -329,9 +423,16 @@ func (self Instance) SetOffset(value Vector2.XY) Instance { //gd:TextMesh.offset
 	return self
 }
 
+func (o *Extension[T]) SetOffset(value Vector2.XY) *Extension[T] {
+	o.Super().SetOffset(value)
+	return o
+}
+
 func (self Instance) TextDirection() TextServer.Direction { //gd:TextMesh.text_direction
 		return TextServer.Direction(class(self).GetTextDirection())
 }
+
+func (o *Extension[T]) TextDirection() TextServer.Direction { return o.Super().TextDirection() }
 
 // SetTextDirection sets the property returned by [GetTextDirection]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTextDirection(value TextServer.Direction) Instance { //gd:TextMesh.text_direction
@@ -339,9 +440,16 @@ func (self Instance) SetTextDirection(value TextServer.Direction) Instance { //g
 	return self
 }
 
+func (o *Extension[T]) SetTextDirection(value TextServer.Direction) *Extension[T] {
+	o.Super().SetTextDirection(value)
+	return o
+}
+
 func (self Instance) Language() string { //gd:TextMesh.language
 		return string(class(self).GetLanguage().String())
 }
+
+func (o *Extension[T]) Language() string { return o.Super().Language() }
 
 // SetLanguage sets the property returned by [GetLanguage]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetLanguage(value string) Instance { //gd:TextMesh.language
@@ -349,9 +457,16 @@ func (self Instance) SetLanguage(value string) Instance { //gd:TextMesh.language
 	return self
 }
 
+func (o *Extension[T]) SetLanguage(value string) *Extension[T] {
+	o.Super().SetLanguage(value)
+	return o
+}
+
 func (self Instance) StructuredTextBidiOverride() TextServer.StructuredTextParser { //gd:TextMesh.structured_text_bidi_override
 		return TextServer.StructuredTextParser(class(self).GetStructuredTextBidiOverride())
 }
+
+func (o *Extension[T]) StructuredTextBidiOverride() TextServer.StructuredTextParser { return o.Super().StructuredTextBidiOverride() }
 
 // SetStructuredTextBidiOverride sets the property returned by [GetStructuredTextBidiOverride]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStructuredTextBidiOverride(value TextServer.StructuredTextParser) Instance { //gd:TextMesh.structured_text_bidi_override
@@ -359,14 +474,26 @@ func (self Instance) SetStructuredTextBidiOverride(value TextServer.StructuredTe
 	return self
 }
 
+func (o *Extension[T]) SetStructuredTextBidiOverride(value TextServer.StructuredTextParser) *Extension[T] {
+	o.Super().SetStructuredTextBidiOverride(value)
+	return o
+}
+
 func (self Instance) StructuredTextBidiOverrideOptions() []any { //gd:TextMesh.structured_text_bidi_override_options
 		return []any(gd.ArrayAs[[]any](gd.InternalArray(class(self).GetStructuredTextBidiOverrideOptions())))
 }
+
+func (o *Extension[T]) StructuredTextBidiOverrideOptions() []any { return o.Super().StructuredTextBidiOverrideOptions() }
 
 // SetStructuredTextBidiOverrideOptions sets the property returned by [GetStructuredTextBidiOverrideOptions]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetStructuredTextBidiOverrideOptions(value []any) Instance { //gd:TextMesh.structured_text_bidi_override_options
 	class(self).SetStructuredTextBidiOverrideOptions(gd.EngineArrayFromSlice(value))
 	return self
+}
+
+func (o *Extension[T]) SetStructuredTextBidiOverrideOptions(value []any) *Extension[T] {
+	o.Super().SetStructuredTextBidiOverrideOptions(value)
+	return o
 }
 
 func (self class) SetHorizontalAlignment(alignment GUI.HorizontalAlignment)  { //gd:TextMesh.set_horizontal_alignment
@@ -771,6 +898,96 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// Material is promoted from [PrimitiveMesh.Instance.Material].
+func (o *Extension[T]) Material() Material.Instance { return o.Super().AsPrimitiveMesh().Material() }
+
+// SetMaterial is promoted from [PrimitiveMesh.Instance.SetMaterial].
+func (o *Extension[T]) SetMaterial(value Material.Instance) *Extension[T] {
+	o.Super().AsPrimitiveMesh().SetMaterial(value)
+	return o
+}
+
+// CustomAabb is promoted from [PrimitiveMesh.Instance.CustomAabb].
+func (o *Extension[T]) CustomAabb() AABB.PositionSize { return o.Super().AsPrimitiveMesh().CustomAabb() }
+
+// SetCustomAabb is promoted from [PrimitiveMesh.Instance.SetCustomAabb].
+func (o *Extension[T]) SetCustomAabb(value AABB.PositionSize) *Extension[T] {
+	o.Super().AsPrimitiveMesh().SetCustomAabb(value)
+	return o
+}
+
+// FlipFaces is promoted from [PrimitiveMesh.Instance.FlipFaces].
+func (o *Extension[T]) FlipFaces() bool { return o.Super().AsPrimitiveMesh().FlipFaces() }
+
+// SetFlipFaces is promoted from [PrimitiveMesh.Instance.SetFlipFaces].
+func (o *Extension[T]) SetFlipFaces(value bool) *Extension[T] {
+	o.Super().AsPrimitiveMesh().SetFlipFaces(value)
+	return o
+}
+
+// AddUv2 is promoted from [PrimitiveMesh.Instance.AddUv2].
+func (o *Extension[T]) AddUv2() bool { return o.Super().AsPrimitiveMesh().AddUv2() }
+
+// SetAddUv2 is promoted from [PrimitiveMesh.Instance.SetAddUv2].
+func (o *Extension[T]) SetAddUv2(value bool) *Extension[T] {
+	o.Super().AsPrimitiveMesh().SetAddUv2(value)
+	return o
+}
+
+// Uv2Padding is promoted from [PrimitiveMesh.Instance.Uv2Padding].
+func (o *Extension[T]) Uv2Padding() Float.X { return o.Super().AsPrimitiveMesh().Uv2Padding() }
+
+// SetUv2Padding is promoted from [PrimitiveMesh.Instance.SetUv2Padding].
+func (o *Extension[T]) SetUv2Padding(value Float.X) *Extension[T] {
+	o.Super().AsPrimitiveMesh().SetUv2Padding(value)
+	return o
+}
+
+// LightmapSizeHint is promoted from [Mesh.Instance.LightmapSizeHint].
+func (o *Extension[T]) LightmapSizeHint() Vector2i.XY { return o.Super().AsMesh().LightmapSizeHint() }
+
+// SetLightmapSizeHint is promoted from [Mesh.Instance.SetLightmapSizeHint].
+func (o *Extension[T]) SetLightmapSizeHint(value Vector2i.XY) *Extension[T] {
+	o.Super().AsMesh().SetLightmapSizeHint(value)
+	return o
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

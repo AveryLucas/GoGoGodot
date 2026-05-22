@@ -235,15 +235,24 @@ func (self Instance) FeedIsActive() bool { //gd:CameraFeed.feed_is_active
 		return bool(class(self).IsActive())
 }
 
+func (o *Extension[T]) FeedIsActive() bool { return o.Super().FeedIsActive() }
+
 // SetFeedIsActive sets the property returned by [IsActive]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFeedIsActive(value bool) Instance { //gd:CameraFeed.feed_is_active
 	class(self).SetActive(value)
 	return self
 }
 
+func (o *Extension[T]) SetFeedIsActive(value bool) *Extension[T] {
+	o.Super().SetFeedIsActive(value)
+	return o
+}
+
 func (self Instance) FeedTransform() Transform2D.OriginXY { //gd:CameraFeed.feed_transform
 		return Transform2D.OriginXY(class(self).GetTransform())
 }
+
+func (o *Extension[T]) FeedTransform() Transform2D.OriginXY { return o.Super().FeedTransform() }
 
 // SetFeedTransform sets the property returned by [GetTransform]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFeedTransform(value Transform2D.OriginXY) Instance { //gd:CameraFeed.feed_transform
@@ -251,9 +260,16 @@ func (self Instance) SetFeedTransform(value Transform2D.OriginXY) Instance { //g
 	return self
 }
 
+func (o *Extension[T]) SetFeedTransform(value Transform2D.OriginXY) *Extension[T] {
+	o.Super().SetFeedTransform(value)
+	return o
+}
+
 func (self Instance) Formats() []Format { //gd:CameraFeed.formats
 		return []Format(gd.ArrayAs[[]Format](gd.InternalArray(class(self).GetFormats())))
 }
+
+func (o *Extension[T]) Formats() []Format { return o.Super().Formats() }
 func (class) _activate_feed(impl func(ptr gdclass.Receiver) bool) (cb gd.ExtensionClassCallVirtualFunc) {
 	return func(class any, p_args, p_back gdextension.Pointer) {
 		self := gdclass.Receiver(reflect.ValueOf(class).UnsafePointer())

@@ -149,10 +149,17 @@ func (self Instance) Sync() bool { //gd:AnimationNodeSync.sync
 		return bool(class(self).IsUsingSync())
 }
 
+func (o *Extension[T]) Sync() bool { return o.Super().Sync() }
+
 // SetSync sets the property returned by [IsUsingSync]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSync(value bool) Instance { //gd:AnimationNodeSync.sync
 	class(self).SetUseSync(value)
 	return self
+}
+
+func (o *Extension[T]) SetSync(value bool) *Extension[T] {
+	o.Super().SetSync(value)
+	return o
 }
 
 func (self class) SetUseSync(enable bool)  { //gd:AnimationNodeSync.set_use_sync
@@ -442,6 +449,51 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// FilterEnabled is promoted from [AnimationNode.Instance.FilterEnabled].
+func (o *Extension[T]) FilterEnabled() bool { return o.Super().AsAnimationNode().FilterEnabled() }
+
+// SetFilterEnabled is promoted from [AnimationNode.Instance.SetFilterEnabled].
+func (o *Extension[T]) SetFilterEnabled(value bool) *Extension[T] {
+	o.Super().AsAnimationNode().SetFilterEnabled(value)
+	return o
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

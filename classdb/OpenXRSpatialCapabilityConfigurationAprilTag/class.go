@@ -152,10 +152,17 @@ func (self Instance) AprilDict() AprilTagDict { //gd:OpenXRSpatialCapabilityConf
 		return AprilTagDict(class(self).GetAprilDict())
 }
 
+func (o *Extension[T]) AprilDict() AprilTagDict { return o.Super().AprilDict() }
+
 // SetAprilDict sets the property returned by [GetAprilDict]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetAprilDict(value AprilTagDict) Instance { //gd:OpenXRSpatialCapabilityConfigurationAprilTag.april_dict
 	class(self).SetAprilDict(value)
 	return self
+}
+
+func (o *Extension[T]) SetAprilDict(value AprilTagDict) *Extension[T] {
+	o.Super().SetAprilDict(value)
+	return o
 }
 
 func (self class) GetEnabledComponents() Packed.Array[int64] { //gd:OpenXRSpatialCapabilityConfigurationAprilTag.get_enabled_components

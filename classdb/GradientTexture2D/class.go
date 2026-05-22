@@ -165,10 +165,17 @@ func (self Instance) Gradient() Gradient.Instance { //gd:GradientTexture2D.gradi
 		return Gradient.Instance(class(self).GetGradient())
 }
 
+func (o *Extension[T]) Gradient() Gradient.Instance { return o.Super().Gradient() }
+
 // SetGradient sets the property returned by [GetGradient]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetGradient(value Gradient.Instance) Instance { //gd:GradientTexture2D.gradient
 	class(self).SetGradient(value)
 	return self
+}
+
+func (o *Extension[T]) SetGradient(value Gradient.Instance) *Extension[T] {
+	o.Super().SetGradient(value)
+	return o
 }
 
 func (self Instance) SetWidth(value int) Instance { //gd:GradientTexture2D.width
@@ -176,14 +183,26 @@ func (self Instance) SetWidth(value int) Instance { //gd:GradientTexture2D.width
 	return self
 }
 
+func (o *Extension[T]) SetWidth(value int) *Extension[T] {
+	o.Super().SetWidth(value)
+	return o
+}
+
 func (self Instance) SetHeight(value int) Instance { //gd:GradientTexture2D.height
 	class(self).SetHeight(int64(value))
 	return self
 }
 
+func (o *Extension[T]) SetHeight(value int) *Extension[T] {
+	o.Super().SetHeight(value)
+	return o
+}
+
 func (self Instance) UseHdr() bool { //gd:GradientTexture2D.use_hdr
 		return bool(class(self).IsUsingHdr())
 }
+
+func (o *Extension[T]) UseHdr() bool { return o.Super().UseHdr() }
 
 // SetUseHdr sets the property returned by [IsUsingHdr]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUseHdr(value bool) Instance { //gd:GradientTexture2D.use_hdr
@@ -191,9 +210,16 @@ func (self Instance) SetUseHdr(value bool) Instance { //gd:GradientTexture2D.use
 	return self
 }
 
+func (o *Extension[T]) SetUseHdr(value bool) *Extension[T] {
+	o.Super().SetUseHdr(value)
+	return o
+}
+
 func (self Instance) Fill() Fill { //gd:GradientTexture2D.fill
 		return Fill(class(self).GetFill())
 }
+
+func (o *Extension[T]) Fill() Fill { return o.Super().Fill() }
 
 // SetFill sets the property returned by [GetFill]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFill(value Fill) Instance { //gd:GradientTexture2D.fill
@@ -201,9 +227,16 @@ func (self Instance) SetFill(value Fill) Instance { //gd:GradientTexture2D.fill
 	return self
 }
 
+func (o *Extension[T]) SetFill(value Fill) *Extension[T] {
+	o.Super().SetFill(value)
+	return o
+}
+
 func (self Instance) FillFrom() Vector2.XY { //gd:GradientTexture2D.fill_from
 		return Vector2.XY(class(self).GetFillFrom())
 }
+
+func (o *Extension[T]) FillFrom() Vector2.XY { return o.Super().FillFrom() }
 
 // SetFillFrom sets the property returned by [GetFillFrom]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFillFrom(value Vector2.XY) Instance { //gd:GradientTexture2D.fill_from
@@ -211,9 +244,16 @@ func (self Instance) SetFillFrom(value Vector2.XY) Instance { //gd:GradientTextu
 	return self
 }
 
+func (o *Extension[T]) SetFillFrom(value Vector2.XY) *Extension[T] {
+	o.Super().SetFillFrom(value)
+	return o
+}
+
 func (self Instance) FillTo() Vector2.XY { //gd:GradientTexture2D.fill_to
 		return Vector2.XY(class(self).GetFillTo())
 }
+
+func (o *Extension[T]) FillTo() Vector2.XY { return o.Super().FillTo() }
 
 // SetFillTo sets the property returned by [GetFillTo]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFillTo(value Vector2.XY) Instance { //gd:GradientTexture2D.fill_to
@@ -221,14 +261,26 @@ func (self Instance) SetFillTo(value Vector2.XY) Instance { //gd:GradientTexture
 	return self
 }
 
+func (o *Extension[T]) SetFillTo(value Vector2.XY) *Extension[T] {
+	o.Super().SetFillTo(value)
+	return o
+}
+
 func (self Instance) Repeat() Repeat { //gd:GradientTexture2D.repeat
 		return Repeat(class(self).GetRepeat())
 }
+
+func (o *Extension[T]) Repeat() Repeat { return o.Super().Repeat() }
 
 // SetRepeat sets the property returned by [GetRepeat]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetRepeat(value Repeat) Instance { //gd:GradientTexture2D.repeat
 	class(self).SetRepeat(value)
 	return self
+}
+
+func (o *Extension[T]) SetRepeat(value Repeat) *Extension[T] {
+	o.Super().SetRepeat(value)
+	return o
 }
 
 func (self class) SetGradient(gradient [1]gdclass.Gradient)  { //gd:GradientTexture2D.set_gradient
@@ -473,6 +525,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

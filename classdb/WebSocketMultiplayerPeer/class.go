@@ -192,15 +192,24 @@ func (self Instance) SupportedProtocols() []string { //gd:WebSocketMultiplayerPe
 		return []string(class(self).GetSupportedProtocols().Strings())
 }
 
+func (o *Extension[T]) SupportedProtocols() []string { return o.Super().SupportedProtocols() }
+
 // SetSupportedProtocols sets the property returned by [GetSupportedProtocols]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSupportedProtocols(value []string) Instance { //gd:WebSocketMultiplayerPeer.supported_protocols
 	class(self).SetSupportedProtocols(Packed.MakeStrings(value...))
 	return self
 }
 
+func (o *Extension[T]) SetSupportedProtocols(value []string) *Extension[T] {
+	o.Super().SetSupportedProtocols(value)
+	return o
+}
+
 func (self Instance) HandshakeHeaders() []string { //gd:WebSocketMultiplayerPeer.handshake_headers
 		return []string(class(self).GetHandshakeHeaders().Strings())
 }
+
+func (o *Extension[T]) HandshakeHeaders() []string { return o.Super().HandshakeHeaders() }
 
 // SetHandshakeHeaders sets the property returned by [GetHandshakeHeaders]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetHandshakeHeaders(value []string) Instance { //gd:WebSocketMultiplayerPeer.handshake_headers
@@ -208,9 +217,16 @@ func (self Instance) SetHandshakeHeaders(value []string) Instance { //gd:WebSock
 	return self
 }
 
+func (o *Extension[T]) SetHandshakeHeaders(value []string) *Extension[T] {
+	o.Super().SetHandshakeHeaders(value)
+	return o
+}
+
 func (self Instance) InboundBufferSize() int { //gd:WebSocketMultiplayerPeer.inbound_buffer_size
 		return int(int(class(self).GetInboundBufferSize()))
 }
+
+func (o *Extension[T]) InboundBufferSize() int { return o.Super().InboundBufferSize() }
 
 // SetInboundBufferSize sets the property returned by [GetInboundBufferSize]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetInboundBufferSize(value int) Instance { //gd:WebSocketMultiplayerPeer.inbound_buffer_size
@@ -218,9 +234,16 @@ func (self Instance) SetInboundBufferSize(value int) Instance { //gd:WebSocketMu
 	return self
 }
 
+func (o *Extension[T]) SetInboundBufferSize(value int) *Extension[T] {
+	o.Super().SetInboundBufferSize(value)
+	return o
+}
+
 func (self Instance) OutboundBufferSize() int { //gd:WebSocketMultiplayerPeer.outbound_buffer_size
 		return int(int(class(self).GetOutboundBufferSize()))
 }
+
+func (o *Extension[T]) OutboundBufferSize() int { return o.Super().OutboundBufferSize() }
 
 // SetOutboundBufferSize sets the property returned by [GetOutboundBufferSize]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetOutboundBufferSize(value int) Instance { //gd:WebSocketMultiplayerPeer.outbound_buffer_size
@@ -228,9 +251,16 @@ func (self Instance) SetOutboundBufferSize(value int) Instance { //gd:WebSocketM
 	return self
 }
 
+func (o *Extension[T]) SetOutboundBufferSize(value int) *Extension[T] {
+	o.Super().SetOutboundBufferSize(value)
+	return o
+}
+
 func (self Instance) HandshakeTimeout() Float.X { //gd:WebSocketMultiplayerPeer.handshake_timeout
 		return Float.X(Float.X(class(self).GetHandshakeTimeout()))
 }
+
+func (o *Extension[T]) HandshakeTimeout() Float.X { return o.Super().HandshakeTimeout() }
 
 // SetHandshakeTimeout sets the property returned by [GetHandshakeTimeout]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetHandshakeTimeout(value Float.X) Instance { //gd:WebSocketMultiplayerPeer.handshake_timeout
@@ -238,14 +268,26 @@ func (self Instance) SetHandshakeTimeout(value Float.X) Instance { //gd:WebSocke
 	return self
 }
 
+func (o *Extension[T]) SetHandshakeTimeout(value Float.X) *Extension[T] {
+	o.Super().SetHandshakeTimeout(value)
+	return o
+}
+
 func (self Instance) MaxQueuedPackets() int { //gd:WebSocketMultiplayerPeer.max_queued_packets
 		return int(int(class(self).GetMaxQueuedPackets()))
 }
+
+func (o *Extension[T]) MaxQueuedPackets() int { return o.Super().MaxQueuedPackets() }
 
 // SetMaxQueuedPackets sets the property returned by [GetMaxQueuedPackets]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMaxQueuedPackets(value int) Instance { //gd:WebSocketMultiplayerPeer.max_queued_packets
 	class(self).SetMaxQueuedPackets(int64(value))
 	return self
+}
+
+func (o *Extension[T]) SetMaxQueuedPackets(value int) *Extension[T] {
+	o.Super().SetMaxQueuedPackets(value)
+	return o
 }
 
 func (self class) CreateClient(url String.Readable, tls_client_options [1]gdclass.TLSOptions) Error.Code { //gd:WebSocketMultiplayerPeer.create_client
@@ -503,6 +545,42 @@ func (self Instance) GetAvailablePacketCount() int {
 // GetAvailablePacketCount is promoted from [PacketPeer.Instance.GetAvailablePacketCount].
 func (o *Extension[T]) GetAvailablePacketCount() int {
 	return o.Super().AsPacketPeer().GetAvailablePacketCount()
+}
+
+// RefuseNewConnections is promoted from [MultiplayerPeer.Instance.RefuseNewConnections].
+func (o *Extension[T]) RefuseNewConnections() bool { return o.Super().AsMultiplayerPeer().RefuseNewConnections() }
+
+// SetRefuseNewConnections is promoted from [MultiplayerPeer.Instance.SetRefuseNewConnections].
+func (o *Extension[T]) SetRefuseNewConnections(value bool) *Extension[T] {
+	o.Super().AsMultiplayerPeer().SetRefuseNewConnections(value)
+	return o
+}
+
+// TransferMode is promoted from [MultiplayerPeer.Instance.TransferMode].
+func (o *Extension[T]) TransferMode() MultiplayerPeer.TransferMode { return o.Super().AsMultiplayerPeer().TransferMode() }
+
+// SetTransferMode is promoted from [MultiplayerPeer.Instance.SetTransferMode].
+func (o *Extension[T]) SetTransferMode(value MultiplayerPeer.TransferMode) *Extension[T] {
+	o.Super().AsMultiplayerPeer().SetTransferMode(value)
+	return o
+}
+
+// TransferChannel is promoted from [MultiplayerPeer.Instance.TransferChannel].
+func (o *Extension[T]) TransferChannel() int { return o.Super().AsMultiplayerPeer().TransferChannel() }
+
+// SetTransferChannel is promoted from [MultiplayerPeer.Instance.SetTransferChannel].
+func (o *Extension[T]) SetTransferChannel(value int) *Extension[T] {
+	o.Super().AsMultiplayerPeer().SetTransferChannel(value)
+	return o
+}
+
+// EncodeBufferMaxSize is promoted from [PacketPeer.Instance.EncodeBufferMaxSize].
+func (o *Extension[T]) EncodeBufferMaxSize() int { return o.Super().AsPacketPeer().EncodeBufferMaxSize() }
+
+// SetEncodeBufferMaxSize is promoted from [PacketPeer.Instance.SetEncodeBufferMaxSize].
+func (o *Extension[T]) SetEncodeBufferMaxSize(value int) *Extension[T] {
+	o.Super().AsPacketPeer().SetEncodeBufferMaxSize(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

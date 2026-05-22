@@ -176,15 +176,24 @@ func (self Instance) Format() Rendering.DataFormat { //gd:RDTextureFormat.format
 		return Rendering.DataFormat(class(self).GetFormat())
 }
 
+func (o *Extension[T]) Format() Rendering.DataFormat { return o.Super().Format() }
+
 // SetFormat sets the property returned by [GetFormat]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetFormat(value Rendering.DataFormat) Instance { //gd:RDTextureFormat.format
 	class(self).SetFormat(value)
 	return self
 }
 
+func (o *Extension[T]) SetFormat(value Rendering.DataFormat) *Extension[T] {
+	o.Super().SetFormat(value)
+	return o
+}
+
 func (self Instance) Width() int { //gd:RDTextureFormat.width
 		return int(int(class(self).GetWidth()))
 }
+
+func (o *Extension[T]) Width() int { return o.Super().Width() }
 
 // SetWidth sets the property returned by [GetWidth]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetWidth(value int) Instance { //gd:RDTextureFormat.width
@@ -192,9 +201,16 @@ func (self Instance) SetWidth(value int) Instance { //gd:RDTextureFormat.width
 	return self
 }
 
+func (o *Extension[T]) SetWidth(value int) *Extension[T] {
+	o.Super().SetWidth(value)
+	return o
+}
+
 func (self Instance) Height() int { //gd:RDTextureFormat.height
 		return int(int(class(self).GetHeight()))
 }
+
+func (o *Extension[T]) Height() int { return o.Super().Height() }
 
 // SetHeight sets the property returned by [GetHeight]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetHeight(value int) Instance { //gd:RDTextureFormat.height
@@ -202,9 +218,16 @@ func (self Instance) SetHeight(value int) Instance { //gd:RDTextureFormat.height
 	return self
 }
 
+func (o *Extension[T]) SetHeight(value int) *Extension[T] {
+	o.Super().SetHeight(value)
+	return o
+}
+
 func (self Instance) Depth() int { //gd:RDTextureFormat.depth
 		return int(int(class(self).GetDepth()))
 }
+
+func (o *Extension[T]) Depth() int { return o.Super().Depth() }
 
 // SetDepth sets the property returned by [GetDepth]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDepth(value int) Instance { //gd:RDTextureFormat.depth
@@ -212,9 +235,16 @@ func (self Instance) SetDepth(value int) Instance { //gd:RDTextureFormat.depth
 	return self
 }
 
+func (o *Extension[T]) SetDepth(value int) *Extension[T] {
+	o.Super().SetDepth(value)
+	return o
+}
+
 func (self Instance) ArrayLayers() int { //gd:RDTextureFormat.array_layers
 		return int(int(class(self).GetArrayLayers()))
 }
+
+func (o *Extension[T]) ArrayLayers() int { return o.Super().ArrayLayers() }
 
 // SetArrayLayers sets the property returned by [GetArrayLayers]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetArrayLayers(value int) Instance { //gd:RDTextureFormat.array_layers
@@ -222,9 +252,16 @@ func (self Instance) SetArrayLayers(value int) Instance { //gd:RDTextureFormat.a
 	return self
 }
 
+func (o *Extension[T]) SetArrayLayers(value int) *Extension[T] {
+	o.Super().SetArrayLayers(value)
+	return o
+}
+
 func (self Instance) Mipmaps() int { //gd:RDTextureFormat.mipmaps
 		return int(int(class(self).GetMipmaps()))
 }
+
+func (o *Extension[T]) Mipmaps() int { return o.Super().Mipmaps() }
 
 // SetMipmaps sets the property returned by [GetMipmaps]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetMipmaps(value int) Instance { //gd:RDTextureFormat.mipmaps
@@ -232,9 +269,16 @@ func (self Instance) SetMipmaps(value int) Instance { //gd:RDTextureFormat.mipma
 	return self
 }
 
+func (o *Extension[T]) SetMipmaps(value int) *Extension[T] {
+	o.Super().SetMipmaps(value)
+	return o
+}
+
 func (self Instance) TextureType() Rendering.TextureType { //gd:RDTextureFormat.texture_type
 		return Rendering.TextureType(class(self).GetTextureType())
 }
+
+func (o *Extension[T]) TextureType() Rendering.TextureType { return o.Super().TextureType() }
 
 // SetTextureType sets the property returned by [GetTextureType]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetTextureType(value Rendering.TextureType) Instance { //gd:RDTextureFormat.texture_type
@@ -242,9 +286,16 @@ func (self Instance) SetTextureType(value Rendering.TextureType) Instance { //gd
 	return self
 }
 
+func (o *Extension[T]) SetTextureType(value Rendering.TextureType) *Extension[T] {
+	o.Super().SetTextureType(value)
+	return o
+}
+
 func (self Instance) Samples() Rendering.TextureSamples { //gd:RDTextureFormat.samples
 		return Rendering.TextureSamples(class(self).GetSamples())
 }
+
+func (o *Extension[T]) Samples() Rendering.TextureSamples { return o.Super().Samples() }
 
 // SetSamples sets the property returned by [GetSamples]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetSamples(value Rendering.TextureSamples) Instance { //gd:RDTextureFormat.samples
@@ -252,9 +303,16 @@ func (self Instance) SetSamples(value Rendering.TextureSamples) Instance { //gd:
 	return self
 }
 
+func (o *Extension[T]) SetSamples(value Rendering.TextureSamples) *Extension[T] {
+	o.Super().SetSamples(value)
+	return o
+}
+
 func (self Instance) UsageBits() Rendering.TextureUsageBits { //gd:RDTextureFormat.usage_bits
 		return Rendering.TextureUsageBits(class(self).GetUsageBits())
 }
+
+func (o *Extension[T]) UsageBits() Rendering.TextureUsageBits { return o.Super().UsageBits() }
 
 // SetUsageBits sets the property returned by [GetUsageBits]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetUsageBits(value Rendering.TextureUsageBits) Instance { //gd:RDTextureFormat.usage_bits
@@ -262,9 +320,16 @@ func (self Instance) SetUsageBits(value Rendering.TextureUsageBits) Instance { /
 	return self
 }
 
+func (o *Extension[T]) SetUsageBits(value Rendering.TextureUsageBits) *Extension[T] {
+	o.Super().SetUsageBits(value)
+	return o
+}
+
 func (self Instance) IsResolveBuffer() bool { //gd:RDTextureFormat.is_resolve_buffer
 		return bool(class(self).GetIsResolveBuffer())
 }
+
+func (o *Extension[T]) IsResolveBuffer() bool { return o.Super().IsResolveBuffer() }
 
 // SetIsResolveBuffer sets the property returned by [GetIsResolveBuffer]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetIsResolveBuffer(value bool) Instance { //gd:RDTextureFormat.is_resolve_buffer
@@ -272,14 +337,26 @@ func (self Instance) SetIsResolveBuffer(value bool) Instance { //gd:RDTextureFor
 	return self
 }
 
+func (o *Extension[T]) SetIsResolveBuffer(value bool) *Extension[T] {
+	o.Super().SetIsResolveBuffer(value)
+	return o
+}
+
 func (self Instance) IsDiscardable() bool { //gd:RDTextureFormat.is_discardable
 		return bool(class(self).GetIsDiscardable())
 }
+
+func (o *Extension[T]) IsDiscardable() bool { return o.Super().IsDiscardable() }
 
 // SetIsDiscardable sets the property returned by [GetIsDiscardable]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetIsDiscardable(value bool) Instance { //gd:RDTextureFormat.is_discardable
 	class(self).SetIsDiscardable(value)
 	return self
+}
+
+func (o *Extension[T]) SetIsDiscardable(value bool) *Extension[T] {
+	o.Super().SetIsDiscardable(value)
+	return o
 }
 
 func (self class) SetFormat(p_member Rendering.DataFormat)  { //gd:RDTextureFormat.set_format

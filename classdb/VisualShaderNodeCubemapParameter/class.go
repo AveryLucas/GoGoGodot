@@ -318,6 +318,141 @@ func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
 }
 
+// TextureType is promoted from [VisualShaderNodeTextureParameter.Instance.TextureType].
+func (o *Extension[T]) TextureType() VisualShaderNodeTextureParameter.TextureType { return o.Super().AsVisualShaderNodeTextureParameter().TextureType() }
+
+// SetTextureType is promoted from [VisualShaderNodeTextureParameter.Instance.SetTextureType].
+func (o *Extension[T]) SetTextureType(value VisualShaderNodeTextureParameter.TextureType) *Extension[T] {
+	o.Super().AsVisualShaderNodeTextureParameter().SetTextureType(value)
+	return o
+}
+
+// ColorDefault is promoted from [VisualShaderNodeTextureParameter.Instance.ColorDefault].
+func (o *Extension[T]) ColorDefault() VisualShaderNodeTextureParameter.ColorDefault { return o.Super().AsVisualShaderNodeTextureParameter().ColorDefault() }
+
+// SetColorDefault is promoted from [VisualShaderNodeTextureParameter.Instance.SetColorDefault].
+func (o *Extension[T]) SetColorDefault(value VisualShaderNodeTextureParameter.ColorDefault) *Extension[T] {
+	o.Super().AsVisualShaderNodeTextureParameter().SetColorDefault(value)
+	return o
+}
+
+// TextureFilter is promoted from [VisualShaderNodeTextureParameter.Instance.TextureFilter].
+func (o *Extension[T]) TextureFilter() VisualShaderNodeTextureParameter.TextureFilter { return o.Super().AsVisualShaderNodeTextureParameter().TextureFilter() }
+
+// SetTextureFilter is promoted from [VisualShaderNodeTextureParameter.Instance.SetTextureFilter].
+func (o *Extension[T]) SetTextureFilter(value VisualShaderNodeTextureParameter.TextureFilter) *Extension[T] {
+	o.Super().AsVisualShaderNodeTextureParameter().SetTextureFilter(value)
+	return o
+}
+
+// TextureRepeat is promoted from [VisualShaderNodeTextureParameter.Instance.TextureRepeat].
+func (o *Extension[T]) TextureRepeat() VisualShaderNodeTextureParameter.TextureRepeat { return o.Super().AsVisualShaderNodeTextureParameter().TextureRepeat() }
+
+// SetTextureRepeat is promoted from [VisualShaderNodeTextureParameter.Instance.SetTextureRepeat].
+func (o *Extension[T]) SetTextureRepeat(value VisualShaderNodeTextureParameter.TextureRepeat) *Extension[T] {
+	o.Super().AsVisualShaderNodeTextureParameter().SetTextureRepeat(value)
+	return o
+}
+
+// TextureSource is promoted from [VisualShaderNodeTextureParameter.Instance.TextureSource].
+func (o *Extension[T]) TextureSource() VisualShaderNodeTextureParameter.TextureSource { return o.Super().AsVisualShaderNodeTextureParameter().TextureSource() }
+
+// SetTextureSource is promoted from [VisualShaderNodeTextureParameter.Instance.SetTextureSource].
+func (o *Extension[T]) SetTextureSource(value VisualShaderNodeTextureParameter.TextureSource) *Extension[T] {
+	o.Super().AsVisualShaderNodeTextureParameter().SetTextureSource(value)
+	return o
+}
+
+// ParameterName is promoted from [VisualShaderNodeParameter.Instance.ParameterName].
+func (o *Extension[T]) ParameterName() string { return o.Super().AsVisualShaderNodeParameter().ParameterName() }
+
+// SetParameterName is promoted from [VisualShaderNodeParameter.Instance.SetParameterName].
+func (o *Extension[T]) SetParameterName(value string) *Extension[T] {
+	o.Super().AsVisualShaderNodeParameter().SetParameterName(value)
+	return o
+}
+
+// Qualifier is promoted from [VisualShaderNodeParameter.Instance.Qualifier].
+func (o *Extension[T]) Qualifier() VisualShaderNodeParameter.Qualifier { return o.Super().AsVisualShaderNodeParameter().Qualifier() }
+
+// SetQualifier is promoted from [VisualShaderNodeParameter.Instance.SetQualifier].
+func (o *Extension[T]) SetQualifier(value VisualShaderNodeParameter.Qualifier) *Extension[T] {
+	o.Super().AsVisualShaderNodeParameter().SetQualifier(value)
+	return o
+}
+
+// InstanceIndex is promoted from [VisualShaderNodeParameter.Instance.InstanceIndex].
+func (o *Extension[T]) InstanceIndex() int { return o.Super().AsVisualShaderNodeParameter().InstanceIndex() }
+
+// SetInstanceIndex is promoted from [VisualShaderNodeParameter.Instance.SetInstanceIndex].
+func (o *Extension[T]) SetInstanceIndex(value int) *Extension[T] {
+	o.Super().AsVisualShaderNodeParameter().SetInstanceIndex(value)
+	return o
+}
+
+// OutputPortForPreview is promoted from [VisualShaderNode.Instance.OutputPortForPreview].
+func (o *Extension[T]) OutputPortForPreview() int { return o.Super().AsVisualShaderNode().OutputPortForPreview() }
+
+// SetOutputPortForPreview is promoted from [VisualShaderNode.Instance.SetOutputPortForPreview].
+func (o *Extension[T]) SetOutputPortForPreview(value int) *Extension[T] {
+	o.Super().AsVisualShaderNode().SetOutputPortForPreview(value)
+	return o
+}
+
+// DefaultInputValues is promoted from [VisualShaderNode.Instance.DefaultInputValues].
+func (o *Extension[T]) DefaultInputValues() []any { return o.Super().AsVisualShaderNode().DefaultInputValues() }
+
+// SetDefaultInputValues is promoted from [VisualShaderNode.Instance.SetDefaultInputValues].
+func (o *Extension[T]) SetDefaultInputValues(value []any) *Extension[T] {
+	o.Super().AsVisualShaderNode().SetDefaultInputValues(value)
+	return o
+}
+
+// LinkedParentGraphFrame is promoted from [VisualShaderNode.Instance.LinkedParentGraphFrame].
+func (o *Extension[T]) LinkedParentGraphFrame() int { return o.Super().AsVisualShaderNode().LinkedParentGraphFrame() }
+
+// SetLinkedParentGraphFrame is promoted from [VisualShaderNode.Instance.SetLinkedParentGraphFrame].
+func (o *Extension[T]) SetLinkedParentGraphFrame(value int) *Extension[T] {
+	o.Super().AsVisualShaderNode().SetLinkedParentGraphFrame(value)
+	return o
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
+}
+
 func (self class) Virtual(name string) reflect.Value {
 	switch name {
 	default: return gd.VirtualByName(VisualShaderNodeTextureParameter.Advanced(self.AsVisualShaderNodeTextureParameter()), name)

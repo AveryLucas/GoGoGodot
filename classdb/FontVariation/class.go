@@ -164,15 +164,24 @@ func (self Instance) BaseFont() Font.Instance { //gd:FontVariation.base_font
 		return Font.Instance(class(self).GetBaseFont())
 }
 
+func (o *Extension[T]) BaseFont() Font.Instance { return o.Super().BaseFont() }
+
 // SetBaseFont sets the property returned by [GetBaseFont]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBaseFont(value Font.Instance) Instance { //gd:FontVariation.base_font
 	class(self).SetBaseFont(value)
 	return self
 }
 
+func (o *Extension[T]) SetBaseFont(value Font.Instance) *Extension[T] {
+	o.Super().SetBaseFont(value)
+	return o
+}
+
 func (self Instance) VariationOpentype() map[any]any { //gd:FontVariation.variation_opentype
 		return map[any]any(gd.DictionaryAs[map[any]any](class(self).GetVariationOpentype()))
 }
+
+func (o *Extension[T]) VariationOpentype() map[any]any { return o.Super().VariationOpentype() }
 
 // SetVariationOpentype sets the property returned by [GetVariationOpentype]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVariationOpentype(value map[any]any) Instance { //gd:FontVariation.variation_opentype
@@ -180,9 +189,16 @@ func (self Instance) SetVariationOpentype(value map[any]any) Instance { //gd:Fon
 	return self
 }
 
+func (o *Extension[T]) SetVariationOpentype(value map[any]any) *Extension[T] {
+	o.Super().SetVariationOpentype(value)
+	return o
+}
+
 func (self Instance) VariationFaceIndex() int { //gd:FontVariation.variation_face_index
 		return int(int(class(self).GetVariationFaceIndex()))
 }
+
+func (o *Extension[T]) VariationFaceIndex() int { return o.Super().VariationFaceIndex() }
 
 // SetVariationFaceIndex sets the property returned by [GetVariationFaceIndex]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVariationFaceIndex(value int) Instance { //gd:FontVariation.variation_face_index
@@ -190,9 +206,16 @@ func (self Instance) SetVariationFaceIndex(value int) Instance { //gd:FontVariat
 	return self
 }
 
+func (o *Extension[T]) SetVariationFaceIndex(value int) *Extension[T] {
+	o.Super().SetVariationFaceIndex(value)
+	return o
+}
+
 func (self Instance) VariationEmbolden() Float.X { //gd:FontVariation.variation_embolden
 		return Float.X(Float.X(class(self).GetVariationEmbolden()))
 }
+
+func (o *Extension[T]) VariationEmbolden() Float.X { return o.Super().VariationEmbolden() }
 
 // SetVariationEmbolden sets the property returned by [GetVariationEmbolden]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVariationEmbolden(value Float.X) Instance { //gd:FontVariation.variation_embolden
@@ -200,9 +223,16 @@ func (self Instance) SetVariationEmbolden(value Float.X) Instance { //gd:FontVar
 	return self
 }
 
+func (o *Extension[T]) SetVariationEmbolden(value Float.X) *Extension[T] {
+	o.Super().SetVariationEmbolden(value)
+	return o
+}
+
 func (self Instance) VariationTransform() Transform2D.OriginXY { //gd:FontVariation.variation_transform
 		return Transform2D.OriginXY(class(self).GetVariationTransform())
 }
+
+func (o *Extension[T]) VariationTransform() Transform2D.OriginXY { return o.Super().VariationTransform() }
 
 // SetVariationTransform sets the property returned by [GetVariationTransform]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVariationTransform(value Transform2D.OriginXY) Instance { //gd:FontVariation.variation_transform
@@ -210,9 +240,19 @@ func (self Instance) SetVariationTransform(value Transform2D.OriginXY) Instance 
 	return self
 }
 
+func (o *Extension[T]) SetVariationTransform(value Transform2D.OriginXY) *Extension[T] {
+	o.Super().SetVariationTransform(value)
+	return o
+}
+
 func (self Instance) SetOpentypeFeatures(value map[any]any) Instance { //gd:FontVariation.opentype_features
 	class(self).SetOpentypeFeatures(gd.DictionaryFromMap(value))
 	return self
+}
+
+func (o *Extension[T]) SetOpentypeFeatures(value map[any]any) *Extension[T] {
+	o.Super().SetOpentypeFeatures(value)
+	return o
 }
 
 func (self Instance) SetSpacingGlyph(value int) Instance { //gd:FontVariation.spacing_glyph
@@ -220,9 +260,19 @@ func (self Instance) SetSpacingGlyph(value int) Instance { //gd:FontVariation.sp
 	return self
 }
 
+func (o *Extension[T]) SetSpacingGlyph(value int) *Extension[T] {
+	o.Super().SetSpacingGlyph(value)
+	return o
+}
+
 func (self Instance) SetSpacingSpace(value int) Instance { //gd:FontVariation.spacing_space
 	class(self).SetSpacing(1, int64(value))
 	return self
+}
+
+func (o *Extension[T]) SetSpacingSpace(value int) *Extension[T] {
+	o.Super().SetSpacingSpace(value)
+	return o
 }
 
 func (self Instance) SetSpacingTop(value int) Instance { //gd:FontVariation.spacing_top
@@ -230,19 +280,36 @@ func (self Instance) SetSpacingTop(value int) Instance { //gd:FontVariation.spac
 	return self
 }
 
+func (o *Extension[T]) SetSpacingTop(value int) *Extension[T] {
+	o.Super().SetSpacingTop(value)
+	return o
+}
+
 func (self Instance) SetSpacingBottom(value int) Instance { //gd:FontVariation.spacing_bottom
 	class(self).SetSpacing(3, int64(value))
 	return self
+}
+
+func (o *Extension[T]) SetSpacingBottom(value int) *Extension[T] {
+	o.Super().SetSpacingBottom(value)
+	return o
 }
 
 func (self Instance) BaselineOffset() Float.X { //gd:FontVariation.baseline_offset
 		return Float.X(Float.X(class(self).GetBaselineOffset()))
 }
 
+func (o *Extension[T]) BaselineOffset() Float.X { return o.Super().BaselineOffset() }
+
 // SetBaselineOffset sets the property returned by [GetBaselineOffset]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetBaselineOffset(value Float.X) Instance { //gd:FontVariation.baseline_offset
 	class(self).SetBaselineOffset(float64(value))
 	return self
+}
+
+func (o *Extension[T]) SetBaselineOffset(value Float.X) *Extension[T] {
+	o.Super().SetBaselineOffset(value)
+	return o
 }
 
 func (self class) SetBaseFont(font [1]gdclass.Font)  { //gd:FontVariation.set_base_font
@@ -606,6 +673,51 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// Fallbacks is promoted from [Font.Instance.Fallbacks].
+func (o *Extension[T]) Fallbacks() []Font.Instance { return o.Super().AsFont().Fallbacks() }
+
+// SetFallbacks is promoted from [Font.Instance.SetFallbacks].
+func (o *Extension[T]) SetFallbacks(value []Font.Instance) *Extension[T] {
+	o.Super().AsFont().SetFallbacks(value)
+	return o
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

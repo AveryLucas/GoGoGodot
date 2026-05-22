@@ -155,15 +155,24 @@ func (self Instance) CutoffHz() Float.X { //gd:AudioEffectFilter.cutoff_hz
 		return Float.X(Float.X(class(self).GetCutoff()))
 }
 
+func (o *Extension[T]) CutoffHz() Float.X { return o.Super().CutoffHz() }
+
 // SetCutoffHz sets the property returned by [GetCutoff]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetCutoffHz(value Float.X) Instance { //gd:AudioEffectFilter.cutoff_hz
 	class(self).SetCutoff(float64(value))
 	return self
 }
 
+func (o *Extension[T]) SetCutoffHz(value Float.X) *Extension[T] {
+	o.Super().SetCutoffHz(value)
+	return o
+}
+
 func (self Instance) Resonance() Float.X { //gd:AudioEffectFilter.resonance
 		return Float.X(Float.X(class(self).GetResonance()))
 }
+
+func (o *Extension[T]) Resonance() Float.X { return o.Super().Resonance() }
 
 // SetResonance sets the property returned by [GetResonance]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetResonance(value Float.X) Instance { //gd:AudioEffectFilter.resonance
@@ -171,9 +180,16 @@ func (self Instance) SetResonance(value Float.X) Instance { //gd:AudioEffectFilt
 	return self
 }
 
+func (o *Extension[T]) SetResonance(value Float.X) *Extension[T] {
+	o.Super().SetResonance(value)
+	return o
+}
+
 func (self Instance) Gain() Float.X { //gd:AudioEffectFilter.gain
 		return Float.X(Float.X(class(self).GetGain()))
 }
+
+func (o *Extension[T]) Gain() Float.X { return o.Super().Gain() }
 
 // SetGain sets the property returned by [GetGain]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetGain(value Float.X) Instance { //gd:AudioEffectFilter.gain
@@ -181,14 +197,26 @@ func (self Instance) SetGain(value Float.X) Instance { //gd:AudioEffectFilter.ga
 	return self
 }
 
+func (o *Extension[T]) SetGain(value Float.X) *Extension[T] {
+	o.Super().SetGain(value)
+	return o
+}
+
 func (self Instance) Db() FilterDB { //gd:AudioEffectFilter.db
 		return FilterDB(class(self).GetDb())
 }
+
+func (o *Extension[T]) Db() FilterDB { return o.Super().Db() }
 
 // SetDb sets the property returned by [GetDb]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetDb(value FilterDB) Instance { //gd:AudioEffectFilter.db
 	class(self).SetDb(value)
 	return self
+}
+
+func (o *Extension[T]) SetDb(value FilterDB) *Extension[T] {
+	o.Super().SetDb(value)
+	return o
 }
 
 func (self class) SetCutoff(freq float64)  { //gd:AudioEffectFilter.set_cutoff
@@ -348,6 +376,42 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

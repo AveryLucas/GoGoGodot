@@ -161,15 +161,24 @@ func (self Instance) Color() Color.RGBA { //gd:StyleBoxLine.color
 		return Color.RGBA(class(self).GetColor())
 }
 
+func (o *Extension[T]) Color() Color.RGBA { return o.Super().Color() }
+
 // SetColor sets the property returned by [GetColor]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetColor(value Color.RGBA) Instance { //gd:StyleBoxLine.color
 	class(self).SetColor(Color.RGBA(value))
 	return self
 }
 
+func (o *Extension[T]) SetColor(value Color.RGBA) *Extension[T] {
+	o.Super().SetColor(value)
+	return o
+}
+
 func (self Instance) GrowBegin() Float.X { //gd:StyleBoxLine.grow_begin
 		return Float.X(Float.X(class(self).GetGrowBegin()))
 }
+
+func (o *Extension[T]) GrowBegin() Float.X { return o.Super().GrowBegin() }
 
 // SetGrowBegin sets the property returned by [GetGrowBegin]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetGrowBegin(value Float.X) Instance { //gd:StyleBoxLine.grow_begin
@@ -177,9 +186,16 @@ func (self Instance) SetGrowBegin(value Float.X) Instance { //gd:StyleBoxLine.gr
 	return self
 }
 
+func (o *Extension[T]) SetGrowBegin(value Float.X) *Extension[T] {
+	o.Super().SetGrowBegin(value)
+	return o
+}
+
 func (self Instance) GrowEnd() Float.X { //gd:StyleBoxLine.grow_end
 		return Float.X(Float.X(class(self).GetGrowEnd()))
 }
+
+func (o *Extension[T]) GrowEnd() Float.X { return o.Super().GrowEnd() }
 
 // SetGrowEnd sets the property returned by [GetGrowEnd]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetGrowEnd(value Float.X) Instance { //gd:StyleBoxLine.grow_end
@@ -187,9 +203,16 @@ func (self Instance) SetGrowEnd(value Float.X) Instance { //gd:StyleBoxLine.grow
 	return self
 }
 
+func (o *Extension[T]) SetGrowEnd(value Float.X) *Extension[T] {
+	o.Super().SetGrowEnd(value)
+	return o
+}
+
 func (self Instance) Thickness() int { //gd:StyleBoxLine.thickness
 		return int(int(class(self).GetThickness()))
 }
+
+func (o *Extension[T]) Thickness() int { return o.Super().Thickness() }
 
 // SetThickness sets the property returned by [GetThickness]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetThickness(value int) Instance { //gd:StyleBoxLine.thickness
@@ -197,14 +220,26 @@ func (self Instance) SetThickness(value int) Instance { //gd:StyleBoxLine.thickn
 	return self
 }
 
+func (o *Extension[T]) SetThickness(value int) *Extension[T] {
+	o.Super().SetThickness(value)
+	return o
+}
+
 func (self Instance) Vertical() bool { //gd:StyleBoxLine.vertical
 		return bool(class(self).IsVertical())
 }
+
+func (o *Extension[T]) Vertical() bool { return o.Super().Vertical() }
 
 // SetVertical sets the property returned by [IsVertical]. Returns the instance, so that property settings can be chained.
 func (self Instance) SetVertical(value bool) Instance { //gd:StyleBoxLine.vertical
 	class(self).SetVertical(value)
 	return self
+}
+
+func (o *Extension[T]) SetVertical(value bool) *Extension[T] {
+	o.Super().SetVertical(value)
+	return o
 }
 
 func (self class) SetColor(color Color.RGBA)  { //gd:StyleBoxLine.set_color
@@ -434,6 +469,78 @@ func (self Instance) EmitChanged() {
 // EmitChanged is promoted from [Resource.Instance.EmitChanged].
 func (o *Extension[T]) EmitChanged() {
 	o.Super().AsResource().EmitChanged()
+}
+
+// ContentMarginLeft is promoted from [StyleBox.Instance.ContentMarginLeft].
+func (o *Extension[T]) ContentMarginLeft() Float.X { return o.Super().AsStyleBox().ContentMarginLeft() }
+
+// SetContentMarginLeft is promoted from [StyleBox.Instance.SetContentMarginLeft].
+func (o *Extension[T]) SetContentMarginLeft(value Float.X) *Extension[T] {
+	o.Super().AsStyleBox().SetContentMarginLeft(value)
+	return o
+}
+
+// ContentMarginTop is promoted from [StyleBox.Instance.ContentMarginTop].
+func (o *Extension[T]) ContentMarginTop() Float.X { return o.Super().AsStyleBox().ContentMarginTop() }
+
+// SetContentMarginTop is promoted from [StyleBox.Instance.SetContentMarginTop].
+func (o *Extension[T]) SetContentMarginTop(value Float.X) *Extension[T] {
+	o.Super().AsStyleBox().SetContentMarginTop(value)
+	return o
+}
+
+// ContentMarginRight is promoted from [StyleBox.Instance.ContentMarginRight].
+func (o *Extension[T]) ContentMarginRight() Float.X { return o.Super().AsStyleBox().ContentMarginRight() }
+
+// SetContentMarginRight is promoted from [StyleBox.Instance.SetContentMarginRight].
+func (o *Extension[T]) SetContentMarginRight(value Float.X) *Extension[T] {
+	o.Super().AsStyleBox().SetContentMarginRight(value)
+	return o
+}
+
+// ContentMarginBottom is promoted from [StyleBox.Instance.ContentMarginBottom].
+func (o *Extension[T]) ContentMarginBottom() Float.X { return o.Super().AsStyleBox().ContentMarginBottom() }
+
+// SetContentMarginBottom is promoted from [StyleBox.Instance.SetContentMarginBottom].
+func (o *Extension[T]) SetContentMarginBottom(value Float.X) *Extension[T] {
+	o.Super().AsStyleBox().SetContentMarginBottom(value)
+	return o
+}
+
+// ResourceLocalToScene is promoted from [Resource.Instance.ResourceLocalToScene].
+func (o *Extension[T]) ResourceLocalToScene() bool { return o.Super().AsResource().ResourceLocalToScene() }
+
+// SetResourceLocalToScene is promoted from [Resource.Instance.SetResourceLocalToScene].
+func (o *Extension[T]) SetResourceLocalToScene(value bool) *Extension[T] {
+	o.Super().AsResource().SetResourceLocalToScene(value)
+	return o
+}
+
+// ResourcePath is promoted from [Resource.Instance.ResourcePath].
+func (o *Extension[T]) ResourcePath() string { return o.Super().AsResource().ResourcePath() }
+
+// SetResourcePath is promoted from [Resource.Instance.SetResourcePath].
+func (o *Extension[T]) SetResourcePath(value string) *Extension[T] {
+	o.Super().AsResource().SetResourcePath(value)
+	return o
+}
+
+// ResourceName is promoted from [Resource.Instance.ResourceName].
+func (o *Extension[T]) ResourceName() string { return o.Super().AsResource().ResourceName() }
+
+// SetResourceName is promoted from [Resource.Instance.SetResourceName].
+func (o *Extension[T]) SetResourceName(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceName(value)
+	return o
+}
+
+// ResourceSceneUniqueId is promoted from [Resource.Instance.ResourceSceneUniqueId].
+func (o *Extension[T]) ResourceSceneUniqueId() string { return o.Super().AsResource().ResourceSceneUniqueId() }
+
+// SetResourceSceneUniqueId is promoted from [Resource.Instance.SetResourceSceneUniqueId].
+func (o *Extension[T]) SetResourceSceneUniqueId(value string) *Extension[T] {
+	o.Super().AsResource().SetResourceSceneUniqueId(value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {
