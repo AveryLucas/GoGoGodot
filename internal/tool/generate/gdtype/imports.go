@@ -114,6 +114,26 @@ func ImportsForClass(class gdjson.Class) iter.Seq[string] {
 						}
 					}
 				}
+				// gogogd-fork: promoted-method arg/return imports. Each
+				// ancestor method becomes a forwarder on both leaf
+				// Instance and *Extension[T] (see promotedMethodCall).
+				// Only count methods that actually get emitted —
+				// mirrors the skip logic in promotedMethodCall to avoid
+				// over-importing for methods we skip (varargs, defaults,
+				// unpackables, virtuals, statics).
+				for _, method := range ancestor.Methods {
+					if !isPromotedMethodEmitted(ancestor, method) {
+						continue
+					}
+					for _, arg := range method.Arguments {
+						for pkg := range importsForEngineType(class, ancestor.Name+"."+method.Name+"."+arg.Name, arg.Type) {
+							imports[pkg] = true
+						}
+					}
+					for pkg := range importsForEngineType(class, "", method.ReturnValue.Type) {
+						imports[pkg] = true
+					}
+				}
 				ancestor = ClassDB[ancestor.Inherits]
 			}
 		}
@@ -123,6 +143,41 @@ func ImportsForClass(class gdjson.Class) iter.Seq[string] {
 			}
 		}
 	}
+}
+
+// isPromotedMethodEmitted mirrors the skip logic in
+// promotedMethodCall (v2/func.go). The two must stay in sync —
+// over-eager imports cause "imported and not used" build errors.
+func isPromotedMethodEmitted(ancestor gdjson.Class, method gdjson.Method) bool {
+	if method.IsVirtual || method.IsStatic {
+		return false
+	}
+	if _, ok := gdjson.Relocations[ancestor.Name+"."+method.Name]; ok {
+		return false
+	}
+	if _, ok := gdjson.Unpackables[ancestor.Name+"."+method.Name]; ok {
+		return false
+	}
+	if _, ok := gdjson.Returnables[ancestor.Name+"."+method.Name]; ok {
+		return false
+	}
+	for _, arg := range method.Arguments {
+		if arg.DefaultValue != nil {
+			return false
+		}
+	}
+	if method.IsVararg {
+		return false
+	}
+	// Skip getter/setter names — those are emitted as properties, not
+	// methods. (Approximation: if the ancestor has a property whose
+	// Getter or Setter matches this method's name, skip.)
+	for _, prop := range ancestor.Properties {
+		if prop.Getter == method.Name || prop.Setter == method.Name {
+			return false
+		}
+	}
+	return true
 }
 
 func importsForEngineType(class gdjson.Class, identifier, s string) iter.Seq[string] {

@@ -502,6 +502,83 @@ func (classDB ClassDB) generateObjectPackage(class gdjson.Class, singleton bool,
 					ancestor = classDB[ancestor.Inherits]
 				}
 			}
+
+			// Method promotion onto *Extension[T] (gogogd-fork).
+			//
+			// Goal: a user who embeds `Node2D.Extension[Player]` can
+			// call `p.SetPosition(v)` directly, instead of
+			// `p.AsNode2D().SetPosition(v)` or `p.Super().SetPosition(v)`.
+			//
+			// Pass 1: leaf's own methods get forwarders on *Extension[T]
+			// that delegate to `o.Super()`.
+			//
+			// Pass 2: each ancestor's methods get forwarders on both
+			// Instance (delegating to `self.AsAncestor()`) and
+			// *Extension[T] (delegating to `o.Super().AsAncestor()`).
+			//
+			// This is the change that obsoletes the gogogd `*Ext[T]`
+			// wrapper layer — users embed the upstream Extension type
+			// directly and get all parent methods promoted.
+			if !singleton {
+				methodEmitted := make(map[string]bool)
+				// Mark leaf's own methods as emitted on Instance so the
+				// ancestor pass doesn't try to re-emit Instance forwarders
+				// that would shadow the real implementations.
+				for _, m := range class.Methods {
+					methodEmitted[convertName(m.Name)+"::Instance"] = true
+				}
+				// Mark leaf's own signals on Instance (already there) and
+				// As* chain (already emitted above) so we don't shadow.
+				for _, sig := range class.Signals {
+					methodEmitted["On"+convertName(sig.Name)+"::Instance"] = true
+					methodEmitted["On"+convertName(sig.Name)+"::*Extension[T]"] = true
+				}
+				// Pre-block AsObject/AsX on both receivers (emitted earlier).
+				blockAsChain := func(name string) {
+					methodEmitted["As"+name+"::Instance"] = true
+					methodEmitted["As"+name+"::*Extension[T]"] = true
+				}
+				blockAsChain("Object")
+				blockAsChain(class.Name)
+				asWalk := classDB[class.Inherits]
+				for asWalk.Name != "" && asWalk.Name != "Object" {
+					if !asWalk.IsSingleton {
+						blockAsChain(asWalk.Name)
+					}
+					asWalk = classDB[asWalk.Inherits]
+				}
+
+				// Pass 1: own methods → *Extension[T].
+				for _, m := range class.Methods {
+					classDB.promotedMethodCall(file, class, class, m, "*Extension[T]", "o", "o.Super()", getter_setters, methodEmitted)
+				}
+
+				// Pass 2: ancestor methods → Instance + *Extension[T].
+				// Skip RefCounted: its AsRefCounted() returns ie.RC (a
+				// minimal shim type without the full method surface), so
+				// delegating through it doesn't compile.
+				ancestor := classDB[class.Inherits]
+				for ancestor.Name != "" && ancestor.Name != "Object" {
+					if ancestor.IsSingleton || ancestor.Name == "RefCounted" {
+						ancestor = classDB[ancestor.Inherits]
+						continue
+					}
+					ancestorGetSet := make(map[string]bool)
+					for _, prop := range ancestor.Properties {
+						if prop.Getter != "" {
+							ancestorGetSet[prop.Getter] = true
+						}
+						if prop.Setter != "" {
+							ancestorGetSet[prop.Setter] = true
+						}
+					}
+					for _, m := range ancestor.Methods {
+						classDB.promotedMethodCall(file, class, ancestor, m, "Instance", "self", "self.As"+ancestor.Name+"()", ancestorGetSet, methodEmitted)
+						classDB.promotedMethodCall(file, class, ancestor, m, "*Extension[T]", "o", "o.Super().As"+ancestor.Name+"()", ancestorGetSet, methodEmitted)
+					}
+					ancestor = classDB[ancestor.Inherits]
+				}
+			}
 		}
 		for _, self := range []string{"class", "Instance"} {
 			fmt.Fprintf(file, "\nfunc (self %s) Virtual(name string) reflect.Value {\n", self)

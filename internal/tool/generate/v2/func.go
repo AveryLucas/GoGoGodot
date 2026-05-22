@@ -10,6 +10,193 @@ import (
 	"graphics.gd/internal/tool/generate/gdtype"
 )
 
+// promotedMethodCall emits a forwarder method on the leaf class. Used to
+// give *Extension[T] direct access to methods defined on the underlying
+// Instance, and to flatten ancestor methods onto leaf Instance /
+// Extension types so users don't have to chain `.AsParent().M(...)`.
+//
+// Three call modes (parameterised by `receiver` and `delegate`):
+//
+//   - receiver="*Extension[T]", delegate="o.Super()"
+//     → forward leaf's own Instance methods up to *Extension[T]
+//   - receiver="Instance",      delegate="self.AsAncestor()"
+//     → flatten ancestor Instance methods onto leaf Instance
+//   - receiver="*Extension[T]", delegate="o.Super().AsAncestor()"
+//     → flatten ancestor methods onto leaf *Extension[T]
+//
+// `selfVar` is the parameter name in the body: "o" for *Extension[T],
+// "self" for Instance.
+//
+// Scope (Phase 4, gogogd-fork):
+//   - Skips virtual methods (dispatch slots, not callable forwarders)
+//   - Skips methods with default-value arguments (default form needs the
+//     original simpleCall machinery; users can drop to .AsParent().M)
+//   - Skips Unpackables / Returnables (multi-return shapes)
+//   - Skips static methods (no instance to delegate against)
+//   - Skips getter/setter method names (handled by properties)
+//   - Skips if leaf already defines a same-named method on the same
+//     receiver (alreadyEmitted)
+//
+// What survives is the bulk of "simple instance methods" — the bread
+// and butter of game-component code (SetPosition, Velocity, MoveAndSlide,
+// SetText, etc.).
+func (classDB ClassDB) promotedMethodCall(w io.Writer, leafClass gdjson.Class, sourceClass gdjson.Class, method gdjson.Method, receiver string, selfVar string, delegate string, getter_setters map[string]bool, alreadyEmitted map[string]bool) {
+	if method.IsVirtual || method.IsStatic {
+		return
+	}
+	if getter_setters[method.Name] {
+		return
+	}
+	if _, ok := gdjson.Relocations[sourceClass.Name+"."+method.Name]; ok {
+		return
+	}
+	if _, ok := gdjson.Unpackables[sourceClass.Name+"."+method.Name]; ok {
+		return
+	}
+	if _, ok := gdjson.Returnables[sourceClass.Name+"."+method.Name]; ok {
+		return
+	}
+	for _, arg := range method.Arguments {
+		if arg.DefaultValue != nil {
+			return
+		}
+	}
+	if method.IsVararg {
+		return
+	}
+
+	methodName := convertName(method.Name)
+	// Avoid emitting a forwarder with the same name as an existing leaf
+	// method/signal — Go would refuse to compile two same-named methods
+	// on the same receiver.
+	key := methodName + "::" + receiver
+	if alreadyEmitted[key] {
+		return
+	}
+	alreadyEmitted[key] = true
+
+	if sourceClass.Name != leafClass.Name {
+		fmt.Fprintf(w, "\n// %s is promoted from [%s.Instance.%s].\n", methodName, sourceClass.Name, methodName)
+	}
+
+	// Signature.
+	fmt.Fprintf(w, "func (%s %s) %s(", selfVar, receiver, methodName)
+	for i, arg := range method.Arguments {
+		if i > 0 {
+			fmt.Fprint(w, ", ")
+		}
+		// Type resolution uses *sourceClass* as the lookup context: per-
+		// class type distinctions (e.g. Float.X → Angle.Radians on
+		// Node3D.Rotate) are keyed on the class that owns the method,
+		// not the leaf that's promoting it.
+		argType := classDB.convertTypeSimple(sourceClass, sourceClass.Name+"."+method.Name+"."+arg.Name, arg.Meta, arg.Type)
+		argType = qualifyForLeaf(argType, sourceClass.Name, leafClass.Name)
+		fmt.Fprintf(w, "%s %s", fixReserved(arg.Name), argType)
+	}
+	fmt.Fprint(w, ") ")
+
+	// Return-type rendering. Chain-returning methods (Set*, add_child)
+	// emit Instance or *Extension[T] return (the leaf's). Other methods
+	// pass the source's return type through unchanged.
+	hasReturn := method.ReturnValue.Type != "" || method.ReturnType != ""
+	returnsSelfForChaining := !hasReturn && (method.Name == "add_child" || strings.HasPrefix(method.Name, "set_"))
+
+	if hasReturn {
+		returnType := classDB.convertTypeSimple(sourceClass, sourceClass.Name+"."+method.Name+".", method.ReturnValue.Meta, method.ReturnValue.Type)
+		returnType = qualifyForLeaf(returnType, sourceClass.Name, leafClass.Name)
+		fmt.Fprintf(w, "%s ", returnType)
+	} else if returnsSelfForChaining {
+		switch receiver {
+		case "Instance":
+			fmt.Fprint(w, "Instance ")
+		case "*Extension[T]":
+			fmt.Fprint(w, "*Extension[T] ")
+		}
+	}
+	fmt.Fprint(w, "{\n\t")
+
+	// Body.
+	if returnsSelfForChaining {
+		fmt.Fprintf(w, "%s.%s(", delegate, methodName)
+		for i, arg := range method.Arguments {
+			if i > 0 {
+				fmt.Fprint(w, ", ")
+			}
+			fmt.Fprint(w, fixReserved(arg.Name))
+		}
+		fmt.Fprintln(w, ")")
+		fmt.Fprintf(w, "\treturn %s\n", selfVar)
+	} else {
+		if hasReturn {
+			fmt.Fprint(w, "return ")
+		}
+		fmt.Fprintf(w, "%s.%s(", delegate, methodName)
+		for i, arg := range method.Arguments {
+			if i > 0 {
+				fmt.Fprint(w, ", ")
+			}
+			fmt.Fprint(w, fixReserved(arg.Name))
+		}
+		fmt.Fprintln(w, ")")
+	}
+	fmt.Fprintln(w, "}")
+}
+
+// qualifyForLeaf rewrites a type-string rendered from a source class
+// context so that source-local type aliases resolve in the leaf's
+// class.go. Handles bare names, slices, and maps recursively.
+//
+// Examples (source=Resource, leaf=Shape3D):
+//   - "ID"                  → "Resource.ID"
+//   - "Instance"            → "Resource.Instance"
+//   - "[]Instance"          → "[]Resource.Instance"
+//   - "map[int]Entry"       → "map[int]Resource.Entry"
+//   - "Float.X"             → "Float.X" (already qualified)
+//   - "int"                 → "int"      (builtin)
+//
+// When source == leaf, returns t unchanged.
+func qualifyForLeaf(t string, source, leaf string) string {
+	if source == leaf || t == "" {
+		return t
+	}
+	// Slice — recurse on the element type.
+	if after, ok := strings.CutPrefix(t, "[]"); ok {
+		return "[]" + qualifyForLeaf(after, source, leaf)
+	}
+	// Map — qualify only the value half (keys are typically int/string).
+	if strings.HasPrefix(t, "map[") {
+		if end := strings.IndexByte(t, ']'); end > 0 && end+1 < len(t) {
+			return t[:end+1] + qualifyForLeaf(t[end+1:], source, leaf)
+		}
+	}
+	if !needsSourceQualifier(t) {
+		return t
+	}
+	return source + "." + t
+}
+
+// needsSourceQualifier reports whether a bare type-string rendered
+// from a source-class context is a source-local typedef that needs
+// qualification.
+func needsSourceQualifier(t string) bool {
+	if t == "" {
+		return false
+	}
+	if strings.ContainsAny(t, ".[]") {
+		return false
+	}
+	switch t {
+	case "int", "int8", "int16", "int32", "int64",
+		"uint", "uint8", "uint16", "uint32", "uint64",
+		"float32", "float64", "bool", "string", "byte", "rune", "any", "error":
+		return false
+	}
+	if t[0] >= 'a' && t[0] <= 'z' {
+		return false
+	}
+	return true
+}
+
 // promotedSignalCall emits a signal connector forwarder on the leaf class's
 // Instance type for a signal that's actually defined on an ancestor. The
 // connector's body is identical to what signalCall would emit on the
