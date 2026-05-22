@@ -468,6 +468,40 @@ func (classDB ClassDB) generateObjectPackage(class gdjson.Class, singleton bool,
 				i++
 				super = classDB[super.Inherits]
 			}
+
+			// Parent-signal promotion: forward each ancestor's signal-On*
+			// connectors as methods on this leaf's Instance type. Body is
+			// identical to what signalCall emits on the ancestor —
+			// gd.ObjectConnect doesn't care about the wrapping type, only
+			// the underlying Object pointer that AsObject() returns. The
+			// return type is the leaf's Instance so chaining stays
+			// type-correct (`btn.OnPressed(cb).SetText(...)` etc.).
+			//
+			// gogogd-fork: replaces the hand-written *Ext[T] wrapper
+			// shims that previously re-spelled these signals (~30
+			// classes' worth). Scope is intentionally narrow (signals
+			// only) — broader method promotion can be added in a
+			// follow-up if it pays off.
+			if !singleton {
+				alreadyEmitted := make(map[string]bool)
+				for _, sig := range class.Signals {
+					alreadyEmitted["On"+convertName(sig.Name)] = true
+				}
+				for _, m := range class.Methods {
+					alreadyEmitted[convertName(m.Name)] = true
+				}
+				ancestor := classDB[class.Inherits]
+				for ancestor.Name != "" && ancestor.Name != "Object" {
+					if ancestor.IsSingleton {
+						ancestor = classDB[ancestor.Inherits]
+						continue
+					}
+					for _, sig := range ancestor.Signals {
+						classDB.promotedSignalCall(file, class, ancestor, sig, alreadyEmitted)
+					}
+					ancestor = classDB[ancestor.Inherits]
+				}
+			}
 		}
 		for _, self := range []string{"class", "Instance"} {
 			fmt.Fprintf(file, "\nfunc (self %s) Virtual(name string) reflect.Value {\n", self)

@@ -10,6 +10,43 @@ import (
 	"graphics.gd/internal/tool/generate/gdtype"
 )
 
+// promotedSignalCall emits a signal connector forwarder on the leaf class's
+// Instance type for a signal that's actually defined on an ancestor. The
+// connector's body is identical to what signalCall would emit on the
+// parent — gd.ObjectConnect doesn't care which type wraps the underlying
+// Object, only that AsObject() returns the right pointer.
+//
+// Result: callers can write `btn.OnPressed(cb)` directly on a Button
+// instance, instead of `btn.AsBaseButton().OnPressed(cb)`. Return type is
+// the *leaf's* Instance so chaining stays type-correct.
+//
+// Skips emission if the leaf already defines a signal/method with the
+// same name (would otherwise cause a duplicate-method-name compile error).
+func (classDB ClassDB) promotedSignalCall(w io.Writer, leafClass gdjson.Class, ancestor gdjson.Class, signal gdjson.Signal, alreadyEmitted map[string]bool) {
+	methodName := "On" + convertName(signal.Name)
+	if alreadyEmitted[methodName] {
+		return
+	}
+	alreadyEmitted[methodName] = true
+
+	fmt.Fprintf(w, "\n// %s is promoted from [%s.Instance.%s].\n", methodName, ancestor.Name, methodName)
+	fmt.Fprintf(w, "func (self Instance) %v(cb func(", methodName)
+	for i, arg := range signal.Arguments {
+		if i > 0 {
+			fmt.Fprint(w, ", ")
+		}
+		fmt.Fprintf(w, "%v %v", fixReserved(arg.Name), classDB.convertTypeSimple(leafClass, ancestor.Name+"."+signal.Name+"."+arg.Name, arg.Meta, arg.Type))
+	}
+	fmt.Fprint(w, "), flags ...Signal.Flags) Instance {\n\t")
+	fmt.Fprintln(w, "var flags_together Signal.Flags")
+	fmt.Fprint(w, "\tfor _, flag := range flags {\n")
+	fmt.Fprint(w, "\t\tflags_together |= flag\n")
+	fmt.Fprint(w, "\t}\n\t")
+	fmt.Fprintf(w, "gd.ObjectConnect(self.AsObject()[0]")
+	fmt.Fprintf(w, `, gd.NewStringName("%s"), gd.NewCallable(cb), int64(flags_together))`, signal.Name)
+	fmt.Fprint(w, "\n\treturn self\n}\n")
+}
+
 func (classDB ClassDB) signalCall(w io.Writer, class gdjson.Class, signal gdjson.Signal, singleton bool) {
 	if signal.Description != "" {
 		fmt.Fprintln(w, "\n/*")

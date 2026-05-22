@@ -99,6 +99,24 @@ func ImportsForClass(class gdjson.Class) iter.Seq[string] {
 				}
 			}
 		}
+		// gogogd-fork: promoted-signal arg imports. Each ancestor signal
+		// is re-emitted as a forwarder on the leaf's Instance (see
+		// promotedSignalCall in v2/func.go). Their argument types need
+		// imports too — e.g. promoting Control.OnGuiInput onto Button
+		// means Button now needs to import InputEvent.
+		if class.Inherits != "" {
+			ancestor := ClassDB[class.Inherits]
+			for ancestor.Name != "" && ancestor.Name != "Object" && ancestor.Name != "RefCounted" && !ClassDB[ancestor.Name].IsSingleton {
+				for _, signal := range ancestor.Signals {
+					for _, arg := range signal.Arguments {
+						for pkg := range importsForEngineType(class, ancestor.Name+"."+signal.Name+"."+arg.Name, arg.Type) {
+							imports[pkg] = true
+						}
+					}
+				}
+				ancestor = ClassDB[ancestor.Inherits]
+			}
+		}
 		for _, pkg := range slices.Sorted(maps.Keys(imports)) {
 			if !yield(pkg) {
 				return
