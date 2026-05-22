@@ -665,6 +665,106 @@ return Signal.Via(gd.SignalProxy{}, pointers.Pack(gd.NewSignalOf(self.AsObject()
 func (o class) AsTileData() Advanced { return Advanced(o) }
 func (o Instance) AsTileData() Instance { return o }
 func (o *Extension[T]) AsTileData() Instance { return o.Super() }
+func (o *Extension[T]) SetOccluderPolygonsCount(layer_id int, polygons_count int) *Extension[T] {
+	o.Super().SetOccluderPolygonsCount(layer_id, polygons_count)
+	return o
+}
+func (o *Extension[T]) GetOccluderPolygonsCount(layer_id int) int {
+	return o.Super().GetOccluderPolygonsCount(layer_id)
+}
+func (o *Extension[T]) AddOccluderPolygon(layer_id int) {
+	o.Super().AddOccluderPolygon(layer_id)
+}
+func (o *Extension[T]) RemoveOccluderPolygon(layer_id int, polygon_index int) {
+	o.Super().RemoveOccluderPolygon(layer_id, polygon_index)
+}
+func (o *Extension[T]) SetOccluderPolygon(layer_id int, polygon_index int, polygon OccluderPolygon2D.Instance) *Extension[T] {
+	o.Super().SetOccluderPolygon(layer_id, polygon_index, polygon)
+	return o
+}
+func (o *Extension[T]) SetOccluder(layer_id int, occluder_polygon OccluderPolygon2D.Instance) *Extension[T] {
+	o.Super().SetOccluder(layer_id, occluder_polygon)
+	return o
+}
+func (o *Extension[T]) SetConstantLinearVelocity(layer_id int, velocity Vector2.XY) *Extension[T] {
+	o.Super().SetConstantLinearVelocity(layer_id, velocity)
+	return o
+}
+func (o *Extension[T]) GetConstantLinearVelocity(layer_id int) Vector2.XY {
+	return o.Super().GetConstantLinearVelocity(layer_id)
+}
+func (o *Extension[T]) SetConstantAngularVelocity(layer_id int, velocity Float.X) *Extension[T] {
+	o.Super().SetConstantAngularVelocity(layer_id, velocity)
+	return o
+}
+func (o *Extension[T]) GetConstantAngularVelocity(layer_id int) Float.X {
+	return o.Super().GetConstantAngularVelocity(layer_id)
+}
+func (o *Extension[T]) SetCollisionPolygonsCount(layer_id int, polygons_count int) *Extension[T] {
+	o.Super().SetCollisionPolygonsCount(layer_id, polygons_count)
+	return o
+}
+func (o *Extension[T]) GetCollisionPolygonsCount(layer_id int) int {
+	return o.Super().GetCollisionPolygonsCount(layer_id)
+}
+func (o *Extension[T]) AddCollisionPolygon(layer_id int) {
+	o.Super().AddCollisionPolygon(layer_id)
+}
+func (o *Extension[T]) RemoveCollisionPolygon(layer_id int, polygon_index int) {
+	o.Super().RemoveCollisionPolygon(layer_id, polygon_index)
+}
+func (o *Extension[T]) SetCollisionPolygonPoints(layer_id int, polygon_index int, polygon []Vector2.XY) *Extension[T] {
+	o.Super().SetCollisionPolygonPoints(layer_id, polygon_index, polygon)
+	return o
+}
+func (o *Extension[T]) GetCollisionPolygonPoints(layer_id int, polygon_index int) []Vector2.XY {
+	return o.Super().GetCollisionPolygonPoints(layer_id, polygon_index)
+}
+func (o *Extension[T]) SetCollisionPolygonOneWay(layer_id int, polygon_index int, one_way bool) *Extension[T] {
+	o.Super().SetCollisionPolygonOneWay(layer_id, polygon_index, one_way)
+	return o
+}
+func (o *Extension[T]) IsCollisionPolygonOneWay(layer_id int, polygon_index int) bool {
+	return o.Super().IsCollisionPolygonOneWay(layer_id, polygon_index)
+}
+func (o *Extension[T]) SetCollisionPolygonOneWayMargin(layer_id int, polygon_index int, one_way_margin Float.X) *Extension[T] {
+	o.Super().SetCollisionPolygonOneWayMargin(layer_id, polygon_index, one_way_margin)
+	return o
+}
+func (o *Extension[T]) GetCollisionPolygonOneWayMargin(layer_id int, polygon_index int) Float.X {
+	return o.Super().GetCollisionPolygonOneWayMargin(layer_id, polygon_index)
+}
+func (o *Extension[T]) SetTerrainPeeringBit(peering_bit TileSet.CellNeighbor, terrain int) *Extension[T] {
+	o.Super().SetTerrainPeeringBit(peering_bit, terrain)
+	return o
+}
+func (o *Extension[T]) GetTerrainPeeringBit(peering_bit TileSet.CellNeighbor) int {
+	return o.Super().GetTerrainPeeringBit(peering_bit)
+}
+func (o *Extension[T]) IsValidTerrainPeeringBit(peering_bit TileSet.CellNeighbor) bool {
+	return o.Super().IsValidTerrainPeeringBit(peering_bit)
+}
+func (o *Extension[T]) SetNavigationPolygon(layer_id int, navigation_polygon NavigationPolygon.Instance) *Extension[T] {
+	o.Super().SetNavigationPolygon(layer_id, navigation_polygon)
+	return o
+}
+func (o *Extension[T]) SetCustomData(layer_name string, value any) *Extension[T] {
+	o.Super().SetCustomData(layer_name, value)
+	return o
+}
+func (o *Extension[T]) GetCustomData(layer_name string) any {
+	return o.Super().GetCustomData(layer_name)
+}
+func (o *Extension[T]) HasCustomData(layer_name string) bool {
+	return o.Super().HasCustomData(layer_name)
+}
+func (o *Extension[T]) SetCustomDataByLayerId(layer_id int, value any) *Extension[T] {
+	o.Super().SetCustomDataByLayerId(layer_id, value)
+	return o
+}
+func (o *Extension[T]) GetCustomDataByLayerId(layer_id int) any {
+	return o.Super().GetCustomDataByLayerId(layer_id)
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

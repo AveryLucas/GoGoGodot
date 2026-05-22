@@ -489,6 +489,129 @@ func (o *Extension[T]) AsMeshDataTool() Instance { return o.Super() }
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) Clear() {
+	o.Super().Clear()
+}
+func (o *Extension[T]) CreateFromSurface(mesh ArrayMesh.Instance, surface int) error {
+	return o.Super().CreateFromSurface(mesh, surface)
+}
+func (o *Extension[T]) GetFormat() int {
+	return o.Super().GetFormat()
+}
+func (o *Extension[T]) GetVertexCount() int {
+	return o.Super().GetVertexCount()
+}
+func (o *Extension[T]) GetEdgeCount() int {
+	return o.Super().GetEdgeCount()
+}
+func (o *Extension[T]) GetFaceCount() int {
+	return o.Super().GetFaceCount()
+}
+func (o *Extension[T]) SetVertex(idx int, vertex Vector3.XYZ) *Extension[T] {
+	o.Super().SetVertex(idx, vertex)
+	return o
+}
+func (o *Extension[T]) GetVertex(idx int) Vector3.XYZ {
+	return o.Super().GetVertex(idx)
+}
+func (o *Extension[T]) SetVertexNormal(idx int, normal Vector3.XYZ) *Extension[T] {
+	o.Super().SetVertexNormal(idx, normal)
+	return o
+}
+func (o *Extension[T]) GetVertexNormal(idx int) Vector3.XYZ {
+	return o.Super().GetVertexNormal(idx)
+}
+func (o *Extension[T]) SetVertexTangent(idx int, tangent Plane.NormalD) *Extension[T] {
+	o.Super().SetVertexTangent(idx, tangent)
+	return o
+}
+func (o *Extension[T]) GetVertexTangent(idx int) Plane.NormalD {
+	return o.Super().GetVertexTangent(idx)
+}
+func (o *Extension[T]) SetVertexUv(idx int, uv Vector2.XY) *Extension[T] {
+	o.Super().SetVertexUv(idx, uv)
+	return o
+}
+func (o *Extension[T]) GetVertexUv(idx int) Vector2.XY {
+	return o.Super().GetVertexUv(idx)
+}
+func (o *Extension[T]) SetVertexUv2(idx int, uv2 Vector2.XY) *Extension[T] {
+	o.Super().SetVertexUv2(idx, uv2)
+	return o
+}
+func (o *Extension[T]) GetVertexUv2(idx int) Vector2.XY {
+	return o.Super().GetVertexUv2(idx)
+}
+func (o *Extension[T]) SetVertexColor(idx int, color Color.RGBA) *Extension[T] {
+	o.Super().SetVertexColor(idx, color)
+	return o
+}
+func (o *Extension[T]) GetVertexColor(idx int) Color.RGBA {
+	return o.Super().GetVertexColor(idx)
+}
+func (o *Extension[T]) SetVertexBones(idx int, bones []int32) *Extension[T] {
+	o.Super().SetVertexBones(idx, bones)
+	return o
+}
+func (o *Extension[T]) GetVertexBones(idx int) []int32 {
+	return o.Super().GetVertexBones(idx)
+}
+func (o *Extension[T]) SetVertexWeights(idx int, weights []float32) *Extension[T] {
+	o.Super().SetVertexWeights(idx, weights)
+	return o
+}
+func (o *Extension[T]) GetVertexWeights(idx int) []float32 {
+	return o.Super().GetVertexWeights(idx)
+}
+func (o *Extension[T]) SetVertexMeta(idx int, meta any) *Extension[T] {
+	o.Super().SetVertexMeta(idx, meta)
+	return o
+}
+func (o *Extension[T]) GetVertexMeta(idx int) any {
+	return o.Super().GetVertexMeta(idx)
+}
+func (o *Extension[T]) GetVertexEdges(idx int) []int32 {
+	return o.Super().GetVertexEdges(idx)
+}
+func (o *Extension[T]) GetVertexFaces(idx int) []int32 {
+	return o.Super().GetVertexFaces(idx)
+}
+func (o *Extension[T]) GetEdgeVertex(idx int, vertex int) int {
+	return o.Super().GetEdgeVertex(idx, vertex)
+}
+func (o *Extension[T]) GetEdgeFaces(idx int) []int32 {
+	return o.Super().GetEdgeFaces(idx)
+}
+func (o *Extension[T]) SetEdgeMeta(idx int, meta any) *Extension[T] {
+	o.Super().SetEdgeMeta(idx, meta)
+	return o
+}
+func (o *Extension[T]) GetEdgeMeta(idx int) any {
+	return o.Super().GetEdgeMeta(idx)
+}
+func (o *Extension[T]) GetFaceVertex(idx int, vertex int) int {
+	return o.Super().GetFaceVertex(idx, vertex)
+}
+func (o *Extension[T]) GetFaceEdge(idx int, edge int) int {
+	return o.Super().GetFaceEdge(idx, edge)
+}
+func (o *Extension[T]) SetFaceMeta(idx int, meta any) *Extension[T] {
+	o.Super().SetFaceMeta(idx, meta)
+	return o
+}
+func (o *Extension[T]) GetFaceMeta(idx int) any {
+	return o.Super().GetFaceMeta(idx)
+}
+func (o *Extension[T]) GetFaceNormal(idx int) Vector3.XYZ {
+	return o.Super().GetFaceNormal(idx)
+}
+func (o *Extension[T]) SetMaterial(material Material.Instance) *Extension[T] {
+	o.Super().SetMaterial(material)
+	return o
+}
+func (o *Extension[T]) GetMaterial() Material.Instance {
+	return o.Super().GetMaterial()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

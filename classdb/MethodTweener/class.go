@@ -192,6 +192,15 @@ func (self Instance) OnFinished(cb func(), flags ...Signal.Flags) Instance {
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("finished"), gd.NewCallable(cb), int64(flags_together))
 	return self
 }
+func (o *Extension[T]) SetDelay(delay Float.X) Instance {
+	return o.Super().SetDelay(delay)
+}
+func (o *Extension[T]) SetTrans(trans Tween.TransitionType) Instance {
+	return o.Super().SetTrans(trans)
+}
+func (o *Extension[T]) SetEase(ease Tween.EaseType) Instance {
+	return o.Super().SetEase(ease)
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

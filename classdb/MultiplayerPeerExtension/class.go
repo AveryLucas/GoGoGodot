@@ -649,6 +649,87 @@ func (self Instance) OnPeerDisconnected(cb func(id int), flags ...Signal.Flags) 
 	return self
 }
 
+// SetTargetPeer is promoted from [MultiplayerPeer.Instance.SetTargetPeer].
+func (o *Extension[T]) SetTargetPeer(id MultiplayerPeer.TargetPeer) *Extension[T] {
+	o.Super().AsMultiplayerPeer().SetTargetPeer(id)
+	return o
+}
+
+// GetPacketPeer is promoted from [MultiplayerPeer.Instance.GetPacketPeer].
+func (o *Extension[T]) GetPacketPeer() int {
+	return o.Super().AsMultiplayerPeer().GetPacketPeer()
+}
+
+// GetPacketChannel is promoted from [MultiplayerPeer.Instance.GetPacketChannel].
+func (o *Extension[T]) GetPacketChannel() int {
+	return o.Super().AsMultiplayerPeer().GetPacketChannel()
+}
+
+// GetPacketMode is promoted from [MultiplayerPeer.Instance.GetPacketMode].
+func (o *Extension[T]) GetPacketMode() MultiplayerPeer.TransferMode {
+	return o.Super().AsMultiplayerPeer().GetPacketMode()
+}
+
+// Poll is promoted from [MultiplayerPeer.Instance.Poll].
+func (o *Extension[T]) Poll() {
+	o.Super().AsMultiplayerPeer().Poll()
+}
+
+// Close is promoted from [MultiplayerPeer.Instance.Close].
+func (o *Extension[T]) Close() {
+	o.Super().AsMultiplayerPeer().Close()
+}
+
+// GetConnectionStatus is promoted from [MultiplayerPeer.Instance.GetConnectionStatus].
+func (o *Extension[T]) GetConnectionStatus() MultiplayerPeer.ConnectionStatus {
+	return o.Super().AsMultiplayerPeer().GetConnectionStatus()
+}
+
+// GetUniqueId is promoted from [MultiplayerPeer.Instance.GetUniqueId].
+func (o *Extension[T]) GetUniqueId() int {
+	return o.Super().AsMultiplayerPeer().GetUniqueId()
+}
+
+// GenerateUniqueId is promoted from [MultiplayerPeer.Instance.GenerateUniqueId].
+func (self Instance) GenerateUniqueId() int {
+	return self.AsMultiplayerPeer().GenerateUniqueId()
+}
+
+// GenerateUniqueId is promoted from [MultiplayerPeer.Instance.GenerateUniqueId].
+func (o *Extension[T]) GenerateUniqueId() int {
+	return o.Super().AsMultiplayerPeer().GenerateUniqueId()
+}
+
+// IsServerRelaySupported is promoted from [MultiplayerPeer.Instance.IsServerRelaySupported].
+func (o *Extension[T]) IsServerRelaySupported() bool {
+	return o.Super().AsMultiplayerPeer().IsServerRelaySupported()
+}
+
+// GetPacket is promoted from [PacketPeer.Instance.GetPacket].
+func (o *Extension[T]) GetPacket() []byte {
+	return o.Super().AsPacketPeer().GetPacket()
+}
+
+// PutPacket is promoted from [PacketPeer.Instance.PutPacket].
+func (o *Extension[T]) PutPacket(buffer []byte) error {
+	return o.Super().AsPacketPeer().PutPacket(buffer)
+}
+
+// GetPacketError is promoted from [PacketPeer.Instance.GetPacketError].
+func (self Instance) GetPacketError() error {
+	return self.AsPacketPeer().GetPacketError()
+}
+
+// GetPacketError is promoted from [PacketPeer.Instance.GetPacketError].
+func (o *Extension[T]) GetPacketError() error {
+	return o.Super().AsPacketPeer().GetPacketError()
+}
+
+// GetAvailablePacketCount is promoted from [PacketPeer.Instance.GetAvailablePacketCount].
+func (o *Extension[T]) GetAvailablePacketCount() int {
+	return o.Super().AsPacketPeer().GetAvailablePacketCount()
+}
+
 func (self class) Virtual(name string) reflect.Value {
 	switch name {
 	case "_get_packet": return reflect.ValueOf(self._get_packet);

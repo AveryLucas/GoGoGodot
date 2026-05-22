@@ -358,6 +358,60 @@ return Signal.Via(gd.SignalProxy{}, pointers.Pack(gd.NewSignalOf(self.AsObject()
 func (o class) AsUndoRedo() Advanced { return Advanced(o) }
 func (o Instance) AsUndoRedo() Instance { return o }
 func (o *Extension[T]) AsUndoRedo() Instance { return o.Super() }
+func (o *Extension[T]) IsCommittingAction() bool {
+	return o.Super().IsCommittingAction()
+}
+func (o *Extension[T]) AddDoMethod(callable func()) {
+	o.Super().AddDoMethod(callable)
+}
+func (o *Extension[T]) AddUndoMethod(callable func()) {
+	o.Super().AddUndoMethod(callable)
+}
+func (o *Extension[T]) AddDoProperty(obj Object.Instance, property string, value any) {
+	o.Super().AddDoProperty(obj, property, value)
+}
+func (o *Extension[T]) AddUndoProperty(obj Object.Instance, property string, value any) {
+	o.Super().AddUndoProperty(obj, property, value)
+}
+func (o *Extension[T]) AddDoReference(obj Object.Instance) {
+	o.Super().AddDoReference(obj)
+}
+func (o *Extension[T]) AddUndoReference(obj Object.Instance) {
+	o.Super().AddUndoReference(obj)
+}
+func (o *Extension[T]) StartForceKeepInMergeEnds() {
+	o.Super().StartForceKeepInMergeEnds()
+}
+func (o *Extension[T]) EndForceKeepInMergeEnds() {
+	o.Super().EndForceKeepInMergeEnds()
+}
+func (o *Extension[T]) GetHistoryCount() int {
+	return o.Super().GetHistoryCount()
+}
+func (o *Extension[T]) GetCurrentAction() int {
+	return o.Super().GetCurrentAction()
+}
+func (o *Extension[T]) GetActionName(id int) string {
+	return o.Super().GetActionName(id)
+}
+func (o *Extension[T]) GetCurrentActionName() string {
+	return o.Super().GetCurrentActionName()
+}
+func (o *Extension[T]) HasUndo() bool {
+	return o.Super().HasUndo()
+}
+func (o *Extension[T]) HasRedo() bool {
+	return o.Super().HasRedo()
+}
+func (o *Extension[T]) GetVersion() int {
+	return o.Super().GetVersion()
+}
+func (o *Extension[T]) Redo() bool {
+	return o.Super().Redo()
+}
+func (o *Extension[T]) Undo() bool {
+	return o.Super().Undo()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

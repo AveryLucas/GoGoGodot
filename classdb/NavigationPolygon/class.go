@@ -520,6 +520,150 @@ func (self Instance) OnSetupLocalToSceneRequested(cb func(), flags ...Signal.Fla
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("setup_local_to_scene_requested"), gd.NewCallable(cb), int64(flags_together))
 	return self
 }
+func (o *Extension[T]) AddPolygon(polygon []int32) {
+	o.Super().AddPolygon(polygon)
+}
+func (o *Extension[T]) GetPolygonCount() int {
+	return o.Super().GetPolygonCount()
+}
+func (o *Extension[T]) GetPolygon(idx int) []int32 {
+	return o.Super().GetPolygon(idx)
+}
+func (o *Extension[T]) ClearPolygons() {
+	o.Super().ClearPolygons()
+}
+func (o *Extension[T]) GetNavigationMesh() NavigationMesh.Instance {
+	return o.Super().GetNavigationMesh()
+}
+func (o *Extension[T]) AddOutline(outline []Vector2.XY) {
+	o.Super().AddOutline(outline)
+}
+func (o *Extension[T]) AddOutlineAtIndex(outline []Vector2.XY, index int) {
+	o.Super().AddOutlineAtIndex(outline, index)
+}
+func (o *Extension[T]) GetOutlineCount() int {
+	return o.Super().GetOutlineCount()
+}
+func (o *Extension[T]) SetOutline(idx int, outline []Vector2.XY) *Extension[T] {
+	o.Super().SetOutline(idx, outline)
+	return o
+}
+func (o *Extension[T]) GetOutline(idx int) []Vector2.XY {
+	return o.Super().GetOutline(idx)
+}
+func (o *Extension[T]) RemoveOutline(idx int) {
+	o.Super().RemoveOutline(idx)
+}
+func (o *Extension[T]) ClearOutlines() {
+	o.Super().ClearOutlines()
+}
+func (o *Extension[T]) MakePolygonsFromOutlines() {
+	o.Super().MakePolygonsFromOutlines()
+}
+func (o *Extension[T]) SetParsedCollisionMaskValue(layer_number int, value bool) *Extension[T] {
+	o.Super().SetParsedCollisionMaskValue(layer_number, value)
+	return o
+}
+func (o *Extension[T]) GetParsedCollisionMaskValue(layer_number int) bool {
+	return o.Super().GetParsedCollisionMaskValue(layer_number)
+}
+func (o *Extension[T]) Clear() {
+	o.Super().Clear()
+}
+
+// TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
+func (self Instance) TakeOverPath(path string) {
+	self.AsResource().TakeOverPath(path)
+}
+
+// TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
+func (o *Extension[T]) TakeOverPath(path string) {
+	o.Super().AsResource().TakeOverPath(path)
+}
+
+// SetPathCache is promoted from [Resource.Instance.SetPathCache].
+func (self Instance) SetPathCache(path string) Instance {
+	self.AsResource().SetPathCache(path)
+	return self
+}
+
+// SetPathCache is promoted from [Resource.Instance.SetPathCache].
+func (o *Extension[T]) SetPathCache(path string) *Extension[T] {
+	o.Super().AsResource().SetPathCache(path)
+	return o
+}
+
+// GetRid is promoted from [Resource.Instance.GetRid].
+func (self Instance) GetRid() Resource.ID {
+	return self.AsResource().GetRid()
+}
+
+// GetRid is promoted from [Resource.Instance.GetRid].
+func (o *Extension[T]) GetRid() Resource.ID {
+	return o.Super().AsResource().GetRid()
+}
+
+// SetupLocalToScene is promoted from [Resource.Instance.SetupLocalToScene].
+func (self Instance) SetupLocalToScene() {
+	self.AsResource().SetupLocalToScene()
+}
+
+// SetupLocalToScene is promoted from [Resource.Instance.SetupLocalToScene].
+func (o *Extension[T]) SetupLocalToScene() {
+	o.Super().AsResource().SetupLocalToScene()
+}
+
+// ResetState is promoted from [Resource.Instance.ResetState].
+func (self Instance) ResetState() {
+	self.AsResource().ResetState()
+}
+
+// ResetState is promoted from [Resource.Instance.ResetState].
+func (o *Extension[T]) ResetState() {
+	o.Super().AsResource().ResetState()
+}
+
+// SetIdForPath is promoted from [Resource.Instance.SetIdForPath].
+func (self Instance) SetIdForPath(path string, id string) Instance {
+	self.AsResource().SetIdForPath(path, id)
+	return self
+}
+
+// SetIdForPath is promoted from [Resource.Instance.SetIdForPath].
+func (o *Extension[T]) SetIdForPath(path string, id string) *Extension[T] {
+	o.Super().AsResource().SetIdForPath(path, id)
+	return o
+}
+
+// GetIdForPath is promoted from [Resource.Instance.GetIdForPath].
+func (self Instance) GetIdForPath(path string) string {
+	return self.AsResource().GetIdForPath(path)
+}
+
+// GetIdForPath is promoted from [Resource.Instance.GetIdForPath].
+func (o *Extension[T]) GetIdForPath(path string) string {
+	return o.Super().AsResource().GetIdForPath(path)
+}
+
+// IsBuiltIn is promoted from [Resource.Instance.IsBuiltIn].
+func (self Instance) IsBuiltIn() bool {
+	return self.AsResource().IsBuiltIn()
+}
+
+// IsBuiltIn is promoted from [Resource.Instance.IsBuiltIn].
+func (o *Extension[T]) IsBuiltIn() bool {
+	return o.Super().AsResource().IsBuiltIn()
+}
+
+// EmitChanged is promoted from [Resource.Instance.EmitChanged].
+func (self Instance) EmitChanged() {
+	self.AsResource().EmitChanged()
+}
+
+// EmitChanged is promoted from [Resource.Instance.EmitChanged].
+func (o *Extension[T]) EmitChanged() {
+	o.Super().AsResource().EmitChanged()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

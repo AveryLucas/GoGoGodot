@@ -444,6 +444,28 @@ func (o *Extension[T]) AsAudioStreamPlayback() Instance { return o.Super() }
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) SetSamplePlayback(playback_sample AudioSamplePlayback.Instance) *Extension[T] {
+	o.Super().SetSamplePlayback(playback_sample)
+	return o
+}
+func (o *Extension[T]) GetSamplePlayback() AudioSamplePlayback.Instance {
+	return o.Super().GetSamplePlayback()
+}
+func (o *Extension[T]) MixAudio(rate_scale Float.X, frames int) []Vector2.XY {
+	return o.Super().MixAudio(rate_scale, frames)
+}
+func (o *Extension[T]) Stop() {
+	o.Super().Stop()
+}
+func (o *Extension[T]) GetLoopCount() int {
+	return o.Super().GetLoopCount()
+}
+func (o *Extension[T]) GetPlaybackPosition() Float.X {
+	return o.Super().GetPlaybackPosition()
+}
+func (o *Extension[T]) IsPlaying() bool {
+	return o.Super().IsPlaying()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

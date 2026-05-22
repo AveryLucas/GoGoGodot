@@ -391,6 +391,167 @@ func (self Instance) OnSetupLocalToSceneRequested(cb func(), flags ...Signal.Fla
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("setup_local_to_scene_requested"), gd.NewCallable(cb), int64(flags_together))
 	return self
 }
+func (o *Extension[T]) AddBlendShape(name string) {
+	o.Super().AddBlendShape(name)
+}
+func (o *Extension[T]) GetBlendShapeCount() int {
+	return o.Super().GetBlendShapeCount()
+}
+func (o *Extension[T]) GetBlendShapeName(blend_shape_idx int) string {
+	return o.Super().GetBlendShapeName(blend_shape_idx)
+}
+func (o *Extension[T]) SetBlendShapeMode(mode Mesh.BlendShapeMode) *Extension[T] {
+	o.Super().SetBlendShapeMode(mode)
+	return o
+}
+func (o *Extension[T]) GetBlendShapeMode() Mesh.BlendShapeMode {
+	return o.Super().GetBlendShapeMode()
+}
+func (o *Extension[T]) GetSurfaceCount() int {
+	return o.Super().GetSurfaceCount()
+}
+func (o *Extension[T]) GetSurfacePrimitiveType(surface_idx int) Mesh.PrimitiveType {
+	return o.Super().GetSurfacePrimitiveType(surface_idx)
+}
+func (o *Extension[T]) GetSurfaceName(surface_idx int) string {
+	return o.Super().GetSurfaceName(surface_idx)
+}
+func (o *Extension[T]) GetSurfaceArrays(surface_idx int) []any {
+	return o.Super().GetSurfaceArrays(surface_idx)
+}
+func (o *Extension[T]) GetSurfaceBlendShapeArrays(surface_idx int, blend_shape_idx int) [][]any {
+	return o.Super().GetSurfaceBlendShapeArrays(surface_idx, blend_shape_idx)
+}
+func (o *Extension[T]) GetSurfaceLodCount(surface_idx int) int {
+	return o.Super().GetSurfaceLodCount(surface_idx)
+}
+func (o *Extension[T]) GetSurfaceLodSize(surface_idx int, lod_idx int) Float.X {
+	return o.Super().GetSurfaceLodSize(surface_idx, lod_idx)
+}
+func (o *Extension[T]) GetSurfaceLodIndices(surface_idx int, lod_idx int) []int32 {
+	return o.Super().GetSurfaceLodIndices(surface_idx, lod_idx)
+}
+func (o *Extension[T]) GetSurfaceMaterial(surface_idx int) Material.Instance {
+	return o.Super().GetSurfaceMaterial(surface_idx)
+}
+func (o *Extension[T]) GetSurfaceFormat(surface_idx int) int {
+	return o.Super().GetSurfaceFormat(surface_idx)
+}
+func (o *Extension[T]) SetSurfaceName(surface_idx int, name string) *Extension[T] {
+	o.Super().SetSurfaceName(surface_idx, name)
+	return o
+}
+func (o *Extension[T]) SetSurfaceMaterial(surface_idx int, material Material.Instance) *Extension[T] {
+	o.Super().SetSurfaceMaterial(surface_idx, material)
+	return o
+}
+func (o *Extension[T]) GenerateLods(normal_merge_angle Angle.Degrees, normal_split_angle Angle.Degrees, bone_transform_array []struct { Basis struct { X struct { X float32; Y float32; Z float32 }; Y struct { X float32; Y float32; Z float32 }; Z struct { X float32; Y float32; Z float32 } }; Origin struct { X float32; Y float32; Z float32 } }) {
+	o.Super().GenerateLods(normal_merge_angle, normal_split_angle, bone_transform_array)
+}
+func (o *Extension[T]) Clear() {
+	o.Super().Clear()
+}
+func (o *Extension[T]) SetLightmapSizeHint(size Vector2i.XY) *Extension[T] {
+	o.Super().SetLightmapSizeHint(size)
+	return o
+}
+func (o *Extension[T]) GetLightmapSizeHint() Vector2i.XY {
+	return o.Super().GetLightmapSizeHint()
+}
+
+// TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
+func (self Instance) TakeOverPath(path string) {
+	self.AsResource().TakeOverPath(path)
+}
+
+// TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
+func (o *Extension[T]) TakeOverPath(path string) {
+	o.Super().AsResource().TakeOverPath(path)
+}
+
+// SetPathCache is promoted from [Resource.Instance.SetPathCache].
+func (self Instance) SetPathCache(path string) Instance {
+	self.AsResource().SetPathCache(path)
+	return self
+}
+
+// SetPathCache is promoted from [Resource.Instance.SetPathCache].
+func (o *Extension[T]) SetPathCache(path string) *Extension[T] {
+	o.Super().AsResource().SetPathCache(path)
+	return o
+}
+
+// GetRid is promoted from [Resource.Instance.GetRid].
+func (self Instance) GetRid() Resource.ID {
+	return self.AsResource().GetRid()
+}
+
+// GetRid is promoted from [Resource.Instance.GetRid].
+func (o *Extension[T]) GetRid() Resource.ID {
+	return o.Super().AsResource().GetRid()
+}
+
+// SetupLocalToScene is promoted from [Resource.Instance.SetupLocalToScene].
+func (self Instance) SetupLocalToScene() {
+	self.AsResource().SetupLocalToScene()
+}
+
+// SetupLocalToScene is promoted from [Resource.Instance.SetupLocalToScene].
+func (o *Extension[T]) SetupLocalToScene() {
+	o.Super().AsResource().SetupLocalToScene()
+}
+
+// ResetState is promoted from [Resource.Instance.ResetState].
+func (self Instance) ResetState() {
+	self.AsResource().ResetState()
+}
+
+// ResetState is promoted from [Resource.Instance.ResetState].
+func (o *Extension[T]) ResetState() {
+	o.Super().AsResource().ResetState()
+}
+
+// SetIdForPath is promoted from [Resource.Instance.SetIdForPath].
+func (self Instance) SetIdForPath(path string, id string) Instance {
+	self.AsResource().SetIdForPath(path, id)
+	return self
+}
+
+// SetIdForPath is promoted from [Resource.Instance.SetIdForPath].
+func (o *Extension[T]) SetIdForPath(path string, id string) *Extension[T] {
+	o.Super().AsResource().SetIdForPath(path, id)
+	return o
+}
+
+// GetIdForPath is promoted from [Resource.Instance.GetIdForPath].
+func (self Instance) GetIdForPath(path string) string {
+	return self.AsResource().GetIdForPath(path)
+}
+
+// GetIdForPath is promoted from [Resource.Instance.GetIdForPath].
+func (o *Extension[T]) GetIdForPath(path string) string {
+	return o.Super().AsResource().GetIdForPath(path)
+}
+
+// IsBuiltIn is promoted from [Resource.Instance.IsBuiltIn].
+func (self Instance) IsBuiltIn() bool {
+	return self.AsResource().IsBuiltIn()
+}
+
+// IsBuiltIn is promoted from [Resource.Instance.IsBuiltIn].
+func (o *Extension[T]) IsBuiltIn() bool {
+	return o.Super().AsResource().IsBuiltIn()
+}
+
+// EmitChanged is promoted from [Resource.Instance.EmitChanged].
+func (self Instance) EmitChanged() {
+	self.AsResource().EmitChanged()
+}
+
+// EmitChanged is promoted from [Resource.Instance.EmitChanged].
+func (o *Extension[T]) EmitChanged() {
+	o.Super().AsResource().EmitChanged()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

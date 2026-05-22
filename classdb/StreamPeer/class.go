@@ -456,6 +456,84 @@ func (o *Extension[T]) AsStreamPeer() Instance { return o.Super() }
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) PutData(data []byte) error {
+	return o.Super().PutData(data)
+}
+func (o *Extension[T]) GetAvailableBytes() int {
+	return o.Super().GetAvailableBytes()
+}
+func (o *Extension[T]) Put8(value int) {
+	o.Super().Put8(value)
+}
+func (o *Extension[T]) PutU8(value int) {
+	o.Super().PutU8(value)
+}
+func (o *Extension[T]) Put16(value int) {
+	o.Super().Put16(value)
+}
+func (o *Extension[T]) PutU16(value int) {
+	o.Super().PutU16(value)
+}
+func (o *Extension[T]) Put32(value int) {
+	o.Super().Put32(value)
+}
+func (o *Extension[T]) PutU32(value int) {
+	o.Super().PutU32(value)
+}
+func (o *Extension[T]) Put64(value int) {
+	o.Super().Put64(value)
+}
+func (o *Extension[T]) PutU64(value int) {
+	o.Super().PutU64(value)
+}
+func (o *Extension[T]) PutHalf(value Float.X) {
+	o.Super().PutHalf(value)
+}
+func (o *Extension[T]) PutFloat(value Float.X) {
+	o.Super().PutFloat(value)
+}
+func (o *Extension[T]) PutDouble(value Float.X) {
+	o.Super().PutDouble(value)
+}
+func (o *Extension[T]) PutString(value string) {
+	o.Super().PutString(value)
+}
+func (o *Extension[T]) PutUtf8String(value string) {
+	o.Super().PutUtf8String(value)
+}
+func (o *Extension[T]) Get8() int {
+	return o.Super().Get8()
+}
+func (o *Extension[T]) GetU8() int {
+	return o.Super().GetU8()
+}
+func (o *Extension[T]) Get16() int {
+	return o.Super().Get16()
+}
+func (o *Extension[T]) GetU16() int {
+	return o.Super().GetU16()
+}
+func (o *Extension[T]) Get32() int {
+	return o.Super().Get32()
+}
+func (o *Extension[T]) GetU32() int {
+	return o.Super().GetU32()
+}
+func (o *Extension[T]) Get64() int {
+	return o.Super().Get64()
+}
+func (o *Extension[T]) GetU64() int {
+	return o.Super().GetU64()
+}
+func (o *Extension[T]) GetHalf() Float.X {
+	return o.Super().GetHalf()
+}
+func (o *Extension[T]) GetFloat() Float.X {
+	return o.Super().GetFloat()
+}
+func (o *Extension[T]) GetDouble() Float.X {
+	return o.Super().GetDouble()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

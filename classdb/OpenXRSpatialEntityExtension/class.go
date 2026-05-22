@@ -403,6 +403,79 @@ func (o *Extension[T]) AsOpenXRSpatialEntityExtension() Instance { return o.Supe
 func (o class) AsOpenXRExtensionWrapper() OpenXRExtensionWrapper.Advanced { return *(*OpenXRExtensionWrapper.Advanced)(ie.As(&o)) }
 func (o *Extension[T]) AsOpenXRExtensionWrapper() OpenXRExtensionWrapper.Instance { return o.Super().AsOpenXRExtensionWrapper() }
 func (o Instance) AsOpenXRExtensionWrapper() OpenXRExtensionWrapper.Instance { return *(*OpenXRExtensionWrapper.Instance)(ie.As(&o)) }
+func (o *Extension[T]) SupportsCapability(capability Capability) bool {
+	return o.Super().SupportsCapability(capability)
+}
+func (o *Extension[T]) SupportsComponentType(capability Capability, component_type ComponentType) bool {
+	return o.Super().SupportsComponentType(capability, component_type)
+}
+func (o *Extension[T]) GetSpatialContextReady(spatial_context RID.SpatialContext) bool {
+	return o.Super().GetSpatialContextReady(spatial_context)
+}
+func (o *Extension[T]) FreeSpatialContext(spatial_context RID.SpatialContext) {
+	o.Super().FreeSpatialContext(spatial_context)
+}
+func (o *Extension[T]) GetSpatialContextHandle(spatial_context RID.SpatialContext) int {
+	return o.Super().GetSpatialContextHandle(spatial_context)
+}
+func (o *Extension[T]) FreeSpatialSnapshot(spatial_snapshot RID.SpatialSnapshot) {
+	o.Super().FreeSpatialSnapshot(spatial_snapshot)
+}
+func (o *Extension[T]) GetSpatialSnapshotHandle(spatial_snapshot RID.SpatialSnapshot) int {
+	return o.Super().GetSpatialSnapshotHandle(spatial_snapshot)
+}
+func (o *Extension[T]) GetSpatialSnapshotContext(spatial_snapshot RID.SpatialSnapshot) RID.SpatialContext {
+	return o.Super().GetSpatialSnapshotContext(spatial_snapshot)
+}
+func (o *Extension[T]) GetString(spatial_snapshot RID.SpatialSnapshot, buffer_id int) string {
+	return o.Super().GetString(spatial_snapshot, buffer_id)
+}
+func (o *Extension[T]) GetUint8Buffer(spatial_snapshot RID.SpatialSnapshot, buffer_id int) []byte {
+	return o.Super().GetUint8Buffer(spatial_snapshot, buffer_id)
+}
+func (o *Extension[T]) GetUint16Buffer(spatial_snapshot RID.SpatialSnapshot, buffer_id int) []int32 {
+	return o.Super().GetUint16Buffer(spatial_snapshot, buffer_id)
+}
+func (o *Extension[T]) GetUint32Buffer(spatial_snapshot RID.SpatialSnapshot, buffer_id int) []int32 {
+	return o.Super().GetUint32Buffer(spatial_snapshot, buffer_id)
+}
+func (o *Extension[T]) GetFloatBuffer(spatial_snapshot RID.SpatialSnapshot, buffer_id int) []float32 {
+	return o.Super().GetFloatBuffer(spatial_snapshot, buffer_id)
+}
+func (o *Extension[T]) GetVector2Buffer(spatial_snapshot RID.SpatialSnapshot, buffer_id int) []Vector2.XY {
+	return o.Super().GetVector2Buffer(spatial_snapshot, buffer_id)
+}
+func (o *Extension[T]) GetVector3Buffer(spatial_snapshot RID.SpatialSnapshot, buffer_id int) []Vector3.XYZ {
+	return o.Super().GetVector3Buffer(spatial_snapshot, buffer_id)
+}
+func (o *Extension[T]) FindSpatialEntity(entity_id int) RID.SpatialEntity {
+	return o.Super().FindSpatialEntity(entity_id)
+}
+func (o *Extension[T]) AddSpatialEntity(spatial_context RID.SpatialContext, entity_id int, entity int) RID.SpatialEntity {
+	return o.Super().AddSpatialEntity(spatial_context, entity_id, entity)
+}
+func (o *Extension[T]) MakeSpatialEntity(spatial_context RID.SpatialContext, entity_id int) RID.SpatialEntity {
+	return o.Super().MakeSpatialEntity(spatial_context, entity_id)
+}
+func (o *Extension[T]) GetSpatialEntityId(entity RID.SpatialEntity) int {
+	return o.Super().GetSpatialEntityId(entity)
+}
+func (o *Extension[T]) GetSpatialEntityContext(entity RID.SpatialEntity) RID.SpatialContext {
+	return o.Super().GetSpatialEntityContext(entity)
+}
+func (o *Extension[T]) FreeSpatialEntity(entity RID.SpatialEntity) {
+	o.Super().FreeSpatialEntity(entity)
+}
+
+// RegisterExtensionWrapper is promoted from [OpenXRExtensionWrapper.Instance.RegisterExtensionWrapper].
+func (self Instance) RegisterExtensionWrapper() {
+	self.AsOpenXRExtensionWrapper().RegisterExtensionWrapper()
+}
+
+// RegisterExtensionWrapper is promoted from [OpenXRExtensionWrapper.Instance.RegisterExtensionWrapper].
+func (o *Extension[T]) RegisterExtensionWrapper() {
+	o.Super().AsOpenXRExtensionWrapper().RegisterExtensionWrapper()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

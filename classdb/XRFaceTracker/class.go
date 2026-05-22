@@ -188,6 +188,13 @@ func (o Instance) AsXRTracker() XRTracker.Instance { return *(*XRTracker.Instanc
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) GetBlendShape(blend_shape BlendShapeEntry) Float.X {
+	return o.Super().GetBlendShape(blend_shape)
+}
+func (o *Extension[T]) SetBlendShape(blend_shape BlendShapeEntry, weight Float.X) *Extension[T] {
+	o.Super().SetBlendShape(blend_shape, weight)
+	return o
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

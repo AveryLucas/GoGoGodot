@@ -495,6 +495,51 @@ func (self Instance) OnDataChannelReceived(cb func(channel WebRTCDataChannel.Ins
 	return self
 }
 
+// CreateOffer is promoted from [WebRTCPeerConnection.Instance.CreateOffer].
+func (o *Extension[T]) CreateOffer() error {
+	return o.Super().AsWebRTCPeerConnection().CreateOffer()
+}
+
+// SetLocalDescription is promoted from [WebRTCPeerConnection.Instance.SetLocalDescription].
+func (o *Extension[T]) SetLocalDescription(atype string, sdp string) error {
+	return o.Super().AsWebRTCPeerConnection().SetLocalDescription(atype, sdp)
+}
+
+// SetRemoteDescription is promoted from [WebRTCPeerConnection.Instance.SetRemoteDescription].
+func (o *Extension[T]) SetRemoteDescription(atype string, sdp string) error {
+	return o.Super().AsWebRTCPeerConnection().SetRemoteDescription(atype, sdp)
+}
+
+// AddIceCandidate is promoted from [WebRTCPeerConnection.Instance.AddIceCandidate].
+func (o *Extension[T]) AddIceCandidate(media string, index int, name string) error {
+	return o.Super().AsWebRTCPeerConnection().AddIceCandidate(media, index, name)
+}
+
+// Poll is promoted from [WebRTCPeerConnection.Instance.Poll].
+func (o *Extension[T]) Poll() error {
+	return o.Super().AsWebRTCPeerConnection().Poll()
+}
+
+// Close is promoted from [WebRTCPeerConnection.Instance.Close].
+func (o *Extension[T]) Close() {
+	o.Super().AsWebRTCPeerConnection().Close()
+}
+
+// GetConnectionState is promoted from [WebRTCPeerConnection.Instance.GetConnectionState].
+func (o *Extension[T]) GetConnectionState() WebRTCPeerConnection.ConnectionState {
+	return o.Super().AsWebRTCPeerConnection().GetConnectionState()
+}
+
+// GetGatheringState is promoted from [WebRTCPeerConnection.Instance.GetGatheringState].
+func (o *Extension[T]) GetGatheringState() WebRTCPeerConnection.GatheringState {
+	return o.Super().AsWebRTCPeerConnection().GetGatheringState()
+}
+
+// GetSignalingState is promoted from [WebRTCPeerConnection.Instance.GetSignalingState].
+func (o *Extension[T]) GetSignalingState() WebRTCPeerConnection.SignalingState {
+	return o.Super().AsWebRTCPeerConnection().GetSignalingState()
+}
+
 func (self class) Virtual(name string) reflect.Value {
 	switch name {
 	case "_get_connection_state": return reflect.ValueOf(self._get_connection_state);

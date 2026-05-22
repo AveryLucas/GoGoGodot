@@ -203,6 +203,22 @@ func (o *Extension[T]) AsOpenXRFutureResult() Instance { return o.Super() }
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) GetStatus() ResultStatus {
+	return o.Super().GetStatus()
+}
+func (o *Extension[T]) GetFuture() int {
+	return o.Super().GetFuture()
+}
+func (o *Extension[T]) CancelFuture() {
+	o.Super().CancelFuture()
+}
+func (o *Extension[T]) SetResultValue(result_value any) *Extension[T] {
+	o.Super().SetResultValue(result_value)
+	return o
+}
+func (o *Extension[T]) GetResultValue() any {
+	return o.Super().GetResultValue()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

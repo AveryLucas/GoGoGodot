@@ -1062,6 +1062,69 @@ func (o *Extension[T]) AsEditorExportPlugin() Instance { return o.Super() }
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) AddSharedObject(path string, tags []string, target string) {
+	o.Super().AddSharedObject(path, tags, target)
+}
+func (o *Extension[T]) AddFile(path string, file []byte, remap bool) {
+	o.Super().AddFile(path, file, remap)
+}
+func (o *Extension[T]) AddAppleEmbeddedPlatformProjectStaticLib(path string) {
+	o.Super().AddAppleEmbeddedPlatformProjectStaticLib(path)
+}
+func (o *Extension[T]) AddAppleEmbeddedPlatformFramework(path string) {
+	o.Super().AddAppleEmbeddedPlatformFramework(path)
+}
+func (o *Extension[T]) AddAppleEmbeddedPlatformEmbeddedFramework(path string) {
+	o.Super().AddAppleEmbeddedPlatformEmbeddedFramework(path)
+}
+func (o *Extension[T]) AddAppleEmbeddedPlatformPlistContent(plist_content string) {
+	o.Super().AddAppleEmbeddedPlatformPlistContent(plist_content)
+}
+func (o *Extension[T]) AddAppleEmbeddedPlatformLinkerFlags(flags string) {
+	o.Super().AddAppleEmbeddedPlatformLinkerFlags(flags)
+}
+func (o *Extension[T]) AddAppleEmbeddedPlatformBundleFile(path string) {
+	o.Super().AddAppleEmbeddedPlatformBundleFile(path)
+}
+func (o *Extension[T]) AddAppleEmbeddedPlatformCppCode(code string) {
+	o.Super().AddAppleEmbeddedPlatformCppCode(code)
+}
+func (o *Extension[T]) AddIosProjectStaticLib(path string) {
+	o.Super().AddIosProjectStaticLib(path)
+}
+func (o *Extension[T]) AddIosFramework(path string) {
+	o.Super().AddIosFramework(path)
+}
+func (o *Extension[T]) AddIosEmbeddedFramework(path string) {
+	o.Super().AddIosEmbeddedFramework(path)
+}
+func (o *Extension[T]) AddIosPlistContent(plist_content string) {
+	o.Super().AddIosPlistContent(plist_content)
+}
+func (o *Extension[T]) AddIosLinkerFlags(flags string) {
+	o.Super().AddIosLinkerFlags(flags)
+}
+func (o *Extension[T]) AddIosBundleFile(path string) {
+	o.Super().AddIosBundleFile(path)
+}
+func (o *Extension[T]) AddIosCppCode(code string) {
+	o.Super().AddIosCppCode(code)
+}
+func (o *Extension[T]) AddMacosPluginFile(path string) {
+	o.Super().AddMacosPluginFile(path)
+}
+func (o *Extension[T]) Skip() {
+	o.Super().Skip()
+}
+func (o *Extension[T]) GetOption(name string) any {
+	return o.Super().GetOption(name)
+}
+func (o *Extension[T]) GetExportPreset() EditorExportPreset.Instance {
+	return o.Super().GetExportPreset()
+}
+func (o *Extension[T]) GetExportPlatform() EditorExportPlatform.Instance {
+	return o.Super().GetExportPlatform()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

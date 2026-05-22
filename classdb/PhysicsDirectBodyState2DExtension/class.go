@@ -1054,6 +1054,123 @@ func (o class) AsPhysicsDirectBodyState2D() PhysicsDirectBodyState2D.Advanced { 
 func (o *Extension[T]) AsPhysicsDirectBodyState2D() PhysicsDirectBodyState2D.Instance { return o.Super().AsPhysicsDirectBodyState2D() }
 func (o Instance) AsPhysicsDirectBodyState2D() PhysicsDirectBodyState2D.Instance { return *(*PhysicsDirectBodyState2D.Instance)(ie.As(&o)) }
 
+// GetVelocityAtLocalPosition is promoted from [PhysicsDirectBodyState2D.Instance.GetVelocityAtLocalPosition].
+func (o *Extension[T]) GetVelocityAtLocalPosition(local_position Vector2.XY) Vector2.XY {
+	return o.Super().AsPhysicsDirectBodyState2D().GetVelocityAtLocalPosition(local_position)
+}
+
+// ApplyCentralImpulse is promoted from [PhysicsDirectBodyState2D.Instance.ApplyCentralImpulse].
+func (o *Extension[T]) ApplyCentralImpulse(impulse Vector2.XY) {
+	o.Super().AsPhysicsDirectBodyState2D().ApplyCentralImpulse(impulse)
+}
+
+// ApplyTorqueImpulse is promoted from [PhysicsDirectBodyState2D.Instance.ApplyTorqueImpulse].
+func (o *Extension[T]) ApplyTorqueImpulse(impulse Float.X) {
+	o.Super().AsPhysicsDirectBodyState2D().ApplyTorqueImpulse(impulse)
+}
+
+// ApplyTorque is promoted from [PhysicsDirectBodyState2D.Instance.ApplyTorque].
+func (o *Extension[T]) ApplyTorque(torque Float.X) {
+	o.Super().AsPhysicsDirectBodyState2D().ApplyTorque(torque)
+}
+
+// AddConstantTorque is promoted from [PhysicsDirectBodyState2D.Instance.AddConstantTorque].
+func (o *Extension[T]) AddConstantTorque(torque Float.X) {
+	o.Super().AsPhysicsDirectBodyState2D().AddConstantTorque(torque)
+}
+
+// SetConstantForce is promoted from [PhysicsDirectBodyState2D.Instance.SetConstantForce].
+func (o *Extension[T]) SetConstantForce(force Vector2.XY) *Extension[T] {
+	o.Super().AsPhysicsDirectBodyState2D().SetConstantForce(force)
+	return o
+}
+
+// GetConstantForce is promoted from [PhysicsDirectBodyState2D.Instance.GetConstantForce].
+func (o *Extension[T]) GetConstantForce() Vector2.XY {
+	return o.Super().AsPhysicsDirectBodyState2D().GetConstantForce()
+}
+
+// SetConstantTorque is promoted from [PhysicsDirectBodyState2D.Instance.SetConstantTorque].
+func (o *Extension[T]) SetConstantTorque(torque Float.X) *Extension[T] {
+	o.Super().AsPhysicsDirectBodyState2D().SetConstantTorque(torque)
+	return o
+}
+
+// GetConstantTorque is promoted from [PhysicsDirectBodyState2D.Instance.GetConstantTorque].
+func (o *Extension[T]) GetConstantTorque() Float.X {
+	return o.Super().AsPhysicsDirectBodyState2D().GetConstantTorque()
+}
+
+// GetContactCount is promoted from [PhysicsDirectBodyState2D.Instance.GetContactCount].
+func (o *Extension[T]) GetContactCount() int {
+	return o.Super().AsPhysicsDirectBodyState2D().GetContactCount()
+}
+
+// GetContactLocalPosition is promoted from [PhysicsDirectBodyState2D.Instance.GetContactLocalPosition].
+func (o *Extension[T]) GetContactLocalPosition(contact_idx int) Vector2.XY {
+	return o.Super().AsPhysicsDirectBodyState2D().GetContactLocalPosition(contact_idx)
+}
+
+// GetContactLocalNormal is promoted from [PhysicsDirectBodyState2D.Instance.GetContactLocalNormal].
+func (o *Extension[T]) GetContactLocalNormal(contact_idx int) Vector2.XY {
+	return o.Super().AsPhysicsDirectBodyState2D().GetContactLocalNormal(contact_idx)
+}
+
+// GetContactLocalShape is promoted from [PhysicsDirectBodyState2D.Instance.GetContactLocalShape].
+func (o *Extension[T]) GetContactLocalShape(contact_idx int) int {
+	return o.Super().AsPhysicsDirectBodyState2D().GetContactLocalShape(contact_idx)
+}
+
+// GetContactLocalVelocityAtPosition is promoted from [PhysicsDirectBodyState2D.Instance.GetContactLocalVelocityAtPosition].
+func (o *Extension[T]) GetContactLocalVelocityAtPosition(contact_idx int) Vector2.XY {
+	return o.Super().AsPhysicsDirectBodyState2D().GetContactLocalVelocityAtPosition(contact_idx)
+}
+
+// GetContactCollider is promoted from [PhysicsDirectBodyState2D.Instance.GetContactCollider].
+func (o *Extension[T]) GetContactCollider(contact_idx int) RID.Body2D {
+	return o.Super().AsPhysicsDirectBodyState2D().GetContactCollider(contact_idx)
+}
+
+// GetContactColliderPosition is promoted from [PhysicsDirectBodyState2D.Instance.GetContactColliderPosition].
+func (o *Extension[T]) GetContactColliderPosition(contact_idx int) Vector2.XY {
+	return o.Super().AsPhysicsDirectBodyState2D().GetContactColliderPosition(contact_idx)
+}
+
+// GetContactColliderId is promoted from [PhysicsDirectBodyState2D.Instance.GetContactColliderId].
+func (o *Extension[T]) GetContactColliderId(contact_idx int) int {
+	return o.Super().AsPhysicsDirectBodyState2D().GetContactColliderId(contact_idx)
+}
+
+// GetContactColliderObject is promoted from [PhysicsDirectBodyState2D.Instance.GetContactColliderObject].
+func (o *Extension[T]) GetContactColliderObject(contact_idx int) Object.Instance {
+	return o.Super().AsPhysicsDirectBodyState2D().GetContactColliderObject(contact_idx)
+}
+
+// GetContactColliderShape is promoted from [PhysicsDirectBodyState2D.Instance.GetContactColliderShape].
+func (o *Extension[T]) GetContactColliderShape(contact_idx int) int {
+	return o.Super().AsPhysicsDirectBodyState2D().GetContactColliderShape(contact_idx)
+}
+
+// GetContactColliderVelocityAtPosition is promoted from [PhysicsDirectBodyState2D.Instance.GetContactColliderVelocityAtPosition].
+func (o *Extension[T]) GetContactColliderVelocityAtPosition(contact_idx int) Vector2.XY {
+	return o.Super().AsPhysicsDirectBodyState2D().GetContactColliderVelocityAtPosition(contact_idx)
+}
+
+// GetContactImpulse is promoted from [PhysicsDirectBodyState2D.Instance.GetContactImpulse].
+func (o *Extension[T]) GetContactImpulse(contact_idx int) Vector2.XY {
+	return o.Super().AsPhysicsDirectBodyState2D().GetContactImpulse(contact_idx)
+}
+
+// IntegrateForces is promoted from [PhysicsDirectBodyState2D.Instance.IntegrateForces].
+func (o *Extension[T]) IntegrateForces() {
+	o.Super().AsPhysicsDirectBodyState2D().IntegrateForces()
+}
+
+// GetSpaceState is promoted from [PhysicsDirectBodyState2D.Instance.GetSpaceState].
+func (o *Extension[T]) GetSpaceState() PhysicsDirectSpaceState2D.Instance {
+	return o.Super().AsPhysicsDirectBodyState2D().GetSpaceState()
+}
+
 func (self class) Virtual(name string) reflect.Value {
 	switch name {
 	case "_get_total_gravity": return reflect.ValueOf(self._get_total_gravity);

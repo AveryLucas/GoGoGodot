@@ -465,6 +465,53 @@ func (o *Extension[T]) AsAStar2D() Instance { return o.Super() }
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) GetAvailablePointId() int {
+	return o.Super().GetAvailablePointId()
+}
+func (o *Extension[T]) GetPointPosition(id Point) Vector2.XY {
+	return o.Super().GetPointPosition(id)
+}
+func (o *Extension[T]) SetPointPosition(id Point, position Vector2.XY) *Extension[T] {
+	o.Super().SetPointPosition(id, position)
+	return o
+}
+func (o *Extension[T]) GetPointWeightScale(id Point) Float.X {
+	return o.Super().GetPointWeightScale(id)
+}
+func (o *Extension[T]) SetPointWeightScale(id Point, weight_scale Float.X) *Extension[T] {
+	o.Super().SetPointWeightScale(id, weight_scale)
+	return o
+}
+func (o *Extension[T]) RemovePoint(id Point) {
+	o.Super().RemovePoint(id)
+}
+func (o *Extension[T]) HasPoint(id Point) bool {
+	return o.Super().HasPoint(id)
+}
+func (o *Extension[T]) GetPointConnections(id Point) []Point {
+	return o.Super().GetPointConnections(id)
+}
+func (o *Extension[T]) GetPointIds() []Point {
+	return o.Super().GetPointIds()
+}
+func (o *Extension[T]) IsPointDisabled(id Point) bool {
+	return o.Super().IsPointDisabled(id)
+}
+func (o *Extension[T]) GetPointCount() int {
+	return o.Super().GetPointCount()
+}
+func (o *Extension[T]) GetPointCapacity() int {
+	return o.Super().GetPointCapacity()
+}
+func (o *Extension[T]) ReserveSpace(num_nodes int) {
+	o.Super().ReserveSpace(num_nodes)
+}
+func (o *Extension[T]) Clear() {
+	o.Super().Clear()
+}
+func (o *Extension[T]) GetClosestPositionInSegment(to_position Vector2.XY) Vector2.XY {
+	return o.Super().GetClosestPositionInSegment(to_position)
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

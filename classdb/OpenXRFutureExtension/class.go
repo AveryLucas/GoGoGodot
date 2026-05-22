@@ -181,6 +181,22 @@ func (o *Extension[T]) AsOpenXRFutureExtension() Instance { return o.Super() }
 func (o class) AsOpenXRExtensionWrapper() OpenXRExtensionWrapper.Advanced { return *(*OpenXRExtensionWrapper.Advanced)(ie.As(&o)) }
 func (o *Extension[T]) AsOpenXRExtensionWrapper() OpenXRExtensionWrapper.Instance { return o.Super().AsOpenXRExtensionWrapper() }
 func (o Instance) AsOpenXRExtensionWrapper() OpenXRExtensionWrapper.Instance { return *(*OpenXRExtensionWrapper.Instance)(ie.As(&o)) }
+func (o *Extension[T]) IsActive() bool {
+	return o.Super().IsActive()
+}
+func (o *Extension[T]) CancelFuture(future int) {
+	o.Super().CancelFuture(future)
+}
+
+// RegisterExtensionWrapper is promoted from [OpenXRExtensionWrapper.Instance.RegisterExtensionWrapper].
+func (self Instance) RegisterExtensionWrapper() {
+	self.AsOpenXRExtensionWrapper().RegisterExtensionWrapper()
+}
+
+// RegisterExtensionWrapper is promoted from [OpenXRExtensionWrapper.Instance.RegisterExtensionWrapper].
+func (o *Extension[T]) RegisterExtensionWrapper() {
+	o.Super().AsOpenXRExtensionWrapper().RegisterExtensionWrapper()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

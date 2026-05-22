@@ -550,6 +550,91 @@ func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 
+// Poll is promoted from [WebRTCDataChannel.Instance.Poll].
+func (o *Extension[T]) Poll() error {
+	return o.Super().AsWebRTCDataChannel().Poll()
+}
+
+// Close is promoted from [WebRTCDataChannel.Instance.Close].
+func (o *Extension[T]) Close() {
+	o.Super().AsWebRTCDataChannel().Close()
+}
+
+// WasStringPacket is promoted from [WebRTCDataChannel.Instance.WasStringPacket].
+func (o *Extension[T]) WasStringPacket() bool {
+	return o.Super().AsWebRTCDataChannel().WasStringPacket()
+}
+
+// GetReadyState is promoted from [WebRTCDataChannel.Instance.GetReadyState].
+func (o *Extension[T]) GetReadyState() WebRTCDataChannel.ChannelState {
+	return o.Super().AsWebRTCDataChannel().GetReadyState()
+}
+
+// GetLabel is promoted from [WebRTCDataChannel.Instance.GetLabel].
+func (o *Extension[T]) GetLabel() string {
+	return o.Super().AsWebRTCDataChannel().GetLabel()
+}
+
+// IsOrdered is promoted from [WebRTCDataChannel.Instance.IsOrdered].
+func (o *Extension[T]) IsOrdered() bool {
+	return o.Super().AsWebRTCDataChannel().IsOrdered()
+}
+
+// GetId is promoted from [WebRTCDataChannel.Instance.GetId].
+func (o *Extension[T]) GetId() int {
+	return o.Super().AsWebRTCDataChannel().GetId()
+}
+
+// GetMaxPacketLifeTime is promoted from [WebRTCDataChannel.Instance.GetMaxPacketLifeTime].
+func (o *Extension[T]) GetMaxPacketLifeTime() int {
+	return o.Super().AsWebRTCDataChannel().GetMaxPacketLifeTime()
+}
+
+// GetMaxRetransmits is promoted from [WebRTCDataChannel.Instance.GetMaxRetransmits].
+func (o *Extension[T]) GetMaxRetransmits() int {
+	return o.Super().AsWebRTCDataChannel().GetMaxRetransmits()
+}
+
+// GetProtocol is promoted from [WebRTCDataChannel.Instance.GetProtocol].
+func (o *Extension[T]) GetProtocol() string {
+	return o.Super().AsWebRTCDataChannel().GetProtocol()
+}
+
+// IsNegotiated is promoted from [WebRTCDataChannel.Instance.IsNegotiated].
+func (o *Extension[T]) IsNegotiated() bool {
+	return o.Super().AsWebRTCDataChannel().IsNegotiated()
+}
+
+// GetBufferedAmount is promoted from [WebRTCDataChannel.Instance.GetBufferedAmount].
+func (o *Extension[T]) GetBufferedAmount() int {
+	return o.Super().AsWebRTCDataChannel().GetBufferedAmount()
+}
+
+// GetPacket is promoted from [PacketPeer.Instance.GetPacket].
+func (o *Extension[T]) GetPacket() []byte {
+	return o.Super().AsPacketPeer().GetPacket()
+}
+
+// PutPacket is promoted from [PacketPeer.Instance.PutPacket].
+func (o *Extension[T]) PutPacket(buffer []byte) error {
+	return o.Super().AsPacketPeer().PutPacket(buffer)
+}
+
+// GetPacketError is promoted from [PacketPeer.Instance.GetPacketError].
+func (self Instance) GetPacketError() error {
+	return self.AsPacketPeer().GetPacketError()
+}
+
+// GetPacketError is promoted from [PacketPeer.Instance.GetPacketError].
+func (o *Extension[T]) GetPacketError() error {
+	return o.Super().AsPacketPeer().GetPacketError()
+}
+
+// GetAvailablePacketCount is promoted from [PacketPeer.Instance.GetAvailablePacketCount].
+func (o *Extension[T]) GetAvailablePacketCount() int {
+	return o.Super().AsPacketPeer().GetAvailablePacketCount()
+}
+
 func (self class) Virtual(name string) reflect.Value {
 	switch name {
 	case "_get_packet": return reflect.ValueOf(self._get_packet);

@@ -166,6 +166,12 @@ func (o *Extension[T]) AsSkinReference() Instance { return o.Super() }
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) GetSkeleton() RID.Skeleton {
+	return o.Super().GetSkeleton()
+}
+func (o *Extension[T]) GetSkin() Skin.Instance {
+	return o.Super().GetSkin()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

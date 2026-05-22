@@ -423,6 +423,66 @@ func (o *Extension[T]) AsXRInterface() Instance { return o.Super() }
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) GetName() string {
+	return o.Super().GetName()
+}
+func (o *Extension[T]) GetCapabilities() int {
+	return o.Super().GetCapabilities()
+}
+func (o *Extension[T]) IsInitialized() bool {
+	return o.Super().IsInitialized()
+}
+func (o *Extension[T]) Initialize() bool {
+	return o.Super().Initialize()
+}
+func (o *Extension[T]) Uninitialize() {
+	o.Super().Uninitialize()
+}
+func (o *Extension[T]) GetSystemInfo() map[string]any {
+	return o.Super().GetSystemInfo()
+}
+func (o *Extension[T]) GetTrackingStatus() TrackingStatus {
+	return o.Super().GetTrackingStatus()
+}
+func (o *Extension[T]) GetRenderTargetSize() Vector2.XY {
+	return o.Super().GetRenderTargetSize()
+}
+func (o *Extension[T]) GetViewCount() int {
+	return o.Super().GetViewCount()
+}
+func (o *Extension[T]) TriggerHapticPulse(action_name string, tracker_name string, frequency Float.X, amplitude Float.X, duration_sec Float.X, delay_sec Float.X) {
+	o.Super().TriggerHapticPulse(action_name, tracker_name, frequency, amplitude, duration_sec, delay_sec)
+}
+func (o *Extension[T]) SupportsPlayAreaMode(mode PlayAreaMode) bool {
+	return o.Super().SupportsPlayAreaMode(mode)
+}
+func (o *Extension[T]) GetPlayArea() []Vector3.XYZ {
+	return o.Super().GetPlayArea()
+}
+func (o *Extension[T]) GetCameraFeedId() int {
+	return o.Super().GetCameraFeedId()
+}
+func (o *Extension[T]) IsPassthroughSupported() bool {
+	return o.Super().IsPassthroughSupported()
+}
+func (o *Extension[T]) IsPassthroughEnabled() bool {
+	return o.Super().IsPassthroughEnabled()
+}
+func (o *Extension[T]) StartPassthrough() bool {
+	return o.Super().StartPassthrough()
+}
+func (o *Extension[T]) StopPassthrough() {
+	o.Super().StopPassthrough()
+}
+func (o *Extension[T]) GetTransformForView(view int, cam_transform Transform3D.BasisOrigin) Transform3D.BasisOrigin {
+	return o.Super().GetTransformForView(view, cam_transform)
+}
+func (o *Extension[T]) GetProjectionForView(view int, aspect Float.X, near Float.X, far Float.X) Projection.XYZW {
+	return o.Super().GetProjectionForView(view, aspect, near, far)
+}
+func (o *Extension[T]) GetSupportedEnvironmentBlendModes() []EnvironmentBlendMode {
+	return o.Super().GetSupportedEnvironmentBlendModes()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

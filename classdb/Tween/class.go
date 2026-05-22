@@ -424,6 +424,63 @@ func (o *Extension[T]) AsTween() Instance { return o.Super() }
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) TweenInterval(time Float.X) IntervalTweener.Instance {
+	return o.Super().TweenInterval(time)
+}
+func (o *Extension[T]) TweenCallback(callback func()) CallbackTweener.Instance {
+	return o.Super().TweenCallback(callback)
+}
+func (o *Extension[T]) TweenSubtween(subtween Instance) SubtweenTweener.Instance {
+	return o.Super().TweenSubtween(subtween)
+}
+func (o *Extension[T]) CustomStep(delta Float.X) bool {
+	return o.Super().CustomStep(delta)
+}
+func (o *Extension[T]) Stop() {
+	o.Super().Stop()
+}
+func (o *Extension[T]) Pause() {
+	o.Super().Pause()
+}
+func (o *Extension[T]) Play() {
+	o.Super().Play()
+}
+func (o *Extension[T]) Kill() {
+	o.Super().Kill()
+}
+func (o *Extension[T]) GetTotalElapsedTime() Float.X {
+	return o.Super().GetTotalElapsedTime()
+}
+func (o *Extension[T]) IsRunning() bool {
+	return o.Super().IsRunning()
+}
+func (o *Extension[T]) IsValid() bool {
+	return o.Super().IsValid()
+}
+func (o *Extension[T]) SetProcessMode(mode TweenProcessMode) Instance {
+	return o.Super().SetProcessMode(mode)
+}
+func (o *Extension[T]) SetPauseMode(mode TweenPauseMode) Instance {
+	return o.Super().SetPauseMode(mode)
+}
+func (o *Extension[T]) GetLoopsLeft() int {
+	return o.Super().GetLoopsLeft()
+}
+func (o *Extension[T]) SetSpeedScale(speed Float.X) Instance {
+	return o.Super().SetSpeedScale(speed)
+}
+func (o *Extension[T]) SetTrans(trans TransitionType) Instance {
+	return o.Super().SetTrans(trans)
+}
+func (o *Extension[T]) SetEase(ease EaseType) Instance {
+	return o.Super().SetEase(ease)
+}
+func (o *Extension[T]) Parallel() Instance {
+	return o.Super().Parallel()
+}
+func (o *Extension[T]) Chain() Instance {
+	return o.Super().Chain()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

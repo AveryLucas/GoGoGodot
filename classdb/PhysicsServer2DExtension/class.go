@@ -3038,6 +3038,12 @@ func (self class) BodyTestMotionIsExcludingObject(obj int64) bool { //gd:Physics
 func (o class) AsPhysicsServer2DExtension() Advanced { return Advanced(o) }
 func (o Instance) AsPhysicsServer2DExtension() Instance { return o }
 func (o *Extension[T]) AsPhysicsServer2DExtension() Instance { return o.Super() }
+func (o *Extension[T]) BodyTestMotionIsExcludingBody(body RID.Body2D) bool {
+	return o.Super().BodyTestMotionIsExcludingBody(body)
+}
+func (o *Extension[T]) BodyTestMotionIsExcludingObject(obj int) bool {
+	return o.Super().BodyTestMotionIsExcludingObject(obj)
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

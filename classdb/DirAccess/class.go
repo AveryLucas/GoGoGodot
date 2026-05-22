@@ -546,6 +546,72 @@ func (o *Extension[T]) AsDirAccess() Instance { return o.Super() }
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) ListDirBegin() error {
+	return o.Super().ListDirBegin()
+}
+func (o *Extension[T]) GetNext() string {
+	return o.Super().GetNext()
+}
+func (o *Extension[T]) CurrentIsDir() bool {
+	return o.Super().CurrentIsDir()
+}
+func (o *Extension[T]) ListDirEnd() {
+	o.Super().ListDirEnd()
+}
+func (o *Extension[T]) GetFiles() []string {
+	return o.Super().GetFiles()
+}
+func (o *Extension[T]) GetDirectories() []string {
+	return o.Super().GetDirectories()
+}
+func (o *Extension[T]) GetCurrentDrive() int {
+	return o.Super().GetCurrentDrive()
+}
+func (o *Extension[T]) ChangeDir(to_dir string) error {
+	return o.Super().ChangeDir(to_dir)
+}
+func (o *Extension[T]) MakeDir(path string) error {
+	return o.Super().MakeDir(path)
+}
+func (o *Extension[T]) MakeDirRecursive(path string) error {
+	return o.Super().MakeDirRecursive(path)
+}
+func (o *Extension[T]) FileExists(path string) bool {
+	return o.Super().FileExists(path)
+}
+func (o *Extension[T]) DirExists(path string) bool {
+	return o.Super().DirExists(path)
+}
+func (o *Extension[T]) GetSpaceLeft() int {
+	return o.Super().GetSpaceLeft()
+}
+func (o *Extension[T]) Rename(from string, to string) error {
+	return o.Super().Rename(from, to)
+}
+func (o *Extension[T]) Remove(path string) error {
+	return o.Super().Remove(path)
+}
+func (o *Extension[T]) IsLink(path string) bool {
+	return o.Super().IsLink(path)
+}
+func (o *Extension[T]) ReadLink(path string) string {
+	return o.Super().ReadLink(path)
+}
+func (o *Extension[T]) CreateLink(source string, target string) error {
+	return o.Super().CreateLink(source, target)
+}
+func (o *Extension[T]) IsBundle(path string) bool {
+	return o.Super().IsBundle(path)
+}
+func (o *Extension[T]) GetFilesystemType() string {
+	return o.Super().GetFilesystemType()
+}
+func (o *Extension[T]) IsCaseSensitive(path string) bool {
+	return o.Super().IsCaseSensitive(path)
+}
+func (o *Extension[T]) IsEquivalent(path_a string, path_b string) bool {
+	return o.Super().IsEquivalent(path_a, path_b)
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

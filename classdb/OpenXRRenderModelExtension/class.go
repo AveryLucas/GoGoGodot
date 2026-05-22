@@ -307,6 +307,55 @@ func (o *Extension[T]) AsOpenXRRenderModelExtension() Instance { return o.Super(
 func (o class) AsOpenXRExtensionWrapper() OpenXRExtensionWrapper.Advanced { return *(*OpenXRExtensionWrapper.Advanced)(ie.As(&o)) }
 func (o *Extension[T]) AsOpenXRExtensionWrapper() OpenXRExtensionWrapper.Instance { return o.Super().AsOpenXRExtensionWrapper() }
 func (o Instance) AsOpenXRExtensionWrapper() OpenXRExtensionWrapper.Instance { return *(*OpenXRExtensionWrapper.Instance)(ie.As(&o)) }
+func (o *Extension[T]) IsActive() bool {
+	return o.Super().IsActive()
+}
+func (o *Extension[T]) RenderModelCreate(render_model_id int) RID.RenderModel {
+	return o.Super().RenderModelCreate(render_model_id)
+}
+func (o *Extension[T]) RenderModelDestroy(render_model RID.RenderModel) {
+	o.Super().RenderModelDestroy(render_model)
+}
+func (o *Extension[T]) RenderModelGetAll() []RID.RenderModel {
+	return o.Super().RenderModelGetAll()
+}
+func (o *Extension[T]) RenderModelNewSceneInstance(render_model RID.RenderModel) Node3D.Instance {
+	return o.Super().RenderModelNewSceneInstance(render_model)
+}
+func (o *Extension[T]) RenderModelGetSubactionPaths(render_model RID.RenderModel) []string {
+	return o.Super().RenderModelGetSubactionPaths(render_model)
+}
+func (o *Extension[T]) RenderModelGetTopLevelPath(render_model RID.RenderModel) string {
+	return o.Super().RenderModelGetTopLevelPath(render_model)
+}
+func (o *Extension[T]) RenderModelGetConfidence(render_model RID.RenderModel) XRPose.TrackingConfidence {
+	return o.Super().RenderModelGetConfidence(render_model)
+}
+func (o *Extension[T]) RenderModelGetRootTransform(render_model RID.RenderModel) Transform3D.BasisOrigin {
+	return o.Super().RenderModelGetRootTransform(render_model)
+}
+func (o *Extension[T]) RenderModelGetAnimatableNodeCount(render_model RID.RenderModel) int {
+	return o.Super().RenderModelGetAnimatableNodeCount(render_model)
+}
+func (o *Extension[T]) RenderModelGetAnimatableNodeName(render_model RID.RenderModel, index int) string {
+	return o.Super().RenderModelGetAnimatableNodeName(render_model, index)
+}
+func (o *Extension[T]) RenderModelIsAnimatableNodeVisible(render_model RID.RenderModel, index int) bool {
+	return o.Super().RenderModelIsAnimatableNodeVisible(render_model, index)
+}
+func (o *Extension[T]) RenderModelGetAnimatableNodeTransform(render_model RID.RenderModel, index int) Transform3D.BasisOrigin {
+	return o.Super().RenderModelGetAnimatableNodeTransform(render_model, index)
+}
+
+// RegisterExtensionWrapper is promoted from [OpenXRExtensionWrapper.Instance.RegisterExtensionWrapper].
+func (self Instance) RegisterExtensionWrapper() {
+	self.AsOpenXRExtensionWrapper().RegisterExtensionWrapper()
+}
+
+// RegisterExtensionWrapper is promoted from [OpenXRExtensionWrapper.Instance.RegisterExtensionWrapper].
+func (o *Extension[T]) RegisterExtensionWrapper() {
+	o.Super().AsOpenXRExtensionWrapper().RegisterExtensionWrapper()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

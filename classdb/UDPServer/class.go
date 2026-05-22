@@ -237,6 +237,24 @@ func (o *Extension[T]) AsUDPServer() Instance { return o.Super() }
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) Poll() error {
+	return o.Super().Poll()
+}
+func (o *Extension[T]) IsConnectionAvailable() bool {
+	return o.Super().IsConnectionAvailable()
+}
+func (o *Extension[T]) GetLocalPort() int {
+	return o.Super().GetLocalPort()
+}
+func (o *Extension[T]) IsListening() bool {
+	return o.Super().IsListening()
+}
+func (o *Extension[T]) TakeConnection() PacketPeerUDP.Instance {
+	return o.Super().TakeConnection()
+}
+func (o *Extension[T]) Stop() {
+	o.Super().Stop()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

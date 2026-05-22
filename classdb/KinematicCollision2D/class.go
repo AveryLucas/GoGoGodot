@@ -273,6 +273,42 @@ func (o *Extension[T]) AsKinematicCollision2D() Instance { return o.Super() }
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) GetPosition() Vector2.XY {
+	return o.Super().GetPosition()
+}
+func (o *Extension[T]) GetNormal() Vector2.XY {
+	return o.Super().GetNormal()
+}
+func (o *Extension[T]) GetTravel() Vector2.XY {
+	return o.Super().GetTravel()
+}
+func (o *Extension[T]) GetRemainder() Vector2.XY {
+	return o.Super().GetRemainder()
+}
+func (o *Extension[T]) GetDepth() Float.X {
+	return o.Super().GetDepth()
+}
+func (o *Extension[T]) GetLocalShape() Object.Instance {
+	return o.Super().GetLocalShape()
+}
+func (o *Extension[T]) GetCollider() Object.Instance {
+	return o.Super().GetCollider()
+}
+func (o *Extension[T]) GetColliderId() int {
+	return o.Super().GetColliderId()
+}
+func (o *Extension[T]) GetColliderRid() RID.Body2D {
+	return o.Super().GetColliderRid()
+}
+func (o *Extension[T]) GetColliderShape() Object.Instance {
+	return o.Super().GetColliderShape()
+}
+func (o *Extension[T]) GetColliderShapeIndex() int {
+	return o.Super().GetColliderShapeIndex()
+}
+func (o *Extension[T]) GetColliderVelocity() Vector2.XY {
+	return o.Super().GetColliderVelocity()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

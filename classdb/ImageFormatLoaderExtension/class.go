@@ -248,6 +248,12 @@ func (o Instance) AsImageFormatLoader() ImageFormatLoader.Instance { return *(*I
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) AddFormatLoader() {
+	o.Super().AddFormatLoader()
+}
+func (o *Extension[T]) RemoveFormatLoader() {
+	o.Super().RemoveFormatLoader()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

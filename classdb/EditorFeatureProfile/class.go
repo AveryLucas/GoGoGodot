@@ -242,6 +242,43 @@ func (o *Extension[T]) AsEditorFeatureProfile() Instance { return o.Super() }
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) SetDisableClass(class_name string, disable bool) *Extension[T] {
+	o.Super().SetDisableClass(class_name, disable)
+	return o
+}
+func (o *Extension[T]) IsClassDisabled(class_name string) bool {
+	return o.Super().IsClassDisabled(class_name)
+}
+func (o *Extension[T]) SetDisableClassEditor(class_name string, disable bool) *Extension[T] {
+	o.Super().SetDisableClassEditor(class_name, disable)
+	return o
+}
+func (o *Extension[T]) IsClassEditorDisabled(class_name string) bool {
+	return o.Super().IsClassEditorDisabled(class_name)
+}
+func (o *Extension[T]) SetDisableClassProperty(class_name string, property string, disable bool) *Extension[T] {
+	o.Super().SetDisableClassProperty(class_name, property, disable)
+	return o
+}
+func (o *Extension[T]) IsClassPropertyDisabled(class_name string, property string) bool {
+	return o.Super().IsClassPropertyDisabled(class_name, property)
+}
+func (o *Extension[T]) SetDisableFeature(feature Feature, disable bool) *Extension[T] {
+	o.Super().SetDisableFeature(feature, disable)
+	return o
+}
+func (o *Extension[T]) IsFeatureDisabled(feature Feature) bool {
+	return o.Super().IsFeatureDisabled(feature)
+}
+func (o *Extension[T]) GetFeatureName(feature Feature) string {
+	return o.Super().GetFeatureName(feature)
+}
+func (o *Extension[T]) SaveToFile(path string) error {
+	return o.Super().SaveToFile(path)
+}
+func (o *Extension[T]) LoadFromFile(path string) error {
+	return o.Super().LoadFromFile(path)
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

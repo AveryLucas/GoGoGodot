@@ -587,6 +587,32 @@ func (o Instance) AsNode3DGizmo() Node3DGizmo.Instance { return *(*Node3DGizmo.I
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) AddCollisionSegments(segments []Vector3.XYZ) {
+	o.Super().AddCollisionSegments(segments)
+}
+func (o *Extension[T]) AddCollisionTriangles(triangles TriangleMesh.Instance) {
+	o.Super().AddCollisionTriangles(triangles)
+}
+func (o *Extension[T]) SetNode3d(node Node.Instance) *Extension[T] {
+	o.Super().SetNode3d(node)
+	return o
+}
+func (o *Extension[T]) GetNode3d() Node3D.Instance {
+	return o.Super().GetNode3d()
+}
+func (o *Extension[T]) Clear() {
+	o.Super().Clear()
+}
+func (o *Extension[T]) SetHidden(hidden bool) *Extension[T] {
+	o.Super().SetHidden(hidden)
+	return o
+}
+func (o *Extension[T]) IsSubgizmoSelected(id int) bool {
+	return o.Super().IsSubgizmoSelected(id)
+}
+func (o *Extension[T]) GetSubgizmoSelection() []int32 {
+	return o.Super().GetSubgizmoSelection()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

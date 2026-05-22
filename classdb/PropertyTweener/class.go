@@ -228,6 +228,27 @@ func (self Instance) OnFinished(cb func(), flags ...Signal.Flags) Instance {
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("finished"), gd.NewCallable(cb), int64(flags_together))
 	return self
 }
+func (o *Extension[T]) From(value any) Instance {
+	return o.Super().From(value)
+}
+func (o *Extension[T]) FromCurrent() Instance {
+	return o.Super().FromCurrent()
+}
+func (o *Extension[T]) AsRelative() Instance {
+	return o.Super().AsRelative()
+}
+func (o *Extension[T]) SetTrans(trans Tween.TransitionType) Instance {
+	return o.Super().SetTrans(trans)
+}
+func (o *Extension[T]) SetEase(ease Tween.EaseType) Instance {
+	return o.Super().SetEase(ease)
+}
+func (o *Extension[T]) SetCustomInterpolator(interpolator_method func(Float.X) Float.X) Instance {
+	return o.Super().SetCustomInterpolator(interpolator_method)
+}
+func (o *Extension[T]) SetDelay(delay Float.X) Instance {
+	return o.Super().SetDelay(delay)
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

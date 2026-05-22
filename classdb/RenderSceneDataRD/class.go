@@ -26,9 +26,12 @@ import "graphics.gd/variant/Float"
 import "graphics.gd/variant/Object"
 import "graphics.gd/variant/Packed"
 import "graphics.gd/variant/Path"
+import "graphics.gd/variant/Projection"
 import "graphics.gd/variant/RID"
 import "graphics.gd/variant/RefCounted"
 import "graphics.gd/variant/String"
+import "graphics.gd/variant/Transform3D"
+import "graphics.gd/variant/Vector3"
 
 var _ Object.ID
 type _ gdclass.Node
@@ -147,6 +150,66 @@ func (o *Extension[T]) AsRenderSceneDataRD() Instance { return o.Super() }
 func (o class) AsRenderSceneData() RenderSceneData.Advanced { return *(*RenderSceneData.Advanced)(ie.As(&o)) }
 func (o *Extension[T]) AsRenderSceneData() RenderSceneData.Instance { return o.Super().AsRenderSceneData() }
 func (o Instance) AsRenderSceneData() RenderSceneData.Instance { return *(*RenderSceneData.Instance)(ie.As(&o)) }
+
+// GetCamTransform is promoted from [RenderSceneData.Instance.GetCamTransform].
+func (self Instance) GetCamTransform() Transform3D.BasisOrigin {
+	return self.AsRenderSceneData().GetCamTransform()
+}
+
+// GetCamTransform is promoted from [RenderSceneData.Instance.GetCamTransform].
+func (o *Extension[T]) GetCamTransform() Transform3D.BasisOrigin {
+	return o.Super().AsRenderSceneData().GetCamTransform()
+}
+
+// GetCamProjection is promoted from [RenderSceneData.Instance.GetCamProjection].
+func (self Instance) GetCamProjection() Projection.XYZW {
+	return self.AsRenderSceneData().GetCamProjection()
+}
+
+// GetCamProjection is promoted from [RenderSceneData.Instance.GetCamProjection].
+func (o *Extension[T]) GetCamProjection() Projection.XYZW {
+	return o.Super().AsRenderSceneData().GetCamProjection()
+}
+
+// GetViewCount is promoted from [RenderSceneData.Instance.GetViewCount].
+func (self Instance) GetViewCount() int {
+	return self.AsRenderSceneData().GetViewCount()
+}
+
+// GetViewCount is promoted from [RenderSceneData.Instance.GetViewCount].
+func (o *Extension[T]) GetViewCount() int {
+	return o.Super().AsRenderSceneData().GetViewCount()
+}
+
+// GetViewEyeOffset is promoted from [RenderSceneData.Instance.GetViewEyeOffset].
+func (self Instance) GetViewEyeOffset(view int) Vector3.XYZ {
+	return self.AsRenderSceneData().GetViewEyeOffset(view)
+}
+
+// GetViewEyeOffset is promoted from [RenderSceneData.Instance.GetViewEyeOffset].
+func (o *Extension[T]) GetViewEyeOffset(view int) Vector3.XYZ {
+	return o.Super().AsRenderSceneData().GetViewEyeOffset(view)
+}
+
+// GetViewProjection is promoted from [RenderSceneData.Instance.GetViewProjection].
+func (self Instance) GetViewProjection(view int) Projection.XYZW {
+	return self.AsRenderSceneData().GetViewProjection(view)
+}
+
+// GetViewProjection is promoted from [RenderSceneData.Instance.GetViewProjection].
+func (o *Extension[T]) GetViewProjection(view int) Projection.XYZW {
+	return o.Super().AsRenderSceneData().GetViewProjection(view)
+}
+
+// GetUniformBuffer is promoted from [RenderSceneData.Instance.GetUniformBuffer].
+func (self Instance) GetUniformBuffer() RID.UniformBuffer {
+	return self.AsRenderSceneData().GetUniformBuffer()
+}
+
+// GetUniformBuffer is promoted from [RenderSceneData.Instance.GetUniformBuffer].
+func (o *Extension[T]) GetUniformBuffer() RID.UniformBuffer {
+	return o.Super().AsRenderSceneData().GetUniformBuffer()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

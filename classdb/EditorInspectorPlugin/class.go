@@ -331,6 +331,12 @@ func (o *Extension[T]) AsEditorInspectorPlugin() Instance { return o.Super() }
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) AddCustomControl(control Control.Instance) {
+	o.Super().AddCustomControl(control)
+}
+func (o *Extension[T]) AddPropertyEditorForMultipleProperties(label string, properties []string, editor Control.Instance) {
+	o.Super().AddPropertyEditorForMultipleProperties(label, properties, editor)
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

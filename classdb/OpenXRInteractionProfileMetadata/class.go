@@ -179,6 +179,21 @@ noescape.Call[struct{}]( gd.ObjectChecked(self.AsObject()), methods.register_io_
 func (o class) AsOpenXRInteractionProfileMetadata() Advanced { return Advanced(o) }
 func (o Instance) AsOpenXRInteractionProfileMetadata() Instance { return o }
 func (o *Extension[T]) AsOpenXRInteractionProfileMetadata() Instance { return o.Super() }
+func (o *Extension[T]) RegisterProfileRename(old_name string, new_name string) {
+	o.Super().RegisterProfileRename(old_name, new_name)
+}
+func (o *Extension[T]) RegisterPathRename(old_name string, new_name string) {
+	o.Super().RegisterPathRename(old_name, new_name)
+}
+func (o *Extension[T]) RegisterTopLevelPath(display_name string, openxr_path string, openxr_extension_names string) {
+	o.Super().RegisterTopLevelPath(display_name, openxr_path, openxr_extension_names)
+}
+func (o *Extension[T]) RegisterInteractionProfile(display_name string, openxr_path string, openxr_extension_names string) {
+	o.Super().RegisterInteractionProfile(display_name, openxr_path, openxr_extension_names)
+}
+func (o *Extension[T]) RegisterIoPath(interaction_profile string, display_name string, toplevel_path string, openxr_path string, openxr_extension_names string, action_type OpenXRAction.ActionType) {
+	o.Super().RegisterIoPath(interaction_profile, display_name, toplevel_path, openxr_path, openxr_extension_names, action_type)
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

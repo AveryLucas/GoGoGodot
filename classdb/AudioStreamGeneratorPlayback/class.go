@@ -17,6 +17,7 @@ import "graphics.gd/variant"
 import "graphics.gd/variant/Angle"
 import "graphics.gd/variant/Euler"
 import "graphics.gd/variant/Signal"
+import "graphics.gd/classdb/AudioSamplePlayback"
 import "graphics.gd/classdb/AudioStreamPlayback"
 import "graphics.gd/classdb/AudioStreamPlaybackResampled"
 import "graphics.gd/variant/Array"
@@ -208,6 +209,106 @@ func (o Instance) AsAudioStreamPlayback() AudioStreamPlayback.Instance { return 
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) PushFrame(frame_ Vector2.XY) bool {
+	return o.Super().PushFrame(frame_)
+}
+func (o *Extension[T]) CanPushBuffer(amount int) bool {
+	return o.Super().CanPushBuffer(amount)
+}
+func (o *Extension[T]) PushBuffer(frames []Vector2.XY) bool {
+	return o.Super().PushBuffer(frames)
+}
+func (o *Extension[T]) GetFramesAvailable() int {
+	return o.Super().GetFramesAvailable()
+}
+func (o *Extension[T]) GetSkips() int {
+	return o.Super().GetSkips()
+}
+func (o *Extension[T]) ClearBuffer() {
+	o.Super().ClearBuffer()
+}
+
+// BeginResample is promoted from [AudioStreamPlaybackResampled.Instance.BeginResample].
+func (self Instance) BeginResample() {
+	self.AsAudioStreamPlaybackResampled().BeginResample()
+}
+
+// BeginResample is promoted from [AudioStreamPlaybackResampled.Instance.BeginResample].
+func (o *Extension[T]) BeginResample() {
+	o.Super().AsAudioStreamPlaybackResampled().BeginResample()
+}
+
+// SetSamplePlayback is promoted from [AudioStreamPlayback.Instance.SetSamplePlayback].
+func (self Instance) SetSamplePlayback(playback_sample AudioSamplePlayback.Instance) Instance {
+	self.AsAudioStreamPlayback().SetSamplePlayback(playback_sample)
+	return self
+}
+
+// SetSamplePlayback is promoted from [AudioStreamPlayback.Instance.SetSamplePlayback].
+func (o *Extension[T]) SetSamplePlayback(playback_sample AudioSamplePlayback.Instance) *Extension[T] {
+	o.Super().AsAudioStreamPlayback().SetSamplePlayback(playback_sample)
+	return o
+}
+
+// GetSamplePlayback is promoted from [AudioStreamPlayback.Instance.GetSamplePlayback].
+func (self Instance) GetSamplePlayback() AudioSamplePlayback.Instance {
+	return self.AsAudioStreamPlayback().GetSamplePlayback()
+}
+
+// GetSamplePlayback is promoted from [AudioStreamPlayback.Instance.GetSamplePlayback].
+func (o *Extension[T]) GetSamplePlayback() AudioSamplePlayback.Instance {
+	return o.Super().AsAudioStreamPlayback().GetSamplePlayback()
+}
+
+// MixAudio is promoted from [AudioStreamPlayback.Instance.MixAudio].
+func (self Instance) MixAudio(rate_scale Float.X, frames int) []Vector2.XY {
+	return self.AsAudioStreamPlayback().MixAudio(rate_scale, frames)
+}
+
+// MixAudio is promoted from [AudioStreamPlayback.Instance.MixAudio].
+func (o *Extension[T]) MixAudio(rate_scale Float.X, frames int) []Vector2.XY {
+	return o.Super().AsAudioStreamPlayback().MixAudio(rate_scale, frames)
+}
+
+// Stop is promoted from [AudioStreamPlayback.Instance.Stop].
+func (self Instance) Stop() {
+	self.AsAudioStreamPlayback().Stop()
+}
+
+// Stop is promoted from [AudioStreamPlayback.Instance.Stop].
+func (o *Extension[T]) Stop() {
+	o.Super().AsAudioStreamPlayback().Stop()
+}
+
+// GetLoopCount is promoted from [AudioStreamPlayback.Instance.GetLoopCount].
+func (self Instance) GetLoopCount() int {
+	return self.AsAudioStreamPlayback().GetLoopCount()
+}
+
+// GetLoopCount is promoted from [AudioStreamPlayback.Instance.GetLoopCount].
+func (o *Extension[T]) GetLoopCount() int {
+	return o.Super().AsAudioStreamPlayback().GetLoopCount()
+}
+
+// GetPlaybackPosition is promoted from [AudioStreamPlayback.Instance.GetPlaybackPosition].
+func (self Instance) GetPlaybackPosition() Float.X {
+	return self.AsAudioStreamPlayback().GetPlaybackPosition()
+}
+
+// GetPlaybackPosition is promoted from [AudioStreamPlayback.Instance.GetPlaybackPosition].
+func (o *Extension[T]) GetPlaybackPosition() Float.X {
+	return o.Super().AsAudioStreamPlayback().GetPlaybackPosition()
+}
+
+// IsPlaying is promoted from [AudioStreamPlayback.Instance.IsPlaying].
+func (self Instance) IsPlaying() bool {
+	return self.AsAudioStreamPlayback().IsPlaying()
+}
+
+// IsPlaying is promoted from [AudioStreamPlayback.Instance.IsPlaying].
+func (o *Extension[T]) IsPlaying() bool {
+	return o.Super().AsAudioStreamPlayback().IsPlaying()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

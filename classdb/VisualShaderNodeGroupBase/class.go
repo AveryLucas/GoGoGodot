@@ -350,6 +350,209 @@ func (self Instance) OnSetupLocalToSceneRequested(cb func(), flags ...Signal.Fla
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("setup_local_to_scene_requested"), gd.NewCallable(cb), int64(flags_together))
 	return self
 }
+func (o *Extension[T]) SetInputs(inputs string) *Extension[T] {
+	o.Super().SetInputs(inputs)
+	return o
+}
+func (o *Extension[T]) GetInputs() string {
+	return o.Super().GetInputs()
+}
+func (o *Extension[T]) SetOutputs(outputs string) *Extension[T] {
+	o.Super().SetOutputs(outputs)
+	return o
+}
+func (o *Extension[T]) GetOutputs() string {
+	return o.Super().GetOutputs()
+}
+func (o *Extension[T]) IsValidPortName(name string) bool {
+	return o.Super().IsValidPortName(name)
+}
+func (o *Extension[T]) AddInputPort(id int, atype int, name string) {
+	o.Super().AddInputPort(id, atype, name)
+}
+func (o *Extension[T]) RemoveInputPort(id int) {
+	o.Super().RemoveInputPort(id)
+}
+func (o *Extension[T]) GetInputPortCount() int {
+	return o.Super().GetInputPortCount()
+}
+func (o *Extension[T]) HasInputPort(id int) bool {
+	return o.Super().HasInputPort(id)
+}
+func (o *Extension[T]) ClearInputPorts() {
+	o.Super().ClearInputPorts()
+}
+func (o *Extension[T]) AddOutputPort(id int, atype int, name string) {
+	o.Super().AddOutputPort(id, atype, name)
+}
+func (o *Extension[T]) RemoveOutputPort(id int) {
+	o.Super().RemoveOutputPort(id)
+}
+func (o *Extension[T]) GetOutputPortCount() int {
+	return o.Super().GetOutputPortCount()
+}
+func (o *Extension[T]) HasOutputPort(id int) bool {
+	return o.Super().HasOutputPort(id)
+}
+func (o *Extension[T]) ClearOutputPorts() {
+	o.Super().ClearOutputPorts()
+}
+func (o *Extension[T]) SetInputPortName(id int, name string) *Extension[T] {
+	o.Super().SetInputPortName(id, name)
+	return o
+}
+func (o *Extension[T]) SetInputPortType(id int, atype int) *Extension[T] {
+	o.Super().SetInputPortType(id, atype)
+	return o
+}
+func (o *Extension[T]) SetOutputPortName(id int, name string) *Extension[T] {
+	o.Super().SetOutputPortName(id, name)
+	return o
+}
+func (o *Extension[T]) SetOutputPortType(id int, atype int) *Extension[T] {
+	o.Super().SetOutputPortType(id, atype)
+	return o
+}
+func (o *Extension[T]) GetFreeInputPortId() int {
+	return o.Super().GetFreeInputPortId()
+}
+func (o *Extension[T]) GetFreeOutputPortId() int {
+	return o.Super().GetFreeOutputPortId()
+}
+
+// GetDefaultInputPort is promoted from [VisualShaderNode.Instance.GetDefaultInputPort].
+func (self Instance) GetDefaultInputPort(atype VisualShaderNode.PortType) int {
+	return self.AsVisualShaderNode().GetDefaultInputPort(atype)
+}
+
+// GetDefaultInputPort is promoted from [VisualShaderNode.Instance.GetDefaultInputPort].
+func (o *Extension[T]) GetDefaultInputPort(atype VisualShaderNode.PortType) int {
+	return o.Super().AsVisualShaderNode().GetDefaultInputPort(atype)
+}
+
+// GetInputPortDefaultValue is promoted from [VisualShaderNode.Instance.GetInputPortDefaultValue].
+func (self Instance) GetInputPortDefaultValue(port int) any {
+	return self.AsVisualShaderNode().GetInputPortDefaultValue(port)
+}
+
+// GetInputPortDefaultValue is promoted from [VisualShaderNode.Instance.GetInputPortDefaultValue].
+func (o *Extension[T]) GetInputPortDefaultValue(port int) any {
+	return o.Super().AsVisualShaderNode().GetInputPortDefaultValue(port)
+}
+
+// RemoveInputPortDefaultValue is promoted from [VisualShaderNode.Instance.RemoveInputPortDefaultValue].
+func (self Instance) RemoveInputPortDefaultValue(port int) {
+	self.AsVisualShaderNode().RemoveInputPortDefaultValue(port)
+}
+
+// RemoveInputPortDefaultValue is promoted from [VisualShaderNode.Instance.RemoveInputPortDefaultValue].
+func (o *Extension[T]) RemoveInputPortDefaultValue(port int) {
+	o.Super().AsVisualShaderNode().RemoveInputPortDefaultValue(port)
+}
+
+// ClearDefaultInputValues is promoted from [VisualShaderNode.Instance.ClearDefaultInputValues].
+func (self Instance) ClearDefaultInputValues() {
+	self.AsVisualShaderNode().ClearDefaultInputValues()
+}
+
+// ClearDefaultInputValues is promoted from [VisualShaderNode.Instance.ClearDefaultInputValues].
+func (o *Extension[T]) ClearDefaultInputValues() {
+	o.Super().AsVisualShaderNode().ClearDefaultInputValues()
+}
+
+// TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
+func (self Instance) TakeOverPath(path string) {
+	self.AsResource().TakeOverPath(path)
+}
+
+// TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
+func (o *Extension[T]) TakeOverPath(path string) {
+	o.Super().AsResource().TakeOverPath(path)
+}
+
+// SetPathCache is promoted from [Resource.Instance.SetPathCache].
+func (self Instance) SetPathCache(path string) Instance {
+	self.AsResource().SetPathCache(path)
+	return self
+}
+
+// SetPathCache is promoted from [Resource.Instance.SetPathCache].
+func (o *Extension[T]) SetPathCache(path string) *Extension[T] {
+	o.Super().AsResource().SetPathCache(path)
+	return o
+}
+
+// GetRid is promoted from [Resource.Instance.GetRid].
+func (self Instance) GetRid() Resource.ID {
+	return self.AsResource().GetRid()
+}
+
+// GetRid is promoted from [Resource.Instance.GetRid].
+func (o *Extension[T]) GetRid() Resource.ID {
+	return o.Super().AsResource().GetRid()
+}
+
+// SetupLocalToScene is promoted from [Resource.Instance.SetupLocalToScene].
+func (self Instance) SetupLocalToScene() {
+	self.AsResource().SetupLocalToScene()
+}
+
+// SetupLocalToScene is promoted from [Resource.Instance.SetupLocalToScene].
+func (o *Extension[T]) SetupLocalToScene() {
+	o.Super().AsResource().SetupLocalToScene()
+}
+
+// ResetState is promoted from [Resource.Instance.ResetState].
+func (self Instance) ResetState() {
+	self.AsResource().ResetState()
+}
+
+// ResetState is promoted from [Resource.Instance.ResetState].
+func (o *Extension[T]) ResetState() {
+	o.Super().AsResource().ResetState()
+}
+
+// SetIdForPath is promoted from [Resource.Instance.SetIdForPath].
+func (self Instance) SetIdForPath(path string, id string) Instance {
+	self.AsResource().SetIdForPath(path, id)
+	return self
+}
+
+// SetIdForPath is promoted from [Resource.Instance.SetIdForPath].
+func (o *Extension[T]) SetIdForPath(path string, id string) *Extension[T] {
+	o.Super().AsResource().SetIdForPath(path, id)
+	return o
+}
+
+// GetIdForPath is promoted from [Resource.Instance.GetIdForPath].
+func (self Instance) GetIdForPath(path string) string {
+	return self.AsResource().GetIdForPath(path)
+}
+
+// GetIdForPath is promoted from [Resource.Instance.GetIdForPath].
+func (o *Extension[T]) GetIdForPath(path string) string {
+	return o.Super().AsResource().GetIdForPath(path)
+}
+
+// IsBuiltIn is promoted from [Resource.Instance.IsBuiltIn].
+func (self Instance) IsBuiltIn() bool {
+	return self.AsResource().IsBuiltIn()
+}
+
+// IsBuiltIn is promoted from [Resource.Instance.IsBuiltIn].
+func (o *Extension[T]) IsBuiltIn() bool {
+	return o.Super().AsResource().IsBuiltIn()
+}
+
+// EmitChanged is promoted from [Resource.Instance.EmitChanged].
+func (self Instance) EmitChanged() {
+	self.AsResource().EmitChanged()
+}
+
+// EmitChanged is promoted from [Resource.Instance.EmitChanged].
+func (o *Extension[T]) EmitChanged() {
+	o.Super().AsResource().EmitChanged()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

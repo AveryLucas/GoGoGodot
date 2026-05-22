@@ -215,6 +215,15 @@ func (self class) GetRestInfo(parameters [1]gdclass.PhysicsShapeQueryParameters2
 func (o class) AsPhysicsDirectSpaceState2D() Advanced { return Advanced(o) }
 func (o Instance) AsPhysicsDirectSpaceState2D() Instance { return o }
 func (o *Extension[T]) AsPhysicsDirectSpaceState2D() Instance { return o.Super() }
+func (o *Extension[T]) IntersectRay(parameters PhysicsRayQueryParameters2D.Instance) PhysicsDirectSpaceState2D_Intersection {
+	return o.Super().IntersectRay(parameters)
+}
+func (o *Extension[T]) CastMotion(parameters PhysicsShapeQueryParameters2D.Instance) []float32 {
+	return o.Super().CastMotion(parameters)
+}
+func (o *Extension[T]) GetRestInfo(parameters PhysicsShapeQueryParameters2D.Instance) PhysicsDirectSpaceState2D_RestInfo {
+	return o.Super().GetRestInfo(parameters)
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

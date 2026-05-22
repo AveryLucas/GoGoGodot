@@ -32,7 +32,9 @@ import "graphics.gd/variant/Path"
 import "graphics.gd/variant/RID"
 import "graphics.gd/variant/RefCounted"
 import "graphics.gd/variant/String"
+import "graphics.gd/variant/Transform3D"
 import "graphics.gd/variant/Vector2"
+import "graphics.gd/variant/Vector3"
 
 var _ Object.ID
 type _ gdclass.Node
@@ -283,6 +285,73 @@ func (self Instance) OnProfileChanged(cb func(role string), flags ...Signal.Flag
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("profile_changed"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+func (o *Extension[T]) HasUuid() bool {
+	return o.Super().HasUuid()
+}
+
+// HasPose is promoted from [XRPositionalTracker.Instance.HasPose].
+func (self Instance) HasPose(name string) bool {
+	return self.AsXRPositionalTracker().HasPose(name)
+}
+
+// HasPose is promoted from [XRPositionalTracker.Instance.HasPose].
+func (o *Extension[T]) HasPose(name string) bool {
+	return o.Super().AsXRPositionalTracker().HasPose(name)
+}
+
+// GetPose is promoted from [XRPositionalTracker.Instance.GetPose].
+func (self Instance) GetPose(name string) XRPose.Instance {
+	return self.AsXRPositionalTracker().GetPose(name)
+}
+
+// GetPose is promoted from [XRPositionalTracker.Instance.GetPose].
+func (o *Extension[T]) GetPose(name string) XRPose.Instance {
+	return o.Super().AsXRPositionalTracker().GetPose(name)
+}
+
+// InvalidatePose is promoted from [XRPositionalTracker.Instance.InvalidatePose].
+func (self Instance) InvalidatePose(name string) {
+	self.AsXRPositionalTracker().InvalidatePose(name)
+}
+
+// InvalidatePose is promoted from [XRPositionalTracker.Instance.InvalidatePose].
+func (o *Extension[T]) InvalidatePose(name string) {
+	o.Super().AsXRPositionalTracker().InvalidatePose(name)
+}
+
+// SetPose is promoted from [XRPositionalTracker.Instance.SetPose].
+func (self Instance) SetPose(name string, transform Transform3D.BasisOrigin, linear_velocity Vector3.XYZ, angular_velocity Vector3.XYZ, tracking_confidence XRPose.TrackingConfidence) Instance {
+	self.AsXRPositionalTracker().SetPose(name, transform, linear_velocity, angular_velocity, tracking_confidence)
+	return self
+}
+
+// SetPose is promoted from [XRPositionalTracker.Instance.SetPose].
+func (o *Extension[T]) SetPose(name string, transform Transform3D.BasisOrigin, linear_velocity Vector3.XYZ, angular_velocity Vector3.XYZ, tracking_confidence XRPose.TrackingConfidence) *Extension[T] {
+	o.Super().AsXRPositionalTracker().SetPose(name, transform, linear_velocity, angular_velocity, tracking_confidence)
+	return o
+}
+
+// GetInput is promoted from [XRPositionalTracker.Instance.GetInput].
+func (self Instance) GetInput(name string) any {
+	return self.AsXRPositionalTracker().GetInput(name)
+}
+
+// GetInput is promoted from [XRPositionalTracker.Instance.GetInput].
+func (o *Extension[T]) GetInput(name string) any {
+	return o.Super().AsXRPositionalTracker().GetInput(name)
+}
+
+// SetInput is promoted from [XRPositionalTracker.Instance.SetInput].
+func (self Instance) SetInput(name string, value any) Instance {
+	self.AsXRPositionalTracker().SetInput(name, value)
+	return self
+}
+
+// SetInput is promoted from [XRPositionalTracker.Instance.SetInput].
+func (o *Extension[T]) SetInput(name string, value any) *Extension[T] {
+	o.Super().AsXRPositionalTracker().SetInput(name, value)
+	return o
 }
 
 func (self class) Virtual(name string) reflect.Value {

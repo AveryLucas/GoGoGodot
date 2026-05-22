@@ -31,6 +31,7 @@ import "graphics.gd/variant/Path"
 import "graphics.gd/variant/RID"
 import "graphics.gd/variant/RefCounted"
 import "graphics.gd/variant/String"
+import "graphics.gd/variant/Vector2"
 
 var _ Object.ID
 type _ gdclass.Node
@@ -495,6 +496,282 @@ func (self Instance) OnSetupLocalToSceneRequested(cb func(), flags ...Signal.Fla
 	return self
 }
 
+// GetRids is promoted from [Font.Instance.GetRids].
+func (self Instance) GetRids() []RID.Font {
+	return self.AsFont().GetRids()
+}
+
+// GetRids is promoted from [Font.Instance.GetRids].
+func (o *Extension[T]) GetRids() []RID.Font {
+	return o.Super().AsFont().GetRids()
+}
+
+// GetFontName is promoted from [Font.Instance.GetFontName].
+func (self Instance) GetFontName() string {
+	return self.AsFont().GetFontName()
+}
+
+// GetFontName is promoted from [Font.Instance.GetFontName].
+func (o *Extension[T]) GetFontName() string {
+	return o.Super().AsFont().GetFontName()
+}
+
+// GetFontStyleName is promoted from [Font.Instance.GetFontStyleName].
+func (self Instance) GetFontStyleName() string {
+	return self.AsFont().GetFontStyleName()
+}
+
+// GetFontStyleName is promoted from [Font.Instance.GetFontStyleName].
+func (o *Extension[T]) GetFontStyleName() string {
+	return o.Super().AsFont().GetFontStyleName()
+}
+
+// GetOtNameStrings is promoted from [Font.Instance.GetOtNameStrings].
+func (self Instance) GetOtNameStrings() map[string]map[string]string {
+	return self.AsFont().GetOtNameStrings()
+}
+
+// GetOtNameStrings is promoted from [Font.Instance.GetOtNameStrings].
+func (o *Extension[T]) GetOtNameStrings() map[string]map[string]string {
+	return o.Super().AsFont().GetOtNameStrings()
+}
+
+// GetFontStyle is promoted from [Font.Instance.GetFontStyle].
+func (self Instance) GetFontStyle() TextServer.FontStyle {
+	return self.AsFont().GetFontStyle()
+}
+
+// GetFontStyle is promoted from [Font.Instance.GetFontStyle].
+func (o *Extension[T]) GetFontStyle() TextServer.FontStyle {
+	return o.Super().AsFont().GetFontStyle()
+}
+
+// GetFontWeight is promoted from [Font.Instance.GetFontWeight].
+func (self Instance) GetFontWeight() int {
+	return self.AsFont().GetFontWeight()
+}
+
+// GetFontWeight is promoted from [Font.Instance.GetFontWeight].
+func (o *Extension[T]) GetFontWeight() int {
+	return o.Super().AsFont().GetFontWeight()
+}
+
+// GetFontStretch is promoted from [Font.Instance.GetFontStretch].
+func (self Instance) GetFontStretch() int {
+	return self.AsFont().GetFontStretch()
+}
+
+// GetFontStretch is promoted from [Font.Instance.GetFontStretch].
+func (o *Extension[T]) GetFontStretch() int {
+	return o.Super().AsFont().GetFontStretch()
+}
+
+// GetSpacing is promoted from [Font.Instance.GetSpacing].
+func (self Instance) GetSpacing(spacing TextServer.SpacingType) int {
+	return self.AsFont().GetSpacing(spacing)
+}
+
+// GetSpacing is promoted from [Font.Instance.GetSpacing].
+func (o *Extension[T]) GetSpacing(spacing TextServer.SpacingType) int {
+	return o.Super().AsFont().GetSpacing(spacing)
+}
+
+// GetOpentypeFeatures is promoted from [Font.Instance.GetOpentypeFeatures].
+func (self Instance) GetOpentypeFeatures() map[string][2]string {
+	return self.AsFont().GetOpentypeFeatures()
+}
+
+// GetOpentypeFeatures is promoted from [Font.Instance.GetOpentypeFeatures].
+func (o *Extension[T]) GetOpentypeFeatures() map[string][2]string {
+	return o.Super().AsFont().GetOpentypeFeatures()
+}
+
+// SetCacheCapacity is promoted from [Font.Instance.SetCacheCapacity].
+func (self Instance) SetCacheCapacity(single_line int, multi_line int) Instance {
+	self.AsFont().SetCacheCapacity(single_line, multi_line)
+	return self
+}
+
+// SetCacheCapacity is promoted from [Font.Instance.SetCacheCapacity].
+func (o *Extension[T]) SetCacheCapacity(single_line int, multi_line int) *Extension[T] {
+	o.Super().AsFont().SetCacheCapacity(single_line, multi_line)
+	return o
+}
+
+// GetCharSize is promoted from [Font.Instance.GetCharSize].
+func (self Instance) GetCharSize(char int, font_size int) Vector2.XY {
+	return self.AsFont().GetCharSize(char, font_size)
+}
+
+// GetCharSize is promoted from [Font.Instance.GetCharSize].
+func (o *Extension[T]) GetCharSize(char int, font_size int) Vector2.XY {
+	return o.Super().AsFont().GetCharSize(char, font_size)
+}
+
+// HasChar is promoted from [Font.Instance.HasChar].
+func (self Instance) HasChar(char int) bool {
+	return self.AsFont().HasChar(char)
+}
+
+// HasChar is promoted from [Font.Instance.HasChar].
+func (o *Extension[T]) HasChar(char int) bool {
+	return o.Super().AsFont().HasChar(char)
+}
+
+// GetSupportedChars is promoted from [Font.Instance.GetSupportedChars].
+func (self Instance) GetSupportedChars() string {
+	return self.AsFont().GetSupportedChars()
+}
+
+// GetSupportedChars is promoted from [Font.Instance.GetSupportedChars].
+func (o *Extension[T]) GetSupportedChars() string {
+	return o.Super().AsFont().GetSupportedChars()
+}
+
+// IsLanguageSupported is promoted from [Font.Instance.IsLanguageSupported].
+func (self Instance) IsLanguageSupported(language string) bool {
+	return self.AsFont().IsLanguageSupported(language)
+}
+
+// IsLanguageSupported is promoted from [Font.Instance.IsLanguageSupported].
+func (o *Extension[T]) IsLanguageSupported(language string) bool {
+	return o.Super().AsFont().IsLanguageSupported(language)
+}
+
+// IsScriptSupported is promoted from [Font.Instance.IsScriptSupported].
+func (self Instance) IsScriptSupported(script string) bool {
+	return self.AsFont().IsScriptSupported(script)
+}
+
+// IsScriptSupported is promoted from [Font.Instance.IsScriptSupported].
+func (o *Extension[T]) IsScriptSupported(script string) bool {
+	return o.Super().AsFont().IsScriptSupported(script)
+}
+
+// GetSupportedFeatureList is promoted from [Font.Instance.GetSupportedFeatureList].
+func (self Instance) GetSupportedFeatureList() map[string]Font.OpenTypeFeature {
+	return self.AsFont().GetSupportedFeatureList()
+}
+
+// GetSupportedFeatureList is promoted from [Font.Instance.GetSupportedFeatureList].
+func (o *Extension[T]) GetSupportedFeatureList() map[string]Font.OpenTypeFeature {
+	return o.Super().AsFont().GetSupportedFeatureList()
+}
+
+// GetSupportedVariationList is promoted from [Font.Instance.GetSupportedVariationList].
+func (self Instance) GetSupportedVariationList() map[int]struct { X int32; Y int32; Z int32 } {
+	return self.AsFont().GetSupportedVariationList()
+}
+
+// GetSupportedVariationList is promoted from [Font.Instance.GetSupportedVariationList].
+func (o *Extension[T]) GetSupportedVariationList() map[int]struct { X int32; Y int32; Z int32 } {
+	return o.Super().AsFont().GetSupportedVariationList()
+}
+
+// GetFaceCount is promoted from [Font.Instance.GetFaceCount].
+func (self Instance) GetFaceCount() int {
+	return self.AsFont().GetFaceCount()
+}
+
+// GetFaceCount is promoted from [Font.Instance.GetFaceCount].
+func (o *Extension[T]) GetFaceCount() int {
+	return o.Super().AsFont().GetFaceCount()
+}
+
+// TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
+func (self Instance) TakeOverPath(path string) {
+	self.AsResource().TakeOverPath(path)
+}
+
+// TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
+func (o *Extension[T]) TakeOverPath(path string) {
+	o.Super().AsResource().TakeOverPath(path)
+}
+
+// SetPathCache is promoted from [Resource.Instance.SetPathCache].
+func (self Instance) SetPathCache(path string) Instance {
+	self.AsResource().SetPathCache(path)
+	return self
+}
+
+// SetPathCache is promoted from [Resource.Instance.SetPathCache].
+func (o *Extension[T]) SetPathCache(path string) *Extension[T] {
+	o.Super().AsResource().SetPathCache(path)
+	return o
+}
+
+// GetRid is promoted from [Resource.Instance.GetRid].
+func (self Instance) GetRid() Resource.ID {
+	return self.AsResource().GetRid()
+}
+
+// GetRid is promoted from [Resource.Instance.GetRid].
+func (o *Extension[T]) GetRid() Resource.ID {
+	return o.Super().AsResource().GetRid()
+}
+
+// SetupLocalToScene is promoted from [Resource.Instance.SetupLocalToScene].
+func (self Instance) SetupLocalToScene() {
+	self.AsResource().SetupLocalToScene()
+}
+
+// SetupLocalToScene is promoted from [Resource.Instance.SetupLocalToScene].
+func (o *Extension[T]) SetupLocalToScene() {
+	o.Super().AsResource().SetupLocalToScene()
+}
+
+// ResetState is promoted from [Resource.Instance.ResetState].
+func (self Instance) ResetState() {
+	self.AsResource().ResetState()
+}
+
+// ResetState is promoted from [Resource.Instance.ResetState].
+func (o *Extension[T]) ResetState() {
+	o.Super().AsResource().ResetState()
+}
+
+// SetIdForPath is promoted from [Resource.Instance.SetIdForPath].
+func (self Instance) SetIdForPath(path string, id string) Instance {
+	self.AsResource().SetIdForPath(path, id)
+	return self
+}
+
+// SetIdForPath is promoted from [Resource.Instance.SetIdForPath].
+func (o *Extension[T]) SetIdForPath(path string, id string) *Extension[T] {
+	o.Super().AsResource().SetIdForPath(path, id)
+	return o
+}
+
+// GetIdForPath is promoted from [Resource.Instance.GetIdForPath].
+func (self Instance) GetIdForPath(path string) string {
+	return self.AsResource().GetIdForPath(path)
+}
+
+// GetIdForPath is promoted from [Resource.Instance.GetIdForPath].
+func (o *Extension[T]) GetIdForPath(path string) string {
+	return o.Super().AsResource().GetIdForPath(path)
+}
+
+// IsBuiltIn is promoted from [Resource.Instance.IsBuiltIn].
+func (self Instance) IsBuiltIn() bool {
+	return self.AsResource().IsBuiltIn()
+}
+
+// IsBuiltIn is promoted from [Resource.Instance.IsBuiltIn].
+func (o *Extension[T]) IsBuiltIn() bool {
+	return o.Super().AsResource().IsBuiltIn()
+}
+
+// EmitChanged is promoted from [Resource.Instance.EmitChanged].
+func (self Instance) EmitChanged() {
+	self.AsResource().EmitChanged()
+}
+
+// EmitChanged is promoted from [Resource.Instance.EmitChanged].
+func (o *Extension[T]) EmitChanged() {
+	o.Super().AsResource().EmitChanged()
+}
+
 func (self class) Virtual(name string) reflect.Value {
 	switch name {
 	default: return gd.VirtualByName(Font.Advanced(self.AsFont()), name)
@@ -507,3 +784,8 @@ func (self Instance) Virtual(name string) reflect.Value {
 	}
 }
 func init() {gdclass.Register("SystemFont", func(ptr gdreference.Object) any { return Instance{gdclass.NewSystemFont(ptr)} })}
+type OpenTypeFeature struct {
+Label string `gd:"label"`
+Type reflect.Type `gd:"type"`
+Hidden bool `gd:"hidden"`
+}

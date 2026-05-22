@@ -233,6 +233,18 @@ noescape.Call[struct{}]( gd.ObjectChecked(self.AsObject()), methods.set_aabb, 0|
 func (o class) AsPhysicsServer3DRenderingServerHandler() Advanced { return Advanced(o) }
 func (o Instance) AsPhysicsServer3DRenderingServerHandler() Instance { return o }
 func (o *Extension[T]) AsPhysicsServer3DRenderingServerHandler() Instance { return o.Super() }
+func (o *Extension[T]) SetVertex(vertex_id int, vertex Vector3.XYZ) *Extension[T] {
+	o.Super().SetVertex(vertex_id, vertex)
+	return o
+}
+func (o *Extension[T]) SetNormal(vertex_id int, normal Vector3.XYZ) *Extension[T] {
+	o.Super().SetNormal(vertex_id, normal)
+	return o
+}
+func (o *Extension[T]) SetAabb(aabb AABB.PositionSize) *Extension[T] {
+	o.Super().SetAabb(aabb)
+	return o
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

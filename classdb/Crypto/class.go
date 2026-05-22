@@ -239,6 +239,30 @@ func (o *Extension[T]) AsCrypto() Instance { return o.Super() }
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) GenerateRandomBytes(size int) []byte {
+	return o.Super().GenerateRandomBytes(size)
+}
+func (o *Extension[T]) GenerateRsa(size int) CryptoKey.Instance {
+	return o.Super().GenerateRsa(size)
+}
+func (o *Extension[T]) Sign(hash_type HashingContext.HashType, hash []byte, key CryptoKey.Instance) []byte {
+	return o.Super().Sign(hash_type, hash, key)
+}
+func (o *Extension[T]) Verify(hash_type HashingContext.HashType, hash []byte, signature []byte, key CryptoKey.Instance) bool {
+	return o.Super().Verify(hash_type, hash, signature, key)
+}
+func (o *Extension[T]) Encrypt(key CryptoKey.Instance, plaintext []byte) []byte {
+	return o.Super().Encrypt(key, plaintext)
+}
+func (o *Extension[T]) Decrypt(key CryptoKey.Instance, ciphertext []byte) []byte {
+	return o.Super().Decrypt(key, ciphertext)
+}
+func (o *Extension[T]) HmacDigest(hash_type HashingContext.HashType, key []byte, msg []byte) []byte {
+	return o.Super().HmacDigest(hash_type, key, msg)
+}
+func (o *Extension[T]) ConstantTimeCompare(trusted []byte, received []byte) bool {
+	return o.Super().ConstantTimeCompare(trusted, received)
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

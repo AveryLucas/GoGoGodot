@@ -1103,6 +1103,180 @@ func (self Instance) OnSetupLocalToSceneRequested(cb func(), flags ...Signal.Fla
 	return self
 }
 
+// CanInstantiate is promoted from [Script.Instance.CanInstantiate].
+func (o *Extension[T]) CanInstantiate() bool {
+	return o.Super().AsScript().CanInstantiate()
+}
+
+// InstanceHas is promoted from [Script.Instance.InstanceHas].
+func (o *Extension[T]) InstanceHas(base_object Object.Instance) bool {
+	return o.Super().AsScript().InstanceHas(base_object)
+}
+
+// HasSourceCode is promoted from [Script.Instance.HasSourceCode].
+func (o *Extension[T]) HasSourceCode() bool {
+	return o.Super().AsScript().HasSourceCode()
+}
+
+// GetBaseScript is promoted from [Script.Instance.GetBaseScript].
+func (o *Extension[T]) GetBaseScript() Script.Instance {
+	return o.Super().AsScript().GetBaseScript()
+}
+
+// GetInstanceBaseType is promoted from [Script.Instance.GetInstanceBaseType].
+func (o *Extension[T]) GetInstanceBaseType() string {
+	return o.Super().AsScript().GetInstanceBaseType()
+}
+
+// GetGlobalName is promoted from [Script.Instance.GetGlobalName].
+func (o *Extension[T]) GetGlobalName() string {
+	return o.Super().AsScript().GetGlobalName()
+}
+
+// HasScriptSignal is promoted from [Script.Instance.HasScriptSignal].
+func (o *Extension[T]) HasScriptSignal(signal_name string) bool {
+	return o.Super().AsScript().HasScriptSignal(signal_name)
+}
+
+// GetScriptPropertyList is promoted from [Script.Instance.GetScriptPropertyList].
+func (o *Extension[T]) GetScriptPropertyList() []Object.PropertyInfo {
+	return o.Super().AsScript().GetScriptPropertyList()
+}
+
+// GetScriptMethodList is promoted from [Script.Instance.GetScriptMethodList].
+func (o *Extension[T]) GetScriptMethodList() []Object.PropertyInfo {
+	return o.Super().AsScript().GetScriptMethodList()
+}
+
+// GetScriptSignalList is promoted from [Script.Instance.GetScriptSignalList].
+func (o *Extension[T]) GetScriptSignalList() []Script.SignalInfo {
+	return o.Super().AsScript().GetScriptSignalList()
+}
+
+// GetScriptConstantMap is promoted from [Script.Instance.GetScriptConstantMap].
+func (self Instance) GetScriptConstantMap() map[string]any {
+	return self.AsScript().GetScriptConstantMap()
+}
+
+// GetScriptConstantMap is promoted from [Script.Instance.GetScriptConstantMap].
+func (o *Extension[T]) GetScriptConstantMap() map[string]any {
+	return o.Super().AsScript().GetScriptConstantMap()
+}
+
+// GetPropertyDefaultValue is promoted from [Script.Instance.GetPropertyDefaultValue].
+func (o *Extension[T]) GetPropertyDefaultValue(property string) any {
+	return o.Super().AsScript().GetPropertyDefaultValue(property)
+}
+
+// IsTool is promoted from [Script.Instance.IsTool].
+func (o *Extension[T]) IsTool() bool {
+	return o.Super().AsScript().IsTool()
+}
+
+// IsAbstract is promoted from [Script.Instance.IsAbstract].
+func (o *Extension[T]) IsAbstract() bool {
+	return o.Super().AsScript().IsAbstract()
+}
+
+// GetRpcConfig is promoted from [Script.Instance.GetRpcConfig].
+func (o *Extension[T]) GetRpcConfig() any {
+	return o.Super().AsScript().GetRpcConfig()
+}
+
+// TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
+func (self Instance) TakeOverPath(path string) {
+	self.AsResource().TakeOverPath(path)
+}
+
+// TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
+func (o *Extension[T]) TakeOverPath(path string) {
+	o.Super().AsResource().TakeOverPath(path)
+}
+
+// SetPathCache is promoted from [Resource.Instance.SetPathCache].
+func (self Instance) SetPathCache(path string) Instance {
+	self.AsResource().SetPathCache(path)
+	return self
+}
+
+// SetPathCache is promoted from [Resource.Instance.SetPathCache].
+func (o *Extension[T]) SetPathCache(path string) *Extension[T] {
+	o.Super().AsResource().SetPathCache(path)
+	return o
+}
+
+// GetRid is promoted from [Resource.Instance.GetRid].
+func (self Instance) GetRid() Resource.ID {
+	return self.AsResource().GetRid()
+}
+
+// GetRid is promoted from [Resource.Instance.GetRid].
+func (o *Extension[T]) GetRid() Resource.ID {
+	return o.Super().AsResource().GetRid()
+}
+
+// SetupLocalToScene is promoted from [Resource.Instance.SetupLocalToScene].
+func (self Instance) SetupLocalToScene() {
+	self.AsResource().SetupLocalToScene()
+}
+
+// SetupLocalToScene is promoted from [Resource.Instance.SetupLocalToScene].
+func (o *Extension[T]) SetupLocalToScene() {
+	o.Super().AsResource().SetupLocalToScene()
+}
+
+// ResetState is promoted from [Resource.Instance.ResetState].
+func (self Instance) ResetState() {
+	self.AsResource().ResetState()
+}
+
+// ResetState is promoted from [Resource.Instance.ResetState].
+func (o *Extension[T]) ResetState() {
+	o.Super().AsResource().ResetState()
+}
+
+// SetIdForPath is promoted from [Resource.Instance.SetIdForPath].
+func (self Instance) SetIdForPath(path string, id string) Instance {
+	self.AsResource().SetIdForPath(path, id)
+	return self
+}
+
+// SetIdForPath is promoted from [Resource.Instance.SetIdForPath].
+func (o *Extension[T]) SetIdForPath(path string, id string) *Extension[T] {
+	o.Super().AsResource().SetIdForPath(path, id)
+	return o
+}
+
+// GetIdForPath is promoted from [Resource.Instance.GetIdForPath].
+func (self Instance) GetIdForPath(path string) string {
+	return self.AsResource().GetIdForPath(path)
+}
+
+// GetIdForPath is promoted from [Resource.Instance.GetIdForPath].
+func (o *Extension[T]) GetIdForPath(path string) string {
+	return o.Super().AsResource().GetIdForPath(path)
+}
+
+// IsBuiltIn is promoted from [Resource.Instance.IsBuiltIn].
+func (self Instance) IsBuiltIn() bool {
+	return self.AsResource().IsBuiltIn()
+}
+
+// IsBuiltIn is promoted from [Resource.Instance.IsBuiltIn].
+func (o *Extension[T]) IsBuiltIn() bool {
+	return o.Super().AsResource().IsBuiltIn()
+}
+
+// EmitChanged is promoted from [Resource.Instance.EmitChanged].
+func (self Instance) EmitChanged() {
+	self.AsResource().EmitChanged()
+}
+
+// EmitChanged is promoted from [Resource.Instance.EmitChanged].
+func (o *Extension[T]) EmitChanged() {
+	o.Super().AsResource().EmitChanged()
+}
+
 func (self class) Virtual(name string) reflect.Value {
 	switch name {
 	case "_editor_can_reload_from_file": return reflect.ValueOf(self._editor_can_reload_from_file);
@@ -1271,6 +1445,13 @@ DeprecatedMessage string `gd:"deprecated_message"`
 IsExperimental bool `gd:"is_experimental"`
 ExperimentalMessage string `gd:"experimental_message"`
 Keywords string `gd:"keywords"`
+}
+type SignalInfo struct {
+Name string `gd:"name"`
+Flags int `gd:"flags"`
+ID int `gd:"id"`
+DefaultArgs []any `gd:"default_args"`
+Args []Object.PropertyInfo `gd:"args"`
 }
 type ThemeItemDoc struct {
 Name string `gd:"name"`

@@ -193,6 +193,171 @@ func (self Instance) OnSetupLocalToSceneRequested(cb func(), flags ...Signal.Fla
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("setup_local_to_scene_requested"), gd.NewCallable(cb), int64(flags_together))
 	return self
 }
+func (o *Extension[T]) SetHeldModificationStack(held_modification_stack SkeletonModificationStack2D.Instance) *Extension[T] {
+	o.Super().SetHeldModificationStack(held_modification_stack)
+	return o
+}
+func (o *Extension[T]) GetHeldModificationStack() SkeletonModificationStack2D.Instance {
+	return o.Super().GetHeldModificationStack()
+}
+
+// GetModificationStack is promoted from [SkeletonModification2D.Instance.GetModificationStack].
+func (self Instance) GetModificationStack() SkeletonModificationStack2D.Instance {
+	return self.AsSkeletonModification2D().GetModificationStack()
+}
+
+// GetModificationStack is promoted from [SkeletonModification2D.Instance.GetModificationStack].
+func (o *Extension[T]) GetModificationStack() SkeletonModificationStack2D.Instance {
+	return o.Super().AsSkeletonModification2D().GetModificationStack()
+}
+
+// SetIsSetup is promoted from [SkeletonModification2D.Instance.SetIsSetup].
+func (self Instance) SetIsSetup(is_setup bool) Instance {
+	self.AsSkeletonModification2D().SetIsSetup(is_setup)
+	return self
+}
+
+// SetIsSetup is promoted from [SkeletonModification2D.Instance.SetIsSetup].
+func (o *Extension[T]) SetIsSetup(is_setup bool) *Extension[T] {
+	o.Super().AsSkeletonModification2D().SetIsSetup(is_setup)
+	return o
+}
+
+// GetIsSetup is promoted from [SkeletonModification2D.Instance.GetIsSetup].
+func (self Instance) GetIsSetup() bool {
+	return self.AsSkeletonModification2D().GetIsSetup()
+}
+
+// GetIsSetup is promoted from [SkeletonModification2D.Instance.GetIsSetup].
+func (o *Extension[T]) GetIsSetup() bool {
+	return o.Super().AsSkeletonModification2D().GetIsSetup()
+}
+
+// ClampAngle is promoted from [SkeletonModification2D.Instance.ClampAngle].
+func (self Instance) ClampAngle(angle Angle.Radians, min Angle.Radians, max Angle.Radians, invert bool) Angle.Radians {
+	return self.AsSkeletonModification2D().ClampAngle(angle, min, max, invert)
+}
+
+// ClampAngle is promoted from [SkeletonModification2D.Instance.ClampAngle].
+func (o *Extension[T]) ClampAngle(angle Angle.Radians, min Angle.Radians, max Angle.Radians, invert bool) Angle.Radians {
+	return o.Super().AsSkeletonModification2D().ClampAngle(angle, min, max, invert)
+}
+
+// SetEditorDrawGizmo is promoted from [SkeletonModification2D.Instance.SetEditorDrawGizmo].
+func (self Instance) SetEditorDrawGizmo(draw_gizmo bool) Instance {
+	self.AsSkeletonModification2D().SetEditorDrawGizmo(draw_gizmo)
+	return self
+}
+
+// SetEditorDrawGizmo is promoted from [SkeletonModification2D.Instance.SetEditorDrawGizmo].
+func (o *Extension[T]) SetEditorDrawGizmo(draw_gizmo bool) *Extension[T] {
+	o.Super().AsSkeletonModification2D().SetEditorDrawGizmo(draw_gizmo)
+	return o
+}
+
+// GetEditorDrawGizmo is promoted from [SkeletonModification2D.Instance.GetEditorDrawGizmo].
+func (self Instance) GetEditorDrawGizmo() bool {
+	return self.AsSkeletonModification2D().GetEditorDrawGizmo()
+}
+
+// GetEditorDrawGizmo is promoted from [SkeletonModification2D.Instance.GetEditorDrawGizmo].
+func (o *Extension[T]) GetEditorDrawGizmo() bool {
+	return o.Super().AsSkeletonModification2D().GetEditorDrawGizmo()
+}
+
+// TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
+func (self Instance) TakeOverPath(path string) {
+	self.AsResource().TakeOverPath(path)
+}
+
+// TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
+func (o *Extension[T]) TakeOverPath(path string) {
+	o.Super().AsResource().TakeOverPath(path)
+}
+
+// SetPathCache is promoted from [Resource.Instance.SetPathCache].
+func (self Instance) SetPathCache(path string) Instance {
+	self.AsResource().SetPathCache(path)
+	return self
+}
+
+// SetPathCache is promoted from [Resource.Instance.SetPathCache].
+func (o *Extension[T]) SetPathCache(path string) *Extension[T] {
+	o.Super().AsResource().SetPathCache(path)
+	return o
+}
+
+// GetRid is promoted from [Resource.Instance.GetRid].
+func (self Instance) GetRid() Resource.ID {
+	return self.AsResource().GetRid()
+}
+
+// GetRid is promoted from [Resource.Instance.GetRid].
+func (o *Extension[T]) GetRid() Resource.ID {
+	return o.Super().AsResource().GetRid()
+}
+
+// SetupLocalToScene is promoted from [Resource.Instance.SetupLocalToScene].
+func (self Instance) SetupLocalToScene() {
+	self.AsResource().SetupLocalToScene()
+}
+
+// SetupLocalToScene is promoted from [Resource.Instance.SetupLocalToScene].
+func (o *Extension[T]) SetupLocalToScene() {
+	o.Super().AsResource().SetupLocalToScene()
+}
+
+// ResetState is promoted from [Resource.Instance.ResetState].
+func (self Instance) ResetState() {
+	self.AsResource().ResetState()
+}
+
+// ResetState is promoted from [Resource.Instance.ResetState].
+func (o *Extension[T]) ResetState() {
+	o.Super().AsResource().ResetState()
+}
+
+// SetIdForPath is promoted from [Resource.Instance.SetIdForPath].
+func (self Instance) SetIdForPath(path string, id string) Instance {
+	self.AsResource().SetIdForPath(path, id)
+	return self
+}
+
+// SetIdForPath is promoted from [Resource.Instance.SetIdForPath].
+func (o *Extension[T]) SetIdForPath(path string, id string) *Extension[T] {
+	o.Super().AsResource().SetIdForPath(path, id)
+	return o
+}
+
+// GetIdForPath is promoted from [Resource.Instance.GetIdForPath].
+func (self Instance) GetIdForPath(path string) string {
+	return self.AsResource().GetIdForPath(path)
+}
+
+// GetIdForPath is promoted from [Resource.Instance.GetIdForPath].
+func (o *Extension[T]) GetIdForPath(path string) string {
+	return o.Super().AsResource().GetIdForPath(path)
+}
+
+// IsBuiltIn is promoted from [Resource.Instance.IsBuiltIn].
+func (self Instance) IsBuiltIn() bool {
+	return self.AsResource().IsBuiltIn()
+}
+
+// IsBuiltIn is promoted from [Resource.Instance.IsBuiltIn].
+func (o *Extension[T]) IsBuiltIn() bool {
+	return o.Super().AsResource().IsBuiltIn()
+}
+
+// EmitChanged is promoted from [Resource.Instance.EmitChanged].
+func (self Instance) EmitChanged() {
+	self.AsResource().EmitChanged()
+}
+
+// EmitChanged is promoted from [Resource.Instance.EmitChanged].
+func (o *Extension[T]) EmitChanged() {
+	o.Super().AsResource().EmitChanged()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

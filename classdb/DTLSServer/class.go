@@ -168,6 +168,12 @@ func (o *Extension[T]) AsDTLSServer() Instance { return o.Super() }
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) Setup(server_options TLSOptions.Instance) error {
+	return o.Super().Setup(server_options)
+}
+func (o *Extension[T]) TakeConnection(udp_peer PacketPeerUDP.Instance) PacketPeerDTLS.Instance {
+	return o.Super().TakeConnection(udp_peer)
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

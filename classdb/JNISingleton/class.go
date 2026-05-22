@@ -152,6 +152,9 @@ func (self class) HasJavaMethod(method String.Name) bool { //gd:JNISingleton.has
 func (o class) AsJNISingleton() Advanced { return Advanced(o) }
 func (o Instance) AsJNISingleton() Instance { return o }
 func (o *Extension[T]) AsJNISingleton() Instance { return o.Super() }
+func (o *Extension[T]) HasJavaMethod(method string) bool {
+	return o.Super().HasJavaMethod(method)
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

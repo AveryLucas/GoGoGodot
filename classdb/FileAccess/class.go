@@ -796,6 +796,111 @@ func (o *Extension[T]) AsFileAccess() Instance { return o.Super() }
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) Resize(length int) error {
+	return o.Super().Resize(length)
+}
+func (o *Extension[T]) Flush() {
+	o.Super().Flush()
+}
+func (o *Extension[T]) GetPath() string {
+	return o.Super().GetPath()
+}
+func (o *Extension[T]) GetPathAbsolute() string {
+	return o.Super().GetPathAbsolute()
+}
+func (o *Extension[T]) IsOpen() bool {
+	return o.Super().IsOpen()
+}
+func (o *Extension[T]) SeekTo(position int) {
+	o.Super().SeekTo(position)
+}
+func (o *Extension[T]) GetPosition() int {
+	return o.Super().GetPosition()
+}
+func (o *Extension[T]) GetLength() int {
+	return o.Super().GetLength()
+}
+func (o *Extension[T]) EofReached() bool {
+	return o.Super().EofReached()
+}
+func (o *Extension[T]) Get8() int {
+	return o.Super().Get8()
+}
+func (o *Extension[T]) Get16() int {
+	return o.Super().Get16()
+}
+func (o *Extension[T]) Get32() int {
+	return o.Super().Get32()
+}
+func (o *Extension[T]) Get64() int {
+	return o.Super().Get64()
+}
+func (o *Extension[T]) GetHalf() Float.X {
+	return o.Super().GetHalf()
+}
+func (o *Extension[T]) GetFloat() Float.X {
+	return o.Super().GetFloat()
+}
+func (o *Extension[T]) GetDouble() Float.X {
+	return o.Super().GetDouble()
+}
+func (o *Extension[T]) GetReal() Float.X {
+	return o.Super().GetReal()
+}
+func (o *Extension[T]) GetBuffer(length int) []byte {
+	return o.Super().GetBuffer(length)
+}
+func (o *Extension[T]) GetLine() string {
+	return o.Super().GetLine()
+}
+func (o *Extension[T]) GetAsText() string {
+	return o.Super().GetAsText()
+}
+func (o *Extension[T]) GetError() error {
+	return o.Super().GetError()
+}
+func (o *Extension[T]) Store8(value int) bool {
+	return o.Super().Store8(value)
+}
+func (o *Extension[T]) Store16(value int) bool {
+	return o.Super().Store16(value)
+}
+func (o *Extension[T]) Store32(value int) bool {
+	return o.Super().Store32(value)
+}
+func (o *Extension[T]) Store64(value int) bool {
+	return o.Super().Store64(value)
+}
+func (o *Extension[T]) StoreHalf(value Float.X) bool {
+	return o.Super().StoreHalf(value)
+}
+func (o *Extension[T]) StoreFloat(value Float.X) bool {
+	return o.Super().StoreFloat(value)
+}
+func (o *Extension[T]) StoreDouble(value Float.X) bool {
+	return o.Super().StoreDouble(value)
+}
+func (o *Extension[T]) StoreReal(value Float.X) bool {
+	return o.Super().StoreReal(value)
+}
+func (o *Extension[T]) StoreBuffer(buffer []byte) bool {
+	return o.Super().StoreBuffer(buffer)
+}
+func (o *Extension[T]) StoreLine(line string) bool {
+	return o.Super().StoreLine(line)
+}
+func (o *Extension[T]) StoreString(s string) bool {
+	return o.Super().StoreString(s)
+}
+func (o *Extension[T]) StorePascalString(s string) bool {
+	return o.Super().StorePascalString(s)
+}
+func (o *Extension[T]) GetPascalString() string {
+	return o.Super().GetPascalString()
+}
+func (o *Extension[T]) Close() {
+	o.Super().Close()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

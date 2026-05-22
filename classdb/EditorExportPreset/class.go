@@ -380,6 +380,78 @@ func (o *Extension[T]) AsEditorExportPreset() Instance { return o.Super() }
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) Has(property string) bool {
+	return o.Super().Has(property)
+}
+func (o *Extension[T]) GetFilesToExport() []string {
+	return o.Super().GetFilesToExport()
+}
+func (o *Extension[T]) GetCustomizedFiles() map[string]string {
+	return o.Super().GetCustomizedFiles()
+}
+func (o *Extension[T]) GetCustomizedFilesCount() int {
+	return o.Super().GetCustomizedFilesCount()
+}
+func (o *Extension[T]) HasExportFile(path string) bool {
+	return o.Super().HasExportFile(path)
+}
+func (o *Extension[T]) GetProjectSetting(name string) any {
+	return o.Super().GetProjectSetting(name)
+}
+func (o *Extension[T]) GetPresetName() string {
+	return o.Super().GetPresetName()
+}
+func (o *Extension[T]) IsRunnable() bool {
+	return o.Super().IsRunnable()
+}
+func (o *Extension[T]) AreAdvancedOptionsEnabled() bool {
+	return o.Super().AreAdvancedOptionsEnabled()
+}
+func (o *Extension[T]) IsDedicatedServer() bool {
+	return o.Super().IsDedicatedServer()
+}
+func (o *Extension[T]) GetExportFilter() ExportFilter {
+	return o.Super().GetExportFilter()
+}
+func (o *Extension[T]) GetIncludeFilter() string {
+	return o.Super().GetIncludeFilter()
+}
+func (o *Extension[T]) GetExcludeFilter() string {
+	return o.Super().GetExcludeFilter()
+}
+func (o *Extension[T]) GetCustomFeatures() string {
+	return o.Super().GetCustomFeatures()
+}
+func (o *Extension[T]) GetPatches() []string {
+	return o.Super().GetPatches()
+}
+func (o *Extension[T]) GetExportPath() string {
+	return o.Super().GetExportPath()
+}
+func (o *Extension[T]) GetEncryptionInFilter() string {
+	return o.Super().GetEncryptionInFilter()
+}
+func (o *Extension[T]) GetEncryptionExFilter() string {
+	return o.Super().GetEncryptionExFilter()
+}
+func (o *Extension[T]) GetEncryptPck() bool {
+	return o.Super().GetEncryptPck()
+}
+func (o *Extension[T]) GetEncryptDirectory() bool {
+	return o.Super().GetEncryptDirectory()
+}
+func (o *Extension[T]) GetEncryptionKey() string {
+	return o.Super().GetEncryptionKey()
+}
+func (o *Extension[T]) GetScriptExportMode() ScriptExportMode {
+	return o.Super().GetScriptExportMode()
+}
+func (o *Extension[T]) GetOrEnv(name string, env_var string) any {
+	return o.Super().GetOrEnv(name, env_var)
+}
+func (o *Extension[T]) GetVersion(name string, windows_version bool) string {
+	return o.Super().GetVersion(name, windows_version)
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

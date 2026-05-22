@@ -19,6 +19,7 @@ import "graphics.gd/variant/Euler"
 import "graphics.gd/variant/Signal"
 import "graphics.gd/classdb/Resource"
 import "graphics.gd/classdb/SkeletonProfile"
+import "graphics.gd/classdb/Texture2D"
 import "graphics.gd/variant/Array"
 import "graphics.gd/variant/Callable"
 import "graphics.gd/variant/Dictionary"
@@ -30,6 +31,8 @@ import "graphics.gd/variant/Path"
 import "graphics.gd/variant/RID"
 import "graphics.gd/variant/RefCounted"
 import "graphics.gd/variant/String"
+import "graphics.gd/variant/Transform3D"
+import "graphics.gd/variant/Vector2"
 
 var _ Object.ID
 type _ gdclass.Node
@@ -184,6 +187,330 @@ func (self Instance) OnSetupLocalToSceneRequested(cb func(), flags ...Signal.Fla
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("setup_local_to_scene_requested"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+
+// GetGroupName is promoted from [SkeletonProfile.Instance.GetGroupName].
+func (self Instance) GetGroupName(group_idx int) string {
+	return self.AsSkeletonProfile().GetGroupName(group_idx)
+}
+
+// GetGroupName is promoted from [SkeletonProfile.Instance.GetGroupName].
+func (o *Extension[T]) GetGroupName(group_idx int) string {
+	return o.Super().AsSkeletonProfile().GetGroupName(group_idx)
+}
+
+// SetGroupName is promoted from [SkeletonProfile.Instance.SetGroupName].
+func (self Instance) SetGroupName(group_idx int, group_name string) Instance {
+	self.AsSkeletonProfile().SetGroupName(group_idx, group_name)
+	return self
+}
+
+// SetGroupName is promoted from [SkeletonProfile.Instance.SetGroupName].
+func (o *Extension[T]) SetGroupName(group_idx int, group_name string) *Extension[T] {
+	o.Super().AsSkeletonProfile().SetGroupName(group_idx, group_name)
+	return o
+}
+
+// GetTexture is promoted from [SkeletonProfile.Instance.GetTexture].
+func (self Instance) GetTexture(group_idx int) Texture2D.Instance {
+	return self.AsSkeletonProfile().GetTexture(group_idx)
+}
+
+// GetTexture is promoted from [SkeletonProfile.Instance.GetTexture].
+func (o *Extension[T]) GetTexture(group_idx int) Texture2D.Instance {
+	return o.Super().AsSkeletonProfile().GetTexture(group_idx)
+}
+
+// SetTexture is promoted from [SkeletonProfile.Instance.SetTexture].
+func (self Instance) SetTexture(group_idx int, texture Texture2D.Instance) Instance {
+	self.AsSkeletonProfile().SetTexture(group_idx, texture)
+	return self
+}
+
+// SetTexture is promoted from [SkeletonProfile.Instance.SetTexture].
+func (o *Extension[T]) SetTexture(group_idx int, texture Texture2D.Instance) *Extension[T] {
+	o.Super().AsSkeletonProfile().SetTexture(group_idx, texture)
+	return o
+}
+
+// FindBone is promoted from [SkeletonProfile.Instance.FindBone].
+func (self Instance) FindBone(bone_name string) int {
+	return self.AsSkeletonProfile().FindBone(bone_name)
+}
+
+// FindBone is promoted from [SkeletonProfile.Instance.FindBone].
+func (o *Extension[T]) FindBone(bone_name string) int {
+	return o.Super().AsSkeletonProfile().FindBone(bone_name)
+}
+
+// GetBoneName is promoted from [SkeletonProfile.Instance.GetBoneName].
+func (self Instance) GetBoneName(bone_idx int) string {
+	return self.AsSkeletonProfile().GetBoneName(bone_idx)
+}
+
+// GetBoneName is promoted from [SkeletonProfile.Instance.GetBoneName].
+func (o *Extension[T]) GetBoneName(bone_idx int) string {
+	return o.Super().AsSkeletonProfile().GetBoneName(bone_idx)
+}
+
+// SetBoneName is promoted from [SkeletonProfile.Instance.SetBoneName].
+func (self Instance) SetBoneName(bone_idx int, bone_name string) Instance {
+	self.AsSkeletonProfile().SetBoneName(bone_idx, bone_name)
+	return self
+}
+
+// SetBoneName is promoted from [SkeletonProfile.Instance.SetBoneName].
+func (o *Extension[T]) SetBoneName(bone_idx int, bone_name string) *Extension[T] {
+	o.Super().AsSkeletonProfile().SetBoneName(bone_idx, bone_name)
+	return o
+}
+
+// GetBoneParent is promoted from [SkeletonProfile.Instance.GetBoneParent].
+func (self Instance) GetBoneParent(bone_idx int) string {
+	return self.AsSkeletonProfile().GetBoneParent(bone_idx)
+}
+
+// GetBoneParent is promoted from [SkeletonProfile.Instance.GetBoneParent].
+func (o *Extension[T]) GetBoneParent(bone_idx int) string {
+	return o.Super().AsSkeletonProfile().GetBoneParent(bone_idx)
+}
+
+// SetBoneParent is promoted from [SkeletonProfile.Instance.SetBoneParent].
+func (self Instance) SetBoneParent(bone_idx int, bone_parent string) Instance {
+	self.AsSkeletonProfile().SetBoneParent(bone_idx, bone_parent)
+	return self
+}
+
+// SetBoneParent is promoted from [SkeletonProfile.Instance.SetBoneParent].
+func (o *Extension[T]) SetBoneParent(bone_idx int, bone_parent string) *Extension[T] {
+	o.Super().AsSkeletonProfile().SetBoneParent(bone_idx, bone_parent)
+	return o
+}
+
+// GetTailDirection is promoted from [SkeletonProfile.Instance.GetTailDirection].
+func (self Instance) GetTailDirection(bone_idx int) SkeletonProfile.TailDirection {
+	return self.AsSkeletonProfile().GetTailDirection(bone_idx)
+}
+
+// GetTailDirection is promoted from [SkeletonProfile.Instance.GetTailDirection].
+func (o *Extension[T]) GetTailDirection(bone_idx int) SkeletonProfile.TailDirection {
+	return o.Super().AsSkeletonProfile().GetTailDirection(bone_idx)
+}
+
+// SetTailDirection is promoted from [SkeletonProfile.Instance.SetTailDirection].
+func (self Instance) SetTailDirection(bone_idx int, tail_direction SkeletonProfile.TailDirection) Instance {
+	self.AsSkeletonProfile().SetTailDirection(bone_idx, tail_direction)
+	return self
+}
+
+// SetTailDirection is promoted from [SkeletonProfile.Instance.SetTailDirection].
+func (o *Extension[T]) SetTailDirection(bone_idx int, tail_direction SkeletonProfile.TailDirection) *Extension[T] {
+	o.Super().AsSkeletonProfile().SetTailDirection(bone_idx, tail_direction)
+	return o
+}
+
+// GetBoneTail is promoted from [SkeletonProfile.Instance.GetBoneTail].
+func (self Instance) GetBoneTail(bone_idx int) string {
+	return self.AsSkeletonProfile().GetBoneTail(bone_idx)
+}
+
+// GetBoneTail is promoted from [SkeletonProfile.Instance.GetBoneTail].
+func (o *Extension[T]) GetBoneTail(bone_idx int) string {
+	return o.Super().AsSkeletonProfile().GetBoneTail(bone_idx)
+}
+
+// SetBoneTail is promoted from [SkeletonProfile.Instance.SetBoneTail].
+func (self Instance) SetBoneTail(bone_idx int, bone_tail string) Instance {
+	self.AsSkeletonProfile().SetBoneTail(bone_idx, bone_tail)
+	return self
+}
+
+// SetBoneTail is promoted from [SkeletonProfile.Instance.SetBoneTail].
+func (o *Extension[T]) SetBoneTail(bone_idx int, bone_tail string) *Extension[T] {
+	o.Super().AsSkeletonProfile().SetBoneTail(bone_idx, bone_tail)
+	return o
+}
+
+// GetReferencePose is promoted from [SkeletonProfile.Instance.GetReferencePose].
+func (self Instance) GetReferencePose(bone_idx int) Transform3D.BasisOrigin {
+	return self.AsSkeletonProfile().GetReferencePose(bone_idx)
+}
+
+// GetReferencePose is promoted from [SkeletonProfile.Instance.GetReferencePose].
+func (o *Extension[T]) GetReferencePose(bone_idx int) Transform3D.BasisOrigin {
+	return o.Super().AsSkeletonProfile().GetReferencePose(bone_idx)
+}
+
+// SetReferencePose is promoted from [SkeletonProfile.Instance.SetReferencePose].
+func (self Instance) SetReferencePose(bone_idx int, bone_name Transform3D.BasisOrigin) Instance {
+	self.AsSkeletonProfile().SetReferencePose(bone_idx, bone_name)
+	return self
+}
+
+// SetReferencePose is promoted from [SkeletonProfile.Instance.SetReferencePose].
+func (o *Extension[T]) SetReferencePose(bone_idx int, bone_name Transform3D.BasisOrigin) *Extension[T] {
+	o.Super().AsSkeletonProfile().SetReferencePose(bone_idx, bone_name)
+	return o
+}
+
+// GetHandleOffset is promoted from [SkeletonProfile.Instance.GetHandleOffset].
+func (self Instance) GetHandleOffset(bone_idx int) Vector2.XY {
+	return self.AsSkeletonProfile().GetHandleOffset(bone_idx)
+}
+
+// GetHandleOffset is promoted from [SkeletonProfile.Instance.GetHandleOffset].
+func (o *Extension[T]) GetHandleOffset(bone_idx int) Vector2.XY {
+	return o.Super().AsSkeletonProfile().GetHandleOffset(bone_idx)
+}
+
+// SetHandleOffset is promoted from [SkeletonProfile.Instance.SetHandleOffset].
+func (self Instance) SetHandleOffset(bone_idx int, handle_offset Vector2.XY) Instance {
+	self.AsSkeletonProfile().SetHandleOffset(bone_idx, handle_offset)
+	return self
+}
+
+// SetHandleOffset is promoted from [SkeletonProfile.Instance.SetHandleOffset].
+func (o *Extension[T]) SetHandleOffset(bone_idx int, handle_offset Vector2.XY) *Extension[T] {
+	o.Super().AsSkeletonProfile().SetHandleOffset(bone_idx, handle_offset)
+	return o
+}
+
+// GetGroup is promoted from [SkeletonProfile.Instance.GetGroup].
+func (self Instance) GetGroup(bone_idx int) string {
+	return self.AsSkeletonProfile().GetGroup(bone_idx)
+}
+
+// GetGroup is promoted from [SkeletonProfile.Instance.GetGroup].
+func (o *Extension[T]) GetGroup(bone_idx int) string {
+	return o.Super().AsSkeletonProfile().GetGroup(bone_idx)
+}
+
+// SetGroup is promoted from [SkeletonProfile.Instance.SetGroup].
+func (self Instance) SetGroup(bone_idx int, group string) Instance {
+	self.AsSkeletonProfile().SetGroup(bone_idx, group)
+	return self
+}
+
+// SetGroup is promoted from [SkeletonProfile.Instance.SetGroup].
+func (o *Extension[T]) SetGroup(bone_idx int, group string) *Extension[T] {
+	o.Super().AsSkeletonProfile().SetGroup(bone_idx, group)
+	return o
+}
+
+// IsRequired is promoted from [SkeletonProfile.Instance.IsRequired].
+func (self Instance) IsRequired(bone_idx int) bool {
+	return self.AsSkeletonProfile().IsRequired(bone_idx)
+}
+
+// IsRequired is promoted from [SkeletonProfile.Instance.IsRequired].
+func (o *Extension[T]) IsRequired(bone_idx int) bool {
+	return o.Super().AsSkeletonProfile().IsRequired(bone_idx)
+}
+
+// SetRequired is promoted from [SkeletonProfile.Instance.SetRequired].
+func (self Instance) SetRequired(bone_idx int, required bool) Instance {
+	self.AsSkeletonProfile().SetRequired(bone_idx, required)
+	return self
+}
+
+// SetRequired is promoted from [SkeletonProfile.Instance.SetRequired].
+func (o *Extension[T]) SetRequired(bone_idx int, required bool) *Extension[T] {
+	o.Super().AsSkeletonProfile().SetRequired(bone_idx, required)
+	return o
+}
+
+// TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
+func (self Instance) TakeOverPath(path string) {
+	self.AsResource().TakeOverPath(path)
+}
+
+// TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
+func (o *Extension[T]) TakeOverPath(path string) {
+	o.Super().AsResource().TakeOverPath(path)
+}
+
+// SetPathCache is promoted from [Resource.Instance.SetPathCache].
+func (self Instance) SetPathCache(path string) Instance {
+	self.AsResource().SetPathCache(path)
+	return self
+}
+
+// SetPathCache is promoted from [Resource.Instance.SetPathCache].
+func (o *Extension[T]) SetPathCache(path string) *Extension[T] {
+	o.Super().AsResource().SetPathCache(path)
+	return o
+}
+
+// GetRid is promoted from [Resource.Instance.GetRid].
+func (self Instance) GetRid() Resource.ID {
+	return self.AsResource().GetRid()
+}
+
+// GetRid is promoted from [Resource.Instance.GetRid].
+func (o *Extension[T]) GetRid() Resource.ID {
+	return o.Super().AsResource().GetRid()
+}
+
+// SetupLocalToScene is promoted from [Resource.Instance.SetupLocalToScene].
+func (self Instance) SetupLocalToScene() {
+	self.AsResource().SetupLocalToScene()
+}
+
+// SetupLocalToScene is promoted from [Resource.Instance.SetupLocalToScene].
+func (o *Extension[T]) SetupLocalToScene() {
+	o.Super().AsResource().SetupLocalToScene()
+}
+
+// ResetState is promoted from [Resource.Instance.ResetState].
+func (self Instance) ResetState() {
+	self.AsResource().ResetState()
+}
+
+// ResetState is promoted from [Resource.Instance.ResetState].
+func (o *Extension[T]) ResetState() {
+	o.Super().AsResource().ResetState()
+}
+
+// SetIdForPath is promoted from [Resource.Instance.SetIdForPath].
+func (self Instance) SetIdForPath(path string, id string) Instance {
+	self.AsResource().SetIdForPath(path, id)
+	return self
+}
+
+// SetIdForPath is promoted from [Resource.Instance.SetIdForPath].
+func (o *Extension[T]) SetIdForPath(path string, id string) *Extension[T] {
+	o.Super().AsResource().SetIdForPath(path, id)
+	return o
+}
+
+// GetIdForPath is promoted from [Resource.Instance.GetIdForPath].
+func (self Instance) GetIdForPath(path string) string {
+	return self.AsResource().GetIdForPath(path)
+}
+
+// GetIdForPath is promoted from [Resource.Instance.GetIdForPath].
+func (o *Extension[T]) GetIdForPath(path string) string {
+	return o.Super().AsResource().GetIdForPath(path)
+}
+
+// IsBuiltIn is promoted from [Resource.Instance.IsBuiltIn].
+func (self Instance) IsBuiltIn() bool {
+	return self.AsResource().IsBuiltIn()
+}
+
+// IsBuiltIn is promoted from [Resource.Instance.IsBuiltIn].
+func (o *Extension[T]) IsBuiltIn() bool {
+	return o.Super().AsResource().IsBuiltIn()
+}
+
+// EmitChanged is promoted from [Resource.Instance.EmitChanged].
+func (self Instance) EmitChanged() {
+	self.AsResource().EmitChanged()
+}
+
+// EmitChanged is promoted from [Resource.Instance.EmitChanged].
+func (o *Extension[T]) EmitChanged() {
+	o.Super().AsResource().EmitChanged()
 }
 
 func (self class) Virtual(name string) reflect.Value {

@@ -19,6 +19,7 @@ import "graphics.gd/variant/Euler"
 import "graphics.gd/variant/Signal"
 import "graphics.gd/classdb/EditorExportPlatform"
 import "graphics.gd/classdb/EditorExportPlatformPC"
+import "graphics.gd/classdb/EditorExportPreset"
 import "graphics.gd/variant/Array"
 import "graphics.gd/variant/Callable"
 import "graphics.gd/variant/Dictionary"
@@ -156,6 +157,176 @@ func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 
+// GetOsName is promoted from [EditorExportPlatform.Instance.GetOsName].
+func (self Instance) GetOsName() string {
+	return self.AsEditorExportPlatform().GetOsName()
+}
+
+// GetOsName is promoted from [EditorExportPlatform.Instance.GetOsName].
+func (o *Extension[T]) GetOsName() string {
+	return o.Super().AsEditorExportPlatform().GetOsName()
+}
+
+// CreatePreset is promoted from [EditorExportPlatform.Instance.CreatePreset].
+func (self Instance) CreatePreset() EditorExportPreset.Instance {
+	return self.AsEditorExportPlatform().CreatePreset()
+}
+
+// CreatePreset is promoted from [EditorExportPlatform.Instance.CreatePreset].
+func (o *Extension[T]) CreatePreset() EditorExportPreset.Instance {
+	return o.Super().AsEditorExportPlatform().CreatePreset()
+}
+
+// FindExportTemplate is promoted from [EditorExportPlatform.Instance.FindExportTemplate].
+func (self Instance) FindExportTemplate(template_file_name string) EditorExportPlatform.Template {
+	return self.AsEditorExportPlatform().FindExportTemplate(template_file_name)
+}
+
+// FindExportTemplate is promoted from [EditorExportPlatform.Instance.FindExportTemplate].
+func (o *Extension[T]) FindExportTemplate(template_file_name string) EditorExportPlatform.Template {
+	return o.Super().AsEditorExportPlatform().FindExportTemplate(template_file_name)
+}
+
+// GetCurrentPresets is promoted from [EditorExportPlatform.Instance.GetCurrentPresets].
+func (self Instance) GetCurrentPresets() []EditorExportPreset.Instance {
+	return self.AsEditorExportPlatform().GetCurrentPresets()
+}
+
+// GetCurrentPresets is promoted from [EditorExportPlatform.Instance.GetCurrentPresets].
+func (o *Extension[T]) GetCurrentPresets() []EditorExportPreset.Instance {
+	return o.Super().AsEditorExportPlatform().GetCurrentPresets()
+}
+
+// SaveZip is promoted from [EditorExportPlatform.Instance.SaveZip].
+func (self Instance) SaveZip(preset EditorExportPreset.Instance, debug bool, path string) EditorExportPlatform.Report {
+	return self.AsEditorExportPlatform().SaveZip(preset, debug, path)
+}
+
+// SaveZip is promoted from [EditorExportPlatform.Instance.SaveZip].
+func (o *Extension[T]) SaveZip(preset EditorExportPreset.Instance, debug bool, path string) EditorExportPlatform.Report {
+	return o.Super().AsEditorExportPlatform().SaveZip(preset, debug, path)
+}
+
+// SavePackPatch is promoted from [EditorExportPlatform.Instance.SavePackPatch].
+func (self Instance) SavePackPatch(preset EditorExportPreset.Instance, debug bool, path string) EditorExportPlatform.Report {
+	return self.AsEditorExportPlatform().SavePackPatch(preset, debug, path)
+}
+
+// SavePackPatch is promoted from [EditorExportPlatform.Instance.SavePackPatch].
+func (o *Extension[T]) SavePackPatch(preset EditorExportPreset.Instance, debug bool, path string) EditorExportPlatform.Report {
+	return o.Super().AsEditorExportPlatform().SavePackPatch(preset, debug, path)
+}
+
+// SaveZipPatch is promoted from [EditorExportPlatform.Instance.SaveZipPatch].
+func (self Instance) SaveZipPatch(preset EditorExportPreset.Instance, debug bool, path string) EditorExportPlatform.Report {
+	return self.AsEditorExportPlatform().SaveZipPatch(preset, debug, path)
+}
+
+// SaveZipPatch is promoted from [EditorExportPlatform.Instance.SaveZipPatch].
+func (o *Extension[T]) SaveZipPatch(preset EditorExportPreset.Instance, debug bool, path string) EditorExportPlatform.Report {
+	return o.Super().AsEditorExportPlatform().SaveZipPatch(preset, debug, path)
+}
+
+// GenExportFlags is promoted from [EditorExportPlatform.Instance.GenExportFlags].
+func (self Instance) GenExportFlags(flags EditorExportPlatform.DebugFlags) []string {
+	return self.AsEditorExportPlatform().GenExportFlags(flags)
+}
+
+// GenExportFlags is promoted from [EditorExportPlatform.Instance.GenExportFlags].
+func (o *Extension[T]) GenExportFlags(flags EditorExportPlatform.DebugFlags) []string {
+	return o.Super().AsEditorExportPlatform().GenExportFlags(flags)
+}
+
+// ClearMessages is promoted from [EditorExportPlatform.Instance.ClearMessages].
+func (self Instance) ClearMessages() {
+	self.AsEditorExportPlatform().ClearMessages()
+}
+
+// ClearMessages is promoted from [EditorExportPlatform.Instance.ClearMessages].
+func (o *Extension[T]) ClearMessages() {
+	o.Super().AsEditorExportPlatform().ClearMessages()
+}
+
+// AddMessage is promoted from [EditorExportPlatform.Instance.AddMessage].
+func (self Instance) AddMessage(atype EditorExportPlatform.ExportMessageType, category string, message string) {
+	self.AsEditorExportPlatform().AddMessage(atype, category, message)
+}
+
+// AddMessage is promoted from [EditorExportPlatform.Instance.AddMessage].
+func (o *Extension[T]) AddMessage(atype EditorExportPlatform.ExportMessageType, category string, message string) {
+	o.Super().AsEditorExportPlatform().AddMessage(atype, category, message)
+}
+
+// GetMessageCount is promoted from [EditorExportPlatform.Instance.GetMessageCount].
+func (self Instance) GetMessageCount() int {
+	return self.AsEditorExportPlatform().GetMessageCount()
+}
+
+// GetMessageCount is promoted from [EditorExportPlatform.Instance.GetMessageCount].
+func (o *Extension[T]) GetMessageCount() int {
+	return o.Super().AsEditorExportPlatform().GetMessageCount()
+}
+
+// GetMessageType is promoted from [EditorExportPlatform.Instance.GetMessageType].
+func (self Instance) GetMessageType(index int) EditorExportPlatform.ExportMessageType {
+	return self.AsEditorExportPlatform().GetMessageType(index)
+}
+
+// GetMessageType is promoted from [EditorExportPlatform.Instance.GetMessageType].
+func (o *Extension[T]) GetMessageType(index int) EditorExportPlatform.ExportMessageType {
+	return o.Super().AsEditorExportPlatform().GetMessageType(index)
+}
+
+// GetMessageCategory is promoted from [EditorExportPlatform.Instance.GetMessageCategory].
+func (self Instance) GetMessageCategory(index int) string {
+	return self.AsEditorExportPlatform().GetMessageCategory(index)
+}
+
+// GetMessageCategory is promoted from [EditorExportPlatform.Instance.GetMessageCategory].
+func (o *Extension[T]) GetMessageCategory(index int) string {
+	return o.Super().AsEditorExportPlatform().GetMessageCategory(index)
+}
+
+// GetMessageText is promoted from [EditorExportPlatform.Instance.GetMessageText].
+func (self Instance) GetMessageText(index int) string {
+	return self.AsEditorExportPlatform().GetMessageText(index)
+}
+
+// GetMessageText is promoted from [EditorExportPlatform.Instance.GetMessageText].
+func (o *Extension[T]) GetMessageText(index int) string {
+	return o.Super().AsEditorExportPlatform().GetMessageText(index)
+}
+
+// GetWorstMessageType is promoted from [EditorExportPlatform.Instance.GetWorstMessageType].
+func (self Instance) GetWorstMessageType() EditorExportPlatform.ExportMessageType {
+	return self.AsEditorExportPlatform().GetWorstMessageType()
+}
+
+// GetWorstMessageType is promoted from [EditorExportPlatform.Instance.GetWorstMessageType].
+func (o *Extension[T]) GetWorstMessageType() EditorExportPlatform.ExportMessageType {
+	return o.Super().AsEditorExportPlatform().GetWorstMessageType()
+}
+
+// SshPushToRemote is promoted from [EditorExportPlatform.Instance.SshPushToRemote].
+func (self Instance) SshPushToRemote(host string, port string, scp_args []string, src_file string, dst_file string) error {
+	return self.AsEditorExportPlatform().SshPushToRemote(host, port, scp_args, src_file, dst_file)
+}
+
+// SshPushToRemote is promoted from [EditorExportPlatform.Instance.SshPushToRemote].
+func (o *Extension[T]) SshPushToRemote(host string, port string, scp_args []string, src_file string, dst_file string) error {
+	return o.Super().AsEditorExportPlatform().SshPushToRemote(host, port, scp_args, src_file, dst_file)
+}
+
+// GetInternalExportFiles is promoted from [EditorExportPlatform.Instance.GetInternalExportFiles].
+func (self Instance) GetInternalExportFiles(preset EditorExportPreset.Instance, debug bool) map[string][]uint8 {
+	return self.AsEditorExportPlatform().GetInternalExportFiles(preset, debug)
+}
+
+// GetInternalExportFiles is promoted from [EditorExportPlatform.Instance.GetInternalExportFiles].
+func (o *Extension[T]) GetInternalExportFiles(preset EditorExportPreset.Instance, debug bool) map[string][]uint8 {
+	return o.Super().AsEditorExportPlatform().GetInternalExportFiles(preset, debug)
+}
+
 func (self class) Virtual(name string) reflect.Value {
 	switch name {
 	default: return gd.VirtualByName(EditorExportPlatformPC.Advanced(self.AsEditorExportPlatformPC()), name)
@@ -168,3 +339,18 @@ func (self Instance) Virtual(name string) reflect.Value {
 	}
 }
 func init() {gdclass.Register("EditorExportPlatformLinuxBSD", func(ptr gdreference.Object) any { return Instance{gdclass.NewEditorExportPlatformLinuxBSD(ptr)} })}
+type File struct {
+Path string `gd:"path"`
+Tags []string `gd:"tags"`
+TargetFolder string `gd:"target_folder"`
+}
+type Report struct {
+Error Error.Code `gd:"result"`
+Files []File `gd:"so_files"`
+EmbeddedStart int `gd:"embedded_start"`
+EmbeddedSize int `gd:"embedded_size"`
+}
+type Template struct {
+Path string `gd:"path"`
+Error string `gd:"error"`
+}

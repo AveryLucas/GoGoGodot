@@ -203,6 +203,22 @@ func (o *Extension[T]) AsOpenXRFrameSynthesisExtension() Instance { return o.Sup
 func (o class) AsOpenXRExtensionWrapper() OpenXRExtensionWrapper.Advanced { return *(*OpenXRExtensionWrapper.Advanced)(ie.As(&o)) }
 func (o *Extension[T]) AsOpenXRExtensionWrapper() OpenXRExtensionWrapper.Instance { return o.Super().AsOpenXRExtensionWrapper() }
 func (o Instance) AsOpenXRExtensionWrapper() OpenXRExtensionWrapper.Instance { return *(*OpenXRExtensionWrapper.Instance)(ie.As(&o)) }
+func (o *Extension[T]) IsAvailable() bool {
+	return o.Super().IsAvailable()
+}
+func (o *Extension[T]) SkipNextFrame() {
+	o.Super().SkipNextFrame()
+}
+
+// RegisterExtensionWrapper is promoted from [OpenXRExtensionWrapper.Instance.RegisterExtensionWrapper].
+func (self Instance) RegisterExtensionWrapper() {
+	self.AsOpenXRExtensionWrapper().RegisterExtensionWrapper()
+}
+
+// RegisterExtensionWrapper is promoted from [OpenXRExtensionWrapper.Instance.RegisterExtensionWrapper].
+func (o *Extension[T]) RegisterExtensionWrapper() {
+	o.Super().AsOpenXRExtensionWrapper().RegisterExtensionWrapper()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

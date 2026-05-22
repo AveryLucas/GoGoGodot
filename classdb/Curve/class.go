@@ -495,6 +495,162 @@ func (self Instance) OnSetupLocalToSceneRequested(cb func(), flags ...Signal.Fla
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("setup_local_to_scene_requested"), gd.NewCallable(cb), int64(flags_together))
 	return self
 }
+func (o *Extension[T]) RemovePoint(index int) {
+	o.Super().RemovePoint(index)
+}
+func (o *Extension[T]) ClearPoints() {
+	o.Super().ClearPoints()
+}
+func (o *Extension[T]) GetPointPosition(index int) Vector2.XY {
+	return o.Super().GetPointPosition(index)
+}
+func (o *Extension[T]) SetPointValue(index int, y Float.X) *Extension[T] {
+	o.Super().SetPointValue(index, y)
+	return o
+}
+func (o *Extension[T]) SetPointOffset(index int, offset Float.X) int {
+	return o.Super().SetPointOffset(index, offset)
+}
+func (o *Extension[T]) Sample(offset Float.X) Float.X {
+	return o.Super().Sample(offset)
+}
+func (o *Extension[T]) SampleBaked(offset Float.X) Float.X {
+	return o.Super().SampleBaked(offset)
+}
+func (o *Extension[T]) GetPointLeftTangent(index int) Float.X {
+	return o.Super().GetPointLeftTangent(index)
+}
+func (o *Extension[T]) GetPointRightTangent(index int) Float.X {
+	return o.Super().GetPointRightTangent(index)
+}
+func (o *Extension[T]) GetPointLeftMode(index int) TangentMode {
+	return o.Super().GetPointLeftMode(index)
+}
+func (o *Extension[T]) GetPointRightMode(index int) TangentMode {
+	return o.Super().GetPointRightMode(index)
+}
+func (o *Extension[T]) SetPointLeftTangent(index int, tangent Float.X) *Extension[T] {
+	o.Super().SetPointLeftTangent(index, tangent)
+	return o
+}
+func (o *Extension[T]) SetPointRightTangent(index int, tangent Float.X) *Extension[T] {
+	o.Super().SetPointRightTangent(index, tangent)
+	return o
+}
+func (o *Extension[T]) SetPointLeftMode(index int, mode TangentMode) *Extension[T] {
+	o.Super().SetPointLeftMode(index, mode)
+	return o
+}
+func (o *Extension[T]) SetPointRightMode(index int, mode TangentMode) *Extension[T] {
+	o.Super().SetPointRightMode(index, mode)
+	return o
+}
+func (o *Extension[T]) GetValueRange() Float.X {
+	return o.Super().GetValueRange()
+}
+func (o *Extension[T]) GetDomainRange() Float.X {
+	return o.Super().GetDomainRange()
+}
+func (o *Extension[T]) CleanDupes() {
+	o.Super().CleanDupes()
+}
+func (o *Extension[T]) Bake() {
+	o.Super().Bake()
+}
+
+// TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
+func (self Instance) TakeOverPath(path string) {
+	self.AsResource().TakeOverPath(path)
+}
+
+// TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
+func (o *Extension[T]) TakeOverPath(path string) {
+	o.Super().AsResource().TakeOverPath(path)
+}
+
+// SetPathCache is promoted from [Resource.Instance.SetPathCache].
+func (self Instance) SetPathCache(path string) Instance {
+	self.AsResource().SetPathCache(path)
+	return self
+}
+
+// SetPathCache is promoted from [Resource.Instance.SetPathCache].
+func (o *Extension[T]) SetPathCache(path string) *Extension[T] {
+	o.Super().AsResource().SetPathCache(path)
+	return o
+}
+
+// GetRid is promoted from [Resource.Instance.GetRid].
+func (self Instance) GetRid() Resource.ID {
+	return self.AsResource().GetRid()
+}
+
+// GetRid is promoted from [Resource.Instance.GetRid].
+func (o *Extension[T]) GetRid() Resource.ID {
+	return o.Super().AsResource().GetRid()
+}
+
+// SetupLocalToScene is promoted from [Resource.Instance.SetupLocalToScene].
+func (self Instance) SetupLocalToScene() {
+	self.AsResource().SetupLocalToScene()
+}
+
+// SetupLocalToScene is promoted from [Resource.Instance.SetupLocalToScene].
+func (o *Extension[T]) SetupLocalToScene() {
+	o.Super().AsResource().SetupLocalToScene()
+}
+
+// ResetState is promoted from [Resource.Instance.ResetState].
+func (self Instance) ResetState() {
+	self.AsResource().ResetState()
+}
+
+// ResetState is promoted from [Resource.Instance.ResetState].
+func (o *Extension[T]) ResetState() {
+	o.Super().AsResource().ResetState()
+}
+
+// SetIdForPath is promoted from [Resource.Instance.SetIdForPath].
+func (self Instance) SetIdForPath(path string, id string) Instance {
+	self.AsResource().SetIdForPath(path, id)
+	return self
+}
+
+// SetIdForPath is promoted from [Resource.Instance.SetIdForPath].
+func (o *Extension[T]) SetIdForPath(path string, id string) *Extension[T] {
+	o.Super().AsResource().SetIdForPath(path, id)
+	return o
+}
+
+// GetIdForPath is promoted from [Resource.Instance.GetIdForPath].
+func (self Instance) GetIdForPath(path string) string {
+	return self.AsResource().GetIdForPath(path)
+}
+
+// GetIdForPath is promoted from [Resource.Instance.GetIdForPath].
+func (o *Extension[T]) GetIdForPath(path string) string {
+	return o.Super().AsResource().GetIdForPath(path)
+}
+
+// IsBuiltIn is promoted from [Resource.Instance.IsBuiltIn].
+func (self Instance) IsBuiltIn() bool {
+	return self.AsResource().IsBuiltIn()
+}
+
+// IsBuiltIn is promoted from [Resource.Instance.IsBuiltIn].
+func (o *Extension[T]) IsBuiltIn() bool {
+	return o.Super().AsResource().IsBuiltIn()
+}
+
+// EmitChanged is promoted from [Resource.Instance.EmitChanged].
+func (self Instance) EmitChanged() {
+	self.AsResource().EmitChanged()
+}
+
+// EmitChanged is promoted from [Resource.Instance.EmitChanged].
+func (o *Extension[T]) EmitChanged() {
+	o.Super().AsResource().EmitChanged()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

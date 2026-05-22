@@ -447,6 +447,173 @@ func (self Instance) OnSetupLocalToSceneRequested(cb func(), flags ...Signal.Fla
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("setup_local_to_scene_requested"), gd.NewCallable(cb), int64(flags_together))
 	return self
 }
+func (o *Extension[T]) GetGroupName(group_idx int) string {
+	return o.Super().GetGroupName(group_idx)
+}
+func (o *Extension[T]) SetGroupName(group_idx int, group_name string) *Extension[T] {
+	o.Super().SetGroupName(group_idx, group_name)
+	return o
+}
+func (o *Extension[T]) GetTexture(group_idx int) Texture2D.Instance {
+	return o.Super().GetTexture(group_idx)
+}
+func (o *Extension[T]) SetTexture(group_idx int, texture Texture2D.Instance) *Extension[T] {
+	o.Super().SetTexture(group_idx, texture)
+	return o
+}
+func (o *Extension[T]) FindBone(bone_name string) int {
+	return o.Super().FindBone(bone_name)
+}
+func (o *Extension[T]) GetBoneName(bone_idx int) string {
+	return o.Super().GetBoneName(bone_idx)
+}
+func (o *Extension[T]) SetBoneName(bone_idx int, bone_name string) *Extension[T] {
+	o.Super().SetBoneName(bone_idx, bone_name)
+	return o
+}
+func (o *Extension[T]) GetBoneParent(bone_idx int) string {
+	return o.Super().GetBoneParent(bone_idx)
+}
+func (o *Extension[T]) SetBoneParent(bone_idx int, bone_parent string) *Extension[T] {
+	o.Super().SetBoneParent(bone_idx, bone_parent)
+	return o
+}
+func (o *Extension[T]) GetTailDirection(bone_idx int) TailDirection {
+	return o.Super().GetTailDirection(bone_idx)
+}
+func (o *Extension[T]) SetTailDirection(bone_idx int, tail_direction TailDirection) *Extension[T] {
+	o.Super().SetTailDirection(bone_idx, tail_direction)
+	return o
+}
+func (o *Extension[T]) GetBoneTail(bone_idx int) string {
+	return o.Super().GetBoneTail(bone_idx)
+}
+func (o *Extension[T]) SetBoneTail(bone_idx int, bone_tail string) *Extension[T] {
+	o.Super().SetBoneTail(bone_idx, bone_tail)
+	return o
+}
+func (o *Extension[T]) GetReferencePose(bone_idx int) Transform3D.BasisOrigin {
+	return o.Super().GetReferencePose(bone_idx)
+}
+func (o *Extension[T]) SetReferencePose(bone_idx int, bone_name Transform3D.BasisOrigin) *Extension[T] {
+	o.Super().SetReferencePose(bone_idx, bone_name)
+	return o
+}
+func (o *Extension[T]) GetHandleOffset(bone_idx int) Vector2.XY {
+	return o.Super().GetHandleOffset(bone_idx)
+}
+func (o *Extension[T]) SetHandleOffset(bone_idx int, handle_offset Vector2.XY) *Extension[T] {
+	o.Super().SetHandleOffset(bone_idx, handle_offset)
+	return o
+}
+func (o *Extension[T]) GetGroup(bone_idx int) string {
+	return o.Super().GetGroup(bone_idx)
+}
+func (o *Extension[T]) SetGroup(bone_idx int, group string) *Extension[T] {
+	o.Super().SetGroup(bone_idx, group)
+	return o
+}
+func (o *Extension[T]) IsRequired(bone_idx int) bool {
+	return o.Super().IsRequired(bone_idx)
+}
+func (o *Extension[T]) SetRequired(bone_idx int, required bool) *Extension[T] {
+	o.Super().SetRequired(bone_idx, required)
+	return o
+}
+
+// TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
+func (self Instance) TakeOverPath(path string) {
+	self.AsResource().TakeOverPath(path)
+}
+
+// TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
+func (o *Extension[T]) TakeOverPath(path string) {
+	o.Super().AsResource().TakeOverPath(path)
+}
+
+// SetPathCache is promoted from [Resource.Instance.SetPathCache].
+func (self Instance) SetPathCache(path string) Instance {
+	self.AsResource().SetPathCache(path)
+	return self
+}
+
+// SetPathCache is promoted from [Resource.Instance.SetPathCache].
+func (o *Extension[T]) SetPathCache(path string) *Extension[T] {
+	o.Super().AsResource().SetPathCache(path)
+	return o
+}
+
+// GetRid is promoted from [Resource.Instance.GetRid].
+func (self Instance) GetRid() Resource.ID {
+	return self.AsResource().GetRid()
+}
+
+// GetRid is promoted from [Resource.Instance.GetRid].
+func (o *Extension[T]) GetRid() Resource.ID {
+	return o.Super().AsResource().GetRid()
+}
+
+// SetupLocalToScene is promoted from [Resource.Instance.SetupLocalToScene].
+func (self Instance) SetupLocalToScene() {
+	self.AsResource().SetupLocalToScene()
+}
+
+// SetupLocalToScene is promoted from [Resource.Instance.SetupLocalToScene].
+func (o *Extension[T]) SetupLocalToScene() {
+	o.Super().AsResource().SetupLocalToScene()
+}
+
+// ResetState is promoted from [Resource.Instance.ResetState].
+func (self Instance) ResetState() {
+	self.AsResource().ResetState()
+}
+
+// ResetState is promoted from [Resource.Instance.ResetState].
+func (o *Extension[T]) ResetState() {
+	o.Super().AsResource().ResetState()
+}
+
+// SetIdForPath is promoted from [Resource.Instance.SetIdForPath].
+func (self Instance) SetIdForPath(path string, id string) Instance {
+	self.AsResource().SetIdForPath(path, id)
+	return self
+}
+
+// SetIdForPath is promoted from [Resource.Instance.SetIdForPath].
+func (o *Extension[T]) SetIdForPath(path string, id string) *Extension[T] {
+	o.Super().AsResource().SetIdForPath(path, id)
+	return o
+}
+
+// GetIdForPath is promoted from [Resource.Instance.GetIdForPath].
+func (self Instance) GetIdForPath(path string) string {
+	return self.AsResource().GetIdForPath(path)
+}
+
+// GetIdForPath is promoted from [Resource.Instance.GetIdForPath].
+func (o *Extension[T]) GetIdForPath(path string) string {
+	return o.Super().AsResource().GetIdForPath(path)
+}
+
+// IsBuiltIn is promoted from [Resource.Instance.IsBuiltIn].
+func (self Instance) IsBuiltIn() bool {
+	return self.AsResource().IsBuiltIn()
+}
+
+// IsBuiltIn is promoted from [Resource.Instance.IsBuiltIn].
+func (o *Extension[T]) IsBuiltIn() bool {
+	return o.Super().AsResource().IsBuiltIn()
+}
+
+// EmitChanged is promoted from [Resource.Instance.EmitChanged].
+func (self Instance) EmitChanged() {
+	self.AsResource().EmitChanged()
+}
+
+// EmitChanged is promoted from [Resource.Instance.EmitChanged].
+func (o *Extension[T]) EmitChanged() {
+	o.Super().AsResource().EmitChanged()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

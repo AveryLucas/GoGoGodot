@@ -1229,6 +1229,349 @@ for _, arg := range args {
 func (o class) AsTreeItem() Advanced { return Advanced(o) }
 func (o Instance) AsTreeItem() Instance { return o }
 func (o *Extension[T]) AsTreeItem() Instance { return o.Super() }
+func (o *Extension[T]) SetCellMode(column int, mode TreeCellMode) *Extension[T] {
+	o.Super().SetCellMode(column, mode)
+	return o
+}
+func (o *Extension[T]) GetCellMode(column int) TreeCellMode {
+	return o.Super().GetCellMode(column)
+}
+func (o *Extension[T]) SetAutoTranslateMode(column int, mode Node.AutoTranslateMode) *Extension[T] {
+	o.Super().SetAutoTranslateMode(column, mode)
+	return o
+}
+func (o *Extension[T]) GetAutoTranslateMode(column int) Node.AutoTranslateMode {
+	return o.Super().GetAutoTranslateMode(column)
+}
+func (o *Extension[T]) SetEditMultiline(column int, multiline bool) *Extension[T] {
+	o.Super().SetEditMultiline(column, multiline)
+	return o
+}
+func (o *Extension[T]) IsEditMultiline(column int) bool {
+	return o.Super().IsEditMultiline(column)
+}
+func (o *Extension[T]) SetChecked(column int, checked bool) *Extension[T] {
+	o.Super().SetChecked(column, checked)
+	return o
+}
+func (o *Extension[T]) SetIndeterminate(column int, indeterminate bool) *Extension[T] {
+	o.Super().SetIndeterminate(column, indeterminate)
+	return o
+}
+func (o *Extension[T]) IsChecked(column int) bool {
+	return o.Super().IsChecked(column)
+}
+func (o *Extension[T]) IsIndeterminate(column int) bool {
+	return o.Super().IsIndeterminate(column)
+}
+func (o *Extension[T]) SetText(column int, text string) *Extension[T] {
+	o.Super().SetText(column, text)
+	return o
+}
+func (o *Extension[T]) GetText(column int) string {
+	return o.Super().GetText(column)
+}
+func (o *Extension[T]) SetDescription(column int, description string) *Extension[T] {
+	o.Super().SetDescription(column, description)
+	return o
+}
+func (o *Extension[T]) GetDescription(column int) string {
+	return o.Super().GetDescription(column)
+}
+func (o *Extension[T]) SetTextDirection(column int, direction Control.TextDirection) *Extension[T] {
+	o.Super().SetTextDirection(column, direction)
+	return o
+}
+func (o *Extension[T]) GetTextDirection(column int) Control.TextDirection {
+	return o.Super().GetTextDirection(column)
+}
+func (o *Extension[T]) SetAutowrapMode(column int, autowrap_mode TextServer.AutowrapMode) *Extension[T] {
+	o.Super().SetAutowrapMode(column, autowrap_mode)
+	return o
+}
+func (o *Extension[T]) GetAutowrapMode(column int) TextServer.AutowrapMode {
+	return o.Super().GetAutowrapMode(column)
+}
+func (o *Extension[T]) SetTextOverrunBehavior(column int, overrun_behavior TextServer.OverrunBehavior) *Extension[T] {
+	o.Super().SetTextOverrunBehavior(column, overrun_behavior)
+	return o
+}
+func (o *Extension[T]) GetTextOverrunBehavior(column int) TextServer.OverrunBehavior {
+	return o.Super().GetTextOverrunBehavior(column)
+}
+func (o *Extension[T]) SetStructuredTextBidiOverride(column int, parser TextServer.StructuredTextParser) *Extension[T] {
+	o.Super().SetStructuredTextBidiOverride(column, parser)
+	return o
+}
+func (o *Extension[T]) GetStructuredTextBidiOverride(column int) TextServer.StructuredTextParser {
+	return o.Super().GetStructuredTextBidiOverride(column)
+}
+func (o *Extension[T]) SetStructuredTextBidiOverrideOptions(column int, args []any) *Extension[T] {
+	o.Super().SetStructuredTextBidiOverrideOptions(column, args)
+	return o
+}
+func (o *Extension[T]) GetStructuredTextBidiOverrideOptions(column int) []any {
+	return o.Super().GetStructuredTextBidiOverrideOptions(column)
+}
+func (o *Extension[T]) SetLanguage(column int, language string) *Extension[T] {
+	o.Super().SetLanguage(column, language)
+	return o
+}
+func (o *Extension[T]) GetLanguage(column int) string {
+	return o.Super().GetLanguage(column)
+}
+func (o *Extension[T]) SetSuffix(column int, text string) *Extension[T] {
+	o.Super().SetSuffix(column, text)
+	return o
+}
+func (o *Extension[T]) GetSuffix(column int) string {
+	return o.Super().GetSuffix(column)
+}
+func (o *Extension[T]) SetIcon(column int, texture Texture2D.Instance) *Extension[T] {
+	o.Super().SetIcon(column, texture)
+	return o
+}
+func (o *Extension[T]) GetIcon(column int) Texture2D.Instance {
+	return o.Super().GetIcon(column)
+}
+func (o *Extension[T]) SetIconOverlay(column int, texture Texture2D.Instance) *Extension[T] {
+	o.Super().SetIconOverlay(column, texture)
+	return o
+}
+func (o *Extension[T]) GetIconOverlay(column int) Texture2D.Instance {
+	return o.Super().GetIconOverlay(column)
+}
+func (o *Extension[T]) SetIconRegion(column int, region Rect2.PositionSize) *Extension[T] {
+	o.Super().SetIconRegion(column, region)
+	return o
+}
+func (o *Extension[T]) GetIconRegion(column int) Rect2.PositionSize {
+	return o.Super().GetIconRegion(column)
+}
+func (o *Extension[T]) SetIconMaxWidth(column int, width int) *Extension[T] {
+	o.Super().SetIconMaxWidth(column, width)
+	return o
+}
+func (o *Extension[T]) GetIconMaxWidth(column int) int {
+	return o.Super().GetIconMaxWidth(column)
+}
+func (o *Extension[T]) SetIconModulate(column int, modulate Color.RGBA) *Extension[T] {
+	o.Super().SetIconModulate(column, modulate)
+	return o
+}
+func (o *Extension[T]) GetIconModulate(column int) Color.RGBA {
+	return o.Super().GetIconModulate(column)
+}
+func (o *Extension[T]) SetRange(column int, value Float.X) *Extension[T] {
+	o.Super().SetRange(column, value)
+	return o
+}
+func (o *Extension[T]) GetRange(column int) Float.X {
+	return o.Super().GetRange(column)
+}
+func (o *Extension[T]) GetRangeConfig(column int) RangeConfig {
+	return o.Super().GetRangeConfig(column)
+}
+func (o *Extension[T]) SetMetadata(column int, meta any) *Extension[T] {
+	o.Super().SetMetadata(column, meta)
+	return o
+}
+func (o *Extension[T]) GetMetadata(column int) any {
+	return o.Super().GetMetadata(column)
+}
+func (o *Extension[T]) SetCustomDraw(column int, obj Object.Instance, callback string) *Extension[T] {
+	o.Super().SetCustomDraw(column, obj, callback)
+	return o
+}
+func (o *Extension[T]) SetCustomDrawCallback(column int, callback func(item Instance, rect Rect2.PositionSize)) *Extension[T] {
+	o.Super().SetCustomDrawCallback(column, callback)
+	return o
+}
+func (o *Extension[T]) GetCustomDrawCallback(column int) Callable.Function {
+	return o.Super().GetCustomDrawCallback(column)
+}
+func (o *Extension[T]) SetCustomStylebox(column int, stylebox StyleBox.Instance) *Extension[T] {
+	o.Super().SetCustomStylebox(column, stylebox)
+	return o
+}
+func (o *Extension[T]) GetCustomStylebox(column int) StyleBox.Instance {
+	return o.Super().GetCustomStylebox(column)
+}
+func (o *Extension[T]) SetCollapsedRecursive(enable bool) *Extension[T] {
+	o.Super().SetCollapsedRecursive(enable)
+	return o
+}
+func (o *Extension[T]) IsVisibleInTree() bool {
+	return o.Super().IsVisibleInTree()
+}
+func (o *Extension[T]) UncollapseTree() {
+	o.Super().UncollapseTree()
+}
+func (o *Extension[T]) SetSelectable(column int, selectable bool) *Extension[T] {
+	o.Super().SetSelectable(column, selectable)
+	return o
+}
+func (o *Extension[T]) IsSelectable(column int) bool {
+	return o.Super().IsSelectable(column)
+}
+func (o *Extension[T]) IsSelected(column int) bool {
+	return o.Super().IsSelected(column)
+}
+func (o *Extension[T]) Select(column int) {
+	o.Super().Select(column)
+}
+func (o *Extension[T]) Deselect(column int) {
+	o.Super().Deselect(column)
+}
+func (o *Extension[T]) SetEditable(column int, enabled bool) *Extension[T] {
+	o.Super().SetEditable(column, enabled)
+	return o
+}
+func (o *Extension[T]) IsEditable(column int) bool {
+	return o.Super().IsEditable(column)
+}
+func (o *Extension[T]) SetCustomColor(column int, color Color.RGBA) *Extension[T] {
+	o.Super().SetCustomColor(column, color)
+	return o
+}
+func (o *Extension[T]) GetCustomColor(column int) Color.RGBA {
+	return o.Super().GetCustomColor(column)
+}
+func (o *Extension[T]) ClearCustomColor(column int) {
+	o.Super().ClearCustomColor(column)
+}
+func (o *Extension[T]) SetCustomFont(column int, font Font.Instance) *Extension[T] {
+	o.Super().SetCustomFont(column, font)
+	return o
+}
+func (o *Extension[T]) GetCustomFont(column int) Font.Instance {
+	return o.Super().GetCustomFont(column)
+}
+func (o *Extension[T]) SetCustomFontSize(column int, font_size int) *Extension[T] {
+	o.Super().SetCustomFontSize(column, font_size)
+	return o
+}
+func (o *Extension[T]) GetCustomFontSize(column int) int {
+	return o.Super().GetCustomFontSize(column)
+}
+func (o *Extension[T]) ClearCustomBgColor(column int) {
+	o.Super().ClearCustomBgColor(column)
+}
+func (o *Extension[T]) GetCustomBgColor(column int) Color.RGBA {
+	return o.Super().GetCustomBgColor(column)
+}
+func (o *Extension[T]) SetCustomAsButton(column int, enable bool) *Extension[T] {
+	o.Super().SetCustomAsButton(column, enable)
+	return o
+}
+func (o *Extension[T]) IsCustomSetAsButton(column int) bool {
+	return o.Super().IsCustomSetAsButton(column)
+}
+func (o *Extension[T]) ClearButtons() {
+	o.Super().ClearButtons()
+}
+func (o *Extension[T]) GetButtonCount(column int) int {
+	return o.Super().GetButtonCount(column)
+}
+func (o *Extension[T]) GetButtonTooltipText(column int, button_index int) string {
+	return o.Super().GetButtonTooltipText(column, button_index)
+}
+func (o *Extension[T]) GetButtonId(column int, button_index int) int {
+	return o.Super().GetButtonId(column, button_index)
+}
+func (o *Extension[T]) GetButtonById(column int, id int) int {
+	return o.Super().GetButtonById(column, id)
+}
+func (o *Extension[T]) GetButtonColor(column int, id int) Color.RGBA {
+	return o.Super().GetButtonColor(column, id)
+}
+func (o *Extension[T]) GetButton(column int, button_index int) Texture2D.Instance {
+	return o.Super().GetButton(column, button_index)
+}
+func (o *Extension[T]) SetButtonTooltipText(column int, button_index int, tooltip string) *Extension[T] {
+	o.Super().SetButtonTooltipText(column, button_index, tooltip)
+	return o
+}
+func (o *Extension[T]) SetButton(column int, button_index int, button Texture2D.Instance) *Extension[T] {
+	o.Super().SetButton(column, button_index, button)
+	return o
+}
+func (o *Extension[T]) EraseButton(column int, button_index int) {
+	o.Super().EraseButton(column, button_index)
+}
+func (o *Extension[T]) SetButtonDescription(column int, button_index int, description string) *Extension[T] {
+	o.Super().SetButtonDescription(column, button_index, description)
+	return o
+}
+func (o *Extension[T]) SetButtonDisabled(column int, button_index int, disabled bool) *Extension[T] {
+	o.Super().SetButtonDisabled(column, button_index, disabled)
+	return o
+}
+func (o *Extension[T]) SetButtonColor(column int, button_index int, color Color.RGBA) *Extension[T] {
+	o.Super().SetButtonColor(column, button_index, color)
+	return o
+}
+func (o *Extension[T]) IsButtonDisabled(column int, button_index int) bool {
+	return o.Super().IsButtonDisabled(column, button_index)
+}
+func (o *Extension[T]) SetTooltipText(column int, tooltip string) *Extension[T] {
+	o.Super().SetTooltipText(column, tooltip)
+	return o
+}
+func (o *Extension[T]) GetTooltipText(column int) string {
+	return o.Super().GetTooltipText(column)
+}
+func (o *Extension[T]) SetTextAlignment(column int, text_alignment GUI.HorizontalAlignment) *Extension[T] {
+	o.Super().SetTextAlignment(column, text_alignment)
+	return o
+}
+func (o *Extension[T]) GetTextAlignment(column int) GUI.HorizontalAlignment {
+	return o.Super().GetTextAlignment(column)
+}
+func (o *Extension[T]) SetExpandRight(column int, enable bool) *Extension[T] {
+	o.Super().SetExpandRight(column, enable)
+	return o
+}
+func (o *Extension[T]) GetExpandRight(column int) bool {
+	return o.Super().GetExpandRight(column)
+}
+func (o *Extension[T]) AddChild(child Instance) *Extension[T] {
+	o.Super().AddChild(child)
+	return o
+}
+func (o *Extension[T]) RemoveChild(child Instance) {
+	o.Super().RemoveChild(child)
+}
+func (o *Extension[T]) GetNext() Instance {
+	return o.Super().GetNext()
+}
+func (o *Extension[T]) GetPrev() Instance {
+	return o.Super().GetPrev()
+}
+func (o *Extension[T]) GetParent() Instance {
+	return o.Super().GetParent()
+}
+func (o *Extension[T]) GetFirstChild() Instance {
+	return o.Super().GetFirstChild()
+}
+func (o *Extension[T]) GetChild(index int) Instance {
+	return o.Super().GetChild(index)
+}
+func (o *Extension[T]) GetChildCount() int {
+	return o.Super().GetChildCount()
+}
+func (o *Extension[T]) GetChildren() []Instance {
+	return o.Super().GetChildren()
+}
+func (o *Extension[T]) GetIndex() int {
+	return o.Super().GetIndex()
+}
+func (o *Extension[T]) MoveBefore(item Instance) {
+	o.Super().MoveBefore(item)
+}
+func (o *Extension[T]) MoveAfter(item Instance) {
+	o.Super().MoveAfter(item)
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

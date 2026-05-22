@@ -462,6 +462,101 @@ func (self Instance) OnServerDisconnected(cb func(), flags ...Signal.Flags) Inst
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("server_disconnected"), gd.NewCallable(cb), int64(flags_together))
 	return self
 }
+func (o *Extension[T]) Clear() {
+	o.Super().Clear()
+}
+func (o *Extension[T]) DisconnectPeer(id int) {
+	o.Super().DisconnectPeer(id)
+}
+func (o *Extension[T]) GetAuthenticatingPeers() []int32 {
+	return o.Super().GetAuthenticatingPeers()
+}
+func (o *Extension[T]) SendAuth(id int, data []byte) error {
+	return o.Super().SendAuth(id, data)
+}
+func (o *Extension[T]) CompleteAuth(id int) error {
+	return o.Super().CompleteAuth(id)
+}
+
+// HasMultiplayerPeer is promoted from [MultiplayerAPI.Instance.HasMultiplayerPeer].
+func (self Instance) HasMultiplayerPeer() bool {
+	return self.AsMultiplayerAPI().HasMultiplayerPeer()
+}
+
+// HasMultiplayerPeer is promoted from [MultiplayerAPI.Instance.HasMultiplayerPeer].
+func (o *Extension[T]) HasMultiplayerPeer() bool {
+	return o.Super().AsMultiplayerAPI().HasMultiplayerPeer()
+}
+
+// GetUniqueId is promoted from [MultiplayerAPI.Instance.GetUniqueId].
+func (self Instance) GetUniqueId() int {
+	return self.AsMultiplayerAPI().GetUniqueId()
+}
+
+// GetUniqueId is promoted from [MultiplayerAPI.Instance.GetUniqueId].
+func (o *Extension[T]) GetUniqueId() int {
+	return o.Super().AsMultiplayerAPI().GetUniqueId()
+}
+
+// IsServer is promoted from [MultiplayerAPI.Instance.IsServer].
+func (self Instance) IsServer() bool {
+	return self.AsMultiplayerAPI().IsServer()
+}
+
+// IsServer is promoted from [MultiplayerAPI.Instance.IsServer].
+func (o *Extension[T]) IsServer() bool {
+	return o.Super().AsMultiplayerAPI().IsServer()
+}
+
+// GetRemoteSenderId is promoted from [MultiplayerAPI.Instance.GetRemoteSenderId].
+func (self Instance) GetRemoteSenderId() int {
+	return self.AsMultiplayerAPI().GetRemoteSenderId()
+}
+
+// GetRemoteSenderId is promoted from [MultiplayerAPI.Instance.GetRemoteSenderId].
+func (o *Extension[T]) GetRemoteSenderId() int {
+	return o.Super().AsMultiplayerAPI().GetRemoteSenderId()
+}
+
+// Poll is promoted from [MultiplayerAPI.Instance.Poll].
+func (self Instance) Poll() error {
+	return self.AsMultiplayerAPI().Poll()
+}
+
+// Poll is promoted from [MultiplayerAPI.Instance.Poll].
+func (o *Extension[T]) Poll() error {
+	return o.Super().AsMultiplayerAPI().Poll()
+}
+
+// ObjectConfigurationAdd is promoted from [MultiplayerAPI.Instance.ObjectConfigurationAdd].
+func (self Instance) ObjectConfigurationAdd(obj Object.Instance, configuration any) error {
+	return self.AsMultiplayerAPI().ObjectConfigurationAdd(obj, configuration)
+}
+
+// ObjectConfigurationAdd is promoted from [MultiplayerAPI.Instance.ObjectConfigurationAdd].
+func (o *Extension[T]) ObjectConfigurationAdd(obj Object.Instance, configuration any) error {
+	return o.Super().AsMultiplayerAPI().ObjectConfigurationAdd(obj, configuration)
+}
+
+// ObjectConfigurationRemove is promoted from [MultiplayerAPI.Instance.ObjectConfigurationRemove].
+func (self Instance) ObjectConfigurationRemove(obj Object.Instance, configuration any) error {
+	return self.AsMultiplayerAPI().ObjectConfigurationRemove(obj, configuration)
+}
+
+// ObjectConfigurationRemove is promoted from [MultiplayerAPI.Instance.ObjectConfigurationRemove].
+func (o *Extension[T]) ObjectConfigurationRemove(obj Object.Instance, configuration any) error {
+	return o.Super().AsMultiplayerAPI().ObjectConfigurationRemove(obj, configuration)
+}
+
+// GetPeers is promoted from [MultiplayerAPI.Instance.GetPeers].
+func (self Instance) GetPeers() []int32 {
+	return self.AsMultiplayerAPI().GetPeers()
+}
+
+// GetPeers is promoted from [MultiplayerAPI.Instance.GetPeers].
+func (o *Extension[T]) GetPeers() []int32 {
+	return o.Super().AsMultiplayerAPI().GetPeers()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

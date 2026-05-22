@@ -443,6 +443,283 @@ func (self Instance) OnSetupLocalToSceneRequested(cb func(), flags ...Signal.Fla
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("setup_local_to_scene_requested"), gd.NewCallable(cb), int64(flags_together))
 	return self
 }
+func (o *Extension[T]) ReplaceNode(name string, node AnimationNode.Instance) {
+	o.Super().ReplaceNode(name, node)
+}
+func (o *Extension[T]) GetNode(name string) AnimationNode.Instance {
+	return o.Super().GetNode(name)
+}
+func (o *Extension[T]) RemoveNode(name string) {
+	o.Super().RemoveNode(name)
+}
+func (o *Extension[T]) RenameNode(name string, new_name string) {
+	o.Super().RenameNode(name, new_name)
+}
+func (o *Extension[T]) HasNode(name string) bool {
+	return o.Super().HasNode(name)
+}
+func (o *Extension[T]) GetNodeName(node AnimationNode.Instance) string {
+	return o.Super().GetNodeName(node)
+}
+func (o *Extension[T]) GetNodeList() []string {
+	return o.Super().GetNodeList()
+}
+func (o *Extension[T]) SetNodePosition(name string, position Vector2.XY) *Extension[T] {
+	o.Super().SetNodePosition(name, position)
+	return o
+}
+func (o *Extension[T]) GetNodePosition(name string) Vector2.XY {
+	return o.Super().GetNodePosition(name)
+}
+func (o *Extension[T]) HasTransition(from string, to string) bool {
+	return o.Super().HasTransition(from, to)
+}
+func (o *Extension[T]) AddTransition(from string, to string, transition AnimationNodeStateMachineTransition.Instance) {
+	o.Super().AddTransition(from, to, transition)
+}
+func (o *Extension[T]) GetTransition(idx int) AnimationNodeStateMachineTransition.Instance {
+	return o.Super().GetTransition(idx)
+}
+func (o *Extension[T]) GetTransitionFrom(idx int) string {
+	return o.Super().GetTransitionFrom(idx)
+}
+func (o *Extension[T]) GetTransitionTo(idx int) string {
+	return o.Super().GetTransitionTo(idx)
+}
+func (o *Extension[T]) GetTransitionCount() int {
+	return o.Super().GetTransitionCount()
+}
+func (o *Extension[T]) RemoveTransitionByIndex(idx int) {
+	o.Super().RemoveTransitionByIndex(idx)
+}
+func (o *Extension[T]) RemoveTransition(from string, to string) {
+	o.Super().RemoveTransition(from, to)
+}
+func (o *Extension[T]) SetGraphOffset(offset Vector2.XY) *Extension[T] {
+	o.Super().SetGraphOffset(offset)
+	return o
+}
+func (o *Extension[T]) GetGraphOffset() Vector2.XY {
+	return o.Super().GetGraphOffset()
+}
+
+// AddInput is promoted from [AnimationNode.Instance.AddInput].
+func (self Instance) AddInput(name string) bool {
+	return self.AsAnimationNode().AddInput(name)
+}
+
+// AddInput is promoted from [AnimationNode.Instance.AddInput].
+func (o *Extension[T]) AddInput(name string) bool {
+	return o.Super().AsAnimationNode().AddInput(name)
+}
+
+// RemoveInput is promoted from [AnimationNode.Instance.RemoveInput].
+func (self Instance) RemoveInput(index int) {
+	self.AsAnimationNode().RemoveInput(index)
+}
+
+// RemoveInput is promoted from [AnimationNode.Instance.RemoveInput].
+func (o *Extension[T]) RemoveInput(index int) {
+	o.Super().AsAnimationNode().RemoveInput(index)
+}
+
+// SetInputName is promoted from [AnimationNode.Instance.SetInputName].
+func (self Instance) SetInputName(input int, name string) bool {
+	return self.AsAnimationNode().SetInputName(input, name)
+}
+
+// SetInputName is promoted from [AnimationNode.Instance.SetInputName].
+func (o *Extension[T]) SetInputName(input int, name string) bool {
+	return o.Super().AsAnimationNode().SetInputName(input, name)
+}
+
+// GetInputName is promoted from [AnimationNode.Instance.GetInputName].
+func (self Instance) GetInputName(input int) string {
+	return self.AsAnimationNode().GetInputName(input)
+}
+
+// GetInputName is promoted from [AnimationNode.Instance.GetInputName].
+func (o *Extension[T]) GetInputName(input int) string {
+	return o.Super().AsAnimationNode().GetInputName(input)
+}
+
+// GetInputCount is promoted from [AnimationNode.Instance.GetInputCount].
+func (self Instance) GetInputCount() int {
+	return self.AsAnimationNode().GetInputCount()
+}
+
+// GetInputCount is promoted from [AnimationNode.Instance.GetInputCount].
+func (o *Extension[T]) GetInputCount() int {
+	return o.Super().AsAnimationNode().GetInputCount()
+}
+
+// FindInput is promoted from [AnimationNode.Instance.FindInput].
+func (self Instance) FindInput(name string) int {
+	return self.AsAnimationNode().FindInput(name)
+}
+
+// FindInput is promoted from [AnimationNode.Instance.FindInput].
+func (o *Extension[T]) FindInput(name string) int {
+	return o.Super().AsAnimationNode().FindInput(name)
+}
+
+// SetFilterPath is promoted from [AnimationNode.Instance.SetFilterPath].
+func (self Instance) SetFilterPath(path string, enable bool) Instance {
+	self.AsAnimationNode().SetFilterPath(path, enable)
+	return self
+}
+
+// SetFilterPath is promoted from [AnimationNode.Instance.SetFilterPath].
+func (o *Extension[T]) SetFilterPath(path string, enable bool) *Extension[T] {
+	o.Super().AsAnimationNode().SetFilterPath(path, enable)
+	return o
+}
+
+// IsPathFiltered is promoted from [AnimationNode.Instance.IsPathFiltered].
+func (self Instance) IsPathFiltered(path string) bool {
+	return self.AsAnimationNode().IsPathFiltered(path)
+}
+
+// IsPathFiltered is promoted from [AnimationNode.Instance.IsPathFiltered].
+func (o *Extension[T]) IsPathFiltered(path string) bool {
+	return o.Super().AsAnimationNode().IsPathFiltered(path)
+}
+
+// GetProcessingAnimationTreeInstanceId is promoted from [AnimationNode.Instance.GetProcessingAnimationTreeInstanceId].
+func (self Instance) GetProcessingAnimationTreeInstanceId() int {
+	return self.AsAnimationNode().GetProcessingAnimationTreeInstanceId()
+}
+
+// GetProcessingAnimationTreeInstanceId is promoted from [AnimationNode.Instance.GetProcessingAnimationTreeInstanceId].
+func (o *Extension[T]) GetProcessingAnimationTreeInstanceId() int {
+	return o.Super().AsAnimationNode().GetProcessingAnimationTreeInstanceId()
+}
+
+// IsProcessTesting is promoted from [AnimationNode.Instance.IsProcessTesting].
+func (self Instance) IsProcessTesting() bool {
+	return self.AsAnimationNode().IsProcessTesting()
+}
+
+// IsProcessTesting is promoted from [AnimationNode.Instance.IsProcessTesting].
+func (o *Extension[T]) IsProcessTesting() bool {
+	return o.Super().AsAnimationNode().IsProcessTesting()
+}
+
+// SetParameter is promoted from [AnimationNode.Instance.SetParameter].
+func (self Instance) SetParameter(name string, value any) Instance {
+	self.AsAnimationNode().SetParameter(name, value)
+	return self
+}
+
+// SetParameter is promoted from [AnimationNode.Instance.SetParameter].
+func (o *Extension[T]) SetParameter(name string, value any) *Extension[T] {
+	o.Super().AsAnimationNode().SetParameter(name, value)
+	return o
+}
+
+// GetParameter is promoted from [AnimationNode.Instance.GetParameter].
+func (self Instance) GetParameter(name string) any {
+	return self.AsAnimationNode().GetParameter(name)
+}
+
+// GetParameter is promoted from [AnimationNode.Instance.GetParameter].
+func (o *Extension[T]) GetParameter(name string) any {
+	return o.Super().AsAnimationNode().GetParameter(name)
+}
+
+// TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
+func (self Instance) TakeOverPath(path string) {
+	self.AsResource().TakeOverPath(path)
+}
+
+// TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
+func (o *Extension[T]) TakeOverPath(path string) {
+	o.Super().AsResource().TakeOverPath(path)
+}
+
+// SetPathCache is promoted from [Resource.Instance.SetPathCache].
+func (self Instance) SetPathCache(path string) Instance {
+	self.AsResource().SetPathCache(path)
+	return self
+}
+
+// SetPathCache is promoted from [Resource.Instance.SetPathCache].
+func (o *Extension[T]) SetPathCache(path string) *Extension[T] {
+	o.Super().AsResource().SetPathCache(path)
+	return o
+}
+
+// GetRid is promoted from [Resource.Instance.GetRid].
+func (self Instance) GetRid() Resource.ID {
+	return self.AsResource().GetRid()
+}
+
+// GetRid is promoted from [Resource.Instance.GetRid].
+func (o *Extension[T]) GetRid() Resource.ID {
+	return o.Super().AsResource().GetRid()
+}
+
+// SetupLocalToScene is promoted from [Resource.Instance.SetupLocalToScene].
+func (self Instance) SetupLocalToScene() {
+	self.AsResource().SetupLocalToScene()
+}
+
+// SetupLocalToScene is promoted from [Resource.Instance.SetupLocalToScene].
+func (o *Extension[T]) SetupLocalToScene() {
+	o.Super().AsResource().SetupLocalToScene()
+}
+
+// ResetState is promoted from [Resource.Instance.ResetState].
+func (self Instance) ResetState() {
+	self.AsResource().ResetState()
+}
+
+// ResetState is promoted from [Resource.Instance.ResetState].
+func (o *Extension[T]) ResetState() {
+	o.Super().AsResource().ResetState()
+}
+
+// SetIdForPath is promoted from [Resource.Instance.SetIdForPath].
+func (self Instance) SetIdForPath(path string, id string) Instance {
+	self.AsResource().SetIdForPath(path, id)
+	return self
+}
+
+// SetIdForPath is promoted from [Resource.Instance.SetIdForPath].
+func (o *Extension[T]) SetIdForPath(path string, id string) *Extension[T] {
+	o.Super().AsResource().SetIdForPath(path, id)
+	return o
+}
+
+// GetIdForPath is promoted from [Resource.Instance.GetIdForPath].
+func (self Instance) GetIdForPath(path string) string {
+	return self.AsResource().GetIdForPath(path)
+}
+
+// GetIdForPath is promoted from [Resource.Instance.GetIdForPath].
+func (o *Extension[T]) GetIdForPath(path string) string {
+	return o.Super().AsResource().GetIdForPath(path)
+}
+
+// IsBuiltIn is promoted from [Resource.Instance.IsBuiltIn].
+func (self Instance) IsBuiltIn() bool {
+	return self.AsResource().IsBuiltIn()
+}
+
+// IsBuiltIn is promoted from [Resource.Instance.IsBuiltIn].
+func (o *Extension[T]) IsBuiltIn() bool {
+	return o.Super().AsResource().IsBuiltIn()
+}
+
+// EmitChanged is promoted from [Resource.Instance.EmitChanged].
+func (self Instance) EmitChanged() {
+	self.AsResource().EmitChanged()
+}
+
+// EmitChanged is promoted from [Resource.Instance.EmitChanged].
+func (o *Extension[T]) EmitChanged() {
+	o.Super().AsResource().EmitChanged()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

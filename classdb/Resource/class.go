@@ -440,6 +440,35 @@ func (o *Extension[T]) AsResource() Instance { return o.Super() }
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) TakeOverPath(path string) {
+	o.Super().TakeOverPath(path)
+}
+func (o *Extension[T]) SetPathCache(path string) *Extension[T] {
+	o.Super().SetPathCache(path)
+	return o
+}
+func (o *Extension[T]) GetRid() ID {
+	return o.Super().GetRid()
+}
+func (o *Extension[T]) SetupLocalToScene() {
+	o.Super().SetupLocalToScene()
+}
+func (o *Extension[T]) ResetState() {
+	o.Super().ResetState()
+}
+func (o *Extension[T]) SetIdForPath(path string, id string) *Extension[T] {
+	o.Super().SetIdForPath(path, id)
+	return o
+}
+func (o *Extension[T]) GetIdForPath(path string) string {
+	return o.Super().GetIdForPath(path)
+}
+func (o *Extension[T]) IsBuiltIn() bool {
+	return o.Super().IsBuiltIn()
+}
+func (o *Extension[T]) EmitChanged() {
+	o.Super().EmitChanged()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

@@ -548,6 +548,151 @@ func (o *Extension[T]) AsOpenXRAPIExtension() Instance { return o.Super() }
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) GetOpenxrVersion() int {
+	return o.Super().GetOpenxrVersion()
+}
+func (o *Extension[T]) GetInstance() int {
+	return o.Super().GetInstance()
+}
+func (o *Extension[T]) GetSystemId() int {
+	return o.Super().GetSystemId()
+}
+func (o *Extension[T]) GetSession() int {
+	return o.Super().GetSession()
+}
+func (o *Extension[T]) TransformFromPose(pose Engine.Pointer[OpenXR.Posef]) Transform3D.BasisOrigin {
+	return o.Super().TransformFromPose(pose)
+}
+func (o *Extension[T]) XrResult(result int, format string, args []any) bool {
+	return o.Super().XrResult(result, format, args)
+}
+func (o *Extension[T]) GetInstanceProcAddr(name string) int {
+	return o.Super().GetInstanceProcAddr(name)
+}
+func (o *Extension[T]) GetErrorString(result int) string {
+	return o.Super().GetErrorString(result)
+}
+func (o *Extension[T]) GetSwapchainFormatName(swapchain_format int) string {
+	return o.Super().GetSwapchainFormatName(swapchain_format)
+}
+func (o *Extension[T]) SetObjectName(object_type int, object_handle int, object_name string) *Extension[T] {
+	o.Super().SetObjectName(object_type, object_handle, object_name)
+	return o
+}
+func (o *Extension[T]) BeginDebugLabelRegion(label_name string) {
+	o.Super().BeginDebugLabelRegion(label_name)
+}
+func (o *Extension[T]) EndDebugLabelRegion() {
+	o.Super().EndDebugLabelRegion()
+}
+func (o *Extension[T]) InsertDebugLabel(label_name string) {
+	o.Super().InsertDebugLabel(label_name)
+}
+func (o *Extension[T]) IsInitialized() bool {
+	return o.Super().IsInitialized()
+}
+func (o *Extension[T]) IsRunning() bool {
+	return o.Super().IsRunning()
+}
+func (o *Extension[T]) SetCustomPlaySpace(space uintptr) *Extension[T] {
+	o.Super().SetCustomPlaySpace(space)
+	return o
+}
+func (o *Extension[T]) GetPlaySpace() int {
+	return o.Super().GetPlaySpace()
+}
+func (o *Extension[T]) GetPredictedDisplayTime() int {
+	return o.Super().GetPredictedDisplayTime()
+}
+func (o *Extension[T]) GetNextFrameTime() int {
+	return o.Super().GetNextFrameTime()
+}
+func (o *Extension[T]) CanRender() bool {
+	return o.Super().CanRender()
+}
+func (o *Extension[T]) FindAction(name string, action_set RID.ActionSet) RID.Action {
+	return o.Super().FindAction(name, action_set)
+}
+func (o *Extension[T]) ActionGetHandle(action RID.Action) int {
+	return o.Super().ActionGetHandle(action)
+}
+func (o *Extension[T]) GetHandTracker(hand_index int) int {
+	return o.Super().GetHandTracker(hand_index)
+}
+func (o *Extension[T]) RegisterCompositionLayerProvider(extension OpenXRExtensionWrapper.Instance) {
+	o.Super().RegisterCompositionLayerProvider(extension)
+}
+func (o *Extension[T]) UnregisterCompositionLayerProvider(extension OpenXRExtensionWrapper.Instance) {
+	o.Super().UnregisterCompositionLayerProvider(extension)
+}
+func (o *Extension[T]) RegisterProjectionViewsExtension(extension OpenXRExtensionWrapper.Instance) {
+	o.Super().RegisterProjectionViewsExtension(extension)
+}
+func (o *Extension[T]) UnregisterProjectionViewsExtension(extension OpenXRExtensionWrapper.Instance) {
+	o.Super().UnregisterProjectionViewsExtension(extension)
+}
+func (o *Extension[T]) RegisterFrameInfoExtension(extension OpenXRExtensionWrapper.Instance) {
+	o.Super().RegisterFrameInfoExtension(extension)
+}
+func (o *Extension[T]) UnregisterFrameInfoExtension(extension OpenXRExtensionWrapper.Instance) {
+	o.Super().UnregisterFrameInfoExtension(extension)
+}
+func (o *Extension[T]) GetRenderStateZNear() Float.X {
+	return o.Super().GetRenderStateZNear()
+}
+func (o *Extension[T]) GetRenderStateZFar() Float.X {
+	return o.Super().GetRenderStateZFar()
+}
+func (o *Extension[T]) SetVelocityTexture(render_target RID.Framebuffer) *Extension[T] {
+	o.Super().SetVelocityTexture(render_target)
+	return o
+}
+func (o *Extension[T]) SetVelocityDepthTexture(render_target RID.Framebuffer) *Extension[T] {
+	o.Super().SetVelocityDepthTexture(render_target)
+	return o
+}
+func (o *Extension[T]) SetVelocityTargetSize(target_size Vector2i.XY) *Extension[T] {
+	o.Super().SetVelocityTargetSize(target_size)
+	return o
+}
+func (o *Extension[T]) GetSupportedSwapchainFormats() []int64 {
+	return o.Super().GetSupportedSwapchainFormats()
+}
+func (o *Extension[T]) OpenxrSwapchainCreate(create_flags int, usage_flags int, swapchain_format int, width int, height int, sample_count int, array_size int) int {
+	return o.Super().OpenxrSwapchainCreate(create_flags, usage_flags, swapchain_format, width, height, sample_count, array_size)
+}
+func (o *Extension[T]) OpenxrSwapchainFree(swapchain int) {
+	o.Super().OpenxrSwapchainFree(swapchain)
+}
+func (o *Extension[T]) OpenxrSwapchainGetSwapchain(swapchain int) int {
+	return o.Super().OpenxrSwapchainGetSwapchain(swapchain)
+}
+func (o *Extension[T]) OpenxrSwapchainAcquire(swapchain int) {
+	o.Super().OpenxrSwapchainAcquire(swapchain)
+}
+func (o *Extension[T]) OpenxrSwapchainGetImage(swapchain int) RID.Texture {
+	return o.Super().OpenxrSwapchainGetImage(swapchain)
+}
+func (o *Extension[T]) OpenxrSwapchainRelease(swapchain int) {
+	o.Super().OpenxrSwapchainRelease(swapchain)
+}
+func (o *Extension[T]) GetProjectionLayer() int {
+	return o.Super().GetProjectionLayer()
+}
+func (o *Extension[T]) SetRenderRegion(render_region Rect2i.PositionSize) *Extension[T] {
+	o.Super().SetRenderRegion(render_region)
+	return o
+}
+func (o *Extension[T]) SetEmulateEnvironmentBlendModeAlphaBlend(enabled bool) *Extension[T] {
+	o.Super().SetEmulateEnvironmentBlendModeAlphaBlend(enabled)
+	return o
+}
+func (o *Extension[T]) IsEnvironmentBlendModeAlphaSupported() OpenXRAlphaBlendModeSupport {
+	return o.Super().IsEnvironmentBlendModeAlphaSupported()
+}
+func (o *Extension[T]) UpdateMainSwapchainSize() {
+	o.Super().UpdateMainSwapchainSize()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

@@ -251,6 +251,26 @@ func (o class) AsRenderData() RenderData.Advanced { return *(*RenderData.Advance
 func (o *Extension[T]) AsRenderData() RenderData.Instance { return o.Super().AsRenderData() }
 func (o Instance) AsRenderData() RenderData.Instance { return *(*RenderData.Instance)(ie.As(&o)) }
 
+// GetRenderSceneBuffers is promoted from [RenderData.Instance.GetRenderSceneBuffers].
+func (o *Extension[T]) GetRenderSceneBuffers() RenderSceneBuffers.Instance {
+	return o.Super().AsRenderData().GetRenderSceneBuffers()
+}
+
+// GetRenderSceneData is promoted from [RenderData.Instance.GetRenderSceneData].
+func (o *Extension[T]) GetRenderSceneData() RenderSceneData.Instance {
+	return o.Super().AsRenderData().GetRenderSceneData()
+}
+
+// GetEnvironment is promoted from [RenderData.Instance.GetEnvironment].
+func (o *Extension[T]) GetEnvironment() RID.Environment {
+	return o.Super().AsRenderData().GetEnvironment()
+}
+
+// GetCameraAttributes is promoted from [RenderData.Instance.GetCameraAttributes].
+func (o *Extension[T]) GetCameraAttributes() RID.CameraAttributes {
+	return o.Super().AsRenderData().GetCameraAttributes()
+}
+
 func (self class) Virtual(name string) reflect.Value {
 	switch name {
 	case "_get_render_scene_buffers": return reflect.ValueOf(self._get_render_scene_buffers);

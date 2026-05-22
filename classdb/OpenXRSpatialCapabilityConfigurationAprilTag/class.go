@@ -180,6 +180,19 @@ func (o Instance) AsOpenXRSpatialCapabilityConfigurationBaseHeader() OpenXRSpati
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) GetEnabledComponents() []int64 {
+	return o.Super().GetEnabledComponents()
+}
+
+// HasValidConfiguration is promoted from [OpenXRSpatialCapabilityConfigurationBaseHeader.Instance.HasValidConfiguration].
+func (self Instance) HasValidConfiguration() bool {
+	return self.AsOpenXRSpatialCapabilityConfigurationBaseHeader().HasValidConfiguration()
+}
+
+// HasValidConfiguration is promoted from [OpenXRSpatialCapabilityConfigurationBaseHeader.Instance.HasValidConfiguration].
+func (o *Extension[T]) HasValidConfiguration() bool {
+	return o.Super().AsOpenXRSpatialCapabilityConfigurationBaseHeader().HasValidConfiguration()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

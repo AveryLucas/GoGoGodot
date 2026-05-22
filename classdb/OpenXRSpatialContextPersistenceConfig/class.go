@@ -165,6 +165,22 @@ func (o Instance) AsOpenXRStructureBase() OpenXRStructureBase.Instance { return 
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) AddPersistenceContext(persistence_context RID.PersistenceContext) {
+	o.Super().AddPersistenceContext(persistence_context)
+}
+func (o *Extension[T]) RemovePersistenceContext(persistence_context RID.PersistenceContext) {
+	o.Super().RemovePersistenceContext(persistence_context)
+}
+
+// GetStructureType is promoted from [OpenXRStructureBase.Instance.GetStructureType].
+func (self Instance) GetStructureType() int {
+	return self.AsOpenXRStructureBase().GetStructureType()
+}
+
+// GetStructureType is promoted from [OpenXRStructureBase.Instance.GetStructureType].
+func (o *Extension[T]) GetStructureType() int {
+	return o.Super().AsOpenXRStructureBase().GetStructureType()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

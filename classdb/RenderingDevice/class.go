@@ -1275,6 +1275,256 @@ func (self class) GetDeviceAllocsByObjectType(atype int64) int64 { //gd:Renderin
 func (o class) AsRenderingDevice() Advanced { return Advanced(o) }
 func (o Instance) AsRenderingDevice() Instance { return o }
 func (o *Extension[T]) AsRenderingDevice() Instance { return o.Super() }
+func (o *Extension[T]) TextureCreateShared(view RDTextureView.Instance, with_texture RID.Texture) RID.Texture {
+	return o.Super().TextureCreateShared(view, with_texture)
+}
+func (o *Extension[T]) TextureUpdate(texture RID.Texture, layer int, data []byte) error {
+	return o.Super().TextureUpdate(texture, layer, data)
+}
+func (o *Extension[T]) TextureGetData(texture RID.Texture, layer int) []byte {
+	return o.Super().TextureGetData(texture, layer)
+}
+func (o *Extension[T]) TextureGetDataAsync(texture RID.Texture, layer int, callback func(data []byte)) error {
+	return o.Super().TextureGetDataAsync(texture, layer, callback)
+}
+func (o *Extension[T]) TextureIsFormatSupportedForUsage(format Rendering.DataFormat, usage_flags Rendering.TextureUsageBits) bool {
+	return o.Super().TextureIsFormatSupportedForUsage(format, usage_flags)
+}
+func (o *Extension[T]) TextureIsShared(texture RID.Texture) bool {
+	return o.Super().TextureIsShared(texture)
+}
+func (o *Extension[T]) TextureIsValid(texture RID.Texture) bool {
+	return o.Super().TextureIsValid(texture)
+}
+func (o *Extension[T]) TextureSetDiscardable(texture RID.Texture, discardable bool) {
+	o.Super().TextureSetDiscardable(texture, discardable)
+}
+func (o *Extension[T]) TextureIsDiscardable(texture RID.Texture) bool {
+	return o.Super().TextureIsDiscardable(texture)
+}
+func (o *Extension[T]) TextureCopy(from_texture RID.Texture, to_texture RID.Texture, from_pos Vector3.XYZ, to_pos Vector3.XYZ, size Vector3.XYZ, src_mipmap int, dst_mipmap int, src_layer int, dst_layer int) error {
+	return o.Super().TextureCopy(from_texture, to_texture, from_pos, to_pos, size, src_mipmap, dst_mipmap, src_layer, dst_layer)
+}
+func (o *Extension[T]) TextureClear(texture RID.Texture, color Color.RGBA, base_mipmap int, mipmap_count int, base_layer int, layer_count int) error {
+	return o.Super().TextureClear(texture, color, base_mipmap, mipmap_count, base_layer, layer_count)
+}
+func (o *Extension[T]) TextureResolveMultisample(from_texture RID.Texture, to_texture RID.Texture) error {
+	return o.Super().TextureResolveMultisample(from_texture, to_texture)
+}
+func (o *Extension[T]) TextureGetFormat(texture RID.Texture) RDTextureFormat.Instance {
+	return o.Super().TextureGetFormat(texture)
+}
+func (o *Extension[T]) TextureGetNativeHandle(texture RID.Texture) int {
+	return o.Super().TextureGetNativeHandle(texture)
+}
+func (o *Extension[T]) FramebufferGetFormat(framebuffer RID.Framebuffer) int {
+	return o.Super().FramebufferGetFormat(framebuffer)
+}
+func (o *Extension[T]) FramebufferIsValid(framebuffer RID.Framebuffer) bool {
+	return o.Super().FramebufferIsValid(framebuffer)
+}
+func (o *Extension[T]) SamplerCreate(state RDSamplerState.Instance) RID.Sampler {
+	return o.Super().SamplerCreate(state)
+}
+func (o *Extension[T]) SamplerIsFormatSupportedForFilter(format Rendering.DataFormat, sampler_filter Rendering.SamplerFilter) bool {
+	return o.Super().SamplerIsFormatSupportedForFilter(format, sampler_filter)
+}
+func (o *Extension[T]) VertexFormatCreate(vertex_descriptions []RDVertexAttribute.Instance) int {
+	return o.Super().VertexFormatCreate(vertex_descriptions)
+}
+func (o *Extension[T]) IndexArrayCreate(index_buffer RID.IndexBuffer, index_offset int, index_count int) RID.IndexArray {
+	return o.Super().IndexArrayCreate(index_buffer, index_offset, index_count)
+}
+func (o *Extension[T]) ShaderCreatePlaceholder() RID.ShaderPlaceholder {
+	return o.Super().ShaderCreatePlaceholder()
+}
+func (o *Extension[T]) ShaderGetVertexInputAttributeMask(shader RID.Shader) int {
+	return o.Super().ShaderGetVertexInputAttributeMask(shader)
+}
+func (o *Extension[T]) UniformSetCreate(uniforms []RDUniform.Instance, shader RID.Shader, shader_set int) RID.UniformSet {
+	return o.Super().UniformSetCreate(uniforms, shader, shader_set)
+}
+func (o *Extension[T]) UniformSetIsValid(uniform_set RID.UniformSet) bool {
+	return o.Super().UniformSetIsValid(uniform_set)
+}
+func (o *Extension[T]) BufferCopy(src_buffer RID.Buffer, dst_buffer RID.Buffer, src_offset int, dst_offset int, size int) error {
+	return o.Super().BufferCopy(src_buffer, dst_buffer, src_offset, dst_offset, size)
+}
+func (o *Extension[T]) BufferUpdate(buffer RID.Buffer, offset int, size_bytes int, data []byte) error {
+	return o.Super().BufferUpdate(buffer, offset, size_bytes, data)
+}
+func (o *Extension[T]) BufferClear(buffer RID.Buffer, offset int, size_bytes int) error {
+	return o.Super().BufferClear(buffer, offset, size_bytes)
+}
+func (o *Extension[T]) BufferGetDeviceAddress(buffer RID.Buffer) int {
+	return o.Super().BufferGetDeviceAddress(buffer)
+}
+func (o *Extension[T]) RenderPipelineIsValid(render_pipeline RID.RenderPipeline) bool {
+	return o.Super().RenderPipelineIsValid(render_pipeline)
+}
+func (o *Extension[T]) ComputePipelineIsValid(compute_pipeline RID.ComputePipeline) bool {
+	return o.Super().ComputePipelineIsValid(compute_pipeline)
+}
+func (o *Extension[T]) DrawListSetBlendConstants(draw_list int, color Color.RGBA) {
+	o.Super().DrawListSetBlendConstants(draw_list, color)
+}
+func (o *Extension[T]) DrawListBindRenderPipeline(draw_list int, render_pipeline RID.RenderPipeline) {
+	o.Super().DrawListBindRenderPipeline(draw_list, render_pipeline)
+}
+func (o *Extension[T]) DrawListBindUniformSet(draw_list int, uniform_set RID.UniformSet, set_index int) {
+	o.Super().DrawListBindUniformSet(draw_list, uniform_set, set_index)
+}
+func (o *Extension[T]) DrawListBindVertexArray(draw_list int, vertex_array RID.VertexArray) {
+	o.Super().DrawListBindVertexArray(draw_list, vertex_array)
+}
+func (o *Extension[T]) DrawListBindIndexArray(draw_list int, index_array RID.IndexArray) {
+	o.Super().DrawListBindIndexArray(draw_list, index_array)
+}
+func (o *Extension[T]) DrawListSetPushConstant(draw_list int, buffer []byte, size_bytes int) {
+	o.Super().DrawListSetPushConstant(draw_list, buffer, size_bytes)
+}
+func (o *Extension[T]) DrawListDisableScissor(draw_list int) {
+	o.Super().DrawListDisableScissor(draw_list)
+}
+func (o *Extension[T]) DrawListSwitchToNextPass() int {
+	return o.Super().DrawListSwitchToNextPass()
+}
+func (o *Extension[T]) DrawListSwitchToNextPassSplit(splits int) []int64 {
+	return o.Super().DrawListSwitchToNextPassSplit(splits)
+}
+func (o *Extension[T]) DrawListEnd() {
+	o.Super().DrawListEnd()
+}
+func (o *Extension[T]) ComputeListBegin() int {
+	return o.Super().ComputeListBegin()
+}
+func (o *Extension[T]) ComputeListBindComputePipeline(compute_list int, compute_pipeline RID.ComputePipeline) {
+	o.Super().ComputeListBindComputePipeline(compute_list, compute_pipeline)
+}
+func (o *Extension[T]) ComputeListSetPushConstant(compute_list int, buffer []byte, size_bytes int) {
+	o.Super().ComputeListSetPushConstant(compute_list, buffer, size_bytes)
+}
+func (o *Extension[T]) ComputeListBindUniformSet(compute_list int, uniform_set RID.UniformSet, set_index int) {
+	o.Super().ComputeListBindUniformSet(compute_list, uniform_set, set_index)
+}
+func (o *Extension[T]) ComputeListDispatch(compute_list int, x_groups int, y_groups int, z_groups int) {
+	o.Super().ComputeListDispatch(compute_list, x_groups, y_groups, z_groups)
+}
+func (o *Extension[T]) ComputeListDispatchIndirect(compute_list int, buffer RID.Buffer, offset int) {
+	o.Super().ComputeListDispatchIndirect(compute_list, buffer, offset)
+}
+func (o *Extension[T]) ComputeListAddBarrier(compute_list int) {
+	o.Super().ComputeListAddBarrier(compute_list)
+}
+func (o *Extension[T]) ComputeListEnd() {
+	o.Super().ComputeListEnd()
+}
+func (o *Extension[T]) FreeRid(rid RID.Any) {
+	o.Super().FreeRid(rid)
+}
+func (o *Extension[T]) CaptureTimestamp(name string) {
+	o.Super().CaptureTimestamp(name)
+}
+func (o *Extension[T]) GetCapturedTimestampsCount() int {
+	return o.Super().GetCapturedTimestampsCount()
+}
+func (o *Extension[T]) GetCapturedTimestampsFrame() int {
+	return o.Super().GetCapturedTimestampsFrame()
+}
+func (o *Extension[T]) GetCapturedTimestampGpuTime(index int) int {
+	return o.Super().GetCapturedTimestampGpuTime(index)
+}
+func (o *Extension[T]) GetCapturedTimestampCpuTime(index int) int {
+	return o.Super().GetCapturedTimestampCpuTime(index)
+}
+func (o *Extension[T]) GetCapturedTimestampName(index int) string {
+	return o.Super().GetCapturedTimestampName(index)
+}
+func (o *Extension[T]) HasFeature(feature Rendering.Features) bool {
+	return o.Super().HasFeature(feature)
+}
+func (o *Extension[T]) LimitGet(limit Rendering.Limit) int {
+	return o.Super().LimitGet(limit)
+}
+func (o *Extension[T]) GetFrameDelay() int {
+	return o.Super().GetFrameDelay()
+}
+func (o *Extension[T]) Submit() {
+	o.Super().Submit()
+}
+func (o *Extension[T]) Sync() {
+	o.Super().Sync()
+}
+func (o *Extension[T]) FullBarrier() {
+	o.Super().FullBarrier()
+}
+func (o *Extension[T]) CreateLocalDevice() Instance {
+	return o.Super().CreateLocalDevice()
+}
+func (o *Extension[T]) SetResourceName(id RID.Any, name string) *Extension[T] {
+	o.Super().SetResourceName(id, name)
+	return o
+}
+func (o *Extension[T]) DrawCommandBeginLabel(name string, color Color.RGBA) {
+	o.Super().DrawCommandBeginLabel(name, color)
+}
+func (o *Extension[T]) DrawCommandInsertLabel(name string, color Color.RGBA) {
+	o.Super().DrawCommandInsertLabel(name, color)
+}
+func (o *Extension[T]) DrawCommandEndLabel() {
+	o.Super().DrawCommandEndLabel()
+}
+func (o *Extension[T]) GetDeviceVendorName() string {
+	return o.Super().GetDeviceVendorName()
+}
+func (o *Extension[T]) GetDeviceName() string {
+	return o.Super().GetDeviceName()
+}
+func (o *Extension[T]) GetDevicePipelineCacheUuid() string {
+	return o.Super().GetDevicePipelineCacheUuid()
+}
+func (o *Extension[T]) GetMemoryUsage(atype Rendering.MemoryType) int {
+	return o.Super().GetMemoryUsage(atype)
+}
+func (o *Extension[T]) GetDriverResource(resource Rendering.DriverResource, rid RID.Any, index int) int {
+	return o.Super().GetDriverResource(resource, rid, index)
+}
+func (o *Extension[T]) GetPerfReport() string {
+	return o.Super().GetPerfReport()
+}
+func (o *Extension[T]) GetDriverAndDeviceMemoryReport() string {
+	return o.Super().GetDriverAndDeviceMemoryReport()
+}
+func (o *Extension[T]) GetTrackedObjectName(type_index int) string {
+	return o.Super().GetTrackedObjectName(type_index)
+}
+func (o *Extension[T]) GetTrackedObjectTypeCount() int {
+	return o.Super().GetTrackedObjectTypeCount()
+}
+func (o *Extension[T]) GetDriverTotalMemory() int {
+	return o.Super().GetDriverTotalMemory()
+}
+func (o *Extension[T]) GetDriverAllocationCount() int {
+	return o.Super().GetDriverAllocationCount()
+}
+func (o *Extension[T]) GetDriverMemoryByObjectType(atype int) int {
+	return o.Super().GetDriverMemoryByObjectType(atype)
+}
+func (o *Extension[T]) GetDriverAllocsByObjectType(atype int) int {
+	return o.Super().GetDriverAllocsByObjectType(atype)
+}
+func (o *Extension[T]) GetDeviceTotalMemory() int {
+	return o.Super().GetDeviceTotalMemory()
+}
+func (o *Extension[T]) GetDeviceAllocationCount() int {
+	return o.Super().GetDeviceAllocationCount()
+}
+func (o *Extension[T]) GetDeviceMemoryByObjectType(atype int) int {
+	return o.Super().GetDeviceMemoryByObjectType(atype)
+}
+func (o *Extension[T]) GetDeviceAllocsByObjectType(atype int) int {
+	return o.Super().GetDeviceAllocsByObjectType(atype)
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

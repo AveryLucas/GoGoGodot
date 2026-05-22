@@ -183,6 +183,18 @@ func (o *Extension[T]) AsJavaClass() Instance { return o.Super() }
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) GetJavaClassName() string {
+	return o.Super().GetJavaClassName()
+}
+func (o *Extension[T]) GetJavaMethodList() []Object.PropertyInfo {
+	return o.Super().GetJavaMethodList()
+}
+func (o *Extension[T]) GetJavaParentClass() Instance {
+	return o.Super().GetJavaParentClass()
+}
+func (o *Extension[T]) HasJavaMethod(method string) bool {
+	return o.Super().HasJavaMethod(method)
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

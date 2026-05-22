@@ -360,6 +360,50 @@ func (o *Extension[T]) AsHTTPClient() Instance { return o.Super() }
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) RequestRaw(method Method, url string, headers []string, body []byte) error {
+	return o.Super().RequestRaw(method, url, headers, body)
+}
+func (o *Extension[T]) Close() {
+	o.Super().Close()
+}
+func (o *Extension[T]) HasResponse() bool {
+	return o.Super().HasResponse()
+}
+func (o *Extension[T]) IsResponseChunked() bool {
+	return o.Super().IsResponseChunked()
+}
+func (o *Extension[T]) GetResponseCode() int {
+	return o.Super().GetResponseCode()
+}
+func (o *Extension[T]) GetResponseHeaders() []string {
+	return o.Super().GetResponseHeaders()
+}
+func (o *Extension[T]) GetResponseHeadersAsDictionary() map[string]string {
+	return o.Super().GetResponseHeadersAsDictionary()
+}
+func (o *Extension[T]) GetResponseBodyLength() int {
+	return o.Super().GetResponseBodyLength()
+}
+func (o *Extension[T]) ReadResponseBodyChunk() []byte {
+	return o.Super().ReadResponseBodyChunk()
+}
+func (o *Extension[T]) GetStatus() Status {
+	return o.Super().GetStatus()
+}
+func (o *Extension[T]) Poll() error {
+	return o.Super().Poll()
+}
+func (o *Extension[T]) SetHttpProxy(host string, port int) *Extension[T] {
+	o.Super().SetHttpProxy(host, port)
+	return o
+}
+func (o *Extension[T]) SetHttpsProxy(host string, port int) *Extension[T] {
+	o.Super().SetHttpsProxy(host, port)
+	return o
+}
+func (o *Extension[T]) QueryStringFromDict(fields map[string]string) string {
+	return o.Super().QueryStringFromDict(fields)
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

@@ -314,6 +314,31 @@ func (o *Extension[T]) AsUPNP() Instance { return o.Super() }
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) GetDeviceCount() int {
+	return o.Super().GetDeviceCount()
+}
+func (o *Extension[T]) GetDevice(index int) UPNPDevice.Instance {
+	return o.Super().GetDevice(index)
+}
+func (o *Extension[T]) AddDevice(device UPNPDevice.Instance) {
+	o.Super().AddDevice(device)
+}
+func (o *Extension[T]) SetDevice(index int, device UPNPDevice.Instance) *Extension[T] {
+	o.Super().SetDevice(index, device)
+	return o
+}
+func (o *Extension[T]) RemoveDevice(index int) {
+	o.Super().RemoveDevice(index)
+}
+func (o *Extension[T]) ClearDevices() {
+	o.Super().ClearDevices()
+}
+func (o *Extension[T]) GetGateway() UPNPDevice.Instance {
+	return o.Super().GetGateway()
+}
+func (o *Extension[T]) QueryExternalAddress() string {
+	return o.Super().QueryExternalAddress()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

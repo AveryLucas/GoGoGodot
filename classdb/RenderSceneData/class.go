@@ -200,6 +200,24 @@ func (self class) GetUniformBuffer() RID.Any { //gd:RenderSceneData.get_uniform_
 func (o class) AsRenderSceneData() Advanced { return Advanced(o) }
 func (o Instance) AsRenderSceneData() Instance { return o }
 func (o *Extension[T]) AsRenderSceneData() Instance { return o.Super() }
+func (o *Extension[T]) GetCamTransform() Transform3D.BasisOrigin {
+	return o.Super().GetCamTransform()
+}
+func (o *Extension[T]) GetCamProjection() Projection.XYZW {
+	return o.Super().GetCamProjection()
+}
+func (o *Extension[T]) GetViewCount() int {
+	return o.Super().GetViewCount()
+}
+func (o *Extension[T]) GetViewEyeOffset(view int) Vector3.XYZ {
+	return o.Super().GetViewEyeOffset(view)
+}
+func (o *Extension[T]) GetViewProjection(view int) Projection.XYZW {
+	return o.Super().GetViewProjection(view)
+}
+func (o *Extension[T]) GetUniformBuffer() RID.UniformBuffer {
+	return o.Super().GetUniformBuffer()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

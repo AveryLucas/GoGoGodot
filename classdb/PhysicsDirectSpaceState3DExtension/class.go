@@ -19,6 +19,8 @@ import "graphics.gd/variant/Euler"
 import "graphics.gd/variant/Signal"
 import "graphics.gd/classdb/Engine"
 import "graphics.gd/classdb/PhysicsDirectSpaceState3D"
+import "graphics.gd/classdb/PhysicsRayQueryParameters3D"
+import "graphics.gd/classdb/PhysicsShapeQueryParameters3D"
 import "graphics.gd/internal/gdmemory"
 import "graphics.gd/variant/Array"
 import "graphics.gd/variant/Callable"
@@ -418,6 +420,29 @@ func (o *Extension[T]) AsPhysicsDirectSpaceState3DExtension() Instance { return 
 func (o class) AsPhysicsDirectSpaceState3D() PhysicsDirectSpaceState3D.Advanced { return *(*PhysicsDirectSpaceState3D.Advanced)(ie.As(&o)) }
 func (o *Extension[T]) AsPhysicsDirectSpaceState3D() PhysicsDirectSpaceState3D.Instance { return o.Super().AsPhysicsDirectSpaceState3D() }
 func (o Instance) AsPhysicsDirectSpaceState3D() PhysicsDirectSpaceState3D.Instance { return *(*PhysicsDirectSpaceState3D.Instance)(ie.As(&o)) }
+func (o *Extension[T]) IsBodyExcludedFromQuery(body RID.Body3D) bool {
+	return o.Super().IsBodyExcludedFromQuery(body)
+}
+
+// IntersectRay is promoted from [PhysicsDirectSpaceState3D.Instance.IntersectRay].
+func (o *Extension[T]) IntersectRay(parameters PhysicsRayQueryParameters3D.Instance) PhysicsDirectSpaceState3D.PhysicsDirectSpaceState3D_Intersection {
+	return o.Super().AsPhysicsDirectSpaceState3D().IntersectRay(parameters)
+}
+
+// CastMotion is promoted from [PhysicsDirectSpaceState3D.Instance.CastMotion].
+func (o *Extension[T]) CastMotion(parameters PhysicsShapeQueryParameters3D.Instance) []float32 {
+	return o.Super().AsPhysicsDirectSpaceState3D().CastMotion(parameters)
+}
+
+// GetRestInfo is promoted from [PhysicsDirectSpaceState3D.Instance.GetRestInfo].
+func (self Instance) GetRestInfo(parameters PhysicsShapeQueryParameters3D.Instance) PhysicsDirectSpaceState3D.PhysicsDirectSpaceState3D_RestInfo {
+	return self.AsPhysicsDirectSpaceState3D().GetRestInfo(parameters)
+}
+
+// GetRestInfo is promoted from [PhysicsDirectSpaceState3D.Instance.GetRestInfo].
+func (o *Extension[T]) GetRestInfo(parameters PhysicsShapeQueryParameters3D.Instance) PhysicsDirectSpaceState3D.PhysicsDirectSpaceState3D_RestInfo {
+	return o.Super().AsPhysicsDirectSpaceState3D().GetRestInfo(parameters)
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {
@@ -445,3 +470,20 @@ func (self Instance) Virtual(name string) reflect.Value {
 	}
 }
 func init() {gdclass.Register("PhysicsDirectSpaceState3DExtension", func(ptr gdreference.Object) any { return Instance{gdclass.NewPhysicsDirectSpaceState3DExtension(ptr)} })}
+type PhysicsDirectSpaceState3D_Intersection struct {
+Collider Object.Instance `gd:"collider"`
+ColliderID Object.ID `gd:"collider_id"`
+Normal struct { X float32; Y float32; Z float32 } `gd:"normal"`
+Position struct { X float32; Y float32; Z float32 } `gd:"position"`
+FaceIndex int `gd:"face_index"`
+RID RID.Any `gd:"rid"`
+Shape int `gd:"shape"`
+}
+type PhysicsDirectSpaceState3D_RestInfo struct {
+ColliderID Object.ID `gd:"collider_id"`
+LinearVelocity struct { X float32; Y float32; Z float32 } `gd:"linear_velocity"`
+Normal struct { X float32; Y float32; Z float32 } `gd:"normal"`
+Point struct { X float32; Y float32; Z float32 } `gd:"point"`
+RID RID.Any `gd:"rid"`
+Shape int `gd:"shape"`
+}

@@ -193,6 +193,27 @@ noescape.Call[struct{}]( gd.ObjectChecked(self.AsObject()), methods.resume, 0, &
 func (o class) AsStartup() Advanced { return Advanced(o) }
 func (o Instance) AsStartup() Instance { return o }
 func (o *Extension[T]) AsStartup() Instance { return o.Super() }
+func (o *Extension[T]) Start() bool {
+	return o.Super().Start()
+}
+func (o *Extension[T]) IsStarted() bool {
+	return o.Super().IsStarted()
+}
+func (o *Extension[T]) Iteration() bool {
+	return o.Super().Iteration()
+}
+func (o *Extension[T]) FocusIn() {
+	o.Super().FocusIn()
+}
+func (o *Extension[T]) FocusOut() {
+	o.Super().FocusOut()
+}
+func (o *Extension[T]) Pause() {
+	o.Super().Pause()
+}
+func (o *Extension[T]) Resume() {
+	o.Super().Resume()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

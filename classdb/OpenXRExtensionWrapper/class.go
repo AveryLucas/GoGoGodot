@@ -1030,6 +1030,9 @@ noescape.Call[struct{}]( gd.ObjectChecked(self.AsObject()), methods.register_ext
 func (o class) AsOpenXRExtensionWrapper() Advanced { return Advanced(o) }
 func (o Instance) AsOpenXRExtensionWrapper() Instance { return o }
 func (o *Extension[T]) AsOpenXRExtensionWrapper() Instance { return o.Super() }
+func (o *Extension[T]) RegisterExtensionWrapper() {
+	o.Super().RegisterExtensionWrapper()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

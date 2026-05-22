@@ -306,6 +306,33 @@ func (o *Extension[T]) AsWebRTCPeerConnection() Instance { return o.Super() }
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) CreateOffer() error {
+	return o.Super().CreateOffer()
+}
+func (o *Extension[T]) SetLocalDescription(atype string, sdp string) error {
+	return o.Super().SetLocalDescription(atype, sdp)
+}
+func (o *Extension[T]) SetRemoteDescription(atype string, sdp string) error {
+	return o.Super().SetRemoteDescription(atype, sdp)
+}
+func (o *Extension[T]) AddIceCandidate(media string, index int, name string) error {
+	return o.Super().AddIceCandidate(media, index, name)
+}
+func (o *Extension[T]) Poll() error {
+	return o.Super().Poll()
+}
+func (o *Extension[T]) Close() {
+	o.Super().Close()
+}
+func (o *Extension[T]) GetConnectionState() ConnectionState {
+	return o.Super().GetConnectionState()
+}
+func (o *Extension[T]) GetGatheringState() GatheringState {
+	return o.Super().GetGatheringState()
+}
+func (o *Extension[T]) GetSignalingState() SignalingState {
+	return o.Super().GetSignalingState()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

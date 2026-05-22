@@ -19,6 +19,7 @@ import "graphics.gd/variant/Euler"
 import "graphics.gd/variant/Signal"
 import "graphics.gd/classdb/Node"
 import "graphics.gd/classdb/Node3DGizmo"
+import "graphics.gd/classdb/Tween"
 import "graphics.gd/classdb/World3D"
 import "graphics.gd/variant/Array"
 import "graphics.gd/variant/Basis"
@@ -912,6 +913,805 @@ func (self Instance) OnEditorStateChanged(cb func(), flags ...Signal.Flags) Inst
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("editor_state_changed"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+func (o *Extension[T]) GetGlobalTransformInterpolated() Transform3D.BasisOrigin {
+	return o.Super().GetGlobalTransformInterpolated()
+}
+func (o *Extension[T]) GetParentNode3d() Instance {
+	return o.Super().GetParentNode3d()
+}
+func (o *Extension[T]) SetIgnoreTransformNotification(enabled bool) *Extension[T] {
+	o.Super().SetIgnoreTransformNotification(enabled)
+	return o
+}
+func (o *Extension[T]) SetDisableScale(disable bool) *Extension[T] {
+	o.Super().SetDisableScale(disable)
+	return o
+}
+func (o *Extension[T]) IsScaleDisabled() bool {
+	return o.Super().IsScaleDisabled()
+}
+func (o *Extension[T]) GetWorld3d() World3D.Instance {
+	return o.Super().GetWorld3d()
+}
+func (o *Extension[T]) ForceUpdateTransform() {
+	o.Super().ForceUpdateTransform()
+}
+func (o *Extension[T]) UpdateGizmos() {
+	o.Super().UpdateGizmos()
+}
+func (o *Extension[T]) AddGizmo(gizmo Node3DGizmo.Instance) {
+	o.Super().AddGizmo(gizmo)
+}
+func (o *Extension[T]) GetGizmos() []Node3DGizmo.Instance {
+	return o.Super().GetGizmos()
+}
+func (o *Extension[T]) ClearGizmos() {
+	o.Super().ClearGizmos()
+}
+func (o *Extension[T]) SetSubgizmoSelection(gizmo Node3DGizmo.Instance, id int, transform Transform3D.BasisOrigin) *Extension[T] {
+	o.Super().SetSubgizmoSelection(gizmo, id, transform)
+	return o
+}
+func (o *Extension[T]) ClearSubgizmoSelection() {
+	o.Super().ClearSubgizmoSelection()
+}
+func (o *Extension[T]) IsVisibleInTree() bool {
+	return o.Super().IsVisibleInTree()
+}
+func (o *Extension[T]) Show() {
+	o.Super().Show()
+}
+func (o *Extension[T]) Hide() {
+	o.Super().Hide()
+}
+func (o *Extension[T]) SetNotifyLocalTransform(enable bool) *Extension[T] {
+	o.Super().SetNotifyLocalTransform(enable)
+	return o
+}
+func (o *Extension[T]) IsLocalTransformNotificationEnabled() bool {
+	return o.Super().IsLocalTransformNotificationEnabled()
+}
+func (o *Extension[T]) SetNotifyTransform(enable bool) *Extension[T] {
+	o.Super().SetNotifyTransform(enable)
+	return o
+}
+func (o *Extension[T]) IsTransformNotificationEnabled() bool {
+	return o.Super().IsTransformNotificationEnabled()
+}
+func (o *Extension[T]) Rotate(axis Vector3.XYZ, angle Angle.Radians) {
+	o.Super().Rotate(axis, angle)
+}
+func (o *Extension[T]) GlobalRotate(axis Vector3.XYZ, angle Angle.Radians) {
+	o.Super().GlobalRotate(axis, angle)
+}
+func (o *Extension[T]) GlobalScale(scale Vector3.XYZ) {
+	o.Super().GlobalScale(scale)
+}
+func (o *Extension[T]) GlobalTranslate(offset Vector3.XYZ) {
+	o.Super().GlobalTranslate(offset)
+}
+func (o *Extension[T]) RotateObjectLocal(axis Vector3.XYZ, angle Angle.Radians) {
+	o.Super().RotateObjectLocal(axis, angle)
+}
+func (o *Extension[T]) ScaleObjectLocal(scale Vector3.XYZ) {
+	o.Super().ScaleObjectLocal(scale)
+}
+func (o *Extension[T]) TranslateObjectLocal(offset Vector3.XYZ) {
+	o.Super().TranslateObjectLocal(offset)
+}
+func (o *Extension[T]) RotateX(angle Angle.Radians) {
+	o.Super().RotateX(angle)
+}
+func (o *Extension[T]) RotateY(angle Angle.Radians) {
+	o.Super().RotateY(angle)
+}
+func (o *Extension[T]) RotateZ(angle Angle.Radians) {
+	o.Super().RotateZ(angle)
+}
+func (o *Extension[T]) Translate(offset Vector3.XYZ) {
+	o.Super().Translate(offset)
+}
+func (o *Extension[T]) Orthonormalize() {
+	o.Super().Orthonormalize()
+}
+func (o *Extension[T]) SetIdentity() *Extension[T] {
+	o.Super().SetIdentity()
+	return o
+}
+func (o *Extension[T]) ToLocal(global_point Vector3.XYZ) Vector3.XYZ {
+	return o.Super().ToLocal(global_point)
+}
+func (o *Extension[T]) ToGlobal(local_point Vector3.XYZ) Vector3.XYZ {
+	return o.Super().ToGlobal(local_point)
+}
+
+// RemoveChild is promoted from [Node.Instance.RemoveChild].
+func (self Instance) RemoveChild(node Node.Instance) {
+	self.AsNode().RemoveChild(node)
+}
+
+// RemoveChild is promoted from [Node.Instance.RemoveChild].
+func (o *Extension[T]) RemoveChild(node Node.Instance) {
+	o.Super().AsNode().RemoveChild(node)
+}
+
+// HasNode is promoted from [Node.Instance.HasNode].
+func (self Instance) HasNode(path string) bool {
+	return self.AsNode().HasNode(path)
+}
+
+// HasNode is promoted from [Node.Instance.HasNode].
+func (o *Extension[T]) HasNode(path string) bool {
+	return o.Super().AsNode().HasNode(path)
+}
+
+// GetNode is promoted from [Node.Instance.GetNode].
+func (self Instance) GetNode(path string) Node.Instance {
+	return self.AsNode().GetNode(path)
+}
+
+// GetNode is promoted from [Node.Instance.GetNode].
+func (o *Extension[T]) GetNode(path string) Node.Instance {
+	return o.Super().AsNode().GetNode(path)
+}
+
+// GetNodeOrNull is promoted from [Node.Instance.GetNodeOrNull].
+func (self Instance) GetNodeOrNull(path string) Node.Instance {
+	return self.AsNode().GetNodeOrNull(path)
+}
+
+// GetNodeOrNull is promoted from [Node.Instance.GetNodeOrNull].
+func (o *Extension[T]) GetNodeOrNull(path string) Node.Instance {
+	return o.Super().AsNode().GetNodeOrNull(path)
+}
+
+// GetParent is promoted from [Node.Instance.GetParent].
+func (self Instance) GetParent() Node.Instance {
+	return self.AsNode().GetParent()
+}
+
+// GetParent is promoted from [Node.Instance.GetParent].
+func (o *Extension[T]) GetParent() Node.Instance {
+	return o.Super().AsNode().GetParent()
+}
+
+// FindParent is promoted from [Node.Instance.FindParent].
+func (self Instance) FindParent(pattern string) Node.Instance {
+	return self.AsNode().FindParent(pattern)
+}
+
+// FindParent is promoted from [Node.Instance.FindParent].
+func (o *Extension[T]) FindParent(pattern string) Node.Instance {
+	return o.Super().AsNode().FindParent(pattern)
+}
+
+// HasNodeAndResource is promoted from [Node.Instance.HasNodeAndResource].
+func (self Instance) HasNodeAndResource(path string) bool {
+	return self.AsNode().HasNodeAndResource(path)
+}
+
+// HasNodeAndResource is promoted from [Node.Instance.HasNodeAndResource].
+func (o *Extension[T]) HasNodeAndResource(path string) bool {
+	return o.Super().AsNode().HasNodeAndResource(path)
+}
+
+// IsInsideTree is promoted from [Node.Instance.IsInsideTree].
+func (self Instance) IsInsideTree() bool {
+	return self.AsNode().IsInsideTree()
+}
+
+// IsInsideTree is promoted from [Node.Instance.IsInsideTree].
+func (o *Extension[T]) IsInsideTree() bool {
+	return o.Super().AsNode().IsInsideTree()
+}
+
+// IsPartOfEditedScene is promoted from [Node.Instance.IsPartOfEditedScene].
+func (self Instance) IsPartOfEditedScene() bool {
+	return self.AsNode().IsPartOfEditedScene()
+}
+
+// IsPartOfEditedScene is promoted from [Node.Instance.IsPartOfEditedScene].
+func (o *Extension[T]) IsPartOfEditedScene() bool {
+	return o.Super().AsNode().IsPartOfEditedScene()
+}
+
+// IsAncestorOf is promoted from [Node.Instance.IsAncestorOf].
+func (self Instance) IsAncestorOf(node Node.Instance) bool {
+	return self.AsNode().IsAncestorOf(node)
+}
+
+// IsAncestorOf is promoted from [Node.Instance.IsAncestorOf].
+func (o *Extension[T]) IsAncestorOf(node Node.Instance) bool {
+	return o.Super().AsNode().IsAncestorOf(node)
+}
+
+// IsGreaterThan is promoted from [Node.Instance.IsGreaterThan].
+func (self Instance) IsGreaterThan(node Node.Instance) bool {
+	return self.AsNode().IsGreaterThan(node)
+}
+
+// IsGreaterThan is promoted from [Node.Instance.IsGreaterThan].
+func (o *Extension[T]) IsGreaterThan(node Node.Instance) bool {
+	return o.Super().AsNode().IsGreaterThan(node)
+}
+
+// GetPath is promoted from [Node.Instance.GetPath].
+func (self Instance) GetPath() string {
+	return self.AsNode().GetPath()
+}
+
+// GetPath is promoted from [Node.Instance.GetPath].
+func (o *Extension[T]) GetPath() string {
+	return o.Super().AsNode().GetPath()
+}
+
+// RemoveFromGroup is promoted from [Node.Instance.RemoveFromGroup].
+func (self Instance) RemoveFromGroup(group string) {
+	self.AsNode().RemoveFromGroup(group)
+}
+
+// RemoveFromGroup is promoted from [Node.Instance.RemoveFromGroup].
+func (o *Extension[T]) RemoveFromGroup(group string) {
+	o.Super().AsNode().RemoveFromGroup(group)
+}
+
+// IsInGroup is promoted from [Node.Instance.IsInGroup].
+func (self Instance) IsInGroup(group string) bool {
+	return self.AsNode().IsInGroup(group)
+}
+
+// IsInGroup is promoted from [Node.Instance.IsInGroup].
+func (o *Extension[T]) IsInGroup(group string) bool {
+	return o.Super().AsNode().IsInGroup(group)
+}
+
+// MoveChild is promoted from [Node.Instance.MoveChild].
+func (self Instance) MoveChild(child_node Node.Instance, to_index int) {
+	self.AsNode().MoveChild(child_node, to_index)
+}
+
+// MoveChild is promoted from [Node.Instance.MoveChild].
+func (o *Extension[T]) MoveChild(child_node Node.Instance, to_index int) {
+	o.Super().AsNode().MoveChild(child_node, to_index)
+}
+
+// GetGroups is promoted from [Node.Instance.GetGroups].
+func (self Instance) GetGroups() []string {
+	return self.AsNode().GetGroups()
+}
+
+// GetGroups is promoted from [Node.Instance.GetGroups].
+func (o *Extension[T]) GetGroups() []string {
+	return o.Super().AsNode().GetGroups()
+}
+
+// PrintTree is promoted from [Node.Instance.PrintTree].
+func (self Instance) PrintTree() {
+	self.AsNode().PrintTree()
+}
+
+// PrintTree is promoted from [Node.Instance.PrintTree].
+func (o *Extension[T]) PrintTree() {
+	o.Super().AsNode().PrintTree()
+}
+
+// PrintTreePretty is promoted from [Node.Instance.PrintTreePretty].
+func (self Instance) PrintTreePretty() {
+	self.AsNode().PrintTreePretty()
+}
+
+// PrintTreePretty is promoted from [Node.Instance.PrintTreePretty].
+func (o *Extension[T]) PrintTreePretty() {
+	o.Super().AsNode().PrintTreePretty()
+}
+
+// GetTreeString is promoted from [Node.Instance.GetTreeString].
+func (self Instance) GetTreeString() string {
+	return self.AsNode().GetTreeString()
+}
+
+// GetTreeString is promoted from [Node.Instance.GetTreeString].
+func (o *Extension[T]) GetTreeString() string {
+	return o.Super().AsNode().GetTreeString()
+}
+
+// GetTreeStringPretty is promoted from [Node.Instance.GetTreeStringPretty].
+func (self Instance) GetTreeStringPretty() string {
+	return self.AsNode().GetTreeStringPretty()
+}
+
+// GetTreeStringPretty is promoted from [Node.Instance.GetTreeStringPretty].
+func (o *Extension[T]) GetTreeStringPretty() string {
+	return o.Super().AsNode().GetTreeStringPretty()
+}
+
+// PropagateNotification is promoted from [Node.Instance.PropagateNotification].
+func (self Instance) PropagateNotification(what int) {
+	self.AsNode().PropagateNotification(what)
+}
+
+// PropagateNotification is promoted from [Node.Instance.PropagateNotification].
+func (o *Extension[T]) PropagateNotification(what int) {
+	o.Super().AsNode().PropagateNotification(what)
+}
+
+// SetPhysicsProcess is promoted from [Node.Instance.SetPhysicsProcess].
+func (self Instance) SetPhysicsProcess(enable bool) Instance {
+	self.AsNode().SetPhysicsProcess(enable)
+	return self
+}
+
+// SetPhysicsProcess is promoted from [Node.Instance.SetPhysicsProcess].
+func (o *Extension[T]) SetPhysicsProcess(enable bool) *Extension[T] {
+	o.Super().AsNode().SetPhysicsProcess(enable)
+	return o
+}
+
+// GetPhysicsProcessDeltaTime is promoted from [Node.Instance.GetPhysicsProcessDeltaTime].
+func (self Instance) GetPhysicsProcessDeltaTime() Float.X {
+	return self.AsNode().GetPhysicsProcessDeltaTime()
+}
+
+// GetPhysicsProcessDeltaTime is promoted from [Node.Instance.GetPhysicsProcessDeltaTime].
+func (o *Extension[T]) GetPhysicsProcessDeltaTime() Float.X {
+	return o.Super().AsNode().GetPhysicsProcessDeltaTime()
+}
+
+// IsPhysicsProcessing is promoted from [Node.Instance.IsPhysicsProcessing].
+func (self Instance) IsPhysicsProcessing() bool {
+	return self.AsNode().IsPhysicsProcessing()
+}
+
+// IsPhysicsProcessing is promoted from [Node.Instance.IsPhysicsProcessing].
+func (o *Extension[T]) IsPhysicsProcessing() bool {
+	return o.Super().AsNode().IsPhysicsProcessing()
+}
+
+// GetProcessDeltaTime is promoted from [Node.Instance.GetProcessDeltaTime].
+func (self Instance) GetProcessDeltaTime() Float.X {
+	return self.AsNode().GetProcessDeltaTime()
+}
+
+// GetProcessDeltaTime is promoted from [Node.Instance.GetProcessDeltaTime].
+func (o *Extension[T]) GetProcessDeltaTime() Float.X {
+	return o.Super().AsNode().GetProcessDeltaTime()
+}
+
+// SetProcess is promoted from [Node.Instance.SetProcess].
+func (self Instance) SetProcess(enable bool) Instance {
+	self.AsNode().SetProcess(enable)
+	return self
+}
+
+// SetProcess is promoted from [Node.Instance.SetProcess].
+func (o *Extension[T]) SetProcess(enable bool) *Extension[T] {
+	o.Super().AsNode().SetProcess(enable)
+	return o
+}
+
+// IsProcessing is promoted from [Node.Instance.IsProcessing].
+func (self Instance) IsProcessing() bool {
+	return self.AsNode().IsProcessing()
+}
+
+// IsProcessing is promoted from [Node.Instance.IsProcessing].
+func (o *Extension[T]) IsProcessing() bool {
+	return o.Super().AsNode().IsProcessing()
+}
+
+// SetProcessInput is promoted from [Node.Instance.SetProcessInput].
+func (self Instance) SetProcessInput(enable bool) Instance {
+	self.AsNode().SetProcessInput(enable)
+	return self
+}
+
+// SetProcessInput is promoted from [Node.Instance.SetProcessInput].
+func (o *Extension[T]) SetProcessInput(enable bool) *Extension[T] {
+	o.Super().AsNode().SetProcessInput(enable)
+	return o
+}
+
+// IsProcessingInput is promoted from [Node.Instance.IsProcessingInput].
+func (self Instance) IsProcessingInput() bool {
+	return self.AsNode().IsProcessingInput()
+}
+
+// IsProcessingInput is promoted from [Node.Instance.IsProcessingInput].
+func (o *Extension[T]) IsProcessingInput() bool {
+	return o.Super().AsNode().IsProcessingInput()
+}
+
+// SetProcessShortcutInput is promoted from [Node.Instance.SetProcessShortcutInput].
+func (self Instance) SetProcessShortcutInput(enable bool) Instance {
+	self.AsNode().SetProcessShortcutInput(enable)
+	return self
+}
+
+// SetProcessShortcutInput is promoted from [Node.Instance.SetProcessShortcutInput].
+func (o *Extension[T]) SetProcessShortcutInput(enable bool) *Extension[T] {
+	o.Super().AsNode().SetProcessShortcutInput(enable)
+	return o
+}
+
+// IsProcessingShortcutInput is promoted from [Node.Instance.IsProcessingShortcutInput].
+func (self Instance) IsProcessingShortcutInput() bool {
+	return self.AsNode().IsProcessingShortcutInput()
+}
+
+// IsProcessingShortcutInput is promoted from [Node.Instance.IsProcessingShortcutInput].
+func (o *Extension[T]) IsProcessingShortcutInput() bool {
+	return o.Super().AsNode().IsProcessingShortcutInput()
+}
+
+// SetProcessUnhandledInput is promoted from [Node.Instance.SetProcessUnhandledInput].
+func (self Instance) SetProcessUnhandledInput(enable bool) Instance {
+	self.AsNode().SetProcessUnhandledInput(enable)
+	return self
+}
+
+// SetProcessUnhandledInput is promoted from [Node.Instance.SetProcessUnhandledInput].
+func (o *Extension[T]) SetProcessUnhandledInput(enable bool) *Extension[T] {
+	o.Super().AsNode().SetProcessUnhandledInput(enable)
+	return o
+}
+
+// IsProcessingUnhandledInput is promoted from [Node.Instance.IsProcessingUnhandledInput].
+func (self Instance) IsProcessingUnhandledInput() bool {
+	return self.AsNode().IsProcessingUnhandledInput()
+}
+
+// IsProcessingUnhandledInput is promoted from [Node.Instance.IsProcessingUnhandledInput].
+func (o *Extension[T]) IsProcessingUnhandledInput() bool {
+	return o.Super().AsNode().IsProcessingUnhandledInput()
+}
+
+// SetProcessUnhandledKeyInput is promoted from [Node.Instance.SetProcessUnhandledKeyInput].
+func (self Instance) SetProcessUnhandledKeyInput(enable bool) Instance {
+	self.AsNode().SetProcessUnhandledKeyInput(enable)
+	return self
+}
+
+// SetProcessUnhandledKeyInput is promoted from [Node.Instance.SetProcessUnhandledKeyInput].
+func (o *Extension[T]) SetProcessUnhandledKeyInput(enable bool) *Extension[T] {
+	o.Super().AsNode().SetProcessUnhandledKeyInput(enable)
+	return o
+}
+
+// IsProcessingUnhandledKeyInput is promoted from [Node.Instance.IsProcessingUnhandledKeyInput].
+func (self Instance) IsProcessingUnhandledKeyInput() bool {
+	return self.AsNode().IsProcessingUnhandledKeyInput()
+}
+
+// IsProcessingUnhandledKeyInput is promoted from [Node.Instance.IsProcessingUnhandledKeyInput].
+func (o *Extension[T]) IsProcessingUnhandledKeyInput() bool {
+	return o.Super().AsNode().IsProcessingUnhandledKeyInput()
+}
+
+// CanProcess is promoted from [Node.Instance.CanProcess].
+func (self Instance) CanProcess() bool {
+	return self.AsNode().CanProcess()
+}
+
+// CanProcess is promoted from [Node.Instance.CanProcess].
+func (o *Extension[T]) CanProcess() bool {
+	return o.Super().AsNode().CanProcess()
+}
+
+// QueueAccessibilityUpdate is promoted from [Node.Instance.QueueAccessibilityUpdate].
+func (self Instance) QueueAccessibilityUpdate() {
+	self.AsNode().QueueAccessibilityUpdate()
+}
+
+// QueueAccessibilityUpdate is promoted from [Node.Instance.QueueAccessibilityUpdate].
+func (o *Extension[T]) QueueAccessibilityUpdate() {
+	o.Super().AsNode().QueueAccessibilityUpdate()
+}
+
+// GetAccessibilityElement is promoted from [Node.Instance.GetAccessibilityElement].
+func (self Instance) GetAccessibilityElement() RID.AccessibilityElement {
+	return self.AsNode().GetAccessibilityElement()
+}
+
+// GetAccessibilityElement is promoted from [Node.Instance.GetAccessibilityElement].
+func (o *Extension[T]) GetAccessibilityElement() RID.AccessibilityElement {
+	return o.Super().AsNode().GetAccessibilityElement()
+}
+
+// SetDisplayFolded is promoted from [Node.Instance.SetDisplayFolded].
+func (self Instance) SetDisplayFolded(fold bool) Instance {
+	self.AsNode().SetDisplayFolded(fold)
+	return self
+}
+
+// SetDisplayFolded is promoted from [Node.Instance.SetDisplayFolded].
+func (o *Extension[T]) SetDisplayFolded(fold bool) *Extension[T] {
+	o.Super().AsNode().SetDisplayFolded(fold)
+	return o
+}
+
+// IsDisplayedFolded is promoted from [Node.Instance.IsDisplayedFolded].
+func (self Instance) IsDisplayedFolded() bool {
+	return self.AsNode().IsDisplayedFolded()
+}
+
+// IsDisplayedFolded is promoted from [Node.Instance.IsDisplayedFolded].
+func (o *Extension[T]) IsDisplayedFolded() bool {
+	return o.Super().AsNode().IsDisplayedFolded()
+}
+
+// SetProcessInternal is promoted from [Node.Instance.SetProcessInternal].
+func (self Instance) SetProcessInternal(enable bool) Instance {
+	self.AsNode().SetProcessInternal(enable)
+	return self
+}
+
+// SetProcessInternal is promoted from [Node.Instance.SetProcessInternal].
+func (o *Extension[T]) SetProcessInternal(enable bool) *Extension[T] {
+	o.Super().AsNode().SetProcessInternal(enable)
+	return o
+}
+
+// IsProcessingInternal is promoted from [Node.Instance.IsProcessingInternal].
+func (self Instance) IsProcessingInternal() bool {
+	return self.AsNode().IsProcessingInternal()
+}
+
+// IsProcessingInternal is promoted from [Node.Instance.IsProcessingInternal].
+func (o *Extension[T]) IsProcessingInternal() bool {
+	return o.Super().AsNode().IsProcessingInternal()
+}
+
+// SetPhysicsProcessInternal is promoted from [Node.Instance.SetPhysicsProcessInternal].
+func (self Instance) SetPhysicsProcessInternal(enable bool) Instance {
+	self.AsNode().SetPhysicsProcessInternal(enable)
+	return self
+}
+
+// SetPhysicsProcessInternal is promoted from [Node.Instance.SetPhysicsProcessInternal].
+func (o *Extension[T]) SetPhysicsProcessInternal(enable bool) *Extension[T] {
+	o.Super().AsNode().SetPhysicsProcessInternal(enable)
+	return o
+}
+
+// IsPhysicsProcessingInternal is promoted from [Node.Instance.IsPhysicsProcessingInternal].
+func (self Instance) IsPhysicsProcessingInternal() bool {
+	return self.AsNode().IsPhysicsProcessingInternal()
+}
+
+// IsPhysicsProcessingInternal is promoted from [Node.Instance.IsPhysicsProcessingInternal].
+func (o *Extension[T]) IsPhysicsProcessingInternal() bool {
+	return o.Super().AsNode().IsPhysicsProcessingInternal()
+}
+
+// IsPhysicsInterpolated is promoted from [Node.Instance.IsPhysicsInterpolated].
+func (self Instance) IsPhysicsInterpolated() bool {
+	return self.AsNode().IsPhysicsInterpolated()
+}
+
+// IsPhysicsInterpolated is promoted from [Node.Instance.IsPhysicsInterpolated].
+func (o *Extension[T]) IsPhysicsInterpolated() bool {
+	return o.Super().AsNode().IsPhysicsInterpolated()
+}
+
+// IsPhysicsInterpolatedAndEnabled is promoted from [Node.Instance.IsPhysicsInterpolatedAndEnabled].
+func (self Instance) IsPhysicsInterpolatedAndEnabled() bool {
+	return self.AsNode().IsPhysicsInterpolatedAndEnabled()
+}
+
+// IsPhysicsInterpolatedAndEnabled is promoted from [Node.Instance.IsPhysicsInterpolatedAndEnabled].
+func (o *Extension[T]) IsPhysicsInterpolatedAndEnabled() bool {
+	return o.Super().AsNode().IsPhysicsInterpolatedAndEnabled()
+}
+
+// ResetPhysicsInterpolation is promoted from [Node.Instance.ResetPhysicsInterpolation].
+func (self Instance) ResetPhysicsInterpolation() {
+	self.AsNode().ResetPhysicsInterpolation()
+}
+
+// ResetPhysicsInterpolation is promoted from [Node.Instance.ResetPhysicsInterpolation].
+func (o *Extension[T]) ResetPhysicsInterpolation() {
+	o.Super().AsNode().ResetPhysicsInterpolation()
+}
+
+// CanAutoTranslate is promoted from [Node.Instance.CanAutoTranslate].
+func (self Instance) CanAutoTranslate() bool {
+	return self.AsNode().CanAutoTranslate()
+}
+
+// CanAutoTranslate is promoted from [Node.Instance.CanAutoTranslate].
+func (o *Extension[T]) CanAutoTranslate() bool {
+	return o.Super().AsNode().CanAutoTranslate()
+}
+
+// SetTranslationDomainInherited is promoted from [Node.Instance.SetTranslationDomainInherited].
+func (self Instance) SetTranslationDomainInherited() Instance {
+	self.AsNode().SetTranslationDomainInherited()
+	return self
+}
+
+// SetTranslationDomainInherited is promoted from [Node.Instance.SetTranslationDomainInherited].
+func (o *Extension[T]) SetTranslationDomainInherited() *Extension[T] {
+	o.Super().AsNode().SetTranslationDomainInherited()
+	return o
+}
+
+// CreateTween is promoted from [Node.Instance.CreateTween].
+func (self Instance) CreateTween() Tween.Instance {
+	return self.AsNode().CreateTween()
+}
+
+// CreateTween is promoted from [Node.Instance.CreateTween].
+func (o *Extension[T]) CreateTween() Tween.Instance {
+	return o.Super().AsNode().CreateTween()
+}
+
+// SetSceneInstanceLoadPlaceholder is promoted from [Node.Instance.SetSceneInstanceLoadPlaceholder].
+func (self Instance) SetSceneInstanceLoadPlaceholder(load_placeholder bool) Instance {
+	self.AsNode().SetSceneInstanceLoadPlaceholder(load_placeholder)
+	return self
+}
+
+// SetSceneInstanceLoadPlaceholder is promoted from [Node.Instance.SetSceneInstanceLoadPlaceholder].
+func (o *Extension[T]) SetSceneInstanceLoadPlaceholder(load_placeholder bool) *Extension[T] {
+	o.Super().AsNode().SetSceneInstanceLoadPlaceholder(load_placeholder)
+	return o
+}
+
+// GetSceneInstanceLoadPlaceholder is promoted from [Node.Instance.GetSceneInstanceLoadPlaceholder].
+func (self Instance) GetSceneInstanceLoadPlaceholder() bool {
+	return self.AsNode().GetSceneInstanceLoadPlaceholder()
+}
+
+// GetSceneInstanceLoadPlaceholder is promoted from [Node.Instance.GetSceneInstanceLoadPlaceholder].
+func (o *Extension[T]) GetSceneInstanceLoadPlaceholder() bool {
+	return o.Super().AsNode().GetSceneInstanceLoadPlaceholder()
+}
+
+// SetEditableInstance is promoted from [Node.Instance.SetEditableInstance].
+func (self Instance) SetEditableInstance(node Node.Instance, is_editable bool) Instance {
+	self.AsNode().SetEditableInstance(node, is_editable)
+	return self
+}
+
+// SetEditableInstance is promoted from [Node.Instance.SetEditableInstance].
+func (o *Extension[T]) SetEditableInstance(node Node.Instance, is_editable bool) *Extension[T] {
+	o.Super().AsNode().SetEditableInstance(node, is_editable)
+	return o
+}
+
+// IsEditableInstance is promoted from [Node.Instance.IsEditableInstance].
+func (self Instance) IsEditableInstance(node Node.Instance) bool {
+	return self.AsNode().IsEditableInstance(node)
+}
+
+// IsEditableInstance is promoted from [Node.Instance.IsEditableInstance].
+func (o *Extension[T]) IsEditableInstance(node Node.Instance) bool {
+	return o.Super().AsNode().IsEditableInstance(node)
+}
+
+// QueueFree is promoted from [Node.Instance.QueueFree].
+func (self Instance) QueueFree() {
+	self.AsNode().QueueFree()
+}
+
+// QueueFree is promoted from [Node.Instance.QueueFree].
+func (o *Extension[T]) QueueFree() {
+	o.Super().AsNode().QueueFree()
+}
+
+// RequestReady is promoted from [Node.Instance.RequestReady].
+func (self Instance) RequestReady() {
+	self.AsNode().RequestReady()
+}
+
+// RequestReady is promoted from [Node.Instance.RequestReady].
+func (o *Extension[T]) RequestReady() {
+	o.Super().AsNode().RequestReady()
+}
+
+// IsNodeReady is promoted from [Node.Instance.IsNodeReady].
+func (self Instance) IsNodeReady() bool {
+	return self.AsNode().IsNodeReady()
+}
+
+// IsNodeReady is promoted from [Node.Instance.IsNodeReady].
+func (o *Extension[T]) IsNodeReady() bool {
+	return o.Super().AsNode().IsNodeReady()
+}
+
+// GetMultiplayerAuthority is promoted from [Node.Instance.GetMultiplayerAuthority].
+func (self Instance) GetMultiplayerAuthority() int {
+	return self.AsNode().GetMultiplayerAuthority()
+}
+
+// GetMultiplayerAuthority is promoted from [Node.Instance.GetMultiplayerAuthority].
+func (o *Extension[T]) GetMultiplayerAuthority() int {
+	return o.Super().AsNode().GetMultiplayerAuthority()
+}
+
+// IsMultiplayerAuthority is promoted from [Node.Instance.IsMultiplayerAuthority].
+func (self Instance) IsMultiplayerAuthority() bool {
+	return self.AsNode().IsMultiplayerAuthority()
+}
+
+// IsMultiplayerAuthority is promoted from [Node.Instance.IsMultiplayerAuthority].
+func (o *Extension[T]) IsMultiplayerAuthority() bool {
+	return o.Super().AsNode().IsMultiplayerAuthority()
+}
+
+// RpcConfig is promoted from [Node.Instance.RpcConfig].
+func (self Instance) RpcConfig(method string, config any) {
+	self.AsNode().RpcConfig(method, config)
+}
+
+// RpcConfig is promoted from [Node.Instance.RpcConfig].
+func (o *Extension[T]) RpcConfig(method string, config any) {
+	o.Super().AsNode().RpcConfig(method, config)
+}
+
+// GetNodeRpcConfig is promoted from [Node.Instance.GetNodeRpcConfig].
+func (self Instance) GetNodeRpcConfig() any {
+	return self.AsNode().GetNodeRpcConfig()
+}
+
+// GetNodeRpcConfig is promoted from [Node.Instance.GetNodeRpcConfig].
+func (o *Extension[T]) GetNodeRpcConfig() any {
+	return o.Super().AsNode().GetNodeRpcConfig()
+}
+
+// UpdateConfigurationWarnings is promoted from [Node.Instance.UpdateConfigurationWarnings].
+func (self Instance) UpdateConfigurationWarnings() {
+	self.AsNode().UpdateConfigurationWarnings()
+}
+
+// UpdateConfigurationWarnings is promoted from [Node.Instance.UpdateConfigurationWarnings].
+func (o *Extension[T]) UpdateConfigurationWarnings() {
+	o.Super().AsNode().UpdateConfigurationWarnings()
+}
+
+// SetDeferredThreadGroup is promoted from [Node.Instance.SetDeferredThreadGroup].
+func (self Instance) SetDeferredThreadGroup(property string, value any) Instance {
+	self.AsNode().SetDeferredThreadGroup(property, value)
+	return self
+}
+
+// SetDeferredThreadGroup is promoted from [Node.Instance.SetDeferredThreadGroup].
+func (o *Extension[T]) SetDeferredThreadGroup(property string, value any) *Extension[T] {
+	o.Super().AsNode().SetDeferredThreadGroup(property, value)
+	return o
+}
+
+// NotifyDeferredThreadGroup is promoted from [Node.Instance.NotifyDeferredThreadGroup].
+func (self Instance) NotifyDeferredThreadGroup(what int) {
+	self.AsNode().NotifyDeferredThreadGroup(what)
+}
+
+// NotifyDeferredThreadGroup is promoted from [Node.Instance.NotifyDeferredThreadGroup].
+func (o *Extension[T]) NotifyDeferredThreadGroup(what int) {
+	o.Super().AsNode().NotifyDeferredThreadGroup(what)
+}
+
+// SetThreadSafe is promoted from [Node.Instance.SetThreadSafe].
+func (self Instance) SetThreadSafe(property string, value any) Instance {
+	self.AsNode().SetThreadSafe(property, value)
+	return self
+}
+
+// SetThreadSafe is promoted from [Node.Instance.SetThreadSafe].
+func (o *Extension[T]) SetThreadSafe(property string, value any) *Extension[T] {
+	o.Super().AsNode().SetThreadSafe(property, value)
+	return o
+}
+
+// NotifyThreadSafe is promoted from [Node.Instance.NotifyThreadSafe].
+func (self Instance) NotifyThreadSafe(what int) {
+	self.AsNode().NotifyThreadSafe(what)
+}
+
+// NotifyThreadSafe is promoted from [Node.Instance.NotifyThreadSafe].
+func (o *Extension[T]) NotifyThreadSafe(what int) {
+	o.Super().AsNode().NotifyThreadSafe(what)
 }
 
 func (self class) Virtual(name string) reflect.Value {

@@ -469,6 +469,40 @@ func (o *Extension[T]) AsTranslationDomain() Instance { return o.Super() }
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) GetTranslationObject(locale string) Translation.Instance {
+	return o.Super().GetTranslationObject(locale)
+}
+func (o *Extension[T]) AddTranslation(translation Translation.Instance) {
+	o.Super().AddTranslation(translation)
+}
+func (o *Extension[T]) RemoveTranslation(translation Translation.Instance) {
+	o.Super().RemoveTranslation(translation)
+}
+func (o *Extension[T]) Clear() {
+	o.Super().Clear()
+}
+func (o *Extension[T]) GetTranslations() []Translation.Instance {
+	return o.Super().GetTranslations()
+}
+func (o *Extension[T]) HasTranslationForLocale(locale string, exact bool) bool {
+	return o.Super().HasTranslationForLocale(locale, exact)
+}
+func (o *Extension[T]) HasTranslation(translation Translation.Instance) bool {
+	return o.Super().HasTranslation(translation)
+}
+func (o *Extension[T]) FindTranslations(locale string, exact bool) []Translation.Instance {
+	return o.Super().FindTranslations(locale, exact)
+}
+func (o *Extension[T]) GetLocaleOverride() string {
+	return o.Super().GetLocaleOverride()
+}
+func (o *Extension[T]) SetLocaleOverride(locale string) *Extension[T] {
+	o.Super().SetLocaleOverride(locale)
+	return o
+}
+func (o *Extension[T]) Pseudolocalize(message string) string {
+	return o.Super().Pseudolocalize(message)
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

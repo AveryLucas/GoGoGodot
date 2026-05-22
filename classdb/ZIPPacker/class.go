@@ -220,6 +220,18 @@ func (o *Extension[T]) AsZIPPacker() Instance { return o.Super() }
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) StartFile(path string) error {
+	return o.Super().StartFile(path)
+}
+func (o *Extension[T]) WriteFile(data []byte) error {
+	return o.Super().WriteFile(data)
+}
+func (o *Extension[T]) CloseFile() error {
+	return o.Super().CloseFile()
+}
+func (o *Extension[T]) Close() error {
+	return o.Super().Close()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

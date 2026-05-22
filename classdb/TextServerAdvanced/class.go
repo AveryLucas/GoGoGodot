@@ -17,10 +17,12 @@ import "graphics.gd/variant"
 import "graphics.gd/variant/Angle"
 import "graphics.gd/variant/Euler"
 import "graphics.gd/variant/Signal"
+import "graphics.gd/classdb/Image"
 import "graphics.gd/classdb/TextServer"
 import "graphics.gd/classdb/TextServerExtension"
 import "graphics.gd/variant/Array"
 import "graphics.gd/variant/Callable"
+import "graphics.gd/variant/Color"
 import "graphics.gd/variant/Dictionary"
 import "graphics.gd/variant/Error"
 import "graphics.gd/variant/Float"
@@ -28,8 +30,13 @@ import "graphics.gd/variant/Object"
 import "graphics.gd/variant/Packed"
 import "graphics.gd/variant/Path"
 import "graphics.gd/variant/RID"
+import "graphics.gd/variant/Rect2"
 import "graphics.gd/variant/RefCounted"
 import "graphics.gd/variant/String"
+import "graphics.gd/variant/Transform2D"
+import "graphics.gd/variant/Vector2"
+import "graphics.gd/variant/Vector2i"
+import "graphics.gd/variant/Vector3i"
 
 var _ Object.ID
 type _ gdclass.Node
@@ -156,6 +163,2126 @@ func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 
+// HasFeature is promoted from [TextServer.Instance.HasFeature].
+func (self Instance) HasFeature(feature TextServer.Feature) bool {
+	return self.AsTextServer().HasFeature(feature)
+}
+
+// HasFeature is promoted from [TextServer.Instance.HasFeature].
+func (o *Extension[T]) HasFeature(feature TextServer.Feature) bool {
+	return o.Super().AsTextServer().HasFeature(feature)
+}
+
+// GetName is promoted from [TextServer.Instance.GetName].
+func (self Instance) GetName() string {
+	return self.AsTextServer().GetName()
+}
+
+// GetName is promoted from [TextServer.Instance.GetName].
+func (o *Extension[T]) GetName() string {
+	return o.Super().AsTextServer().GetName()
+}
+
+// GetFeatures is promoted from [TextServer.Instance.GetFeatures].
+func (self Instance) GetFeatures() int {
+	return self.AsTextServer().GetFeatures()
+}
+
+// GetFeatures is promoted from [TextServer.Instance.GetFeatures].
+func (o *Extension[T]) GetFeatures() int {
+	return o.Super().AsTextServer().GetFeatures()
+}
+
+// LoadSupportData is promoted from [TextServer.Instance.LoadSupportData].
+func (self Instance) LoadSupportData(filename string) bool {
+	return self.AsTextServer().LoadSupportData(filename)
+}
+
+// LoadSupportData is promoted from [TextServer.Instance.LoadSupportData].
+func (o *Extension[T]) LoadSupportData(filename string) bool {
+	return o.Super().AsTextServer().LoadSupportData(filename)
+}
+
+// GetSupportDataFilename is promoted from [TextServer.Instance.GetSupportDataFilename].
+func (self Instance) GetSupportDataFilename() string {
+	return self.AsTextServer().GetSupportDataFilename()
+}
+
+// GetSupportDataFilename is promoted from [TextServer.Instance.GetSupportDataFilename].
+func (o *Extension[T]) GetSupportDataFilename() string {
+	return o.Super().AsTextServer().GetSupportDataFilename()
+}
+
+// GetSupportDataInfo is promoted from [TextServer.Instance.GetSupportDataInfo].
+func (self Instance) GetSupportDataInfo() string {
+	return self.AsTextServer().GetSupportDataInfo()
+}
+
+// GetSupportDataInfo is promoted from [TextServer.Instance.GetSupportDataInfo].
+func (o *Extension[T]) GetSupportDataInfo() string {
+	return o.Super().AsTextServer().GetSupportDataInfo()
+}
+
+// SaveSupportData is promoted from [TextServer.Instance.SaveSupportData].
+func (self Instance) SaveSupportData(filename string) bool {
+	return self.AsTextServer().SaveSupportData(filename)
+}
+
+// SaveSupportData is promoted from [TextServer.Instance.SaveSupportData].
+func (o *Extension[T]) SaveSupportData(filename string) bool {
+	return o.Super().AsTextServer().SaveSupportData(filename)
+}
+
+// GetSupportData is promoted from [TextServer.Instance.GetSupportData].
+func (self Instance) GetSupportData() []byte {
+	return self.AsTextServer().GetSupportData()
+}
+
+// GetSupportData is promoted from [TextServer.Instance.GetSupportData].
+func (o *Extension[T]) GetSupportData() []byte {
+	return o.Super().AsTextServer().GetSupportData()
+}
+
+// IsLocaleUsingSupportData is promoted from [TextServer.Instance.IsLocaleUsingSupportData].
+func (self Instance) IsLocaleUsingSupportData(locale string) bool {
+	return self.AsTextServer().IsLocaleUsingSupportData(locale)
+}
+
+// IsLocaleUsingSupportData is promoted from [TextServer.Instance.IsLocaleUsingSupportData].
+func (o *Extension[T]) IsLocaleUsingSupportData(locale string) bool {
+	return o.Super().AsTextServer().IsLocaleUsingSupportData(locale)
+}
+
+// IsLocaleRightToLeft is promoted from [TextServer.Instance.IsLocaleRightToLeft].
+func (self Instance) IsLocaleRightToLeft(locale string) bool {
+	return self.AsTextServer().IsLocaleRightToLeft(locale)
+}
+
+// IsLocaleRightToLeft is promoted from [TextServer.Instance.IsLocaleRightToLeft].
+func (o *Extension[T]) IsLocaleRightToLeft(locale string) bool {
+	return o.Super().AsTextServer().IsLocaleRightToLeft(locale)
+}
+
+// NameToTag is promoted from [TextServer.Instance.NameToTag].
+func (self Instance) NameToTag(name string) int {
+	return self.AsTextServer().NameToTag(name)
+}
+
+// NameToTag is promoted from [TextServer.Instance.NameToTag].
+func (o *Extension[T]) NameToTag(name string) int {
+	return o.Super().AsTextServer().NameToTag(name)
+}
+
+// TagToName is promoted from [TextServer.Instance.TagToName].
+func (self Instance) TagToName(tag int) string {
+	return self.AsTextServer().TagToName(tag)
+}
+
+// TagToName is promoted from [TextServer.Instance.TagToName].
+func (o *Extension[T]) TagToName(tag int) string {
+	return o.Super().AsTextServer().TagToName(tag)
+}
+
+// Has is promoted from [TextServer.Instance.Has].
+func (self Instance) Has(rid RID.Any) bool {
+	return self.AsTextServer().Has(rid)
+}
+
+// Has is promoted from [TextServer.Instance.Has].
+func (o *Extension[T]) Has(rid RID.Any) bool {
+	return o.Super().AsTextServer().Has(rid)
+}
+
+// FreeRid is promoted from [TextServer.Instance.FreeRid].
+func (self Instance) FreeRid(rid RID.Any) {
+	self.AsTextServer().FreeRid(rid)
+}
+
+// FreeRid is promoted from [TextServer.Instance.FreeRid].
+func (o *Extension[T]) FreeRid(rid RID.Any) {
+	o.Super().AsTextServer().FreeRid(rid)
+}
+
+// CreateFont is promoted from [TextServer.Instance.CreateFont].
+func (self Instance) CreateFont() RID.Font {
+	return self.AsTextServer().CreateFont()
+}
+
+// CreateFont is promoted from [TextServer.Instance.CreateFont].
+func (o *Extension[T]) CreateFont() RID.Font {
+	return o.Super().AsTextServer().CreateFont()
+}
+
+// CreateFontLinkedVariation is promoted from [TextServer.Instance.CreateFontLinkedVariation].
+func (self Instance) CreateFontLinkedVariation(font_rid RID.Font) RID.Font {
+	return self.AsTextServer().CreateFontLinkedVariation(font_rid)
+}
+
+// CreateFontLinkedVariation is promoted from [TextServer.Instance.CreateFontLinkedVariation].
+func (o *Extension[T]) CreateFontLinkedVariation(font_rid RID.Font) RID.Font {
+	return o.Super().AsTextServer().CreateFontLinkedVariation(font_rid)
+}
+
+// FontSetData is promoted from [TextServer.Instance.FontSetData].
+func (self Instance) FontSetData(font_rid RID.Font, data []byte) {
+	self.AsTextServer().FontSetData(font_rid, data)
+}
+
+// FontSetData is promoted from [TextServer.Instance.FontSetData].
+func (o *Extension[T]) FontSetData(font_rid RID.Font, data []byte) {
+	o.Super().AsTextServer().FontSetData(font_rid, data)
+}
+
+// FontSetFaceIndex is promoted from [TextServer.Instance.FontSetFaceIndex].
+func (self Instance) FontSetFaceIndex(font_rid RID.Font, face_index int) {
+	self.AsTextServer().FontSetFaceIndex(font_rid, face_index)
+}
+
+// FontSetFaceIndex is promoted from [TextServer.Instance.FontSetFaceIndex].
+func (o *Extension[T]) FontSetFaceIndex(font_rid RID.Font, face_index int) {
+	o.Super().AsTextServer().FontSetFaceIndex(font_rid, face_index)
+}
+
+// FontGetFaceIndex is promoted from [TextServer.Instance.FontGetFaceIndex].
+func (self Instance) FontGetFaceIndex(font_rid RID.Font) int {
+	return self.AsTextServer().FontGetFaceIndex(font_rid)
+}
+
+// FontGetFaceIndex is promoted from [TextServer.Instance.FontGetFaceIndex].
+func (o *Extension[T]) FontGetFaceIndex(font_rid RID.Font) int {
+	return o.Super().AsTextServer().FontGetFaceIndex(font_rid)
+}
+
+// FontGetFaceCount is promoted from [TextServer.Instance.FontGetFaceCount].
+func (self Instance) FontGetFaceCount(font_rid RID.Font) int {
+	return self.AsTextServer().FontGetFaceCount(font_rid)
+}
+
+// FontGetFaceCount is promoted from [TextServer.Instance.FontGetFaceCount].
+func (o *Extension[T]) FontGetFaceCount(font_rid RID.Font) int {
+	return o.Super().AsTextServer().FontGetFaceCount(font_rid)
+}
+
+// FontSetStyle is promoted from [TextServer.Instance.FontSetStyle].
+func (self Instance) FontSetStyle(font_rid RID.Font, style TextServer.FontStyle) {
+	self.AsTextServer().FontSetStyle(font_rid, style)
+}
+
+// FontSetStyle is promoted from [TextServer.Instance.FontSetStyle].
+func (o *Extension[T]) FontSetStyle(font_rid RID.Font, style TextServer.FontStyle) {
+	o.Super().AsTextServer().FontSetStyle(font_rid, style)
+}
+
+// FontGetStyle is promoted from [TextServer.Instance.FontGetStyle].
+func (self Instance) FontGetStyle(font_rid RID.Font) TextServer.FontStyle {
+	return self.AsTextServer().FontGetStyle(font_rid)
+}
+
+// FontGetStyle is promoted from [TextServer.Instance.FontGetStyle].
+func (o *Extension[T]) FontGetStyle(font_rid RID.Font) TextServer.FontStyle {
+	return o.Super().AsTextServer().FontGetStyle(font_rid)
+}
+
+// FontSetName is promoted from [TextServer.Instance.FontSetName].
+func (self Instance) FontSetName(font_rid RID.Font, name string) {
+	self.AsTextServer().FontSetName(font_rid, name)
+}
+
+// FontSetName is promoted from [TextServer.Instance.FontSetName].
+func (o *Extension[T]) FontSetName(font_rid RID.Font, name string) {
+	o.Super().AsTextServer().FontSetName(font_rid, name)
+}
+
+// FontGetName is promoted from [TextServer.Instance.FontGetName].
+func (self Instance) FontGetName(font_rid RID.Font) string {
+	return self.AsTextServer().FontGetName(font_rid)
+}
+
+// FontGetName is promoted from [TextServer.Instance.FontGetName].
+func (o *Extension[T]) FontGetName(font_rid RID.Font) string {
+	return o.Super().AsTextServer().FontGetName(font_rid)
+}
+
+// FontGetOtNameStrings is promoted from [TextServer.Instance.FontGetOtNameStrings].
+func (self Instance) FontGetOtNameStrings(font_rid RID.Font) map[string]map[string]string {
+	return self.AsTextServer().FontGetOtNameStrings(font_rid)
+}
+
+// FontGetOtNameStrings is promoted from [TextServer.Instance.FontGetOtNameStrings].
+func (o *Extension[T]) FontGetOtNameStrings(font_rid RID.Font) map[string]map[string]string {
+	return o.Super().AsTextServer().FontGetOtNameStrings(font_rid)
+}
+
+// FontSetStyleName is promoted from [TextServer.Instance.FontSetStyleName].
+func (self Instance) FontSetStyleName(font_rid RID.Font, name string) {
+	self.AsTextServer().FontSetStyleName(font_rid, name)
+}
+
+// FontSetStyleName is promoted from [TextServer.Instance.FontSetStyleName].
+func (o *Extension[T]) FontSetStyleName(font_rid RID.Font, name string) {
+	o.Super().AsTextServer().FontSetStyleName(font_rid, name)
+}
+
+// FontGetStyleName is promoted from [TextServer.Instance.FontGetStyleName].
+func (self Instance) FontGetStyleName(font_rid RID.Font) string {
+	return self.AsTextServer().FontGetStyleName(font_rid)
+}
+
+// FontGetStyleName is promoted from [TextServer.Instance.FontGetStyleName].
+func (o *Extension[T]) FontGetStyleName(font_rid RID.Font) string {
+	return o.Super().AsTextServer().FontGetStyleName(font_rid)
+}
+
+// FontSetWeight is promoted from [TextServer.Instance.FontSetWeight].
+func (self Instance) FontSetWeight(font_rid RID.Font, weight int) {
+	self.AsTextServer().FontSetWeight(font_rid, weight)
+}
+
+// FontSetWeight is promoted from [TextServer.Instance.FontSetWeight].
+func (o *Extension[T]) FontSetWeight(font_rid RID.Font, weight int) {
+	o.Super().AsTextServer().FontSetWeight(font_rid, weight)
+}
+
+// FontGetWeight is promoted from [TextServer.Instance.FontGetWeight].
+func (self Instance) FontGetWeight(font_rid RID.Font) int {
+	return self.AsTextServer().FontGetWeight(font_rid)
+}
+
+// FontGetWeight is promoted from [TextServer.Instance.FontGetWeight].
+func (o *Extension[T]) FontGetWeight(font_rid RID.Font) int {
+	return o.Super().AsTextServer().FontGetWeight(font_rid)
+}
+
+// FontSetStretch is promoted from [TextServer.Instance.FontSetStretch].
+func (self Instance) FontSetStretch(font_rid RID.Font, weight int) {
+	self.AsTextServer().FontSetStretch(font_rid, weight)
+}
+
+// FontSetStretch is promoted from [TextServer.Instance.FontSetStretch].
+func (o *Extension[T]) FontSetStretch(font_rid RID.Font, weight int) {
+	o.Super().AsTextServer().FontSetStretch(font_rid, weight)
+}
+
+// FontGetStretch is promoted from [TextServer.Instance.FontGetStretch].
+func (self Instance) FontGetStretch(font_rid RID.Font) int {
+	return self.AsTextServer().FontGetStretch(font_rid)
+}
+
+// FontGetStretch is promoted from [TextServer.Instance.FontGetStretch].
+func (o *Extension[T]) FontGetStretch(font_rid RID.Font) int {
+	return o.Super().AsTextServer().FontGetStretch(font_rid)
+}
+
+// FontSetAntialiasing is promoted from [TextServer.Instance.FontSetAntialiasing].
+func (self Instance) FontSetAntialiasing(font_rid RID.Font, antialiasing TextServer.FontAntialiasing) {
+	self.AsTextServer().FontSetAntialiasing(font_rid, antialiasing)
+}
+
+// FontSetAntialiasing is promoted from [TextServer.Instance.FontSetAntialiasing].
+func (o *Extension[T]) FontSetAntialiasing(font_rid RID.Font, antialiasing TextServer.FontAntialiasing) {
+	o.Super().AsTextServer().FontSetAntialiasing(font_rid, antialiasing)
+}
+
+// FontGetAntialiasing is promoted from [TextServer.Instance.FontGetAntialiasing].
+func (self Instance) FontGetAntialiasing(font_rid RID.Font) TextServer.FontAntialiasing {
+	return self.AsTextServer().FontGetAntialiasing(font_rid)
+}
+
+// FontGetAntialiasing is promoted from [TextServer.Instance.FontGetAntialiasing].
+func (o *Extension[T]) FontGetAntialiasing(font_rid RID.Font) TextServer.FontAntialiasing {
+	return o.Super().AsTextServer().FontGetAntialiasing(font_rid)
+}
+
+// FontSetDisableEmbeddedBitmaps is promoted from [TextServer.Instance.FontSetDisableEmbeddedBitmaps].
+func (self Instance) FontSetDisableEmbeddedBitmaps(font_rid RID.Font, disable_embedded_bitmaps bool) {
+	self.AsTextServer().FontSetDisableEmbeddedBitmaps(font_rid, disable_embedded_bitmaps)
+}
+
+// FontSetDisableEmbeddedBitmaps is promoted from [TextServer.Instance.FontSetDisableEmbeddedBitmaps].
+func (o *Extension[T]) FontSetDisableEmbeddedBitmaps(font_rid RID.Font, disable_embedded_bitmaps bool) {
+	o.Super().AsTextServer().FontSetDisableEmbeddedBitmaps(font_rid, disable_embedded_bitmaps)
+}
+
+// FontGetDisableEmbeddedBitmaps is promoted from [TextServer.Instance.FontGetDisableEmbeddedBitmaps].
+func (self Instance) FontGetDisableEmbeddedBitmaps(font_rid RID.Font) bool {
+	return self.AsTextServer().FontGetDisableEmbeddedBitmaps(font_rid)
+}
+
+// FontGetDisableEmbeddedBitmaps is promoted from [TextServer.Instance.FontGetDisableEmbeddedBitmaps].
+func (o *Extension[T]) FontGetDisableEmbeddedBitmaps(font_rid RID.Font) bool {
+	return o.Super().AsTextServer().FontGetDisableEmbeddedBitmaps(font_rid)
+}
+
+// FontSetGenerateMipmaps is promoted from [TextServer.Instance.FontSetGenerateMipmaps].
+func (self Instance) FontSetGenerateMipmaps(font_rid RID.Font, generate_mipmaps bool) {
+	self.AsTextServer().FontSetGenerateMipmaps(font_rid, generate_mipmaps)
+}
+
+// FontSetGenerateMipmaps is promoted from [TextServer.Instance.FontSetGenerateMipmaps].
+func (o *Extension[T]) FontSetGenerateMipmaps(font_rid RID.Font, generate_mipmaps bool) {
+	o.Super().AsTextServer().FontSetGenerateMipmaps(font_rid, generate_mipmaps)
+}
+
+// FontGetGenerateMipmaps is promoted from [TextServer.Instance.FontGetGenerateMipmaps].
+func (self Instance) FontGetGenerateMipmaps(font_rid RID.Font) bool {
+	return self.AsTextServer().FontGetGenerateMipmaps(font_rid)
+}
+
+// FontGetGenerateMipmaps is promoted from [TextServer.Instance.FontGetGenerateMipmaps].
+func (o *Extension[T]) FontGetGenerateMipmaps(font_rid RID.Font) bool {
+	return o.Super().AsTextServer().FontGetGenerateMipmaps(font_rid)
+}
+
+// FontSetMultichannelSignedDistanceField is promoted from [TextServer.Instance.FontSetMultichannelSignedDistanceField].
+func (self Instance) FontSetMultichannelSignedDistanceField(font_rid RID.Font, msdf bool) {
+	self.AsTextServer().FontSetMultichannelSignedDistanceField(font_rid, msdf)
+}
+
+// FontSetMultichannelSignedDistanceField is promoted from [TextServer.Instance.FontSetMultichannelSignedDistanceField].
+func (o *Extension[T]) FontSetMultichannelSignedDistanceField(font_rid RID.Font, msdf bool) {
+	o.Super().AsTextServer().FontSetMultichannelSignedDistanceField(font_rid, msdf)
+}
+
+// FontIsMultichannelSignedDistanceField is promoted from [TextServer.Instance.FontIsMultichannelSignedDistanceField].
+func (self Instance) FontIsMultichannelSignedDistanceField(font_rid RID.Font) bool {
+	return self.AsTextServer().FontIsMultichannelSignedDistanceField(font_rid)
+}
+
+// FontIsMultichannelSignedDistanceField is promoted from [TextServer.Instance.FontIsMultichannelSignedDistanceField].
+func (o *Extension[T]) FontIsMultichannelSignedDistanceField(font_rid RID.Font) bool {
+	return o.Super().AsTextServer().FontIsMultichannelSignedDistanceField(font_rid)
+}
+
+// FontSetMsdfPixelRange is promoted from [TextServer.Instance.FontSetMsdfPixelRange].
+func (self Instance) FontSetMsdfPixelRange(font_rid RID.Font, msdf_pixel_range int) {
+	self.AsTextServer().FontSetMsdfPixelRange(font_rid, msdf_pixel_range)
+}
+
+// FontSetMsdfPixelRange is promoted from [TextServer.Instance.FontSetMsdfPixelRange].
+func (o *Extension[T]) FontSetMsdfPixelRange(font_rid RID.Font, msdf_pixel_range int) {
+	o.Super().AsTextServer().FontSetMsdfPixelRange(font_rid, msdf_pixel_range)
+}
+
+// FontGetMsdfPixelRange is promoted from [TextServer.Instance.FontGetMsdfPixelRange].
+func (self Instance) FontGetMsdfPixelRange(font_rid RID.Font) int {
+	return self.AsTextServer().FontGetMsdfPixelRange(font_rid)
+}
+
+// FontGetMsdfPixelRange is promoted from [TextServer.Instance.FontGetMsdfPixelRange].
+func (o *Extension[T]) FontGetMsdfPixelRange(font_rid RID.Font) int {
+	return o.Super().AsTextServer().FontGetMsdfPixelRange(font_rid)
+}
+
+// FontSetMsdfSize is promoted from [TextServer.Instance.FontSetMsdfSize].
+func (self Instance) FontSetMsdfSize(font_rid RID.Font, msdf_size int) {
+	self.AsTextServer().FontSetMsdfSize(font_rid, msdf_size)
+}
+
+// FontSetMsdfSize is promoted from [TextServer.Instance.FontSetMsdfSize].
+func (o *Extension[T]) FontSetMsdfSize(font_rid RID.Font, msdf_size int) {
+	o.Super().AsTextServer().FontSetMsdfSize(font_rid, msdf_size)
+}
+
+// FontGetMsdfSize is promoted from [TextServer.Instance.FontGetMsdfSize].
+func (self Instance) FontGetMsdfSize(font_rid RID.Font) int {
+	return self.AsTextServer().FontGetMsdfSize(font_rid)
+}
+
+// FontGetMsdfSize is promoted from [TextServer.Instance.FontGetMsdfSize].
+func (o *Extension[T]) FontGetMsdfSize(font_rid RID.Font) int {
+	return o.Super().AsTextServer().FontGetMsdfSize(font_rid)
+}
+
+// FontSetFixedSize is promoted from [TextServer.Instance.FontSetFixedSize].
+func (self Instance) FontSetFixedSize(font_rid RID.Font, fixed_size int) {
+	self.AsTextServer().FontSetFixedSize(font_rid, fixed_size)
+}
+
+// FontSetFixedSize is promoted from [TextServer.Instance.FontSetFixedSize].
+func (o *Extension[T]) FontSetFixedSize(font_rid RID.Font, fixed_size int) {
+	o.Super().AsTextServer().FontSetFixedSize(font_rid, fixed_size)
+}
+
+// FontGetFixedSize is promoted from [TextServer.Instance.FontGetFixedSize].
+func (self Instance) FontGetFixedSize(font_rid RID.Font) int {
+	return self.AsTextServer().FontGetFixedSize(font_rid)
+}
+
+// FontGetFixedSize is promoted from [TextServer.Instance.FontGetFixedSize].
+func (o *Extension[T]) FontGetFixedSize(font_rid RID.Font) int {
+	return o.Super().AsTextServer().FontGetFixedSize(font_rid)
+}
+
+// FontSetFixedSizeScaleMode is promoted from [TextServer.Instance.FontSetFixedSizeScaleMode].
+func (self Instance) FontSetFixedSizeScaleMode(font_rid RID.Font, fixed_size_scale_mode TextServer.FixedSizeScaleMode) {
+	self.AsTextServer().FontSetFixedSizeScaleMode(font_rid, fixed_size_scale_mode)
+}
+
+// FontSetFixedSizeScaleMode is promoted from [TextServer.Instance.FontSetFixedSizeScaleMode].
+func (o *Extension[T]) FontSetFixedSizeScaleMode(font_rid RID.Font, fixed_size_scale_mode TextServer.FixedSizeScaleMode) {
+	o.Super().AsTextServer().FontSetFixedSizeScaleMode(font_rid, fixed_size_scale_mode)
+}
+
+// FontGetFixedSizeScaleMode is promoted from [TextServer.Instance.FontGetFixedSizeScaleMode].
+func (self Instance) FontGetFixedSizeScaleMode(font_rid RID.Font) TextServer.FixedSizeScaleMode {
+	return self.AsTextServer().FontGetFixedSizeScaleMode(font_rid)
+}
+
+// FontGetFixedSizeScaleMode is promoted from [TextServer.Instance.FontGetFixedSizeScaleMode].
+func (o *Extension[T]) FontGetFixedSizeScaleMode(font_rid RID.Font) TextServer.FixedSizeScaleMode {
+	return o.Super().AsTextServer().FontGetFixedSizeScaleMode(font_rid)
+}
+
+// FontSetAllowSystemFallback is promoted from [TextServer.Instance.FontSetAllowSystemFallback].
+func (self Instance) FontSetAllowSystemFallback(font_rid RID.Font, allow_system_fallback bool) {
+	self.AsTextServer().FontSetAllowSystemFallback(font_rid, allow_system_fallback)
+}
+
+// FontSetAllowSystemFallback is promoted from [TextServer.Instance.FontSetAllowSystemFallback].
+func (o *Extension[T]) FontSetAllowSystemFallback(font_rid RID.Font, allow_system_fallback bool) {
+	o.Super().AsTextServer().FontSetAllowSystemFallback(font_rid, allow_system_fallback)
+}
+
+// FontIsAllowSystemFallback is promoted from [TextServer.Instance.FontIsAllowSystemFallback].
+func (self Instance) FontIsAllowSystemFallback(font_rid RID.Font) bool {
+	return self.AsTextServer().FontIsAllowSystemFallback(font_rid)
+}
+
+// FontIsAllowSystemFallback is promoted from [TextServer.Instance.FontIsAllowSystemFallback].
+func (o *Extension[T]) FontIsAllowSystemFallback(font_rid RID.Font) bool {
+	return o.Super().AsTextServer().FontIsAllowSystemFallback(font_rid)
+}
+
+// FontClearSystemFallbackCache is promoted from [TextServer.Instance.FontClearSystemFallbackCache].
+func (self Instance) FontClearSystemFallbackCache() {
+	self.AsTextServer().FontClearSystemFallbackCache()
+}
+
+// FontClearSystemFallbackCache is promoted from [TextServer.Instance.FontClearSystemFallbackCache].
+func (o *Extension[T]) FontClearSystemFallbackCache() {
+	o.Super().AsTextServer().FontClearSystemFallbackCache()
+}
+
+// FontSetForceAutohinter is promoted from [TextServer.Instance.FontSetForceAutohinter].
+func (self Instance) FontSetForceAutohinter(font_rid RID.Font, force_autohinter bool) {
+	self.AsTextServer().FontSetForceAutohinter(font_rid, force_autohinter)
+}
+
+// FontSetForceAutohinter is promoted from [TextServer.Instance.FontSetForceAutohinter].
+func (o *Extension[T]) FontSetForceAutohinter(font_rid RID.Font, force_autohinter bool) {
+	o.Super().AsTextServer().FontSetForceAutohinter(font_rid, force_autohinter)
+}
+
+// FontIsForceAutohinter is promoted from [TextServer.Instance.FontIsForceAutohinter].
+func (self Instance) FontIsForceAutohinter(font_rid RID.Font) bool {
+	return self.AsTextServer().FontIsForceAutohinter(font_rid)
+}
+
+// FontIsForceAutohinter is promoted from [TextServer.Instance.FontIsForceAutohinter].
+func (o *Extension[T]) FontIsForceAutohinter(font_rid RID.Font) bool {
+	return o.Super().AsTextServer().FontIsForceAutohinter(font_rid)
+}
+
+// FontSetModulateColorGlyphs is promoted from [TextServer.Instance.FontSetModulateColorGlyphs].
+func (self Instance) FontSetModulateColorGlyphs(font_rid RID.Font, force_autohinter bool) {
+	self.AsTextServer().FontSetModulateColorGlyphs(font_rid, force_autohinter)
+}
+
+// FontSetModulateColorGlyphs is promoted from [TextServer.Instance.FontSetModulateColorGlyphs].
+func (o *Extension[T]) FontSetModulateColorGlyphs(font_rid RID.Font, force_autohinter bool) {
+	o.Super().AsTextServer().FontSetModulateColorGlyphs(font_rid, force_autohinter)
+}
+
+// FontIsModulateColorGlyphs is promoted from [TextServer.Instance.FontIsModulateColorGlyphs].
+func (self Instance) FontIsModulateColorGlyphs(font_rid RID.Font) bool {
+	return self.AsTextServer().FontIsModulateColorGlyphs(font_rid)
+}
+
+// FontIsModulateColorGlyphs is promoted from [TextServer.Instance.FontIsModulateColorGlyphs].
+func (o *Extension[T]) FontIsModulateColorGlyphs(font_rid RID.Font) bool {
+	return o.Super().AsTextServer().FontIsModulateColorGlyphs(font_rid)
+}
+
+// FontSetHinting is promoted from [TextServer.Instance.FontSetHinting].
+func (self Instance) FontSetHinting(font_rid RID.Font, hinting TextServer.Hinting) {
+	self.AsTextServer().FontSetHinting(font_rid, hinting)
+}
+
+// FontSetHinting is promoted from [TextServer.Instance.FontSetHinting].
+func (o *Extension[T]) FontSetHinting(font_rid RID.Font, hinting TextServer.Hinting) {
+	o.Super().AsTextServer().FontSetHinting(font_rid, hinting)
+}
+
+// FontGetHinting is promoted from [TextServer.Instance.FontGetHinting].
+func (self Instance) FontGetHinting(font_rid RID.Font) TextServer.Hinting {
+	return self.AsTextServer().FontGetHinting(font_rid)
+}
+
+// FontGetHinting is promoted from [TextServer.Instance.FontGetHinting].
+func (o *Extension[T]) FontGetHinting(font_rid RID.Font) TextServer.Hinting {
+	return o.Super().AsTextServer().FontGetHinting(font_rid)
+}
+
+// FontSetSubpixelPositioning is promoted from [TextServer.Instance.FontSetSubpixelPositioning].
+func (self Instance) FontSetSubpixelPositioning(font_rid RID.Font, subpixel_positioning TextServer.SubpixelPositioning) {
+	self.AsTextServer().FontSetSubpixelPositioning(font_rid, subpixel_positioning)
+}
+
+// FontSetSubpixelPositioning is promoted from [TextServer.Instance.FontSetSubpixelPositioning].
+func (o *Extension[T]) FontSetSubpixelPositioning(font_rid RID.Font, subpixel_positioning TextServer.SubpixelPositioning) {
+	o.Super().AsTextServer().FontSetSubpixelPositioning(font_rid, subpixel_positioning)
+}
+
+// FontGetSubpixelPositioning is promoted from [TextServer.Instance.FontGetSubpixelPositioning].
+func (self Instance) FontGetSubpixelPositioning(font_rid RID.Font) TextServer.SubpixelPositioning {
+	return self.AsTextServer().FontGetSubpixelPositioning(font_rid)
+}
+
+// FontGetSubpixelPositioning is promoted from [TextServer.Instance.FontGetSubpixelPositioning].
+func (o *Extension[T]) FontGetSubpixelPositioning(font_rid RID.Font) TextServer.SubpixelPositioning {
+	return o.Super().AsTextServer().FontGetSubpixelPositioning(font_rid)
+}
+
+// FontSetKeepRoundingRemainders is promoted from [TextServer.Instance.FontSetKeepRoundingRemainders].
+func (self Instance) FontSetKeepRoundingRemainders(font_rid RID.Font, keep_rounding_remainders bool) {
+	self.AsTextServer().FontSetKeepRoundingRemainders(font_rid, keep_rounding_remainders)
+}
+
+// FontSetKeepRoundingRemainders is promoted from [TextServer.Instance.FontSetKeepRoundingRemainders].
+func (o *Extension[T]) FontSetKeepRoundingRemainders(font_rid RID.Font, keep_rounding_remainders bool) {
+	o.Super().AsTextServer().FontSetKeepRoundingRemainders(font_rid, keep_rounding_remainders)
+}
+
+// FontGetKeepRoundingRemainders is promoted from [TextServer.Instance.FontGetKeepRoundingRemainders].
+func (self Instance) FontGetKeepRoundingRemainders(font_rid RID.Font) bool {
+	return self.AsTextServer().FontGetKeepRoundingRemainders(font_rid)
+}
+
+// FontGetKeepRoundingRemainders is promoted from [TextServer.Instance.FontGetKeepRoundingRemainders].
+func (o *Extension[T]) FontGetKeepRoundingRemainders(font_rid RID.Font) bool {
+	return o.Super().AsTextServer().FontGetKeepRoundingRemainders(font_rid)
+}
+
+// FontSetEmbolden is promoted from [TextServer.Instance.FontSetEmbolden].
+func (self Instance) FontSetEmbolden(font_rid RID.Font, strength Float.X) {
+	self.AsTextServer().FontSetEmbolden(font_rid, strength)
+}
+
+// FontSetEmbolden is promoted from [TextServer.Instance.FontSetEmbolden].
+func (o *Extension[T]) FontSetEmbolden(font_rid RID.Font, strength Float.X) {
+	o.Super().AsTextServer().FontSetEmbolden(font_rid, strength)
+}
+
+// FontGetEmbolden is promoted from [TextServer.Instance.FontGetEmbolden].
+func (self Instance) FontGetEmbolden(font_rid RID.Font) Float.X {
+	return self.AsTextServer().FontGetEmbolden(font_rid)
+}
+
+// FontGetEmbolden is promoted from [TextServer.Instance.FontGetEmbolden].
+func (o *Extension[T]) FontGetEmbolden(font_rid RID.Font) Float.X {
+	return o.Super().AsTextServer().FontGetEmbolden(font_rid)
+}
+
+// FontSetSpacing is promoted from [TextServer.Instance.FontSetSpacing].
+func (self Instance) FontSetSpacing(font_rid RID.Font, spacing TextServer.SpacingType, value int) {
+	self.AsTextServer().FontSetSpacing(font_rid, spacing, value)
+}
+
+// FontSetSpacing is promoted from [TextServer.Instance.FontSetSpacing].
+func (o *Extension[T]) FontSetSpacing(font_rid RID.Font, spacing TextServer.SpacingType, value int) {
+	o.Super().AsTextServer().FontSetSpacing(font_rid, spacing, value)
+}
+
+// FontGetSpacing is promoted from [TextServer.Instance.FontGetSpacing].
+func (self Instance) FontGetSpacing(font_rid RID.Font, spacing TextServer.SpacingType) int {
+	return self.AsTextServer().FontGetSpacing(font_rid, spacing)
+}
+
+// FontGetSpacing is promoted from [TextServer.Instance.FontGetSpacing].
+func (o *Extension[T]) FontGetSpacing(font_rid RID.Font, spacing TextServer.SpacingType) int {
+	return o.Super().AsTextServer().FontGetSpacing(font_rid, spacing)
+}
+
+// FontSetBaselineOffset is promoted from [TextServer.Instance.FontSetBaselineOffset].
+func (self Instance) FontSetBaselineOffset(font_rid RID.Font, baseline_offset Float.X) {
+	self.AsTextServer().FontSetBaselineOffset(font_rid, baseline_offset)
+}
+
+// FontSetBaselineOffset is promoted from [TextServer.Instance.FontSetBaselineOffset].
+func (o *Extension[T]) FontSetBaselineOffset(font_rid RID.Font, baseline_offset Float.X) {
+	o.Super().AsTextServer().FontSetBaselineOffset(font_rid, baseline_offset)
+}
+
+// FontGetBaselineOffset is promoted from [TextServer.Instance.FontGetBaselineOffset].
+func (self Instance) FontGetBaselineOffset(font_rid RID.Font) Float.X {
+	return self.AsTextServer().FontGetBaselineOffset(font_rid)
+}
+
+// FontGetBaselineOffset is promoted from [TextServer.Instance.FontGetBaselineOffset].
+func (o *Extension[T]) FontGetBaselineOffset(font_rid RID.Font) Float.X {
+	return o.Super().AsTextServer().FontGetBaselineOffset(font_rid)
+}
+
+// FontSetTransform is promoted from [TextServer.Instance.FontSetTransform].
+func (self Instance) FontSetTransform(font_rid RID.Font, transform Transform2D.OriginXY) {
+	self.AsTextServer().FontSetTransform(font_rid, transform)
+}
+
+// FontSetTransform is promoted from [TextServer.Instance.FontSetTransform].
+func (o *Extension[T]) FontSetTransform(font_rid RID.Font, transform Transform2D.OriginXY) {
+	o.Super().AsTextServer().FontSetTransform(font_rid, transform)
+}
+
+// FontGetTransform is promoted from [TextServer.Instance.FontGetTransform].
+func (self Instance) FontGetTransform(font_rid RID.Font) Transform2D.OriginXY {
+	return self.AsTextServer().FontGetTransform(font_rid)
+}
+
+// FontGetTransform is promoted from [TextServer.Instance.FontGetTransform].
+func (o *Extension[T]) FontGetTransform(font_rid RID.Font) Transform2D.OriginXY {
+	return o.Super().AsTextServer().FontGetTransform(font_rid)
+}
+
+// FontSetVariationCoordinates is promoted from [TextServer.Instance.FontSetVariationCoordinates].
+func (self Instance) FontSetVariationCoordinates(font_rid RID.Font, variation_coordinates map[string]float32) {
+	self.AsTextServer().FontSetVariationCoordinates(font_rid, variation_coordinates)
+}
+
+// FontSetVariationCoordinates is promoted from [TextServer.Instance.FontSetVariationCoordinates].
+func (o *Extension[T]) FontSetVariationCoordinates(font_rid RID.Font, variation_coordinates map[string]float32) {
+	o.Super().AsTextServer().FontSetVariationCoordinates(font_rid, variation_coordinates)
+}
+
+// FontGetVariationCoordinates is promoted from [TextServer.Instance.FontGetVariationCoordinates].
+func (self Instance) FontGetVariationCoordinates(font_rid RID.Font) map[string]float32 {
+	return self.AsTextServer().FontGetVariationCoordinates(font_rid)
+}
+
+// FontGetVariationCoordinates is promoted from [TextServer.Instance.FontGetVariationCoordinates].
+func (o *Extension[T]) FontGetVariationCoordinates(font_rid RID.Font) map[string]float32 {
+	return o.Super().AsTextServer().FontGetVariationCoordinates(font_rid)
+}
+
+// FontSetOversampling is promoted from [TextServer.Instance.FontSetOversampling].
+func (self Instance) FontSetOversampling(font_rid RID.Font, oversampling Float.X) {
+	self.AsTextServer().FontSetOversampling(font_rid, oversampling)
+}
+
+// FontSetOversampling is promoted from [TextServer.Instance.FontSetOversampling].
+func (o *Extension[T]) FontSetOversampling(font_rid RID.Font, oversampling Float.X) {
+	o.Super().AsTextServer().FontSetOversampling(font_rid, oversampling)
+}
+
+// FontGetOversampling is promoted from [TextServer.Instance.FontGetOversampling].
+func (self Instance) FontGetOversampling(font_rid RID.Font) Float.X {
+	return self.AsTextServer().FontGetOversampling(font_rid)
+}
+
+// FontGetOversampling is promoted from [TextServer.Instance.FontGetOversampling].
+func (o *Extension[T]) FontGetOversampling(font_rid RID.Font) Float.X {
+	return o.Super().AsTextServer().FontGetOversampling(font_rid)
+}
+
+// FontGetSizeCacheList is promoted from [TextServer.Instance.FontGetSizeCacheList].
+func (self Instance) FontGetSizeCacheList(font_rid RID.Font) []Vector2i.XY {
+	return self.AsTextServer().FontGetSizeCacheList(font_rid)
+}
+
+// FontGetSizeCacheList is promoted from [TextServer.Instance.FontGetSizeCacheList].
+func (o *Extension[T]) FontGetSizeCacheList(font_rid RID.Font) []Vector2i.XY {
+	return o.Super().AsTextServer().FontGetSizeCacheList(font_rid)
+}
+
+// FontClearSizeCache is promoted from [TextServer.Instance.FontClearSizeCache].
+func (self Instance) FontClearSizeCache(font_rid RID.Font) {
+	self.AsTextServer().FontClearSizeCache(font_rid)
+}
+
+// FontClearSizeCache is promoted from [TextServer.Instance.FontClearSizeCache].
+func (o *Extension[T]) FontClearSizeCache(font_rid RID.Font) {
+	o.Super().AsTextServer().FontClearSizeCache(font_rid)
+}
+
+// FontRemoveSizeCache is promoted from [TextServer.Instance.FontRemoveSizeCache].
+func (self Instance) FontRemoveSizeCache(font_rid RID.Font, size Vector2i.XY) {
+	self.AsTextServer().FontRemoveSizeCache(font_rid, size)
+}
+
+// FontRemoveSizeCache is promoted from [TextServer.Instance.FontRemoveSizeCache].
+func (o *Extension[T]) FontRemoveSizeCache(font_rid RID.Font, size Vector2i.XY) {
+	o.Super().AsTextServer().FontRemoveSizeCache(font_rid, size)
+}
+
+// FontGetSizeCacheInfo is promoted from [TextServer.Instance.FontGetSizeCacheInfo].
+func (self Instance) FontGetSizeCacheInfo(font_rid RID.Font) []TextServer.FontSizeCacheInfo {
+	return self.AsTextServer().FontGetSizeCacheInfo(font_rid)
+}
+
+// FontGetSizeCacheInfo is promoted from [TextServer.Instance.FontGetSizeCacheInfo].
+func (o *Extension[T]) FontGetSizeCacheInfo(font_rid RID.Font) []TextServer.FontSizeCacheInfo {
+	return o.Super().AsTextServer().FontGetSizeCacheInfo(font_rid)
+}
+
+// FontSetAscent is promoted from [TextServer.Instance.FontSetAscent].
+func (self Instance) FontSetAscent(font_rid RID.Font, size int, ascent Float.X) {
+	self.AsTextServer().FontSetAscent(font_rid, size, ascent)
+}
+
+// FontSetAscent is promoted from [TextServer.Instance.FontSetAscent].
+func (o *Extension[T]) FontSetAscent(font_rid RID.Font, size int, ascent Float.X) {
+	o.Super().AsTextServer().FontSetAscent(font_rid, size, ascent)
+}
+
+// FontGetAscent is promoted from [TextServer.Instance.FontGetAscent].
+func (self Instance) FontGetAscent(font_rid RID.Font, size int) Float.X {
+	return self.AsTextServer().FontGetAscent(font_rid, size)
+}
+
+// FontGetAscent is promoted from [TextServer.Instance.FontGetAscent].
+func (o *Extension[T]) FontGetAscent(font_rid RID.Font, size int) Float.X {
+	return o.Super().AsTextServer().FontGetAscent(font_rid, size)
+}
+
+// FontSetDescent is promoted from [TextServer.Instance.FontSetDescent].
+func (self Instance) FontSetDescent(font_rid RID.Font, size int, descent Float.X) {
+	self.AsTextServer().FontSetDescent(font_rid, size, descent)
+}
+
+// FontSetDescent is promoted from [TextServer.Instance.FontSetDescent].
+func (o *Extension[T]) FontSetDescent(font_rid RID.Font, size int, descent Float.X) {
+	o.Super().AsTextServer().FontSetDescent(font_rid, size, descent)
+}
+
+// FontGetDescent is promoted from [TextServer.Instance.FontGetDescent].
+func (self Instance) FontGetDescent(font_rid RID.Font, size int) Float.X {
+	return self.AsTextServer().FontGetDescent(font_rid, size)
+}
+
+// FontGetDescent is promoted from [TextServer.Instance.FontGetDescent].
+func (o *Extension[T]) FontGetDescent(font_rid RID.Font, size int) Float.X {
+	return o.Super().AsTextServer().FontGetDescent(font_rid, size)
+}
+
+// FontSetUnderlinePosition is promoted from [TextServer.Instance.FontSetUnderlinePosition].
+func (self Instance) FontSetUnderlinePosition(font_rid RID.Font, size int, underline_position Float.X) {
+	self.AsTextServer().FontSetUnderlinePosition(font_rid, size, underline_position)
+}
+
+// FontSetUnderlinePosition is promoted from [TextServer.Instance.FontSetUnderlinePosition].
+func (o *Extension[T]) FontSetUnderlinePosition(font_rid RID.Font, size int, underline_position Float.X) {
+	o.Super().AsTextServer().FontSetUnderlinePosition(font_rid, size, underline_position)
+}
+
+// FontGetUnderlinePosition is promoted from [TextServer.Instance.FontGetUnderlinePosition].
+func (self Instance) FontGetUnderlinePosition(font_rid RID.Font, size int) Float.X {
+	return self.AsTextServer().FontGetUnderlinePosition(font_rid, size)
+}
+
+// FontGetUnderlinePosition is promoted from [TextServer.Instance.FontGetUnderlinePosition].
+func (o *Extension[T]) FontGetUnderlinePosition(font_rid RID.Font, size int) Float.X {
+	return o.Super().AsTextServer().FontGetUnderlinePosition(font_rid, size)
+}
+
+// FontSetUnderlineThickness is promoted from [TextServer.Instance.FontSetUnderlineThickness].
+func (self Instance) FontSetUnderlineThickness(font_rid RID.Font, size int, underline_thickness Float.X) {
+	self.AsTextServer().FontSetUnderlineThickness(font_rid, size, underline_thickness)
+}
+
+// FontSetUnderlineThickness is promoted from [TextServer.Instance.FontSetUnderlineThickness].
+func (o *Extension[T]) FontSetUnderlineThickness(font_rid RID.Font, size int, underline_thickness Float.X) {
+	o.Super().AsTextServer().FontSetUnderlineThickness(font_rid, size, underline_thickness)
+}
+
+// FontGetUnderlineThickness is promoted from [TextServer.Instance.FontGetUnderlineThickness].
+func (self Instance) FontGetUnderlineThickness(font_rid RID.Font, size int) Float.X {
+	return self.AsTextServer().FontGetUnderlineThickness(font_rid, size)
+}
+
+// FontGetUnderlineThickness is promoted from [TextServer.Instance.FontGetUnderlineThickness].
+func (o *Extension[T]) FontGetUnderlineThickness(font_rid RID.Font, size int) Float.X {
+	return o.Super().AsTextServer().FontGetUnderlineThickness(font_rid, size)
+}
+
+// FontSetScale is promoted from [TextServer.Instance.FontSetScale].
+func (self Instance) FontSetScale(font_rid RID.Font, size int, scale Float.X) {
+	self.AsTextServer().FontSetScale(font_rid, size, scale)
+}
+
+// FontSetScale is promoted from [TextServer.Instance.FontSetScale].
+func (o *Extension[T]) FontSetScale(font_rid RID.Font, size int, scale Float.X) {
+	o.Super().AsTextServer().FontSetScale(font_rid, size, scale)
+}
+
+// FontGetScale is promoted from [TextServer.Instance.FontGetScale].
+func (self Instance) FontGetScale(font_rid RID.Font, size int) Float.X {
+	return self.AsTextServer().FontGetScale(font_rid, size)
+}
+
+// FontGetScale is promoted from [TextServer.Instance.FontGetScale].
+func (o *Extension[T]) FontGetScale(font_rid RID.Font, size int) Float.X {
+	return o.Super().AsTextServer().FontGetScale(font_rid, size)
+}
+
+// FontGetTextureCount is promoted from [TextServer.Instance.FontGetTextureCount].
+func (self Instance) FontGetTextureCount(font_rid RID.Font, size Vector2i.XY) int {
+	return self.AsTextServer().FontGetTextureCount(font_rid, size)
+}
+
+// FontGetTextureCount is promoted from [TextServer.Instance.FontGetTextureCount].
+func (o *Extension[T]) FontGetTextureCount(font_rid RID.Font, size Vector2i.XY) int {
+	return o.Super().AsTextServer().FontGetTextureCount(font_rid, size)
+}
+
+// FontClearTextures is promoted from [TextServer.Instance.FontClearTextures].
+func (self Instance) FontClearTextures(font_rid RID.Font, size Vector2i.XY) {
+	self.AsTextServer().FontClearTextures(font_rid, size)
+}
+
+// FontClearTextures is promoted from [TextServer.Instance.FontClearTextures].
+func (o *Extension[T]) FontClearTextures(font_rid RID.Font, size Vector2i.XY) {
+	o.Super().AsTextServer().FontClearTextures(font_rid, size)
+}
+
+// FontRemoveTexture is promoted from [TextServer.Instance.FontRemoveTexture].
+func (self Instance) FontRemoveTexture(font_rid RID.Font, size Vector2i.XY, texture_index int) {
+	self.AsTextServer().FontRemoveTexture(font_rid, size, texture_index)
+}
+
+// FontRemoveTexture is promoted from [TextServer.Instance.FontRemoveTexture].
+func (o *Extension[T]) FontRemoveTexture(font_rid RID.Font, size Vector2i.XY, texture_index int) {
+	o.Super().AsTextServer().FontRemoveTexture(font_rid, size, texture_index)
+}
+
+// FontSetTextureImage is promoted from [TextServer.Instance.FontSetTextureImage].
+func (self Instance) FontSetTextureImage(font_rid RID.Font, size Vector2i.XY, texture_index int, image Image.Instance) {
+	self.AsTextServer().FontSetTextureImage(font_rid, size, texture_index, image)
+}
+
+// FontSetTextureImage is promoted from [TextServer.Instance.FontSetTextureImage].
+func (o *Extension[T]) FontSetTextureImage(font_rid RID.Font, size Vector2i.XY, texture_index int, image Image.Instance) {
+	o.Super().AsTextServer().FontSetTextureImage(font_rid, size, texture_index, image)
+}
+
+// FontGetTextureImage is promoted from [TextServer.Instance.FontGetTextureImage].
+func (self Instance) FontGetTextureImage(font_rid RID.Font, size Vector2i.XY, texture_index int) Image.Instance {
+	return self.AsTextServer().FontGetTextureImage(font_rid, size, texture_index)
+}
+
+// FontGetTextureImage is promoted from [TextServer.Instance.FontGetTextureImage].
+func (o *Extension[T]) FontGetTextureImage(font_rid RID.Font, size Vector2i.XY, texture_index int) Image.Instance {
+	return o.Super().AsTextServer().FontGetTextureImage(font_rid, size, texture_index)
+}
+
+// FontSetTextureOffsets is promoted from [TextServer.Instance.FontSetTextureOffsets].
+func (self Instance) FontSetTextureOffsets(font_rid RID.Font, size Vector2i.XY, texture_index int, offset []int32) {
+	self.AsTextServer().FontSetTextureOffsets(font_rid, size, texture_index, offset)
+}
+
+// FontSetTextureOffsets is promoted from [TextServer.Instance.FontSetTextureOffsets].
+func (o *Extension[T]) FontSetTextureOffsets(font_rid RID.Font, size Vector2i.XY, texture_index int, offset []int32) {
+	o.Super().AsTextServer().FontSetTextureOffsets(font_rid, size, texture_index, offset)
+}
+
+// FontGetTextureOffsets is promoted from [TextServer.Instance.FontGetTextureOffsets].
+func (self Instance) FontGetTextureOffsets(font_rid RID.Font, size Vector2i.XY, texture_index int) []int32 {
+	return self.AsTextServer().FontGetTextureOffsets(font_rid, size, texture_index)
+}
+
+// FontGetTextureOffsets is promoted from [TextServer.Instance.FontGetTextureOffsets].
+func (o *Extension[T]) FontGetTextureOffsets(font_rid RID.Font, size Vector2i.XY, texture_index int) []int32 {
+	return o.Super().AsTextServer().FontGetTextureOffsets(font_rid, size, texture_index)
+}
+
+// FontGetGlyphList is promoted from [TextServer.Instance.FontGetGlyphList].
+func (self Instance) FontGetGlyphList(font_rid RID.Font, size Vector2i.XY) []int32 {
+	return self.AsTextServer().FontGetGlyphList(font_rid, size)
+}
+
+// FontGetGlyphList is promoted from [TextServer.Instance.FontGetGlyphList].
+func (o *Extension[T]) FontGetGlyphList(font_rid RID.Font, size Vector2i.XY) []int32 {
+	return o.Super().AsTextServer().FontGetGlyphList(font_rid, size)
+}
+
+// FontClearGlyphs is promoted from [TextServer.Instance.FontClearGlyphs].
+func (self Instance) FontClearGlyphs(font_rid RID.Font, size Vector2i.XY) {
+	self.AsTextServer().FontClearGlyphs(font_rid, size)
+}
+
+// FontClearGlyphs is promoted from [TextServer.Instance.FontClearGlyphs].
+func (o *Extension[T]) FontClearGlyphs(font_rid RID.Font, size Vector2i.XY) {
+	o.Super().AsTextServer().FontClearGlyphs(font_rid, size)
+}
+
+// FontRemoveGlyph is promoted from [TextServer.Instance.FontRemoveGlyph].
+func (self Instance) FontRemoveGlyph(font_rid RID.Font, size Vector2i.XY, glyph int) {
+	self.AsTextServer().FontRemoveGlyph(font_rid, size, glyph)
+}
+
+// FontRemoveGlyph is promoted from [TextServer.Instance.FontRemoveGlyph].
+func (o *Extension[T]) FontRemoveGlyph(font_rid RID.Font, size Vector2i.XY, glyph int) {
+	o.Super().AsTextServer().FontRemoveGlyph(font_rid, size, glyph)
+}
+
+// FontGetGlyphAdvance is promoted from [TextServer.Instance.FontGetGlyphAdvance].
+func (self Instance) FontGetGlyphAdvance(font_rid RID.Font, size int, glyph int) Vector2.XY {
+	return self.AsTextServer().FontGetGlyphAdvance(font_rid, size, glyph)
+}
+
+// FontGetGlyphAdvance is promoted from [TextServer.Instance.FontGetGlyphAdvance].
+func (o *Extension[T]) FontGetGlyphAdvance(font_rid RID.Font, size int, glyph int) Vector2.XY {
+	return o.Super().AsTextServer().FontGetGlyphAdvance(font_rid, size, glyph)
+}
+
+// FontSetGlyphAdvance is promoted from [TextServer.Instance.FontSetGlyphAdvance].
+func (self Instance) FontSetGlyphAdvance(font_rid RID.Font, size int, glyph int, advance Vector2.XY) {
+	self.AsTextServer().FontSetGlyphAdvance(font_rid, size, glyph, advance)
+}
+
+// FontSetGlyphAdvance is promoted from [TextServer.Instance.FontSetGlyphAdvance].
+func (o *Extension[T]) FontSetGlyphAdvance(font_rid RID.Font, size int, glyph int, advance Vector2.XY) {
+	o.Super().AsTextServer().FontSetGlyphAdvance(font_rid, size, glyph, advance)
+}
+
+// FontGetGlyphOffset is promoted from [TextServer.Instance.FontGetGlyphOffset].
+func (self Instance) FontGetGlyphOffset(font_rid RID.Font, size Vector2i.XY, glyph int) Vector2.XY {
+	return self.AsTextServer().FontGetGlyphOffset(font_rid, size, glyph)
+}
+
+// FontGetGlyphOffset is promoted from [TextServer.Instance.FontGetGlyphOffset].
+func (o *Extension[T]) FontGetGlyphOffset(font_rid RID.Font, size Vector2i.XY, glyph int) Vector2.XY {
+	return o.Super().AsTextServer().FontGetGlyphOffset(font_rid, size, glyph)
+}
+
+// FontSetGlyphOffset is promoted from [TextServer.Instance.FontSetGlyphOffset].
+func (self Instance) FontSetGlyphOffset(font_rid RID.Font, size Vector2i.XY, glyph int, offset Vector2.XY) {
+	self.AsTextServer().FontSetGlyphOffset(font_rid, size, glyph, offset)
+}
+
+// FontSetGlyphOffset is promoted from [TextServer.Instance.FontSetGlyphOffset].
+func (o *Extension[T]) FontSetGlyphOffset(font_rid RID.Font, size Vector2i.XY, glyph int, offset Vector2.XY) {
+	o.Super().AsTextServer().FontSetGlyphOffset(font_rid, size, glyph, offset)
+}
+
+// FontGetGlyphSize is promoted from [TextServer.Instance.FontGetGlyphSize].
+func (self Instance) FontGetGlyphSize(font_rid RID.Font, size Vector2i.XY, glyph int) Vector2.XY {
+	return self.AsTextServer().FontGetGlyphSize(font_rid, size, glyph)
+}
+
+// FontGetGlyphSize is promoted from [TextServer.Instance.FontGetGlyphSize].
+func (o *Extension[T]) FontGetGlyphSize(font_rid RID.Font, size Vector2i.XY, glyph int) Vector2.XY {
+	return o.Super().AsTextServer().FontGetGlyphSize(font_rid, size, glyph)
+}
+
+// FontSetGlyphSize is promoted from [TextServer.Instance.FontSetGlyphSize].
+func (self Instance) FontSetGlyphSize(font_rid RID.Font, size Vector2i.XY, glyph int, gl_size Vector2.XY) {
+	self.AsTextServer().FontSetGlyphSize(font_rid, size, glyph, gl_size)
+}
+
+// FontSetGlyphSize is promoted from [TextServer.Instance.FontSetGlyphSize].
+func (o *Extension[T]) FontSetGlyphSize(font_rid RID.Font, size Vector2i.XY, glyph int, gl_size Vector2.XY) {
+	o.Super().AsTextServer().FontSetGlyphSize(font_rid, size, glyph, gl_size)
+}
+
+// FontGetGlyphUvRect is promoted from [TextServer.Instance.FontGetGlyphUvRect].
+func (self Instance) FontGetGlyphUvRect(font_rid RID.Font, size Vector2i.XY, glyph int) Rect2.PositionSize {
+	return self.AsTextServer().FontGetGlyphUvRect(font_rid, size, glyph)
+}
+
+// FontGetGlyphUvRect is promoted from [TextServer.Instance.FontGetGlyphUvRect].
+func (o *Extension[T]) FontGetGlyphUvRect(font_rid RID.Font, size Vector2i.XY, glyph int) Rect2.PositionSize {
+	return o.Super().AsTextServer().FontGetGlyphUvRect(font_rid, size, glyph)
+}
+
+// FontSetGlyphUvRect is promoted from [TextServer.Instance.FontSetGlyphUvRect].
+func (self Instance) FontSetGlyphUvRect(font_rid RID.Font, size Vector2i.XY, glyph int, uv_rect Rect2.PositionSize) {
+	self.AsTextServer().FontSetGlyphUvRect(font_rid, size, glyph, uv_rect)
+}
+
+// FontSetGlyphUvRect is promoted from [TextServer.Instance.FontSetGlyphUvRect].
+func (o *Extension[T]) FontSetGlyphUvRect(font_rid RID.Font, size Vector2i.XY, glyph int, uv_rect Rect2.PositionSize) {
+	o.Super().AsTextServer().FontSetGlyphUvRect(font_rid, size, glyph, uv_rect)
+}
+
+// FontGetGlyphTextureIdx is promoted from [TextServer.Instance.FontGetGlyphTextureIdx].
+func (self Instance) FontGetGlyphTextureIdx(font_rid RID.Font, size Vector2i.XY, glyph int) int {
+	return self.AsTextServer().FontGetGlyphTextureIdx(font_rid, size, glyph)
+}
+
+// FontGetGlyphTextureIdx is promoted from [TextServer.Instance.FontGetGlyphTextureIdx].
+func (o *Extension[T]) FontGetGlyphTextureIdx(font_rid RID.Font, size Vector2i.XY, glyph int) int {
+	return o.Super().AsTextServer().FontGetGlyphTextureIdx(font_rid, size, glyph)
+}
+
+// FontSetGlyphTextureIdx is promoted from [TextServer.Instance.FontSetGlyphTextureIdx].
+func (self Instance) FontSetGlyphTextureIdx(font_rid RID.Font, size Vector2i.XY, glyph int, texture_idx int) {
+	self.AsTextServer().FontSetGlyphTextureIdx(font_rid, size, glyph, texture_idx)
+}
+
+// FontSetGlyphTextureIdx is promoted from [TextServer.Instance.FontSetGlyphTextureIdx].
+func (o *Extension[T]) FontSetGlyphTextureIdx(font_rid RID.Font, size Vector2i.XY, glyph int, texture_idx int) {
+	o.Super().AsTextServer().FontSetGlyphTextureIdx(font_rid, size, glyph, texture_idx)
+}
+
+// FontGetGlyphTextureRid is promoted from [TextServer.Instance.FontGetGlyphTextureRid].
+func (self Instance) FontGetGlyphTextureRid(font_rid RID.Font, size Vector2i.XY, glyph int) RID.Texture {
+	return self.AsTextServer().FontGetGlyphTextureRid(font_rid, size, glyph)
+}
+
+// FontGetGlyphTextureRid is promoted from [TextServer.Instance.FontGetGlyphTextureRid].
+func (o *Extension[T]) FontGetGlyphTextureRid(font_rid RID.Font, size Vector2i.XY, glyph int) RID.Texture {
+	return o.Super().AsTextServer().FontGetGlyphTextureRid(font_rid, size, glyph)
+}
+
+// FontGetGlyphTextureSize is promoted from [TextServer.Instance.FontGetGlyphTextureSize].
+func (self Instance) FontGetGlyphTextureSize(font_rid RID.Font, size Vector2i.XY, glyph int) Vector2.XY {
+	return self.AsTextServer().FontGetGlyphTextureSize(font_rid, size, glyph)
+}
+
+// FontGetGlyphTextureSize is promoted from [TextServer.Instance.FontGetGlyphTextureSize].
+func (o *Extension[T]) FontGetGlyphTextureSize(font_rid RID.Font, size Vector2i.XY, glyph int) Vector2.XY {
+	return o.Super().AsTextServer().FontGetGlyphTextureSize(font_rid, size, glyph)
+}
+
+// FontGetGlyphContours is promoted from [TextServer.Instance.FontGetGlyphContours].
+func (self Instance) FontGetGlyphContours(font RID.Font, size int, index int) TextServer.GlyphContours {
+	return self.AsTextServer().FontGetGlyphContours(font, size, index)
+}
+
+// FontGetGlyphContours is promoted from [TextServer.Instance.FontGetGlyphContours].
+func (o *Extension[T]) FontGetGlyphContours(font RID.Font, size int, index int) TextServer.GlyphContours {
+	return o.Super().AsTextServer().FontGetGlyphContours(font, size, index)
+}
+
+// FontGetKerningList is promoted from [TextServer.Instance.FontGetKerningList].
+func (self Instance) FontGetKerningList(font_rid RID.Font, size int) []Vector2i.XY {
+	return self.AsTextServer().FontGetKerningList(font_rid, size)
+}
+
+// FontGetKerningList is promoted from [TextServer.Instance.FontGetKerningList].
+func (o *Extension[T]) FontGetKerningList(font_rid RID.Font, size int) []Vector2i.XY {
+	return o.Super().AsTextServer().FontGetKerningList(font_rid, size)
+}
+
+// FontClearKerningMap is promoted from [TextServer.Instance.FontClearKerningMap].
+func (self Instance) FontClearKerningMap(font_rid RID.Font, size int) {
+	self.AsTextServer().FontClearKerningMap(font_rid, size)
+}
+
+// FontClearKerningMap is promoted from [TextServer.Instance.FontClearKerningMap].
+func (o *Extension[T]) FontClearKerningMap(font_rid RID.Font, size int) {
+	o.Super().AsTextServer().FontClearKerningMap(font_rid, size)
+}
+
+// FontRemoveKerning is promoted from [TextServer.Instance.FontRemoveKerning].
+func (self Instance) FontRemoveKerning(font_rid RID.Font, size int, glyph_pair Vector2i.XY) {
+	self.AsTextServer().FontRemoveKerning(font_rid, size, glyph_pair)
+}
+
+// FontRemoveKerning is promoted from [TextServer.Instance.FontRemoveKerning].
+func (o *Extension[T]) FontRemoveKerning(font_rid RID.Font, size int, glyph_pair Vector2i.XY) {
+	o.Super().AsTextServer().FontRemoveKerning(font_rid, size, glyph_pair)
+}
+
+// FontSetKerning is promoted from [TextServer.Instance.FontSetKerning].
+func (self Instance) FontSetKerning(font_rid RID.Font, size int, glyph_pair Vector2i.XY, kerning Vector2.XY) {
+	self.AsTextServer().FontSetKerning(font_rid, size, glyph_pair, kerning)
+}
+
+// FontSetKerning is promoted from [TextServer.Instance.FontSetKerning].
+func (o *Extension[T]) FontSetKerning(font_rid RID.Font, size int, glyph_pair Vector2i.XY, kerning Vector2.XY) {
+	o.Super().AsTextServer().FontSetKerning(font_rid, size, glyph_pair, kerning)
+}
+
+// FontGetKerning is promoted from [TextServer.Instance.FontGetKerning].
+func (self Instance) FontGetKerning(font_rid RID.Font, size int, glyph_pair Vector2i.XY) Vector2.XY {
+	return self.AsTextServer().FontGetKerning(font_rid, size, glyph_pair)
+}
+
+// FontGetKerning is promoted from [TextServer.Instance.FontGetKerning].
+func (o *Extension[T]) FontGetKerning(font_rid RID.Font, size int, glyph_pair Vector2i.XY) Vector2.XY {
+	return o.Super().AsTextServer().FontGetKerning(font_rid, size, glyph_pair)
+}
+
+// FontGetGlyphIndex is promoted from [TextServer.Instance.FontGetGlyphIndex].
+func (self Instance) FontGetGlyphIndex(font_rid RID.Font, size int, char int, variation_selector int) int {
+	return self.AsTextServer().FontGetGlyphIndex(font_rid, size, char, variation_selector)
+}
+
+// FontGetGlyphIndex is promoted from [TextServer.Instance.FontGetGlyphIndex].
+func (o *Extension[T]) FontGetGlyphIndex(font_rid RID.Font, size int, char int, variation_selector int) int {
+	return o.Super().AsTextServer().FontGetGlyphIndex(font_rid, size, char, variation_selector)
+}
+
+// FontGetCharFromGlyphIndex is promoted from [TextServer.Instance.FontGetCharFromGlyphIndex].
+func (self Instance) FontGetCharFromGlyphIndex(font_rid RID.Font, size int, glyph_index int) int {
+	return self.AsTextServer().FontGetCharFromGlyphIndex(font_rid, size, glyph_index)
+}
+
+// FontGetCharFromGlyphIndex is promoted from [TextServer.Instance.FontGetCharFromGlyphIndex].
+func (o *Extension[T]) FontGetCharFromGlyphIndex(font_rid RID.Font, size int, glyph_index int) int {
+	return o.Super().AsTextServer().FontGetCharFromGlyphIndex(font_rid, size, glyph_index)
+}
+
+// FontHasChar is promoted from [TextServer.Instance.FontHasChar].
+func (self Instance) FontHasChar(font_rid RID.Font, char int) bool {
+	return self.AsTextServer().FontHasChar(font_rid, char)
+}
+
+// FontHasChar is promoted from [TextServer.Instance.FontHasChar].
+func (o *Extension[T]) FontHasChar(font_rid RID.Font, char int) bool {
+	return o.Super().AsTextServer().FontHasChar(font_rid, char)
+}
+
+// FontGetSupportedChars is promoted from [TextServer.Instance.FontGetSupportedChars].
+func (self Instance) FontGetSupportedChars(font_rid RID.Font) string {
+	return self.AsTextServer().FontGetSupportedChars(font_rid)
+}
+
+// FontGetSupportedChars is promoted from [TextServer.Instance.FontGetSupportedChars].
+func (o *Extension[T]) FontGetSupportedChars(font_rid RID.Font) string {
+	return o.Super().AsTextServer().FontGetSupportedChars(font_rid)
+}
+
+// FontGetSupportedGlyphs is promoted from [TextServer.Instance.FontGetSupportedGlyphs].
+func (self Instance) FontGetSupportedGlyphs(font_rid RID.Font) []int32 {
+	return self.AsTextServer().FontGetSupportedGlyphs(font_rid)
+}
+
+// FontGetSupportedGlyphs is promoted from [TextServer.Instance.FontGetSupportedGlyphs].
+func (o *Extension[T]) FontGetSupportedGlyphs(font_rid RID.Font) []int32 {
+	return o.Super().AsTextServer().FontGetSupportedGlyphs(font_rid)
+}
+
+// FontRenderRange is promoted from [TextServer.Instance.FontRenderRange].
+func (self Instance) FontRenderRange(font_rid RID.Font, size Vector2i.XY, start int, end int) {
+	self.AsTextServer().FontRenderRange(font_rid, size, start, end)
+}
+
+// FontRenderRange is promoted from [TextServer.Instance.FontRenderRange].
+func (o *Extension[T]) FontRenderRange(font_rid RID.Font, size Vector2i.XY, start int, end int) {
+	o.Super().AsTextServer().FontRenderRange(font_rid, size, start, end)
+}
+
+// FontRenderGlyph is promoted from [TextServer.Instance.FontRenderGlyph].
+func (self Instance) FontRenderGlyph(font_rid RID.Font, size Vector2i.XY, index int) {
+	self.AsTextServer().FontRenderGlyph(font_rid, size, index)
+}
+
+// FontRenderGlyph is promoted from [TextServer.Instance.FontRenderGlyph].
+func (o *Extension[T]) FontRenderGlyph(font_rid RID.Font, size Vector2i.XY, index int) {
+	o.Super().AsTextServer().FontRenderGlyph(font_rid, size, index)
+}
+
+// FontIsLanguageSupported is promoted from [TextServer.Instance.FontIsLanguageSupported].
+func (self Instance) FontIsLanguageSupported(font_rid RID.Font, language string) bool {
+	return self.AsTextServer().FontIsLanguageSupported(font_rid, language)
+}
+
+// FontIsLanguageSupported is promoted from [TextServer.Instance.FontIsLanguageSupported].
+func (o *Extension[T]) FontIsLanguageSupported(font_rid RID.Font, language string) bool {
+	return o.Super().AsTextServer().FontIsLanguageSupported(font_rid, language)
+}
+
+// FontSetLanguageSupportOverride is promoted from [TextServer.Instance.FontSetLanguageSupportOverride].
+func (self Instance) FontSetLanguageSupportOverride(font_rid RID.Font, language string, supported bool) {
+	self.AsTextServer().FontSetLanguageSupportOverride(font_rid, language, supported)
+}
+
+// FontSetLanguageSupportOverride is promoted from [TextServer.Instance.FontSetLanguageSupportOverride].
+func (o *Extension[T]) FontSetLanguageSupportOverride(font_rid RID.Font, language string, supported bool) {
+	o.Super().AsTextServer().FontSetLanguageSupportOverride(font_rid, language, supported)
+}
+
+// FontGetLanguageSupportOverride is promoted from [TextServer.Instance.FontGetLanguageSupportOverride].
+func (self Instance) FontGetLanguageSupportOverride(font_rid RID.Font, language string) bool {
+	return self.AsTextServer().FontGetLanguageSupportOverride(font_rid, language)
+}
+
+// FontGetLanguageSupportOverride is promoted from [TextServer.Instance.FontGetLanguageSupportOverride].
+func (o *Extension[T]) FontGetLanguageSupportOverride(font_rid RID.Font, language string) bool {
+	return o.Super().AsTextServer().FontGetLanguageSupportOverride(font_rid, language)
+}
+
+// FontRemoveLanguageSupportOverride is promoted from [TextServer.Instance.FontRemoveLanguageSupportOverride].
+func (self Instance) FontRemoveLanguageSupportOverride(font_rid RID.Font, language string) {
+	self.AsTextServer().FontRemoveLanguageSupportOverride(font_rid, language)
+}
+
+// FontRemoveLanguageSupportOverride is promoted from [TextServer.Instance.FontRemoveLanguageSupportOverride].
+func (o *Extension[T]) FontRemoveLanguageSupportOverride(font_rid RID.Font, language string) {
+	o.Super().AsTextServer().FontRemoveLanguageSupportOverride(font_rid, language)
+}
+
+// FontGetLanguageSupportOverrides is promoted from [TextServer.Instance.FontGetLanguageSupportOverrides].
+func (self Instance) FontGetLanguageSupportOverrides(font_rid RID.Font) []string {
+	return self.AsTextServer().FontGetLanguageSupportOverrides(font_rid)
+}
+
+// FontGetLanguageSupportOverrides is promoted from [TextServer.Instance.FontGetLanguageSupportOverrides].
+func (o *Extension[T]) FontGetLanguageSupportOverrides(font_rid RID.Font) []string {
+	return o.Super().AsTextServer().FontGetLanguageSupportOverrides(font_rid)
+}
+
+// FontIsScriptSupported is promoted from [TextServer.Instance.FontIsScriptSupported].
+func (self Instance) FontIsScriptSupported(font_rid RID.Font, script string) bool {
+	return self.AsTextServer().FontIsScriptSupported(font_rid, script)
+}
+
+// FontIsScriptSupported is promoted from [TextServer.Instance.FontIsScriptSupported].
+func (o *Extension[T]) FontIsScriptSupported(font_rid RID.Font, script string) bool {
+	return o.Super().AsTextServer().FontIsScriptSupported(font_rid, script)
+}
+
+// FontSetScriptSupportOverride is promoted from [TextServer.Instance.FontSetScriptSupportOverride].
+func (self Instance) FontSetScriptSupportOverride(font_rid RID.Font, script string, supported bool) {
+	self.AsTextServer().FontSetScriptSupportOverride(font_rid, script, supported)
+}
+
+// FontSetScriptSupportOverride is promoted from [TextServer.Instance.FontSetScriptSupportOverride].
+func (o *Extension[T]) FontSetScriptSupportOverride(font_rid RID.Font, script string, supported bool) {
+	o.Super().AsTextServer().FontSetScriptSupportOverride(font_rid, script, supported)
+}
+
+// FontGetScriptSupportOverride is promoted from [TextServer.Instance.FontGetScriptSupportOverride].
+func (self Instance) FontGetScriptSupportOverride(font_rid RID.Font, script string) bool {
+	return self.AsTextServer().FontGetScriptSupportOverride(font_rid, script)
+}
+
+// FontGetScriptSupportOverride is promoted from [TextServer.Instance.FontGetScriptSupportOverride].
+func (o *Extension[T]) FontGetScriptSupportOverride(font_rid RID.Font, script string) bool {
+	return o.Super().AsTextServer().FontGetScriptSupportOverride(font_rid, script)
+}
+
+// FontRemoveScriptSupportOverride is promoted from [TextServer.Instance.FontRemoveScriptSupportOverride].
+func (self Instance) FontRemoveScriptSupportOverride(font_rid RID.Font, script string) {
+	self.AsTextServer().FontRemoveScriptSupportOverride(font_rid, script)
+}
+
+// FontRemoveScriptSupportOverride is promoted from [TextServer.Instance.FontRemoveScriptSupportOverride].
+func (o *Extension[T]) FontRemoveScriptSupportOverride(font_rid RID.Font, script string) {
+	o.Super().AsTextServer().FontRemoveScriptSupportOverride(font_rid, script)
+}
+
+// FontGetScriptSupportOverrides is promoted from [TextServer.Instance.FontGetScriptSupportOverrides].
+func (self Instance) FontGetScriptSupportOverrides(font_rid RID.Font) []string {
+	return self.AsTextServer().FontGetScriptSupportOverrides(font_rid)
+}
+
+// FontGetScriptSupportOverrides is promoted from [TextServer.Instance.FontGetScriptSupportOverrides].
+func (o *Extension[T]) FontGetScriptSupportOverrides(font_rid RID.Font) []string {
+	return o.Super().AsTextServer().FontGetScriptSupportOverrides(font_rid)
+}
+
+// FontSetOpentypeFeatureOverrides is promoted from [TextServer.Instance.FontSetOpentypeFeatureOverrides].
+func (self Instance) FontSetOpentypeFeatureOverrides(font_rid RID.Font, overrides map[string][2]string) {
+	self.AsTextServer().FontSetOpentypeFeatureOverrides(font_rid, overrides)
+}
+
+// FontSetOpentypeFeatureOverrides is promoted from [TextServer.Instance.FontSetOpentypeFeatureOverrides].
+func (o *Extension[T]) FontSetOpentypeFeatureOverrides(font_rid RID.Font, overrides map[string][2]string) {
+	o.Super().AsTextServer().FontSetOpentypeFeatureOverrides(font_rid, overrides)
+}
+
+// FontGetOpentypeFeatureOverrides is promoted from [TextServer.Instance.FontGetOpentypeFeatureOverrides].
+func (self Instance) FontGetOpentypeFeatureOverrides(font_rid RID.Font) map[string][2]string {
+	return self.AsTextServer().FontGetOpentypeFeatureOverrides(font_rid)
+}
+
+// FontGetOpentypeFeatureOverrides is promoted from [TextServer.Instance.FontGetOpentypeFeatureOverrides].
+func (o *Extension[T]) FontGetOpentypeFeatureOverrides(font_rid RID.Font) map[string][2]string {
+	return o.Super().AsTextServer().FontGetOpentypeFeatureOverrides(font_rid)
+}
+
+// FontSupportedFeatureList is promoted from [TextServer.Instance.FontSupportedFeatureList].
+func (self Instance) FontSupportedFeatureList(font_rid RID.Font) map[string]TextServer.OpenTypeFeature {
+	return self.AsTextServer().FontSupportedFeatureList(font_rid)
+}
+
+// FontSupportedFeatureList is promoted from [TextServer.Instance.FontSupportedFeatureList].
+func (o *Extension[T]) FontSupportedFeatureList(font_rid RID.Font) map[string]TextServer.OpenTypeFeature {
+	return o.Super().AsTextServer().FontSupportedFeatureList(font_rid)
+}
+
+// FontSupportedVariationList is promoted from [TextServer.Instance.FontSupportedVariationList].
+func (self Instance) FontSupportedVariationList(font_rid RID.Font) map[int]struct { X int32; Y int32; Z int32 } {
+	return self.AsTextServer().FontSupportedVariationList(font_rid)
+}
+
+// FontSupportedVariationList is promoted from [TextServer.Instance.FontSupportedVariationList].
+func (o *Extension[T]) FontSupportedVariationList(font_rid RID.Font) map[int]struct { X int32; Y int32; Z int32 } {
+	return o.Super().AsTextServer().FontSupportedVariationList(font_rid)
+}
+
+// FontGetGlobalOversampling is promoted from [TextServer.Instance.FontGetGlobalOversampling].
+func (self Instance) FontGetGlobalOversampling() Float.X {
+	return self.AsTextServer().FontGetGlobalOversampling()
+}
+
+// FontGetGlobalOversampling is promoted from [TextServer.Instance.FontGetGlobalOversampling].
+func (o *Extension[T]) FontGetGlobalOversampling() Float.X {
+	return o.Super().AsTextServer().FontGetGlobalOversampling()
+}
+
+// FontSetGlobalOversampling is promoted from [TextServer.Instance.FontSetGlobalOversampling].
+func (self Instance) FontSetGlobalOversampling(oversampling Float.X) {
+	self.AsTextServer().FontSetGlobalOversampling(oversampling)
+}
+
+// FontSetGlobalOversampling is promoted from [TextServer.Instance.FontSetGlobalOversampling].
+func (o *Extension[T]) FontSetGlobalOversampling(oversampling Float.X) {
+	o.Super().AsTextServer().FontSetGlobalOversampling(oversampling)
+}
+
+// GetHexCodeBoxSize is promoted from [TextServer.Instance.GetHexCodeBoxSize].
+func (self Instance) GetHexCodeBoxSize(size int, index int) Vector2.XY {
+	return self.AsTextServer().GetHexCodeBoxSize(size, index)
+}
+
+// GetHexCodeBoxSize is promoted from [TextServer.Instance.GetHexCodeBoxSize].
+func (o *Extension[T]) GetHexCodeBoxSize(size int, index int) Vector2.XY {
+	return o.Super().AsTextServer().GetHexCodeBoxSize(size, index)
+}
+
+// DrawHexCodeBox is promoted from [TextServer.Instance.DrawHexCodeBox].
+func (self Instance) DrawHexCodeBox(canvas RID.Canvas, size int, pos Vector2.XY, index int, color Color.RGBA) {
+	self.AsTextServer().DrawHexCodeBox(canvas, size, pos, index, color)
+}
+
+// DrawHexCodeBox is promoted from [TextServer.Instance.DrawHexCodeBox].
+func (o *Extension[T]) DrawHexCodeBox(canvas RID.Canvas, size int, pos Vector2.XY, index int, color Color.RGBA) {
+	o.Super().AsTextServer().DrawHexCodeBox(canvas, size, pos, index, color)
+}
+
+// ShapedTextClear is promoted from [TextServer.Instance.ShapedTextClear].
+func (self Instance) ShapedTextClear(rid RID.TextBuffer) {
+	self.AsTextServer().ShapedTextClear(rid)
+}
+
+// ShapedTextClear is promoted from [TextServer.Instance.ShapedTextClear].
+func (o *Extension[T]) ShapedTextClear(rid RID.TextBuffer) {
+	o.Super().AsTextServer().ShapedTextClear(rid)
+}
+
+// ShapedTextDuplicate is promoted from [TextServer.Instance.ShapedTextDuplicate].
+func (self Instance) ShapedTextDuplicate(rid RID.TextBuffer) RID.TextBuffer {
+	return self.AsTextServer().ShapedTextDuplicate(rid)
+}
+
+// ShapedTextDuplicate is promoted from [TextServer.Instance.ShapedTextDuplicate].
+func (o *Extension[T]) ShapedTextDuplicate(rid RID.TextBuffer) RID.TextBuffer {
+	return o.Super().AsTextServer().ShapedTextDuplicate(rid)
+}
+
+// ShapedTextGetDirection is promoted from [TextServer.Instance.ShapedTextGetDirection].
+func (self Instance) ShapedTextGetDirection(shaped RID.TextBuffer) TextServer.Direction {
+	return self.AsTextServer().ShapedTextGetDirection(shaped)
+}
+
+// ShapedTextGetDirection is promoted from [TextServer.Instance.ShapedTextGetDirection].
+func (o *Extension[T]) ShapedTextGetDirection(shaped RID.TextBuffer) TextServer.Direction {
+	return o.Super().AsTextServer().ShapedTextGetDirection(shaped)
+}
+
+// ShapedTextGetInferredDirection is promoted from [TextServer.Instance.ShapedTextGetInferredDirection].
+func (self Instance) ShapedTextGetInferredDirection(shaped RID.TextBuffer) TextServer.Direction {
+	return self.AsTextServer().ShapedTextGetInferredDirection(shaped)
+}
+
+// ShapedTextGetInferredDirection is promoted from [TextServer.Instance.ShapedTextGetInferredDirection].
+func (o *Extension[T]) ShapedTextGetInferredDirection(shaped RID.TextBuffer) TextServer.Direction {
+	return o.Super().AsTextServer().ShapedTextGetInferredDirection(shaped)
+}
+
+// ShapedTextSetBidiOverride is promoted from [TextServer.Instance.ShapedTextSetBidiOverride].
+func (self Instance) ShapedTextSetBidiOverride(shaped RID.TextBuffer, override []any) {
+	self.AsTextServer().ShapedTextSetBidiOverride(shaped, override)
+}
+
+// ShapedTextSetBidiOverride is promoted from [TextServer.Instance.ShapedTextSetBidiOverride].
+func (o *Extension[T]) ShapedTextSetBidiOverride(shaped RID.TextBuffer, override []any) {
+	o.Super().AsTextServer().ShapedTextSetBidiOverride(shaped, override)
+}
+
+// ShapedTextSetCustomPunctuation is promoted from [TextServer.Instance.ShapedTextSetCustomPunctuation].
+func (self Instance) ShapedTextSetCustomPunctuation(shaped RID.TextBuffer, punct string) {
+	self.AsTextServer().ShapedTextSetCustomPunctuation(shaped, punct)
+}
+
+// ShapedTextSetCustomPunctuation is promoted from [TextServer.Instance.ShapedTextSetCustomPunctuation].
+func (o *Extension[T]) ShapedTextSetCustomPunctuation(shaped RID.TextBuffer, punct string) {
+	o.Super().AsTextServer().ShapedTextSetCustomPunctuation(shaped, punct)
+}
+
+// ShapedTextGetCustomPunctuation is promoted from [TextServer.Instance.ShapedTextGetCustomPunctuation].
+func (self Instance) ShapedTextGetCustomPunctuation(shaped RID.TextBuffer) string {
+	return self.AsTextServer().ShapedTextGetCustomPunctuation(shaped)
+}
+
+// ShapedTextGetCustomPunctuation is promoted from [TextServer.Instance.ShapedTextGetCustomPunctuation].
+func (o *Extension[T]) ShapedTextGetCustomPunctuation(shaped RID.TextBuffer) string {
+	return o.Super().AsTextServer().ShapedTextGetCustomPunctuation(shaped)
+}
+
+// ShapedTextSetCustomEllipsis is promoted from [TextServer.Instance.ShapedTextSetCustomEllipsis].
+func (self Instance) ShapedTextSetCustomEllipsis(shaped RID.TextBuffer, char int) {
+	self.AsTextServer().ShapedTextSetCustomEllipsis(shaped, char)
+}
+
+// ShapedTextSetCustomEllipsis is promoted from [TextServer.Instance.ShapedTextSetCustomEllipsis].
+func (o *Extension[T]) ShapedTextSetCustomEllipsis(shaped RID.TextBuffer, char int) {
+	o.Super().AsTextServer().ShapedTextSetCustomEllipsis(shaped, char)
+}
+
+// ShapedTextGetCustomEllipsis is promoted from [TextServer.Instance.ShapedTextGetCustomEllipsis].
+func (self Instance) ShapedTextGetCustomEllipsis(shaped RID.TextBuffer) int {
+	return self.AsTextServer().ShapedTextGetCustomEllipsis(shaped)
+}
+
+// ShapedTextGetCustomEllipsis is promoted from [TextServer.Instance.ShapedTextGetCustomEllipsis].
+func (o *Extension[T]) ShapedTextGetCustomEllipsis(shaped RID.TextBuffer) int {
+	return o.Super().AsTextServer().ShapedTextGetCustomEllipsis(shaped)
+}
+
+// ShapedTextGetOrientation is promoted from [TextServer.Instance.ShapedTextGetOrientation].
+func (self Instance) ShapedTextGetOrientation(shaped RID.TextBuffer) TextServer.Orientation {
+	return self.AsTextServer().ShapedTextGetOrientation(shaped)
+}
+
+// ShapedTextGetOrientation is promoted from [TextServer.Instance.ShapedTextGetOrientation].
+func (o *Extension[T]) ShapedTextGetOrientation(shaped RID.TextBuffer) TextServer.Orientation {
+	return o.Super().AsTextServer().ShapedTextGetOrientation(shaped)
+}
+
+// ShapedTextSetPreserveInvalid is promoted from [TextServer.Instance.ShapedTextSetPreserveInvalid].
+func (self Instance) ShapedTextSetPreserveInvalid(shaped RID.TextBuffer, enabled bool) {
+	self.AsTextServer().ShapedTextSetPreserveInvalid(shaped, enabled)
+}
+
+// ShapedTextSetPreserveInvalid is promoted from [TextServer.Instance.ShapedTextSetPreserveInvalid].
+func (o *Extension[T]) ShapedTextSetPreserveInvalid(shaped RID.TextBuffer, enabled bool) {
+	o.Super().AsTextServer().ShapedTextSetPreserveInvalid(shaped, enabled)
+}
+
+// ShapedTextGetPreserveInvalid is promoted from [TextServer.Instance.ShapedTextGetPreserveInvalid].
+func (self Instance) ShapedTextGetPreserveInvalid(shaped RID.TextBuffer) bool {
+	return self.AsTextServer().ShapedTextGetPreserveInvalid(shaped)
+}
+
+// ShapedTextGetPreserveInvalid is promoted from [TextServer.Instance.ShapedTextGetPreserveInvalid].
+func (o *Extension[T]) ShapedTextGetPreserveInvalid(shaped RID.TextBuffer) bool {
+	return o.Super().AsTextServer().ShapedTextGetPreserveInvalid(shaped)
+}
+
+// ShapedTextSetPreserveControl is promoted from [TextServer.Instance.ShapedTextSetPreserveControl].
+func (self Instance) ShapedTextSetPreserveControl(shaped RID.TextBuffer, enabled bool) {
+	self.AsTextServer().ShapedTextSetPreserveControl(shaped, enabled)
+}
+
+// ShapedTextSetPreserveControl is promoted from [TextServer.Instance.ShapedTextSetPreserveControl].
+func (o *Extension[T]) ShapedTextSetPreserveControl(shaped RID.TextBuffer, enabled bool) {
+	o.Super().AsTextServer().ShapedTextSetPreserveControl(shaped, enabled)
+}
+
+// ShapedTextGetPreserveControl is promoted from [TextServer.Instance.ShapedTextGetPreserveControl].
+func (self Instance) ShapedTextGetPreserveControl(shaped RID.TextBuffer) bool {
+	return self.AsTextServer().ShapedTextGetPreserveControl(shaped)
+}
+
+// ShapedTextGetPreserveControl is promoted from [TextServer.Instance.ShapedTextGetPreserveControl].
+func (o *Extension[T]) ShapedTextGetPreserveControl(shaped RID.TextBuffer) bool {
+	return o.Super().AsTextServer().ShapedTextGetPreserveControl(shaped)
+}
+
+// ShapedTextSetSpacing is promoted from [TextServer.Instance.ShapedTextSetSpacing].
+func (self Instance) ShapedTextSetSpacing(shaped RID.TextBuffer, spacing TextServer.SpacingType, value int) {
+	self.AsTextServer().ShapedTextSetSpacing(shaped, spacing, value)
+}
+
+// ShapedTextSetSpacing is promoted from [TextServer.Instance.ShapedTextSetSpacing].
+func (o *Extension[T]) ShapedTextSetSpacing(shaped RID.TextBuffer, spacing TextServer.SpacingType, value int) {
+	o.Super().AsTextServer().ShapedTextSetSpacing(shaped, spacing, value)
+}
+
+// ShapedTextGetSpacing is promoted from [TextServer.Instance.ShapedTextGetSpacing].
+func (self Instance) ShapedTextGetSpacing(shaped RID.TextBuffer, spacing TextServer.SpacingType) int {
+	return self.AsTextServer().ShapedTextGetSpacing(shaped, spacing)
+}
+
+// ShapedTextGetSpacing is promoted from [TextServer.Instance.ShapedTextGetSpacing].
+func (o *Extension[T]) ShapedTextGetSpacing(shaped RID.TextBuffer, spacing TextServer.SpacingType) int {
+	return o.Super().AsTextServer().ShapedTextGetSpacing(shaped, spacing)
+}
+
+// ShapedTextHasObject is promoted from [TextServer.Instance.ShapedTextHasObject].
+func (self Instance) ShapedTextHasObject(shaped RID.TextBuffer, key any) bool {
+	return self.AsTextServer().ShapedTextHasObject(shaped, key)
+}
+
+// ShapedTextHasObject is promoted from [TextServer.Instance.ShapedTextHasObject].
+func (o *Extension[T]) ShapedTextHasObject(shaped RID.TextBuffer, key any) bool {
+	return o.Super().AsTextServer().ShapedTextHasObject(shaped, key)
+}
+
+// ShapedGetText is promoted from [TextServer.Instance.ShapedGetText].
+func (self Instance) ShapedGetText(shaped RID.TextBuffer) string {
+	return self.AsTextServer().ShapedGetText(shaped)
+}
+
+// ShapedGetText is promoted from [TextServer.Instance.ShapedGetText].
+func (o *Extension[T]) ShapedGetText(shaped RID.TextBuffer) string {
+	return o.Super().AsTextServer().ShapedGetText(shaped)
+}
+
+// ShapedGetSpanCount is promoted from [TextServer.Instance.ShapedGetSpanCount].
+func (self Instance) ShapedGetSpanCount(shaped RID.TextBuffer) int {
+	return self.AsTextServer().ShapedGetSpanCount(shaped)
+}
+
+// ShapedGetSpanCount is promoted from [TextServer.Instance.ShapedGetSpanCount].
+func (o *Extension[T]) ShapedGetSpanCount(shaped RID.TextBuffer) int {
+	return o.Super().AsTextServer().ShapedGetSpanCount(shaped)
+}
+
+// ShapedGetSpanMeta is promoted from [TextServer.Instance.ShapedGetSpanMeta].
+func (self Instance) ShapedGetSpanMeta(shaped RID.TextBuffer, index int) any {
+	return self.AsTextServer().ShapedGetSpanMeta(shaped, index)
+}
+
+// ShapedGetSpanMeta is promoted from [TextServer.Instance.ShapedGetSpanMeta].
+func (o *Extension[T]) ShapedGetSpanMeta(shaped RID.TextBuffer, index int) any {
+	return o.Super().AsTextServer().ShapedGetSpanMeta(shaped, index)
+}
+
+// ShapedGetSpanEmbeddedObject is promoted from [TextServer.Instance.ShapedGetSpanEmbeddedObject].
+func (self Instance) ShapedGetSpanEmbeddedObject(shaped RID.TextBuffer, index int) any {
+	return self.AsTextServer().ShapedGetSpanEmbeddedObject(shaped, index)
+}
+
+// ShapedGetSpanEmbeddedObject is promoted from [TextServer.Instance.ShapedGetSpanEmbeddedObject].
+func (o *Extension[T]) ShapedGetSpanEmbeddedObject(shaped RID.TextBuffer, index int) any {
+	return o.Super().AsTextServer().ShapedGetSpanEmbeddedObject(shaped, index)
+}
+
+// ShapedGetSpanText is promoted from [TextServer.Instance.ShapedGetSpanText].
+func (self Instance) ShapedGetSpanText(shaped RID.TextBuffer, index int) string {
+	return self.AsTextServer().ShapedGetSpanText(shaped, index)
+}
+
+// ShapedGetSpanText is promoted from [TextServer.Instance.ShapedGetSpanText].
+func (o *Extension[T]) ShapedGetSpanText(shaped RID.TextBuffer, index int) string {
+	return o.Super().AsTextServer().ShapedGetSpanText(shaped, index)
+}
+
+// ShapedGetSpanObject is promoted from [TextServer.Instance.ShapedGetSpanObject].
+func (self Instance) ShapedGetSpanObject(shaped RID.TextBuffer, index int) any {
+	return self.AsTextServer().ShapedGetSpanObject(shaped, index)
+}
+
+// ShapedGetSpanObject is promoted from [TextServer.Instance.ShapedGetSpanObject].
+func (o *Extension[T]) ShapedGetSpanObject(shaped RID.TextBuffer, index int) any {
+	return o.Super().AsTextServer().ShapedGetSpanObject(shaped, index)
+}
+
+// ShapedGetRunCount is promoted from [TextServer.Instance.ShapedGetRunCount].
+func (self Instance) ShapedGetRunCount(shaped RID.TextBuffer) int {
+	return self.AsTextServer().ShapedGetRunCount(shaped)
+}
+
+// ShapedGetRunCount is promoted from [TextServer.Instance.ShapedGetRunCount].
+func (o *Extension[T]) ShapedGetRunCount(shaped RID.TextBuffer) int {
+	return o.Super().AsTextServer().ShapedGetRunCount(shaped)
+}
+
+// ShapedGetRunText is promoted from [TextServer.Instance.ShapedGetRunText].
+func (self Instance) ShapedGetRunText(shaped RID.TextBuffer, index int) string {
+	return self.AsTextServer().ShapedGetRunText(shaped, index)
+}
+
+// ShapedGetRunText is promoted from [TextServer.Instance.ShapedGetRunText].
+func (o *Extension[T]) ShapedGetRunText(shaped RID.TextBuffer, index int) string {
+	return o.Super().AsTextServer().ShapedGetRunText(shaped, index)
+}
+
+// ShapedGetRunRange is promoted from [TextServer.Instance.ShapedGetRunRange].
+func (self Instance) ShapedGetRunRange(shaped RID.TextBuffer, index int) Vector2i.XY {
+	return self.AsTextServer().ShapedGetRunRange(shaped, index)
+}
+
+// ShapedGetRunRange is promoted from [TextServer.Instance.ShapedGetRunRange].
+func (o *Extension[T]) ShapedGetRunRange(shaped RID.TextBuffer, index int) Vector2i.XY {
+	return o.Super().AsTextServer().ShapedGetRunRange(shaped, index)
+}
+
+// ShapedGetRunFontRid is promoted from [TextServer.Instance.ShapedGetRunFontRid].
+func (self Instance) ShapedGetRunFontRid(shaped RID.TextBuffer, index int) RID.Font {
+	return self.AsTextServer().ShapedGetRunFontRid(shaped, index)
+}
+
+// ShapedGetRunFontRid is promoted from [TextServer.Instance.ShapedGetRunFontRid].
+func (o *Extension[T]) ShapedGetRunFontRid(shaped RID.TextBuffer, index int) RID.Font {
+	return o.Super().AsTextServer().ShapedGetRunFontRid(shaped, index)
+}
+
+// ShapedGetRunFontSize is promoted from [TextServer.Instance.ShapedGetRunFontSize].
+func (self Instance) ShapedGetRunFontSize(shaped RID.TextBuffer, index int) int {
+	return self.AsTextServer().ShapedGetRunFontSize(shaped, index)
+}
+
+// ShapedGetRunFontSize is promoted from [TextServer.Instance.ShapedGetRunFontSize].
+func (o *Extension[T]) ShapedGetRunFontSize(shaped RID.TextBuffer, index int) int {
+	return o.Super().AsTextServer().ShapedGetRunFontSize(shaped, index)
+}
+
+// ShapedGetRunLanguage is promoted from [TextServer.Instance.ShapedGetRunLanguage].
+func (self Instance) ShapedGetRunLanguage(shaped RID.TextBuffer, index int) string {
+	return self.AsTextServer().ShapedGetRunLanguage(shaped, index)
+}
+
+// ShapedGetRunLanguage is promoted from [TextServer.Instance.ShapedGetRunLanguage].
+func (o *Extension[T]) ShapedGetRunLanguage(shaped RID.TextBuffer, index int) string {
+	return o.Super().AsTextServer().ShapedGetRunLanguage(shaped, index)
+}
+
+// ShapedGetRunDirection is promoted from [TextServer.Instance.ShapedGetRunDirection].
+func (self Instance) ShapedGetRunDirection(shaped RID.TextBuffer, index int) TextServer.Direction {
+	return self.AsTextServer().ShapedGetRunDirection(shaped, index)
+}
+
+// ShapedGetRunDirection is promoted from [TextServer.Instance.ShapedGetRunDirection].
+func (o *Extension[T]) ShapedGetRunDirection(shaped RID.TextBuffer, index int) TextServer.Direction {
+	return o.Super().AsTextServer().ShapedGetRunDirection(shaped, index)
+}
+
+// ShapedGetRunObject is promoted from [TextServer.Instance.ShapedGetRunObject].
+func (self Instance) ShapedGetRunObject(shaped RID.TextBuffer, index int) any {
+	return self.AsTextServer().ShapedGetRunObject(shaped, index)
+}
+
+// ShapedGetRunObject is promoted from [TextServer.Instance.ShapedGetRunObject].
+func (o *Extension[T]) ShapedGetRunObject(shaped RID.TextBuffer, index int) any {
+	return o.Super().AsTextServer().ShapedGetRunObject(shaped, index)
+}
+
+// ShapedTextSubstr is promoted from [TextServer.Instance.ShapedTextSubstr].
+func (self Instance) ShapedTextSubstr(shaped RID.TextBuffer, start int, length int) RID.TextBuffer {
+	return self.AsTextServer().ShapedTextSubstr(shaped, start, length)
+}
+
+// ShapedTextSubstr is promoted from [TextServer.Instance.ShapedTextSubstr].
+func (o *Extension[T]) ShapedTextSubstr(shaped RID.TextBuffer, start int, length int) RID.TextBuffer {
+	return o.Super().AsTextServer().ShapedTextSubstr(shaped, start, length)
+}
+
+// ShapedTextGetParent is promoted from [TextServer.Instance.ShapedTextGetParent].
+func (self Instance) ShapedTextGetParent(shaped RID.TextBuffer) RID.TextBuffer {
+	return self.AsTextServer().ShapedTextGetParent(shaped)
+}
+
+// ShapedTextGetParent is promoted from [TextServer.Instance.ShapedTextGetParent].
+func (o *Extension[T]) ShapedTextGetParent(shaped RID.TextBuffer) RID.TextBuffer {
+	return o.Super().AsTextServer().ShapedTextGetParent(shaped)
+}
+
+// ShapedTextTabAlign is promoted from [TextServer.Instance.ShapedTextTabAlign].
+func (self Instance) ShapedTextTabAlign(shaped RID.TextBuffer, tab_stops []float32) Float.X {
+	return self.AsTextServer().ShapedTextTabAlign(shaped, tab_stops)
+}
+
+// ShapedTextTabAlign is promoted from [TextServer.Instance.ShapedTextTabAlign].
+func (o *Extension[T]) ShapedTextTabAlign(shaped RID.TextBuffer, tab_stops []float32) Float.X {
+	return o.Super().AsTextServer().ShapedTextTabAlign(shaped, tab_stops)
+}
+
+// ShapedTextShape is promoted from [TextServer.Instance.ShapedTextShape].
+func (self Instance) ShapedTextShape(shaped RID.TextBuffer) bool {
+	return self.AsTextServer().ShapedTextShape(shaped)
+}
+
+// ShapedTextShape is promoted from [TextServer.Instance.ShapedTextShape].
+func (o *Extension[T]) ShapedTextShape(shaped RID.TextBuffer) bool {
+	return o.Super().AsTextServer().ShapedTextShape(shaped)
+}
+
+// ShapedTextIsReady is promoted from [TextServer.Instance.ShapedTextIsReady].
+func (self Instance) ShapedTextIsReady(shaped RID.TextBuffer) bool {
+	return self.AsTextServer().ShapedTextIsReady(shaped)
+}
+
+// ShapedTextIsReady is promoted from [TextServer.Instance.ShapedTextIsReady].
+func (o *Extension[T]) ShapedTextIsReady(shaped RID.TextBuffer) bool {
+	return o.Super().AsTextServer().ShapedTextIsReady(shaped)
+}
+
+// ShapedTextHasVisibleChars is promoted from [TextServer.Instance.ShapedTextHasVisibleChars].
+func (self Instance) ShapedTextHasVisibleChars(shaped RID.TextBuffer) bool {
+	return self.AsTextServer().ShapedTextHasVisibleChars(shaped)
+}
+
+// ShapedTextHasVisibleChars is promoted from [TextServer.Instance.ShapedTextHasVisibleChars].
+func (o *Extension[T]) ShapedTextHasVisibleChars(shaped RID.TextBuffer) bool {
+	return o.Super().AsTextServer().ShapedTextHasVisibleChars(shaped)
+}
+
+// ShapedTextGetGlyphs is promoted from [TextServer.Instance.ShapedTextGetGlyphs].
+func (self Instance) ShapedTextGetGlyphs(shaped RID.TextBuffer) [][]TextServer.Glyph {
+	return self.AsTextServer().ShapedTextGetGlyphs(shaped)
+}
+
+// ShapedTextGetGlyphs is promoted from [TextServer.Instance.ShapedTextGetGlyphs].
+func (o *Extension[T]) ShapedTextGetGlyphs(shaped RID.TextBuffer) [][]TextServer.Glyph {
+	return o.Super().AsTextServer().ShapedTextGetGlyphs(shaped)
+}
+
+// ShapedTextSortLogical is promoted from [TextServer.Instance.ShapedTextSortLogical].
+func (self Instance) ShapedTextSortLogical(shaped RID.TextBuffer) [][]TextServer.Glyph {
+	return self.AsTextServer().ShapedTextSortLogical(shaped)
+}
+
+// ShapedTextSortLogical is promoted from [TextServer.Instance.ShapedTextSortLogical].
+func (o *Extension[T]) ShapedTextSortLogical(shaped RID.TextBuffer) [][]TextServer.Glyph {
+	return o.Super().AsTextServer().ShapedTextSortLogical(shaped)
+}
+
+// ShapedTextGetGlyphCount is promoted from [TextServer.Instance.ShapedTextGetGlyphCount].
+func (self Instance) ShapedTextGetGlyphCount(shaped RID.TextBuffer) int {
+	return self.AsTextServer().ShapedTextGetGlyphCount(shaped)
+}
+
+// ShapedTextGetGlyphCount is promoted from [TextServer.Instance.ShapedTextGetGlyphCount].
+func (o *Extension[T]) ShapedTextGetGlyphCount(shaped RID.TextBuffer) int {
+	return o.Super().AsTextServer().ShapedTextGetGlyphCount(shaped)
+}
+
+// ShapedTextGetRange is promoted from [TextServer.Instance.ShapedTextGetRange].
+func (self Instance) ShapedTextGetRange(shaped RID.TextBuffer) Vector2i.XY {
+	return self.AsTextServer().ShapedTextGetRange(shaped)
+}
+
+// ShapedTextGetRange is promoted from [TextServer.Instance.ShapedTextGetRange].
+func (o *Extension[T]) ShapedTextGetRange(shaped RID.TextBuffer) Vector2i.XY {
+	return o.Super().AsTextServer().ShapedTextGetRange(shaped)
+}
+
+// ShapedTextGetTrimPos is promoted from [TextServer.Instance.ShapedTextGetTrimPos].
+func (self Instance) ShapedTextGetTrimPos(shaped RID.TextBuffer) int {
+	return self.AsTextServer().ShapedTextGetTrimPos(shaped)
+}
+
+// ShapedTextGetTrimPos is promoted from [TextServer.Instance.ShapedTextGetTrimPos].
+func (o *Extension[T]) ShapedTextGetTrimPos(shaped RID.TextBuffer) int {
+	return o.Super().AsTextServer().ShapedTextGetTrimPos(shaped)
+}
+
+// ShapedTextGetEllipsisPos is promoted from [TextServer.Instance.ShapedTextGetEllipsisPos].
+func (self Instance) ShapedTextGetEllipsisPos(shaped RID.TextBuffer) int {
+	return self.AsTextServer().ShapedTextGetEllipsisPos(shaped)
+}
+
+// ShapedTextGetEllipsisPos is promoted from [TextServer.Instance.ShapedTextGetEllipsisPos].
+func (o *Extension[T]) ShapedTextGetEllipsisPos(shaped RID.TextBuffer) int {
+	return o.Super().AsTextServer().ShapedTextGetEllipsisPos(shaped)
+}
+
+// ShapedTextGetEllipsisGlyphs is promoted from [TextServer.Instance.ShapedTextGetEllipsisGlyphs].
+func (self Instance) ShapedTextGetEllipsisGlyphs(shaped RID.TextBuffer) [][]TextServer.Glyph {
+	return self.AsTextServer().ShapedTextGetEllipsisGlyphs(shaped)
+}
+
+// ShapedTextGetEllipsisGlyphs is promoted from [TextServer.Instance.ShapedTextGetEllipsisGlyphs].
+func (o *Extension[T]) ShapedTextGetEllipsisGlyphs(shaped RID.TextBuffer) [][]TextServer.Glyph {
+	return o.Super().AsTextServer().ShapedTextGetEllipsisGlyphs(shaped)
+}
+
+// ShapedTextGetEllipsisGlyphCount is promoted from [TextServer.Instance.ShapedTextGetEllipsisGlyphCount].
+func (self Instance) ShapedTextGetEllipsisGlyphCount(shaped RID.TextBuffer) int {
+	return self.AsTextServer().ShapedTextGetEllipsisGlyphCount(shaped)
+}
+
+// ShapedTextGetEllipsisGlyphCount is promoted from [TextServer.Instance.ShapedTextGetEllipsisGlyphCount].
+func (o *Extension[T]) ShapedTextGetEllipsisGlyphCount(shaped RID.TextBuffer) int {
+	return o.Super().AsTextServer().ShapedTextGetEllipsisGlyphCount(shaped)
+}
+
+// ShapedTextGetObjects is promoted from [TextServer.Instance.ShapedTextGetObjects].
+func (self Instance) ShapedTextGetObjects(shaped RID.TextBuffer) []any {
+	return self.AsTextServer().ShapedTextGetObjects(shaped)
+}
+
+// ShapedTextGetObjects is promoted from [TextServer.Instance.ShapedTextGetObjects].
+func (o *Extension[T]) ShapedTextGetObjects(shaped RID.TextBuffer) []any {
+	return o.Super().AsTextServer().ShapedTextGetObjects(shaped)
+}
+
+// ShapedTextGetObjectRect is promoted from [TextServer.Instance.ShapedTextGetObjectRect].
+func (self Instance) ShapedTextGetObjectRect(shaped RID.TextBuffer, key any) Rect2.PositionSize {
+	return self.AsTextServer().ShapedTextGetObjectRect(shaped, key)
+}
+
+// ShapedTextGetObjectRect is promoted from [TextServer.Instance.ShapedTextGetObjectRect].
+func (o *Extension[T]) ShapedTextGetObjectRect(shaped RID.TextBuffer, key any) Rect2.PositionSize {
+	return o.Super().AsTextServer().ShapedTextGetObjectRect(shaped, key)
+}
+
+// ShapedTextGetObjectRange is promoted from [TextServer.Instance.ShapedTextGetObjectRange].
+func (self Instance) ShapedTextGetObjectRange(shaped RID.TextBuffer, key any) Vector2i.XY {
+	return self.AsTextServer().ShapedTextGetObjectRange(shaped, key)
+}
+
+// ShapedTextGetObjectRange is promoted from [TextServer.Instance.ShapedTextGetObjectRange].
+func (o *Extension[T]) ShapedTextGetObjectRange(shaped RID.TextBuffer, key any) Vector2i.XY {
+	return o.Super().AsTextServer().ShapedTextGetObjectRange(shaped, key)
+}
+
+// ShapedTextGetObjectGlyph is promoted from [TextServer.Instance.ShapedTextGetObjectGlyph].
+func (self Instance) ShapedTextGetObjectGlyph(shaped RID.TextBuffer, key any) int {
+	return self.AsTextServer().ShapedTextGetObjectGlyph(shaped, key)
+}
+
+// ShapedTextGetObjectGlyph is promoted from [TextServer.Instance.ShapedTextGetObjectGlyph].
+func (o *Extension[T]) ShapedTextGetObjectGlyph(shaped RID.TextBuffer, key any) int {
+	return o.Super().AsTextServer().ShapedTextGetObjectGlyph(shaped, key)
+}
+
+// ShapedTextGetSize is promoted from [TextServer.Instance.ShapedTextGetSize].
+func (self Instance) ShapedTextGetSize(shaped RID.TextBuffer) Vector2.XY {
+	return self.AsTextServer().ShapedTextGetSize(shaped)
+}
+
+// ShapedTextGetSize is promoted from [TextServer.Instance.ShapedTextGetSize].
+func (o *Extension[T]) ShapedTextGetSize(shaped RID.TextBuffer) Vector2.XY {
+	return o.Super().AsTextServer().ShapedTextGetSize(shaped)
+}
+
+// ShapedTextGetAscent is promoted from [TextServer.Instance.ShapedTextGetAscent].
+func (self Instance) ShapedTextGetAscent(shaped RID.TextBuffer) Float.X {
+	return self.AsTextServer().ShapedTextGetAscent(shaped)
+}
+
+// ShapedTextGetAscent is promoted from [TextServer.Instance.ShapedTextGetAscent].
+func (o *Extension[T]) ShapedTextGetAscent(shaped RID.TextBuffer) Float.X {
+	return o.Super().AsTextServer().ShapedTextGetAscent(shaped)
+}
+
+// ShapedTextGetDescent is promoted from [TextServer.Instance.ShapedTextGetDescent].
+func (self Instance) ShapedTextGetDescent(shaped RID.TextBuffer) Float.X {
+	return self.AsTextServer().ShapedTextGetDescent(shaped)
+}
+
+// ShapedTextGetDescent is promoted from [TextServer.Instance.ShapedTextGetDescent].
+func (o *Extension[T]) ShapedTextGetDescent(shaped RID.TextBuffer) Float.X {
+	return o.Super().AsTextServer().ShapedTextGetDescent(shaped)
+}
+
+// ShapedTextGetWidth is promoted from [TextServer.Instance.ShapedTextGetWidth].
+func (self Instance) ShapedTextGetWidth(shaped RID.TextBuffer) Float.X {
+	return self.AsTextServer().ShapedTextGetWidth(shaped)
+}
+
+// ShapedTextGetWidth is promoted from [TextServer.Instance.ShapedTextGetWidth].
+func (o *Extension[T]) ShapedTextGetWidth(shaped RID.TextBuffer) Float.X {
+	return o.Super().AsTextServer().ShapedTextGetWidth(shaped)
+}
+
+// ShapedTextGetUnderlinePosition is promoted from [TextServer.Instance.ShapedTextGetUnderlinePosition].
+func (self Instance) ShapedTextGetUnderlinePosition(shaped RID.TextBuffer) Float.X {
+	return self.AsTextServer().ShapedTextGetUnderlinePosition(shaped)
+}
+
+// ShapedTextGetUnderlinePosition is promoted from [TextServer.Instance.ShapedTextGetUnderlinePosition].
+func (o *Extension[T]) ShapedTextGetUnderlinePosition(shaped RID.TextBuffer) Float.X {
+	return o.Super().AsTextServer().ShapedTextGetUnderlinePosition(shaped)
+}
+
+// ShapedTextGetUnderlineThickness is promoted from [TextServer.Instance.ShapedTextGetUnderlineThickness].
+func (self Instance) ShapedTextGetUnderlineThickness(shaped RID.TextBuffer) Float.X {
+	return self.AsTextServer().ShapedTextGetUnderlineThickness(shaped)
+}
+
+// ShapedTextGetUnderlineThickness is promoted from [TextServer.Instance.ShapedTextGetUnderlineThickness].
+func (o *Extension[T]) ShapedTextGetUnderlineThickness(shaped RID.TextBuffer) Float.X {
+	return o.Super().AsTextServer().ShapedTextGetUnderlineThickness(shaped)
+}
+
+// ShapedTextGetCarets is promoted from [TextServer.Instance.ShapedTextGetCarets].
+func (self Instance) ShapedTextGetCarets(shaped RID.TextBuffer, position int) TextServer.Carets {
+	return self.AsTextServer().ShapedTextGetCarets(shaped, position)
+}
+
+// ShapedTextGetCarets is promoted from [TextServer.Instance.ShapedTextGetCarets].
+func (o *Extension[T]) ShapedTextGetCarets(shaped RID.TextBuffer, position int) TextServer.Carets {
+	return o.Super().AsTextServer().ShapedTextGetCarets(shaped, position)
+}
+
+// ShapedTextGetSelection is promoted from [TextServer.Instance.ShapedTextGetSelection].
+func (self Instance) ShapedTextGetSelection(shaped RID.TextBuffer, start int, end int) []Vector2.XY {
+	return self.AsTextServer().ShapedTextGetSelection(shaped, start, end)
+}
+
+// ShapedTextGetSelection is promoted from [TextServer.Instance.ShapedTextGetSelection].
+func (o *Extension[T]) ShapedTextGetSelection(shaped RID.TextBuffer, start int, end int) []Vector2.XY {
+	return o.Super().AsTextServer().ShapedTextGetSelection(shaped, start, end)
+}
+
+// ShapedTextHitTestGrapheme is promoted from [TextServer.Instance.ShapedTextHitTestGrapheme].
+func (self Instance) ShapedTextHitTestGrapheme(shaped RID.TextBuffer, coords Float.X) int {
+	return self.AsTextServer().ShapedTextHitTestGrapheme(shaped, coords)
+}
+
+// ShapedTextHitTestGrapheme is promoted from [TextServer.Instance.ShapedTextHitTestGrapheme].
+func (o *Extension[T]) ShapedTextHitTestGrapheme(shaped RID.TextBuffer, coords Float.X) int {
+	return o.Super().AsTextServer().ShapedTextHitTestGrapheme(shaped, coords)
+}
+
+// ShapedTextHitTestPosition is promoted from [TextServer.Instance.ShapedTextHitTestPosition].
+func (self Instance) ShapedTextHitTestPosition(shaped RID.TextBuffer, coords Float.X) int {
+	return self.AsTextServer().ShapedTextHitTestPosition(shaped, coords)
+}
+
+// ShapedTextHitTestPosition is promoted from [TextServer.Instance.ShapedTextHitTestPosition].
+func (o *Extension[T]) ShapedTextHitTestPosition(shaped RID.TextBuffer, coords Float.X) int {
+	return o.Super().AsTextServer().ShapedTextHitTestPosition(shaped, coords)
+}
+
+// ShapedTextGetGraphemeBounds is promoted from [TextServer.Instance.ShapedTextGetGraphemeBounds].
+func (self Instance) ShapedTextGetGraphemeBounds(shaped RID.TextBuffer, pos int) Vector2.XY {
+	return self.AsTextServer().ShapedTextGetGraphemeBounds(shaped, pos)
+}
+
+// ShapedTextGetGraphemeBounds is promoted from [TextServer.Instance.ShapedTextGetGraphemeBounds].
+func (o *Extension[T]) ShapedTextGetGraphemeBounds(shaped RID.TextBuffer, pos int) Vector2.XY {
+	return o.Super().AsTextServer().ShapedTextGetGraphemeBounds(shaped, pos)
+}
+
+// ShapedTextNextGraphemePos is promoted from [TextServer.Instance.ShapedTextNextGraphemePos].
+func (self Instance) ShapedTextNextGraphemePos(shaped RID.TextBuffer, pos int) int {
+	return self.AsTextServer().ShapedTextNextGraphemePos(shaped, pos)
+}
+
+// ShapedTextNextGraphemePos is promoted from [TextServer.Instance.ShapedTextNextGraphemePos].
+func (o *Extension[T]) ShapedTextNextGraphemePos(shaped RID.TextBuffer, pos int) int {
+	return o.Super().AsTextServer().ShapedTextNextGraphemePos(shaped, pos)
+}
+
+// ShapedTextPrevGraphemePos is promoted from [TextServer.Instance.ShapedTextPrevGraphemePos].
+func (self Instance) ShapedTextPrevGraphemePos(shaped RID.TextBuffer, pos int) int {
+	return self.AsTextServer().ShapedTextPrevGraphemePos(shaped, pos)
+}
+
+// ShapedTextPrevGraphemePos is promoted from [TextServer.Instance.ShapedTextPrevGraphemePos].
+func (o *Extension[T]) ShapedTextPrevGraphemePos(shaped RID.TextBuffer, pos int) int {
+	return o.Super().AsTextServer().ShapedTextPrevGraphemePos(shaped, pos)
+}
+
+// ShapedTextGetCharacterBreaks is promoted from [TextServer.Instance.ShapedTextGetCharacterBreaks].
+func (self Instance) ShapedTextGetCharacterBreaks(shaped RID.TextBuffer) []int32 {
+	return self.AsTextServer().ShapedTextGetCharacterBreaks(shaped)
+}
+
+// ShapedTextGetCharacterBreaks is promoted from [TextServer.Instance.ShapedTextGetCharacterBreaks].
+func (o *Extension[T]) ShapedTextGetCharacterBreaks(shaped RID.TextBuffer) []int32 {
+	return o.Super().AsTextServer().ShapedTextGetCharacterBreaks(shaped)
+}
+
+// ShapedTextNextCharacterPos is promoted from [TextServer.Instance.ShapedTextNextCharacterPos].
+func (self Instance) ShapedTextNextCharacterPos(shaped RID.TextBuffer, pos int) int {
+	return self.AsTextServer().ShapedTextNextCharacterPos(shaped, pos)
+}
+
+// ShapedTextNextCharacterPos is promoted from [TextServer.Instance.ShapedTextNextCharacterPos].
+func (o *Extension[T]) ShapedTextNextCharacterPos(shaped RID.TextBuffer, pos int) int {
+	return o.Super().AsTextServer().ShapedTextNextCharacterPos(shaped, pos)
+}
+
+// ShapedTextPrevCharacterPos is promoted from [TextServer.Instance.ShapedTextPrevCharacterPos].
+func (self Instance) ShapedTextPrevCharacterPos(shaped RID.TextBuffer, pos int) int {
+	return self.AsTextServer().ShapedTextPrevCharacterPos(shaped, pos)
+}
+
+// ShapedTextPrevCharacterPos is promoted from [TextServer.Instance.ShapedTextPrevCharacterPos].
+func (o *Extension[T]) ShapedTextPrevCharacterPos(shaped RID.TextBuffer, pos int) int {
+	return o.Super().AsTextServer().ShapedTextPrevCharacterPos(shaped, pos)
+}
+
+// ShapedTextClosestCharacterPos is promoted from [TextServer.Instance.ShapedTextClosestCharacterPos].
+func (self Instance) ShapedTextClosestCharacterPos(shaped RID.TextBuffer, pos int) int {
+	return self.AsTextServer().ShapedTextClosestCharacterPos(shaped, pos)
+}
+
+// ShapedTextClosestCharacterPos is promoted from [TextServer.Instance.ShapedTextClosestCharacterPos].
+func (o *Extension[T]) ShapedTextClosestCharacterPos(shaped RID.TextBuffer, pos int) int {
+	return o.Super().AsTextServer().ShapedTextClosestCharacterPos(shaped, pos)
+}
+
+// ShapedTextGetDominantDirectionInRange is promoted from [TextServer.Instance.ShapedTextGetDominantDirectionInRange].
+func (self Instance) ShapedTextGetDominantDirectionInRange(shaped RID.TextBuffer, start int, end int) TextServer.Direction {
+	return self.AsTextServer().ShapedTextGetDominantDirectionInRange(shaped, start, end)
+}
+
+// ShapedTextGetDominantDirectionInRange is promoted from [TextServer.Instance.ShapedTextGetDominantDirectionInRange].
+func (o *Extension[T]) ShapedTextGetDominantDirectionInRange(shaped RID.TextBuffer, start int, end int) TextServer.Direction {
+	return o.Super().AsTextServer().ShapedTextGetDominantDirectionInRange(shaped, start, end)
+}
+
+// IsConfusable is promoted from [TextServer.Instance.IsConfusable].
+func (self Instance) IsConfusable(s string, dict []string) int {
+	return self.AsTextServer().IsConfusable(s, dict)
+}
+
+// IsConfusable is promoted from [TextServer.Instance.IsConfusable].
+func (o *Extension[T]) IsConfusable(s string, dict []string) int {
+	return o.Super().AsTextServer().IsConfusable(s, dict)
+}
+
+// SpoofCheck is promoted from [TextServer.Instance.SpoofCheck].
+func (self Instance) SpoofCheck(s string) bool {
+	return self.AsTextServer().SpoofCheck(s)
+}
+
+// SpoofCheck is promoted from [TextServer.Instance.SpoofCheck].
+func (o *Extension[T]) SpoofCheck(s string) bool {
+	return o.Super().AsTextServer().SpoofCheck(s)
+}
+
+// StripDiacritics is promoted from [TextServer.Instance.StripDiacritics].
+func (self Instance) StripDiacritics(s string) string {
+	return self.AsTextServer().StripDiacritics(s)
+}
+
+// StripDiacritics is promoted from [TextServer.Instance.StripDiacritics].
+func (o *Extension[T]) StripDiacritics(s string) string {
+	return o.Super().AsTextServer().StripDiacritics(s)
+}
+
+// IsValidIdentifier is promoted from [TextServer.Instance.IsValidIdentifier].
+func (self Instance) IsValidIdentifier(s string) bool {
+	return self.AsTextServer().IsValidIdentifier(s)
+}
+
+// IsValidIdentifier is promoted from [TextServer.Instance.IsValidIdentifier].
+func (o *Extension[T]) IsValidIdentifier(s string) bool {
+	return o.Super().AsTextServer().IsValidIdentifier(s)
+}
+
+// IsValidLetter is promoted from [TextServer.Instance.IsValidLetter].
+func (self Instance) IsValidLetter(unicode int) bool {
+	return self.AsTextServer().IsValidLetter(unicode)
+}
+
+// IsValidLetter is promoted from [TextServer.Instance.IsValidLetter].
+func (o *Extension[T]) IsValidLetter(unicode int) bool {
+	return o.Super().AsTextServer().IsValidLetter(unicode)
+}
+
+// ParseStructuredText is promoted from [TextServer.Instance.ParseStructuredText].
+func (self Instance) ParseStructuredText(parser_type TextServer.StructuredTextParser, args []any, text string) []Vector3i.XYZ {
+	return self.AsTextServer().ParseStructuredText(parser_type, args, text)
+}
+
+// ParseStructuredText is promoted from [TextServer.Instance.ParseStructuredText].
+func (o *Extension[T]) ParseStructuredText(parser_type TextServer.StructuredTextParser, args []any, text string) []Vector3i.XYZ {
+	return o.Super().AsTextServer().ParseStructuredText(parser_type, args, text)
+}
+
 func (self class) Virtual(name string) reflect.Value {
 	switch name {
 	default: return gd.VirtualByName(TextServerExtension.Advanced(self.AsTextServerExtension()), name)
@@ -168,3 +2295,38 @@ func (self Instance) Virtual(name string) reflect.Value {
 	}
 }
 func init() {gdclass.Register("TextServerAdvanced", func(ptr gdreference.Object) any { return Instance{gdclass.NewTextServerAdvanced(ptr)} })}
+type Carets struct {
+LeadingRect struct { Position struct { X float32; Y float32 }; Size struct { X float32; Y float32 } } `gd:"leading_rect"`
+LeadingDirection Direction `gd:"leading_direction"`
+TrailingRect struct { Position struct { X float32; Y float32 }; Size struct { X float32; Y float32 } } `gd:"trailing_rect"`
+TrailingDirection Direction `gd:"trailing_direction"`
+}
+type FontSizeCacheInfo struct {
+SizePixels struct { X int32; Y int32 } `gd:"size_px"`
+ViewportOversampling float32 `gd:"viewport_oversampling"`
+Glyphs int `gd:"glyphs"`
+Textures int `gd:"textures"`
+TexturesSize int `gd:"textures_size"`
+}
+type Glyph struct {
+Start int32 `gd:"start"`
+End int32 `gd:"end"`
+Repeat uint8 `gd:"repeat"`
+Count uint8 `gd:"count"`
+Flags uint16 `gd:"flags"`
+Offset struct { X float32; Y float32 } `gd:"offset"`
+Advance float32 `gd:"advance"`
+FontRID RID.Font `gd:"font_rid"`
+FontSize int32 `gd:"font_size"`
+Index int32 `gd:"index"`
+}
+type GlyphContours struct {
+Points []struct { X float32; Y float32; Z float32 } `gd:"points"`
+Contours []int32 `gd:"contours"`
+Orientation bool `gd:"orientation"`
+}
+type OpenTypeFeature struct {
+Label string `gd:"label"`
+Type reflect.Type `gd:"type"`
+Hidden bool `gd:"hidden"`
+}

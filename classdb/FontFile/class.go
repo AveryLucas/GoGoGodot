@@ -1120,6 +1120,504 @@ func (self Instance) OnSetupLocalToSceneRequested(cb func(), flags ...Signal.Fla
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("setup_local_to_scene_requested"), gd.NewCallable(cb), int64(flags_together))
 	return self
 }
+func (o *Extension[T]) LoadBitmapFont(path string) error {
+	return o.Super().LoadBitmapFont(path)
+}
+func (o *Extension[T]) LoadDynamicFont(path string) error {
+	return o.Super().LoadDynamicFont(path)
+}
+func (o *Extension[T]) GetCacheCount() int {
+	return o.Super().GetCacheCount()
+}
+func (o *Extension[T]) ClearCache() {
+	o.Super().ClearCache()
+}
+func (o *Extension[T]) RemoveCache(cache_index int) {
+	o.Super().RemoveCache(cache_index)
+}
+func (o *Extension[T]) GetSizeCacheList(cache_index int) []Vector2i.XY {
+	return o.Super().GetSizeCacheList(cache_index)
+}
+func (o *Extension[T]) ClearSizeCache(cache_index int) {
+	o.Super().ClearSizeCache(cache_index)
+}
+func (o *Extension[T]) RemoveSizeCache(cache_index int, size Vector2i.XY) {
+	o.Super().RemoveSizeCache(cache_index, size)
+}
+func (o *Extension[T]) SetVariationCoordinates(cache_index int, variation_coordinates map[string]float32) *Extension[T] {
+	o.Super().SetVariationCoordinates(cache_index, variation_coordinates)
+	return o
+}
+func (o *Extension[T]) GetVariationCoordinates(cache_index int) map[string]float32 {
+	return o.Super().GetVariationCoordinates(cache_index)
+}
+func (o *Extension[T]) SetEmbolden(cache_index int, strength Float.X) *Extension[T] {
+	o.Super().SetEmbolden(cache_index, strength)
+	return o
+}
+func (o *Extension[T]) GetEmbolden(cache_index int) Float.X {
+	return o.Super().GetEmbolden(cache_index)
+}
+func (o *Extension[T]) SetTransform(cache_index int, transform Transform2D.OriginXY) *Extension[T] {
+	o.Super().SetTransform(cache_index, transform)
+	return o
+}
+func (o *Extension[T]) GetTransform(cache_index int) Transform2D.OriginXY {
+	return o.Super().GetTransform(cache_index)
+}
+func (o *Extension[T]) SetExtraSpacing(cache_index int, spacing TextServer.SpacingType, value int) *Extension[T] {
+	o.Super().SetExtraSpacing(cache_index, spacing, value)
+	return o
+}
+func (o *Extension[T]) GetExtraSpacing(cache_index int, spacing TextServer.SpacingType) int {
+	return o.Super().GetExtraSpacing(cache_index, spacing)
+}
+func (o *Extension[T]) SetExtraBaselineOffset(cache_index int, baseline_offset Float.X) *Extension[T] {
+	o.Super().SetExtraBaselineOffset(cache_index, baseline_offset)
+	return o
+}
+func (o *Extension[T]) GetExtraBaselineOffset(cache_index int) Float.X {
+	return o.Super().GetExtraBaselineOffset(cache_index)
+}
+func (o *Extension[T]) SetFaceIndex(cache_index int, face_index int) *Extension[T] {
+	o.Super().SetFaceIndex(cache_index, face_index)
+	return o
+}
+func (o *Extension[T]) GetFaceIndex(cache_index int) int {
+	return o.Super().GetFaceIndex(cache_index)
+}
+func (o *Extension[T]) SetCacheAscent(cache_index int, size int, ascent Float.X) *Extension[T] {
+	o.Super().SetCacheAscent(cache_index, size, ascent)
+	return o
+}
+func (o *Extension[T]) GetCacheAscent(cache_index int, size int) Float.X {
+	return o.Super().GetCacheAscent(cache_index, size)
+}
+func (o *Extension[T]) SetCacheDescent(cache_index int, size int, descent Float.X) *Extension[T] {
+	o.Super().SetCacheDescent(cache_index, size, descent)
+	return o
+}
+func (o *Extension[T]) GetCacheDescent(cache_index int, size int) Float.X {
+	return o.Super().GetCacheDescent(cache_index, size)
+}
+func (o *Extension[T]) SetCacheUnderlinePosition(cache_index int, size int, underline_position Float.X) *Extension[T] {
+	o.Super().SetCacheUnderlinePosition(cache_index, size, underline_position)
+	return o
+}
+func (o *Extension[T]) GetCacheUnderlinePosition(cache_index int, size int) Float.X {
+	return o.Super().GetCacheUnderlinePosition(cache_index, size)
+}
+func (o *Extension[T]) SetCacheUnderlineThickness(cache_index int, size int, underline_thickness Float.X) *Extension[T] {
+	o.Super().SetCacheUnderlineThickness(cache_index, size, underline_thickness)
+	return o
+}
+func (o *Extension[T]) GetCacheUnderlineThickness(cache_index int, size int) Float.X {
+	return o.Super().GetCacheUnderlineThickness(cache_index, size)
+}
+func (o *Extension[T]) SetCacheScale(cache_index int, size int, scale Float.X) *Extension[T] {
+	o.Super().SetCacheScale(cache_index, size, scale)
+	return o
+}
+func (o *Extension[T]) GetCacheScale(cache_index int, size int) Float.X {
+	return o.Super().GetCacheScale(cache_index, size)
+}
+func (o *Extension[T]) GetTextureCount(cache_index int, size Vector2i.XY) int {
+	return o.Super().GetTextureCount(cache_index, size)
+}
+func (o *Extension[T]) ClearTextures(cache_index int, size Vector2i.XY) {
+	o.Super().ClearTextures(cache_index, size)
+}
+func (o *Extension[T]) RemoveTexture(cache_index int, size Vector2i.XY, texture_index int) {
+	o.Super().RemoveTexture(cache_index, size, texture_index)
+}
+func (o *Extension[T]) SetTextureImage(cache_index int, size Vector2i.XY, texture_index int, image Image.Instance) *Extension[T] {
+	o.Super().SetTextureImage(cache_index, size, texture_index, image)
+	return o
+}
+func (o *Extension[T]) GetTextureImage(cache_index int, size Vector2i.XY, texture_index int) Image.Instance {
+	return o.Super().GetTextureImage(cache_index, size, texture_index)
+}
+func (o *Extension[T]) SetTextureOffsets(cache_index int, size Vector2i.XY, texture_index int, offset []int32) *Extension[T] {
+	o.Super().SetTextureOffsets(cache_index, size, texture_index, offset)
+	return o
+}
+func (o *Extension[T]) GetTextureOffsets(cache_index int, size Vector2i.XY, texture_index int) []int32 {
+	return o.Super().GetTextureOffsets(cache_index, size, texture_index)
+}
+func (o *Extension[T]) GetGlyphList(cache_index int, size Vector2i.XY) []int32 {
+	return o.Super().GetGlyphList(cache_index, size)
+}
+func (o *Extension[T]) ClearGlyphs(cache_index int, size Vector2i.XY) {
+	o.Super().ClearGlyphs(cache_index, size)
+}
+func (o *Extension[T]) RemoveGlyph(cache_index int, size Vector2i.XY, glyph int) {
+	o.Super().RemoveGlyph(cache_index, size, glyph)
+}
+func (o *Extension[T]) SetGlyphAdvance(cache_index int, size int, glyph int, advance Vector2.XY) *Extension[T] {
+	o.Super().SetGlyphAdvance(cache_index, size, glyph, advance)
+	return o
+}
+func (o *Extension[T]) GetGlyphAdvance(cache_index int, size int, glyph int) Vector2.XY {
+	return o.Super().GetGlyphAdvance(cache_index, size, glyph)
+}
+func (o *Extension[T]) SetGlyphOffset(cache_index int, size Vector2i.XY, glyph int, offset Vector2.XY) *Extension[T] {
+	o.Super().SetGlyphOffset(cache_index, size, glyph, offset)
+	return o
+}
+func (o *Extension[T]) GetGlyphOffset(cache_index int, size Vector2i.XY, glyph int) Vector2.XY {
+	return o.Super().GetGlyphOffset(cache_index, size, glyph)
+}
+func (o *Extension[T]) SetGlyphSize(cache_index int, size Vector2i.XY, glyph int, gl_size Vector2.XY) *Extension[T] {
+	o.Super().SetGlyphSize(cache_index, size, glyph, gl_size)
+	return o
+}
+func (o *Extension[T]) GetGlyphSize(cache_index int, size Vector2i.XY, glyph int) Vector2.XY {
+	return o.Super().GetGlyphSize(cache_index, size, glyph)
+}
+func (o *Extension[T]) SetGlyphUvRect(cache_index int, size Vector2i.XY, glyph int, uv_rect Rect2.PositionSize) *Extension[T] {
+	o.Super().SetGlyphUvRect(cache_index, size, glyph, uv_rect)
+	return o
+}
+func (o *Extension[T]) GetGlyphUvRect(cache_index int, size Vector2i.XY, glyph int) Rect2.PositionSize {
+	return o.Super().GetGlyphUvRect(cache_index, size, glyph)
+}
+func (o *Extension[T]) SetGlyphTextureIdx(cache_index int, size Vector2i.XY, glyph int, texture_idx int) *Extension[T] {
+	o.Super().SetGlyphTextureIdx(cache_index, size, glyph, texture_idx)
+	return o
+}
+func (o *Extension[T]) GetGlyphTextureIdx(cache_index int, size Vector2i.XY, glyph int) int {
+	return o.Super().GetGlyphTextureIdx(cache_index, size, glyph)
+}
+func (o *Extension[T]) GetKerningList(cache_index int, size int) []Vector2i.XY {
+	return o.Super().GetKerningList(cache_index, size)
+}
+func (o *Extension[T]) ClearKerningMap(cache_index int, size int) {
+	o.Super().ClearKerningMap(cache_index, size)
+}
+func (o *Extension[T]) RemoveKerning(cache_index int, size int, glyph_pair Vector2i.XY) {
+	o.Super().RemoveKerning(cache_index, size, glyph_pair)
+}
+func (o *Extension[T]) SetKerning(cache_index int, size int, glyph_pair Vector2i.XY, kerning Vector2.XY) *Extension[T] {
+	o.Super().SetKerning(cache_index, size, glyph_pair, kerning)
+	return o
+}
+func (o *Extension[T]) GetKerning(cache_index int, size int, glyph_pair Vector2i.XY) Vector2.XY {
+	return o.Super().GetKerning(cache_index, size, glyph_pair)
+}
+func (o *Extension[T]) RenderRange(cache_index int, size Vector2i.XY, start int, end int) {
+	o.Super().RenderRange(cache_index, size, start, end)
+}
+func (o *Extension[T]) RenderGlyph(cache_index int, size Vector2i.XY, index int) {
+	o.Super().RenderGlyph(cache_index, size, index)
+}
+func (o *Extension[T]) SetLanguageSupportOverride(language string, supported bool) *Extension[T] {
+	o.Super().SetLanguageSupportOverride(language, supported)
+	return o
+}
+func (o *Extension[T]) GetLanguageSupportOverride(language string) bool {
+	return o.Super().GetLanguageSupportOverride(language)
+}
+func (o *Extension[T]) RemoveLanguageSupportOverride(language string) {
+	o.Super().RemoveLanguageSupportOverride(language)
+}
+func (o *Extension[T]) GetLanguageSupportOverrides() []string {
+	return o.Super().GetLanguageSupportOverrides()
+}
+func (o *Extension[T]) SetScriptSupportOverride(script string, supported bool) *Extension[T] {
+	o.Super().SetScriptSupportOverride(script, supported)
+	return o
+}
+func (o *Extension[T]) GetScriptSupportOverride(script string) bool {
+	return o.Super().GetScriptSupportOverride(script)
+}
+func (o *Extension[T]) RemoveScriptSupportOverride(script string) {
+	o.Super().RemoveScriptSupportOverride(script)
+}
+func (o *Extension[T]) GetScriptSupportOverrides() []string {
+	return o.Super().GetScriptSupportOverrides()
+}
+func (o *Extension[T]) GetGlyphIndex(size int, char int, variation_selector int) int {
+	return o.Super().GetGlyphIndex(size, char, variation_selector)
+}
+func (o *Extension[T]) GetCharFromGlyphIndex(size int, glyph_index int) int {
+	return o.Super().GetCharFromGlyphIndex(size, glyph_index)
+}
+
+// GetRids is promoted from [Font.Instance.GetRids].
+func (self Instance) GetRids() []RID.Font {
+	return self.AsFont().GetRids()
+}
+
+// GetRids is promoted from [Font.Instance.GetRids].
+func (o *Extension[T]) GetRids() []RID.Font {
+	return o.Super().AsFont().GetRids()
+}
+
+// GetFontName is promoted from [Font.Instance.GetFontName].
+func (self Instance) GetFontName() string {
+	return self.AsFont().GetFontName()
+}
+
+// GetFontName is promoted from [Font.Instance.GetFontName].
+func (o *Extension[T]) GetFontName() string {
+	return o.Super().AsFont().GetFontName()
+}
+
+// GetFontStyleName is promoted from [Font.Instance.GetFontStyleName].
+func (self Instance) GetFontStyleName() string {
+	return self.AsFont().GetFontStyleName()
+}
+
+// GetFontStyleName is promoted from [Font.Instance.GetFontStyleName].
+func (o *Extension[T]) GetFontStyleName() string {
+	return o.Super().AsFont().GetFontStyleName()
+}
+
+// GetOtNameStrings is promoted from [Font.Instance.GetOtNameStrings].
+func (self Instance) GetOtNameStrings() map[string]map[string]string {
+	return self.AsFont().GetOtNameStrings()
+}
+
+// GetOtNameStrings is promoted from [Font.Instance.GetOtNameStrings].
+func (o *Extension[T]) GetOtNameStrings() map[string]map[string]string {
+	return o.Super().AsFont().GetOtNameStrings()
+}
+
+// GetFontStyle is promoted from [Font.Instance.GetFontStyle].
+func (self Instance) GetFontStyle() TextServer.FontStyle {
+	return self.AsFont().GetFontStyle()
+}
+
+// GetFontStyle is promoted from [Font.Instance.GetFontStyle].
+func (o *Extension[T]) GetFontStyle() TextServer.FontStyle {
+	return o.Super().AsFont().GetFontStyle()
+}
+
+// GetFontWeight is promoted from [Font.Instance.GetFontWeight].
+func (self Instance) GetFontWeight() int {
+	return self.AsFont().GetFontWeight()
+}
+
+// GetFontWeight is promoted from [Font.Instance.GetFontWeight].
+func (o *Extension[T]) GetFontWeight() int {
+	return o.Super().AsFont().GetFontWeight()
+}
+
+// GetFontStretch is promoted from [Font.Instance.GetFontStretch].
+func (self Instance) GetFontStretch() int {
+	return self.AsFont().GetFontStretch()
+}
+
+// GetFontStretch is promoted from [Font.Instance.GetFontStretch].
+func (o *Extension[T]) GetFontStretch() int {
+	return o.Super().AsFont().GetFontStretch()
+}
+
+// GetSpacing is promoted from [Font.Instance.GetSpacing].
+func (self Instance) GetSpacing(spacing TextServer.SpacingType) int {
+	return self.AsFont().GetSpacing(spacing)
+}
+
+// GetSpacing is promoted from [Font.Instance.GetSpacing].
+func (o *Extension[T]) GetSpacing(spacing TextServer.SpacingType) int {
+	return o.Super().AsFont().GetSpacing(spacing)
+}
+
+// GetOpentypeFeatures is promoted from [Font.Instance.GetOpentypeFeatures].
+func (self Instance) GetOpentypeFeatures() map[string][2]string {
+	return self.AsFont().GetOpentypeFeatures()
+}
+
+// GetOpentypeFeatures is promoted from [Font.Instance.GetOpentypeFeatures].
+func (o *Extension[T]) GetOpentypeFeatures() map[string][2]string {
+	return o.Super().AsFont().GetOpentypeFeatures()
+}
+
+// SetCacheCapacity is promoted from [Font.Instance.SetCacheCapacity].
+func (self Instance) SetCacheCapacity(single_line int, multi_line int) Instance {
+	self.AsFont().SetCacheCapacity(single_line, multi_line)
+	return self
+}
+
+// SetCacheCapacity is promoted from [Font.Instance.SetCacheCapacity].
+func (o *Extension[T]) SetCacheCapacity(single_line int, multi_line int) *Extension[T] {
+	o.Super().AsFont().SetCacheCapacity(single_line, multi_line)
+	return o
+}
+
+// GetCharSize is promoted from [Font.Instance.GetCharSize].
+func (self Instance) GetCharSize(char int, font_size int) Vector2.XY {
+	return self.AsFont().GetCharSize(char, font_size)
+}
+
+// GetCharSize is promoted from [Font.Instance.GetCharSize].
+func (o *Extension[T]) GetCharSize(char int, font_size int) Vector2.XY {
+	return o.Super().AsFont().GetCharSize(char, font_size)
+}
+
+// HasChar is promoted from [Font.Instance.HasChar].
+func (self Instance) HasChar(char int) bool {
+	return self.AsFont().HasChar(char)
+}
+
+// HasChar is promoted from [Font.Instance.HasChar].
+func (o *Extension[T]) HasChar(char int) bool {
+	return o.Super().AsFont().HasChar(char)
+}
+
+// GetSupportedChars is promoted from [Font.Instance.GetSupportedChars].
+func (self Instance) GetSupportedChars() string {
+	return self.AsFont().GetSupportedChars()
+}
+
+// GetSupportedChars is promoted from [Font.Instance.GetSupportedChars].
+func (o *Extension[T]) GetSupportedChars() string {
+	return o.Super().AsFont().GetSupportedChars()
+}
+
+// IsLanguageSupported is promoted from [Font.Instance.IsLanguageSupported].
+func (self Instance) IsLanguageSupported(language string) bool {
+	return self.AsFont().IsLanguageSupported(language)
+}
+
+// IsLanguageSupported is promoted from [Font.Instance.IsLanguageSupported].
+func (o *Extension[T]) IsLanguageSupported(language string) bool {
+	return o.Super().AsFont().IsLanguageSupported(language)
+}
+
+// IsScriptSupported is promoted from [Font.Instance.IsScriptSupported].
+func (self Instance) IsScriptSupported(script string) bool {
+	return self.AsFont().IsScriptSupported(script)
+}
+
+// IsScriptSupported is promoted from [Font.Instance.IsScriptSupported].
+func (o *Extension[T]) IsScriptSupported(script string) bool {
+	return o.Super().AsFont().IsScriptSupported(script)
+}
+
+// GetSupportedFeatureList is promoted from [Font.Instance.GetSupportedFeatureList].
+func (self Instance) GetSupportedFeatureList() map[string]Font.OpenTypeFeature {
+	return self.AsFont().GetSupportedFeatureList()
+}
+
+// GetSupportedFeatureList is promoted from [Font.Instance.GetSupportedFeatureList].
+func (o *Extension[T]) GetSupportedFeatureList() map[string]Font.OpenTypeFeature {
+	return o.Super().AsFont().GetSupportedFeatureList()
+}
+
+// GetSupportedVariationList is promoted from [Font.Instance.GetSupportedVariationList].
+func (self Instance) GetSupportedVariationList() map[int]struct { X int32; Y int32; Z int32 } {
+	return self.AsFont().GetSupportedVariationList()
+}
+
+// GetSupportedVariationList is promoted from [Font.Instance.GetSupportedVariationList].
+func (o *Extension[T]) GetSupportedVariationList() map[int]struct { X int32; Y int32; Z int32 } {
+	return o.Super().AsFont().GetSupportedVariationList()
+}
+
+// GetFaceCount is promoted from [Font.Instance.GetFaceCount].
+func (self Instance) GetFaceCount() int {
+	return self.AsFont().GetFaceCount()
+}
+
+// GetFaceCount is promoted from [Font.Instance.GetFaceCount].
+func (o *Extension[T]) GetFaceCount() int {
+	return o.Super().AsFont().GetFaceCount()
+}
+
+// TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
+func (self Instance) TakeOverPath(path string) {
+	self.AsResource().TakeOverPath(path)
+}
+
+// TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
+func (o *Extension[T]) TakeOverPath(path string) {
+	o.Super().AsResource().TakeOverPath(path)
+}
+
+// SetPathCache is promoted from [Resource.Instance.SetPathCache].
+func (self Instance) SetPathCache(path string) Instance {
+	self.AsResource().SetPathCache(path)
+	return self
+}
+
+// SetPathCache is promoted from [Resource.Instance.SetPathCache].
+func (o *Extension[T]) SetPathCache(path string) *Extension[T] {
+	o.Super().AsResource().SetPathCache(path)
+	return o
+}
+
+// GetRid is promoted from [Resource.Instance.GetRid].
+func (self Instance) GetRid() Resource.ID {
+	return self.AsResource().GetRid()
+}
+
+// GetRid is promoted from [Resource.Instance.GetRid].
+func (o *Extension[T]) GetRid() Resource.ID {
+	return o.Super().AsResource().GetRid()
+}
+
+// SetupLocalToScene is promoted from [Resource.Instance.SetupLocalToScene].
+func (self Instance) SetupLocalToScene() {
+	self.AsResource().SetupLocalToScene()
+}
+
+// SetupLocalToScene is promoted from [Resource.Instance.SetupLocalToScene].
+func (o *Extension[T]) SetupLocalToScene() {
+	o.Super().AsResource().SetupLocalToScene()
+}
+
+// ResetState is promoted from [Resource.Instance.ResetState].
+func (self Instance) ResetState() {
+	self.AsResource().ResetState()
+}
+
+// ResetState is promoted from [Resource.Instance.ResetState].
+func (o *Extension[T]) ResetState() {
+	o.Super().AsResource().ResetState()
+}
+
+// SetIdForPath is promoted from [Resource.Instance.SetIdForPath].
+func (self Instance) SetIdForPath(path string, id string) Instance {
+	self.AsResource().SetIdForPath(path, id)
+	return self
+}
+
+// SetIdForPath is promoted from [Resource.Instance.SetIdForPath].
+func (o *Extension[T]) SetIdForPath(path string, id string) *Extension[T] {
+	o.Super().AsResource().SetIdForPath(path, id)
+	return o
+}
+
+// GetIdForPath is promoted from [Resource.Instance.GetIdForPath].
+func (self Instance) GetIdForPath(path string) string {
+	return self.AsResource().GetIdForPath(path)
+}
+
+// GetIdForPath is promoted from [Resource.Instance.GetIdForPath].
+func (o *Extension[T]) GetIdForPath(path string) string {
+	return o.Super().AsResource().GetIdForPath(path)
+}
+
+// IsBuiltIn is promoted from [Resource.Instance.IsBuiltIn].
+func (self Instance) IsBuiltIn() bool {
+	return self.AsResource().IsBuiltIn()
+}
+
+// IsBuiltIn is promoted from [Resource.Instance.IsBuiltIn].
+func (o *Extension[T]) IsBuiltIn() bool {
+	return o.Super().AsResource().IsBuiltIn()
+}
+
+// EmitChanged is promoted from [Resource.Instance.EmitChanged].
+func (self Instance) EmitChanged() {
+	self.AsResource().EmitChanged()
+}
+
+// EmitChanged is promoted from [Resource.Instance.EmitChanged].
+func (o *Extension[T]) EmitChanged() {
+	o.Super().AsResource().EmitChanged()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {
@@ -1133,3 +1631,8 @@ func (self Instance) Virtual(name string) reflect.Value {
 	}
 }
 func init() {gdclass.Register("FontFile", func(ptr gdreference.Object) any { return Instance{gdclass.NewFontFile(ptr)} })}
+type OpenTypeFeature struct {
+Label string `gd:"label"`
+Type reflect.Type `gd:"type"`
+Hidden bool `gd:"hidden"`
+}

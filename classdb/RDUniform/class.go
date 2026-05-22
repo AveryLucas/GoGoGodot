@@ -211,6 +211,15 @@ func (o *Extension[T]) AsRDUniform() Instance { return o.Super() }
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) AddId(id RID.Any) {
+	o.Super().AddId(id)
+}
+func (o *Extension[T]) ClearIds() {
+	o.Super().ClearIds()
+}
+func (o *Extension[T]) GetIds() []RID.Any {
+	return o.Super().GetIds()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

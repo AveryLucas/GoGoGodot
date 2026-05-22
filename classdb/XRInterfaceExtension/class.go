@@ -26,6 +26,7 @@ import "graphics.gd/variant/Float"
 import "graphics.gd/variant/Object"
 import "graphics.gd/variant/Packed"
 import "graphics.gd/variant/Path"
+import "graphics.gd/variant/Projection"
 import "graphics.gd/variant/RID"
 import "graphics.gd/variant/Rect2"
 import "graphics.gd/variant/Rect2i"
@@ -876,6 +877,146 @@ func (self Instance) OnPlayAreaChanged(cb func(mode int), flags ...Signal.Flags)
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("play_area_changed"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+func (o *Extension[T]) GetColorTexture() RID.Texture {
+	return o.Super().GetColorTexture()
+}
+func (o *Extension[T]) GetDepthTexture() RID.Texture {
+	return o.Super().GetDepthTexture()
+}
+func (o *Extension[T]) GetVelocityTexture() RID.Texture {
+	return o.Super().GetVelocityTexture()
+}
+func (o *Extension[T]) AddBlit(render_target RID.Framebuffer, src_rect Rect2.PositionSize, dst_rect Rect2i.PositionSize, use_layer bool, layer int, apply_lens_distortion bool, eye_center Vector2.XY, k1 Float.X, k2 Float.X, upscale Float.X, aspect_ratio Float.X) {
+	o.Super().AddBlit(render_target, src_rect, dst_rect, use_layer, layer, apply_lens_distortion, eye_center, k1, k2, upscale, aspect_ratio)
+}
+func (o *Extension[T]) GetRenderTargetTexture(render_target RID.Framebuffer) RID.Texture {
+	return o.Super().GetRenderTargetTexture(render_target)
+}
+
+// GetName is promoted from [XRInterface.Instance.GetName].
+func (o *Extension[T]) GetName() string {
+	return o.Super().AsXRInterface().GetName()
+}
+
+// GetCapabilities is promoted from [XRInterface.Instance.GetCapabilities].
+func (o *Extension[T]) GetCapabilities() int {
+	return o.Super().AsXRInterface().GetCapabilities()
+}
+
+// IsInitialized is promoted from [XRInterface.Instance.IsInitialized].
+func (o *Extension[T]) IsInitialized() bool {
+	return o.Super().AsXRInterface().IsInitialized()
+}
+
+// Initialize is promoted from [XRInterface.Instance.Initialize].
+func (o *Extension[T]) Initialize() bool {
+	return o.Super().AsXRInterface().Initialize()
+}
+
+// Uninitialize is promoted from [XRInterface.Instance.Uninitialize].
+func (o *Extension[T]) Uninitialize() {
+	o.Super().AsXRInterface().Uninitialize()
+}
+
+// GetSystemInfo is promoted from [XRInterface.Instance.GetSystemInfo].
+func (o *Extension[T]) GetSystemInfo() map[string]any {
+	return o.Super().AsXRInterface().GetSystemInfo()
+}
+
+// GetTrackingStatus is promoted from [XRInterface.Instance.GetTrackingStatus].
+func (o *Extension[T]) GetTrackingStatus() XRInterface.TrackingStatus {
+	return o.Super().AsXRInterface().GetTrackingStatus()
+}
+
+// GetRenderTargetSize is promoted from [XRInterface.Instance.GetRenderTargetSize].
+func (o *Extension[T]) GetRenderTargetSize() Vector2.XY {
+	return o.Super().AsXRInterface().GetRenderTargetSize()
+}
+
+// GetViewCount is promoted from [XRInterface.Instance.GetViewCount].
+func (o *Extension[T]) GetViewCount() int {
+	return o.Super().AsXRInterface().GetViewCount()
+}
+
+// TriggerHapticPulse is promoted from [XRInterface.Instance.TriggerHapticPulse].
+func (o *Extension[T]) TriggerHapticPulse(action_name string, tracker_name string, frequency Float.X, amplitude Float.X, duration_sec Float.X, delay_sec Float.X) {
+	o.Super().AsXRInterface().TriggerHapticPulse(action_name, tracker_name, frequency, amplitude, duration_sec, delay_sec)
+}
+
+// SupportsPlayAreaMode is promoted from [XRInterface.Instance.SupportsPlayAreaMode].
+func (o *Extension[T]) SupportsPlayAreaMode(mode XRInterface.PlayAreaMode) bool {
+	return o.Super().AsXRInterface().SupportsPlayAreaMode(mode)
+}
+
+// GetPlayArea is promoted from [XRInterface.Instance.GetPlayArea].
+func (o *Extension[T]) GetPlayArea() []Vector3.XYZ {
+	return o.Super().AsXRInterface().GetPlayArea()
+}
+
+// GetCameraFeedId is promoted from [XRInterface.Instance.GetCameraFeedId].
+func (o *Extension[T]) GetCameraFeedId() int {
+	return o.Super().AsXRInterface().GetCameraFeedId()
+}
+
+// IsPassthroughSupported is promoted from [XRInterface.Instance.IsPassthroughSupported].
+func (self Instance) IsPassthroughSupported() bool {
+	return self.AsXRInterface().IsPassthroughSupported()
+}
+
+// IsPassthroughSupported is promoted from [XRInterface.Instance.IsPassthroughSupported].
+func (o *Extension[T]) IsPassthroughSupported() bool {
+	return o.Super().AsXRInterface().IsPassthroughSupported()
+}
+
+// IsPassthroughEnabled is promoted from [XRInterface.Instance.IsPassthroughEnabled].
+func (self Instance) IsPassthroughEnabled() bool {
+	return self.AsXRInterface().IsPassthroughEnabled()
+}
+
+// IsPassthroughEnabled is promoted from [XRInterface.Instance.IsPassthroughEnabled].
+func (o *Extension[T]) IsPassthroughEnabled() bool {
+	return o.Super().AsXRInterface().IsPassthroughEnabled()
+}
+
+// StartPassthrough is promoted from [XRInterface.Instance.StartPassthrough].
+func (self Instance) StartPassthrough() bool {
+	return self.AsXRInterface().StartPassthrough()
+}
+
+// StartPassthrough is promoted from [XRInterface.Instance.StartPassthrough].
+func (o *Extension[T]) StartPassthrough() bool {
+	return o.Super().AsXRInterface().StartPassthrough()
+}
+
+// StopPassthrough is promoted from [XRInterface.Instance.StopPassthrough].
+func (self Instance) StopPassthrough() {
+	self.AsXRInterface().StopPassthrough()
+}
+
+// StopPassthrough is promoted from [XRInterface.Instance.StopPassthrough].
+func (o *Extension[T]) StopPassthrough() {
+	o.Super().AsXRInterface().StopPassthrough()
+}
+
+// GetTransformForView is promoted from [XRInterface.Instance.GetTransformForView].
+func (o *Extension[T]) GetTransformForView(view int, cam_transform Transform3D.BasisOrigin) Transform3D.BasisOrigin {
+	return o.Super().AsXRInterface().GetTransformForView(view, cam_transform)
+}
+
+// GetProjectionForView is promoted from [XRInterface.Instance.GetProjectionForView].
+func (o *Extension[T]) GetProjectionForView(view int, aspect Float.X, near Float.X, far Float.X) Projection.XYZW {
+	return o.Super().AsXRInterface().GetProjectionForView(view, aspect, near, far)
+}
+
+// GetSupportedEnvironmentBlendModes is promoted from [XRInterface.Instance.GetSupportedEnvironmentBlendModes].
+func (self Instance) GetSupportedEnvironmentBlendModes() []XRInterface.EnvironmentBlendMode {
+	return self.AsXRInterface().GetSupportedEnvironmentBlendModes()
+}
+
+// GetSupportedEnvironmentBlendModes is promoted from [XRInterface.Instance.GetSupportedEnvironmentBlendModes].
+func (o *Extension[T]) GetSupportedEnvironmentBlendModes() []XRInterface.EnvironmentBlendMode {
+	return o.Super().AsXRInterface().GetSupportedEnvironmentBlendModes()
 }
 
 func (self class) Virtual(name string) reflect.Value {

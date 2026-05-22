@@ -156,6 +156,9 @@ func (o *Extension[T]) AsWeakRef() Instance { return o.Super() }
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) GetRef() any {
+	return o.Super().GetRef()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

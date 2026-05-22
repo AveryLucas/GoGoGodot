@@ -256,6 +256,24 @@ func (o *Extension[T]) AsRandomNumberGenerator() Instance { return o.Super() }
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) Randi() int {
+	return o.Super().Randi()
+}
+func (o *Extension[T]) Randf() Float.X {
+	return o.Super().Randf()
+}
+func (o *Extension[T]) RandfRange(from Float.X, to Float.X) Float.X {
+	return o.Super().RandfRange(from, to)
+}
+func (o *Extension[T]) RandiRange(from int, to int) int {
+	return o.Super().RandiRange(from, to)
+}
+func (o *Extension[T]) RandWeighted(weights []float32) int {
+	return o.Super().RandWeighted(weights)
+}
+func (o *Extension[T]) Randomize() {
+	o.Super().Randomize()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

@@ -196,6 +196,272 @@ func (o Instance) AsStreamPeer() StreamPeer.Instance { return *(*StreamPeer.Inst
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) Finish() error {
+	return o.Super().Finish()
+}
+func (o *Extension[T]) Clear() {
+	o.Super().Clear()
+}
+
+// PutData is promoted from [StreamPeer.Instance.PutData].
+func (self Instance) PutData(data []byte) error {
+	return self.AsStreamPeer().PutData(data)
+}
+
+// PutData is promoted from [StreamPeer.Instance.PutData].
+func (o *Extension[T]) PutData(data []byte) error {
+	return o.Super().AsStreamPeer().PutData(data)
+}
+
+// GetAvailableBytes is promoted from [StreamPeer.Instance.GetAvailableBytes].
+func (self Instance) GetAvailableBytes() int {
+	return self.AsStreamPeer().GetAvailableBytes()
+}
+
+// GetAvailableBytes is promoted from [StreamPeer.Instance.GetAvailableBytes].
+func (o *Extension[T]) GetAvailableBytes() int {
+	return o.Super().AsStreamPeer().GetAvailableBytes()
+}
+
+// Put8 is promoted from [StreamPeer.Instance.Put8].
+func (self Instance) Put8(value int) {
+	self.AsStreamPeer().Put8(value)
+}
+
+// Put8 is promoted from [StreamPeer.Instance.Put8].
+func (o *Extension[T]) Put8(value int) {
+	o.Super().AsStreamPeer().Put8(value)
+}
+
+// PutU8 is promoted from [StreamPeer.Instance.PutU8].
+func (self Instance) PutU8(value int) {
+	self.AsStreamPeer().PutU8(value)
+}
+
+// PutU8 is promoted from [StreamPeer.Instance.PutU8].
+func (o *Extension[T]) PutU8(value int) {
+	o.Super().AsStreamPeer().PutU8(value)
+}
+
+// Put16 is promoted from [StreamPeer.Instance.Put16].
+func (self Instance) Put16(value int) {
+	self.AsStreamPeer().Put16(value)
+}
+
+// Put16 is promoted from [StreamPeer.Instance.Put16].
+func (o *Extension[T]) Put16(value int) {
+	o.Super().AsStreamPeer().Put16(value)
+}
+
+// PutU16 is promoted from [StreamPeer.Instance.PutU16].
+func (self Instance) PutU16(value int) {
+	self.AsStreamPeer().PutU16(value)
+}
+
+// PutU16 is promoted from [StreamPeer.Instance.PutU16].
+func (o *Extension[T]) PutU16(value int) {
+	o.Super().AsStreamPeer().PutU16(value)
+}
+
+// Put32 is promoted from [StreamPeer.Instance.Put32].
+func (self Instance) Put32(value int) {
+	self.AsStreamPeer().Put32(value)
+}
+
+// Put32 is promoted from [StreamPeer.Instance.Put32].
+func (o *Extension[T]) Put32(value int) {
+	o.Super().AsStreamPeer().Put32(value)
+}
+
+// PutU32 is promoted from [StreamPeer.Instance.PutU32].
+func (self Instance) PutU32(value int) {
+	self.AsStreamPeer().PutU32(value)
+}
+
+// PutU32 is promoted from [StreamPeer.Instance.PutU32].
+func (o *Extension[T]) PutU32(value int) {
+	o.Super().AsStreamPeer().PutU32(value)
+}
+
+// Put64 is promoted from [StreamPeer.Instance.Put64].
+func (self Instance) Put64(value int) {
+	self.AsStreamPeer().Put64(value)
+}
+
+// Put64 is promoted from [StreamPeer.Instance.Put64].
+func (o *Extension[T]) Put64(value int) {
+	o.Super().AsStreamPeer().Put64(value)
+}
+
+// PutU64 is promoted from [StreamPeer.Instance.PutU64].
+func (self Instance) PutU64(value int) {
+	self.AsStreamPeer().PutU64(value)
+}
+
+// PutU64 is promoted from [StreamPeer.Instance.PutU64].
+func (o *Extension[T]) PutU64(value int) {
+	o.Super().AsStreamPeer().PutU64(value)
+}
+
+// PutHalf is promoted from [StreamPeer.Instance.PutHalf].
+func (self Instance) PutHalf(value Float.X) {
+	self.AsStreamPeer().PutHalf(value)
+}
+
+// PutHalf is promoted from [StreamPeer.Instance.PutHalf].
+func (o *Extension[T]) PutHalf(value Float.X) {
+	o.Super().AsStreamPeer().PutHalf(value)
+}
+
+// PutFloat is promoted from [StreamPeer.Instance.PutFloat].
+func (self Instance) PutFloat(value Float.X) {
+	self.AsStreamPeer().PutFloat(value)
+}
+
+// PutFloat is promoted from [StreamPeer.Instance.PutFloat].
+func (o *Extension[T]) PutFloat(value Float.X) {
+	o.Super().AsStreamPeer().PutFloat(value)
+}
+
+// PutDouble is promoted from [StreamPeer.Instance.PutDouble].
+func (self Instance) PutDouble(value Float.X) {
+	self.AsStreamPeer().PutDouble(value)
+}
+
+// PutDouble is promoted from [StreamPeer.Instance.PutDouble].
+func (o *Extension[T]) PutDouble(value Float.X) {
+	o.Super().AsStreamPeer().PutDouble(value)
+}
+
+// PutString is promoted from [StreamPeer.Instance.PutString].
+func (self Instance) PutString(value string) {
+	self.AsStreamPeer().PutString(value)
+}
+
+// PutString is promoted from [StreamPeer.Instance.PutString].
+func (o *Extension[T]) PutString(value string) {
+	o.Super().AsStreamPeer().PutString(value)
+}
+
+// PutUtf8String is promoted from [StreamPeer.Instance.PutUtf8String].
+func (self Instance) PutUtf8String(value string) {
+	self.AsStreamPeer().PutUtf8String(value)
+}
+
+// PutUtf8String is promoted from [StreamPeer.Instance.PutUtf8String].
+func (o *Extension[T]) PutUtf8String(value string) {
+	o.Super().AsStreamPeer().PutUtf8String(value)
+}
+
+// Get8 is promoted from [StreamPeer.Instance.Get8].
+func (self Instance) Get8() int {
+	return self.AsStreamPeer().Get8()
+}
+
+// Get8 is promoted from [StreamPeer.Instance.Get8].
+func (o *Extension[T]) Get8() int {
+	return o.Super().AsStreamPeer().Get8()
+}
+
+// GetU8 is promoted from [StreamPeer.Instance.GetU8].
+func (self Instance) GetU8() int {
+	return self.AsStreamPeer().GetU8()
+}
+
+// GetU8 is promoted from [StreamPeer.Instance.GetU8].
+func (o *Extension[T]) GetU8() int {
+	return o.Super().AsStreamPeer().GetU8()
+}
+
+// Get16 is promoted from [StreamPeer.Instance.Get16].
+func (self Instance) Get16() int {
+	return self.AsStreamPeer().Get16()
+}
+
+// Get16 is promoted from [StreamPeer.Instance.Get16].
+func (o *Extension[T]) Get16() int {
+	return o.Super().AsStreamPeer().Get16()
+}
+
+// GetU16 is promoted from [StreamPeer.Instance.GetU16].
+func (self Instance) GetU16() int {
+	return self.AsStreamPeer().GetU16()
+}
+
+// GetU16 is promoted from [StreamPeer.Instance.GetU16].
+func (o *Extension[T]) GetU16() int {
+	return o.Super().AsStreamPeer().GetU16()
+}
+
+// Get32 is promoted from [StreamPeer.Instance.Get32].
+func (self Instance) Get32() int {
+	return self.AsStreamPeer().Get32()
+}
+
+// Get32 is promoted from [StreamPeer.Instance.Get32].
+func (o *Extension[T]) Get32() int {
+	return o.Super().AsStreamPeer().Get32()
+}
+
+// GetU32 is promoted from [StreamPeer.Instance.GetU32].
+func (self Instance) GetU32() int {
+	return self.AsStreamPeer().GetU32()
+}
+
+// GetU32 is promoted from [StreamPeer.Instance.GetU32].
+func (o *Extension[T]) GetU32() int {
+	return o.Super().AsStreamPeer().GetU32()
+}
+
+// Get64 is promoted from [StreamPeer.Instance.Get64].
+func (self Instance) Get64() int {
+	return self.AsStreamPeer().Get64()
+}
+
+// Get64 is promoted from [StreamPeer.Instance.Get64].
+func (o *Extension[T]) Get64() int {
+	return o.Super().AsStreamPeer().Get64()
+}
+
+// GetU64 is promoted from [StreamPeer.Instance.GetU64].
+func (self Instance) GetU64() int {
+	return self.AsStreamPeer().GetU64()
+}
+
+// GetU64 is promoted from [StreamPeer.Instance.GetU64].
+func (o *Extension[T]) GetU64() int {
+	return o.Super().AsStreamPeer().GetU64()
+}
+
+// GetHalf is promoted from [StreamPeer.Instance.GetHalf].
+func (self Instance) GetHalf() Float.X {
+	return self.AsStreamPeer().GetHalf()
+}
+
+// GetHalf is promoted from [StreamPeer.Instance.GetHalf].
+func (o *Extension[T]) GetHalf() Float.X {
+	return o.Super().AsStreamPeer().GetHalf()
+}
+
+// GetFloat is promoted from [StreamPeer.Instance.GetFloat].
+func (self Instance) GetFloat() Float.X {
+	return self.AsStreamPeer().GetFloat()
+}
+
+// GetFloat is promoted from [StreamPeer.Instance.GetFloat].
+func (o *Extension[T]) GetFloat() Float.X {
+	return o.Super().AsStreamPeer().GetFloat()
+}
+
+// GetDouble is promoted from [StreamPeer.Instance.GetDouble].
+func (self Instance) GetDouble() Float.X {
+	return self.AsStreamPeer().GetDouble()
+}
+
+// GetDouble is promoted from [StreamPeer.Instance.GetDouble].
+func (o *Extension[T]) GetDouble() Float.X {
+	return o.Super().AsStreamPeer().GetDouble()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

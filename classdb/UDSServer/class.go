@@ -18,6 +18,7 @@ import "graphics.gd/variant/Angle"
 import "graphics.gd/variant/Euler"
 import "graphics.gd/variant/Signal"
 import "graphics.gd/classdb/SocketServer"
+import "graphics.gd/classdb/StreamPeerSocket"
 import "graphics.gd/classdb/StreamPeerUDS"
 import "graphics.gd/variant/Array"
 import "graphics.gd/variant/Callable"
@@ -170,6 +171,52 @@ func (o Instance) AsSocketServer() SocketServer.Instance { return *(*SocketServe
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) Listen(path string) error {
+	return o.Super().Listen(path)
+}
+func (o *Extension[T]) TakeConnection() StreamPeerUDS.Instance {
+	return o.Super().TakeConnection()
+}
+
+// IsConnectionAvailable is promoted from [SocketServer.Instance.IsConnectionAvailable].
+func (self Instance) IsConnectionAvailable() bool {
+	return self.AsSocketServer().IsConnectionAvailable()
+}
+
+// IsConnectionAvailable is promoted from [SocketServer.Instance.IsConnectionAvailable].
+func (o *Extension[T]) IsConnectionAvailable() bool {
+	return o.Super().AsSocketServer().IsConnectionAvailable()
+}
+
+// IsListening is promoted from [SocketServer.Instance.IsListening].
+func (self Instance) IsListening() bool {
+	return self.AsSocketServer().IsListening()
+}
+
+// IsListening is promoted from [SocketServer.Instance.IsListening].
+func (o *Extension[T]) IsListening() bool {
+	return o.Super().AsSocketServer().IsListening()
+}
+
+// Stop is promoted from [SocketServer.Instance.Stop].
+func (self Instance) Stop() {
+	self.AsSocketServer().Stop()
+}
+
+// Stop is promoted from [SocketServer.Instance.Stop].
+func (o *Extension[T]) Stop() {
+	o.Super().AsSocketServer().Stop()
+}
+
+// TakeSocketConnection is promoted from [SocketServer.Instance.TakeSocketConnection].
+func (self Instance) TakeSocketConnection() StreamPeerSocket.Instance {
+	return self.AsSocketServer().TakeSocketConnection()
+}
+
+// TakeSocketConnection is promoted from [SocketServer.Instance.TakeSocketConnection].
+func (o *Extension[T]) TakeSocketConnection() StreamPeerSocket.Instance {
+	return o.Super().AsSocketServer().TakeSocketConnection()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

@@ -165,6 +165,16 @@ func (o class) AsOpenXRExtensionWrapper() OpenXRExtensionWrapper.Advanced { retu
 func (o *Extension[T]) AsOpenXRExtensionWrapper() OpenXRExtensionWrapper.Instance { return o.Super().AsOpenXRExtensionWrapper() }
 func (o Instance) AsOpenXRExtensionWrapper() OpenXRExtensionWrapper.Instance { return *(*OpenXRExtensionWrapper.Instance)(ie.As(&o)) }
 
+// RegisterExtensionWrapper is promoted from [OpenXRExtensionWrapper.Instance.RegisterExtensionWrapper].
+func (self Instance) RegisterExtensionWrapper() {
+	self.AsOpenXRExtensionWrapper().RegisterExtensionWrapper()
+}
+
+// RegisterExtensionWrapper is promoted from [OpenXRExtensionWrapper.Instance.RegisterExtensionWrapper].
+func (o *Extension[T]) RegisterExtensionWrapper() {
+	o.Super().AsOpenXRExtensionWrapper().RegisterExtensionWrapper()
+}
+
 func (self class) Virtual(name string) reflect.Value {
 	switch name {
 	default: return gd.VirtualByName(OpenXRExtensionWrapper.Advanced(self.AsOpenXRExtensionWrapper()), name)

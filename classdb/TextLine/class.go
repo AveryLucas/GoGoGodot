@@ -533,6 +533,55 @@ func (o *Extension[T]) AsTextLine() Instance { return o.Super() }
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) Clear() {
+	o.Super().Clear()
+}
+func (o *Extension[T]) Duplicate() Instance {
+	return o.Super().Duplicate()
+}
+func (o *Extension[T]) GetInferredDirection() TextServer.Direction {
+	return o.Super().GetInferredDirection()
+}
+func (o *Extension[T]) SetBidiOverride(override []any) *Extension[T] {
+	o.Super().SetBidiOverride(override)
+	return o
+}
+func (o *Extension[T]) HasObject(key any) bool {
+	return o.Super().HasObject(key)
+}
+func (o *Extension[T]) TabAlign(tab_stops []float32) {
+	o.Super().TabAlign(tab_stops)
+}
+func (o *Extension[T]) GetObjects() []any {
+	return o.Super().GetObjects()
+}
+func (o *Extension[T]) GetObjectRect(key any) Rect2.PositionSize {
+	return o.Super().GetObjectRect(key)
+}
+func (o *Extension[T]) GetSize() Vector2.XY {
+	return o.Super().GetSize()
+}
+func (o *Extension[T]) GetRid() RID.TextBuffer {
+	return o.Super().GetRid()
+}
+func (o *Extension[T]) GetLineAscent() Float.X {
+	return o.Super().GetLineAscent()
+}
+func (o *Extension[T]) GetLineDescent() Float.X {
+	return o.Super().GetLineDescent()
+}
+func (o *Extension[T]) GetLineWidth() Float.X {
+	return o.Super().GetLineWidth()
+}
+func (o *Extension[T]) GetLineUnderlinePosition() Float.X {
+	return o.Super().GetLineUnderlinePosition()
+}
+func (o *Extension[T]) GetLineUnderlineThickness() Float.X {
+	return o.Super().GetLineUnderlineThickness()
+}
+func (o *Extension[T]) HitTest(coords Float.X) int {
+	return o.Super().HitTest(coords)
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

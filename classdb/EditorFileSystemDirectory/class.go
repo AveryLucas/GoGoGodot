@@ -269,6 +269,48 @@ func (self class) FindDirIndex(name String.Readable) int64 { //gd:EditorFileSyst
 func (o class) AsEditorFileSystemDirectory() Advanced { return Advanced(o) }
 func (o Instance) AsEditorFileSystemDirectory() Instance { return o }
 func (o *Extension[T]) AsEditorFileSystemDirectory() Instance { return o.Super() }
+func (o *Extension[T]) GetSubdirCount() int {
+	return o.Super().GetSubdirCount()
+}
+func (o *Extension[T]) GetSubdir(idx int) Instance {
+	return o.Super().GetSubdir(idx)
+}
+func (o *Extension[T]) GetFileCount() int {
+	return o.Super().GetFileCount()
+}
+func (o *Extension[T]) GetFile(idx int) string {
+	return o.Super().GetFile(idx)
+}
+func (o *Extension[T]) GetFilePath(idx int) string {
+	return o.Super().GetFilePath(idx)
+}
+func (o *Extension[T]) GetFileType(idx int) string {
+	return o.Super().GetFileType(idx)
+}
+func (o *Extension[T]) GetFileScriptClassName(idx int) string {
+	return o.Super().GetFileScriptClassName(idx)
+}
+func (o *Extension[T]) GetFileScriptClassExtends(idx int) string {
+	return o.Super().GetFileScriptClassExtends(idx)
+}
+func (o *Extension[T]) GetFileImportIsValid(idx int) bool {
+	return o.Super().GetFileImportIsValid(idx)
+}
+func (o *Extension[T]) GetName() string {
+	return o.Super().GetName()
+}
+func (o *Extension[T]) GetPath() string {
+	return o.Super().GetPath()
+}
+func (o *Extension[T]) GetParent() Instance {
+	return o.Super().GetParent()
+}
+func (o *Extension[T]) FindFileIndex(name string) int {
+	return o.Super().FindFileIndex(name)
+}
+func (o *Extension[T]) FindDirIndex(name string) int {
+	return o.Super().FindDirIndex(name)
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

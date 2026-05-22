@@ -206,6 +206,24 @@ return Signal.Via(gd.SignalProxy{}, pointers.Pack(gd.NewSignalOf(self.AsObject()
 func (o class) AsEditorSelection() Advanced { return Advanced(o) }
 func (o Instance) AsEditorSelection() Instance { return o }
 func (o *Extension[T]) AsEditorSelection() Instance { return o.Super() }
+func (o *Extension[T]) Clear() {
+	o.Super().Clear()
+}
+func (o *Extension[T]) AddNode(node Node.Instance) {
+	o.Super().AddNode(node)
+}
+func (o *Extension[T]) RemoveNode(node Node.Instance) {
+	o.Super().RemoveNode(node)
+}
+func (o *Extension[T]) GetSelectedNodes() []Node.Instance {
+	return o.Super().GetSelectedNodes()
+}
+func (o *Extension[T]) GetTopSelectedNodes() []Node.Instance {
+	return o.Super().GetTopSelectedNodes()
+}
+func (o *Extension[T]) GetTransformableSelectedNodes() []Node.Instance {
+	return o.Super().GetTransformableSelectedNodes()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

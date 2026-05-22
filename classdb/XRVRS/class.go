@@ -214,6 +214,9 @@ func (self class) MakeVrsTexture(target_size Vector2.XY, eye_foci Packed.Array[V
 func (o class) AsXRVRS() Advanced { return Advanced(o) }
 func (o Instance) AsXRVRS() Instance { return o }
 func (o *Extension[T]) AsXRVRS() Instance { return o.Super() }
+func (o *Extension[T]) MakeVrsTexture(target_size Vector2.XY, eye_foci []Vector2.XY) RID.Texture {
+	return o.Super().MakeVrsTexture(target_size, eye_foci)
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

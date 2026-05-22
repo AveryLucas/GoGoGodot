@@ -933,6 +933,293 @@ func (self Instance) OnSetupLocalToSceneRequested(cb func(), flags ...Signal.Fla
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("setup_local_to_scene_requested"), gd.NewCallable(cb), int64(flags_together))
 	return self
 }
+func (o *Extension[T]) RemoveTrack(track_idx int) {
+	o.Super().RemoveTrack(track_idx)
+}
+func (o *Extension[T]) GetTrackCount() int {
+	return o.Super().GetTrackCount()
+}
+func (o *Extension[T]) TrackGetType(track_idx int) TrackType {
+	return o.Super().TrackGetType(track_idx)
+}
+func (o *Extension[T]) TrackGetPath(track_idx int) string {
+	return o.Super().TrackGetPath(track_idx)
+}
+func (o *Extension[T]) TrackSetPath(track_idx int, path string) {
+	o.Super().TrackSetPath(track_idx, path)
+}
+func (o *Extension[T]) FindTrack(path string, atype TrackType) int {
+	return o.Super().FindTrack(path, atype)
+}
+func (o *Extension[T]) TrackMoveUp(track_idx int) {
+	o.Super().TrackMoveUp(track_idx)
+}
+func (o *Extension[T]) TrackMoveDown(track_idx int) {
+	o.Super().TrackMoveDown(track_idx)
+}
+func (o *Extension[T]) TrackMoveTo(track_idx int, to_idx int) {
+	o.Super().TrackMoveTo(track_idx, to_idx)
+}
+func (o *Extension[T]) TrackSwap(track_idx int, with_idx int) {
+	o.Super().TrackSwap(track_idx, with_idx)
+}
+func (o *Extension[T]) TrackSetImported(track_idx int, imported bool) {
+	o.Super().TrackSetImported(track_idx, imported)
+}
+func (o *Extension[T]) TrackIsImported(track_idx int) bool {
+	return o.Super().TrackIsImported(track_idx)
+}
+func (o *Extension[T]) TrackSetEnabled(track_idx int, enabled bool) {
+	o.Super().TrackSetEnabled(track_idx, enabled)
+}
+func (o *Extension[T]) TrackIsEnabled(track_idx int) bool {
+	return o.Super().TrackIsEnabled(track_idx)
+}
+func (o *Extension[T]) PositionTrackInsertKey(track_idx int, time Float.X, position Vector3.XYZ) int {
+	return o.Super().PositionTrackInsertKey(track_idx, time, position)
+}
+func (o *Extension[T]) RotationTrackInsertKey(track_idx int, time Float.X, rotation Quaternion.IJKX) int {
+	return o.Super().RotationTrackInsertKey(track_idx, time, rotation)
+}
+func (o *Extension[T]) ScaleTrackInsertKey(track_idx int, time Float.X, scale Vector3.XYZ) int {
+	return o.Super().ScaleTrackInsertKey(track_idx, time, scale)
+}
+func (o *Extension[T]) BlendShapeTrackInsertKey(track_idx int, time Float.X, amount Float.X) int {
+	return o.Super().BlendShapeTrackInsertKey(track_idx, time, amount)
+}
+func (o *Extension[T]) TrackRemoveKey(track_idx int, key_idx int) {
+	o.Super().TrackRemoveKey(track_idx, key_idx)
+}
+func (o *Extension[T]) TrackRemoveKeyAtTime(track_idx int, time Float.X) {
+	o.Super().TrackRemoveKeyAtTime(track_idx, time)
+}
+func (o *Extension[T]) TrackSetKeyValue(track_idx int, key int, value any) {
+	o.Super().TrackSetKeyValue(track_idx, key, value)
+}
+func (o *Extension[T]) TrackSetKeyTransition(track_idx int, key_idx int, transition Float.X) {
+	o.Super().TrackSetKeyTransition(track_idx, key_idx, transition)
+}
+func (o *Extension[T]) TrackSetKeyTime(track_idx int, key_idx int, time Float.X) {
+	o.Super().TrackSetKeyTime(track_idx, key_idx, time)
+}
+func (o *Extension[T]) TrackGetKeyTransition(track_idx int, key_idx int) Float.X {
+	return o.Super().TrackGetKeyTransition(track_idx, key_idx)
+}
+func (o *Extension[T]) TrackGetKeyCount(track_idx int) int {
+	return o.Super().TrackGetKeyCount(track_idx)
+}
+func (o *Extension[T]) TrackGetKeyValue(track_idx int, key_idx int) any {
+	return o.Super().TrackGetKeyValue(track_idx, key_idx)
+}
+func (o *Extension[T]) TrackGetKeyTime(track_idx int, key_idx int) Float.X {
+	return o.Super().TrackGetKeyTime(track_idx, key_idx)
+}
+func (o *Extension[T]) TrackSetInterpolationType(track_idx int, interpolation InterpolationType) {
+	o.Super().TrackSetInterpolationType(track_idx, interpolation)
+}
+func (o *Extension[T]) TrackGetInterpolationType(track_idx int) InterpolationType {
+	return o.Super().TrackGetInterpolationType(track_idx)
+}
+func (o *Extension[T]) TrackSetInterpolationLoopWrap(track_idx int, interpolation bool) {
+	o.Super().TrackSetInterpolationLoopWrap(track_idx, interpolation)
+}
+func (o *Extension[T]) TrackGetInterpolationLoopWrap(track_idx int) bool {
+	return o.Super().TrackGetInterpolationLoopWrap(track_idx)
+}
+func (o *Extension[T]) TrackIsCompressed(track_idx int) bool {
+	return o.Super().TrackIsCompressed(track_idx)
+}
+func (o *Extension[T]) ValueTrackSetUpdateMode(track_idx int, mode UpdateMode) {
+	o.Super().ValueTrackSetUpdateMode(track_idx, mode)
+}
+func (o *Extension[T]) ValueTrackGetUpdateMode(track_idx int) UpdateMode {
+	return o.Super().ValueTrackGetUpdateMode(track_idx)
+}
+func (o *Extension[T]) MethodTrackGetName(track_idx int, key_idx int) string {
+	return o.Super().MethodTrackGetName(track_idx, key_idx)
+}
+func (o *Extension[T]) MethodTrackGetParams(track_idx int, key_idx int) []any {
+	return o.Super().MethodTrackGetParams(track_idx, key_idx)
+}
+func (o *Extension[T]) BezierTrackSetKeyValue(track_idx int, key_idx int, value Float.X) {
+	o.Super().BezierTrackSetKeyValue(track_idx, key_idx, value)
+}
+func (o *Extension[T]) BezierTrackGetKeyValue(track_idx int, key_idx int) Float.X {
+	return o.Super().BezierTrackGetKeyValue(track_idx, key_idx)
+}
+func (o *Extension[T]) BezierTrackGetKeyInHandle(track_idx int, key_idx int) Vector2.XY {
+	return o.Super().BezierTrackGetKeyInHandle(track_idx, key_idx)
+}
+func (o *Extension[T]) BezierTrackGetKeyOutHandle(track_idx int, key_idx int) Vector2.XY {
+	return o.Super().BezierTrackGetKeyOutHandle(track_idx, key_idx)
+}
+func (o *Extension[T]) BezierTrackInterpolate(track_idx int, time Float.X) Float.X {
+	return o.Super().BezierTrackInterpolate(track_idx, time)
+}
+func (o *Extension[T]) AudioTrackSetKeyStream(track_idx int, key_idx int, stream Resource.Instance) {
+	o.Super().AudioTrackSetKeyStream(track_idx, key_idx, stream)
+}
+func (o *Extension[T]) AudioTrackSetKeyStartOffset(track_idx int, key_idx int, offset Float.X) {
+	o.Super().AudioTrackSetKeyStartOffset(track_idx, key_idx, offset)
+}
+func (o *Extension[T]) AudioTrackSetKeyEndOffset(track_idx int, key_idx int, offset Float.X) {
+	o.Super().AudioTrackSetKeyEndOffset(track_idx, key_idx, offset)
+}
+func (o *Extension[T]) AudioTrackGetKeyStream(track_idx int, key_idx int) Resource.Instance {
+	return o.Super().AudioTrackGetKeyStream(track_idx, key_idx)
+}
+func (o *Extension[T]) AudioTrackGetKeyStartOffset(track_idx int, key_idx int) Float.X {
+	return o.Super().AudioTrackGetKeyStartOffset(track_idx, key_idx)
+}
+func (o *Extension[T]) AudioTrackGetKeyEndOffset(track_idx int, key_idx int) Float.X {
+	return o.Super().AudioTrackGetKeyEndOffset(track_idx, key_idx)
+}
+func (o *Extension[T]) AudioTrackSetUseBlend(track_idx int, enable bool) {
+	o.Super().AudioTrackSetUseBlend(track_idx, enable)
+}
+func (o *Extension[T]) AudioTrackIsUseBlend(track_idx int) bool {
+	return o.Super().AudioTrackIsUseBlend(track_idx)
+}
+func (o *Extension[T]) AnimationTrackInsertKey(track_idx int, time Float.X, animation string) int {
+	return o.Super().AnimationTrackInsertKey(track_idx, time, animation)
+}
+func (o *Extension[T]) AnimationTrackSetKeyAnimation(track_idx int, key_idx int, animation string) {
+	o.Super().AnimationTrackSetKeyAnimation(track_idx, key_idx, animation)
+}
+func (o *Extension[T]) AnimationTrackGetKeyAnimation(track_idx int, key_idx int) string {
+	return o.Super().AnimationTrackGetKeyAnimation(track_idx, key_idx)
+}
+func (o *Extension[T]) AddMarker(name string, time Float.X) {
+	o.Super().AddMarker(name, time)
+}
+func (o *Extension[T]) RemoveMarker(name string) {
+	o.Super().RemoveMarker(name)
+}
+func (o *Extension[T]) HasMarker(name string) bool {
+	return o.Super().HasMarker(name)
+}
+func (o *Extension[T]) GetMarkerAtTime(time Float.X) string {
+	return o.Super().GetMarkerAtTime(time)
+}
+func (o *Extension[T]) GetNextMarker(time Float.X) string {
+	return o.Super().GetNextMarker(time)
+}
+func (o *Extension[T]) GetPrevMarker(time Float.X) string {
+	return o.Super().GetPrevMarker(time)
+}
+func (o *Extension[T]) GetMarkerTime(name string) Float.X {
+	return o.Super().GetMarkerTime(name)
+}
+func (o *Extension[T]) GetMarkerNames() []string {
+	return o.Super().GetMarkerNames()
+}
+func (o *Extension[T]) GetMarkerColor(name string) Color.RGBA {
+	return o.Super().GetMarkerColor(name)
+}
+func (o *Extension[T]) SetMarkerColor(name string, color Color.RGBA) *Extension[T] {
+	o.Super().SetMarkerColor(name, color)
+	return o
+}
+func (o *Extension[T]) Clear() {
+	o.Super().Clear()
+}
+func (o *Extension[T]) CopyTrack(track_idx int, to_animation Instance) {
+	o.Super().CopyTrack(track_idx, to_animation)
+}
+
+// TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
+func (self Instance) TakeOverPath(path string) {
+	self.AsResource().TakeOverPath(path)
+}
+
+// TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
+func (o *Extension[T]) TakeOverPath(path string) {
+	o.Super().AsResource().TakeOverPath(path)
+}
+
+// SetPathCache is promoted from [Resource.Instance.SetPathCache].
+func (self Instance) SetPathCache(path string) Instance {
+	self.AsResource().SetPathCache(path)
+	return self
+}
+
+// SetPathCache is promoted from [Resource.Instance.SetPathCache].
+func (o *Extension[T]) SetPathCache(path string) *Extension[T] {
+	o.Super().AsResource().SetPathCache(path)
+	return o
+}
+
+// GetRid is promoted from [Resource.Instance.GetRid].
+func (self Instance) GetRid() Resource.ID {
+	return self.AsResource().GetRid()
+}
+
+// GetRid is promoted from [Resource.Instance.GetRid].
+func (o *Extension[T]) GetRid() Resource.ID {
+	return o.Super().AsResource().GetRid()
+}
+
+// SetupLocalToScene is promoted from [Resource.Instance.SetupLocalToScene].
+func (self Instance) SetupLocalToScene() {
+	self.AsResource().SetupLocalToScene()
+}
+
+// SetupLocalToScene is promoted from [Resource.Instance.SetupLocalToScene].
+func (o *Extension[T]) SetupLocalToScene() {
+	o.Super().AsResource().SetupLocalToScene()
+}
+
+// ResetState is promoted from [Resource.Instance.ResetState].
+func (self Instance) ResetState() {
+	self.AsResource().ResetState()
+}
+
+// ResetState is promoted from [Resource.Instance.ResetState].
+func (o *Extension[T]) ResetState() {
+	o.Super().AsResource().ResetState()
+}
+
+// SetIdForPath is promoted from [Resource.Instance.SetIdForPath].
+func (self Instance) SetIdForPath(path string, id string) Instance {
+	self.AsResource().SetIdForPath(path, id)
+	return self
+}
+
+// SetIdForPath is promoted from [Resource.Instance.SetIdForPath].
+func (o *Extension[T]) SetIdForPath(path string, id string) *Extension[T] {
+	o.Super().AsResource().SetIdForPath(path, id)
+	return o
+}
+
+// GetIdForPath is promoted from [Resource.Instance.GetIdForPath].
+func (self Instance) GetIdForPath(path string) string {
+	return self.AsResource().GetIdForPath(path)
+}
+
+// GetIdForPath is promoted from [Resource.Instance.GetIdForPath].
+func (o *Extension[T]) GetIdForPath(path string) string {
+	return o.Super().AsResource().GetIdForPath(path)
+}
+
+// IsBuiltIn is promoted from [Resource.Instance.IsBuiltIn].
+func (self Instance) IsBuiltIn() bool {
+	return self.AsResource().IsBuiltIn()
+}
+
+// IsBuiltIn is promoted from [Resource.Instance.IsBuiltIn].
+func (o *Extension[T]) IsBuiltIn() bool {
+	return o.Super().AsResource().IsBuiltIn()
+}
+
+// EmitChanged is promoted from [Resource.Instance.EmitChanged].
+func (self Instance) EmitChanged() {
+	self.AsResource().EmitChanged()
+}
+
+// EmitChanged is promoted from [Resource.Instance.EmitChanged].
+func (o *Extension[T]) EmitChanged() {
+	o.Super().AsResource().EmitChanged()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

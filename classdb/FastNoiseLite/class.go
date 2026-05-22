@@ -30,6 +30,7 @@ import "graphics.gd/variant/Path"
 import "graphics.gd/variant/RID"
 import "graphics.gd/variant/RefCounted"
 import "graphics.gd/variant/String"
+import "graphics.gd/variant/Vector2"
 import "graphics.gd/variant/Vector3"
 
 var _ Object.ID
@@ -595,6 +596,150 @@ func (self Instance) OnSetupLocalToSceneRequested(cb func(), flags ...Signal.Fla
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("setup_local_to_scene_requested"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+
+// GetNoise1d is promoted from [Noise.Instance.GetNoise1d].
+func (self Instance) GetNoise1d(x Float.X) Float.X {
+	return self.AsNoise().GetNoise1d(x)
+}
+
+// GetNoise1d is promoted from [Noise.Instance.GetNoise1d].
+func (o *Extension[T]) GetNoise1d(x Float.X) Float.X {
+	return o.Super().AsNoise().GetNoise1d(x)
+}
+
+// GetNoise2d is promoted from [Noise.Instance.GetNoise2d].
+func (self Instance) GetNoise2d(x Float.X, y Float.X) Float.X {
+	return self.AsNoise().GetNoise2d(x, y)
+}
+
+// GetNoise2d is promoted from [Noise.Instance.GetNoise2d].
+func (o *Extension[T]) GetNoise2d(x Float.X, y Float.X) Float.X {
+	return o.Super().AsNoise().GetNoise2d(x, y)
+}
+
+// GetNoise2dv is promoted from [Noise.Instance.GetNoise2dv].
+func (self Instance) GetNoise2dv(v Vector2.XY) Float.X {
+	return self.AsNoise().GetNoise2dv(v)
+}
+
+// GetNoise2dv is promoted from [Noise.Instance.GetNoise2dv].
+func (o *Extension[T]) GetNoise2dv(v Vector2.XY) Float.X {
+	return o.Super().AsNoise().GetNoise2dv(v)
+}
+
+// GetNoise3d is promoted from [Noise.Instance.GetNoise3d].
+func (self Instance) GetNoise3d(x Float.X, y Float.X, z Float.X) Float.X {
+	return self.AsNoise().GetNoise3d(x, y, z)
+}
+
+// GetNoise3d is promoted from [Noise.Instance.GetNoise3d].
+func (o *Extension[T]) GetNoise3d(x Float.X, y Float.X, z Float.X) Float.X {
+	return o.Super().AsNoise().GetNoise3d(x, y, z)
+}
+
+// GetNoise3dv is promoted from [Noise.Instance.GetNoise3dv].
+func (self Instance) GetNoise3dv(v Vector3.XYZ) Float.X {
+	return self.AsNoise().GetNoise3dv(v)
+}
+
+// GetNoise3dv is promoted from [Noise.Instance.GetNoise3dv].
+func (o *Extension[T]) GetNoise3dv(v Vector3.XYZ) Float.X {
+	return o.Super().AsNoise().GetNoise3dv(v)
+}
+
+// TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
+func (self Instance) TakeOverPath(path string) {
+	self.AsResource().TakeOverPath(path)
+}
+
+// TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
+func (o *Extension[T]) TakeOverPath(path string) {
+	o.Super().AsResource().TakeOverPath(path)
+}
+
+// SetPathCache is promoted from [Resource.Instance.SetPathCache].
+func (self Instance) SetPathCache(path string) Instance {
+	self.AsResource().SetPathCache(path)
+	return self
+}
+
+// SetPathCache is promoted from [Resource.Instance.SetPathCache].
+func (o *Extension[T]) SetPathCache(path string) *Extension[T] {
+	o.Super().AsResource().SetPathCache(path)
+	return o
+}
+
+// GetRid is promoted from [Resource.Instance.GetRid].
+func (self Instance) GetRid() Resource.ID {
+	return self.AsResource().GetRid()
+}
+
+// GetRid is promoted from [Resource.Instance.GetRid].
+func (o *Extension[T]) GetRid() Resource.ID {
+	return o.Super().AsResource().GetRid()
+}
+
+// SetupLocalToScene is promoted from [Resource.Instance.SetupLocalToScene].
+func (self Instance) SetupLocalToScene() {
+	self.AsResource().SetupLocalToScene()
+}
+
+// SetupLocalToScene is promoted from [Resource.Instance.SetupLocalToScene].
+func (o *Extension[T]) SetupLocalToScene() {
+	o.Super().AsResource().SetupLocalToScene()
+}
+
+// ResetState is promoted from [Resource.Instance.ResetState].
+func (self Instance) ResetState() {
+	self.AsResource().ResetState()
+}
+
+// ResetState is promoted from [Resource.Instance.ResetState].
+func (o *Extension[T]) ResetState() {
+	o.Super().AsResource().ResetState()
+}
+
+// SetIdForPath is promoted from [Resource.Instance.SetIdForPath].
+func (self Instance) SetIdForPath(path string, id string) Instance {
+	self.AsResource().SetIdForPath(path, id)
+	return self
+}
+
+// SetIdForPath is promoted from [Resource.Instance.SetIdForPath].
+func (o *Extension[T]) SetIdForPath(path string, id string) *Extension[T] {
+	o.Super().AsResource().SetIdForPath(path, id)
+	return o
+}
+
+// GetIdForPath is promoted from [Resource.Instance.GetIdForPath].
+func (self Instance) GetIdForPath(path string) string {
+	return self.AsResource().GetIdForPath(path)
+}
+
+// GetIdForPath is promoted from [Resource.Instance.GetIdForPath].
+func (o *Extension[T]) GetIdForPath(path string) string {
+	return o.Super().AsResource().GetIdForPath(path)
+}
+
+// IsBuiltIn is promoted from [Resource.Instance.IsBuiltIn].
+func (self Instance) IsBuiltIn() bool {
+	return self.AsResource().IsBuiltIn()
+}
+
+// IsBuiltIn is promoted from [Resource.Instance.IsBuiltIn].
+func (o *Extension[T]) IsBuiltIn() bool {
+	return o.Super().AsResource().IsBuiltIn()
+}
+
+// EmitChanged is promoted from [Resource.Instance.EmitChanged].
+func (self Instance) EmitChanged() {
+	self.AsResource().EmitChanged()
+}
+
+// EmitChanged is promoted from [Resource.Instance.EmitChanged].
+func (o *Extension[T]) EmitChanged() {
+	o.Super().AsResource().EmitChanged()
 }
 
 func (self class) Virtual(name string) reflect.Value {

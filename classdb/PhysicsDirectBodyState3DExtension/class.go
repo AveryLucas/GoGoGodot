@@ -1091,6 +1091,118 @@ func (o class) AsPhysicsDirectBodyState3D() PhysicsDirectBodyState3D.Advanced { 
 func (o *Extension[T]) AsPhysicsDirectBodyState3D() PhysicsDirectBodyState3D.Instance { return o.Super().AsPhysicsDirectBodyState3D() }
 func (o Instance) AsPhysicsDirectBodyState3D() PhysicsDirectBodyState3D.Instance { return *(*PhysicsDirectBodyState3D.Instance)(ie.As(&o)) }
 
+// GetVelocityAtLocalPosition is promoted from [PhysicsDirectBodyState3D.Instance.GetVelocityAtLocalPosition].
+func (o *Extension[T]) GetVelocityAtLocalPosition(local_position Vector3.XYZ) Vector3.XYZ {
+	return o.Super().AsPhysicsDirectBodyState3D().GetVelocityAtLocalPosition(local_position)
+}
+
+// ApplyTorqueImpulse is promoted from [PhysicsDirectBodyState3D.Instance.ApplyTorqueImpulse].
+func (o *Extension[T]) ApplyTorqueImpulse(impulse Vector3.XYZ) {
+	o.Super().AsPhysicsDirectBodyState3D().ApplyTorqueImpulse(impulse)
+}
+
+// ApplyTorque is promoted from [PhysicsDirectBodyState3D.Instance.ApplyTorque].
+func (o *Extension[T]) ApplyTorque(torque Vector3.XYZ) {
+	o.Super().AsPhysicsDirectBodyState3D().ApplyTorque(torque)
+}
+
+// AddConstantTorque is promoted from [PhysicsDirectBodyState3D.Instance.AddConstantTorque].
+func (o *Extension[T]) AddConstantTorque(torque Vector3.XYZ) {
+	o.Super().AsPhysicsDirectBodyState3D().AddConstantTorque(torque)
+}
+
+// SetConstantForce is promoted from [PhysicsDirectBodyState3D.Instance.SetConstantForce].
+func (o *Extension[T]) SetConstantForce(force Vector3.XYZ) *Extension[T] {
+	o.Super().AsPhysicsDirectBodyState3D().SetConstantForce(force)
+	return o
+}
+
+// GetConstantForce is promoted from [PhysicsDirectBodyState3D.Instance.GetConstantForce].
+func (o *Extension[T]) GetConstantForce() Vector3.XYZ {
+	return o.Super().AsPhysicsDirectBodyState3D().GetConstantForce()
+}
+
+// SetConstantTorque is promoted from [PhysicsDirectBodyState3D.Instance.SetConstantTorque].
+func (o *Extension[T]) SetConstantTorque(torque Vector3.XYZ) *Extension[T] {
+	o.Super().AsPhysicsDirectBodyState3D().SetConstantTorque(torque)
+	return o
+}
+
+// GetConstantTorque is promoted from [PhysicsDirectBodyState3D.Instance.GetConstantTorque].
+func (o *Extension[T]) GetConstantTorque() Vector3.XYZ {
+	return o.Super().AsPhysicsDirectBodyState3D().GetConstantTorque()
+}
+
+// GetContactCount is promoted from [PhysicsDirectBodyState3D.Instance.GetContactCount].
+func (o *Extension[T]) GetContactCount() int {
+	return o.Super().AsPhysicsDirectBodyState3D().GetContactCount()
+}
+
+// GetContactLocalPosition is promoted from [PhysicsDirectBodyState3D.Instance.GetContactLocalPosition].
+func (o *Extension[T]) GetContactLocalPosition(contact_idx int) Vector3.XYZ {
+	return o.Super().AsPhysicsDirectBodyState3D().GetContactLocalPosition(contact_idx)
+}
+
+// GetContactLocalNormal is promoted from [PhysicsDirectBodyState3D.Instance.GetContactLocalNormal].
+func (o *Extension[T]) GetContactLocalNormal(contact_idx int) Vector3.XYZ {
+	return o.Super().AsPhysicsDirectBodyState3D().GetContactLocalNormal(contact_idx)
+}
+
+// GetContactImpulse is promoted from [PhysicsDirectBodyState3D.Instance.GetContactImpulse].
+func (o *Extension[T]) GetContactImpulse(contact_idx int) Vector3.XYZ {
+	return o.Super().AsPhysicsDirectBodyState3D().GetContactImpulse(contact_idx)
+}
+
+// GetContactLocalShape is promoted from [PhysicsDirectBodyState3D.Instance.GetContactLocalShape].
+func (o *Extension[T]) GetContactLocalShape(contact_idx int) int {
+	return o.Super().AsPhysicsDirectBodyState3D().GetContactLocalShape(contact_idx)
+}
+
+// GetContactLocalVelocityAtPosition is promoted from [PhysicsDirectBodyState3D.Instance.GetContactLocalVelocityAtPosition].
+func (o *Extension[T]) GetContactLocalVelocityAtPosition(contact_idx int) Vector3.XYZ {
+	return o.Super().AsPhysicsDirectBodyState3D().GetContactLocalVelocityAtPosition(contact_idx)
+}
+
+// GetContactCollider is promoted from [PhysicsDirectBodyState3D.Instance.GetContactCollider].
+func (o *Extension[T]) GetContactCollider(contact_idx int) RID.Body3D {
+	return o.Super().AsPhysicsDirectBodyState3D().GetContactCollider(contact_idx)
+}
+
+// GetContactColliderPosition is promoted from [PhysicsDirectBodyState3D.Instance.GetContactColliderPosition].
+func (o *Extension[T]) GetContactColliderPosition(contact_idx int) Vector3.XYZ {
+	return o.Super().AsPhysicsDirectBodyState3D().GetContactColliderPosition(contact_idx)
+}
+
+// GetContactColliderId is promoted from [PhysicsDirectBodyState3D.Instance.GetContactColliderId].
+func (o *Extension[T]) GetContactColliderId(contact_idx int) int {
+	return o.Super().AsPhysicsDirectBodyState3D().GetContactColliderId(contact_idx)
+}
+
+// GetContactColliderObject is promoted from [PhysicsDirectBodyState3D.Instance.GetContactColliderObject].
+func (o *Extension[T]) GetContactColliderObject(contact_idx int) Object.Instance {
+	return o.Super().AsPhysicsDirectBodyState3D().GetContactColliderObject(contact_idx)
+}
+
+// GetContactColliderShape is promoted from [PhysicsDirectBodyState3D.Instance.GetContactColliderShape].
+func (o *Extension[T]) GetContactColliderShape(contact_idx int) int {
+	return o.Super().AsPhysicsDirectBodyState3D().GetContactColliderShape(contact_idx)
+}
+
+// GetContactColliderVelocityAtPosition is promoted from [PhysicsDirectBodyState3D.Instance.GetContactColliderVelocityAtPosition].
+func (o *Extension[T]) GetContactColliderVelocityAtPosition(contact_idx int) Vector3.XYZ {
+	return o.Super().AsPhysicsDirectBodyState3D().GetContactColliderVelocityAtPosition(contact_idx)
+}
+
+// IntegrateForces is promoted from [PhysicsDirectBodyState3D.Instance.IntegrateForces].
+func (o *Extension[T]) IntegrateForces() {
+	o.Super().AsPhysicsDirectBodyState3D().IntegrateForces()
+}
+
+// GetSpaceState is promoted from [PhysicsDirectBodyState3D.Instance.GetSpaceState].
+func (o *Extension[T]) GetSpaceState() PhysicsDirectSpaceState3D.Instance {
+	return o.Super().AsPhysicsDirectBodyState3D().GetSpaceState()
+}
+
 func (self class) Virtual(name string) reflect.Value {
 	switch name {
 	case "_get_total_gravity": return reflect.ValueOf(self._get_total_gravity);

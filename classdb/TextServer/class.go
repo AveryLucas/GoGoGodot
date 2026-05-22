@@ -2208,6 +2208,642 @@ func (o *Extension[T]) AsTextServer() Instance { return o.Super() }
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) HasFeature(feature Feature) bool {
+	return o.Super().HasFeature(feature)
+}
+func (o *Extension[T]) GetName() string {
+	return o.Super().GetName()
+}
+func (o *Extension[T]) GetFeatures() int {
+	return o.Super().GetFeatures()
+}
+func (o *Extension[T]) LoadSupportData(filename string) bool {
+	return o.Super().LoadSupportData(filename)
+}
+func (o *Extension[T]) GetSupportDataFilename() string {
+	return o.Super().GetSupportDataFilename()
+}
+func (o *Extension[T]) GetSupportDataInfo() string {
+	return o.Super().GetSupportDataInfo()
+}
+func (o *Extension[T]) SaveSupportData(filename string) bool {
+	return o.Super().SaveSupportData(filename)
+}
+func (o *Extension[T]) GetSupportData() []byte {
+	return o.Super().GetSupportData()
+}
+func (o *Extension[T]) IsLocaleUsingSupportData(locale string) bool {
+	return o.Super().IsLocaleUsingSupportData(locale)
+}
+func (o *Extension[T]) IsLocaleRightToLeft(locale string) bool {
+	return o.Super().IsLocaleRightToLeft(locale)
+}
+func (o *Extension[T]) NameToTag(name string) int {
+	return o.Super().NameToTag(name)
+}
+func (o *Extension[T]) TagToName(tag int) string {
+	return o.Super().TagToName(tag)
+}
+func (o *Extension[T]) Has(rid RID.Any) bool {
+	return o.Super().Has(rid)
+}
+func (o *Extension[T]) FreeRid(rid RID.Any) {
+	o.Super().FreeRid(rid)
+}
+func (o *Extension[T]) CreateFont() RID.Font {
+	return o.Super().CreateFont()
+}
+func (o *Extension[T]) CreateFontLinkedVariation(font_rid RID.Font) RID.Font {
+	return o.Super().CreateFontLinkedVariation(font_rid)
+}
+func (o *Extension[T]) FontSetData(font_rid RID.Font, data []byte) {
+	o.Super().FontSetData(font_rid, data)
+}
+func (o *Extension[T]) FontSetFaceIndex(font_rid RID.Font, face_index int) {
+	o.Super().FontSetFaceIndex(font_rid, face_index)
+}
+func (o *Extension[T]) FontGetFaceIndex(font_rid RID.Font) int {
+	return o.Super().FontGetFaceIndex(font_rid)
+}
+func (o *Extension[T]) FontGetFaceCount(font_rid RID.Font) int {
+	return o.Super().FontGetFaceCount(font_rid)
+}
+func (o *Extension[T]) FontSetStyle(font_rid RID.Font, style FontStyle) {
+	o.Super().FontSetStyle(font_rid, style)
+}
+func (o *Extension[T]) FontGetStyle(font_rid RID.Font) FontStyle {
+	return o.Super().FontGetStyle(font_rid)
+}
+func (o *Extension[T]) FontSetName(font_rid RID.Font, name string) {
+	o.Super().FontSetName(font_rid, name)
+}
+func (o *Extension[T]) FontGetName(font_rid RID.Font) string {
+	return o.Super().FontGetName(font_rid)
+}
+func (o *Extension[T]) FontGetOtNameStrings(font_rid RID.Font) map[string]map[string]string {
+	return o.Super().FontGetOtNameStrings(font_rid)
+}
+func (o *Extension[T]) FontSetStyleName(font_rid RID.Font, name string) {
+	o.Super().FontSetStyleName(font_rid, name)
+}
+func (o *Extension[T]) FontGetStyleName(font_rid RID.Font) string {
+	return o.Super().FontGetStyleName(font_rid)
+}
+func (o *Extension[T]) FontSetWeight(font_rid RID.Font, weight int) {
+	o.Super().FontSetWeight(font_rid, weight)
+}
+func (o *Extension[T]) FontGetWeight(font_rid RID.Font) int {
+	return o.Super().FontGetWeight(font_rid)
+}
+func (o *Extension[T]) FontSetStretch(font_rid RID.Font, weight int) {
+	o.Super().FontSetStretch(font_rid, weight)
+}
+func (o *Extension[T]) FontGetStretch(font_rid RID.Font) int {
+	return o.Super().FontGetStretch(font_rid)
+}
+func (o *Extension[T]) FontSetAntialiasing(font_rid RID.Font, antialiasing FontAntialiasing) {
+	o.Super().FontSetAntialiasing(font_rid, antialiasing)
+}
+func (o *Extension[T]) FontGetAntialiasing(font_rid RID.Font) FontAntialiasing {
+	return o.Super().FontGetAntialiasing(font_rid)
+}
+func (o *Extension[T]) FontSetDisableEmbeddedBitmaps(font_rid RID.Font, disable_embedded_bitmaps bool) {
+	o.Super().FontSetDisableEmbeddedBitmaps(font_rid, disable_embedded_bitmaps)
+}
+func (o *Extension[T]) FontGetDisableEmbeddedBitmaps(font_rid RID.Font) bool {
+	return o.Super().FontGetDisableEmbeddedBitmaps(font_rid)
+}
+func (o *Extension[T]) FontSetGenerateMipmaps(font_rid RID.Font, generate_mipmaps bool) {
+	o.Super().FontSetGenerateMipmaps(font_rid, generate_mipmaps)
+}
+func (o *Extension[T]) FontGetGenerateMipmaps(font_rid RID.Font) bool {
+	return o.Super().FontGetGenerateMipmaps(font_rid)
+}
+func (o *Extension[T]) FontSetMultichannelSignedDistanceField(font_rid RID.Font, msdf bool) {
+	o.Super().FontSetMultichannelSignedDistanceField(font_rid, msdf)
+}
+func (o *Extension[T]) FontIsMultichannelSignedDistanceField(font_rid RID.Font) bool {
+	return o.Super().FontIsMultichannelSignedDistanceField(font_rid)
+}
+func (o *Extension[T]) FontSetMsdfPixelRange(font_rid RID.Font, msdf_pixel_range int) {
+	o.Super().FontSetMsdfPixelRange(font_rid, msdf_pixel_range)
+}
+func (o *Extension[T]) FontGetMsdfPixelRange(font_rid RID.Font) int {
+	return o.Super().FontGetMsdfPixelRange(font_rid)
+}
+func (o *Extension[T]) FontSetMsdfSize(font_rid RID.Font, msdf_size int) {
+	o.Super().FontSetMsdfSize(font_rid, msdf_size)
+}
+func (o *Extension[T]) FontGetMsdfSize(font_rid RID.Font) int {
+	return o.Super().FontGetMsdfSize(font_rid)
+}
+func (o *Extension[T]) FontSetFixedSize(font_rid RID.Font, fixed_size int) {
+	o.Super().FontSetFixedSize(font_rid, fixed_size)
+}
+func (o *Extension[T]) FontGetFixedSize(font_rid RID.Font) int {
+	return o.Super().FontGetFixedSize(font_rid)
+}
+func (o *Extension[T]) FontSetFixedSizeScaleMode(font_rid RID.Font, fixed_size_scale_mode FixedSizeScaleMode) {
+	o.Super().FontSetFixedSizeScaleMode(font_rid, fixed_size_scale_mode)
+}
+func (o *Extension[T]) FontGetFixedSizeScaleMode(font_rid RID.Font) FixedSizeScaleMode {
+	return o.Super().FontGetFixedSizeScaleMode(font_rid)
+}
+func (o *Extension[T]) FontSetAllowSystemFallback(font_rid RID.Font, allow_system_fallback bool) {
+	o.Super().FontSetAllowSystemFallback(font_rid, allow_system_fallback)
+}
+func (o *Extension[T]) FontIsAllowSystemFallback(font_rid RID.Font) bool {
+	return o.Super().FontIsAllowSystemFallback(font_rid)
+}
+func (o *Extension[T]) FontClearSystemFallbackCache() {
+	o.Super().FontClearSystemFallbackCache()
+}
+func (o *Extension[T]) FontSetForceAutohinter(font_rid RID.Font, force_autohinter bool) {
+	o.Super().FontSetForceAutohinter(font_rid, force_autohinter)
+}
+func (o *Extension[T]) FontIsForceAutohinter(font_rid RID.Font) bool {
+	return o.Super().FontIsForceAutohinter(font_rid)
+}
+func (o *Extension[T]) FontSetModulateColorGlyphs(font_rid RID.Font, force_autohinter bool) {
+	o.Super().FontSetModulateColorGlyphs(font_rid, force_autohinter)
+}
+func (o *Extension[T]) FontIsModulateColorGlyphs(font_rid RID.Font) bool {
+	return o.Super().FontIsModulateColorGlyphs(font_rid)
+}
+func (o *Extension[T]) FontSetHinting(font_rid RID.Font, hinting Hinting) {
+	o.Super().FontSetHinting(font_rid, hinting)
+}
+func (o *Extension[T]) FontGetHinting(font_rid RID.Font) Hinting {
+	return o.Super().FontGetHinting(font_rid)
+}
+func (o *Extension[T]) FontSetSubpixelPositioning(font_rid RID.Font, subpixel_positioning SubpixelPositioning) {
+	o.Super().FontSetSubpixelPositioning(font_rid, subpixel_positioning)
+}
+func (o *Extension[T]) FontGetSubpixelPositioning(font_rid RID.Font) SubpixelPositioning {
+	return o.Super().FontGetSubpixelPositioning(font_rid)
+}
+func (o *Extension[T]) FontSetKeepRoundingRemainders(font_rid RID.Font, keep_rounding_remainders bool) {
+	o.Super().FontSetKeepRoundingRemainders(font_rid, keep_rounding_remainders)
+}
+func (o *Extension[T]) FontGetKeepRoundingRemainders(font_rid RID.Font) bool {
+	return o.Super().FontGetKeepRoundingRemainders(font_rid)
+}
+func (o *Extension[T]) FontSetEmbolden(font_rid RID.Font, strength Float.X) {
+	o.Super().FontSetEmbolden(font_rid, strength)
+}
+func (o *Extension[T]) FontGetEmbolden(font_rid RID.Font) Float.X {
+	return o.Super().FontGetEmbolden(font_rid)
+}
+func (o *Extension[T]) FontSetSpacing(font_rid RID.Font, spacing SpacingType, value int) {
+	o.Super().FontSetSpacing(font_rid, spacing, value)
+}
+func (o *Extension[T]) FontGetSpacing(font_rid RID.Font, spacing SpacingType) int {
+	return o.Super().FontGetSpacing(font_rid, spacing)
+}
+func (o *Extension[T]) FontSetBaselineOffset(font_rid RID.Font, baseline_offset Float.X) {
+	o.Super().FontSetBaselineOffset(font_rid, baseline_offset)
+}
+func (o *Extension[T]) FontGetBaselineOffset(font_rid RID.Font) Float.X {
+	return o.Super().FontGetBaselineOffset(font_rid)
+}
+func (o *Extension[T]) FontSetTransform(font_rid RID.Font, transform Transform2D.OriginXY) {
+	o.Super().FontSetTransform(font_rid, transform)
+}
+func (o *Extension[T]) FontGetTransform(font_rid RID.Font) Transform2D.OriginXY {
+	return o.Super().FontGetTransform(font_rid)
+}
+func (o *Extension[T]) FontSetVariationCoordinates(font_rid RID.Font, variation_coordinates map[string]float32) {
+	o.Super().FontSetVariationCoordinates(font_rid, variation_coordinates)
+}
+func (o *Extension[T]) FontGetVariationCoordinates(font_rid RID.Font) map[string]float32 {
+	return o.Super().FontGetVariationCoordinates(font_rid)
+}
+func (o *Extension[T]) FontSetOversampling(font_rid RID.Font, oversampling Float.X) {
+	o.Super().FontSetOversampling(font_rid, oversampling)
+}
+func (o *Extension[T]) FontGetOversampling(font_rid RID.Font) Float.X {
+	return o.Super().FontGetOversampling(font_rid)
+}
+func (o *Extension[T]) FontGetSizeCacheList(font_rid RID.Font) []Vector2i.XY {
+	return o.Super().FontGetSizeCacheList(font_rid)
+}
+func (o *Extension[T]) FontClearSizeCache(font_rid RID.Font) {
+	o.Super().FontClearSizeCache(font_rid)
+}
+func (o *Extension[T]) FontRemoveSizeCache(font_rid RID.Font, size Vector2i.XY) {
+	o.Super().FontRemoveSizeCache(font_rid, size)
+}
+func (o *Extension[T]) FontGetSizeCacheInfo(font_rid RID.Font) []FontSizeCacheInfo {
+	return o.Super().FontGetSizeCacheInfo(font_rid)
+}
+func (o *Extension[T]) FontSetAscent(font_rid RID.Font, size int, ascent Float.X) {
+	o.Super().FontSetAscent(font_rid, size, ascent)
+}
+func (o *Extension[T]) FontGetAscent(font_rid RID.Font, size int) Float.X {
+	return o.Super().FontGetAscent(font_rid, size)
+}
+func (o *Extension[T]) FontSetDescent(font_rid RID.Font, size int, descent Float.X) {
+	o.Super().FontSetDescent(font_rid, size, descent)
+}
+func (o *Extension[T]) FontGetDescent(font_rid RID.Font, size int) Float.X {
+	return o.Super().FontGetDescent(font_rid, size)
+}
+func (o *Extension[T]) FontSetUnderlinePosition(font_rid RID.Font, size int, underline_position Float.X) {
+	o.Super().FontSetUnderlinePosition(font_rid, size, underline_position)
+}
+func (o *Extension[T]) FontGetUnderlinePosition(font_rid RID.Font, size int) Float.X {
+	return o.Super().FontGetUnderlinePosition(font_rid, size)
+}
+func (o *Extension[T]) FontSetUnderlineThickness(font_rid RID.Font, size int, underline_thickness Float.X) {
+	o.Super().FontSetUnderlineThickness(font_rid, size, underline_thickness)
+}
+func (o *Extension[T]) FontGetUnderlineThickness(font_rid RID.Font, size int) Float.X {
+	return o.Super().FontGetUnderlineThickness(font_rid, size)
+}
+func (o *Extension[T]) FontSetScale(font_rid RID.Font, size int, scale Float.X) {
+	o.Super().FontSetScale(font_rid, size, scale)
+}
+func (o *Extension[T]) FontGetScale(font_rid RID.Font, size int) Float.X {
+	return o.Super().FontGetScale(font_rid, size)
+}
+func (o *Extension[T]) FontGetTextureCount(font_rid RID.Font, size Vector2i.XY) int {
+	return o.Super().FontGetTextureCount(font_rid, size)
+}
+func (o *Extension[T]) FontClearTextures(font_rid RID.Font, size Vector2i.XY) {
+	o.Super().FontClearTextures(font_rid, size)
+}
+func (o *Extension[T]) FontRemoveTexture(font_rid RID.Font, size Vector2i.XY, texture_index int) {
+	o.Super().FontRemoveTexture(font_rid, size, texture_index)
+}
+func (o *Extension[T]) FontSetTextureImage(font_rid RID.Font, size Vector2i.XY, texture_index int, image Image.Instance) {
+	o.Super().FontSetTextureImage(font_rid, size, texture_index, image)
+}
+func (o *Extension[T]) FontGetTextureImage(font_rid RID.Font, size Vector2i.XY, texture_index int) Image.Instance {
+	return o.Super().FontGetTextureImage(font_rid, size, texture_index)
+}
+func (o *Extension[T]) FontSetTextureOffsets(font_rid RID.Font, size Vector2i.XY, texture_index int, offset []int32) {
+	o.Super().FontSetTextureOffsets(font_rid, size, texture_index, offset)
+}
+func (o *Extension[T]) FontGetTextureOffsets(font_rid RID.Font, size Vector2i.XY, texture_index int) []int32 {
+	return o.Super().FontGetTextureOffsets(font_rid, size, texture_index)
+}
+func (o *Extension[T]) FontGetGlyphList(font_rid RID.Font, size Vector2i.XY) []int32 {
+	return o.Super().FontGetGlyphList(font_rid, size)
+}
+func (o *Extension[T]) FontClearGlyphs(font_rid RID.Font, size Vector2i.XY) {
+	o.Super().FontClearGlyphs(font_rid, size)
+}
+func (o *Extension[T]) FontRemoveGlyph(font_rid RID.Font, size Vector2i.XY, glyph int) {
+	o.Super().FontRemoveGlyph(font_rid, size, glyph)
+}
+func (o *Extension[T]) FontGetGlyphAdvance(font_rid RID.Font, size int, glyph int) Vector2.XY {
+	return o.Super().FontGetGlyphAdvance(font_rid, size, glyph)
+}
+func (o *Extension[T]) FontSetGlyphAdvance(font_rid RID.Font, size int, glyph int, advance Vector2.XY) {
+	o.Super().FontSetGlyphAdvance(font_rid, size, glyph, advance)
+}
+func (o *Extension[T]) FontGetGlyphOffset(font_rid RID.Font, size Vector2i.XY, glyph int) Vector2.XY {
+	return o.Super().FontGetGlyphOffset(font_rid, size, glyph)
+}
+func (o *Extension[T]) FontSetGlyphOffset(font_rid RID.Font, size Vector2i.XY, glyph int, offset Vector2.XY) {
+	o.Super().FontSetGlyphOffset(font_rid, size, glyph, offset)
+}
+func (o *Extension[T]) FontGetGlyphSize(font_rid RID.Font, size Vector2i.XY, glyph int) Vector2.XY {
+	return o.Super().FontGetGlyphSize(font_rid, size, glyph)
+}
+func (o *Extension[T]) FontSetGlyphSize(font_rid RID.Font, size Vector2i.XY, glyph int, gl_size Vector2.XY) {
+	o.Super().FontSetGlyphSize(font_rid, size, glyph, gl_size)
+}
+func (o *Extension[T]) FontGetGlyphUvRect(font_rid RID.Font, size Vector2i.XY, glyph int) Rect2.PositionSize {
+	return o.Super().FontGetGlyphUvRect(font_rid, size, glyph)
+}
+func (o *Extension[T]) FontSetGlyphUvRect(font_rid RID.Font, size Vector2i.XY, glyph int, uv_rect Rect2.PositionSize) {
+	o.Super().FontSetGlyphUvRect(font_rid, size, glyph, uv_rect)
+}
+func (o *Extension[T]) FontGetGlyphTextureIdx(font_rid RID.Font, size Vector2i.XY, glyph int) int {
+	return o.Super().FontGetGlyphTextureIdx(font_rid, size, glyph)
+}
+func (o *Extension[T]) FontSetGlyphTextureIdx(font_rid RID.Font, size Vector2i.XY, glyph int, texture_idx int) {
+	o.Super().FontSetGlyphTextureIdx(font_rid, size, glyph, texture_idx)
+}
+func (o *Extension[T]) FontGetGlyphTextureRid(font_rid RID.Font, size Vector2i.XY, glyph int) RID.Texture {
+	return o.Super().FontGetGlyphTextureRid(font_rid, size, glyph)
+}
+func (o *Extension[T]) FontGetGlyphTextureSize(font_rid RID.Font, size Vector2i.XY, glyph int) Vector2.XY {
+	return o.Super().FontGetGlyphTextureSize(font_rid, size, glyph)
+}
+func (o *Extension[T]) FontGetGlyphContours(font RID.Font, size int, index int) GlyphContours {
+	return o.Super().FontGetGlyphContours(font, size, index)
+}
+func (o *Extension[T]) FontGetKerningList(font_rid RID.Font, size int) []Vector2i.XY {
+	return o.Super().FontGetKerningList(font_rid, size)
+}
+func (o *Extension[T]) FontClearKerningMap(font_rid RID.Font, size int) {
+	o.Super().FontClearKerningMap(font_rid, size)
+}
+func (o *Extension[T]) FontRemoveKerning(font_rid RID.Font, size int, glyph_pair Vector2i.XY) {
+	o.Super().FontRemoveKerning(font_rid, size, glyph_pair)
+}
+func (o *Extension[T]) FontSetKerning(font_rid RID.Font, size int, glyph_pair Vector2i.XY, kerning Vector2.XY) {
+	o.Super().FontSetKerning(font_rid, size, glyph_pair, kerning)
+}
+func (o *Extension[T]) FontGetKerning(font_rid RID.Font, size int, glyph_pair Vector2i.XY) Vector2.XY {
+	return o.Super().FontGetKerning(font_rid, size, glyph_pair)
+}
+func (o *Extension[T]) FontGetGlyphIndex(font_rid RID.Font, size int, char int, variation_selector int) int {
+	return o.Super().FontGetGlyphIndex(font_rid, size, char, variation_selector)
+}
+func (o *Extension[T]) FontGetCharFromGlyphIndex(font_rid RID.Font, size int, glyph_index int) int {
+	return o.Super().FontGetCharFromGlyphIndex(font_rid, size, glyph_index)
+}
+func (o *Extension[T]) FontHasChar(font_rid RID.Font, char int) bool {
+	return o.Super().FontHasChar(font_rid, char)
+}
+func (o *Extension[T]) FontGetSupportedChars(font_rid RID.Font) string {
+	return o.Super().FontGetSupportedChars(font_rid)
+}
+func (o *Extension[T]) FontGetSupportedGlyphs(font_rid RID.Font) []int32 {
+	return o.Super().FontGetSupportedGlyphs(font_rid)
+}
+func (o *Extension[T]) FontRenderRange(font_rid RID.Font, size Vector2i.XY, start int, end int) {
+	o.Super().FontRenderRange(font_rid, size, start, end)
+}
+func (o *Extension[T]) FontRenderGlyph(font_rid RID.Font, size Vector2i.XY, index int) {
+	o.Super().FontRenderGlyph(font_rid, size, index)
+}
+func (o *Extension[T]) FontIsLanguageSupported(font_rid RID.Font, language string) bool {
+	return o.Super().FontIsLanguageSupported(font_rid, language)
+}
+func (o *Extension[T]) FontSetLanguageSupportOverride(font_rid RID.Font, language string, supported bool) {
+	o.Super().FontSetLanguageSupportOverride(font_rid, language, supported)
+}
+func (o *Extension[T]) FontGetLanguageSupportOverride(font_rid RID.Font, language string) bool {
+	return o.Super().FontGetLanguageSupportOverride(font_rid, language)
+}
+func (o *Extension[T]) FontRemoveLanguageSupportOverride(font_rid RID.Font, language string) {
+	o.Super().FontRemoveLanguageSupportOverride(font_rid, language)
+}
+func (o *Extension[T]) FontGetLanguageSupportOverrides(font_rid RID.Font) []string {
+	return o.Super().FontGetLanguageSupportOverrides(font_rid)
+}
+func (o *Extension[T]) FontIsScriptSupported(font_rid RID.Font, script string) bool {
+	return o.Super().FontIsScriptSupported(font_rid, script)
+}
+func (o *Extension[T]) FontSetScriptSupportOverride(font_rid RID.Font, script string, supported bool) {
+	o.Super().FontSetScriptSupportOverride(font_rid, script, supported)
+}
+func (o *Extension[T]) FontGetScriptSupportOverride(font_rid RID.Font, script string) bool {
+	return o.Super().FontGetScriptSupportOverride(font_rid, script)
+}
+func (o *Extension[T]) FontRemoveScriptSupportOverride(font_rid RID.Font, script string) {
+	o.Super().FontRemoveScriptSupportOverride(font_rid, script)
+}
+func (o *Extension[T]) FontGetScriptSupportOverrides(font_rid RID.Font) []string {
+	return o.Super().FontGetScriptSupportOverrides(font_rid)
+}
+func (o *Extension[T]) FontSetOpentypeFeatureOverrides(font_rid RID.Font, overrides map[string][2]string) {
+	o.Super().FontSetOpentypeFeatureOverrides(font_rid, overrides)
+}
+func (o *Extension[T]) FontGetOpentypeFeatureOverrides(font_rid RID.Font) map[string][2]string {
+	return o.Super().FontGetOpentypeFeatureOverrides(font_rid)
+}
+func (o *Extension[T]) FontSupportedFeatureList(font_rid RID.Font) map[string]OpenTypeFeature {
+	return o.Super().FontSupportedFeatureList(font_rid)
+}
+func (o *Extension[T]) FontSupportedVariationList(font_rid RID.Font) map[int]struct { X int32; Y int32; Z int32 } {
+	return o.Super().FontSupportedVariationList(font_rid)
+}
+func (o *Extension[T]) FontGetGlobalOversampling() Float.X {
+	return o.Super().FontGetGlobalOversampling()
+}
+func (o *Extension[T]) FontSetGlobalOversampling(oversampling Float.X) {
+	o.Super().FontSetGlobalOversampling(oversampling)
+}
+func (o *Extension[T]) GetHexCodeBoxSize(size int, index int) Vector2.XY {
+	return o.Super().GetHexCodeBoxSize(size, index)
+}
+func (o *Extension[T]) DrawHexCodeBox(canvas RID.Canvas, size int, pos Vector2.XY, index int, color Color.RGBA) {
+	o.Super().DrawHexCodeBox(canvas, size, pos, index, color)
+}
+func (o *Extension[T]) ShapedTextClear(rid RID.TextBuffer) {
+	o.Super().ShapedTextClear(rid)
+}
+func (o *Extension[T]) ShapedTextDuplicate(rid RID.TextBuffer) RID.TextBuffer {
+	return o.Super().ShapedTextDuplicate(rid)
+}
+func (o *Extension[T]) ShapedTextGetDirection(shaped RID.TextBuffer) Direction {
+	return o.Super().ShapedTextGetDirection(shaped)
+}
+func (o *Extension[T]) ShapedTextGetInferredDirection(shaped RID.TextBuffer) Direction {
+	return o.Super().ShapedTextGetInferredDirection(shaped)
+}
+func (o *Extension[T]) ShapedTextSetBidiOverride(shaped RID.TextBuffer, override []any) {
+	o.Super().ShapedTextSetBidiOverride(shaped, override)
+}
+func (o *Extension[T]) ShapedTextSetCustomPunctuation(shaped RID.TextBuffer, punct string) {
+	o.Super().ShapedTextSetCustomPunctuation(shaped, punct)
+}
+func (o *Extension[T]) ShapedTextGetCustomPunctuation(shaped RID.TextBuffer) string {
+	return o.Super().ShapedTextGetCustomPunctuation(shaped)
+}
+func (o *Extension[T]) ShapedTextSetCustomEllipsis(shaped RID.TextBuffer, char int) {
+	o.Super().ShapedTextSetCustomEllipsis(shaped, char)
+}
+func (o *Extension[T]) ShapedTextGetCustomEllipsis(shaped RID.TextBuffer) int {
+	return o.Super().ShapedTextGetCustomEllipsis(shaped)
+}
+func (o *Extension[T]) ShapedTextGetOrientation(shaped RID.TextBuffer) Orientation {
+	return o.Super().ShapedTextGetOrientation(shaped)
+}
+func (o *Extension[T]) ShapedTextSetPreserveInvalid(shaped RID.TextBuffer, enabled bool) {
+	o.Super().ShapedTextSetPreserveInvalid(shaped, enabled)
+}
+func (o *Extension[T]) ShapedTextGetPreserveInvalid(shaped RID.TextBuffer) bool {
+	return o.Super().ShapedTextGetPreserveInvalid(shaped)
+}
+func (o *Extension[T]) ShapedTextSetPreserveControl(shaped RID.TextBuffer, enabled bool) {
+	o.Super().ShapedTextSetPreserveControl(shaped, enabled)
+}
+func (o *Extension[T]) ShapedTextGetPreserveControl(shaped RID.TextBuffer) bool {
+	return o.Super().ShapedTextGetPreserveControl(shaped)
+}
+func (o *Extension[T]) ShapedTextSetSpacing(shaped RID.TextBuffer, spacing SpacingType, value int) {
+	o.Super().ShapedTextSetSpacing(shaped, spacing, value)
+}
+func (o *Extension[T]) ShapedTextGetSpacing(shaped RID.TextBuffer, spacing SpacingType) int {
+	return o.Super().ShapedTextGetSpacing(shaped, spacing)
+}
+func (o *Extension[T]) ShapedTextHasObject(shaped RID.TextBuffer, key any) bool {
+	return o.Super().ShapedTextHasObject(shaped, key)
+}
+func (o *Extension[T]) ShapedGetText(shaped RID.TextBuffer) string {
+	return o.Super().ShapedGetText(shaped)
+}
+func (o *Extension[T]) ShapedGetSpanCount(shaped RID.TextBuffer) int {
+	return o.Super().ShapedGetSpanCount(shaped)
+}
+func (o *Extension[T]) ShapedGetSpanMeta(shaped RID.TextBuffer, index int) any {
+	return o.Super().ShapedGetSpanMeta(shaped, index)
+}
+func (o *Extension[T]) ShapedGetSpanEmbeddedObject(shaped RID.TextBuffer, index int) any {
+	return o.Super().ShapedGetSpanEmbeddedObject(shaped, index)
+}
+func (o *Extension[T]) ShapedGetSpanText(shaped RID.TextBuffer, index int) string {
+	return o.Super().ShapedGetSpanText(shaped, index)
+}
+func (o *Extension[T]) ShapedGetSpanObject(shaped RID.TextBuffer, index int) any {
+	return o.Super().ShapedGetSpanObject(shaped, index)
+}
+func (o *Extension[T]) ShapedGetRunCount(shaped RID.TextBuffer) int {
+	return o.Super().ShapedGetRunCount(shaped)
+}
+func (o *Extension[T]) ShapedGetRunText(shaped RID.TextBuffer, index int) string {
+	return o.Super().ShapedGetRunText(shaped, index)
+}
+func (o *Extension[T]) ShapedGetRunRange(shaped RID.TextBuffer, index int) Vector2i.XY {
+	return o.Super().ShapedGetRunRange(shaped, index)
+}
+func (o *Extension[T]) ShapedGetRunFontRid(shaped RID.TextBuffer, index int) RID.Font {
+	return o.Super().ShapedGetRunFontRid(shaped, index)
+}
+func (o *Extension[T]) ShapedGetRunFontSize(shaped RID.TextBuffer, index int) int {
+	return o.Super().ShapedGetRunFontSize(shaped, index)
+}
+func (o *Extension[T]) ShapedGetRunLanguage(shaped RID.TextBuffer, index int) string {
+	return o.Super().ShapedGetRunLanguage(shaped, index)
+}
+func (o *Extension[T]) ShapedGetRunDirection(shaped RID.TextBuffer, index int) Direction {
+	return o.Super().ShapedGetRunDirection(shaped, index)
+}
+func (o *Extension[T]) ShapedGetRunObject(shaped RID.TextBuffer, index int) any {
+	return o.Super().ShapedGetRunObject(shaped, index)
+}
+func (o *Extension[T]) ShapedTextSubstr(shaped RID.TextBuffer, start int, length int) RID.TextBuffer {
+	return o.Super().ShapedTextSubstr(shaped, start, length)
+}
+func (o *Extension[T]) ShapedTextGetParent(shaped RID.TextBuffer) RID.TextBuffer {
+	return o.Super().ShapedTextGetParent(shaped)
+}
+func (o *Extension[T]) ShapedTextTabAlign(shaped RID.TextBuffer, tab_stops []float32) Float.X {
+	return o.Super().ShapedTextTabAlign(shaped, tab_stops)
+}
+func (o *Extension[T]) ShapedTextShape(shaped RID.TextBuffer) bool {
+	return o.Super().ShapedTextShape(shaped)
+}
+func (o *Extension[T]) ShapedTextIsReady(shaped RID.TextBuffer) bool {
+	return o.Super().ShapedTextIsReady(shaped)
+}
+func (o *Extension[T]) ShapedTextHasVisibleChars(shaped RID.TextBuffer) bool {
+	return o.Super().ShapedTextHasVisibleChars(shaped)
+}
+func (o *Extension[T]) ShapedTextGetGlyphs(shaped RID.TextBuffer) [][]Glyph {
+	return o.Super().ShapedTextGetGlyphs(shaped)
+}
+func (o *Extension[T]) ShapedTextSortLogical(shaped RID.TextBuffer) [][]Glyph {
+	return o.Super().ShapedTextSortLogical(shaped)
+}
+func (o *Extension[T]) ShapedTextGetGlyphCount(shaped RID.TextBuffer) int {
+	return o.Super().ShapedTextGetGlyphCount(shaped)
+}
+func (o *Extension[T]) ShapedTextGetRange(shaped RID.TextBuffer) Vector2i.XY {
+	return o.Super().ShapedTextGetRange(shaped)
+}
+func (o *Extension[T]) ShapedTextGetTrimPos(shaped RID.TextBuffer) int {
+	return o.Super().ShapedTextGetTrimPos(shaped)
+}
+func (o *Extension[T]) ShapedTextGetEllipsisPos(shaped RID.TextBuffer) int {
+	return o.Super().ShapedTextGetEllipsisPos(shaped)
+}
+func (o *Extension[T]) ShapedTextGetEllipsisGlyphs(shaped RID.TextBuffer) [][]Glyph {
+	return o.Super().ShapedTextGetEllipsisGlyphs(shaped)
+}
+func (o *Extension[T]) ShapedTextGetEllipsisGlyphCount(shaped RID.TextBuffer) int {
+	return o.Super().ShapedTextGetEllipsisGlyphCount(shaped)
+}
+func (o *Extension[T]) ShapedTextGetObjects(shaped RID.TextBuffer) []any {
+	return o.Super().ShapedTextGetObjects(shaped)
+}
+func (o *Extension[T]) ShapedTextGetObjectRect(shaped RID.TextBuffer, key any) Rect2.PositionSize {
+	return o.Super().ShapedTextGetObjectRect(shaped, key)
+}
+func (o *Extension[T]) ShapedTextGetObjectRange(shaped RID.TextBuffer, key any) Vector2i.XY {
+	return o.Super().ShapedTextGetObjectRange(shaped, key)
+}
+func (o *Extension[T]) ShapedTextGetObjectGlyph(shaped RID.TextBuffer, key any) int {
+	return o.Super().ShapedTextGetObjectGlyph(shaped, key)
+}
+func (o *Extension[T]) ShapedTextGetSize(shaped RID.TextBuffer) Vector2.XY {
+	return o.Super().ShapedTextGetSize(shaped)
+}
+func (o *Extension[T]) ShapedTextGetAscent(shaped RID.TextBuffer) Float.X {
+	return o.Super().ShapedTextGetAscent(shaped)
+}
+func (o *Extension[T]) ShapedTextGetDescent(shaped RID.TextBuffer) Float.X {
+	return o.Super().ShapedTextGetDescent(shaped)
+}
+func (o *Extension[T]) ShapedTextGetWidth(shaped RID.TextBuffer) Float.X {
+	return o.Super().ShapedTextGetWidth(shaped)
+}
+func (o *Extension[T]) ShapedTextGetUnderlinePosition(shaped RID.TextBuffer) Float.X {
+	return o.Super().ShapedTextGetUnderlinePosition(shaped)
+}
+func (o *Extension[T]) ShapedTextGetUnderlineThickness(shaped RID.TextBuffer) Float.X {
+	return o.Super().ShapedTextGetUnderlineThickness(shaped)
+}
+func (o *Extension[T]) ShapedTextGetCarets(shaped RID.TextBuffer, position int) Carets {
+	return o.Super().ShapedTextGetCarets(shaped, position)
+}
+func (o *Extension[T]) ShapedTextGetSelection(shaped RID.TextBuffer, start int, end int) []Vector2.XY {
+	return o.Super().ShapedTextGetSelection(shaped, start, end)
+}
+func (o *Extension[T]) ShapedTextHitTestGrapheme(shaped RID.TextBuffer, coords Float.X) int {
+	return o.Super().ShapedTextHitTestGrapheme(shaped, coords)
+}
+func (o *Extension[T]) ShapedTextHitTestPosition(shaped RID.TextBuffer, coords Float.X) int {
+	return o.Super().ShapedTextHitTestPosition(shaped, coords)
+}
+func (o *Extension[T]) ShapedTextGetGraphemeBounds(shaped RID.TextBuffer, pos int) Vector2.XY {
+	return o.Super().ShapedTextGetGraphemeBounds(shaped, pos)
+}
+func (o *Extension[T]) ShapedTextNextGraphemePos(shaped RID.TextBuffer, pos int) int {
+	return o.Super().ShapedTextNextGraphemePos(shaped, pos)
+}
+func (o *Extension[T]) ShapedTextPrevGraphemePos(shaped RID.TextBuffer, pos int) int {
+	return o.Super().ShapedTextPrevGraphemePos(shaped, pos)
+}
+func (o *Extension[T]) ShapedTextGetCharacterBreaks(shaped RID.TextBuffer) []int32 {
+	return o.Super().ShapedTextGetCharacterBreaks(shaped)
+}
+func (o *Extension[T]) ShapedTextNextCharacterPos(shaped RID.TextBuffer, pos int) int {
+	return o.Super().ShapedTextNextCharacterPos(shaped, pos)
+}
+func (o *Extension[T]) ShapedTextPrevCharacterPos(shaped RID.TextBuffer, pos int) int {
+	return o.Super().ShapedTextPrevCharacterPos(shaped, pos)
+}
+func (o *Extension[T]) ShapedTextClosestCharacterPos(shaped RID.TextBuffer, pos int) int {
+	return o.Super().ShapedTextClosestCharacterPos(shaped, pos)
+}
+func (o *Extension[T]) ShapedTextGetDominantDirectionInRange(shaped RID.TextBuffer, start int, end int) Direction {
+	return o.Super().ShapedTextGetDominantDirectionInRange(shaped, start, end)
+}
+func (o *Extension[T]) IsConfusable(s string, dict []string) int {
+	return o.Super().IsConfusable(s, dict)
+}
+func (o *Extension[T]) SpoofCheck(s string) bool {
+	return o.Super().SpoofCheck(s)
+}
+func (o *Extension[T]) StripDiacritics(s string) string {
+	return o.Super().StripDiacritics(s)
+}
+func (o *Extension[T]) IsValidIdentifier(s string) bool {
+	return o.Super().IsValidIdentifier(s)
+}
+func (o *Extension[T]) IsValidLetter(unicode int) bool {
+	return o.Super().IsValidLetter(unicode)
+}
+func (o *Extension[T]) ParseStructuredText(parser_type StructuredTextParser, args []any, text string) []Vector3i.XYZ {
+	return o.Super().ParseStructuredText(parser_type, args, text)
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

@@ -433,6 +433,102 @@ func (o *Extension[T]) AsSurfaceTool() Instance { return o.Super() }
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) SetSkinWeightCount(count SkinWeightCount) *Extension[T] {
+	o.Super().SetSkinWeightCount(count)
+	return o
+}
+func (o *Extension[T]) GetSkinWeightCount() SkinWeightCount {
+	return o.Super().GetSkinWeightCount()
+}
+func (o *Extension[T]) SetCustomFormat(channel_index int, format CustomFormat) *Extension[T] {
+	o.Super().SetCustomFormat(channel_index, format)
+	return o
+}
+func (o *Extension[T]) GetCustomFormat(channel_index int) CustomFormat {
+	return o.Super().GetCustomFormat(channel_index)
+}
+func (o *Extension[T]) Begin(primitive Mesh.PrimitiveType) {
+	o.Super().Begin(primitive)
+}
+func (o *Extension[T]) AddVertex(vertex Vector3.XYZ) {
+	o.Super().AddVertex(vertex)
+}
+func (o *Extension[T]) SetColor(color Color.RGBA) *Extension[T] {
+	o.Super().SetColor(color)
+	return o
+}
+func (o *Extension[T]) SetNormal(normal Vector3.XYZ) *Extension[T] {
+	o.Super().SetNormal(normal)
+	return o
+}
+func (o *Extension[T]) SetTangent(tangent Plane.NormalD) *Extension[T] {
+	o.Super().SetTangent(tangent)
+	return o
+}
+func (o *Extension[T]) SetUv(uv Vector2.XY) *Extension[T] {
+	o.Super().SetUv(uv)
+	return o
+}
+func (o *Extension[T]) SetUv2(uv2 Vector2.XY) *Extension[T] {
+	o.Super().SetUv2(uv2)
+	return o
+}
+func (o *Extension[T]) SetBones(bones []int32) *Extension[T] {
+	o.Super().SetBones(bones)
+	return o
+}
+func (o *Extension[T]) SetWeights(weights []float32) *Extension[T] {
+	o.Super().SetWeights(weights)
+	return o
+}
+func (o *Extension[T]) SetCustom(channel_index int, custom_color Color.RGBA) *Extension[T] {
+	o.Super().SetCustom(channel_index, custom_color)
+	return o
+}
+func (o *Extension[T]) SetSmoothGroup(index int) *Extension[T] {
+	o.Super().SetSmoothGroup(index)
+	return o
+}
+func (o *Extension[T]) AddIndex(index int) {
+	o.Super().AddIndex(index)
+}
+func (o *Extension[T]) Index() {
+	o.Super().Index()
+}
+func (o *Extension[T]) Deindex() {
+	o.Super().Deindex()
+}
+func (o *Extension[T]) GenerateTangents() {
+	o.Super().GenerateTangents()
+}
+func (o *Extension[T]) OptimizeIndicesForCache() {
+	o.Super().OptimizeIndicesForCache()
+}
+func (o *Extension[T]) GetAabb() AABB.PositionSize {
+	return o.Super().GetAabb()
+}
+func (o *Extension[T]) SetMaterial(material Material.Instance) *Extension[T] {
+	o.Super().SetMaterial(material)
+	return o
+}
+func (o *Extension[T]) GetPrimitiveType() Mesh.PrimitiveType {
+	return o.Super().GetPrimitiveType()
+}
+func (o *Extension[T]) Clear() {
+	o.Super().Clear()
+}
+func (o *Extension[T]) CreateFrom(existing Mesh.Instance, surface int) {
+	o.Super().CreateFrom(existing, surface)
+}
+func (o *Extension[T]) CreateFromBlendShape(existing Mesh.Instance, surface int, blend_shape string) {
+	o.Super().CreateFromBlendShape(existing, surface, blend_shape)
+}
+func (o *Extension[T]) AppendFrom(existing Mesh.Instance, surface int, transform Transform3D.BasisOrigin) {
+	o.Super().AppendFrom(existing, surface, transform)
+}
+func (o *Extension[T]) CommitToArrays() []any {
+	return o.Super().CommitToArrays()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

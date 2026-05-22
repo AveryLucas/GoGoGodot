@@ -17,9 +17,12 @@ import "graphics.gd/variant"
 import "graphics.gd/variant/Angle"
 import "graphics.gd/variant/Euler"
 import "graphics.gd/variant/Signal"
+import "graphics.gd/classdb/ConcavePolygonShape3D"
+import "graphics.gd/classdb/Material"
 import "graphics.gd/classdb/Mesh"
 import "graphics.gd/classdb/Resource"
 import "graphics.gd/classdb/Shape3D"
+import "graphics.gd/classdb/TriangleMesh"
 import "graphics.gd/variant/AABB"
 import "graphics.gd/variant/Array"
 import "graphics.gd/variant/Callable"
@@ -33,6 +36,7 @@ import "graphics.gd/variant/RID"
 import "graphics.gd/variant/RefCounted"
 import "graphics.gd/variant/String"
 import "graphics.gd/variant/Transform3D"
+import "graphics.gd/variant/Vector3"
 
 var _ Object.ID
 type _ gdclass.Node
@@ -407,6 +411,268 @@ func (self Instance) OnSetupLocalToSceneRequested(cb func(), flags ...Signal.Fla
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("setup_local_to_scene_requested"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+func (o *Extension[T]) AddBlendShape(name string) {
+	o.Super().AddBlendShape(name)
+}
+func (o *Extension[T]) GetBlendShapeCount() int {
+	return o.Super().GetBlendShapeCount()
+}
+func (o *Extension[T]) GetBlendShapeName(index int) string {
+	return o.Super().GetBlendShapeName(index)
+}
+func (o *Extension[T]) SetBlendShapeName(index int, name string) *Extension[T] {
+	o.Super().SetBlendShapeName(index, name)
+	return o
+}
+func (o *Extension[T]) ClearBlendShapes() {
+	o.Super().ClearBlendShapes()
+}
+func (o *Extension[T]) ClearSurfaces() {
+	o.Super().ClearSurfaces()
+}
+func (o *Extension[T]) SurfaceRemove(surf_idx int) {
+	o.Super().SurfaceRemove(surf_idx)
+}
+func (o *Extension[T]) SurfaceUpdateVertexRegion(surf_idx int, offset int, data []byte) {
+	o.Super().SurfaceUpdateVertexRegion(surf_idx, offset, data)
+}
+func (o *Extension[T]) SurfaceUpdateAttributeRegion(surf_idx int, offset int, data []byte) {
+	o.Super().SurfaceUpdateAttributeRegion(surf_idx, offset, data)
+}
+func (o *Extension[T]) SurfaceUpdateSkinRegion(surf_idx int, offset int, data []byte) {
+	o.Super().SurfaceUpdateSkinRegion(surf_idx, offset, data)
+}
+func (o *Extension[T]) SurfaceGetArrayLen(surf_idx int) int {
+	return o.Super().SurfaceGetArrayLen(surf_idx)
+}
+func (o *Extension[T]) SurfaceGetArrayIndexLen(surf_idx int) int {
+	return o.Super().SurfaceGetArrayIndexLen(surf_idx)
+}
+func (o *Extension[T]) SurfaceGetFormat(surf_idx int) Mesh.ArrayFormat {
+	return o.Super().SurfaceGetFormat(surf_idx)
+}
+func (o *Extension[T]) SurfaceGetPrimitiveType(surf_idx int) Mesh.PrimitiveType {
+	return o.Super().SurfaceGetPrimitiveType(surf_idx)
+}
+func (o *Extension[T]) SurfaceFindByName(name string) int {
+	return o.Super().SurfaceFindByName(name)
+}
+func (o *Extension[T]) SurfaceSetName(surf_idx int, name string) {
+	o.Super().SurfaceSetName(surf_idx, name)
+}
+func (o *Extension[T]) SurfaceGetName(surf_idx int) string {
+	return o.Super().SurfaceGetName(surf_idx)
+}
+func (o *Extension[T]) RegenNormalMaps() {
+	o.Super().RegenNormalMaps()
+}
+func (o *Extension[T]) LightmapUnwrap(transform Transform3D.BasisOrigin, texel_size Float.X) error {
+	return o.Super().LightmapUnwrap(transform, texel_size)
+}
+
+// GetAabb is promoted from [Mesh.Instance.GetAabb].
+func (self Instance) GetAabb() AABB.PositionSize {
+	return self.AsMesh().GetAabb()
+}
+
+// GetAabb is promoted from [Mesh.Instance.GetAabb].
+func (o *Extension[T]) GetAabb() AABB.PositionSize {
+	return o.Super().AsMesh().GetAabb()
+}
+
+// GetFaces is promoted from [Mesh.Instance.GetFaces].
+func (self Instance) GetFaces() []Vector3.XYZ {
+	return self.AsMesh().GetFaces()
+}
+
+// GetFaces is promoted from [Mesh.Instance.GetFaces].
+func (o *Extension[T]) GetFaces() []Vector3.XYZ {
+	return o.Super().AsMesh().GetFaces()
+}
+
+// GetSurfaceCount is promoted from [Mesh.Instance.GetSurfaceCount].
+func (self Instance) GetSurfaceCount() int {
+	return self.AsMesh().GetSurfaceCount()
+}
+
+// GetSurfaceCount is promoted from [Mesh.Instance.GetSurfaceCount].
+func (o *Extension[T]) GetSurfaceCount() int {
+	return o.Super().AsMesh().GetSurfaceCount()
+}
+
+// SurfaceGetArrays is promoted from [Mesh.Instance.SurfaceGetArrays].
+func (self Instance) SurfaceGetArrays(surf_idx int) []any {
+	return self.AsMesh().SurfaceGetArrays(surf_idx)
+}
+
+// SurfaceGetArrays is promoted from [Mesh.Instance.SurfaceGetArrays].
+func (o *Extension[T]) SurfaceGetArrays(surf_idx int) []any {
+	return o.Super().AsMesh().SurfaceGetArrays(surf_idx)
+}
+
+// SurfaceGetBlendShapeArrays is promoted from [Mesh.Instance.SurfaceGetBlendShapeArrays].
+func (self Instance) SurfaceGetBlendShapeArrays(surf_idx int) [][][]any {
+	return self.AsMesh().SurfaceGetBlendShapeArrays(surf_idx)
+}
+
+// SurfaceGetBlendShapeArrays is promoted from [Mesh.Instance.SurfaceGetBlendShapeArrays].
+func (o *Extension[T]) SurfaceGetBlendShapeArrays(surf_idx int) [][][]any {
+	return o.Super().AsMesh().SurfaceGetBlendShapeArrays(surf_idx)
+}
+
+// SurfaceSetMaterial is promoted from [Mesh.Instance.SurfaceSetMaterial].
+func (self Instance) SurfaceSetMaterial(surf_idx int, material Material.Instance) {
+	self.AsMesh().SurfaceSetMaterial(surf_idx, material)
+}
+
+// SurfaceSetMaterial is promoted from [Mesh.Instance.SurfaceSetMaterial].
+func (o *Extension[T]) SurfaceSetMaterial(surf_idx int, material Material.Instance) {
+	o.Super().AsMesh().SurfaceSetMaterial(surf_idx, material)
+}
+
+// SurfaceGetMaterial is promoted from [Mesh.Instance.SurfaceGetMaterial].
+func (self Instance) SurfaceGetMaterial(surf_idx int) Material.Instance {
+	return self.AsMesh().SurfaceGetMaterial(surf_idx)
+}
+
+// SurfaceGetMaterial is promoted from [Mesh.Instance.SurfaceGetMaterial].
+func (o *Extension[T]) SurfaceGetMaterial(surf_idx int) Material.Instance {
+	return o.Super().AsMesh().SurfaceGetMaterial(surf_idx)
+}
+
+// CreatePlaceholder is promoted from [Mesh.Instance.CreatePlaceholder].
+func (self Instance) CreatePlaceholder() Resource.Instance {
+	return self.AsMesh().CreatePlaceholder()
+}
+
+// CreatePlaceholder is promoted from [Mesh.Instance.CreatePlaceholder].
+func (o *Extension[T]) CreatePlaceholder() Resource.Instance {
+	return o.Super().AsMesh().CreatePlaceholder()
+}
+
+// CreateTrimeshShape is promoted from [Mesh.Instance.CreateTrimeshShape].
+func (self Instance) CreateTrimeshShape() ConcavePolygonShape3D.Instance {
+	return self.AsMesh().CreateTrimeshShape()
+}
+
+// CreateTrimeshShape is promoted from [Mesh.Instance.CreateTrimeshShape].
+func (o *Extension[T]) CreateTrimeshShape() ConcavePolygonShape3D.Instance {
+	return o.Super().AsMesh().CreateTrimeshShape()
+}
+
+// CreateOutline is promoted from [Mesh.Instance.CreateOutline].
+func (self Instance) CreateOutline(margin Float.X) Mesh.Instance {
+	return self.AsMesh().CreateOutline(margin)
+}
+
+// CreateOutline is promoted from [Mesh.Instance.CreateOutline].
+func (o *Extension[T]) CreateOutline(margin Float.X) Mesh.Instance {
+	return o.Super().AsMesh().CreateOutline(margin)
+}
+
+// GenerateTriangleMesh is promoted from [Mesh.Instance.GenerateTriangleMesh].
+func (self Instance) GenerateTriangleMesh() TriangleMesh.Instance {
+	return self.AsMesh().GenerateTriangleMesh()
+}
+
+// GenerateTriangleMesh is promoted from [Mesh.Instance.GenerateTriangleMesh].
+func (o *Extension[T]) GenerateTriangleMesh() TriangleMesh.Instance {
+	return o.Super().AsMesh().GenerateTriangleMesh()
+}
+
+// TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
+func (self Instance) TakeOverPath(path string) {
+	self.AsResource().TakeOverPath(path)
+}
+
+// TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
+func (o *Extension[T]) TakeOverPath(path string) {
+	o.Super().AsResource().TakeOverPath(path)
+}
+
+// SetPathCache is promoted from [Resource.Instance.SetPathCache].
+func (self Instance) SetPathCache(path string) Instance {
+	self.AsResource().SetPathCache(path)
+	return self
+}
+
+// SetPathCache is promoted from [Resource.Instance.SetPathCache].
+func (o *Extension[T]) SetPathCache(path string) *Extension[T] {
+	o.Super().AsResource().SetPathCache(path)
+	return o
+}
+
+// GetRid is promoted from [Resource.Instance.GetRid].
+func (self Instance) GetRid() Resource.ID {
+	return self.AsResource().GetRid()
+}
+
+// GetRid is promoted from [Resource.Instance.GetRid].
+func (o *Extension[T]) GetRid() Resource.ID {
+	return o.Super().AsResource().GetRid()
+}
+
+// SetupLocalToScene is promoted from [Resource.Instance.SetupLocalToScene].
+func (self Instance) SetupLocalToScene() {
+	self.AsResource().SetupLocalToScene()
+}
+
+// SetupLocalToScene is promoted from [Resource.Instance.SetupLocalToScene].
+func (o *Extension[T]) SetupLocalToScene() {
+	o.Super().AsResource().SetupLocalToScene()
+}
+
+// ResetState is promoted from [Resource.Instance.ResetState].
+func (self Instance) ResetState() {
+	self.AsResource().ResetState()
+}
+
+// ResetState is promoted from [Resource.Instance.ResetState].
+func (o *Extension[T]) ResetState() {
+	o.Super().AsResource().ResetState()
+}
+
+// SetIdForPath is promoted from [Resource.Instance.SetIdForPath].
+func (self Instance) SetIdForPath(path string, id string) Instance {
+	self.AsResource().SetIdForPath(path, id)
+	return self
+}
+
+// SetIdForPath is promoted from [Resource.Instance.SetIdForPath].
+func (o *Extension[T]) SetIdForPath(path string, id string) *Extension[T] {
+	o.Super().AsResource().SetIdForPath(path, id)
+	return o
+}
+
+// GetIdForPath is promoted from [Resource.Instance.GetIdForPath].
+func (self Instance) GetIdForPath(path string) string {
+	return self.AsResource().GetIdForPath(path)
+}
+
+// GetIdForPath is promoted from [Resource.Instance.GetIdForPath].
+func (o *Extension[T]) GetIdForPath(path string) string {
+	return o.Super().AsResource().GetIdForPath(path)
+}
+
+// IsBuiltIn is promoted from [Resource.Instance.IsBuiltIn].
+func (self Instance) IsBuiltIn() bool {
+	return self.AsResource().IsBuiltIn()
+}
+
+// IsBuiltIn is promoted from [Resource.Instance.IsBuiltIn].
+func (o *Extension[T]) IsBuiltIn() bool {
+	return o.Super().AsResource().IsBuiltIn()
+}
+
+// EmitChanged is promoted from [Resource.Instance.EmitChanged].
+func (self Instance) EmitChanged() {
+	self.AsResource().EmitChanged()
+}
+
+// EmitChanged is promoted from [Resource.Instance.EmitChanged].
+func (o *Extension[T]) EmitChanged() {
+	o.Super().AsResource().EmitChanged()
 }
 
 func (self class) Virtual(name string) reflect.Value {

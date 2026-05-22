@@ -189,6 +189,15 @@ func (o *Extension[T]) AsAESContext() Instance { return o.Super() }
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) Update(src []byte) []byte {
+	return o.Super().Update(src)
+}
+func (o *Extension[T]) GetIvState() []byte {
+	return o.Super().GetIvState()
+}
+func (o *Extension[T]) Finish() {
+	o.Super().Finish()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

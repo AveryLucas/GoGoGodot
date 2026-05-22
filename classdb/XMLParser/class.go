@@ -298,6 +298,57 @@ func (o *Extension[T]) AsXMLParser() Instance { return o.Super() }
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) Read() error {
+	return o.Super().Read()
+}
+func (o *Extension[T]) GetNodeType() NodeType {
+	return o.Super().GetNodeType()
+}
+func (o *Extension[T]) GetNodeName() string {
+	return o.Super().GetNodeName()
+}
+func (o *Extension[T]) GetNodeData() string {
+	return o.Super().GetNodeData()
+}
+func (o *Extension[T]) GetNodeOffset() int {
+	return o.Super().GetNodeOffset()
+}
+func (o *Extension[T]) GetAttributeCount() int {
+	return o.Super().GetAttributeCount()
+}
+func (o *Extension[T]) GetAttributeName(idx int) string {
+	return o.Super().GetAttributeName(idx)
+}
+func (o *Extension[T]) GetAttributeValue(idx int) string {
+	return o.Super().GetAttributeValue(idx)
+}
+func (o *Extension[T]) HasAttribute(name string) bool {
+	return o.Super().HasAttribute(name)
+}
+func (o *Extension[T]) GetNamedAttributeValue(name string) string {
+	return o.Super().GetNamedAttributeValue(name)
+}
+func (o *Extension[T]) GetNamedAttributeValueSafe(name string) string {
+	return o.Super().GetNamedAttributeValueSafe(name)
+}
+func (o *Extension[T]) IsEmpty() bool {
+	return o.Super().IsEmpty()
+}
+func (o *Extension[T]) GetCurrentLine() int {
+	return o.Super().GetCurrentLine()
+}
+func (o *Extension[T]) SkipSection() {
+	o.Super().SkipSection()
+}
+func (o *Extension[T]) SeekTo(position int) error {
+	return o.Super().SeekTo(position)
+}
+func (o *Extension[T]) Open(file string) error {
+	return o.Super().Open(file)
+}
+func (o *Extension[T]) OpenBuffer(buffer []byte) error {
+	return o.Super().OpenBuffer(buffer)
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

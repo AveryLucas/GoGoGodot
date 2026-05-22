@@ -181,6 +181,18 @@ func (self class) GetCameraAttributes() RID.Any { //gd:RenderData.get_camera_att
 func (o class) AsRenderData() Advanced { return Advanced(o) }
 func (o Instance) AsRenderData() Instance { return o }
 func (o *Extension[T]) AsRenderData() Instance { return o.Super() }
+func (o *Extension[T]) GetRenderSceneBuffers() RenderSceneBuffers.Instance {
+	return o.Super().GetRenderSceneBuffers()
+}
+func (o *Extension[T]) GetRenderSceneData() RenderSceneData.Instance {
+	return o.Super().GetRenderSceneData()
+}
+func (o *Extension[T]) GetEnvironment() RID.Environment {
+	return o.Super().GetEnvironment()
+}
+func (o *Extension[T]) GetCameraAttributes() RID.CameraAttributes {
+	return o.Super().GetCameraAttributes()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

@@ -20,6 +20,7 @@ import "graphics.gd/variant/Signal"
 import "graphics.gd/classdb/RDTextureFormat"
 import "graphics.gd/classdb/RDTextureView"
 import "graphics.gd/classdb/RenderSceneBuffers"
+import "graphics.gd/classdb/RenderSceneBuffersConfiguration"
 import "graphics.gd/classdb/Rendering"
 import "graphics.gd/classdb/RenderingServer"
 import "graphics.gd/variant/Array"
@@ -420,6 +421,79 @@ func (o Instance) AsRenderSceneBuffers() RenderSceneBuffers.Instance { return *(
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) HasTexture(context string, name string) bool {
+	return o.Super().HasTexture(context, name)
+}
+func (o *Extension[T]) CreateTexture(context string, name string, data_format Rendering.DataFormat, usage_bits int, texture_samples Rendering.TextureSamples, size Vector2i.XY, layers int, mipmaps int, unique bool, discardable bool) RID.Texture {
+	return o.Super().CreateTexture(context, name, data_format, usage_bits, texture_samples, size, layers, mipmaps, unique, discardable)
+}
+func (o *Extension[T]) CreateTextureFromFormat(context string, name string, format RDTextureFormat.Instance, view RDTextureView.Instance, unique bool) RID.Texture {
+	return o.Super().CreateTextureFromFormat(context, name, format, view, unique)
+}
+func (o *Extension[T]) CreateTextureView(context string, name string, view_name string, view RDTextureView.Instance) RID.Texture {
+	return o.Super().CreateTextureView(context, name, view_name, view)
+}
+func (o *Extension[T]) GetTexture(context string, name string) RID.Texture {
+	return o.Super().GetTexture(context, name)
+}
+func (o *Extension[T]) GetTextureFormat(context string, name string) RDTextureFormat.Instance {
+	return o.Super().GetTextureFormat(context, name)
+}
+func (o *Extension[T]) GetTextureSlice(context string, name string, layer int, mipmap int, layers int, mipmaps int) RID.Texture {
+	return o.Super().GetTextureSlice(context, name, layer, mipmap, layers, mipmaps)
+}
+func (o *Extension[T]) GetTextureSliceView(context string, name string, layer int, mipmap int, layers int, mipmaps int, view RDTextureView.Instance) RID.Texture {
+	return o.Super().GetTextureSliceView(context, name, layer, mipmap, layers, mipmaps, view)
+}
+func (o *Extension[T]) GetTextureSliceSize(context string, name string, mipmap int) Vector2i.XY {
+	return o.Super().GetTextureSliceSize(context, name, mipmap)
+}
+func (o *Extension[T]) ClearContext(context string) {
+	o.Super().ClearContext(context)
+}
+func (o *Extension[T]) GetRenderTarget() RID.Framebuffer {
+	return o.Super().GetRenderTarget()
+}
+func (o *Extension[T]) GetViewCount() int {
+	return o.Super().GetViewCount()
+}
+func (o *Extension[T]) GetInternalSize() Vector2i.XY {
+	return o.Super().GetInternalSize()
+}
+func (o *Extension[T]) GetTargetSize() Vector2i.XY {
+	return o.Super().GetTargetSize()
+}
+func (o *Extension[T]) GetScaling3dMode() RenderingServer.ViewportScaling3DMode {
+	return o.Super().GetScaling3dMode()
+}
+func (o *Extension[T]) GetFsrSharpness() Float.X {
+	return o.Super().GetFsrSharpness()
+}
+func (o *Extension[T]) GetMsaa3d() RenderingServer.ViewportMSAA {
+	return o.Super().GetMsaa3d()
+}
+func (o *Extension[T]) GetTextureSamples() Rendering.TextureSamples {
+	return o.Super().GetTextureSamples()
+}
+func (o *Extension[T]) GetScreenSpaceAa() RenderingServer.ViewportScreenSpaceAA {
+	return o.Super().GetScreenSpaceAa()
+}
+func (o *Extension[T]) GetUseTaa() bool {
+	return o.Super().GetUseTaa()
+}
+func (o *Extension[T]) GetUseDebanding() bool {
+	return o.Super().GetUseDebanding()
+}
+
+// Configure is promoted from [RenderSceneBuffers.Instance.Configure].
+func (self Instance) Configure(config RenderSceneBuffersConfiguration.Instance) {
+	self.AsRenderSceneBuffers().Configure(config)
+}
+
+// Configure is promoted from [RenderSceneBuffers.Instance.Configure].
+func (o *Extension[T]) Configure(config RenderSceneBuffersConfiguration.Instance) {
+	o.Super().AsRenderSceneBuffers().Configure(config)
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

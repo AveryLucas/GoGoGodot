@@ -294,6 +294,86 @@ func (o Instance) AsPacketPeer() PacketPeer.Instance { return *(*PacketPeer.Inst
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) Ping() {
+	o.Super().Ping()
+}
+func (o *Extension[T]) PingInterval(ping_interval int) {
+	o.Super().PingInterval(ping_interval)
+}
+func (o *Extension[T]) Reset() {
+	o.Super().Reset()
+}
+func (o *Extension[T]) Send(channel int, packet []byte, flags Flags) error {
+	return o.Super().Send(channel, packet, flags)
+}
+func (o *Extension[T]) ThrottleConfigure(interval int, acceleration int, deceleration int) {
+	o.Super().ThrottleConfigure(interval, acceleration, deceleration)
+}
+func (o *Extension[T]) SetTimeout(timeout int, timeout_min int, timeout_max int) *Extension[T] {
+	o.Super().SetTimeout(timeout, timeout_min, timeout_max)
+	return o
+}
+func (o *Extension[T]) GetPacketFlags() int {
+	return o.Super().GetPacketFlags()
+}
+func (o *Extension[T]) GetRemoteAddress() string {
+	return o.Super().GetRemoteAddress()
+}
+func (o *Extension[T]) GetRemotePort() int {
+	return o.Super().GetRemotePort()
+}
+func (o *Extension[T]) GetStatistic(statistic PeerStatistic) Float.X {
+	return o.Super().GetStatistic(statistic)
+}
+func (o *Extension[T]) GetState() PeerState {
+	return o.Super().GetState()
+}
+func (o *Extension[T]) GetChannels() int {
+	return o.Super().GetChannels()
+}
+func (o *Extension[T]) IsActive() bool {
+	return o.Super().IsActive()
+}
+
+// GetPacket is promoted from [PacketPeer.Instance.GetPacket].
+func (self Instance) GetPacket() []byte {
+	return self.AsPacketPeer().GetPacket()
+}
+
+// GetPacket is promoted from [PacketPeer.Instance.GetPacket].
+func (o *Extension[T]) GetPacket() []byte {
+	return o.Super().AsPacketPeer().GetPacket()
+}
+
+// PutPacket is promoted from [PacketPeer.Instance.PutPacket].
+func (self Instance) PutPacket(buffer []byte) error {
+	return self.AsPacketPeer().PutPacket(buffer)
+}
+
+// PutPacket is promoted from [PacketPeer.Instance.PutPacket].
+func (o *Extension[T]) PutPacket(buffer []byte) error {
+	return o.Super().AsPacketPeer().PutPacket(buffer)
+}
+
+// GetPacketError is promoted from [PacketPeer.Instance.GetPacketError].
+func (self Instance) GetPacketError() error {
+	return self.AsPacketPeer().GetPacketError()
+}
+
+// GetPacketError is promoted from [PacketPeer.Instance.GetPacketError].
+func (o *Extension[T]) GetPacketError() error {
+	return o.Super().AsPacketPeer().GetPacketError()
+}
+
+// GetAvailablePacketCount is promoted from [PacketPeer.Instance.GetAvailablePacketCount].
+func (self Instance) GetAvailablePacketCount() int {
+	return self.AsPacketPeer().GetAvailablePacketCount()
+}
+
+// GetAvailablePacketCount is promoted from [PacketPeer.Instance.GetAvailablePacketCount].
+func (o *Extension[T]) GetAvailablePacketCount() int {
+	return o.Super().AsPacketPeer().GetAvailablePacketCount()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

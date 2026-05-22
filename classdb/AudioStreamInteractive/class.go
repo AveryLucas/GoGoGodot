@@ -17,7 +17,9 @@ import "graphics.gd/variant"
 import "graphics.gd/variant/Angle"
 import "graphics.gd/variant/Euler"
 import "graphics.gd/variant/Signal"
+import "graphics.gd/classdb/AudioSample"
 import "graphics.gd/classdb/AudioStream"
+import "graphics.gd/classdb/AudioStreamPlayback"
 import "graphics.gd/classdb/Resource"
 import "graphics.gd/variant/Array"
 import "graphics.gd/variant/Callable"
@@ -395,6 +397,218 @@ func (self Instance) OnSetupLocalToSceneRequested(cb func(), flags ...Signal.Fla
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("setup_local_to_scene_requested"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+func (o *Extension[T]) SetClipName(clip_index Clip, name string) *Extension[T] {
+	o.Super().SetClipName(clip_index, name)
+	return o
+}
+func (o *Extension[T]) GetClipName(clip_index Clip) string {
+	return o.Super().GetClipName(clip_index)
+}
+func (o *Extension[T]) SetClipStream(clip_index Clip, stream AudioStream.Instance) *Extension[T] {
+	o.Super().SetClipStream(clip_index, stream)
+	return o
+}
+func (o *Extension[T]) GetClipStream(clip_index Clip) AudioStream.Instance {
+	return o.Super().GetClipStream(clip_index)
+}
+func (o *Extension[T]) SetClipAutoAdvance(clip_index Clip, mode AutoAdvanceMode) *Extension[T] {
+	o.Super().SetClipAutoAdvance(clip_index, mode)
+	return o
+}
+func (o *Extension[T]) GetClipAutoAdvance(clip_index Clip) AutoAdvanceMode {
+	return o.Super().GetClipAutoAdvance(clip_index)
+}
+func (o *Extension[T]) SetClipAutoAdvanceNextClip(clip_index Clip, auto_advance_next_clip Clip) *Extension[T] {
+	o.Super().SetClipAutoAdvanceNextClip(clip_index, auto_advance_next_clip)
+	return o
+}
+func (o *Extension[T]) GetClipAutoAdvanceNextClip(clip_index Clip) int {
+	return o.Super().GetClipAutoAdvanceNextClip(clip_index)
+}
+func (o *Extension[T]) HasTransition(from_clip Clip, to_clip Clip) bool {
+	return o.Super().HasTransition(from_clip, to_clip)
+}
+func (o *Extension[T]) EraseTransition(from_clip Clip, to_clip Clip) {
+	o.Super().EraseTransition(from_clip, to_clip)
+}
+func (o *Extension[T]) GetTransitionList() []int32 {
+	return o.Super().GetTransitionList()
+}
+func (o *Extension[T]) GetTransitionFromTime(from_clip Clip, to_clip Clip) TransitionFromTime {
+	return o.Super().GetTransitionFromTime(from_clip, to_clip)
+}
+func (o *Extension[T]) GetTransitionToTime(from_clip Clip, to_clip Clip) TransitionToTime {
+	return o.Super().GetTransitionToTime(from_clip, to_clip)
+}
+func (o *Extension[T]) GetTransitionFadeMode(from_clip Clip, to_clip Clip) FadeMode {
+	return o.Super().GetTransitionFadeMode(from_clip, to_clip)
+}
+func (o *Extension[T]) GetTransitionFadeBeats(from_clip Clip, to_clip Clip) Float.X {
+	return o.Super().GetTransitionFadeBeats(from_clip, to_clip)
+}
+func (o *Extension[T]) IsTransitionUsingFillerClip(from_clip Clip, to_clip Clip) bool {
+	return o.Super().IsTransitionUsingFillerClip(from_clip, to_clip)
+}
+func (o *Extension[T]) GetTransitionFillerClip(from_clip Clip, to_clip Clip) int {
+	return o.Super().GetTransitionFillerClip(from_clip, to_clip)
+}
+func (o *Extension[T]) IsTransitionHoldingPrevious(from_clip Clip, to_clip Clip) bool {
+	return o.Super().IsTransitionHoldingPrevious(from_clip, to_clip)
+}
+
+// GetLength is promoted from [AudioStream.Instance.GetLength].
+func (self Instance) GetLength() Float.X {
+	return self.AsAudioStream().GetLength()
+}
+
+// GetLength is promoted from [AudioStream.Instance.GetLength].
+func (o *Extension[T]) GetLength() Float.X {
+	return o.Super().AsAudioStream().GetLength()
+}
+
+// IsMonophonic is promoted from [AudioStream.Instance.IsMonophonic].
+func (self Instance) IsMonophonic() bool {
+	return self.AsAudioStream().IsMonophonic()
+}
+
+// IsMonophonic is promoted from [AudioStream.Instance.IsMonophonic].
+func (o *Extension[T]) IsMonophonic() bool {
+	return o.Super().AsAudioStream().IsMonophonic()
+}
+
+// InstantiatePlayback is promoted from [AudioStream.Instance.InstantiatePlayback].
+func (self Instance) InstantiatePlayback() AudioStreamPlayback.Instance {
+	return self.AsAudioStream().InstantiatePlayback()
+}
+
+// InstantiatePlayback is promoted from [AudioStream.Instance.InstantiatePlayback].
+func (o *Extension[T]) InstantiatePlayback() AudioStreamPlayback.Instance {
+	return o.Super().AsAudioStream().InstantiatePlayback()
+}
+
+// CanBeSampled is promoted from [AudioStream.Instance.CanBeSampled].
+func (self Instance) CanBeSampled() bool {
+	return self.AsAudioStream().CanBeSampled()
+}
+
+// CanBeSampled is promoted from [AudioStream.Instance.CanBeSampled].
+func (o *Extension[T]) CanBeSampled() bool {
+	return o.Super().AsAudioStream().CanBeSampled()
+}
+
+// GenerateSample is promoted from [AudioStream.Instance.GenerateSample].
+func (self Instance) GenerateSample() AudioSample.Instance {
+	return self.AsAudioStream().GenerateSample()
+}
+
+// GenerateSample is promoted from [AudioStream.Instance.GenerateSample].
+func (o *Extension[T]) GenerateSample() AudioSample.Instance {
+	return o.Super().AsAudioStream().GenerateSample()
+}
+
+// IsMetaStream is promoted from [AudioStream.Instance.IsMetaStream].
+func (self Instance) IsMetaStream() bool {
+	return self.AsAudioStream().IsMetaStream()
+}
+
+// IsMetaStream is promoted from [AudioStream.Instance.IsMetaStream].
+func (o *Extension[T]) IsMetaStream() bool {
+	return o.Super().AsAudioStream().IsMetaStream()
+}
+
+// TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
+func (self Instance) TakeOverPath(path string) {
+	self.AsResource().TakeOverPath(path)
+}
+
+// TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
+func (o *Extension[T]) TakeOverPath(path string) {
+	o.Super().AsResource().TakeOverPath(path)
+}
+
+// SetPathCache is promoted from [Resource.Instance.SetPathCache].
+func (self Instance) SetPathCache(path string) Instance {
+	self.AsResource().SetPathCache(path)
+	return self
+}
+
+// SetPathCache is promoted from [Resource.Instance.SetPathCache].
+func (o *Extension[T]) SetPathCache(path string) *Extension[T] {
+	o.Super().AsResource().SetPathCache(path)
+	return o
+}
+
+// GetRid is promoted from [Resource.Instance.GetRid].
+func (self Instance) GetRid() Resource.ID {
+	return self.AsResource().GetRid()
+}
+
+// GetRid is promoted from [Resource.Instance.GetRid].
+func (o *Extension[T]) GetRid() Resource.ID {
+	return o.Super().AsResource().GetRid()
+}
+
+// SetupLocalToScene is promoted from [Resource.Instance.SetupLocalToScene].
+func (self Instance) SetupLocalToScene() {
+	self.AsResource().SetupLocalToScene()
+}
+
+// SetupLocalToScene is promoted from [Resource.Instance.SetupLocalToScene].
+func (o *Extension[T]) SetupLocalToScene() {
+	o.Super().AsResource().SetupLocalToScene()
+}
+
+// ResetState is promoted from [Resource.Instance.ResetState].
+func (self Instance) ResetState() {
+	self.AsResource().ResetState()
+}
+
+// ResetState is promoted from [Resource.Instance.ResetState].
+func (o *Extension[T]) ResetState() {
+	o.Super().AsResource().ResetState()
+}
+
+// SetIdForPath is promoted from [Resource.Instance.SetIdForPath].
+func (self Instance) SetIdForPath(path string, id string) Instance {
+	self.AsResource().SetIdForPath(path, id)
+	return self
+}
+
+// SetIdForPath is promoted from [Resource.Instance.SetIdForPath].
+func (o *Extension[T]) SetIdForPath(path string, id string) *Extension[T] {
+	o.Super().AsResource().SetIdForPath(path, id)
+	return o
+}
+
+// GetIdForPath is promoted from [Resource.Instance.GetIdForPath].
+func (self Instance) GetIdForPath(path string) string {
+	return self.AsResource().GetIdForPath(path)
+}
+
+// GetIdForPath is promoted from [Resource.Instance.GetIdForPath].
+func (o *Extension[T]) GetIdForPath(path string) string {
+	return o.Super().AsResource().GetIdForPath(path)
+}
+
+// IsBuiltIn is promoted from [Resource.Instance.IsBuiltIn].
+func (self Instance) IsBuiltIn() bool {
+	return self.AsResource().IsBuiltIn()
+}
+
+// IsBuiltIn is promoted from [Resource.Instance.IsBuiltIn].
+func (o *Extension[T]) IsBuiltIn() bool {
+	return o.Super().AsResource().IsBuiltIn()
+}
+
+// EmitChanged is promoted from [Resource.Instance.EmitChanged].
+func (self Instance) EmitChanged() {
+	self.AsResource().EmitChanged()
+}
+
+// EmitChanged is promoted from [Resource.Instance.EmitChanged].
+func (o *Extension[T]) EmitChanged() {
+	o.Super().AsResource().EmitChanged()
 }
 
 func (self class) Virtual(name string) reflect.Value {

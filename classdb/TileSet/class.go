@@ -955,6 +955,318 @@ func (self Instance) OnSetupLocalToSceneRequested(cb func(), flags ...Signal.Fla
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("setup_local_to_scene_requested"), gd.NewCallable(cb), int64(flags_together))
 	return self
 }
+func (o *Extension[T]) GetNextSourceId() int {
+	return o.Super().GetNextSourceId()
+}
+func (o *Extension[T]) RemoveSource(source_id int) {
+	o.Super().RemoveSource(source_id)
+}
+func (o *Extension[T]) SetSourceId(source_id int, new_source_id int) *Extension[T] {
+	o.Super().SetSourceId(source_id, new_source_id)
+	return o
+}
+func (o *Extension[T]) GetSourceCount() int {
+	return o.Super().GetSourceCount()
+}
+func (o *Extension[T]) GetSourceId(index int) int {
+	return o.Super().GetSourceId(index)
+}
+func (o *Extension[T]) HasSource(source_id int) bool {
+	return o.Super().HasSource(source_id)
+}
+func (o *Extension[T]) GetSource(source_id int) TileSetSource.Instance {
+	return o.Super().GetSource(source_id)
+}
+func (o *Extension[T]) GetOcclusionLayersCount() int {
+	return o.Super().GetOcclusionLayersCount()
+}
+func (o *Extension[T]) MoveOcclusionLayer(layer_index int, to_position int) {
+	o.Super().MoveOcclusionLayer(layer_index, to_position)
+}
+func (o *Extension[T]) RemoveOcclusionLayer(layer_index int) {
+	o.Super().RemoveOcclusionLayer(layer_index)
+}
+func (o *Extension[T]) SetOcclusionLayerLightMask(layer_index int, light_mask int) *Extension[T] {
+	o.Super().SetOcclusionLayerLightMask(layer_index, light_mask)
+	return o
+}
+func (o *Extension[T]) GetOcclusionLayerLightMask(layer_index int) int {
+	return o.Super().GetOcclusionLayerLightMask(layer_index)
+}
+func (o *Extension[T]) SetOcclusionLayerSdfCollision(layer_index int, sdf_collision bool) *Extension[T] {
+	o.Super().SetOcclusionLayerSdfCollision(layer_index, sdf_collision)
+	return o
+}
+func (o *Extension[T]) GetOcclusionLayerSdfCollision(layer_index int) bool {
+	return o.Super().GetOcclusionLayerSdfCollision(layer_index)
+}
+func (o *Extension[T]) GetPhysicsLayersCount() int {
+	return o.Super().GetPhysicsLayersCount()
+}
+func (o *Extension[T]) MovePhysicsLayer(layer_index int, to_position int) {
+	o.Super().MovePhysicsLayer(layer_index, to_position)
+}
+func (o *Extension[T]) RemovePhysicsLayer(layer_index int) {
+	o.Super().RemovePhysicsLayer(layer_index)
+}
+func (o *Extension[T]) SetPhysicsLayerCollisionLayer(layer_index int, layer int) *Extension[T] {
+	o.Super().SetPhysicsLayerCollisionLayer(layer_index, layer)
+	return o
+}
+func (o *Extension[T]) GetPhysicsLayerCollisionLayer(layer_index int) int {
+	return o.Super().GetPhysicsLayerCollisionLayer(layer_index)
+}
+func (o *Extension[T]) SetPhysicsLayerCollisionMask(layer_index int, mask int) *Extension[T] {
+	o.Super().SetPhysicsLayerCollisionMask(layer_index, mask)
+	return o
+}
+func (o *Extension[T]) GetPhysicsLayerCollisionMask(layer_index int) int {
+	return o.Super().GetPhysicsLayerCollisionMask(layer_index)
+}
+func (o *Extension[T]) SetPhysicsLayerCollisionPriority(layer_index int, priority Float.X) *Extension[T] {
+	o.Super().SetPhysicsLayerCollisionPriority(layer_index, priority)
+	return o
+}
+func (o *Extension[T]) GetPhysicsLayerCollisionPriority(layer_index int) Float.X {
+	return o.Super().GetPhysicsLayerCollisionPriority(layer_index)
+}
+func (o *Extension[T]) SetPhysicsLayerPhysicsMaterial(layer_index int, physics_material PhysicsMaterial.Instance) *Extension[T] {
+	o.Super().SetPhysicsLayerPhysicsMaterial(layer_index, physics_material)
+	return o
+}
+func (o *Extension[T]) GetPhysicsLayerPhysicsMaterial(layer_index int) PhysicsMaterial.Instance {
+	return o.Super().GetPhysicsLayerPhysicsMaterial(layer_index)
+}
+func (o *Extension[T]) GetTerrainSetsCount() int {
+	return o.Super().GetTerrainSetsCount()
+}
+func (o *Extension[T]) MoveTerrainSet(terrain_set int, to_position int) {
+	o.Super().MoveTerrainSet(terrain_set, to_position)
+}
+func (o *Extension[T]) RemoveTerrainSet(terrain_set int) {
+	o.Super().RemoveTerrainSet(terrain_set)
+}
+func (o *Extension[T]) SetTerrainSetMode(terrain_set int, mode TerrainMode) *Extension[T] {
+	o.Super().SetTerrainSetMode(terrain_set, mode)
+	return o
+}
+func (o *Extension[T]) GetTerrainSetMode(terrain_set int) TerrainMode {
+	return o.Super().GetTerrainSetMode(terrain_set)
+}
+func (o *Extension[T]) GetTerrainsCount(terrain_set int) int {
+	return o.Super().GetTerrainsCount(terrain_set)
+}
+func (o *Extension[T]) MoveTerrain(terrain_set int, terrain_index int, to_position int) {
+	o.Super().MoveTerrain(terrain_set, terrain_index, to_position)
+}
+func (o *Extension[T]) RemoveTerrain(terrain_set int, terrain_index int) {
+	o.Super().RemoveTerrain(terrain_set, terrain_index)
+}
+func (o *Extension[T]) SetTerrainName(terrain_set int, terrain_index int, name string) *Extension[T] {
+	o.Super().SetTerrainName(terrain_set, terrain_index, name)
+	return o
+}
+func (o *Extension[T]) GetTerrainName(terrain_set int, terrain_index int) string {
+	return o.Super().GetTerrainName(terrain_set, terrain_index)
+}
+func (o *Extension[T]) SetTerrainColor(terrain_set int, terrain_index int, color Color.RGBA) *Extension[T] {
+	o.Super().SetTerrainColor(terrain_set, terrain_index, color)
+	return o
+}
+func (o *Extension[T]) GetTerrainColor(terrain_set int, terrain_index int) Color.RGBA {
+	return o.Super().GetTerrainColor(terrain_set, terrain_index)
+}
+func (o *Extension[T]) GetNavigationLayersCount() int {
+	return o.Super().GetNavigationLayersCount()
+}
+func (o *Extension[T]) MoveNavigationLayer(layer_index int, to_position int) {
+	o.Super().MoveNavigationLayer(layer_index, to_position)
+}
+func (o *Extension[T]) RemoveNavigationLayer(layer_index int) {
+	o.Super().RemoveNavigationLayer(layer_index)
+}
+func (o *Extension[T]) SetNavigationLayerLayers(layer_index int, layers int) *Extension[T] {
+	o.Super().SetNavigationLayerLayers(layer_index, layers)
+	return o
+}
+func (o *Extension[T]) GetNavigationLayerLayers(layer_index int) int {
+	return o.Super().GetNavigationLayerLayers(layer_index)
+}
+func (o *Extension[T]) SetNavigationLayerLayerValue(layer_index int, layer_number int, value bool) *Extension[T] {
+	o.Super().SetNavigationLayerLayerValue(layer_index, layer_number, value)
+	return o
+}
+func (o *Extension[T]) GetNavigationLayerLayerValue(layer_index int, layer_number int) bool {
+	return o.Super().GetNavigationLayerLayerValue(layer_index, layer_number)
+}
+func (o *Extension[T]) GetCustomDataLayersCount() int {
+	return o.Super().GetCustomDataLayersCount()
+}
+func (o *Extension[T]) MoveCustomDataLayer(layer_index int, to_position int) {
+	o.Super().MoveCustomDataLayer(layer_index, to_position)
+}
+func (o *Extension[T]) RemoveCustomDataLayer(layer_index int) {
+	o.Super().RemoveCustomDataLayer(layer_index)
+}
+func (o *Extension[T]) GetCustomDataLayerByName(layer_name string) int {
+	return o.Super().GetCustomDataLayerByName(layer_name)
+}
+func (o *Extension[T]) SetCustomDataLayerName(layer_index int, layer_name string) *Extension[T] {
+	o.Super().SetCustomDataLayerName(layer_index, layer_name)
+	return o
+}
+func (o *Extension[T]) HasCustomDataLayerByName(layer_name string) bool {
+	return o.Super().HasCustomDataLayerByName(layer_name)
+}
+func (o *Extension[T]) GetCustomDataLayerName(layer_index int) string {
+	return o.Super().GetCustomDataLayerName(layer_index)
+}
+func (o *Extension[T]) SetCustomDataLayerType(layer_index int, layer_type variant.Type) *Extension[T] {
+	o.Super().SetCustomDataLayerType(layer_index, layer_type)
+	return o
+}
+func (o *Extension[T]) GetCustomDataLayerType(layer_index int) variant.Type {
+	return o.Super().GetCustomDataLayerType(layer_index)
+}
+func (o *Extension[T]) SetSourceLevelTileProxy(source_from int, source_to int) *Extension[T] {
+	o.Super().SetSourceLevelTileProxy(source_from, source_to)
+	return o
+}
+func (o *Extension[T]) GetSourceLevelTileProxy(source_from int) int {
+	return o.Super().GetSourceLevelTileProxy(source_from)
+}
+func (o *Extension[T]) HasSourceLevelTileProxy(source_from int) bool {
+	return o.Super().HasSourceLevelTileProxy(source_from)
+}
+func (o *Extension[T]) RemoveSourceLevelTileProxy(source_from int) {
+	o.Super().RemoveSourceLevelTileProxy(source_from)
+}
+func (o *Extension[T]) SetCoordsLevelTileProxy(p_source_from int, coords_from Vector2i.XY, source_to int, coords_to Vector2i.XY) *Extension[T] {
+	o.Super().SetCoordsLevelTileProxy(p_source_from, coords_from, source_to, coords_to)
+	return o
+}
+func (o *Extension[T]) HasCoordsLevelTileProxy(source_from int, coords_from Vector2i.XY) bool {
+	return o.Super().HasCoordsLevelTileProxy(source_from, coords_from)
+}
+func (o *Extension[T]) RemoveCoordsLevelTileProxy(source_from int, coords_from Vector2i.XY) {
+	o.Super().RemoveCoordsLevelTileProxy(source_from, coords_from)
+}
+func (o *Extension[T]) SetAlternativeLevelTileProxy(source_from int, coords_from Vector2i.XY, alternative_from int, source_to int, coords_to Vector2i.XY, alternative_to int) *Extension[T] {
+	o.Super().SetAlternativeLevelTileProxy(source_from, coords_from, alternative_from, source_to, coords_to, alternative_to)
+	return o
+}
+func (o *Extension[T]) HasAlternativeLevelTileProxy(source_from int, coords_from Vector2i.XY, alternative_from int) bool {
+	return o.Super().HasAlternativeLevelTileProxy(source_from, coords_from, alternative_from)
+}
+func (o *Extension[T]) RemoveAlternativeLevelTileProxy(source_from int, coords_from Vector2i.XY, alternative_from int) {
+	o.Super().RemoveAlternativeLevelTileProxy(source_from, coords_from, alternative_from)
+}
+func (o *Extension[T]) CleanupInvalidTileProxies() {
+	o.Super().CleanupInvalidTileProxies()
+}
+func (o *Extension[T]) ClearTileProxies() {
+	o.Super().ClearTileProxies()
+}
+func (o *Extension[T]) RemovePattern(index int) {
+	o.Super().RemovePattern(index)
+}
+func (o *Extension[T]) GetPatternsCount() int {
+	return o.Super().GetPatternsCount()
+}
+
+// TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
+func (self Instance) TakeOverPath(path string) {
+	self.AsResource().TakeOverPath(path)
+}
+
+// TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
+func (o *Extension[T]) TakeOverPath(path string) {
+	o.Super().AsResource().TakeOverPath(path)
+}
+
+// SetPathCache is promoted from [Resource.Instance.SetPathCache].
+func (self Instance) SetPathCache(path string) Instance {
+	self.AsResource().SetPathCache(path)
+	return self
+}
+
+// SetPathCache is promoted from [Resource.Instance.SetPathCache].
+func (o *Extension[T]) SetPathCache(path string) *Extension[T] {
+	o.Super().AsResource().SetPathCache(path)
+	return o
+}
+
+// GetRid is promoted from [Resource.Instance.GetRid].
+func (self Instance) GetRid() Resource.ID {
+	return self.AsResource().GetRid()
+}
+
+// GetRid is promoted from [Resource.Instance.GetRid].
+func (o *Extension[T]) GetRid() Resource.ID {
+	return o.Super().AsResource().GetRid()
+}
+
+// SetupLocalToScene is promoted from [Resource.Instance.SetupLocalToScene].
+func (self Instance) SetupLocalToScene() {
+	self.AsResource().SetupLocalToScene()
+}
+
+// SetupLocalToScene is promoted from [Resource.Instance.SetupLocalToScene].
+func (o *Extension[T]) SetupLocalToScene() {
+	o.Super().AsResource().SetupLocalToScene()
+}
+
+// ResetState is promoted from [Resource.Instance.ResetState].
+func (self Instance) ResetState() {
+	self.AsResource().ResetState()
+}
+
+// ResetState is promoted from [Resource.Instance.ResetState].
+func (o *Extension[T]) ResetState() {
+	o.Super().AsResource().ResetState()
+}
+
+// SetIdForPath is promoted from [Resource.Instance.SetIdForPath].
+func (self Instance) SetIdForPath(path string, id string) Instance {
+	self.AsResource().SetIdForPath(path, id)
+	return self
+}
+
+// SetIdForPath is promoted from [Resource.Instance.SetIdForPath].
+func (o *Extension[T]) SetIdForPath(path string, id string) *Extension[T] {
+	o.Super().AsResource().SetIdForPath(path, id)
+	return o
+}
+
+// GetIdForPath is promoted from [Resource.Instance.GetIdForPath].
+func (self Instance) GetIdForPath(path string) string {
+	return self.AsResource().GetIdForPath(path)
+}
+
+// GetIdForPath is promoted from [Resource.Instance.GetIdForPath].
+func (o *Extension[T]) GetIdForPath(path string) string {
+	return o.Super().AsResource().GetIdForPath(path)
+}
+
+// IsBuiltIn is promoted from [Resource.Instance.IsBuiltIn].
+func (self Instance) IsBuiltIn() bool {
+	return self.AsResource().IsBuiltIn()
+}
+
+// IsBuiltIn is promoted from [Resource.Instance.IsBuiltIn].
+func (o *Extension[T]) IsBuiltIn() bool {
+	return o.Super().AsResource().IsBuiltIn()
+}
+
+// EmitChanged is promoted from [Resource.Instance.EmitChanged].
+func (self Instance) EmitChanged() {
+	self.AsResource().EmitChanged()
+}
+
+// EmitChanged is promoted from [Resource.Instance.EmitChanged].
+func (o *Extension[T]) EmitChanged() {
+	o.Super().AsResource().EmitChanged()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

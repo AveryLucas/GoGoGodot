@@ -18,6 +18,8 @@ import "graphics.gd/variant/Angle"
 import "graphics.gd/variant/Euler"
 import "graphics.gd/variant/Signal"
 import "graphics.gd/classdb/RenderData"
+import "graphics.gd/classdb/RenderSceneBuffers"
+import "graphics.gd/classdb/RenderSceneData"
 import "graphics.gd/variant/Array"
 import "graphics.gd/variant/Callable"
 import "graphics.gd/variant/Dictionary"
@@ -147,6 +149,46 @@ func (o *Extension[T]) AsRenderDataRD() Instance { return o.Super() }
 func (o class) AsRenderData() RenderData.Advanced { return *(*RenderData.Advanced)(ie.As(&o)) }
 func (o *Extension[T]) AsRenderData() RenderData.Instance { return o.Super().AsRenderData() }
 func (o Instance) AsRenderData() RenderData.Instance { return *(*RenderData.Instance)(ie.As(&o)) }
+
+// GetRenderSceneBuffers is promoted from [RenderData.Instance.GetRenderSceneBuffers].
+func (self Instance) GetRenderSceneBuffers() RenderSceneBuffers.Instance {
+	return self.AsRenderData().GetRenderSceneBuffers()
+}
+
+// GetRenderSceneBuffers is promoted from [RenderData.Instance.GetRenderSceneBuffers].
+func (o *Extension[T]) GetRenderSceneBuffers() RenderSceneBuffers.Instance {
+	return o.Super().AsRenderData().GetRenderSceneBuffers()
+}
+
+// GetRenderSceneData is promoted from [RenderData.Instance.GetRenderSceneData].
+func (self Instance) GetRenderSceneData() RenderSceneData.Instance {
+	return self.AsRenderData().GetRenderSceneData()
+}
+
+// GetRenderSceneData is promoted from [RenderData.Instance.GetRenderSceneData].
+func (o *Extension[T]) GetRenderSceneData() RenderSceneData.Instance {
+	return o.Super().AsRenderData().GetRenderSceneData()
+}
+
+// GetEnvironment is promoted from [RenderData.Instance.GetEnvironment].
+func (self Instance) GetEnvironment() RID.Environment {
+	return self.AsRenderData().GetEnvironment()
+}
+
+// GetEnvironment is promoted from [RenderData.Instance.GetEnvironment].
+func (o *Extension[T]) GetEnvironment() RID.Environment {
+	return o.Super().AsRenderData().GetEnvironment()
+}
+
+// GetCameraAttributes is promoted from [RenderData.Instance.GetCameraAttributes].
+func (self Instance) GetCameraAttributes() RID.CameraAttributes {
+	return self.AsRenderData().GetCameraAttributes()
+}
+
+// GetCameraAttributes is promoted from [RenderData.Instance.GetCameraAttributes].
+func (o *Extension[T]) GetCameraAttributes() RID.CameraAttributes {
+	return o.Super().AsRenderData().GetCameraAttributes()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

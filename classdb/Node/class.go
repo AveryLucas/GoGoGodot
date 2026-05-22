@@ -1712,6 +1712,218 @@ return Signal.Via(gd.SignalProxy{}, pointers.Pack(gd.NewSignalOf(self.AsObject()
 func (o class) AsNode() Advanced { return Advanced(o) }
 func (o Instance) AsNode() Instance { return o }
 func (o *Extension[T]) AsNode() Instance { return o.Super() }
+func (o *Extension[T]) RemoveChild(node Instance) {
+	o.Super().RemoveChild(node)
+}
+func (o *Extension[T]) HasNode(path string) bool {
+	return o.Super().HasNode(path)
+}
+func (o *Extension[T]) GetNode(path string) Instance {
+	return o.Super().GetNode(path)
+}
+func (o *Extension[T]) GetNodeOrNull(path string) Instance {
+	return o.Super().GetNodeOrNull(path)
+}
+func (o *Extension[T]) GetParent() Instance {
+	return o.Super().GetParent()
+}
+func (o *Extension[T]) FindParent(pattern string) Instance {
+	return o.Super().FindParent(pattern)
+}
+func (o *Extension[T]) HasNodeAndResource(path string) bool {
+	return o.Super().HasNodeAndResource(path)
+}
+func (o *Extension[T]) IsInsideTree() bool {
+	return o.Super().IsInsideTree()
+}
+func (o *Extension[T]) IsPartOfEditedScene() bool {
+	return o.Super().IsPartOfEditedScene()
+}
+func (o *Extension[T]) IsAncestorOf(node Instance) bool {
+	return o.Super().IsAncestorOf(node)
+}
+func (o *Extension[T]) IsGreaterThan(node Instance) bool {
+	return o.Super().IsGreaterThan(node)
+}
+func (o *Extension[T]) GetPath() string {
+	return o.Super().GetPath()
+}
+func (o *Extension[T]) RemoveFromGroup(group string) {
+	o.Super().RemoveFromGroup(group)
+}
+func (o *Extension[T]) IsInGroup(group string) bool {
+	return o.Super().IsInGroup(group)
+}
+func (o *Extension[T]) MoveChild(child_node Instance, to_index int) {
+	o.Super().MoveChild(child_node, to_index)
+}
+func (o *Extension[T]) GetGroups() []string {
+	return o.Super().GetGroups()
+}
+func (o *Extension[T]) PrintTree() {
+	o.Super().PrintTree()
+}
+func (o *Extension[T]) PrintTreePretty() {
+	o.Super().PrintTreePretty()
+}
+func (o *Extension[T]) GetTreeString() string {
+	return o.Super().GetTreeString()
+}
+func (o *Extension[T]) GetTreeStringPretty() string {
+	return o.Super().GetTreeStringPretty()
+}
+func (o *Extension[T]) PropagateNotification(what int) {
+	o.Super().PropagateNotification(what)
+}
+func (o *Extension[T]) SetPhysicsProcess(enable bool) *Extension[T] {
+	o.Super().SetPhysicsProcess(enable)
+	return o
+}
+func (o *Extension[T]) GetPhysicsProcessDeltaTime() Float.X {
+	return o.Super().GetPhysicsProcessDeltaTime()
+}
+func (o *Extension[T]) IsPhysicsProcessing() bool {
+	return o.Super().IsPhysicsProcessing()
+}
+func (o *Extension[T]) GetProcessDeltaTime() Float.X {
+	return o.Super().GetProcessDeltaTime()
+}
+func (o *Extension[T]) SetProcess(enable bool) *Extension[T] {
+	o.Super().SetProcess(enable)
+	return o
+}
+func (o *Extension[T]) IsProcessing() bool {
+	return o.Super().IsProcessing()
+}
+func (o *Extension[T]) SetProcessInput(enable bool) *Extension[T] {
+	o.Super().SetProcessInput(enable)
+	return o
+}
+func (o *Extension[T]) IsProcessingInput() bool {
+	return o.Super().IsProcessingInput()
+}
+func (o *Extension[T]) SetProcessShortcutInput(enable bool) *Extension[T] {
+	o.Super().SetProcessShortcutInput(enable)
+	return o
+}
+func (o *Extension[T]) IsProcessingShortcutInput() bool {
+	return o.Super().IsProcessingShortcutInput()
+}
+func (o *Extension[T]) SetProcessUnhandledInput(enable bool) *Extension[T] {
+	o.Super().SetProcessUnhandledInput(enable)
+	return o
+}
+func (o *Extension[T]) IsProcessingUnhandledInput() bool {
+	return o.Super().IsProcessingUnhandledInput()
+}
+func (o *Extension[T]) SetProcessUnhandledKeyInput(enable bool) *Extension[T] {
+	o.Super().SetProcessUnhandledKeyInput(enable)
+	return o
+}
+func (o *Extension[T]) IsProcessingUnhandledKeyInput() bool {
+	return o.Super().IsProcessingUnhandledKeyInput()
+}
+func (o *Extension[T]) CanProcess() bool {
+	return o.Super().CanProcess()
+}
+func (o *Extension[T]) QueueAccessibilityUpdate() {
+	o.Super().QueueAccessibilityUpdate()
+}
+func (o *Extension[T]) GetAccessibilityElement() RID.AccessibilityElement {
+	return o.Super().GetAccessibilityElement()
+}
+func (o *Extension[T]) SetDisplayFolded(fold bool) *Extension[T] {
+	o.Super().SetDisplayFolded(fold)
+	return o
+}
+func (o *Extension[T]) IsDisplayedFolded() bool {
+	return o.Super().IsDisplayedFolded()
+}
+func (o *Extension[T]) SetProcessInternal(enable bool) *Extension[T] {
+	o.Super().SetProcessInternal(enable)
+	return o
+}
+func (o *Extension[T]) IsProcessingInternal() bool {
+	return o.Super().IsProcessingInternal()
+}
+func (o *Extension[T]) SetPhysicsProcessInternal(enable bool) *Extension[T] {
+	o.Super().SetPhysicsProcessInternal(enable)
+	return o
+}
+func (o *Extension[T]) IsPhysicsProcessingInternal() bool {
+	return o.Super().IsPhysicsProcessingInternal()
+}
+func (o *Extension[T]) IsPhysicsInterpolated() bool {
+	return o.Super().IsPhysicsInterpolated()
+}
+func (o *Extension[T]) IsPhysicsInterpolatedAndEnabled() bool {
+	return o.Super().IsPhysicsInterpolatedAndEnabled()
+}
+func (o *Extension[T]) ResetPhysicsInterpolation() {
+	o.Super().ResetPhysicsInterpolation()
+}
+func (o *Extension[T]) CanAutoTranslate() bool {
+	return o.Super().CanAutoTranslate()
+}
+func (o *Extension[T]) SetTranslationDomainInherited() *Extension[T] {
+	o.Super().SetTranslationDomainInherited()
+	return o
+}
+func (o *Extension[T]) CreateTween() Tween.Instance {
+	return o.Super().CreateTween()
+}
+func (o *Extension[T]) SetSceneInstanceLoadPlaceholder(load_placeholder bool) *Extension[T] {
+	o.Super().SetSceneInstanceLoadPlaceholder(load_placeholder)
+	return o
+}
+func (o *Extension[T]) GetSceneInstanceLoadPlaceholder() bool {
+	return o.Super().GetSceneInstanceLoadPlaceholder()
+}
+func (o *Extension[T]) SetEditableInstance(node Instance, is_editable bool) *Extension[T] {
+	o.Super().SetEditableInstance(node, is_editable)
+	return o
+}
+func (o *Extension[T]) IsEditableInstance(node Instance) bool {
+	return o.Super().IsEditableInstance(node)
+}
+func (o *Extension[T]) QueueFree() {
+	o.Super().QueueFree()
+}
+func (o *Extension[T]) RequestReady() {
+	o.Super().RequestReady()
+}
+func (o *Extension[T]) IsNodeReady() bool {
+	return o.Super().IsNodeReady()
+}
+func (o *Extension[T]) GetMultiplayerAuthority() int {
+	return o.Super().GetMultiplayerAuthority()
+}
+func (o *Extension[T]) IsMultiplayerAuthority() bool {
+	return o.Super().IsMultiplayerAuthority()
+}
+func (o *Extension[T]) RpcConfig(method string, config any) {
+	o.Super().RpcConfig(method, config)
+}
+func (o *Extension[T]) GetNodeRpcConfig() any {
+	return o.Super().GetNodeRpcConfig()
+}
+func (o *Extension[T]) UpdateConfigurationWarnings() {
+	o.Super().UpdateConfigurationWarnings()
+}
+func (o *Extension[T]) SetDeferredThreadGroup(property string, value any) *Extension[T] {
+	o.Super().SetDeferredThreadGroup(property, value)
+	return o
+}
+func (o *Extension[T]) NotifyDeferredThreadGroup(what int) {
+	o.Super().NotifyDeferredThreadGroup(what)
+}
+func (o *Extension[T]) SetThreadSafe(property string, value any) *Extension[T] {
+	o.Super().SetThreadSafe(property, value)
+	return o
+}
+func (o *Extension[T]) NotifyThreadSafe(what int) {
+	o.Super().NotifyThreadSafe(what)
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

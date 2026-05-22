@@ -377,6 +377,169 @@ func (self Instance) OnSetupLocalToSceneRequested(cb func(), flags ...Signal.Fla
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("setup_local_to_scene_requested"), gd.NewCallable(cb), int64(flags_together))
 	return self
 }
+func (o *Extension[T]) HasSetting(name string) bool {
+	return o.Super().HasSetting(name)
+}
+func (o *Extension[T]) SetSetting(name string, value any) *Extension[T] {
+	o.Super().SetSetting(name, value)
+	return o
+}
+func (o *Extension[T]) GetSetting(name string) any {
+	return o.Super().GetSetting(name)
+}
+func (o *Extension[T]) Erase(property string) {
+	o.Super().Erase(property)
+}
+func (o *Extension[T]) SetInitialValue(name string, value any, update_current bool) *Extension[T] {
+	o.Super().SetInitialValue(name, value, update_current)
+	return o
+}
+func (o *Extension[T]) AddPropertyInfo(info Object.PropertyInfo) {
+	o.Super().AddPropertyInfo(info)
+}
+func (o *Extension[T]) SetProjectMetadata(section string, key string, data any) *Extension[T] {
+	o.Super().SetProjectMetadata(section, key, data)
+	return o
+}
+func (o *Extension[T]) SetFavorites(dirs []string) *Extension[T] {
+	o.Super().SetFavorites(dirs)
+	return o
+}
+func (o *Extension[T]) GetFavorites() []string {
+	return o.Super().GetFavorites()
+}
+func (o *Extension[T]) SetRecentDirs(dirs []string) *Extension[T] {
+	o.Super().SetRecentDirs(dirs)
+	return o
+}
+func (o *Extension[T]) GetRecentDirs() []string {
+	return o.Super().GetRecentDirs()
+}
+func (o *Extension[T]) SetBuiltinActionOverride(name string, actions_list []InputEvent.Instance) *Extension[T] {
+	o.Super().SetBuiltinActionOverride(name, actions_list)
+	return o
+}
+func (o *Extension[T]) AddShortcut(path string, shortcut Shortcut.Instance) {
+	o.Super().AddShortcut(path, shortcut)
+}
+func (o *Extension[T]) RemoveShortcut(path string) {
+	o.Super().RemoveShortcut(path)
+}
+func (o *Extension[T]) IsShortcut(path string, event InputEvent.Instance) bool {
+	return o.Super().IsShortcut(path, event)
+}
+func (o *Extension[T]) HasShortcut(path string) bool {
+	return o.Super().HasShortcut(path)
+}
+func (o *Extension[T]) GetShortcut(path string) Shortcut.Instance {
+	return o.Super().GetShortcut(path)
+}
+func (o *Extension[T]) GetShortcutList() []string {
+	return o.Super().GetShortcutList()
+}
+func (o *Extension[T]) CheckChangedSettingsInGroup(setting_prefix string) bool {
+	return o.Super().CheckChangedSettingsInGroup(setting_prefix)
+}
+func (o *Extension[T]) GetChangedSettings() []string {
+	return o.Super().GetChangedSettings()
+}
+func (o *Extension[T]) MarkSettingChanged(setting string) {
+	o.Super().MarkSettingChanged(setting)
+}
+
+// TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
+func (self Instance) TakeOverPath(path string) {
+	self.AsResource().TakeOverPath(path)
+}
+
+// TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
+func (o *Extension[T]) TakeOverPath(path string) {
+	o.Super().AsResource().TakeOverPath(path)
+}
+
+// SetPathCache is promoted from [Resource.Instance.SetPathCache].
+func (self Instance) SetPathCache(path string) Instance {
+	self.AsResource().SetPathCache(path)
+	return self
+}
+
+// SetPathCache is promoted from [Resource.Instance.SetPathCache].
+func (o *Extension[T]) SetPathCache(path string) *Extension[T] {
+	o.Super().AsResource().SetPathCache(path)
+	return o
+}
+
+// GetRid is promoted from [Resource.Instance.GetRid].
+func (self Instance) GetRid() Resource.ID {
+	return self.AsResource().GetRid()
+}
+
+// GetRid is promoted from [Resource.Instance.GetRid].
+func (o *Extension[T]) GetRid() Resource.ID {
+	return o.Super().AsResource().GetRid()
+}
+
+// SetupLocalToScene is promoted from [Resource.Instance.SetupLocalToScene].
+func (self Instance) SetupLocalToScene() {
+	self.AsResource().SetupLocalToScene()
+}
+
+// SetupLocalToScene is promoted from [Resource.Instance.SetupLocalToScene].
+func (o *Extension[T]) SetupLocalToScene() {
+	o.Super().AsResource().SetupLocalToScene()
+}
+
+// ResetState is promoted from [Resource.Instance.ResetState].
+func (self Instance) ResetState() {
+	self.AsResource().ResetState()
+}
+
+// ResetState is promoted from [Resource.Instance.ResetState].
+func (o *Extension[T]) ResetState() {
+	o.Super().AsResource().ResetState()
+}
+
+// SetIdForPath is promoted from [Resource.Instance.SetIdForPath].
+func (self Instance) SetIdForPath(path string, id string) Instance {
+	self.AsResource().SetIdForPath(path, id)
+	return self
+}
+
+// SetIdForPath is promoted from [Resource.Instance.SetIdForPath].
+func (o *Extension[T]) SetIdForPath(path string, id string) *Extension[T] {
+	o.Super().AsResource().SetIdForPath(path, id)
+	return o
+}
+
+// GetIdForPath is promoted from [Resource.Instance.GetIdForPath].
+func (self Instance) GetIdForPath(path string) string {
+	return self.AsResource().GetIdForPath(path)
+}
+
+// GetIdForPath is promoted from [Resource.Instance.GetIdForPath].
+func (o *Extension[T]) GetIdForPath(path string) string {
+	return o.Super().AsResource().GetIdForPath(path)
+}
+
+// IsBuiltIn is promoted from [Resource.Instance.IsBuiltIn].
+func (self Instance) IsBuiltIn() bool {
+	return self.AsResource().IsBuiltIn()
+}
+
+// IsBuiltIn is promoted from [Resource.Instance.IsBuiltIn].
+func (o *Extension[T]) IsBuiltIn() bool {
+	return o.Super().AsResource().IsBuiltIn()
+}
+
+// EmitChanged is promoted from [Resource.Instance.EmitChanged].
+func (self Instance) EmitChanged() {
+	self.AsResource().EmitChanged()
+}
+
+// EmitChanged is promoted from [Resource.Instance.EmitChanged].
+func (o *Extension[T]) EmitChanged() {
+	o.Super().AsResource().EmitChanged()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

@@ -314,6 +314,12 @@ func (o *Extension[T]) AsUPNPDevice() Instance { return o.Super() }
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) IsValidGateway() bool {
+	return o.Super().IsValidGateway()
+}
+func (o *Extension[T]) QueryExternalAddress() string {
+	return o.Super().QueryExternalAddress()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

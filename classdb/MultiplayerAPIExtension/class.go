@@ -467,6 +467,61 @@ func (self Instance) OnServerDisconnected(cb func(), flags ...Signal.Flags) Inst
 	return self
 }
 
+// HasMultiplayerPeer is promoted from [MultiplayerAPI.Instance.HasMultiplayerPeer].
+func (self Instance) HasMultiplayerPeer() bool {
+	return self.AsMultiplayerAPI().HasMultiplayerPeer()
+}
+
+// HasMultiplayerPeer is promoted from [MultiplayerAPI.Instance.HasMultiplayerPeer].
+func (o *Extension[T]) HasMultiplayerPeer() bool {
+	return o.Super().AsMultiplayerAPI().HasMultiplayerPeer()
+}
+
+// GetUniqueId is promoted from [MultiplayerAPI.Instance.GetUniqueId].
+func (o *Extension[T]) GetUniqueId() int {
+	return o.Super().AsMultiplayerAPI().GetUniqueId()
+}
+
+// IsServer is promoted from [MultiplayerAPI.Instance.IsServer].
+func (self Instance) IsServer() bool {
+	return self.AsMultiplayerAPI().IsServer()
+}
+
+// IsServer is promoted from [MultiplayerAPI.Instance.IsServer].
+func (o *Extension[T]) IsServer() bool {
+	return o.Super().AsMultiplayerAPI().IsServer()
+}
+
+// GetRemoteSenderId is promoted from [MultiplayerAPI.Instance.GetRemoteSenderId].
+func (o *Extension[T]) GetRemoteSenderId() int {
+	return o.Super().AsMultiplayerAPI().GetRemoteSenderId()
+}
+
+// Poll is promoted from [MultiplayerAPI.Instance.Poll].
+func (o *Extension[T]) Poll() error {
+	return o.Super().AsMultiplayerAPI().Poll()
+}
+
+// ObjectConfigurationAdd is promoted from [MultiplayerAPI.Instance.ObjectConfigurationAdd].
+func (o *Extension[T]) ObjectConfigurationAdd(obj Object.Instance, configuration any) error {
+	return o.Super().AsMultiplayerAPI().ObjectConfigurationAdd(obj, configuration)
+}
+
+// ObjectConfigurationRemove is promoted from [MultiplayerAPI.Instance.ObjectConfigurationRemove].
+func (o *Extension[T]) ObjectConfigurationRemove(obj Object.Instance, configuration any) error {
+	return o.Super().AsMultiplayerAPI().ObjectConfigurationRemove(obj, configuration)
+}
+
+// GetPeers is promoted from [MultiplayerAPI.Instance.GetPeers].
+func (self Instance) GetPeers() []int32 {
+	return self.AsMultiplayerAPI().GetPeers()
+}
+
+// GetPeers is promoted from [MultiplayerAPI.Instance.GetPeers].
+func (o *Extension[T]) GetPeers() []int32 {
+	return o.Super().AsMultiplayerAPI().GetPeers()
+}
+
 func (self class) Virtual(name string) reflect.Value {
 	switch name {
 	case "_poll": return reflect.ValueOf(self._poll);

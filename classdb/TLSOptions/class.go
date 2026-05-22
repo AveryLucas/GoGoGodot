@@ -233,6 +233,24 @@ func (o *Extension[T]) AsTLSOptions() Instance { return o.Super() }
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) IsServer() bool {
+	return o.Super().IsServer()
+}
+func (o *Extension[T]) IsUnsafeClient() bool {
+	return o.Super().IsUnsafeClient()
+}
+func (o *Extension[T]) GetCommonNameOverride() string {
+	return o.Super().GetCommonNameOverride()
+}
+func (o *Extension[T]) GetTrustedCaChain() X509Certificate.Instance {
+	return o.Super().GetTrustedCaChain()
+}
+func (o *Extension[T]) GetPrivateKey() CryptoKey.Instance {
+	return o.Super().GetPrivateKey()
+}
+func (o *Extension[T]) GetOwnCertificate() X509Certificate.Instance {
+	return o.Super().GetOwnCertificate()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

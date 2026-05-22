@@ -197,6 +197,24 @@ func (self class) GetProjectSettingsDir() String.Readable { //gd:EditorPaths.get
 func (o class) AsEditorPaths() Advanced { return Advanced(o) }
 func (o Instance) AsEditorPaths() Instance { return o }
 func (o *Extension[T]) AsEditorPaths() Instance { return o.Super() }
+func (o *Extension[T]) GetDataDir() string {
+	return o.Super().GetDataDir()
+}
+func (o *Extension[T]) GetConfigDir() string {
+	return o.Super().GetConfigDir()
+}
+func (o *Extension[T]) GetCacheDir() string {
+	return o.Super().GetCacheDir()
+}
+func (o *Extension[T]) IsSelfContained() bool {
+	return o.Super().IsSelfContained()
+}
+func (o *Extension[T]) GetSelfContainedFile() string {
+	return o.Super().GetSelfContainedFile()
+}
+func (o *Extension[T]) GetProjectSettingsDir() string {
+	return o.Super().GetProjectSettingsDir()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

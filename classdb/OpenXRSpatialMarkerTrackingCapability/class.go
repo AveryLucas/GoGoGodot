@@ -183,6 +183,28 @@ func (o *Extension[T]) AsOpenXRSpatialMarkerTrackingCapability() Instance { retu
 func (o class) AsOpenXRExtensionWrapper() OpenXRExtensionWrapper.Advanced { return *(*OpenXRExtensionWrapper.Advanced)(ie.As(&o)) }
 func (o *Extension[T]) AsOpenXRExtensionWrapper() OpenXRExtensionWrapper.Instance { return o.Super().AsOpenXRExtensionWrapper() }
 func (o Instance) AsOpenXRExtensionWrapper() OpenXRExtensionWrapper.Instance { return *(*OpenXRExtensionWrapper.Instance)(ie.As(&o)) }
+func (o *Extension[T]) IsQrcodeSupported() bool {
+	return o.Super().IsQrcodeSupported()
+}
+func (o *Extension[T]) IsMicroQrcodeSupported() bool {
+	return o.Super().IsMicroQrcodeSupported()
+}
+func (o *Extension[T]) IsArucoSupported() bool {
+	return o.Super().IsArucoSupported()
+}
+func (o *Extension[T]) IsAprilTagSupported() bool {
+	return o.Super().IsAprilTagSupported()
+}
+
+// RegisterExtensionWrapper is promoted from [OpenXRExtensionWrapper.Instance.RegisterExtensionWrapper].
+func (self Instance) RegisterExtensionWrapper() {
+	self.AsOpenXRExtensionWrapper().RegisterExtensionWrapper()
+}
+
+// RegisterExtensionWrapper is promoted from [OpenXRExtensionWrapper.Instance.RegisterExtensionWrapper].
+func (o *Extension[T]) RegisterExtensionWrapper() {
+	o.Super().AsOpenXRExtensionWrapper().RegisterExtensionWrapper()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

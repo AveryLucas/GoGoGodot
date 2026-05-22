@@ -774,6 +774,30 @@ noescape.Call[struct{}]( gd.ObjectChecked(self.AsObject()), methods.popup_error,
 func (o class) AsEditorVCSInterface() Advanced { return Advanced(o) }
 func (o Instance) AsEditorVCSInterface() Instance { return o }
 func (o *Extension[T]) AsEditorVCSInterface() Instance { return o.Super() }
+func (o *Extension[T]) CreateDiffLine(new_line_no int, old_line_no int, content string, status string) DiffLine {
+	return o.Super().CreateDiffLine(new_line_no, old_line_no, content, status)
+}
+func (o *Extension[T]) CreateDiffHunk(old_start int, new_start int, old_lines int, new_lines int) DiffHunk {
+	return o.Super().CreateDiffHunk(old_start, new_start, old_lines, new_lines)
+}
+func (o *Extension[T]) CreateDiffFile(new_file string, old_file string) DiffFile {
+	return o.Super().CreateDiffFile(new_file, old_file)
+}
+func (o *Extension[T]) CreateCommit(msg string, author string, id string, unix_timestamp int, offset_minutes int) Commit {
+	return o.Super().CreateCommit(msg, author, id, unix_timestamp, offset_minutes)
+}
+func (o *Extension[T]) CreateStatusFile(file_path string, change_type ChangeType, area TreeArea) StatusFile {
+	return o.Super().CreateStatusFile(file_path, change_type, area)
+}
+func (o *Extension[T]) AddDiffHunksIntoDiffFile(diff_file DiffFile, diff_hunks []DiffHunk) DiffFile {
+	return o.Super().AddDiffHunksIntoDiffFile(diff_file, diff_hunks)
+}
+func (o *Extension[T]) AddLineDiffsIntoDiffHunk(diff_hunk DiffHunk, line_diffs []DiffLine) DiffHunk {
+	return o.Super().AddLineDiffsIntoDiffHunk(diff_hunk, line_diffs)
+}
+func (o *Extension[T]) PopupError(msg string) {
+	o.Super().PopupError(msg)
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

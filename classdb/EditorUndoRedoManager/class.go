@@ -311,6 +311,30 @@ return Signal.Via(gd.SignalProxy{}, pointers.Pack(gd.NewSignalOf(self.AsObject()
 func (o class) AsEditorUndoRedoManager() Advanced { return Advanced(o) }
 func (o Instance) AsEditorUndoRedoManager() Instance { return o }
 func (o *Extension[T]) AsEditorUndoRedoManager() Instance { return o.Super() }
+func (o *Extension[T]) IsCommittingAction() bool {
+	return o.Super().IsCommittingAction()
+}
+func (o *Extension[T]) ForceFixedHistory() {
+	o.Super().ForceFixedHistory()
+}
+func (o *Extension[T]) AddDoProperty(obj Object.Instance, property string, value any) {
+	o.Super().AddDoProperty(obj, property, value)
+}
+func (o *Extension[T]) AddUndoProperty(obj Object.Instance, property string, value any) {
+	o.Super().AddUndoProperty(obj, property, value)
+}
+func (o *Extension[T]) AddDoReference(obj Object.Instance) {
+	o.Super().AddDoReference(obj)
+}
+func (o *Extension[T]) AddUndoReference(obj Object.Instance) {
+	o.Super().AddUndoReference(obj)
+}
+func (o *Extension[T]) GetObjectHistoryId(obj Object.Instance) int {
+	return o.Super().GetObjectHistoryId(obj)
+}
+func (o *Extension[T]) GetHistoryUndoRedo(id int) UndoRedo.Instance {
+	return o.Super().GetHistoryUndoRedo(id)
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

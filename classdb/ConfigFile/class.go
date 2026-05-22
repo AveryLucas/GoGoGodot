@@ -301,6 +301,55 @@ func (o *Extension[T]) AsConfigFile() Instance { return o.Super() }
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) SetValue(section string, key string, value any) *Extension[T] {
+	o.Super().SetValue(section, key, value)
+	return o
+}
+func (o *Extension[T]) HasSection(section string) bool {
+	return o.Super().HasSection(section)
+}
+func (o *Extension[T]) HasSectionKey(section string, key string) bool {
+	return o.Super().HasSectionKey(section, key)
+}
+func (o *Extension[T]) GetSections() []string {
+	return o.Super().GetSections()
+}
+func (o *Extension[T]) GetSectionKeys(section string) []string {
+	return o.Super().GetSectionKeys(section)
+}
+func (o *Extension[T]) EraseSection(section string) {
+	o.Super().EraseSection(section)
+}
+func (o *Extension[T]) EraseSectionKey(section string, key string) {
+	o.Super().EraseSectionKey(section, key)
+}
+func (o *Extension[T]) Load(path string) error {
+	return o.Super().Load(path)
+}
+func (o *Extension[T]) Parse(data string) error {
+	return o.Super().Parse(data)
+}
+func (o *Extension[T]) Save(path string) error {
+	return o.Super().Save(path)
+}
+func (o *Extension[T]) EncodeToText() string {
+	return o.Super().EncodeToText()
+}
+func (o *Extension[T]) LoadEncrypted(path string, key []byte) error {
+	return o.Super().LoadEncrypted(path, key)
+}
+func (o *Extension[T]) LoadEncryptedPass(path string, password string) error {
+	return o.Super().LoadEncryptedPass(path, password)
+}
+func (o *Extension[T]) SaveEncrypted(path string, key []byte) error {
+	return o.Super().SaveEncrypted(path, key)
+}
+func (o *Extension[T]) SaveEncryptedPass(path string, password string) error {
+	return o.Super().SaveEncryptedPass(path, password)
+}
+func (o *Extension[T]) Clear() {
+	o.Super().Clear()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

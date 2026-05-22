@@ -343,6 +343,26 @@ func (o Instance) AsXRTracker() XRTracker.Instance { return *(*XRTracker.Instanc
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) HasPose(name string) bool {
+	return o.Super().HasPose(name)
+}
+func (o *Extension[T]) GetPose(name string) XRPose.Instance {
+	return o.Super().GetPose(name)
+}
+func (o *Extension[T]) InvalidatePose(name string) {
+	o.Super().InvalidatePose(name)
+}
+func (o *Extension[T]) SetPose(name string, transform Transform3D.BasisOrigin, linear_velocity Vector3.XYZ, angular_velocity Vector3.XYZ, tracking_confidence XRPose.TrackingConfidence) *Extension[T] {
+	o.Super().SetPose(name, transform, linear_velocity, angular_velocity, tracking_confidence)
+	return o
+}
+func (o *Extension[T]) GetInput(name string) any {
+	return o.Super().GetInput(name)
+}
+func (o *Extension[T]) SetInput(name string, value any) *Extension[T] {
+	o.Super().SetInput(name, value)
+	return o
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

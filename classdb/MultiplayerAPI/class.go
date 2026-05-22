@@ -355,6 +355,30 @@ func (o *Extension[T]) AsMultiplayerAPI() Instance { return o.Super() }
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) HasMultiplayerPeer() bool {
+	return o.Super().HasMultiplayerPeer()
+}
+func (o *Extension[T]) GetUniqueId() int {
+	return o.Super().GetUniqueId()
+}
+func (o *Extension[T]) IsServer() bool {
+	return o.Super().IsServer()
+}
+func (o *Extension[T]) GetRemoteSenderId() int {
+	return o.Super().GetRemoteSenderId()
+}
+func (o *Extension[T]) Poll() error {
+	return o.Super().Poll()
+}
+func (o *Extension[T]) ObjectConfigurationAdd(obj Object.Instance, configuration any) error {
+	return o.Super().ObjectConfigurationAdd(obj, configuration)
+}
+func (o *Extension[T]) ObjectConfigurationRemove(obj Object.Instance, configuration any) error {
+	return o.Super().ObjectConfigurationRemove(obj, configuration)
+}
+func (o *Extension[T]) GetPeers() []int32 {
+	return o.Super().GetPeers()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

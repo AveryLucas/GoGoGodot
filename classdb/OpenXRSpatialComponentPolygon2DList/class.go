@@ -171,6 +171,24 @@ func (o Instance) AsOpenXRSpatialComponentData() OpenXRSpatialComponentData.Inst
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) GetTransform(index int) Transform3D.BasisOrigin {
+	return o.Super().GetTransform(index)
+}
+func (o *Extension[T]) GetVertices(snapshot RID.SpatialSnapshot, index int) []Vector2.XY {
+	return o.Super().GetVertices(snapshot, index)
+}
+
+// SetCapacity is promoted from [OpenXRSpatialComponentData.Instance.SetCapacity].
+func (self Instance) SetCapacity(capacity int) Instance {
+	self.AsOpenXRSpatialComponentData().SetCapacity(capacity)
+	return self
+}
+
+// SetCapacity is promoted from [OpenXRSpatialComponentData.Instance.SetCapacity].
+func (o *Extension[T]) SetCapacity(capacity int) *Extension[T] {
+	o.Super().AsOpenXRSpatialComponentData().SetCapacity(capacity)
+	return o
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

@@ -320,6 +320,42 @@ func (o *Extension[T]) AsENetConnection() Instance { return o.Super() }
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) Destroy() {
+	o.Super().Destroy()
+}
+func (o *Extension[T]) Flush() {
+	o.Super().Flush()
+}
+func (o *Extension[T]) ChannelLimit(limit int) {
+	o.Super().ChannelLimit(limit)
+}
+func (o *Extension[T]) Broadcast(channel int, packet []byte, flags int) {
+	o.Super().Broadcast(channel, packet, flags)
+}
+func (o *Extension[T]) Compress(mode CompressionMode) {
+	o.Super().Compress(mode)
+}
+func (o *Extension[T]) DtlsServerSetup(server_options TLSOptions.Instance) error {
+	return o.Super().DtlsServerSetup(server_options)
+}
+func (o *Extension[T]) RefuseNewConnections(refuse bool) {
+	o.Super().RefuseNewConnections(refuse)
+}
+func (o *Extension[T]) PopStatistic(statistic HostStatistic) Float.X {
+	return o.Super().PopStatistic(statistic)
+}
+func (o *Extension[T]) GetMaxChannels() int {
+	return o.Super().GetMaxChannels()
+}
+func (o *Extension[T]) GetLocalPort() int {
+	return o.Super().GetLocalPort()
+}
+func (o *Extension[T]) GetPeers() []ENetPacketPeer.Instance {
+	return o.Super().GetPeers()
+}
+func (o *Extension[T]) SocketSend(destination_address string, destination_port int, packet []byte) {
+	o.Super().SocketSend(destination_address, destination_port, packet)
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

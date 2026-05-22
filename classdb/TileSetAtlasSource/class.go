@@ -562,6 +562,245 @@ func (self Instance) OnSetupLocalToSceneRequested(cb func(), flags ...Signal.Fla
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("setup_local_to_scene_requested"), gd.NewCallable(cb), int64(flags_together))
 	return self
 }
+func (o *Extension[T]) RemoveTile(atlas_coords Vector2i.XY) {
+	o.Super().RemoveTile(atlas_coords)
+}
+func (o *Extension[T]) GetTileSizeInAtlas(atlas_coords Vector2i.XY) Vector2i.XY {
+	return o.Super().GetTileSizeInAtlas(atlas_coords)
+}
+func (o *Extension[T]) GetTilesToBeRemovedOnChange(texture Texture2D.Instance, margins Vector2i.XY, separation Vector2i.XY, texture_region_size Vector2i.XY) []Vector2.XY {
+	return o.Super().GetTilesToBeRemovedOnChange(texture, margins, separation, texture_region_size)
+}
+func (o *Extension[T]) GetTileAtCoords(atlas_coords Vector2i.XY) Vector2i.XY {
+	return o.Super().GetTileAtCoords(atlas_coords)
+}
+func (o *Extension[T]) HasTilesOutsideTexture() bool {
+	return o.Super().HasTilesOutsideTexture()
+}
+func (o *Extension[T]) ClearTilesOutsideTexture() {
+	o.Super().ClearTilesOutsideTexture()
+}
+func (o *Extension[T]) SetTileAnimationColumns(atlas_coords Vector2i.XY, frame_columns int) *Extension[T] {
+	o.Super().SetTileAnimationColumns(atlas_coords, frame_columns)
+	return o
+}
+func (o *Extension[T]) GetTileAnimationColumns(atlas_coords Vector2i.XY) int {
+	return o.Super().GetTileAnimationColumns(atlas_coords)
+}
+func (o *Extension[T]) SetTileAnimationSeparation(atlas_coords Vector2i.XY, separation Vector2i.XY) *Extension[T] {
+	o.Super().SetTileAnimationSeparation(atlas_coords, separation)
+	return o
+}
+func (o *Extension[T]) GetTileAnimationSeparation(atlas_coords Vector2i.XY) Vector2i.XY {
+	return o.Super().GetTileAnimationSeparation(atlas_coords)
+}
+func (o *Extension[T]) SetTileAnimationSpeed(atlas_coords Vector2i.XY, speed Float.X) *Extension[T] {
+	o.Super().SetTileAnimationSpeed(atlas_coords, speed)
+	return o
+}
+func (o *Extension[T]) GetTileAnimationSpeed(atlas_coords Vector2i.XY) Float.X {
+	return o.Super().GetTileAnimationSpeed(atlas_coords)
+}
+func (o *Extension[T]) SetTileAnimationMode(atlas_coords Vector2i.XY, mode TileAnimationMode) *Extension[T] {
+	o.Super().SetTileAnimationMode(atlas_coords, mode)
+	return o
+}
+func (o *Extension[T]) GetTileAnimationMode(atlas_coords Vector2i.XY) TileAnimationMode {
+	return o.Super().GetTileAnimationMode(atlas_coords)
+}
+func (o *Extension[T]) SetTileAnimationFramesCount(atlas_coords Vector2i.XY, frames_count int) *Extension[T] {
+	o.Super().SetTileAnimationFramesCount(atlas_coords, frames_count)
+	return o
+}
+func (o *Extension[T]) GetTileAnimationFramesCount(atlas_coords Vector2i.XY) int {
+	return o.Super().GetTileAnimationFramesCount(atlas_coords)
+}
+func (o *Extension[T]) SetTileAnimationFrameDuration(atlas_coords Vector2i.XY, frame_index int, duration Float.X) *Extension[T] {
+	o.Super().SetTileAnimationFrameDuration(atlas_coords, frame_index, duration)
+	return o
+}
+func (o *Extension[T]) GetTileAnimationFrameDuration(atlas_coords Vector2i.XY, frame_index int) Float.X {
+	return o.Super().GetTileAnimationFrameDuration(atlas_coords, frame_index)
+}
+func (o *Extension[T]) GetTileAnimationTotalDuration(atlas_coords Vector2i.XY) Float.X {
+	return o.Super().GetTileAnimationTotalDuration(atlas_coords)
+}
+func (o *Extension[T]) RemoveAlternativeTile(atlas_coords Vector2i.XY, alternative_tile int) {
+	o.Super().RemoveAlternativeTile(atlas_coords, alternative_tile)
+}
+func (o *Extension[T]) SetAlternativeTileId(atlas_coords Vector2i.XY, alternative_tile int, new_id int) *Extension[T] {
+	o.Super().SetAlternativeTileId(atlas_coords, alternative_tile, new_id)
+	return o
+}
+func (o *Extension[T]) GetNextAlternativeTileId(atlas_coords Vector2i.XY) int {
+	return o.Super().GetNextAlternativeTileId(atlas_coords)
+}
+func (o *Extension[T]) GetTileData(atlas_coords Vector2i.XY, alternative_tile int) TileData.Instance {
+	return o.Super().GetTileData(atlas_coords, alternative_tile)
+}
+func (o *Extension[T]) GetAtlasGridSize() Vector2i.XY {
+	return o.Super().GetAtlasGridSize()
+}
+func (o *Extension[T]) GetRuntimeTexture() Texture2D.Instance {
+	return o.Super().GetRuntimeTexture()
+}
+func (o *Extension[T]) GetRuntimeTileTextureRegion(atlas_coords Vector2i.XY, frame_ int) Rect2i.PositionSize {
+	return o.Super().GetRuntimeTileTextureRegion(atlas_coords, frame_)
+}
+
+// GetTilesCount is promoted from [TileSetSource.Instance.GetTilesCount].
+func (self Instance) GetTilesCount() int {
+	return self.AsTileSetSource().GetTilesCount()
+}
+
+// GetTilesCount is promoted from [TileSetSource.Instance.GetTilesCount].
+func (o *Extension[T]) GetTilesCount() int {
+	return o.Super().AsTileSetSource().GetTilesCount()
+}
+
+// GetTileId is promoted from [TileSetSource.Instance.GetTileId].
+func (self Instance) GetTileId(index int) Vector2i.XY {
+	return self.AsTileSetSource().GetTileId(index)
+}
+
+// GetTileId is promoted from [TileSetSource.Instance.GetTileId].
+func (o *Extension[T]) GetTileId(index int) Vector2i.XY {
+	return o.Super().AsTileSetSource().GetTileId(index)
+}
+
+// HasTile is promoted from [TileSetSource.Instance.HasTile].
+func (self Instance) HasTile(atlas_coords Vector2i.XY) bool {
+	return self.AsTileSetSource().HasTile(atlas_coords)
+}
+
+// HasTile is promoted from [TileSetSource.Instance.HasTile].
+func (o *Extension[T]) HasTile(atlas_coords Vector2i.XY) bool {
+	return o.Super().AsTileSetSource().HasTile(atlas_coords)
+}
+
+// GetAlternativeTilesCount is promoted from [TileSetSource.Instance.GetAlternativeTilesCount].
+func (self Instance) GetAlternativeTilesCount(atlas_coords Vector2i.XY) int {
+	return self.AsTileSetSource().GetAlternativeTilesCount(atlas_coords)
+}
+
+// GetAlternativeTilesCount is promoted from [TileSetSource.Instance.GetAlternativeTilesCount].
+func (o *Extension[T]) GetAlternativeTilesCount(atlas_coords Vector2i.XY) int {
+	return o.Super().AsTileSetSource().GetAlternativeTilesCount(atlas_coords)
+}
+
+// GetAlternativeTileId is promoted from [TileSetSource.Instance.GetAlternativeTileId].
+func (self Instance) GetAlternativeTileId(atlas_coords Vector2i.XY, index int) int {
+	return self.AsTileSetSource().GetAlternativeTileId(atlas_coords, index)
+}
+
+// GetAlternativeTileId is promoted from [TileSetSource.Instance.GetAlternativeTileId].
+func (o *Extension[T]) GetAlternativeTileId(atlas_coords Vector2i.XY, index int) int {
+	return o.Super().AsTileSetSource().GetAlternativeTileId(atlas_coords, index)
+}
+
+// HasAlternativeTile is promoted from [TileSetSource.Instance.HasAlternativeTile].
+func (self Instance) HasAlternativeTile(atlas_coords Vector2i.XY, alternative_tile int) bool {
+	return self.AsTileSetSource().HasAlternativeTile(atlas_coords, alternative_tile)
+}
+
+// HasAlternativeTile is promoted from [TileSetSource.Instance.HasAlternativeTile].
+func (o *Extension[T]) HasAlternativeTile(atlas_coords Vector2i.XY, alternative_tile int) bool {
+	return o.Super().AsTileSetSource().HasAlternativeTile(atlas_coords, alternative_tile)
+}
+
+// TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
+func (self Instance) TakeOverPath(path string) {
+	self.AsResource().TakeOverPath(path)
+}
+
+// TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
+func (o *Extension[T]) TakeOverPath(path string) {
+	o.Super().AsResource().TakeOverPath(path)
+}
+
+// SetPathCache is promoted from [Resource.Instance.SetPathCache].
+func (self Instance) SetPathCache(path string) Instance {
+	self.AsResource().SetPathCache(path)
+	return self
+}
+
+// SetPathCache is promoted from [Resource.Instance.SetPathCache].
+func (o *Extension[T]) SetPathCache(path string) *Extension[T] {
+	o.Super().AsResource().SetPathCache(path)
+	return o
+}
+
+// GetRid is promoted from [Resource.Instance.GetRid].
+func (self Instance) GetRid() Resource.ID {
+	return self.AsResource().GetRid()
+}
+
+// GetRid is promoted from [Resource.Instance.GetRid].
+func (o *Extension[T]) GetRid() Resource.ID {
+	return o.Super().AsResource().GetRid()
+}
+
+// SetupLocalToScene is promoted from [Resource.Instance.SetupLocalToScene].
+func (self Instance) SetupLocalToScene() {
+	self.AsResource().SetupLocalToScene()
+}
+
+// SetupLocalToScene is promoted from [Resource.Instance.SetupLocalToScene].
+func (o *Extension[T]) SetupLocalToScene() {
+	o.Super().AsResource().SetupLocalToScene()
+}
+
+// ResetState is promoted from [Resource.Instance.ResetState].
+func (self Instance) ResetState() {
+	self.AsResource().ResetState()
+}
+
+// ResetState is promoted from [Resource.Instance.ResetState].
+func (o *Extension[T]) ResetState() {
+	o.Super().AsResource().ResetState()
+}
+
+// SetIdForPath is promoted from [Resource.Instance.SetIdForPath].
+func (self Instance) SetIdForPath(path string, id string) Instance {
+	self.AsResource().SetIdForPath(path, id)
+	return self
+}
+
+// SetIdForPath is promoted from [Resource.Instance.SetIdForPath].
+func (o *Extension[T]) SetIdForPath(path string, id string) *Extension[T] {
+	o.Super().AsResource().SetIdForPath(path, id)
+	return o
+}
+
+// GetIdForPath is promoted from [Resource.Instance.GetIdForPath].
+func (self Instance) GetIdForPath(path string) string {
+	return self.AsResource().GetIdForPath(path)
+}
+
+// GetIdForPath is promoted from [Resource.Instance.GetIdForPath].
+func (o *Extension[T]) GetIdForPath(path string) string {
+	return o.Super().AsResource().GetIdForPath(path)
+}
+
+// IsBuiltIn is promoted from [Resource.Instance.IsBuiltIn].
+func (self Instance) IsBuiltIn() bool {
+	return self.AsResource().IsBuiltIn()
+}
+
+// IsBuiltIn is promoted from [Resource.Instance.IsBuiltIn].
+func (o *Extension[T]) IsBuiltIn() bool {
+	return o.Super().AsResource().IsBuiltIn()
+}
+
+// EmitChanged is promoted from [Resource.Instance.EmitChanged].
+func (self Instance) EmitChanged() {
+	self.AsResource().EmitChanged()
+}
+
+// EmitChanged is promoted from [Resource.Instance.EmitChanged].
+func (o *Extension[T]) EmitChanged() {
+	o.Super().AsResource().EmitChanged()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

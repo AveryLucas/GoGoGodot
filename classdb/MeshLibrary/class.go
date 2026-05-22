@@ -378,6 +378,181 @@ func (self Instance) OnSetupLocalToSceneRequested(cb func(), flags ...Signal.Fla
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("setup_local_to_scene_requested"), gd.NewCallable(cb), int64(flags_together))
 	return self
 }
+func (o *Extension[T]) CreateItem(id int) {
+	o.Super().CreateItem(id)
+}
+func (o *Extension[T]) SetItemName(id int, name string) *Extension[T] {
+	o.Super().SetItemName(id, name)
+	return o
+}
+func (o *Extension[T]) SetItemMesh(id int, mesh Mesh.Instance) *Extension[T] {
+	o.Super().SetItemMesh(id, mesh)
+	return o
+}
+func (o *Extension[T]) SetItemMeshTransform(id int, mesh_transform Transform3D.BasisOrigin) *Extension[T] {
+	o.Super().SetItemMeshTransform(id, mesh_transform)
+	return o
+}
+func (o *Extension[T]) SetItemMeshCastShadow(id int, shadow_casting_setting RenderingServer.ShadowCastingSetting) *Extension[T] {
+	o.Super().SetItemMeshCastShadow(id, shadow_casting_setting)
+	return o
+}
+func (o *Extension[T]) SetItemNavigationMesh(id int, navigation_mesh NavigationMesh.Instance) *Extension[T] {
+	o.Super().SetItemNavigationMesh(id, navigation_mesh)
+	return o
+}
+func (o *Extension[T]) SetItemNavigationMeshTransform(id int, navigation_mesh Transform3D.BasisOrigin) *Extension[T] {
+	o.Super().SetItemNavigationMeshTransform(id, navigation_mesh)
+	return o
+}
+func (o *Extension[T]) SetItemNavigationLayers(id int, navigation_layers int) *Extension[T] {
+	o.Super().SetItemNavigationLayers(id, navigation_layers)
+	return o
+}
+func (o *Extension[T]) SetItemShapes(id int, shapes []Shape3D.Instance) *Extension[T] {
+	o.Super().SetItemShapes(id, shapes)
+	return o
+}
+func (o *Extension[T]) SetItemPreview(id int, texture Texture2D.Instance) *Extension[T] {
+	o.Super().SetItemPreview(id, texture)
+	return o
+}
+func (o *Extension[T]) GetItemName(id int) string {
+	return o.Super().GetItemName(id)
+}
+func (o *Extension[T]) GetItemMesh(id int) Mesh.Instance {
+	return o.Super().GetItemMesh(id)
+}
+func (o *Extension[T]) GetItemMeshTransform(id int) Transform3D.BasisOrigin {
+	return o.Super().GetItemMeshTransform(id)
+}
+func (o *Extension[T]) GetItemMeshCastShadow(id int) RenderingServer.ShadowCastingSetting {
+	return o.Super().GetItemMeshCastShadow(id)
+}
+func (o *Extension[T]) GetItemNavigationMesh(id int) NavigationMesh.Instance {
+	return o.Super().GetItemNavigationMesh(id)
+}
+func (o *Extension[T]) GetItemNavigationMeshTransform(id int) Transform3D.BasisOrigin {
+	return o.Super().GetItemNavigationMeshTransform(id)
+}
+func (o *Extension[T]) GetItemNavigationLayers(id int) int {
+	return o.Super().GetItemNavigationLayers(id)
+}
+func (o *Extension[T]) GetItemShapes(id int) []Shape3D.Instance {
+	return o.Super().GetItemShapes(id)
+}
+func (o *Extension[T]) GetItemPreview(id int) Texture2D.Instance {
+	return o.Super().GetItemPreview(id)
+}
+func (o *Extension[T]) RemoveItem(id int) {
+	o.Super().RemoveItem(id)
+}
+func (o *Extension[T]) FindItemByName(name string) int {
+	return o.Super().FindItemByName(name)
+}
+func (o *Extension[T]) Clear() {
+	o.Super().Clear()
+}
+func (o *Extension[T]) GetItemList() []int32 {
+	return o.Super().GetItemList()
+}
+func (o *Extension[T]) GetLastUnusedItemId() int {
+	return o.Super().GetLastUnusedItemId()
+}
+
+// TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
+func (self Instance) TakeOverPath(path string) {
+	self.AsResource().TakeOverPath(path)
+}
+
+// TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
+func (o *Extension[T]) TakeOverPath(path string) {
+	o.Super().AsResource().TakeOverPath(path)
+}
+
+// SetPathCache is promoted from [Resource.Instance.SetPathCache].
+func (self Instance) SetPathCache(path string) Instance {
+	self.AsResource().SetPathCache(path)
+	return self
+}
+
+// SetPathCache is promoted from [Resource.Instance.SetPathCache].
+func (o *Extension[T]) SetPathCache(path string) *Extension[T] {
+	o.Super().AsResource().SetPathCache(path)
+	return o
+}
+
+// GetRid is promoted from [Resource.Instance.GetRid].
+func (self Instance) GetRid() Resource.ID {
+	return self.AsResource().GetRid()
+}
+
+// GetRid is promoted from [Resource.Instance.GetRid].
+func (o *Extension[T]) GetRid() Resource.ID {
+	return o.Super().AsResource().GetRid()
+}
+
+// SetupLocalToScene is promoted from [Resource.Instance.SetupLocalToScene].
+func (self Instance) SetupLocalToScene() {
+	self.AsResource().SetupLocalToScene()
+}
+
+// SetupLocalToScene is promoted from [Resource.Instance.SetupLocalToScene].
+func (o *Extension[T]) SetupLocalToScene() {
+	o.Super().AsResource().SetupLocalToScene()
+}
+
+// ResetState is promoted from [Resource.Instance.ResetState].
+func (self Instance) ResetState() {
+	self.AsResource().ResetState()
+}
+
+// ResetState is promoted from [Resource.Instance.ResetState].
+func (o *Extension[T]) ResetState() {
+	o.Super().AsResource().ResetState()
+}
+
+// SetIdForPath is promoted from [Resource.Instance.SetIdForPath].
+func (self Instance) SetIdForPath(path string, id string) Instance {
+	self.AsResource().SetIdForPath(path, id)
+	return self
+}
+
+// SetIdForPath is promoted from [Resource.Instance.SetIdForPath].
+func (o *Extension[T]) SetIdForPath(path string, id string) *Extension[T] {
+	o.Super().AsResource().SetIdForPath(path, id)
+	return o
+}
+
+// GetIdForPath is promoted from [Resource.Instance.GetIdForPath].
+func (self Instance) GetIdForPath(path string) string {
+	return self.AsResource().GetIdForPath(path)
+}
+
+// GetIdForPath is promoted from [Resource.Instance.GetIdForPath].
+func (o *Extension[T]) GetIdForPath(path string) string {
+	return o.Super().AsResource().GetIdForPath(path)
+}
+
+// IsBuiltIn is promoted from [Resource.Instance.IsBuiltIn].
+func (self Instance) IsBuiltIn() bool {
+	return self.AsResource().IsBuiltIn()
+}
+
+// IsBuiltIn is promoted from [Resource.Instance.IsBuiltIn].
+func (o *Extension[T]) IsBuiltIn() bool {
+	return o.Super().AsResource().IsBuiltIn()
+}
+
+// EmitChanged is promoted from [Resource.Instance.EmitChanged].
+func (self Instance) EmitChanged() {
+	self.AsResource().EmitChanged()
+}
+
+// EmitChanged is promoted from [Resource.Instance.EmitChanged].
+func (o *Extension[T]) EmitChanged() {
+	o.Super().AsResource().EmitChanged()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

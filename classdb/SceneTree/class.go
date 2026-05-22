@@ -765,6 +765,68 @@ func (self Instance) OnOnRequestPermissionsResult(cb func(permission string, gra
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("on_request_permissions_result"), gd.NewCallable(cb), int64(flags_together))
 	return self
 }
+func (o *Extension[T]) HasGroup(name string) bool {
+	return o.Super().HasGroup(name)
+}
+func (o *Extension[T]) IsAccessibilityEnabled() bool {
+	return o.Super().IsAccessibilityEnabled()
+}
+func (o *Extension[T]) IsAccessibilitySupported() bool {
+	return o.Super().IsAccessibilitySupported()
+}
+func (o *Extension[T]) CreateTween() Tween.Instance {
+	return o.Super().CreateTween()
+}
+func (o *Extension[T]) GetProcessedTweens() []Tween.Instance {
+	return o.Super().GetProcessedTweens()
+}
+func (o *Extension[T]) GetNodeCount() int {
+	return o.Super().GetNodeCount()
+}
+func (o *Extension[T]) GetFrame() int {
+	return o.Super().GetFrame()
+}
+func (o *Extension[T]) QueueDelete(obj Object.Instance) {
+	o.Super().QueueDelete(obj)
+}
+func (o *Extension[T]) NotifyGroupFlags(call_flags int, group string, notification int) {
+	o.Super().NotifyGroupFlags(call_flags, group, notification)
+}
+func (o *Extension[T]) SetGroupFlags(call_flags int, group string, property string, value any) *Extension[T] {
+	o.Super().SetGroupFlags(call_flags, group, property, value)
+	return o
+}
+func (o *Extension[T]) NotifyGroup(group string, notification int) {
+	o.Super().NotifyGroup(group, notification)
+}
+func (o *Extension[T]) SetGroup(group string, property string, value any) *Extension[T] {
+	o.Super().SetGroup(group, property, value)
+	return o
+}
+func (o *Extension[T]) GetNodesInGroup(group string) []Node.Instance {
+	return o.Super().GetNodesInGroup(group)
+}
+func (o *Extension[T]) GetFirstNodeInGroup(group string) Node.Instance {
+	return o.Super().GetFirstNodeInGroup(group)
+}
+func (o *Extension[T]) GetNodeCountInGroup(group string) int {
+	return o.Super().GetNodeCountInGroup(group)
+}
+func (o *Extension[T]) ChangeSceneToFile(path string) error {
+	return o.Super().ChangeSceneToFile(path)
+}
+func (o *Extension[T]) ChangeSceneToPacked(packed_scene PackedScene.Instance) error {
+	return o.Super().ChangeSceneToPacked(packed_scene)
+}
+func (o *Extension[T]) ChangeSceneToNode(node Node.Instance) error {
+	return o.Super().ChangeSceneToNode(node)
+}
+func (o *Extension[T]) ReloadCurrentScene() error {
+	return o.Super().ReloadCurrentScene()
+}
+func (o *Extension[T]) UnloadCurrentScene() {
+	o.Super().UnloadCurrentScene()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

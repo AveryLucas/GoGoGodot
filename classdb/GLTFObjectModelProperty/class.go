@@ -318,6 +318,25 @@ func (o *Extension[T]) AsGLTFObjectModelProperty() Instance { return o.Super() }
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) AppendNodePath(node_path string) {
+	o.Super().AppendNodePath(node_path)
+}
+func (o *Extension[T]) AppendPathToProperty(node_path string, prop_name string) {
+	o.Super().AppendPathToProperty(node_path, prop_name)
+}
+func (o *Extension[T]) GetAccessorType() GLTFAccessor.GLTFAccessorType {
+	return o.Super().GetAccessorType()
+}
+func (o *Extension[T]) HasNodePaths() bool {
+	return o.Super().HasNodePaths()
+}
+func (o *Extension[T]) HasJsonPointers() bool {
+	return o.Super().HasJsonPointers()
+}
+func (o *Extension[T]) SetTypes(variant_type variant.Type, obj_model_type GLTFObjectModelType) *Extension[T] {
+	o.Super().SetTypes(variant_type, obj_model_type)
+	return o
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

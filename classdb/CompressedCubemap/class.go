@@ -18,6 +18,7 @@ import "graphics.gd/variant/Angle"
 import "graphics.gd/variant/Euler"
 import "graphics.gd/variant/Signal"
 import "graphics.gd/classdb/CompressedTextureLayered"
+import "graphics.gd/classdb/Image"
 import "graphics.gd/classdb/Resource"
 import "graphics.gd/classdb/Texture"
 import "graphics.gd/classdb/TextureLayered"
@@ -182,6 +183,170 @@ func (self Instance) OnSetupLocalToSceneRequested(cb func(), flags ...Signal.Fla
 	}
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("setup_local_to_scene_requested"), gd.NewCallable(cb), int64(flags_together))
 	return self
+}
+
+// GetFormat is promoted from [TextureLayered.Instance.GetFormat].
+func (self Instance) GetFormat() Image.Format {
+	return self.AsTextureLayered().GetFormat()
+}
+
+// GetFormat is promoted from [TextureLayered.Instance.GetFormat].
+func (o *Extension[T]) GetFormat() Image.Format {
+	return o.Super().AsTextureLayered().GetFormat()
+}
+
+// GetLayeredType is promoted from [TextureLayered.Instance.GetLayeredType].
+func (self Instance) GetLayeredType() TextureLayered.LayeredType {
+	return self.AsTextureLayered().GetLayeredType()
+}
+
+// GetLayeredType is promoted from [TextureLayered.Instance.GetLayeredType].
+func (o *Extension[T]) GetLayeredType() TextureLayered.LayeredType {
+	return o.Super().AsTextureLayered().GetLayeredType()
+}
+
+// GetWidth is promoted from [TextureLayered.Instance.GetWidth].
+func (self Instance) GetWidth() int {
+	return self.AsTextureLayered().GetWidth()
+}
+
+// GetWidth is promoted from [TextureLayered.Instance.GetWidth].
+func (o *Extension[T]) GetWidth() int {
+	return o.Super().AsTextureLayered().GetWidth()
+}
+
+// GetHeight is promoted from [TextureLayered.Instance.GetHeight].
+func (self Instance) GetHeight() int {
+	return self.AsTextureLayered().GetHeight()
+}
+
+// GetHeight is promoted from [TextureLayered.Instance.GetHeight].
+func (o *Extension[T]) GetHeight() int {
+	return o.Super().AsTextureLayered().GetHeight()
+}
+
+// GetLayers is promoted from [TextureLayered.Instance.GetLayers].
+func (self Instance) GetLayers() int {
+	return self.AsTextureLayered().GetLayers()
+}
+
+// GetLayers is promoted from [TextureLayered.Instance.GetLayers].
+func (o *Extension[T]) GetLayers() int {
+	return o.Super().AsTextureLayered().GetLayers()
+}
+
+// HasMipmaps is promoted from [TextureLayered.Instance.HasMipmaps].
+func (self Instance) HasMipmaps() bool {
+	return self.AsTextureLayered().HasMipmaps()
+}
+
+// HasMipmaps is promoted from [TextureLayered.Instance.HasMipmaps].
+func (o *Extension[T]) HasMipmaps() bool {
+	return o.Super().AsTextureLayered().HasMipmaps()
+}
+
+// GetLayerData is promoted from [TextureLayered.Instance.GetLayerData].
+func (self Instance) GetLayerData(layer int) Image.Instance {
+	return self.AsTextureLayered().GetLayerData(layer)
+}
+
+// GetLayerData is promoted from [TextureLayered.Instance.GetLayerData].
+func (o *Extension[T]) GetLayerData(layer int) Image.Instance {
+	return o.Super().AsTextureLayered().GetLayerData(layer)
+}
+
+// TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
+func (self Instance) TakeOverPath(path string) {
+	self.AsResource().TakeOverPath(path)
+}
+
+// TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
+func (o *Extension[T]) TakeOverPath(path string) {
+	o.Super().AsResource().TakeOverPath(path)
+}
+
+// SetPathCache is promoted from [Resource.Instance.SetPathCache].
+func (self Instance) SetPathCache(path string) Instance {
+	self.AsResource().SetPathCache(path)
+	return self
+}
+
+// SetPathCache is promoted from [Resource.Instance.SetPathCache].
+func (o *Extension[T]) SetPathCache(path string) *Extension[T] {
+	o.Super().AsResource().SetPathCache(path)
+	return o
+}
+
+// GetRid is promoted from [Resource.Instance.GetRid].
+func (self Instance) GetRid() Resource.ID {
+	return self.AsResource().GetRid()
+}
+
+// GetRid is promoted from [Resource.Instance.GetRid].
+func (o *Extension[T]) GetRid() Resource.ID {
+	return o.Super().AsResource().GetRid()
+}
+
+// SetupLocalToScene is promoted from [Resource.Instance.SetupLocalToScene].
+func (self Instance) SetupLocalToScene() {
+	self.AsResource().SetupLocalToScene()
+}
+
+// SetupLocalToScene is promoted from [Resource.Instance.SetupLocalToScene].
+func (o *Extension[T]) SetupLocalToScene() {
+	o.Super().AsResource().SetupLocalToScene()
+}
+
+// ResetState is promoted from [Resource.Instance.ResetState].
+func (self Instance) ResetState() {
+	self.AsResource().ResetState()
+}
+
+// ResetState is promoted from [Resource.Instance.ResetState].
+func (o *Extension[T]) ResetState() {
+	o.Super().AsResource().ResetState()
+}
+
+// SetIdForPath is promoted from [Resource.Instance.SetIdForPath].
+func (self Instance) SetIdForPath(path string, id string) Instance {
+	self.AsResource().SetIdForPath(path, id)
+	return self
+}
+
+// SetIdForPath is promoted from [Resource.Instance.SetIdForPath].
+func (o *Extension[T]) SetIdForPath(path string, id string) *Extension[T] {
+	o.Super().AsResource().SetIdForPath(path, id)
+	return o
+}
+
+// GetIdForPath is promoted from [Resource.Instance.GetIdForPath].
+func (self Instance) GetIdForPath(path string) string {
+	return self.AsResource().GetIdForPath(path)
+}
+
+// GetIdForPath is promoted from [Resource.Instance.GetIdForPath].
+func (o *Extension[T]) GetIdForPath(path string) string {
+	return o.Super().AsResource().GetIdForPath(path)
+}
+
+// IsBuiltIn is promoted from [Resource.Instance.IsBuiltIn].
+func (self Instance) IsBuiltIn() bool {
+	return self.AsResource().IsBuiltIn()
+}
+
+// IsBuiltIn is promoted from [Resource.Instance.IsBuiltIn].
+func (o *Extension[T]) IsBuiltIn() bool {
+	return o.Super().AsResource().IsBuiltIn()
+}
+
+// EmitChanged is promoted from [Resource.Instance.EmitChanged].
+func (self Instance) EmitChanged() {
+	self.AsResource().EmitChanged()
+}
+
+// EmitChanged is promoted from [Resource.Instance.EmitChanged].
+func (o *Extension[T]) EmitChanged() {
+	o.Super().AsResource().EmitChanged()
 }
 
 func (self class) Virtual(name string) reflect.Value {

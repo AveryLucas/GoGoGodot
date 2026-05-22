@@ -371,6 +371,48 @@ func (o *Extension[T]) AsCameraFeed() Instance { return o.Super() }
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) GetId() int {
+	return o.Super().GetId()
+}
+func (o *Extension[T]) GetName() string {
+	return o.Super().GetName()
+}
+func (o *Extension[T]) SetName(name string) *Extension[T] {
+	o.Super().SetName(name)
+	return o
+}
+func (o *Extension[T]) GetPosition() FeedPosition {
+	return o.Super().GetPosition()
+}
+func (o *Extension[T]) SetPosition(position FeedPosition) *Extension[T] {
+	o.Super().SetPosition(position)
+	return o
+}
+func (o *Extension[T]) SetRgbImage(rgb_image Image.Instance) *Extension[T] {
+	o.Super().SetRgbImage(rgb_image)
+	return o
+}
+func (o *Extension[T]) SetYcbcrImage(ycbcr_image Image.Instance) *Extension[T] {
+	o.Super().SetYcbcrImage(ycbcr_image)
+	return o
+}
+func (o *Extension[T]) SetYcbcrImages(y_image Image.Instance, cbcr_image Image.Instance) *Extension[T] {
+	o.Super().SetYcbcrImages(y_image, cbcr_image)
+	return o
+}
+func (o *Extension[T]) SetExternal(width int, height int) *Extension[T] {
+	o.Super().SetExternal(width, height)
+	return o
+}
+func (o *Extension[T]) GetTextureTexId(feed_image_type ImageType) int {
+	return o.Super().GetTextureTexId(feed_image_type)
+}
+func (o *Extension[T]) GetDatatype() FeedDataType {
+	return o.Super().GetDatatype()
+}
+func (o *Extension[T]) SetFormat(index int, parameters FormatParameters) bool {
+	return o.Super().SetFormat(index, parameters)
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

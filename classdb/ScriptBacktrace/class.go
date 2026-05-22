@@ -299,6 +299,51 @@ func (o *Extension[T]) AsScriptBacktrace() Instance { return o.Super() }
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) GetLanguageName() string {
+	return o.Super().GetLanguageName()
+}
+func (o *Extension[T]) IsEmpty() bool {
+	return o.Super().IsEmpty()
+}
+func (o *Extension[T]) GetFrameCount() int {
+	return o.Super().GetFrameCount()
+}
+func (o *Extension[T]) GetFrameFunction(index int) string {
+	return o.Super().GetFrameFunction(index)
+}
+func (o *Extension[T]) GetFrameFile(index int) string {
+	return o.Super().GetFrameFile(index)
+}
+func (o *Extension[T]) GetFrameLine(index int) int {
+	return o.Super().GetFrameLine(index)
+}
+func (o *Extension[T]) GetGlobalVariableCount() int {
+	return o.Super().GetGlobalVariableCount()
+}
+func (o *Extension[T]) GetGlobalVariableName(variable_index int) string {
+	return o.Super().GetGlobalVariableName(variable_index)
+}
+func (o *Extension[T]) GetGlobalVariableValue(variable_index int) any {
+	return o.Super().GetGlobalVariableValue(variable_index)
+}
+func (o *Extension[T]) GetLocalVariableCount(frame_index int) int {
+	return o.Super().GetLocalVariableCount(frame_index)
+}
+func (o *Extension[T]) GetLocalVariableName(frame_index int, variable_index int) string {
+	return o.Super().GetLocalVariableName(frame_index, variable_index)
+}
+func (o *Extension[T]) GetLocalVariableValue(frame_index int, variable_index int) any {
+	return o.Super().GetLocalVariableValue(frame_index, variable_index)
+}
+func (o *Extension[T]) GetMemberVariableCount(frame_index int) int {
+	return o.Super().GetMemberVariableCount(frame_index)
+}
+func (o *Extension[T]) GetMemberVariableName(frame_index int, variable_index int) string {
+	return o.Super().GetMemberVariableName(frame_index, variable_index)
+}
+func (o *Extension[T]) GetMemberVariableValue(frame_index int, variable_index int) any {
+	return o.Super().GetMemberVariableValue(frame_index, variable_index)
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

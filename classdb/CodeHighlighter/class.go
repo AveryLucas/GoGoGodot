@@ -19,6 +19,7 @@ import "graphics.gd/variant/Euler"
 import "graphics.gd/variant/Signal"
 import "graphics.gd/classdb/Resource"
 import "graphics.gd/classdb/SyntaxHighlighter"
+import "graphics.gd/classdb/TextEdit"
 import "graphics.gd/variant/Array"
 import "graphics.gd/variant/Callable"
 import "graphics.gd/variant/Color"
@@ -432,6 +433,179 @@ func (self Instance) OnSetupLocalToSceneRequested(cb func(), flags ...Signal.Fla
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("setup_local_to_scene_requested"), gd.NewCallable(cb), int64(flags_together))
 	return self
 }
+func (o *Extension[T]) AddKeywordColor(keyword string, color Color.RGBA) {
+	o.Super().AddKeywordColor(keyword, color)
+}
+func (o *Extension[T]) RemoveKeywordColor(keyword string) {
+	o.Super().RemoveKeywordColor(keyword)
+}
+func (o *Extension[T]) HasKeywordColor(keyword string) bool {
+	return o.Super().HasKeywordColor(keyword)
+}
+func (o *Extension[T]) GetKeywordColor(keyword string) Color.RGBA {
+	return o.Super().GetKeywordColor(keyword)
+}
+func (o *Extension[T]) ClearKeywordColors() {
+	o.Super().ClearKeywordColors()
+}
+func (o *Extension[T]) AddMemberKeywordColor(member_keyword string, color Color.RGBA) {
+	o.Super().AddMemberKeywordColor(member_keyword, color)
+}
+func (o *Extension[T]) RemoveMemberKeywordColor(member_keyword string) {
+	o.Super().RemoveMemberKeywordColor(member_keyword)
+}
+func (o *Extension[T]) HasMemberKeywordColor(member_keyword string) bool {
+	return o.Super().HasMemberKeywordColor(member_keyword)
+}
+func (o *Extension[T]) GetMemberKeywordColor(member_keyword string) Color.RGBA {
+	return o.Super().GetMemberKeywordColor(member_keyword)
+}
+func (o *Extension[T]) ClearMemberKeywordColors() {
+	o.Super().ClearMemberKeywordColors()
+}
+func (o *Extension[T]) RemoveColorRegion(start_key string) {
+	o.Super().RemoveColorRegion(start_key)
+}
+func (o *Extension[T]) HasColorRegion(start_key string) bool {
+	return o.Super().HasColorRegion(start_key)
+}
+func (o *Extension[T]) ClearColorRegions() {
+	o.Super().ClearColorRegions()
+}
+
+// GetLineSyntaxHighlighting is promoted from [SyntaxHighlighter.Instance.GetLineSyntaxHighlighting].
+func (self Instance) GetLineSyntaxHighlighting(line int) map[int]SyntaxHighlighter.Entry {
+	return self.AsSyntaxHighlighter().GetLineSyntaxHighlighting(line)
+}
+
+// GetLineSyntaxHighlighting is promoted from [SyntaxHighlighter.Instance.GetLineSyntaxHighlighting].
+func (o *Extension[T]) GetLineSyntaxHighlighting(line int) map[int]SyntaxHighlighter.Entry {
+	return o.Super().AsSyntaxHighlighter().GetLineSyntaxHighlighting(line)
+}
+
+// UpdateCache is promoted from [SyntaxHighlighter.Instance.UpdateCache].
+func (self Instance) UpdateCache() {
+	self.AsSyntaxHighlighter().UpdateCache()
+}
+
+// UpdateCache is promoted from [SyntaxHighlighter.Instance.UpdateCache].
+func (o *Extension[T]) UpdateCache() {
+	o.Super().AsSyntaxHighlighter().UpdateCache()
+}
+
+// ClearHighlightingCache is promoted from [SyntaxHighlighter.Instance.ClearHighlightingCache].
+func (self Instance) ClearHighlightingCache() {
+	self.AsSyntaxHighlighter().ClearHighlightingCache()
+}
+
+// ClearHighlightingCache is promoted from [SyntaxHighlighter.Instance.ClearHighlightingCache].
+func (o *Extension[T]) ClearHighlightingCache() {
+	o.Super().AsSyntaxHighlighter().ClearHighlightingCache()
+}
+
+// GetTextEdit is promoted from [SyntaxHighlighter.Instance.GetTextEdit].
+func (self Instance) GetTextEdit() TextEdit.Instance {
+	return self.AsSyntaxHighlighter().GetTextEdit()
+}
+
+// GetTextEdit is promoted from [SyntaxHighlighter.Instance.GetTextEdit].
+func (o *Extension[T]) GetTextEdit() TextEdit.Instance {
+	return o.Super().AsSyntaxHighlighter().GetTextEdit()
+}
+
+// TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
+func (self Instance) TakeOverPath(path string) {
+	self.AsResource().TakeOverPath(path)
+}
+
+// TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
+func (o *Extension[T]) TakeOverPath(path string) {
+	o.Super().AsResource().TakeOverPath(path)
+}
+
+// SetPathCache is promoted from [Resource.Instance.SetPathCache].
+func (self Instance) SetPathCache(path string) Instance {
+	self.AsResource().SetPathCache(path)
+	return self
+}
+
+// SetPathCache is promoted from [Resource.Instance.SetPathCache].
+func (o *Extension[T]) SetPathCache(path string) *Extension[T] {
+	o.Super().AsResource().SetPathCache(path)
+	return o
+}
+
+// GetRid is promoted from [Resource.Instance.GetRid].
+func (self Instance) GetRid() Resource.ID {
+	return self.AsResource().GetRid()
+}
+
+// GetRid is promoted from [Resource.Instance.GetRid].
+func (o *Extension[T]) GetRid() Resource.ID {
+	return o.Super().AsResource().GetRid()
+}
+
+// SetupLocalToScene is promoted from [Resource.Instance.SetupLocalToScene].
+func (self Instance) SetupLocalToScene() {
+	self.AsResource().SetupLocalToScene()
+}
+
+// SetupLocalToScene is promoted from [Resource.Instance.SetupLocalToScene].
+func (o *Extension[T]) SetupLocalToScene() {
+	o.Super().AsResource().SetupLocalToScene()
+}
+
+// ResetState is promoted from [Resource.Instance.ResetState].
+func (self Instance) ResetState() {
+	self.AsResource().ResetState()
+}
+
+// ResetState is promoted from [Resource.Instance.ResetState].
+func (o *Extension[T]) ResetState() {
+	o.Super().AsResource().ResetState()
+}
+
+// SetIdForPath is promoted from [Resource.Instance.SetIdForPath].
+func (self Instance) SetIdForPath(path string, id string) Instance {
+	self.AsResource().SetIdForPath(path, id)
+	return self
+}
+
+// SetIdForPath is promoted from [Resource.Instance.SetIdForPath].
+func (o *Extension[T]) SetIdForPath(path string, id string) *Extension[T] {
+	o.Super().AsResource().SetIdForPath(path, id)
+	return o
+}
+
+// GetIdForPath is promoted from [Resource.Instance.GetIdForPath].
+func (self Instance) GetIdForPath(path string) string {
+	return self.AsResource().GetIdForPath(path)
+}
+
+// GetIdForPath is promoted from [Resource.Instance.GetIdForPath].
+func (o *Extension[T]) GetIdForPath(path string) string {
+	return o.Super().AsResource().GetIdForPath(path)
+}
+
+// IsBuiltIn is promoted from [Resource.Instance.IsBuiltIn].
+func (self Instance) IsBuiltIn() bool {
+	return self.AsResource().IsBuiltIn()
+}
+
+// IsBuiltIn is promoted from [Resource.Instance.IsBuiltIn].
+func (o *Extension[T]) IsBuiltIn() bool {
+	return o.Super().AsResource().IsBuiltIn()
+}
+
+// EmitChanged is promoted from [Resource.Instance.EmitChanged].
+func (self Instance) EmitChanged() {
+	self.AsResource().EmitChanged()
+}
+
+// EmitChanged is promoted from [Resource.Instance.EmitChanged].
+func (o *Extension[T]) EmitChanged() {
+	o.Super().AsResource().EmitChanged()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {
@@ -445,3 +619,6 @@ func (self Instance) Virtual(name string) reflect.Value {
 	}
 }
 func init() {gdclass.Register("CodeHighlighter", func(ptr gdreference.Object) any { return Instance{gdclass.NewCodeHighlighter(ptr)} })}
+type Entry struct {
+Color struct { R float32; G float32; B float32; A float32 } `gd:"color"`
+}

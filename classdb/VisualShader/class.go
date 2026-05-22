@@ -357,6 +357,182 @@ func (self Instance) OnSetupLocalToSceneRequested(cb func(), flags ...Signal.Fla
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("setup_local_to_scene_requested"), gd.NewCallable(cb), int64(flags_together))
 	return self
 }
+func (o *Extension[T]) SetMode(mode Shader.Mode) *Extension[T] {
+	o.Super().SetMode(mode)
+	return o
+}
+func (o *Extension[T]) AddNode(atype Type, node VisualShaderNode.Instance, position Vector2.XY, id int) {
+	o.Super().AddNode(atype, node, position, id)
+}
+func (o *Extension[T]) GetNode(atype Type, id int) VisualShaderNode.Instance {
+	return o.Super().GetNode(atype, id)
+}
+func (o *Extension[T]) SetNodePosition(atype Type, id int, position Vector2.XY) *Extension[T] {
+	o.Super().SetNodePosition(atype, id, position)
+	return o
+}
+func (o *Extension[T]) GetNodePosition(atype Type, id int) Vector2.XY {
+	return o.Super().GetNodePosition(atype, id)
+}
+func (o *Extension[T]) GetNodeList(atype Type) []int32 {
+	return o.Super().GetNodeList(atype)
+}
+func (o *Extension[T]) GetValidNodeId(atype Type) NodeID {
+	return o.Super().GetValidNodeId(atype)
+}
+func (o *Extension[T]) RemoveNode(atype Type, id int) {
+	o.Super().RemoveNode(atype, id)
+}
+func (o *Extension[T]) ReplaceNode(atype Type, id int, new_class string) {
+	o.Super().ReplaceNode(atype, id, new_class)
+}
+func (o *Extension[T]) IsNodeConnection(atype Type, from_node NodeID, from_port int, to_node NodeID, to_port int) bool {
+	return o.Super().IsNodeConnection(atype, from_node, from_port, to_node, to_port)
+}
+func (o *Extension[T]) CanConnectNodes(atype Type, from_node NodeID, from_port int, to_node NodeID, to_port int) bool {
+	return o.Super().CanConnectNodes(atype, from_node, from_port, to_node, to_port)
+}
+func (o *Extension[T]) ConnectNodes(atype Type, from_node NodeID, from_port int, to_node NodeID, to_port int) error {
+	return o.Super().ConnectNodes(atype, from_node, from_port, to_node, to_port)
+}
+func (o *Extension[T]) DisconnectNodes(atype Type, from_node NodeID, from_port int, to_node NodeID, to_port int) {
+	o.Super().DisconnectNodes(atype, from_node, from_port, to_node, to_port)
+}
+func (o *Extension[T]) ConnectNodesForced(atype Type, from_node NodeID, from_port int, to_node NodeID, to_port int) {
+	o.Super().ConnectNodesForced(atype, from_node, from_port, to_node, to_port)
+}
+func (o *Extension[T]) GetNodeConnections(atype Type) []map[string]any {
+	return o.Super().GetNodeConnections(atype)
+}
+func (o *Extension[T]) AttachNodeToFrame(atype Type, id int, frame_ int) {
+	o.Super().AttachNodeToFrame(atype, id, frame_)
+}
+func (o *Extension[T]) DetachNodeFromFrame(atype Type, id int) {
+	o.Super().DetachNodeFromFrame(atype, id)
+}
+func (o *Extension[T]) AddVarying(name string, mode VaryingMode, atype VaryingType) {
+	o.Super().AddVarying(name, mode, atype)
+}
+func (o *Extension[T]) RemoveVarying(name string) {
+	o.Super().RemoveVarying(name)
+}
+func (o *Extension[T]) HasVarying(name string) bool {
+	return o.Super().HasVarying(name)
+}
+
+// GetMode is promoted from [Shader.Instance.GetMode].
+func (self Instance) GetMode() Shader.Mode {
+	return self.AsShader().GetMode()
+}
+
+// GetMode is promoted from [Shader.Instance.GetMode].
+func (o *Extension[T]) GetMode() Shader.Mode {
+	return o.Super().AsShader().GetMode()
+}
+
+// InspectNativeShaderCode is promoted from [Shader.Instance.InspectNativeShaderCode].
+func (self Instance) InspectNativeShaderCode() {
+	self.AsShader().InspectNativeShaderCode()
+}
+
+// InspectNativeShaderCode is promoted from [Shader.Instance.InspectNativeShaderCode].
+func (o *Extension[T]) InspectNativeShaderCode() {
+	o.Super().AsShader().InspectNativeShaderCode()
+}
+
+// TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
+func (self Instance) TakeOverPath(path string) {
+	self.AsResource().TakeOverPath(path)
+}
+
+// TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
+func (o *Extension[T]) TakeOverPath(path string) {
+	o.Super().AsResource().TakeOverPath(path)
+}
+
+// SetPathCache is promoted from [Resource.Instance.SetPathCache].
+func (self Instance) SetPathCache(path string) Instance {
+	self.AsResource().SetPathCache(path)
+	return self
+}
+
+// SetPathCache is promoted from [Resource.Instance.SetPathCache].
+func (o *Extension[T]) SetPathCache(path string) *Extension[T] {
+	o.Super().AsResource().SetPathCache(path)
+	return o
+}
+
+// GetRid is promoted from [Resource.Instance.GetRid].
+func (self Instance) GetRid() Resource.ID {
+	return self.AsResource().GetRid()
+}
+
+// GetRid is promoted from [Resource.Instance.GetRid].
+func (o *Extension[T]) GetRid() Resource.ID {
+	return o.Super().AsResource().GetRid()
+}
+
+// SetupLocalToScene is promoted from [Resource.Instance.SetupLocalToScene].
+func (self Instance) SetupLocalToScene() {
+	self.AsResource().SetupLocalToScene()
+}
+
+// SetupLocalToScene is promoted from [Resource.Instance.SetupLocalToScene].
+func (o *Extension[T]) SetupLocalToScene() {
+	o.Super().AsResource().SetupLocalToScene()
+}
+
+// ResetState is promoted from [Resource.Instance.ResetState].
+func (self Instance) ResetState() {
+	self.AsResource().ResetState()
+}
+
+// ResetState is promoted from [Resource.Instance.ResetState].
+func (o *Extension[T]) ResetState() {
+	o.Super().AsResource().ResetState()
+}
+
+// SetIdForPath is promoted from [Resource.Instance.SetIdForPath].
+func (self Instance) SetIdForPath(path string, id string) Instance {
+	self.AsResource().SetIdForPath(path, id)
+	return self
+}
+
+// SetIdForPath is promoted from [Resource.Instance.SetIdForPath].
+func (o *Extension[T]) SetIdForPath(path string, id string) *Extension[T] {
+	o.Super().AsResource().SetIdForPath(path, id)
+	return o
+}
+
+// GetIdForPath is promoted from [Resource.Instance.GetIdForPath].
+func (self Instance) GetIdForPath(path string) string {
+	return self.AsResource().GetIdForPath(path)
+}
+
+// GetIdForPath is promoted from [Resource.Instance.GetIdForPath].
+func (o *Extension[T]) GetIdForPath(path string) string {
+	return o.Super().AsResource().GetIdForPath(path)
+}
+
+// IsBuiltIn is promoted from [Resource.Instance.IsBuiltIn].
+func (self Instance) IsBuiltIn() bool {
+	return self.AsResource().IsBuiltIn()
+}
+
+// IsBuiltIn is promoted from [Resource.Instance.IsBuiltIn].
+func (o *Extension[T]) IsBuiltIn() bool {
+	return o.Super().AsResource().IsBuiltIn()
+}
+
+// EmitChanged is promoted from [Resource.Instance.EmitChanged].
+func (self Instance) EmitChanged() {
+	self.AsResource().EmitChanged()
+}
+
+// EmitChanged is promoted from [Resource.Instance.EmitChanged].
+func (o *Extension[T]) EmitChanged() {
+	o.Super().AsResource().EmitChanged()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

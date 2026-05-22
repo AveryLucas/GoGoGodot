@@ -596,6 +596,77 @@ func (self class) GetSpaceState() [1]gdclass.PhysicsDirectSpaceState2D { //gd:Ph
 func (o class) AsPhysicsDirectBodyState2D() Advanced { return Advanced(o) }
 func (o Instance) AsPhysicsDirectBodyState2D() Instance { return o }
 func (o *Extension[T]) AsPhysicsDirectBodyState2D() Instance { return o.Super() }
+func (o *Extension[T]) GetVelocityAtLocalPosition(local_position Vector2.XY) Vector2.XY {
+	return o.Super().GetVelocityAtLocalPosition(local_position)
+}
+func (o *Extension[T]) ApplyCentralImpulse(impulse Vector2.XY) {
+	o.Super().ApplyCentralImpulse(impulse)
+}
+func (o *Extension[T]) ApplyTorqueImpulse(impulse Float.X) {
+	o.Super().ApplyTorqueImpulse(impulse)
+}
+func (o *Extension[T]) ApplyTorque(torque Float.X) {
+	o.Super().ApplyTorque(torque)
+}
+func (o *Extension[T]) AddConstantTorque(torque Float.X) {
+	o.Super().AddConstantTorque(torque)
+}
+func (o *Extension[T]) SetConstantForce(force Vector2.XY) *Extension[T] {
+	o.Super().SetConstantForce(force)
+	return o
+}
+func (o *Extension[T]) GetConstantForce() Vector2.XY {
+	return o.Super().GetConstantForce()
+}
+func (o *Extension[T]) SetConstantTorque(torque Float.X) *Extension[T] {
+	o.Super().SetConstantTorque(torque)
+	return o
+}
+func (o *Extension[T]) GetConstantTorque() Float.X {
+	return o.Super().GetConstantTorque()
+}
+func (o *Extension[T]) GetContactCount() int {
+	return o.Super().GetContactCount()
+}
+func (o *Extension[T]) GetContactLocalPosition(contact_idx int) Vector2.XY {
+	return o.Super().GetContactLocalPosition(contact_idx)
+}
+func (o *Extension[T]) GetContactLocalNormal(contact_idx int) Vector2.XY {
+	return o.Super().GetContactLocalNormal(contact_idx)
+}
+func (o *Extension[T]) GetContactLocalShape(contact_idx int) int {
+	return o.Super().GetContactLocalShape(contact_idx)
+}
+func (o *Extension[T]) GetContactLocalVelocityAtPosition(contact_idx int) Vector2.XY {
+	return o.Super().GetContactLocalVelocityAtPosition(contact_idx)
+}
+func (o *Extension[T]) GetContactCollider(contact_idx int) RID.Body2D {
+	return o.Super().GetContactCollider(contact_idx)
+}
+func (o *Extension[T]) GetContactColliderPosition(contact_idx int) Vector2.XY {
+	return o.Super().GetContactColliderPosition(contact_idx)
+}
+func (o *Extension[T]) GetContactColliderId(contact_idx int) int {
+	return o.Super().GetContactColliderId(contact_idx)
+}
+func (o *Extension[T]) GetContactColliderObject(contact_idx int) Object.Instance {
+	return o.Super().GetContactColliderObject(contact_idx)
+}
+func (o *Extension[T]) GetContactColliderShape(contact_idx int) int {
+	return o.Super().GetContactColliderShape(contact_idx)
+}
+func (o *Extension[T]) GetContactColliderVelocityAtPosition(contact_idx int) Vector2.XY {
+	return o.Super().GetContactColliderVelocityAtPosition(contact_idx)
+}
+func (o *Extension[T]) GetContactImpulse(contact_idx int) Vector2.XY {
+	return o.Super().GetContactImpulse(contact_idx)
+}
+func (o *Extension[T]) IntegrateForces() {
+	o.Super().IntegrateForces()
+}
+func (o *Extension[T]) GetSpaceState() PhysicsDirectSpaceState2D.Instance {
+	return o.Super().GetSpaceState()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

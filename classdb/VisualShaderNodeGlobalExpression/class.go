@@ -188,6 +188,362 @@ func (self Instance) OnSetupLocalToSceneRequested(cb func(), flags ...Signal.Fla
 	return self
 }
 
+// SetInputs is promoted from [VisualShaderNodeGroupBase.Instance.SetInputs].
+func (self Instance) SetInputs(inputs string) Instance {
+	self.AsVisualShaderNodeGroupBase().SetInputs(inputs)
+	return self
+}
+
+// SetInputs is promoted from [VisualShaderNodeGroupBase.Instance.SetInputs].
+func (o *Extension[T]) SetInputs(inputs string) *Extension[T] {
+	o.Super().AsVisualShaderNodeGroupBase().SetInputs(inputs)
+	return o
+}
+
+// GetInputs is promoted from [VisualShaderNodeGroupBase.Instance.GetInputs].
+func (self Instance) GetInputs() string {
+	return self.AsVisualShaderNodeGroupBase().GetInputs()
+}
+
+// GetInputs is promoted from [VisualShaderNodeGroupBase.Instance.GetInputs].
+func (o *Extension[T]) GetInputs() string {
+	return o.Super().AsVisualShaderNodeGroupBase().GetInputs()
+}
+
+// SetOutputs is promoted from [VisualShaderNodeGroupBase.Instance.SetOutputs].
+func (self Instance) SetOutputs(outputs string) Instance {
+	self.AsVisualShaderNodeGroupBase().SetOutputs(outputs)
+	return self
+}
+
+// SetOutputs is promoted from [VisualShaderNodeGroupBase.Instance.SetOutputs].
+func (o *Extension[T]) SetOutputs(outputs string) *Extension[T] {
+	o.Super().AsVisualShaderNodeGroupBase().SetOutputs(outputs)
+	return o
+}
+
+// GetOutputs is promoted from [VisualShaderNodeGroupBase.Instance.GetOutputs].
+func (self Instance) GetOutputs() string {
+	return self.AsVisualShaderNodeGroupBase().GetOutputs()
+}
+
+// GetOutputs is promoted from [VisualShaderNodeGroupBase.Instance.GetOutputs].
+func (o *Extension[T]) GetOutputs() string {
+	return o.Super().AsVisualShaderNodeGroupBase().GetOutputs()
+}
+
+// IsValidPortName is promoted from [VisualShaderNodeGroupBase.Instance.IsValidPortName].
+func (self Instance) IsValidPortName(name string) bool {
+	return self.AsVisualShaderNodeGroupBase().IsValidPortName(name)
+}
+
+// IsValidPortName is promoted from [VisualShaderNodeGroupBase.Instance.IsValidPortName].
+func (o *Extension[T]) IsValidPortName(name string) bool {
+	return o.Super().AsVisualShaderNodeGroupBase().IsValidPortName(name)
+}
+
+// AddInputPort is promoted from [VisualShaderNodeGroupBase.Instance.AddInputPort].
+func (self Instance) AddInputPort(id int, atype int, name string) {
+	self.AsVisualShaderNodeGroupBase().AddInputPort(id, atype, name)
+}
+
+// AddInputPort is promoted from [VisualShaderNodeGroupBase.Instance.AddInputPort].
+func (o *Extension[T]) AddInputPort(id int, atype int, name string) {
+	o.Super().AsVisualShaderNodeGroupBase().AddInputPort(id, atype, name)
+}
+
+// RemoveInputPort is promoted from [VisualShaderNodeGroupBase.Instance.RemoveInputPort].
+func (self Instance) RemoveInputPort(id int) {
+	self.AsVisualShaderNodeGroupBase().RemoveInputPort(id)
+}
+
+// RemoveInputPort is promoted from [VisualShaderNodeGroupBase.Instance.RemoveInputPort].
+func (o *Extension[T]) RemoveInputPort(id int) {
+	o.Super().AsVisualShaderNodeGroupBase().RemoveInputPort(id)
+}
+
+// GetInputPortCount is promoted from [VisualShaderNodeGroupBase.Instance.GetInputPortCount].
+func (self Instance) GetInputPortCount() int {
+	return self.AsVisualShaderNodeGroupBase().GetInputPortCount()
+}
+
+// GetInputPortCount is promoted from [VisualShaderNodeGroupBase.Instance.GetInputPortCount].
+func (o *Extension[T]) GetInputPortCount() int {
+	return o.Super().AsVisualShaderNodeGroupBase().GetInputPortCount()
+}
+
+// HasInputPort is promoted from [VisualShaderNodeGroupBase.Instance.HasInputPort].
+func (self Instance) HasInputPort(id int) bool {
+	return self.AsVisualShaderNodeGroupBase().HasInputPort(id)
+}
+
+// HasInputPort is promoted from [VisualShaderNodeGroupBase.Instance.HasInputPort].
+func (o *Extension[T]) HasInputPort(id int) bool {
+	return o.Super().AsVisualShaderNodeGroupBase().HasInputPort(id)
+}
+
+// ClearInputPorts is promoted from [VisualShaderNodeGroupBase.Instance.ClearInputPorts].
+func (self Instance) ClearInputPorts() {
+	self.AsVisualShaderNodeGroupBase().ClearInputPorts()
+}
+
+// ClearInputPorts is promoted from [VisualShaderNodeGroupBase.Instance.ClearInputPorts].
+func (o *Extension[T]) ClearInputPorts() {
+	o.Super().AsVisualShaderNodeGroupBase().ClearInputPorts()
+}
+
+// AddOutputPort is promoted from [VisualShaderNodeGroupBase.Instance.AddOutputPort].
+func (self Instance) AddOutputPort(id int, atype int, name string) {
+	self.AsVisualShaderNodeGroupBase().AddOutputPort(id, atype, name)
+}
+
+// AddOutputPort is promoted from [VisualShaderNodeGroupBase.Instance.AddOutputPort].
+func (o *Extension[T]) AddOutputPort(id int, atype int, name string) {
+	o.Super().AsVisualShaderNodeGroupBase().AddOutputPort(id, atype, name)
+}
+
+// RemoveOutputPort is promoted from [VisualShaderNodeGroupBase.Instance.RemoveOutputPort].
+func (self Instance) RemoveOutputPort(id int) {
+	self.AsVisualShaderNodeGroupBase().RemoveOutputPort(id)
+}
+
+// RemoveOutputPort is promoted from [VisualShaderNodeGroupBase.Instance.RemoveOutputPort].
+func (o *Extension[T]) RemoveOutputPort(id int) {
+	o.Super().AsVisualShaderNodeGroupBase().RemoveOutputPort(id)
+}
+
+// GetOutputPortCount is promoted from [VisualShaderNodeGroupBase.Instance.GetOutputPortCount].
+func (self Instance) GetOutputPortCount() int {
+	return self.AsVisualShaderNodeGroupBase().GetOutputPortCount()
+}
+
+// GetOutputPortCount is promoted from [VisualShaderNodeGroupBase.Instance.GetOutputPortCount].
+func (o *Extension[T]) GetOutputPortCount() int {
+	return o.Super().AsVisualShaderNodeGroupBase().GetOutputPortCount()
+}
+
+// HasOutputPort is promoted from [VisualShaderNodeGroupBase.Instance.HasOutputPort].
+func (self Instance) HasOutputPort(id int) bool {
+	return self.AsVisualShaderNodeGroupBase().HasOutputPort(id)
+}
+
+// HasOutputPort is promoted from [VisualShaderNodeGroupBase.Instance.HasOutputPort].
+func (o *Extension[T]) HasOutputPort(id int) bool {
+	return o.Super().AsVisualShaderNodeGroupBase().HasOutputPort(id)
+}
+
+// ClearOutputPorts is promoted from [VisualShaderNodeGroupBase.Instance.ClearOutputPorts].
+func (self Instance) ClearOutputPorts() {
+	self.AsVisualShaderNodeGroupBase().ClearOutputPorts()
+}
+
+// ClearOutputPorts is promoted from [VisualShaderNodeGroupBase.Instance.ClearOutputPorts].
+func (o *Extension[T]) ClearOutputPorts() {
+	o.Super().AsVisualShaderNodeGroupBase().ClearOutputPorts()
+}
+
+// SetInputPortName is promoted from [VisualShaderNodeGroupBase.Instance.SetInputPortName].
+func (self Instance) SetInputPortName(id int, name string) Instance {
+	self.AsVisualShaderNodeGroupBase().SetInputPortName(id, name)
+	return self
+}
+
+// SetInputPortName is promoted from [VisualShaderNodeGroupBase.Instance.SetInputPortName].
+func (o *Extension[T]) SetInputPortName(id int, name string) *Extension[T] {
+	o.Super().AsVisualShaderNodeGroupBase().SetInputPortName(id, name)
+	return o
+}
+
+// SetInputPortType is promoted from [VisualShaderNodeGroupBase.Instance.SetInputPortType].
+func (self Instance) SetInputPortType(id int, atype int) Instance {
+	self.AsVisualShaderNodeGroupBase().SetInputPortType(id, atype)
+	return self
+}
+
+// SetInputPortType is promoted from [VisualShaderNodeGroupBase.Instance.SetInputPortType].
+func (o *Extension[T]) SetInputPortType(id int, atype int) *Extension[T] {
+	o.Super().AsVisualShaderNodeGroupBase().SetInputPortType(id, atype)
+	return o
+}
+
+// SetOutputPortName is promoted from [VisualShaderNodeGroupBase.Instance.SetOutputPortName].
+func (self Instance) SetOutputPortName(id int, name string) Instance {
+	self.AsVisualShaderNodeGroupBase().SetOutputPortName(id, name)
+	return self
+}
+
+// SetOutputPortName is promoted from [VisualShaderNodeGroupBase.Instance.SetOutputPortName].
+func (o *Extension[T]) SetOutputPortName(id int, name string) *Extension[T] {
+	o.Super().AsVisualShaderNodeGroupBase().SetOutputPortName(id, name)
+	return o
+}
+
+// SetOutputPortType is promoted from [VisualShaderNodeGroupBase.Instance.SetOutputPortType].
+func (self Instance) SetOutputPortType(id int, atype int) Instance {
+	self.AsVisualShaderNodeGroupBase().SetOutputPortType(id, atype)
+	return self
+}
+
+// SetOutputPortType is promoted from [VisualShaderNodeGroupBase.Instance.SetOutputPortType].
+func (o *Extension[T]) SetOutputPortType(id int, atype int) *Extension[T] {
+	o.Super().AsVisualShaderNodeGroupBase().SetOutputPortType(id, atype)
+	return o
+}
+
+// GetFreeInputPortId is promoted from [VisualShaderNodeGroupBase.Instance.GetFreeInputPortId].
+func (self Instance) GetFreeInputPortId() int {
+	return self.AsVisualShaderNodeGroupBase().GetFreeInputPortId()
+}
+
+// GetFreeInputPortId is promoted from [VisualShaderNodeGroupBase.Instance.GetFreeInputPortId].
+func (o *Extension[T]) GetFreeInputPortId() int {
+	return o.Super().AsVisualShaderNodeGroupBase().GetFreeInputPortId()
+}
+
+// GetFreeOutputPortId is promoted from [VisualShaderNodeGroupBase.Instance.GetFreeOutputPortId].
+func (self Instance) GetFreeOutputPortId() int {
+	return self.AsVisualShaderNodeGroupBase().GetFreeOutputPortId()
+}
+
+// GetFreeOutputPortId is promoted from [VisualShaderNodeGroupBase.Instance.GetFreeOutputPortId].
+func (o *Extension[T]) GetFreeOutputPortId() int {
+	return o.Super().AsVisualShaderNodeGroupBase().GetFreeOutputPortId()
+}
+
+// GetDefaultInputPort is promoted from [VisualShaderNode.Instance.GetDefaultInputPort].
+func (self Instance) GetDefaultInputPort(atype VisualShaderNode.PortType) int {
+	return self.AsVisualShaderNode().GetDefaultInputPort(atype)
+}
+
+// GetDefaultInputPort is promoted from [VisualShaderNode.Instance.GetDefaultInputPort].
+func (o *Extension[T]) GetDefaultInputPort(atype VisualShaderNode.PortType) int {
+	return o.Super().AsVisualShaderNode().GetDefaultInputPort(atype)
+}
+
+// GetInputPortDefaultValue is promoted from [VisualShaderNode.Instance.GetInputPortDefaultValue].
+func (self Instance) GetInputPortDefaultValue(port int) any {
+	return self.AsVisualShaderNode().GetInputPortDefaultValue(port)
+}
+
+// GetInputPortDefaultValue is promoted from [VisualShaderNode.Instance.GetInputPortDefaultValue].
+func (o *Extension[T]) GetInputPortDefaultValue(port int) any {
+	return o.Super().AsVisualShaderNode().GetInputPortDefaultValue(port)
+}
+
+// RemoveInputPortDefaultValue is promoted from [VisualShaderNode.Instance.RemoveInputPortDefaultValue].
+func (self Instance) RemoveInputPortDefaultValue(port int) {
+	self.AsVisualShaderNode().RemoveInputPortDefaultValue(port)
+}
+
+// RemoveInputPortDefaultValue is promoted from [VisualShaderNode.Instance.RemoveInputPortDefaultValue].
+func (o *Extension[T]) RemoveInputPortDefaultValue(port int) {
+	o.Super().AsVisualShaderNode().RemoveInputPortDefaultValue(port)
+}
+
+// ClearDefaultInputValues is promoted from [VisualShaderNode.Instance.ClearDefaultInputValues].
+func (self Instance) ClearDefaultInputValues() {
+	self.AsVisualShaderNode().ClearDefaultInputValues()
+}
+
+// ClearDefaultInputValues is promoted from [VisualShaderNode.Instance.ClearDefaultInputValues].
+func (o *Extension[T]) ClearDefaultInputValues() {
+	o.Super().AsVisualShaderNode().ClearDefaultInputValues()
+}
+
+// TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
+func (self Instance) TakeOverPath(path string) {
+	self.AsResource().TakeOverPath(path)
+}
+
+// TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
+func (o *Extension[T]) TakeOverPath(path string) {
+	o.Super().AsResource().TakeOverPath(path)
+}
+
+// SetPathCache is promoted from [Resource.Instance.SetPathCache].
+func (self Instance) SetPathCache(path string) Instance {
+	self.AsResource().SetPathCache(path)
+	return self
+}
+
+// SetPathCache is promoted from [Resource.Instance.SetPathCache].
+func (o *Extension[T]) SetPathCache(path string) *Extension[T] {
+	o.Super().AsResource().SetPathCache(path)
+	return o
+}
+
+// GetRid is promoted from [Resource.Instance.GetRid].
+func (self Instance) GetRid() Resource.ID {
+	return self.AsResource().GetRid()
+}
+
+// GetRid is promoted from [Resource.Instance.GetRid].
+func (o *Extension[T]) GetRid() Resource.ID {
+	return o.Super().AsResource().GetRid()
+}
+
+// SetupLocalToScene is promoted from [Resource.Instance.SetupLocalToScene].
+func (self Instance) SetupLocalToScene() {
+	self.AsResource().SetupLocalToScene()
+}
+
+// SetupLocalToScene is promoted from [Resource.Instance.SetupLocalToScene].
+func (o *Extension[T]) SetupLocalToScene() {
+	o.Super().AsResource().SetupLocalToScene()
+}
+
+// ResetState is promoted from [Resource.Instance.ResetState].
+func (self Instance) ResetState() {
+	self.AsResource().ResetState()
+}
+
+// ResetState is promoted from [Resource.Instance.ResetState].
+func (o *Extension[T]) ResetState() {
+	o.Super().AsResource().ResetState()
+}
+
+// SetIdForPath is promoted from [Resource.Instance.SetIdForPath].
+func (self Instance) SetIdForPath(path string, id string) Instance {
+	self.AsResource().SetIdForPath(path, id)
+	return self
+}
+
+// SetIdForPath is promoted from [Resource.Instance.SetIdForPath].
+func (o *Extension[T]) SetIdForPath(path string, id string) *Extension[T] {
+	o.Super().AsResource().SetIdForPath(path, id)
+	return o
+}
+
+// GetIdForPath is promoted from [Resource.Instance.GetIdForPath].
+func (self Instance) GetIdForPath(path string) string {
+	return self.AsResource().GetIdForPath(path)
+}
+
+// GetIdForPath is promoted from [Resource.Instance.GetIdForPath].
+func (o *Extension[T]) GetIdForPath(path string) string {
+	return o.Super().AsResource().GetIdForPath(path)
+}
+
+// IsBuiltIn is promoted from [Resource.Instance.IsBuiltIn].
+func (self Instance) IsBuiltIn() bool {
+	return self.AsResource().IsBuiltIn()
+}
+
+// IsBuiltIn is promoted from [Resource.Instance.IsBuiltIn].
+func (o *Extension[T]) IsBuiltIn() bool {
+	return o.Super().AsResource().IsBuiltIn()
+}
+
+// EmitChanged is promoted from [Resource.Instance.EmitChanged].
+func (self Instance) EmitChanged() {
+	self.AsResource().EmitChanged()
+}
+
+// EmitChanged is promoted from [Resource.Instance.EmitChanged].
+func (o *Extension[T]) EmitChanged() {
+	o.Super().AsResource().EmitChanged()
+}
+
 func (self class) Virtual(name string) reflect.Value {
 	switch name {
 	default: return gd.VirtualByName(VisualShaderNodeExpression.Advanced(self.AsVisualShaderNodeExpression()), name)

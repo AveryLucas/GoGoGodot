@@ -216,6 +216,22 @@ func (self class) MakeResponseError(code int64, message String.Readable, id vari
 func (o class) AsJSONRPC() Advanced { return Advanced(o) }
 func (o Instance) AsJSONRPC() Instance { return o }
 func (o *Extension[T]) AsJSONRPC() Instance { return o.Super() }
+func (o *Extension[T]) SetMethod(name string, callback Callable.Function) *Extension[T] {
+	o.Super().SetMethod(name, callback)
+	return o
+}
+func (o *Extension[T]) ProcessString(action string) string {
+	return o.Super().ProcessString(action)
+}
+func (o *Extension[T]) MakeRequest(method string, params any, id any) Request {
+	return o.Super().MakeRequest(method, params, id)
+}
+func (o *Extension[T]) MakeResponse(result any, id any) Response {
+	return o.Super().MakeResponse(result, id)
+}
+func (o *Extension[T]) MakeNotification(method string, params any) Notification {
+	return o.Super().MakeNotification(method, params)
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

@@ -754,6 +754,297 @@ func (self Instance) OnSetupLocalToSceneRequested(cb func(), flags ...Signal.Fla
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("setup_local_to_scene_requested"), gd.NewCallable(cb), int64(flags_together))
 	return self
 }
+func (o *Extension[T]) SetIcon(name string, theme_type string, texture Texture2D.Instance) *Extension[T] {
+	o.Super().SetIcon(name, theme_type, texture)
+	return o
+}
+func (o *Extension[T]) GetIcon(name string, theme_type string) Texture2D.Instance {
+	return o.Super().GetIcon(name, theme_type)
+}
+func (o *Extension[T]) HasIcon(name string, theme_type string) bool {
+	return o.Super().HasIcon(name, theme_type)
+}
+func (o *Extension[T]) RenameIcon(old_name string, name string, theme_type string) {
+	o.Super().RenameIcon(old_name, name, theme_type)
+}
+func (o *Extension[T]) ClearIcon(name string, theme_type string) {
+	o.Super().ClearIcon(name, theme_type)
+}
+func (o *Extension[T]) GetIconList(theme_type string) []string {
+	return o.Super().GetIconList(theme_type)
+}
+func (o *Extension[T]) GetIconTypeList() []string {
+	return o.Super().GetIconTypeList()
+}
+func (o *Extension[T]) SetStylebox(name string, theme_type string, texture StyleBox.Instance) *Extension[T] {
+	o.Super().SetStylebox(name, theme_type, texture)
+	return o
+}
+func (o *Extension[T]) GetStylebox(name string, theme_type string) StyleBox.Instance {
+	return o.Super().GetStylebox(name, theme_type)
+}
+func (o *Extension[T]) HasStylebox(name string, theme_type string) bool {
+	return o.Super().HasStylebox(name, theme_type)
+}
+func (o *Extension[T]) RenameStylebox(old_name string, name string, theme_type string) {
+	o.Super().RenameStylebox(old_name, name, theme_type)
+}
+func (o *Extension[T]) ClearStylebox(name string, theme_type string) {
+	o.Super().ClearStylebox(name, theme_type)
+}
+func (o *Extension[T]) GetStyleboxList(theme_type string) []string {
+	return o.Super().GetStyleboxList(theme_type)
+}
+func (o *Extension[T]) GetStyleboxTypeList() []string {
+	return o.Super().GetStyleboxTypeList()
+}
+func (o *Extension[T]) SetFont(name string, theme_type string, font Font.Instance) *Extension[T] {
+	o.Super().SetFont(name, theme_type, font)
+	return o
+}
+func (o *Extension[T]) GetFont(name string, theme_type string) Font.Instance {
+	return o.Super().GetFont(name, theme_type)
+}
+func (o *Extension[T]) HasFont(name string, theme_type string) bool {
+	return o.Super().HasFont(name, theme_type)
+}
+func (o *Extension[T]) RenameFont(old_name string, name string, theme_type string) {
+	o.Super().RenameFont(old_name, name, theme_type)
+}
+func (o *Extension[T]) ClearFont(name string, theme_type string) {
+	o.Super().ClearFont(name, theme_type)
+}
+func (o *Extension[T]) GetFontList(theme_type string) []string {
+	return o.Super().GetFontList(theme_type)
+}
+func (o *Extension[T]) GetFontTypeList() []string {
+	return o.Super().GetFontTypeList()
+}
+func (o *Extension[T]) SetFontSize(name string, theme_type string, font_size int) *Extension[T] {
+	o.Super().SetFontSize(name, theme_type, font_size)
+	return o
+}
+func (o *Extension[T]) GetFontSize(name string, theme_type string) int {
+	return o.Super().GetFontSize(name, theme_type)
+}
+func (o *Extension[T]) HasFontSize(name string, theme_type string) bool {
+	return o.Super().HasFontSize(name, theme_type)
+}
+func (o *Extension[T]) RenameFontSize(old_name string, name string, theme_type string) {
+	o.Super().RenameFontSize(old_name, name, theme_type)
+}
+func (o *Extension[T]) ClearFontSize(name string, theme_type string) {
+	o.Super().ClearFontSize(name, theme_type)
+}
+func (o *Extension[T]) GetFontSizeList(theme_type string) []string {
+	return o.Super().GetFontSizeList(theme_type)
+}
+func (o *Extension[T]) GetFontSizeTypeList() []string {
+	return o.Super().GetFontSizeTypeList()
+}
+func (o *Extension[T]) SetColor(name string, theme_type string, color Color.RGBA) *Extension[T] {
+	o.Super().SetColor(name, theme_type, color)
+	return o
+}
+func (o *Extension[T]) GetColor(name string, theme_type string) Color.RGBA {
+	return o.Super().GetColor(name, theme_type)
+}
+func (o *Extension[T]) HasColor(name string, theme_type string) bool {
+	return o.Super().HasColor(name, theme_type)
+}
+func (o *Extension[T]) RenameColor(old_name string, name string, theme_type string) {
+	o.Super().RenameColor(old_name, name, theme_type)
+}
+func (o *Extension[T]) ClearColor(name string, theme_type string) {
+	o.Super().ClearColor(name, theme_type)
+}
+func (o *Extension[T]) GetColorList(theme_type string) []string {
+	return o.Super().GetColorList(theme_type)
+}
+func (o *Extension[T]) GetColorTypeList() []string {
+	return o.Super().GetColorTypeList()
+}
+func (o *Extension[T]) SetConstant(name string, theme_type string, constant int) *Extension[T] {
+	o.Super().SetConstant(name, theme_type, constant)
+	return o
+}
+func (o *Extension[T]) GetConstant(name string, theme_type string) int {
+	return o.Super().GetConstant(name, theme_type)
+}
+func (o *Extension[T]) HasConstant(name string, theme_type string) bool {
+	return o.Super().HasConstant(name, theme_type)
+}
+func (o *Extension[T]) RenameConstant(old_name string, name string, theme_type string) {
+	o.Super().RenameConstant(old_name, name, theme_type)
+}
+func (o *Extension[T]) ClearConstant(name string, theme_type string) {
+	o.Super().ClearConstant(name, theme_type)
+}
+func (o *Extension[T]) GetConstantList(theme_type string) []string {
+	return o.Super().GetConstantList(theme_type)
+}
+func (o *Extension[T]) GetConstantTypeList() []string {
+	return o.Super().GetConstantTypeList()
+}
+func (o *Extension[T]) HasDefaultBaseScale() bool {
+	return o.Super().HasDefaultBaseScale()
+}
+func (o *Extension[T]) HasDefaultFont() bool {
+	return o.Super().HasDefaultFont()
+}
+func (o *Extension[T]) HasDefaultFontSize() bool {
+	return o.Super().HasDefaultFontSize()
+}
+func (o *Extension[T]) SetThemeItem(data_type DataType, name string, theme_type string, value any) *Extension[T] {
+	o.Super().SetThemeItem(data_type, name, theme_type, value)
+	return o
+}
+func (o *Extension[T]) GetThemeItem(data_type DataType, name string, theme_type string) any {
+	return o.Super().GetThemeItem(data_type, name, theme_type)
+}
+func (o *Extension[T]) HasThemeItem(data_type DataType, name string, theme_type string) bool {
+	return o.Super().HasThemeItem(data_type, name, theme_type)
+}
+func (o *Extension[T]) RenameThemeItem(data_type DataType, old_name string, name string, theme_type string) {
+	o.Super().RenameThemeItem(data_type, old_name, name, theme_type)
+}
+func (o *Extension[T]) ClearThemeItem(data_type DataType, name string, theme_type string) {
+	o.Super().ClearThemeItem(data_type, name, theme_type)
+}
+func (o *Extension[T]) GetThemeItemList(data_type DataType, theme_type string) []string {
+	return o.Super().GetThemeItemList(data_type, theme_type)
+}
+func (o *Extension[T]) GetThemeItemTypeList(data_type DataType) []string {
+	return o.Super().GetThemeItemTypeList(data_type)
+}
+func (o *Extension[T]) SetTypeVariation(theme_type string, base_type string) *Extension[T] {
+	o.Super().SetTypeVariation(theme_type, base_type)
+	return o
+}
+func (o *Extension[T]) IsTypeVariation(theme_type string, base_type string) bool {
+	return o.Super().IsTypeVariation(theme_type, base_type)
+}
+func (o *Extension[T]) ClearTypeVariation(theme_type string) {
+	o.Super().ClearTypeVariation(theme_type)
+}
+func (o *Extension[T]) GetTypeVariationBase(theme_type string) string {
+	return o.Super().GetTypeVariationBase(theme_type)
+}
+func (o *Extension[T]) GetTypeVariationList(base_type string) []string {
+	return o.Super().GetTypeVariationList(base_type)
+}
+func (o *Extension[T]) AddType(theme_type string) {
+	o.Super().AddType(theme_type)
+}
+func (o *Extension[T]) RemoveType(theme_type string) {
+	o.Super().RemoveType(theme_type)
+}
+func (o *Extension[T]) RenameType(old_theme_type string, theme_type string) {
+	o.Super().RenameType(old_theme_type, theme_type)
+}
+func (o *Extension[T]) GetTypeList() []string {
+	return o.Super().GetTypeList()
+}
+func (o *Extension[T]) MergeWith(other Instance) {
+	o.Super().MergeWith(other)
+}
+func (o *Extension[T]) Clear() {
+	o.Super().Clear()
+}
+
+// TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
+func (self Instance) TakeOverPath(path string) {
+	self.AsResource().TakeOverPath(path)
+}
+
+// TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
+func (o *Extension[T]) TakeOverPath(path string) {
+	o.Super().AsResource().TakeOverPath(path)
+}
+
+// SetPathCache is promoted from [Resource.Instance.SetPathCache].
+func (self Instance) SetPathCache(path string) Instance {
+	self.AsResource().SetPathCache(path)
+	return self
+}
+
+// SetPathCache is promoted from [Resource.Instance.SetPathCache].
+func (o *Extension[T]) SetPathCache(path string) *Extension[T] {
+	o.Super().AsResource().SetPathCache(path)
+	return o
+}
+
+// GetRid is promoted from [Resource.Instance.GetRid].
+func (self Instance) GetRid() Resource.ID {
+	return self.AsResource().GetRid()
+}
+
+// GetRid is promoted from [Resource.Instance.GetRid].
+func (o *Extension[T]) GetRid() Resource.ID {
+	return o.Super().AsResource().GetRid()
+}
+
+// SetupLocalToScene is promoted from [Resource.Instance.SetupLocalToScene].
+func (self Instance) SetupLocalToScene() {
+	self.AsResource().SetupLocalToScene()
+}
+
+// SetupLocalToScene is promoted from [Resource.Instance.SetupLocalToScene].
+func (o *Extension[T]) SetupLocalToScene() {
+	o.Super().AsResource().SetupLocalToScene()
+}
+
+// ResetState is promoted from [Resource.Instance.ResetState].
+func (self Instance) ResetState() {
+	self.AsResource().ResetState()
+}
+
+// ResetState is promoted from [Resource.Instance.ResetState].
+func (o *Extension[T]) ResetState() {
+	o.Super().AsResource().ResetState()
+}
+
+// SetIdForPath is promoted from [Resource.Instance.SetIdForPath].
+func (self Instance) SetIdForPath(path string, id string) Instance {
+	self.AsResource().SetIdForPath(path, id)
+	return self
+}
+
+// SetIdForPath is promoted from [Resource.Instance.SetIdForPath].
+func (o *Extension[T]) SetIdForPath(path string, id string) *Extension[T] {
+	o.Super().AsResource().SetIdForPath(path, id)
+	return o
+}
+
+// GetIdForPath is promoted from [Resource.Instance.GetIdForPath].
+func (self Instance) GetIdForPath(path string) string {
+	return self.AsResource().GetIdForPath(path)
+}
+
+// GetIdForPath is promoted from [Resource.Instance.GetIdForPath].
+func (o *Extension[T]) GetIdForPath(path string) string {
+	return o.Super().AsResource().GetIdForPath(path)
+}
+
+// IsBuiltIn is promoted from [Resource.Instance.IsBuiltIn].
+func (self Instance) IsBuiltIn() bool {
+	return self.AsResource().IsBuiltIn()
+}
+
+// IsBuiltIn is promoted from [Resource.Instance.IsBuiltIn].
+func (o *Extension[T]) IsBuiltIn() bool {
+	return o.Super().AsResource().IsBuiltIn()
+}
+
+// EmitChanged is promoted from [Resource.Instance.EmitChanged].
+func (self Instance) EmitChanged() {
+	self.AsResource().EmitChanged()
+}
+
+// EmitChanged is promoted from [Resource.Instance.EmitChanged].
+func (o *Extension[T]) EmitChanged() {
+	o.Super().AsResource().EmitChanged()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

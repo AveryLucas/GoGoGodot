@@ -526,6 +526,40 @@ func (o *Extension[T]) AsAStarGrid2D() Instance { return o.Super() }
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) IsInBounds(x int, y int) bool {
+	return o.Super().IsInBounds(x, y)
+}
+func (o *Extension[T]) IsInBoundsv(id Point) bool {
+	return o.Super().IsInBoundsv(id)
+}
+func (o *Extension[T]) IsDirty() bool {
+	return o.Super().IsDirty()
+}
+func (o *Extension[T]) Update() {
+	o.Super().Update()
+}
+func (o *Extension[T]) IsPointSolid(id Point) bool {
+	return o.Super().IsPointSolid(id)
+}
+func (o *Extension[T]) SetPointWeightScale(id Point, weight_scale Float.X) *Extension[T] {
+	o.Super().SetPointWeightScale(id, weight_scale)
+	return o
+}
+func (o *Extension[T]) GetPointWeightScale(id Point) Float.X {
+	return o.Super().GetPointWeightScale(id)
+}
+func (o *Extension[T]) FillWeightScaleRegion(region Rect2i.PositionSize, weight_scale Float.X) {
+	o.Super().FillWeightScaleRegion(region, weight_scale)
+}
+func (o *Extension[T]) Clear() {
+	o.Super().Clear()
+}
+func (o *Extension[T]) GetPointPosition(id Point) Vector2.XY {
+	return o.Super().GetPointPosition(id)
+}
+func (o *Extension[T]) GetPointDataInRegion(region Rect2i.PositionSize) []PointData {
+	return o.Super().GetPointDataInRegion(region)
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

@@ -861,6 +861,274 @@ func (self Instance) OnSetupLocalToSceneRequested(cb func(), flags ...Signal.Fla
 	gd.ObjectConnect(self.AsObject()[0], gd.NewStringName("setup_local_to_scene_requested"), gd.NewCallable(cb), int64(flags_together))
 	return self
 }
+func (o *Extension[T]) GetWidth() int {
+	return o.Super().GetWidth()
+}
+func (o *Extension[T]) GetHeight() int {
+	return o.Super().GetHeight()
+}
+func (o *Extension[T]) GetSize() Vector2i.XY {
+	return o.Super().GetSize()
+}
+func (o *Extension[T]) HasMipmaps() bool {
+	return o.Super().HasMipmaps()
+}
+func (o *Extension[T]) GetFormat() Format {
+	return o.Super().GetFormat()
+}
+func (o *Extension[T]) GetData() []byte {
+	return o.Super().GetData()
+}
+func (o *Extension[T]) GetDataSize() int {
+	return o.Super().GetDataSize()
+}
+func (o *Extension[T]) Convert(format Format) {
+	o.Super().Convert(format)
+}
+func (o *Extension[T]) GetMipmapCount() int {
+	return o.Super().GetMipmapCount()
+}
+func (o *Extension[T]) GetMipmapOffset(mipmap int) int {
+	return o.Super().GetMipmapOffset(mipmap)
+}
+func (o *Extension[T]) ShrinkX2() {
+	o.Super().ShrinkX2()
+}
+func (o *Extension[T]) Crop(width int, height int) {
+	o.Super().Crop(width, height)
+}
+func (o *Extension[T]) FlipX() {
+	o.Super().FlipX()
+}
+func (o *Extension[T]) FlipY() {
+	o.Super().FlipY()
+}
+func (o *Extension[T]) ClearMipmaps() {
+	o.Super().ClearMipmaps()
+}
+func (o *Extension[T]) SetData(width int, height int, use_mipmaps bool, format Format, data []byte) *Extension[T] {
+	o.Super().SetData(width, height, use_mipmaps, format, data)
+	return o
+}
+func (o *Extension[T]) IsEmpty() bool {
+	return o.Super().IsEmpty()
+}
+func (o *Extension[T]) Load(path string) error {
+	return o.Super().Load(path)
+}
+func (o *Extension[T]) SavePng(path string) error {
+	return o.Super().SavePng(path)
+}
+func (o *Extension[T]) SavePngToBuffer() []byte {
+	return o.Super().SavePngToBuffer()
+}
+func (o *Extension[T]) SaveDds(path string) error {
+	return o.Super().SaveDds(path)
+}
+func (o *Extension[T]) SaveDdsToBuffer() []byte {
+	return o.Super().SaveDdsToBuffer()
+}
+func (o *Extension[T]) DetectAlpha() AlphaMode {
+	return o.Super().DetectAlpha()
+}
+func (o *Extension[T]) IsInvisible() bool {
+	return o.Super().IsInvisible()
+}
+func (o *Extension[T]) Decompress() error {
+	return o.Super().Decompress()
+}
+func (o *Extension[T]) IsCompressed() bool {
+	return o.Super().IsCompressed()
+}
+func (o *Extension[T]) Rotate90(direction Angle.Direction) {
+	o.Super().Rotate90(direction)
+}
+func (o *Extension[T]) Rotate180() {
+	o.Super().Rotate180()
+}
+func (o *Extension[T]) FixAlphaEdges() {
+	o.Super().FixAlphaEdges()
+}
+func (o *Extension[T]) PremultiplyAlpha() {
+	o.Super().PremultiplyAlpha()
+}
+func (o *Extension[T]) SrgbToLinear() {
+	o.Super().SrgbToLinear()
+}
+func (o *Extension[T]) LinearToSrgb() {
+	o.Super().LinearToSrgb()
+}
+func (o *Extension[T]) NormalMapToXy() {
+	o.Super().NormalMapToXy()
+}
+func (o *Extension[T]) RgbeToSrgb() Instance {
+	return o.Super().RgbeToSrgb()
+}
+func (o *Extension[T]) ComputeImageMetrics(compared_image Instance, use_luma bool) Metrics {
+	return o.Super().ComputeImageMetrics(compared_image, use_luma)
+}
+func (o *Extension[T]) BlitRect(src Instance, src_rect Rect2i.PositionSize, dst Vector2i.XY) {
+	o.Super().BlitRect(src, src_rect, dst)
+}
+func (o *Extension[T]) BlitRectMask(src Instance, mask Instance, src_rect Rect2i.PositionSize, dst Vector2i.XY) {
+	o.Super().BlitRectMask(src, mask, src_rect, dst)
+}
+func (o *Extension[T]) BlendRect(src Instance, src_rect Rect2i.PositionSize, dst Vector2i.XY) {
+	o.Super().BlendRect(src, src_rect, dst)
+}
+func (o *Extension[T]) BlendRectMask(src Instance, mask Instance, src_rect Rect2i.PositionSize, dst Vector2i.XY) {
+	o.Super().BlendRectMask(src, mask, src_rect, dst)
+}
+func (o *Extension[T]) Fill(color Color.RGBA) {
+	o.Super().Fill(color)
+}
+func (o *Extension[T]) FillRect(rect Rect2i.PositionSize, color Color.RGBA) {
+	o.Super().FillRect(rect, color)
+}
+func (o *Extension[T]) GetUsedRect() Rect2i.PositionSize {
+	return o.Super().GetUsedRect()
+}
+func (o *Extension[T]) GetRegion(region Rect2i.PositionSize) Instance {
+	return o.Super().GetRegion(region)
+}
+func (o *Extension[T]) CopyFrom(src Instance) {
+	o.Super().CopyFrom(src)
+}
+func (o *Extension[T]) GetPixelv(point Vector2i.XY) Color.RGBA {
+	return o.Super().GetPixelv(point)
+}
+func (o *Extension[T]) GetPixel(x int, y int) Color.RGBA {
+	return o.Super().GetPixel(x, y)
+}
+func (o *Extension[T]) SetPixelv(point Vector2i.XY, color Color.RGBA) *Extension[T] {
+	o.Super().SetPixelv(point, color)
+	return o
+}
+func (o *Extension[T]) SetPixel(x int, y int, color Color.RGBA) *Extension[T] {
+	o.Super().SetPixel(x, y, color)
+	return o
+}
+func (o *Extension[T]) AdjustBcs(brightness Float.X, contrast Float.X, saturation Float.X) {
+	o.Super().AdjustBcs(brightness, contrast, saturation)
+}
+func (o *Extension[T]) LoadPngFromBuffer(buffer []byte) error {
+	return o.Super().LoadPngFromBuffer(buffer)
+}
+func (o *Extension[T]) LoadJpgFromBuffer(buffer []byte) error {
+	return o.Super().LoadJpgFromBuffer(buffer)
+}
+func (o *Extension[T]) LoadWebpFromBuffer(buffer []byte) error {
+	return o.Super().LoadWebpFromBuffer(buffer)
+}
+func (o *Extension[T]) LoadTgaFromBuffer(buffer []byte) error {
+	return o.Super().LoadTgaFromBuffer(buffer)
+}
+func (o *Extension[T]) LoadBmpFromBuffer(buffer []byte) error {
+	return o.Super().LoadBmpFromBuffer(buffer)
+}
+func (o *Extension[T]) LoadKtxFromBuffer(buffer []byte) error {
+	return o.Super().LoadKtxFromBuffer(buffer)
+}
+func (o *Extension[T]) LoadDdsFromBuffer(buffer []byte) error {
+	return o.Super().LoadDdsFromBuffer(buffer)
+}
+func (o *Extension[T]) LoadExrFromBuffer(buffer []byte) error {
+	return o.Super().LoadExrFromBuffer(buffer)
+}
+
+// TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
+func (self Instance) TakeOverPath(path string) {
+	self.AsResource().TakeOverPath(path)
+}
+
+// TakeOverPath is promoted from [Resource.Instance.TakeOverPath].
+func (o *Extension[T]) TakeOverPath(path string) {
+	o.Super().AsResource().TakeOverPath(path)
+}
+
+// SetPathCache is promoted from [Resource.Instance.SetPathCache].
+func (self Instance) SetPathCache(path string) Instance {
+	self.AsResource().SetPathCache(path)
+	return self
+}
+
+// SetPathCache is promoted from [Resource.Instance.SetPathCache].
+func (o *Extension[T]) SetPathCache(path string) *Extension[T] {
+	o.Super().AsResource().SetPathCache(path)
+	return o
+}
+
+// GetRid is promoted from [Resource.Instance.GetRid].
+func (self Instance) GetRid() Resource.ID {
+	return self.AsResource().GetRid()
+}
+
+// GetRid is promoted from [Resource.Instance.GetRid].
+func (o *Extension[T]) GetRid() Resource.ID {
+	return o.Super().AsResource().GetRid()
+}
+
+// SetupLocalToScene is promoted from [Resource.Instance.SetupLocalToScene].
+func (self Instance) SetupLocalToScene() {
+	self.AsResource().SetupLocalToScene()
+}
+
+// SetupLocalToScene is promoted from [Resource.Instance.SetupLocalToScene].
+func (o *Extension[T]) SetupLocalToScene() {
+	o.Super().AsResource().SetupLocalToScene()
+}
+
+// ResetState is promoted from [Resource.Instance.ResetState].
+func (self Instance) ResetState() {
+	self.AsResource().ResetState()
+}
+
+// ResetState is promoted from [Resource.Instance.ResetState].
+func (o *Extension[T]) ResetState() {
+	o.Super().AsResource().ResetState()
+}
+
+// SetIdForPath is promoted from [Resource.Instance.SetIdForPath].
+func (self Instance) SetIdForPath(path string, id string) Instance {
+	self.AsResource().SetIdForPath(path, id)
+	return self
+}
+
+// SetIdForPath is promoted from [Resource.Instance.SetIdForPath].
+func (o *Extension[T]) SetIdForPath(path string, id string) *Extension[T] {
+	o.Super().AsResource().SetIdForPath(path, id)
+	return o
+}
+
+// GetIdForPath is promoted from [Resource.Instance.GetIdForPath].
+func (self Instance) GetIdForPath(path string) string {
+	return self.AsResource().GetIdForPath(path)
+}
+
+// GetIdForPath is promoted from [Resource.Instance.GetIdForPath].
+func (o *Extension[T]) GetIdForPath(path string) string {
+	return o.Super().AsResource().GetIdForPath(path)
+}
+
+// IsBuiltIn is promoted from [Resource.Instance.IsBuiltIn].
+func (self Instance) IsBuiltIn() bool {
+	return self.AsResource().IsBuiltIn()
+}
+
+// IsBuiltIn is promoted from [Resource.Instance.IsBuiltIn].
+func (o *Extension[T]) IsBuiltIn() bool {
+	return o.Super().AsResource().IsBuiltIn()
+}
+
+// EmitChanged is promoted from [Resource.Instance.EmitChanged].
+func (self Instance) EmitChanged() {
+	self.AsResource().EmitChanged()
+}
+
+// EmitChanged is promoted from [Resource.Instance.EmitChanged].
+func (o *Extension[T]) EmitChanged() {
+	o.Super().AsResource().EmitChanged()
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

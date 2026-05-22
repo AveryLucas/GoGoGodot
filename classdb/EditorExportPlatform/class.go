@@ -424,6 +424,57 @@ func (o *Extension[T]) AsEditorExportPlatform() Instance { return o.Super() }
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) GetOsName() string {
+	return o.Super().GetOsName()
+}
+func (o *Extension[T]) CreatePreset() EditorExportPreset.Instance {
+	return o.Super().CreatePreset()
+}
+func (o *Extension[T]) FindExportTemplate(template_file_name string) Template {
+	return o.Super().FindExportTemplate(template_file_name)
+}
+func (o *Extension[T]) GetCurrentPresets() []EditorExportPreset.Instance {
+	return o.Super().GetCurrentPresets()
+}
+func (o *Extension[T]) SaveZip(preset EditorExportPreset.Instance, debug bool, path string) Report {
+	return o.Super().SaveZip(preset, debug, path)
+}
+func (o *Extension[T]) SavePackPatch(preset EditorExportPreset.Instance, debug bool, path string) Report {
+	return o.Super().SavePackPatch(preset, debug, path)
+}
+func (o *Extension[T]) SaveZipPatch(preset EditorExportPreset.Instance, debug bool, path string) Report {
+	return o.Super().SaveZipPatch(preset, debug, path)
+}
+func (o *Extension[T]) GenExportFlags(flags DebugFlags) []string {
+	return o.Super().GenExportFlags(flags)
+}
+func (o *Extension[T]) ClearMessages() {
+	o.Super().ClearMessages()
+}
+func (o *Extension[T]) AddMessage(atype ExportMessageType, category string, message string) {
+	o.Super().AddMessage(atype, category, message)
+}
+func (o *Extension[T]) GetMessageCount() int {
+	return o.Super().GetMessageCount()
+}
+func (o *Extension[T]) GetMessageType(index int) ExportMessageType {
+	return o.Super().GetMessageType(index)
+}
+func (o *Extension[T]) GetMessageCategory(index int) string {
+	return o.Super().GetMessageCategory(index)
+}
+func (o *Extension[T]) GetMessageText(index int) string {
+	return o.Super().GetMessageText(index)
+}
+func (o *Extension[T]) GetWorstMessageType() ExportMessageType {
+	return o.Super().GetWorstMessageType()
+}
+func (o *Extension[T]) SshPushToRemote(host string, port string, scp_args []string, src_file string, dst_file string) error {
+	return o.Super().SshPushToRemote(host, port, scp_args, src_file, dst_file)
+}
+func (o *Extension[T]) GetInternalExportFiles(preset EditorExportPreset.Instance, debug bool) map[string][]uint8 {
+	return o.Super().GetInternalExportFiles(preset, debug)
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

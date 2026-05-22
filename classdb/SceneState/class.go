@@ -366,6 +366,72 @@ func (o *Extension[T]) AsSceneState() Instance { return o.Super() }
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) GetPath() string {
+	return o.Super().GetPath()
+}
+func (o *Extension[T]) GetBaseSceneState() Instance {
+	return o.Super().GetBaseSceneState()
+}
+func (o *Extension[T]) GetNodeCount() int {
+	return o.Super().GetNodeCount()
+}
+func (o *Extension[T]) GetNodeType(idx int) string {
+	return o.Super().GetNodeType(idx)
+}
+func (o *Extension[T]) GetNodeName(idx int) string {
+	return o.Super().GetNodeName(idx)
+}
+func (o *Extension[T]) GetNodeOwnerPath(idx int) string {
+	return o.Super().GetNodeOwnerPath(idx)
+}
+func (o *Extension[T]) IsNodeInstancePlaceholder(idx int) bool {
+	return o.Super().IsNodeInstancePlaceholder(idx)
+}
+func (o *Extension[T]) GetNodeInstancePlaceholder(idx int) string {
+	return o.Super().GetNodeInstancePlaceholder(idx)
+}
+func (o *Extension[T]) GetNodeInstance(idx int) PackedScene.Instance {
+	return o.Super().GetNodeInstance(idx)
+}
+func (o *Extension[T]) GetNodeGroups(idx int) []string {
+	return o.Super().GetNodeGroups(idx)
+}
+func (o *Extension[T]) GetNodeIndex(idx int) int {
+	return o.Super().GetNodeIndex(idx)
+}
+func (o *Extension[T]) GetNodePropertyCount(idx int) int {
+	return o.Super().GetNodePropertyCount(idx)
+}
+func (o *Extension[T]) GetNodePropertyName(idx int, prop_idx int) string {
+	return o.Super().GetNodePropertyName(idx, prop_idx)
+}
+func (o *Extension[T]) GetNodePropertyValue(idx int, prop_idx int) any {
+	return o.Super().GetNodePropertyValue(idx, prop_idx)
+}
+func (o *Extension[T]) GetConnectionCount() int {
+	return o.Super().GetConnectionCount()
+}
+func (o *Extension[T]) GetConnectionSource(idx int) string {
+	return o.Super().GetConnectionSource(idx)
+}
+func (o *Extension[T]) GetConnectionSignal(idx int) string {
+	return o.Super().GetConnectionSignal(idx)
+}
+func (o *Extension[T]) GetConnectionTarget(idx int) string {
+	return o.Super().GetConnectionTarget(idx)
+}
+func (o *Extension[T]) GetConnectionMethod(idx int) string {
+	return o.Super().GetConnectionMethod(idx)
+}
+func (o *Extension[T]) GetConnectionFlags(idx int) int {
+	return o.Super().GetConnectionFlags(idx)
+}
+func (o *Extension[T]) GetConnectionBinds(idx int) []any {
+	return o.Super().GetConnectionBinds(idx)
+}
+func (o *Extension[T]) GetConnectionUnbinds(idx int) int {
+	return o.Super().GetConnectionUnbinds(idx)
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {

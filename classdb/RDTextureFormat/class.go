@@ -382,6 +382,12 @@ func (o *Extension[T]) AsRDTextureFormat() Instance { return o.Super() }
 func (o class) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
 func (o *Extension[T]) AsRefCounted() ie.RC { return o.Super().AsRefCounted() }
 func (o Instance) AsRefCounted() ie.RC { return *(*ie.RC)(ie.As(&o)) }
+func (o *Extension[T]) AddShareableFormat(format Rendering.DataFormat) {
+	o.Super().AddShareableFormat(format)
+}
+func (o *Extension[T]) RemoveShareableFormat(format Rendering.DataFormat) {
+	o.Super().RemoveShareableFormat(format)
+}
 
 func (self class) Virtual(name string) reflect.Value {
 	switch name {
