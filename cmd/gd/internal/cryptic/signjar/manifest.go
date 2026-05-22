@@ -26,7 +26,7 @@ import (
 	"sort"
 	"strings"
 
-	"graphics.gd/cmd/gd/internal/cryptic/x509tools"
+	"github.com/AveryLucas/gogogd/cmd/gd/internal/cryptic/x509tools"
 )
 
 // See https://docs.oracle.com/javase/8/docs/technotes/guides/jar/jar.html#JAR_Manifest

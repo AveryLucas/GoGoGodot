@@ -3,7 +3,7 @@ package gdtype
 import (
 	"strings"
 
-	"graphics.gd/internal/gdjson"
+	"github.com/AveryLucas/gogogd/internal/gdjson"
 )
 
 func EnumNameOf(class, enum_name string) (string, string) {

@@ -6,8 +6,8 @@ import (
 	"reflect"
 	"unsafe"
 
-	"graphics.gd/internal/gdextension"
-	"graphics.gd/internal/ring"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/internal/ring"
 )
 
 func Call[T any](object gdextension.Object, method gdextension.MethodForClass, shape gdextension.Shape, args any) T {
@@ -30,7 +30,7 @@ func Call[T any](object gdextension.Object, method gdextension.MethodForClass, s
 //go:noescape
 func call_noescape(object gdextension.Object, method gdextension.MethodForClass, result unsafe.Pointer, shape gdextension.Shape, args unsafe.Pointer)
 
-//go:linkname call graphics.gd/internal/noescape.call_noescape
+//go:linkname call github.com/AveryLucas/gogogd/internal/noescape.call_noescape
 func call(object gdextension.Object, method gdextension.MethodForClass, result unsafe.Pointer, shape gdextension.Shape, args unsafe.Pointer) {
 	gdextension.Host.Objects.Unsafe.Call(object, method, gdextension.CallReturns[any](result), shape, gdextension.CallAccepts[any](args))
 }
@@ -45,7 +45,7 @@ func (method MethodForClass) Call(self gdextension.Object, args ...gdextension.V
 //go:noescape
 func object_method_call_noescape(object gdextension.Object, method gdextension.MethodForClass, result *gdextension.Variant, args []gdextension.Variant, err *gdextension.CallError)
 
-//go:linkname object_method_call graphics.gd/internal/noescape.object_method_call_noescape
+//go:linkname object_method_call github.com/AveryLucas/gogogd/internal/noescape.object_method_call_noescape
 func object_method_call(object gdextension.Object, method gdextension.MethodForClass, result *gdextension.Variant, args []gdextension.Variant, err *gdextension.CallError) {
 	gdextension.Host.Objects.Call(object, method, gdextension.CallReturns[gdextension.Variant](result), len(args), gdextension.CallAccepts[gdextension.Variant](unsafe.SliceData(args)), gdextension.CallReturns[gdextension.CallError](err))
 }

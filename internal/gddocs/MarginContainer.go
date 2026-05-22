@@ -19,7 +19,7 @@ AddThemeConstantOverride("margin_right", marginValue);
 
 package main
 
-import "graphics.gd/classdb/MarginContainer"
+import "github.com/AveryLucas/gogogd/classdb/MarginContainer"
 
 func ExampleMarginContainer(c MarginContainer.Instance) {
 	var marginValue = 100

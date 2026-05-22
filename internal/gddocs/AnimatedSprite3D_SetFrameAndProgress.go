@@ -9,7 +9,7 @@ animated_sprite.set_frame_and_progress(current_frame, current_progress)
 
 package main
 
-import "graphics.gd/classdb/AnimatedSprite3D"
+import "github.com/AveryLucas/gogogd/classdb/AnimatedSprite3D"
 
 var animated_sprite3D AnimatedSprite3D.Instance
 

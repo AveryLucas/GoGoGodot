@@ -6,10 +6,10 @@ play(name, custom_blend, custom_speed, from_end)
 package main
 
 import (
-	"graphics.gd/classdb/AnimationMixer"
-	"graphics.gd/classdb/AnimationPlayer"
-	"graphics.gd/classdb/Tween"
-	"graphics.gd/variant/Float"
+	"github.com/AveryLucas/gogogd/classdb/AnimationMixer"
+	"github.com/AveryLucas/gogogd/classdb/AnimationPlayer"
+	"github.com/AveryLucas/gogogd/classdb/Tween"
+	"github.com/AveryLucas/gogogd/variant/Float"
 )
 
 var animationMixer AnimationMixer.Instance

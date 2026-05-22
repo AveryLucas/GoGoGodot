@@ -25,7 +25,7 @@ package main
 import (
 	"fmt"
 
-	"graphics.gd/classdb/EditorScript"
+	"github.com/AveryLucas/gogogd/classdb/EditorScript"
 )
 
 type HelloEditor struct {

@@ -12,9 +12,9 @@ func _get_build_dependencies(path):
 package main
 
 import (
-	"graphics.gd/classdb/FontFile"
-	"graphics.gd/classdb/Resource"
-	"graphics.gd/variant/Object"
+	"github.com/AveryLucas/gogogd/classdb/FontFile"
+	"github.com/AveryLucas/gogogd/classdb/Resource"
+	"github.com/AveryLucas/gogogd/variant/Object"
 )
 
 func ResourceImporter_GetBuildDependencies() {

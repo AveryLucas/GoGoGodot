@@ -10,14 +10,14 @@
 package fx
 
 import (
-	"graphics.gd/classdb/CanvasItem"
-	"graphics.gd/classdb/Engine"
-	"graphics.gd/classdb/MainLoop"
-	"graphics.gd/classdb/Node"
-	"graphics.gd/classdb/SceneTree"
-	"graphics.gd/variant/Color"
-	"graphics.gd/variant/Float"
-	"graphics.gd/variant/Object"
+	"github.com/AveryLucas/gogogd/classdb/CanvasItem"
+	"github.com/AveryLucas/gogogd/classdb/Engine"
+	"github.com/AveryLucas/gogogd/classdb/MainLoop"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	"github.com/AveryLucas/gogogd/classdb/SceneTree"
+	"github.com/AveryLucas/gogogd/variant/Color"
+	"github.com/AveryLucas/gogogd/variant/Float"
+	"github.com/AveryLucas/gogogd/variant/Object"
 )
 
 // Delta mirrors gogogd.Delta — duplicated here to avoid an fx → gogogd

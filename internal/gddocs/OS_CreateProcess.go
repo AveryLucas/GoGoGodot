@@ -9,7 +9,7 @@ var pid = OS.CreateProcess(OS.GetExecutablePath(), []);
 
 package main
 
-import "graphics.gd/classdb/OS"
+import "github.com/AveryLucas/gogogd/classdb/OS"
 
 func OS_CreateProcess() {
 	var pid = OS.CreateProcess(OS.GetExecutablePath(), []string{}, false)

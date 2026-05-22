@@ -5,7 +5,7 @@ import (
 	"math/rand"
 	"unsafe"
 
-	"graphics.gd/variant/Float"
+	"github.com/AveryLucas/gogogd/variant/Float"
 )
 
 // Any integer.

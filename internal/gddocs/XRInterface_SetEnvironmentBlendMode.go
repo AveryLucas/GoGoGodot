@@ -17,9 +17,9 @@ package main
 import (
 	"slices"
 
-	"graphics.gd/classdb/Viewport"
-	"graphics.gd/classdb/XRInterface"
-	"graphics.gd/classdb/XRServer"
+	"github.com/AveryLucas/gogogd/classdb/Viewport"
+	"github.com/AveryLucas/gogogd/classdb/XRInterface"
+	"github.com/AveryLucas/gogogd/classdb/XRServer"
 )
 
 func XRInterface_SetEnvironmentBlendMode() {

@@ -4,7 +4,7 @@ import (
 	"iter"
 	"sort"
 
-	"graphics.gd/variant"
+	"github.com/AveryLucas/gogogd/variant"
 )
 
 type Proxy[K comparable, V any] interface {

@@ -54,8 +54,8 @@ package main
 import (
 	"fmt"
 
-	"graphics.gd/classdb/Node"
-	"graphics.gd/classdb/PacketPeerUDP"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	"github.com/AveryLucas/gogogd/classdb/PacketPeerUDP"
 )
 
 type ClientNode struct {

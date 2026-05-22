@@ -9,7 +9,7 @@
 
 package main
 
-import "graphics.gd/classdb/NavigationMeshSourceGeometryData3D"
+import "github.com/AveryLucas/gogogd/classdb/NavigationMeshSourceGeometryData3D"
 
 func NavigationMeshSourceGeometryData3D_SetProjectedObstructions() {
 	type ProjectedObstruction3D struct {

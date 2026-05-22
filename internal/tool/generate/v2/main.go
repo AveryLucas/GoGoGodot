@@ -11,10 +11,10 @@ import (
 	"slices"
 	"strings"
 
-	"graphics.gd/internal/gdjson"
-	"graphics.gd/internal/tool/generate/gdfunc"
-	"graphics.gd/internal/tool/generate/gdtype"
-	"graphics.gd/variant/String"
+	"github.com/AveryLucas/gogogd/internal/gdjson"
+	"github.com/AveryLucas/gogogd/internal/tool/generate/gdfunc"
+	"github.com/AveryLucas/gogogd/internal/tool/generate/gdtype"
+	"github.com/AveryLucas/gogogd/variant/String"
 	"runtime.link/api/xray"
 )
 
@@ -170,21 +170,21 @@ func (classDB ClassDB) generateObjectPackage(class gdjson.Class, singleton bool,
 		}
 		fmt.Fprintln(file, `import "reflect"`)
 		fmt.Fprintln(file, `import "slices"`)
-		fmt.Fprintln(file, `import "graphics.gd/internal/pointers"`)
-		fmt.Fprintln(file, `import "graphics.gd/internal/callframe"`)
-		fmt.Fprintln(file, `import "graphics.gd/internal/gdextension"`)
-		fmt.Fprintln(file, `import "graphics.gd/internal/gdreference"`)
-		fmt.Fprintln(file, `import "graphics.gd/internal/noescape"`)
+		fmt.Fprintln(file, `import "github.com/AveryLucas/gogogd/internal/pointers"`)
+		fmt.Fprintln(file, `import "github.com/AveryLucas/gogogd/internal/callframe"`)
+		fmt.Fprintln(file, `import "github.com/AveryLucas/gogogd/internal/gdextension"`)
+		fmt.Fprintln(file, `import "github.com/AveryLucas/gogogd/internal/gdreference"`)
+		fmt.Fprintln(file, `import "github.com/AveryLucas/gogogd/internal/noescape"`)
 		if gdfunc.TrivialMethods != nil && len(gdfunc.TrivialMethods[class.Name]) > 0 {
-			fmt.Fprintln(file, `import "graphics.gd/internal/jumponly"`)
+			fmt.Fprintln(file, `import "github.com/AveryLucas/gogogd/internal/jumponly"`)
 		}
-		fmt.Fprintln(file, `import gd "graphics.gd/internal"`)
-		fmt.Fprintln(file, `import "graphics.gd/internal/gdclass"`)
-		fmt.Fprintln(file, `import "graphics.gd/internal/ie"`)
-		fmt.Fprintln(file, `import "graphics.gd/variant"`)
-		fmt.Fprintln(file, `import "graphics.gd/variant/Angle"`)
-		fmt.Fprintln(file, `import "graphics.gd/variant/Euler"`)
-		fmt.Fprintln(file, `import "graphics.gd/variant/Signal"`)
+		fmt.Fprintln(file, `import gd "github.com/AveryLucas/gogogd/internal"`)
+		fmt.Fprintln(file, `import "github.com/AveryLucas/gogogd/internal/gdclass"`)
+		fmt.Fprintln(file, `import "github.com/AveryLucas/gogogd/internal/ie"`)
+		fmt.Fprintln(file, `import "github.com/AveryLucas/gogogd/variant"`)
+		fmt.Fprintln(file, `import "github.com/AveryLucas/gogogd/variant/Angle"`)
+		fmt.Fprintln(file, `import "github.com/AveryLucas/gogogd/variant/Euler"`)
+		fmt.Fprintln(file, `import "github.com/AveryLucas/gogogd/variant/Signal"`)
 		if class.Inherits != "" {
 			super := classDB[class.Inherits]
 			for super.Name != "" && super.Name != "Object" && super.Name != "RefCounted" && !classDB[super.Name].IsSingleton {
@@ -698,7 +698,7 @@ func (classDB ClassDB) generateObjectPackage(class gdjson.Class, singleton bool,
 }
 
 func registerStructables(rtype reflect.Type) {
-	if rtype.PkgPath() == "graphics.gd/internal/gdjson" {
+	if rtype.PkgPath() == "github.com/AveryLucas/gogogd/internal/gdjson" {
 		StructablesInThisPackageGlobalHack[rtype] = true
 	}
 	switch rtype.Kind() {

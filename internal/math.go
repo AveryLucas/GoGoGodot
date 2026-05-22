@@ -3,7 +3,7 @@
 package gd
 
 import (
-	float "graphics.gd/variant/Float"
+	float "github.com/AveryLucas/gogogd/variant/Float"
 )
 
 // NewRect2 constructs a Rect2 by setting its position to (x, y), and its size to (width, height).

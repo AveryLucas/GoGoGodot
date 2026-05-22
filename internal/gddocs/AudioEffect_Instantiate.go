@@ -13,9 +13,9 @@ func _instantiate():
 package main
 
 import (
-	"graphics.gd/classdb/AudioEffect"
-	"graphics.gd/classdb/AudioEffectAmplify"
-	"graphics.gd/variant/Object"
+	"github.com/AveryLucas/gogogd/classdb/AudioEffect"
+	"github.com/AveryLucas/gogogd/classdb/AudioEffectAmplify"
+	"github.com/AveryLucas/gogogd/variant/Object"
 )
 
 type MyAudioEffect struct {

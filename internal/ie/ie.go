@@ -4,7 +4,7 @@ package ie
 import (
 	"unsafe"
 
-	gd "graphics.gd/internal"
+	gd "github.com/AveryLucas/gogogd/internal"
 )
 
 type (

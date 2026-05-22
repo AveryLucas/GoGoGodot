@@ -35,11 +35,11 @@ ResourceSaver.save(cubemap_array, "res://cubemap_array.res", ResourceSaver.FLAG_
 package main
 
 import (
-	"graphics.gd/classdb/Cubemap"
-	"graphics.gd/classdb/Image"
-	"graphics.gd/classdb/ImageTextureLayered"
-	"graphics.gd/classdb/ResourceSaver"
-	"graphics.gd/variant/Color"
+	"github.com/AveryLucas/gogogd/classdb/Cubemap"
+	"github.com/AveryLucas/gogogd/classdb/Image"
+	"github.com/AveryLucas/gogogd/classdb/ImageTextureLayered"
+	"github.com/AveryLucas/gogogd/classdb/ResourceSaver"
+	"github.com/AveryLucas/gogogd/variant/Color"
 )
 
 func ImageTextureLayered_CreateFromImages() {

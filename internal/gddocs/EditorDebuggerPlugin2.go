@@ -20,8 +20,8 @@ package main
 import (
 	"fmt"
 
-	"graphics.gd/classdb/EngineDebugger"
-	"graphics.gd/classdb/Node"
+	"github.com/AveryLucas/gogogd/classdb/EngineDebugger"
+	"github.com/AveryLucas/gogogd/classdb/Node"
 )
 
 type ExampleDebuggerPlugin struct {

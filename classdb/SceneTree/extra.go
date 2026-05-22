@@ -1,10 +1,10 @@
 package SceneTree
 
 import (
-	"graphics.gd/classdb/Engine"
-	"graphics.gd/classdb/Node"
-	"graphics.gd/classdb/Window"
-	"graphics.gd/variant/Object"
+	"github.com/AveryLucas/gogogd/classdb/Engine"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	"github.com/AveryLucas/gogogd/classdb/Window"
+	"github.com/AveryLucas/gogogd/variant/Object"
 )
 
 // Add the given node to the scene tree.

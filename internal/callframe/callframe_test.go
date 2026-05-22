@@ -3,7 +3,7 @@ package callframe_test
 import (
 	"testing"
 
-	"graphics.gd/internal/callframe"
+	"github.com/AveryLucas/gogogd/internal/callframe"
 )
 
 func TestFrame(t *testing.T) {

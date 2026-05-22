@@ -3,7 +3,7 @@ package Path
 import (
 	"path/filepath"
 
-	"graphics.gd/variant/String"
+	"github.com/AveryLucas/gogogd/variant/String"
 )
 
 // ToDirectory semantically represents a path to what is expected to be a directory/folder

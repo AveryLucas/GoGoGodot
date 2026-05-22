@@ -1,8 +1,8 @@
 package Startup
 
 import (
-	gd "graphics.gd/internal"
-	"graphics.gd/internal/gdextension"
+	gd "github.com/AveryLucas/gogogd/internal"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
 )
 
 func init() {

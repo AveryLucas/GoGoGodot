@@ -4,13 +4,13 @@ import (
 	"testing"
 	"time"
 
-	"graphics.gd/classdb/Engine"
-	"graphics.gd/classdb/Time"
-	"graphics.gd/internal/pointers"
-	"graphics.gd/variant"
-	"graphics.gd/variant/Array"
-	"graphics.gd/variant/Packed"
-	"graphics.gd/variant/Vector3"
+	"github.com/AveryLucas/gogogd/classdb/Engine"
+	"github.com/AveryLucas/gogogd/classdb/Time"
+	"github.com/AveryLucas/gogogd/internal/pointers"
+	"github.com/AveryLucas/gogogd/variant"
+	"github.com/AveryLucas/gogogd/variant/Array"
+	"github.com/AveryLucas/gogogd/variant/Packed"
+	"github.com/AveryLucas/gogogd/variant/Vector3"
 )
 
 func TestArrays(t *testing.T) {

@@ -6,13 +6,13 @@ import (
 	"hash/maphash"
 	"reflect"
 
-	"graphics.gd/internal/gdextension"
-	"graphics.gd/internal/gdmemory"
-	"graphics.gd/internal/pointers"
-	"graphics.gd/internal/threadsafe"
-	VariantPkg "graphics.gd/variant"
-	ArrayType "graphics.gd/variant/Array"
-	CallableType "graphics.gd/variant/Callable"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/internal/gdmemory"
+	"github.com/AveryLucas/gogogd/internal/pointers"
+	"github.com/AveryLucas/gogogd/internal/threadsafe"
+	VariantPkg "github.com/AveryLucas/gogogd/variant"
+	ArrayType "github.com/AveryLucas/gogogd/variant/Array"
+	CallableType "github.com/AveryLucas/gogogd/variant/Callable"
 )
 
 var callables threadsafe.Handles[comparableCallable, gdextension.FunctionID]

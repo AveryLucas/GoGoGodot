@@ -13,8 +13,8 @@ import (
 	"math/rand"
 	"time"
 
-	"graphics.gd/cmd/gd/internal/cryptic/rsa" // deterministic rsa
-	"graphics.gd/cmd/gd/internal/project"
+	"github.com/AveryLucas/gogogd/cmd/gd/internal/cryptic/rsa" // deterministic rsa
+	"github.com/AveryLucas/gogogd/cmd/gd/internal/project"
 
 	"golang.org/x/crypto/pbkdf2"
 )

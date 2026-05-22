@@ -12,8 +12,8 @@ tween.TweenProperty(this, "position", new Vector2(200.0f, 100.0f), 1.0f).FromCur
 package main
 
 import (
-	"graphics.gd/classdb/PropertyTweener"
-	"graphics.gd/variant/Vector2"
+	"github.com/AveryLucas/gogogd/classdb/PropertyTweener"
+	"github.com/AveryLucas/gogogd/variant/Vector2"
 )
 
 func PropertyTweener_FromCurrent() {

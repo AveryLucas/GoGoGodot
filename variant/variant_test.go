@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"graphics.gd/variant"
+	"github.com/AveryLucas/gogogd/variant"
 )
 
 func TestAny(t *testing.T) {

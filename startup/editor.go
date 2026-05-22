@@ -9,11 +9,11 @@ import (
 	"slices"
 	"strings"
 
-	"graphics.gd/classdb"
-	"graphics.gd/classdb/EditorInterface"
-	"graphics.gd/classdb/EditorPlugin"
-	"graphics.gd/classdb/Engine"
-	"graphics.gd/variant/String"
+	"github.com/AveryLucas/gogogd/classdb"
+	"github.com/AveryLucas/gogogd/classdb/EditorInterface"
+	"github.com/AveryLucas/gogogd/classdb/EditorPlugin"
+	"github.com/AveryLucas/gogogd/classdb/Engine"
+	"github.com/AveryLucas/gogogd/variant/String"
 )
 
 func editorSetup() {

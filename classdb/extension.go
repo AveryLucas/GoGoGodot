@@ -1,8 +1,8 @@
 package classdb
 
 import (
-	gd "graphics.gd/internal"
-	"graphics.gd/internal/gdclass"
+	gd "github.com/AveryLucas/gogogd/internal"
+	"github.com/AveryLucas/gogogd/internal/gdclass"
 )
 
 // ExtensionTo is an interface implemented by extensions to the given engine class.

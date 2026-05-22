@@ -8,7 +8,7 @@ dst.a = modulate.a + dst.a * (1.0 - modulate.a);
 package main
 
 import (
-	"graphics.gd/variant/Color"
+	"github.com/AveryLucas/gogogd/variant/Color"
 )
 
 func CanvasItem_DrawLcdTextureRectRegion() {

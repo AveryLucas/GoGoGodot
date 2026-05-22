@@ -12,7 +12,7 @@ package main
 import (
 	"net/netip"
 
-	"graphics.gd/classdb/IP"
+	"github.com/AveryLucas/gogogd/classdb/IP"
 )
 
 func IP_GetLocalInterfaces() {

@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"testing"
 
-	"graphics.gd/internal/gdtests"
-	"graphics.gd/variant/Transform2D"
+	"github.com/AveryLucas/gogogd/internal/gdtests"
+	"github.com/AveryLucas/gogogd/variant/Transform2D"
 )
 
 func TestIdentity(t *testing.T) {

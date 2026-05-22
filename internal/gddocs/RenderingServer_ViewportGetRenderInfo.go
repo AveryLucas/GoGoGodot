@@ -15,9 +15,9 @@ package main
 import (
 	"fmt"
 
-	"graphics.gd/classdb/Engine"
-	"graphics.gd/classdb/RenderingServer"
-	"graphics.gd/classdb/Viewport"
+	"github.com/AveryLucas/gogogd/classdb/Engine"
+	"github.com/AveryLucas/gogogd/classdb/RenderingServer"
+	"github.com/AveryLucas/gogogd/classdb/Viewport"
 )
 
 func RenderingServer_ViewportGetRenderInfo() {

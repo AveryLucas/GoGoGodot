@@ -12,8 +12,8 @@
 package main
 
 import (
-	"graphics.gd/classdb/SyntaxHighlighter"
-	"graphics.gd/variant/Color"
+	"github.com/AveryLucas/gogogd/classdb/SyntaxHighlighter"
+	"github.com/AveryLucas/gogogd/variant/Color"
 )
 
 func SyntaxHighlighter_GetLineSyntaxHighlighting() {

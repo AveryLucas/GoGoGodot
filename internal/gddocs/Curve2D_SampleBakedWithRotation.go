@@ -10,9 +10,9 @@ rotation = baked.get_rotation()
 package main
 
 import (
-	"graphics.gd/classdb/Curve2D"
-	"graphics.gd/classdb/Node2D"
-	"graphics.gd/variant/Transform2D"
+	"github.com/AveryLucas/gogogd/classdb/Curve2D"
+	"github.com/AveryLucas/gogogd/classdb/Node2D"
+	"github.com/AveryLucas/gogogd/variant/Transform2D"
 )
 
 var node2d Node2D.Instance

@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"testing"
 
-	"graphics.gd/internal/gdtests"
-	"graphics.gd/variant/Basis"
-	"graphics.gd/variant/Vector3"
+	"github.com/AveryLucas/gogogd/internal/gdtests"
+	"github.com/AveryLucas/gogogd/variant/Basis"
+	"github.com/AveryLucas/gogogd/variant/Vector3"
 )
 
 func TestIdentity(t *testing.T) {

@@ -6,8 +6,8 @@ tween.tween_callback(queue_free).set_delay(2)
 package main
 
 import (
-	"graphics.gd/classdb/Node"
-	"graphics.gd/classdb/SceneTree"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	"github.com/AveryLucas/gogogd/classdb/SceneTree"
 )
 
 var node Node.Instance

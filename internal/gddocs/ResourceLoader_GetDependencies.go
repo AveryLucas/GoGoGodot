@@ -13,7 +13,7 @@ import (
 	"fmt"
 	"strings"
 
-	"graphics.gd/classdb/ResourceLoader"
+	"github.com/AveryLucas/gogogd/classdb/ResourceLoader"
 )
 
 var path string

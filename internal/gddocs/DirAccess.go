@@ -8,7 +8,7 @@ DirAccess.make_dir_absolute("user://levels/world1")
 
 package main
 
-import "graphics.gd/classdb/DirAccess"
+import "github.com/AveryLucas/gogogd/classdb/DirAccess"
 
 func ExampleDirectoryMake() {
 	var dir = DirAccess.Open("user://levels")

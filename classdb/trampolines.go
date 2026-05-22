@@ -1,6 +1,6 @@
 package classdb
 
-import "graphics.gd/variant"
+import "github.com/AveryLucas/gogogd/variant"
 
 // Trampoline can be used to efficiently call methods on a class without producing any allocations.
 type Trampoline[T any] struct{}

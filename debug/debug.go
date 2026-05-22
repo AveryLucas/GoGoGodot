@@ -17,10 +17,10 @@ import (
 	"fmt"
 	"sync"
 
-	"graphics.gd/classdb/Engine"
-	"graphics.gd/classdb/Node"
-	"graphics.gd/variant/Callable"
-	"graphics.gd/variant/Object"
+	"github.com/AveryLucas/gogogd/classdb/Engine"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	"github.com/AveryLucas/gogogd/variant/Callable"
+	"github.com/AveryLucas/gogogd/variant/Object"
 )
 
 // Watch registers a label/value pair to be rendered by the FPS overlay (or

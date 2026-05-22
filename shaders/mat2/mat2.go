@@ -2,7 +2,7 @@
 package mat2
 
 import (
-	"graphics.gd/shaders/internal/gpu"
+	"github.com/AveryLucas/gogogd/shaders/internal/gpu"
 )
 
 type ColumnMajor gpu.Mat2

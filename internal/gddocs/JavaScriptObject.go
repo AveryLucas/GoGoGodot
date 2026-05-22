@@ -31,10 +31,10 @@ package main
 import (
 	"fmt"
 
-	"graphics.gd/classdb/JavaScriptBridge"
-	"graphics.gd/classdb/JavaScriptObject"
-	"graphics.gd/classdb/Node"
-	"graphics.gd/variant/Object"
+	"github.com/AveryLucas/gogogd/classdb/JavaScriptBridge"
+	"github.com/AveryLucas/gogogd/classdb/JavaScriptObject"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	"github.com/AveryLucas/gogogd/variant/Object"
 )
 
 type MyJavaScriptObjects struct {

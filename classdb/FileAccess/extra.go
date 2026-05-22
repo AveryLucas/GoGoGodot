@@ -6,7 +6,7 @@ import (
 	"runtime"
 	"time"
 
-	"graphics.gd/variant/Error"
+	"github.com/AveryLucas/gogogd/variant/Error"
 )
 
 func tryConvertToFS(err error) error {

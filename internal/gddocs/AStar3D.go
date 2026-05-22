@@ -40,8 +40,8 @@ public partial class MyAStar3D : AStar3D
 package main
 
 import (
-	"graphics.gd/classdb/AStar3D"
-	"graphics.gd/variant/Float"
+	"github.com/AveryLucas/gogogd/classdb/AStar3D"
+	"github.com/AveryLucas/gogogd/variant/Float"
 )
 
 type MyAStar3D struct {

@@ -10,8 +10,8 @@ import (
 
 	lipo "github.com/konoui/lipo/cmd"
 
-	"graphics.gd/cmd/gd/internal/project"
-	"graphics.gd/cmd/gd/internal/tooling"
+	"github.com/AveryLucas/gogogd/cmd/gd/internal/project"
+	"github.com/AveryLucas/gogogd/cmd/gd/internal/tooling"
 
 	"runtime.link/api/xray"
 )

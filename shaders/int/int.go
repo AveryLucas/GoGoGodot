@@ -2,7 +2,7 @@
 package int
 
 import (
-	"graphics.gd/shaders/internal/gpu"
+	"github.com/AveryLucas/gogogd/shaders/internal/gpu"
 )
 
 // X is a signed integer on the GPU (represented by an unspecified number of bits).

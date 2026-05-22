@@ -24,10 +24,10 @@ package main
 import (
 	"fmt"
 
-	"graphics.gd/classdb/Input"
-	"graphics.gd/classdb/InputEvent"
-	"graphics.gd/classdb/InputEventMouseButton"
-	"graphics.gd/variant/Object"
+	"github.com/AveryLucas/gogogd/classdb/Input"
+	"github.com/AveryLucas/gogogd/classdb/InputEvent"
+	"github.com/AveryLucas/gogogd/classdb/InputEventMouseButton"
+	"github.com/AveryLucas/gogogd/variant/Object"
 )
 
 func Control_GuiInput() {

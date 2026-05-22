@@ -5,7 +5,7 @@ import (
 	"path"
 	"slices"
 
-	"graphics.gd/variant/String"
+	"github.com/AveryLucas/gogogd/variant/String"
 )
 
 // ToNode represents a path to a generic node within a tree.

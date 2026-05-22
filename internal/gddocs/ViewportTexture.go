@@ -5,7 +5,7 @@ img.linear_to_srgb()
 
 package main
 
-import "graphics.gd/classdb/Image"
+import "github.com/AveryLucas/gogogd/classdb/Image"
 
 func ExampleViewportTexture(img Image.Instance) {
 	img.Convert(Image.FormatRgba8)

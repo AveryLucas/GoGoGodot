@@ -3,7 +3,7 @@ package Color
 import (
 	"math"
 
-	"graphics.gd/variant/Float"
+	"github.com/AveryLucas/gogogd/variant/Float"
 )
 
 // HSL constructs a color from an OK HSL profile. The hue (h), saturation (s), and

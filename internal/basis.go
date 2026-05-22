@@ -3,7 +3,7 @@
 package gd
 
 import (
-	basis "graphics.gd/variant/Basis"
+	basis "github.com/AveryLucas/gogogd/variant/Basis"
 )
 
 func Transposed(t Transform3D) Transform3D {

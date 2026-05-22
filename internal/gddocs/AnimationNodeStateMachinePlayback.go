@@ -12,9 +12,9 @@ stateMachine.Travel("some_state");
 package main
 
 import (
-	"graphics.gd/classdb/AnimationNodeStateMachinePlayback"
-	"graphics.gd/classdb/AnimationTree"
-	"graphics.gd/variant/Object"
+	"github.com/AveryLucas/gogogd/classdb/AnimationNodeStateMachinePlayback"
+	"github.com/AveryLucas/gogogd/classdb/AnimationTree"
+	"github.com/AveryLucas/gogogd/variant/Object"
 )
 
 func ExampleAnimationNodeStateMachinePlayback(tree AnimationTree.Instance) {

@@ -12,8 +12,8 @@ astar.AddPoint(1, new Vector2(1, 0), 4); // Adds the point (1, 0) with weight_sc
 package main
 
 import (
-	"graphics.gd/classdb/AStar2D"
-	"graphics.gd/variant/Vector2"
+	"github.com/AveryLucas/gogogd/classdb/AStar2D"
+	"github.com/AveryLucas/gogogd/variant/Vector2"
 )
 
 func AStar2D_AddPoint() {

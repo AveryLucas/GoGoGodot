@@ -1,7 +1,7 @@
 package gdreference
 
 import (
-	"graphics.gd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
 )
 
 type Type int

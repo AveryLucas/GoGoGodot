@@ -20,9 +20,9 @@ GetNode<NavigationRegion2D>("NavigationRegion2D").NavigationPolygon = newNavigat
 package main
 
 import (
-	"graphics.gd/classdb/NavigationPolygon"
-	"graphics.gd/classdb/NavigationRegion2D"
-	"graphics.gd/variant/Vector2"
+	"github.com/AveryLucas/gogogd/classdb/NavigationPolygon"
+	"github.com/AveryLucas/gogogd/classdb/NavigationRegion2D"
+	"github.com/AveryLucas/gogogd/variant/Vector2"
 )
 
 func ExampleNavigationPolygon2(region NavigationRegion2D.Instance) {

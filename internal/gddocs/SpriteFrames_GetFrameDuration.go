@@ -4,7 +4,7 @@ absolute_duration = relative_duration / (animation_fps * abs(playing_speed))
 
 package main
 
-import "graphics.gd/variant/Float"
+import "github.com/AveryLucas/gogogd/variant/Float"
 
 var (
 	relative_duration, animation_fps, playing_speed Float.X

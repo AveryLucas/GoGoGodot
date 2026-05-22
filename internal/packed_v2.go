@@ -1,12 +1,12 @@
 package gd
 
 import (
-	"graphics.gd/internal/gdextension"
-	"graphics.gd/internal/pointers"
-	ArrayType "graphics.gd/variant/Array"
-	ArrayVariant "graphics.gd/variant/Array"
-	PackedType "graphics.gd/variant/Packed"
-	StringType "graphics.gd/variant/String"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/internal/pointers"
+	ArrayType "github.com/AveryLucas/gogogd/variant/Array"
+	ArrayVariant "github.com/AveryLucas/gogogd/variant/Array"
+	PackedType "github.com/AveryLucas/gogogd/variant/Packed"
+	StringType "github.com/AveryLucas/gogogd/variant/String"
 )
 
 type Packed[T any, V gdextension.Packable] interface {

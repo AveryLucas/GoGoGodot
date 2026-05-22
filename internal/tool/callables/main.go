@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"graphics.gd/internal/gdjson"
+	"github.com/AveryLucas/gogogd/internal/gdjson"
 	"runtime.link/api/xray"
 )
 

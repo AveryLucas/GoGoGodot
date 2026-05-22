@@ -4,8 +4,8 @@ package Vector4
 import (
 	"math"
 
-	"graphics.gd/variant/Float"
-	"graphics.gd/variant/Int"
+	"github.com/AveryLucas/gogogd/variant/Float"
+	"github.com/AveryLucas/gogogd/variant/Int"
 )
 
 // XYZW is a 4-element structure that can be used to represent

@@ -13,8 +13,8 @@ codePreview.SyntaxHighlighter = highlighter;
 package main
 
 import (
-	"graphics.gd/classdb/GDScriptSyntaxHighlighter"
-	"graphics.gd/classdb/TextEdit"
+	"github.com/AveryLucas/gogogd/classdb/GDScriptSyntaxHighlighter"
+	"github.com/AveryLucas/gogogd/classdb/TextEdit"
 )
 
 func ExampleScriptSyntaxHighlighter() {

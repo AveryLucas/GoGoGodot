@@ -8,8 +8,8 @@ import (
 	"reflect"
 	"sort"
 
-	"graphics.gd/variant"
-	"graphics.gd/variant/Int"
+	"github.com/AveryLucas/gogogd/variant"
+	"github.com/AveryLucas/gogogd/variant/Int"
 )
 
 // Contains is an array data structure that can contain a sequence of elements of T. Elements

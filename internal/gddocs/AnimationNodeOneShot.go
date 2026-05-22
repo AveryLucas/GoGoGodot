@@ -46,9 +46,9 @@ animationTree.Get("parameters/OneShot/internal_active");
 package main
 
 import (
-	"graphics.gd/classdb/AnimationNodeOneShot"
-	"graphics.gd/classdb/AnimationTree"
-	"graphics.gd/variant/Object"
+	"github.com/AveryLucas/gogogd/classdb/AnimationNodeOneShot"
+	"github.com/AveryLucas/gogogd/classdb/AnimationTree"
+	"github.com/AveryLucas/gogogd/variant/Object"
 )
 
 func ExampleAnimationNodeOneShot(tree AnimationTree.Instance) {

@@ -10,10 +10,10 @@ func _is_in_input_hotzone(in_node, in_port, mouse_position):
 package main
 
 import (
-	"graphics.gd/classdb/GraphNode"
-	"graphics.gd/variant/Object"
-	"graphics.gd/variant/Rect2"
-	"graphics.gd/variant/Vector2"
+	"github.com/AveryLucas/gogogd/classdb/GraphNode"
+	"github.com/AveryLucas/gogogd/variant/Object"
+	"github.com/AveryLucas/gogogd/variant/Rect2"
+	"github.com/AveryLucas/gogogd/variant/Vector2"
 )
 
 func GraphEdit_IsInInputHotzone() {

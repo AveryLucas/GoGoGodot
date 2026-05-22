@@ -1,208 +1,196 @@
-# graphics.gd ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/quaadgras/graphics.gd) ![Godot 4.6.2](https://img.shields.io/badge/Godot-4.6.2-478CBF?style=flat&logo=godotengine&logoColor=white) [![Go Reference](https://pkg.go.dev/badge/graphics.gd.svg)](https://pkg.go.dev/graphics.gd) [![Go Report Card](https://goreportcard.com/badge/graphics.gd)](https://goreportcard.com/report/graphics.gd)
+# gogogd
 
-A cross platform 2D/3D graphics runtime for [Go](https://go.dev/) suitable for building native mobile apps,
-gdextensions, multimedia applications, games and more.
+> A Godot binding for Go plus an opinionated authoring layer, in one project.
+> Write full Godot games in Go.
+>
+> Working principle: **Go fast. Stay Godot.**
 
-_Why use graphics.gd?_
-
-* [Faster](https://github.com/quaadgras/graphics.gd/discussions/277) than GDScript.
-* [Write shaders in Go!](./shaders/Readme.md)
-* Full compatibility with the [Godot Engine](https://godotengine.org/) editor and ecosystem.
-* Unlike C++/C#/GDScript/Rust/Swift, RIDs, Callables and Dictionary arguments are strongly typed.
-* Fully documented API reference on [pkg.go.dev](https://pkg.go.dev/graphics.gd), with all code snippets in Go.
-* Pure-Go ported `variant` packages, for vector math and more, reuse them in any Go project.
-* After an initial build, recompile quickly, with an experience similar to scripting languages.
-* Easily cross-compile for windows/macos/android/linux/ios/web on any host platform.
-* Neither Java, nor an Android SDK/NDK is needed to build Android apps [Read More](https://github.com/quaadgras/graphics.gd/discussions/177).
-* Neither Xcode nor macOS is needed to build macOS/iOS apps [Read More](https://github.com/quaadgras/graphics.gd/discussions/184).
-* Drop in `gd` command, a cross-platform build tool compatible with `.gd` script projects.
-* Export static `GOOS=musl` binaries that will run on any linux system (no more libc issues).
-* Designed for readablity by humans (but your LLM will manage too).
-
-Not just a 1:1 wrapper for gdextension! `graphics.gd` has been designed from the ground up to
-provide a cohesive and curated experience for using [Go](https://go.dev/) on top of
-[Godot](https://godotengine.org/) +
-[GDExtension](https://docs.godotengine.org/en/stable/tutorials/scripting/gdextension/what_is_gdextension.html).
-
-## Hello World
+`gogogd` lets you write Godot games in Go with the type system, tooling,
+and ecosystem you already use, without the binding ceremony that makes
+raw gdextension bindings verbose. The Godot scene tree, nodes, signals,
+resources, packed scenes, and lifecycle hooks remain front and centre —
+gogogd just makes them pleasant to drive from Go code.
 
 ```go
-// This file is all you need to start a project.
-// Save it somewhere, install the `gd` command and use `gd run` to launch.
 package main
 
 import (
-	"graphics.gd/startup"
+    "fmt"
+    "os"
 
-	"graphics.gd/classdb/Control"
-	"graphics.gd/classdb/GUI"
-	"graphics.gd/classdb/Label"
-	"graphics.gd/classdb/SceneTree"
+    "github.com/AveryLucas/gogogd/classdb/Node"
+    "github.com/AveryLucas/gogogd/startup"
 )
 
+type Game struct {
+    Node.Extension[Game] `gd:"Game"`
+}
+
+func (g *Game) Ready() {
+    fmt.Fprintln(os.Stderr, "[hello] Game.Ready — gogogd works")
+}
+
 func main() {
-	startup.LoadingScene() // setup the SceneTree and wait until we have access to engine functionality
-	hello := Label.New()
-	hello.AsControl().SetAnchorsPreset(Control.PresetFullRect) // expand the label to take up the whole screen.
-	hello.SetHorizontalAlignment(GUI.HorizontalAlignmentCenter)
-	hello.SetVerticalAlignment(GUI.VerticalAlignmentCenter)
-	hello.SetText("Hello, World!")
-	SceneTree.Add(hello)
-	startup.Scene() // starts up the scene and blocks until the engine shuts down.
+    // Class registrations are emitted by `gogogd register` into
+    // gogogd_register.go's init() — run automatically before main.
+    startup.Scene()
 }
 ```
 
-## Quickstart
-The module includes a drop-in replacement for the go command called `gd` that
-makes it easy to work with projects that run within the runtime (including `.gd`
-script projects). It also enables you to start developing a new project starting from
-a single  `main.go` file, to install it, make sure that your `$GOPATH/bin` is in your
-`$PATH` and run:
+Drop a `Game` node into `main.tscn` in the Godot editor (or use
+`gogogd new` — the scaffold writes the scene file too), then
+`gogogd dev` rebuilds and reloads on save.
 
-$ `go install graphics.gd/cmd/gd@release`
+## Install
 
-Now you can run `gd run`, `gd test` anywhere in your project and things should work 
-as expected. For Go projects, `gd` will create a "graphics" subdirectory at the root of 
-your module where you can manage your assets via the [Godot Engine](https://godotengine.org/) editor.
+Requires Go 1.26+ and Godot 4.6.2+.
 
-Running the command without any additional arguments will startup the editor.
+```
+go install github.com/AveryLucas/gogogd/cmd/gogogd@latest
+gogogd new my-game
+cd my-game
+gogogd dev
+```
 
-If you don't want to use the `gd` command, you can also build a shared library with
-the standard `go` command (this can be included in an existing
-[Godot Engine](https://godotengine.org/) project):
+## CLI
 
-$ `go build -o example.so -buildmode=c-shared`
+```
+gogogd new <name>       Scaffold a new project.
+gogogd doctor [--json]  Diagnose the local toolchain.
+gogogd register         Generate gogogd_register.go for the current project.
+gogogd build [target]   Build the project (target: windows, linux, macos, web).
+gogogd run              Codegen + build + launch the project under Godot.
+gogogd dev              File-watching dev loop (rebuild + relaunch on save).
+gogogd inspect <type>   Print a registered type's static schema.
+gogogd test [--duration d]  Run the project headless for d (default 8s).
+```
 
-## Next Steps
+Most users only need `gogogd dev`. The others are exposed for CI,
+scripting, and one-off operations.
 
-Check out the [the.graphics.gd/guide](https://the.graphics.gd/guide) which covers much,
-much more!
+## What it provides
 
-There are also a number of example projects in the [samples](https://github.com/quaadgras/graphics.gd/tree/samples)
-branch. All of these samples are designed to be able to run with `gd run` without any additional setup.
-
-## TLDR
-
-Each engine class is available as a package under `classdb`. To import the
-`Node` class you can import `"graphics.gd/classdb/Node"` There's no inheritance,
-so to access a 'super' class, you need to call `AsClassName()` on an extension 'class'.
-All engine classes have methods to cast to any classes that they extend from, for example
-`AsObject()` or `AsNode2D()`.
-
-Methods have been renamed to follow Go conventions, so instead of
-underscores, methods are named as PascalCase. Keep this in mind when
-referring to Godot documentation.
-
-https://docs.godotengine.org/en/latest/index.html
-
-The complete API reference for Godot has been ported to Go, including code snippets, so you
-can use `pkg.go.dev` as a drop-in replacement for Godot's API documentation.
-
-https://pkg.go.dev/graphics.gd
-
-**Note**
-Optional arguments are omitted by default, convert an `Instance` into either the `MoreArgs`
-or `Advanced` types to specify them.
+**Component authoring.** Register a Go struct as a Godot class by
+embedding the binding's `<Class>.Extension[Self]`:
 
 ```go
-node.MoreArgs().AddChild(...)
+type Player struct {
+    CharacterBody2D.Extension[Player] `gd:"Player"`
+
+    HP    int       // inspector property
+    Speed gd.Delta  // inspector property
+}
+
+func (p *Player) Ready()             { /* ... */ }
+func (p *Player) Process(dt gd.Delta){ /* ... */ }
 ```
 
-## Where Do I Find?
-Ctrl+F in the project for a specific `//gd:symbol` to find the matching Go symbol.
-```
-* Engine Class           -> `//gd:ClassName`
-* Engine Class Method    -> `//gd:ClassName.method_name`
-* Utility Functions      -> `//gd:utility_function_name`
-* Enum                   -> `//gd:ClassName.EnumName`
-```
-_NOTE_ in order to avoid circular dependencies, a small selection of functions have moved
-packages, for example `Node.get_tree()` (GDScript) has moved to `SceneTree.Get()` (Go).
+Codegen promotes every ancestor's methods, properties, and signals
+onto the leaf class, so `p.SetPosition(v)`, `p.MoveAndSlide()`,
+`p.OnPressed(cb)`, `p.QueueFree()` all work directly with no
+`.AsParent()` chain.
 
-## Community & Support
+**Bare-package helpers.** Import what your component does.
 
-Join the [active discussions](https://github.com/quaadgras/graphics.gd/discussions)
-with any questions, comments or feedback you may have. Show us what you're building!
+| Package | What it owns |
+|---|---|
+| `gd` | Type aliases (`Vec2`, `Vec3`, `Col`, `Delta`, `Radians`), `Must`, `MustOk` |
+| `signals` | `Signal0`, `Signal[T]`, owner-bound `Connect` / `Connect0` |
+| `timing` | `After`, `Every`, `Cooldown`, `OnMainThread` |
+| `actions` | `Pressed`, `JustPressed`, `Vector` and mouse helpers |
+| `scenetree` | `Quit`, `ChangeScene`, `ReloadScene`, `SetPaused` |
+| `tree` | `Find`, `Children`, `Descendants`, `OnlyIf` |
+| `spawn` | `Add`, `AddChild`, `AddNew` (polymorphic) |
+| `visual` | `AttachCircle`, `AttachRect`, `ColorOf`, X11 colours |
+| `stat` | Reactive `Stat[T]` |
+| `pool` | Typed object pool |
+| `sequence` | Timeline DSL (`Wait`, `Do`, `Parallel`, `Loop`) |
+| `bus` | Global pub/sub |
+| `i18n` | `Tr`, `SetLocale`, `Bind` |
+| `audio` | Bus volume, ducking |
+| `window` | Fullscreen, VSync |
+| `settings` | Typed reactive singleton |
+| `physics` | `Raycast2D`, `OverlapRect` |
+| `ui` | Modal screen stack, toast, focus |
+| `fsm` | Flat finite state machine |
+| `fx` | Flash, Hitstop |
+| `save` | Typed save slots with versioned migration |
 
-The API surface of the [Godot Engine](https://godotengine.org/) is huge, not everything has
-been translated to Go optimally, the best thing you can do is to
-[report](https://github.com/quaadgras/graphics.gd/issues/new/choose)
-anything that seems 'off', this way you can reduce the likelihood of being affected by any
-breaking changes in the future.
+The principle: a file's import list reads as the inventory of what
+the component does.
 
-*Public sponsors receive priority support!*
+**The full Godot class surface.** Every Godot class (`Node`,
+`Sprite2D`, `CharacterBody2D`, `Control`, `Button`, ~500 in total) is
+a Go package under `classdb/`. Codegen emits the full bound surface
+plus virtual hook helpers and `OnX` signal connectors.
 
-Secure the development of `graphics.gd` and prioritise issues by
-[sponsoring me](https://github.com/sponsors/Splizard).
+## Examples
 
-## Performance
-It's feasible to write high performance code with `graphics.gd`, keep to allocation-efficient types
-where possible and avoid allocating memory on the heap in frequently called functions. `Advanced`
-instances are available for each class which allow more fine-grained control over memory allocations.
+- [examples/01-coin-collector](examples/01-coin-collector) — smallest
+  real game shape. Player auto-paths toward coins, picks them up via
+  Area2D overlap, score on a Label HUD.
+- [examples/02-shooter](examples/02-shooter) — bullets with
+  self-cleanup, enemy spawner, body-overlap hit detection.
+- [examples/03-menus-and-save](examples/03-menus-and-save) — typed
+  save slots with migration, reactive settings, modal screen stack,
+  audio/window control, global event bus, FSM, i18n.
 
-Benchmarks show that `Advanced` method calls from Go -> Godot don't typically allocate any
-memory.
+Each runs headless under `gogogd test --duration 5s`.
 
-## Supported Platforms
+## Documentation
 
-* Windows `GOOS=windows gd build`
-* Linux   `GOOS=linux gd build`
-* MacOS   `GOOS=macos gd build`
-* Android `GOOS=android GOARCH=arm64 gd run`
-* IOS     `GOOS=ios gd run` (requires [SideStore](https://sidestore.io) on the IOS device)
-* Web     `GOOS=web gd run`
+- [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) — full rationale: layer
+  model, component model, lifetime/keepalive walker, lifecycle
+  dispatch, child-node wiring (with the four footguns), helper API
+  principles, complexity ramp.
+- [docs/DESIGN_PRINCIPLES.md](docs/DESIGN_PRINCIPLES.md) — one-page
+  rules cheat sheet.
+- [docs/MERGE_PLAN.md](docs/MERGE_PLAN.md) — how gogogd absorbed the
+  Graphics.GD fork into one project.
+- [pkg.go.dev/github.com/AveryLucas/gogogd](https://pkg.go.dev/github.com/AveryLucas/gogogd) — full API reference (mirrors Godot's docs into Go).
 
-## Platform Restrictions
+## Supported platforms
 
-* 64bit only (`arm64`, `amd64` and `wasm`).
-* No support for Playstation/Xbox/Switch yet (achievable in the future with [gd-compiler](https://github.com/quaadgras/gd-compiler), [TamaGo](https://github.com/usbarmory/tamago), [WASI](https://github.com/WebAssembly/WASI), [wasm2c](https://github.com/WebAssembly/wabt/tree/main/wasm2c) or [hitsumabushi](https://github.com/hajimehoshi/hitsumabushi)).
+- Windows (`GOOS=windows gogogd build windows`)
+- Linux (`GOOS=linux gogogd build linux`)
+- macOS (`GOOS=darwin gogogd build macos`)
+- Web (`GOOS=js gogogd build web`)
 
-## Contributing
+64-bit only (`arm64`, `amd64`, `wasm`).
 
-The best way you can contribute to `graphics.gd` is to **try it**, this project needs you to find out
-what works best and what doesn't, so do please let us know of any trouble that you run into! Any
-examples you can contribute are more than welcome.
+## Status
 
-The next best thing you can do to help is improve the Variant packages, these are general-purpose
-packages inspired by the Godot engine's Variant types. Specifically any changes you can make to
-optimize functionality and/or improve test coverage of these packages is more than welcome.
+gogogd is pre-1.0. The authoring surface is stable; the binding layer
+tracks Godot 4.6.x. Breaking changes happen — pin a commit until 1.0.
 
-If you enjoy hunting down memory-safety issues, we would appreciate this.
+## History
 
-`graphics.gd` is looking for someone to create benchmarks to compare this project with `.gd` script
-and/or other gdextension-based alternatives.
+gogogd started as an opinionated authoring layer *on top of*
+[grow-graphics/gd](https://github.com/grow-graphics/gd) (also known
+as Graphics.GD), a Godot binding for Go by
+[@Splizard](https://github.com/Splizard) and contributors. In May
+2026 the two were merged into one project: every API decision that
+was previously "wrapper sugar over the binding" is now codegen on the
+binding itself. The original upstream README is preserved at
+[Readme_upstream.md](Readme_upstream.md).
 
-The project also needs more tests to ensure that everything is working, the best way you can
-guarantee that graphics.gd won't break on you is to contribute tests that cover any functionality
-that you need!
+Graphics.GD's design — the keepalive walker, the variant system, the
+classdb registration machinery, the cgo bridge, the cross-platform
+build pipeline — is the foundation gogogd stands on. Thanks.
 
-To run the go tests for `graphics.gd`, cd into the repo and run `cd internal && gd test`.
-
-Another great way to contribute, is to write a blog, share a post or let others know about your
-experience with `graphics.gd`!
-
-## Known Projects
-
-#### [Aviary](https://the.quetzal.community/aviary) 
-A cooperative space and scene editor (using creative commons assets) inspired by the creative capabilities of
-popular RTS, Tycoon and Simulation Games.  
-
-<img width="512" height="256" alt="image" src="https://github.com/user-attachments/assets/336e56f6-445b-42c9-bc9a-808f1931700c" />
-
-
-## See Also
-
-If you're interested in `graphics.gd`, you may also like to explore these other Open Source projects:
-
-* [godot-go](https://github.com/godot-go/godot-go) (a different Go + Godot project)
-* [ebiten](https://github.com/hajimehoshi/ebiten/) (a 2D game engine for Go)
-* [g3n](https://github.com/g3n/engine) (a 3D game engine for Go, includes `math32` vector types that are compatible with `graphics.gd`)
-* [gdext](https://github.com/godot-rust/gdext) (Rust bindings for Godot 4)
-* [Mesh2Motion](https://github.com/scottpetrovic/mesh2motion-app) (tool for adding skeletons and animations to 3D models)
+The gogogd-specific work covers the authoring helpers, the
+[`gogogd` CLI](cmd/gogogd/), the codegen passes that promote parent
+methods/properties/signals onto leaf classes, the scaffold templates,
+and the documentation rewrite.
 
 ## Licensing
-The project is licensed under an MIT license (the same license as Godot), you can use it in any manner
-you can use the Godot engine. If you do use this project for any commercially successful products, please
-consider [sponsoring the maintainer](https://github.com/sponsors/Splizard) to show your appreciation!
 
-**NOTE** the `gd` command line tool, reuses some code licensed under the Apache 2.0 license.
+MIT, the same as Godot. You can use gogogd in any manner you can use
+the Godot engine. The `gd` command-line tool reuses some code under
+the Apache 2.0 license. The `Readme_upstream.md` is preserved under
+the original Graphics.GD license terms.
+
+If gogogd is useful for a commercial product, consider sponsoring
+[@Splizard](https://github.com/sponsors/Splizard) — the binding layer
+they maintain is most of the code, and the upstream project depends
+on sponsor support.

@@ -9,7 +9,7 @@ func _popup_menu(paths):
 package main
 
 import (
-	"graphics.gd/classdb/Texture2D"
+	"github.com/AveryLucas/gogogd/classdb/Texture2D"
 )
 
 var icon Texture2D.Instance

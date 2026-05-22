@@ -28,8 +28,8 @@ Geometry2D.LineIntersectsLine(fromA, dirA, fromB, Vector2.Right);
 package main
 
 import (
-	"graphics.gd/classdb/Geometry2D"
-	"graphics.gd/variant/Vector2"
+	"github.com/AveryLucas/gogogd/classdb/Geometry2D"
+	"github.com/AveryLucas/gogogd/variant/Vector2"
 )
 
 func Geometry2D_LineIntersectsLine() {

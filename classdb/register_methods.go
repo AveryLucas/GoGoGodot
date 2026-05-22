@@ -5,20 +5,20 @@ import (
 	"reflect"
 	"strings"
 
-	gd "graphics.gd/internal"
-	"graphics.gd/internal/gdextension"
-	"graphics.gd/internal/gdreference"
-	"graphics.gd/internal/pointers"
-	"graphics.gd/internal/threadsafe"
-	"graphics.gd/variant/Array"
-	"graphics.gd/variant/Callable"
-	"graphics.gd/variant/Dictionary"
-	"graphics.gd/variant/Packed"
-	"graphics.gd/variant/Path"
-	"graphics.gd/variant/RID"
-	"graphics.gd/variant/String"
+	gd "github.com/AveryLucas/gogogd/internal"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/internal/gdreference"
+	"github.com/AveryLucas/gogogd/internal/pointers"
+	"github.com/AveryLucas/gogogd/internal/threadsafe"
+	"github.com/AveryLucas/gogogd/variant/Array"
+	"github.com/AveryLucas/gogogd/variant/Callable"
+	"github.com/AveryLucas/gogogd/variant/Dictionary"
+	"github.com/AveryLucas/gogogd/variant/Packed"
+	"github.com/AveryLucas/gogogd/variant/Path"
+	"github.com/AveryLucas/gogogd/variant/RID"
+	"github.com/AveryLucas/gogogd/variant/String"
 
-	"graphics.gd/classdb/Engine"
+	"github.com/AveryLucas/gogogd/classdb/Engine"
 )
 
 var methods threadsafe.Handles[*methodImplementation, gdextension.FunctionID]

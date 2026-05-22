@@ -20,7 +20,7 @@ package main
 import (
 	"reflect"
 
-	"graphics.gd/variant/Vector2"
+	"github.com/AveryLucas/gogogd/variant/Vector2"
 )
 
 func Control_CanDropData() {

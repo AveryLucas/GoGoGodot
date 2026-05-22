@@ -20,8 +20,8 @@ package main
 import (
 	"fmt"
 
-	"graphics.gd/classdb/SceneTree"
-	"graphics.gd/variant/Signal"
+	"github.com/AveryLucas/gogogd/classdb/SceneTree"
+	"github.com/AveryLucas/gogogd/variant/Signal"
 )
 
 func SceneTree_CreateTimer() {

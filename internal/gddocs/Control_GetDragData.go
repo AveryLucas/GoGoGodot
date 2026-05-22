@@ -18,8 +18,8 @@ public override Variant _GetDragData(Vector2 atPosition)
 package main
 
 import (
-	"graphics.gd/classdb/Control"
-	"graphics.gd/variant/Vector2"
+	"github.com/AveryLucas/gogogd/classdb/Control"
+	"github.com/AveryLucas/gogogd/variant/Vector2"
 )
 
 func make_data() any                    { return nil }

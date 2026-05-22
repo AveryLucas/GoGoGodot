@@ -3,7 +3,7 @@ package rodatacheck_test
 import (
 	"testing"
 
-	"graphics.gd/internal/rodatacheck"
+	"github.com/AveryLucas/gogogd/internal/rodatacheck"
 )
 
 func TestLiteral(t *testing.T) {

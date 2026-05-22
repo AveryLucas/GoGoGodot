@@ -50,12 +50,12 @@ if (result == Error.Ok)
 package main
 
 import (
-	"graphics.gd/classdb/CollisionShape2D"
-	"graphics.gd/classdb/Engine"
-	"graphics.gd/classdb/Node2D"
-	"graphics.gd/classdb/PackedScene"
-	"graphics.gd/classdb/ResourceSaver"
-	"graphics.gd/classdb/RigidBody2D"
+	"github.com/AveryLucas/gogogd/classdb/CollisionShape2D"
+	"github.com/AveryLucas/gogogd/classdb/Engine"
+	"github.com/AveryLucas/gogogd/classdb/Node2D"
+	"github.com/AveryLucas/gogogd/classdb/PackedScene"
+	"github.com/AveryLucas/gogogd/classdb/ResourceSaver"
+	"github.com/AveryLucas/gogogd/classdb/RigidBody2D"
 )
 
 func ExamplePackedSceneSave() {

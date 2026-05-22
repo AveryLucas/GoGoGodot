@@ -6,7 +6,7 @@ upnp.add_port_mapping(7777)
 
 package main
 
-import "graphics.gd/classdb/UPNP"
+import "github.com/AveryLucas/gogogd/classdb/UPNP"
 
 func ExampleUPNP() {
 	var upnp = UPNP.New()

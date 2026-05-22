@@ -50,8 +50,8 @@ package main
 import (
 	"strings"
 
-	"graphics.gd/classdb/EditorTranslationParserPlugin"
-	"graphics.gd/classdb/FileAccess"
+	"github.com/AveryLucas/gogogd/classdb/EditorTranslationParserPlugin"
+	"github.com/AveryLucas/gogogd/classdb/FileAccess"
 )
 
 type CustomParser struct {

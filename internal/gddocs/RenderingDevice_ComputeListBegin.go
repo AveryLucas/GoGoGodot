@@ -17,8 +17,8 @@ rd.compute_list_end()
 package main
 
 import (
-	"graphics.gd/variant/RID"
-	"graphics.gd/variant/Vector3i"
+	"github.com/AveryLucas/gogogd/variant/RID"
+	"github.com/AveryLucas/gogogd/variant/Vector3i"
 )
 
 var (

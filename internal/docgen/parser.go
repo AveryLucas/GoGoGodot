@@ -9,7 +9,7 @@ import (
 	"strings"
 
 	"golang.org/x/tools/go/packages"
-	"graphics.gd/variant/String"
+	"github.com/AveryLucas/gogogd/variant/String"
 )
 
 func parseDocumentation(path string) (XML, error) {
@@ -17,7 +17,7 @@ func parseDocumentation(path string) (XML, error) {
 		Mode: packages.NeedName | packages.NeedFiles | packages.NeedSyntax | packages.NeedTypes | packages.NeedImports,
 		Dir:  path,
 	}
-	pkgs, err := packages.Load(cfg, "graphics.gd/internal/gdclass", ".")
+	pkgs, err := packages.Load(cfg, "github.com/AveryLucas/gogogd/internal/gdclass", ".")
 	if err != nil {
 		return XML{}, fmt.Errorf("load error: %w", err)
 	}
@@ -29,7 +29,7 @@ func parseDocumentation(path string) (XML, error) {
 		}
 	}
 	var seen = make(map[string]bool)
-	seen["graphics.gd/internal/gdclass"] = true
+	seen["github.com/AveryLucas/gogogd/internal/gdclass"] = true
 	var docs XML
 	for _, pkg := range pkgs {
 		docs.generateFromPackage(pkg, seen, gdclassInterface)
@@ -88,7 +88,7 @@ func documentMemberSignals(members *[]Member, signals *[]Signal, ttype *types.Na
 }
 
 func (docs *XML) generateFromPackage(pkg *packages.Package, seen map[string]bool, gdclassInterface *types.Interface) error {
-	if strings.HasPrefix(pkg.PkgPath, "graphics.gd") || !strings.Contains(pkg.PkgPath, ".") {
+	if strings.HasPrefix(pkg.PkgPath, "github.com/AveryLucas/gogogd") || !strings.Contains(pkg.PkgPath, ".") {
 		return nil
 	}
 	if seen[pkg.PkgPath] {

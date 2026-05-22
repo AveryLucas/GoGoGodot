@@ -15,7 +15,7 @@ commandPalette.AddCommand("command", "test/command", commandCallable)
 
 package main
 
-import "graphics.gd/classdb/EditorInterface"
+import "github.com/AveryLucas/gogogd/classdb/EditorInterface"
 
 func ExampleEditorCommandPalette() {
 	var command_palette = EditorInterface.GetCommandPalette()

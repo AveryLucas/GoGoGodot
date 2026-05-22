@@ -30,11 +30,11 @@ import (
 	"strings"
 	"time"
 
-	"graphics.gd/cmd/gd/internal/cryptic/binpatch"
-	"graphics.gd/cmd/gd/internal/cryptic/certloader"
-	"graphics.gd/cmd/gd/internal/cryptic/pkcs7"
-	"graphics.gd/cmd/gd/internal/cryptic/pkcs9"
-	"graphics.gd/cmd/gd/internal/cryptic/zipslicer"
+	"github.com/AveryLucas/gogogd/cmd/gd/internal/cryptic/binpatch"
+	"github.com/AveryLucas/gogogd/cmd/gd/internal/cryptic/certloader"
+	"github.com/AveryLucas/gogogd/cmd/gd/internal/cryptic/pkcs7"
+	"github.com/AveryLucas/gogogd/cmd/gd/internal/cryptic/pkcs9"
+	"github.com/AveryLucas/gogogd/cmd/gd/internal/cryptic/zipslicer"
 )
 
 func (jd *JarDigest) Sign(ctx context.Context, cert *certloader.Certificate, alias string, sectionsOnly, inlineSignature, apkV2 bool) (*binpatch.PatchSet, *pkcs9.TimestampedSignature, error) {

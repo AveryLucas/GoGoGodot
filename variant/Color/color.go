@@ -4,8 +4,8 @@ package Color
 import (
 	"math"
 
-	"graphics.gd/variant/Float"
-	"graphics.gd/variant/Int"
+	"github.com/AveryLucas/gogogd/variant/Float"
+	"github.com/AveryLucas/gogogd/variant/Int"
 )
 
 // A color represented in RGBA format by a red (r), green (g), blue (b), and

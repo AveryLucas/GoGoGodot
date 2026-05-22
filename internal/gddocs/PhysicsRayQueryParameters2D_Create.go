@@ -6,8 +6,8 @@ var collision = get_world_2d().direct_space_state.intersect_ray(query)
 package main
 
 import (
-	"graphics.gd/classdb/PhysicsRayQueryParameters2D"
-	"graphics.gd/variant/Vector2"
+	"github.com/AveryLucas/gogogd/classdb/PhysicsRayQueryParameters2D"
+	"github.com/AveryLucas/gogogd/variant/Vector2"
 )
 
 func PhysicsRayQueryParameters2D_Create() {

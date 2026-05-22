@@ -1,7 +1,7 @@
 // Package bool provides GPU operations on boolean values.
 package bool
 
-import "graphics.gd/shaders/internal/gpu"
+import "github.com/AveryLucas/gogogd/shaders/internal/gpu"
 
 // X is a boolean on the GPU, can only contain true or false.
 type X gpu.Bool

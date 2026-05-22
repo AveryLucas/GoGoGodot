@@ -2,7 +2,7 @@
 package StringName
 
 import (
-	"graphics.gd/variant/String"
+	"github.com/AveryLucas/gogogd/variant/String"
 )
 
 // This package will be replaced with String-variant package based string interning when Go 1.24 is released

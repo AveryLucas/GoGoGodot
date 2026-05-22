@@ -27,10 +27,10 @@
 package pool
 
 import (
-	"graphics.gd/classdb/Node"
-	"graphics.gd/gd"
-	"graphics.gd/signals"
-	"graphics.gd/spawn"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	"github.com/AveryLucas/gogogd/gd"
+	"github.com/AveryLucas/gogogd/signals"
+	"github.com/AveryLucas/gogogd/spawn"
 )
 
 // Pool is a fixed-capacity object pool of T (where T is a Node-bearing

@@ -3,7 +3,7 @@ package gd_test
 import (
 	"testing"
 
-	"graphics.gd/classdb/Expression"
+	"github.com/AveryLucas/gogogd/classdb/Expression"
 )
 
 func TestErrors(t *testing.T) {

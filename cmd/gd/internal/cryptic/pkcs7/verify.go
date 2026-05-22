@@ -27,7 +27,7 @@ import (
 	"math/big"
 	"time"
 
-	"graphics.gd/cmd/gd/internal/cryptic/x509tools"
+	"github.com/AveryLucas/gogogd/cmd/gd/internal/cryptic/x509tools"
 )
 
 type Signature struct {

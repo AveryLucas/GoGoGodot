@@ -4,9 +4,9 @@ import (
 	"reflect"
 	"strings"
 
-	"graphics.gd/internal/gdjson"
-	"graphics.gd/internal/tool/generate/gdtype"
-	"graphics.gd/variant/RID"
+	"github.com/AveryLucas/gogogd/internal/gdjson"
+	"github.com/AveryLucas/gogogd/internal/tool/generate/gdtype"
+	"github.com/AveryLucas/gogogd/variant/RID"
 )
 
 type ClassDB map[string]gdjson.Class
@@ -183,7 +183,7 @@ func (classDB ClassDB) convertTypeSimple(class gdjson.Class, lookup, meta string
 			if typed == reflect.TypeFor[RID.Any]() {
 				return "RID.Any"
 			}
-			return strings.ReplaceAll(typed.String(), "graphics.gd/variant/", "")
+			return strings.ReplaceAll(typed.String(), "github.com/AveryLucas/gogogd/variant/", "")
 		}
 		return "RID.Any"
 	case "ObjectID":
@@ -200,7 +200,7 @@ func (classDB ClassDB) convertTypeSimple(class gdjson.Class, lookup, meta string
 			name = strings.ReplaceAll(name, "interface {}", "any")
 			return strings.ReplaceAll(name, "gdjson.", "")
 		}
-		if rtype.PkgPath() != "" && rtype.PkgPath() != "graphics.gd/internal/gdjson" {
+		if rtype.PkgPath() != "" && rtype.PkgPath() != "github.com/AveryLucas/gogogd/internal/gdjson" {
 			name := rtype.String()
 			name = strings.ReplaceAll(name, "interface {}", "any")
 			name = strings.ReplaceAll(name, "interface{}", "any")
@@ -222,7 +222,7 @@ func (classDB ClassDB) convertTypeSimple(class gdjson.Class, lookup, meta string
 			name = strings.ReplaceAll(name, "interface {}", "any")
 			return strings.ReplaceAll(name, "gdjson.", "")
 		}
-		if rtype.PkgPath() != "" && rtype.PkgPath() != "graphics.gd/internal/gdjson" {
+		if rtype.PkgPath() != "" && rtype.PkgPath() != "github.com/AveryLucas/gogogd/internal/gdjson" {
 			name := rtype.String()
 			name = strings.ReplaceAll(name, "interface{}", "any")
 			name = strings.ReplaceAll(name, "interface {}", "any")

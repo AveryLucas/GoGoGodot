@@ -11,7 +11,7 @@ int exitCode = OS.Execute("ls", ["-l", "/tmp"], output);
 
 package main
 
-import "graphics.gd/classdb/OS"
+import "github.com/AveryLucas/gogogd/classdb/OS"
 
 func OS_Execute() {
 	output, exit_code := OS.Execute("ls", []string{"-l", "/tmp"}, false, false)

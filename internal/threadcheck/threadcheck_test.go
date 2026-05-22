@@ -4,7 +4,7 @@ import (
 	"runtime"
 	"testing"
 
-	"graphics.gd/internal/threadcheck"
+	"github.com/AveryLucas/gogogd/internal/threadcheck"
 )
 
 var isMain = threadcheck.Main()

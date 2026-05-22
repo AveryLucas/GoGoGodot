@@ -16,7 +16,7 @@ public async override void _Ready()
 
 package main
 
-import "graphics.gd/classdb/RenderingServer"
+import "github.com/AveryLucas/gogogd/classdb/RenderingServer"
 
 func Viewport_GetTexture() {
 	RenderingServer.OnFramePostDraw(func() {

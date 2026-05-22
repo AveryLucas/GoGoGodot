@@ -21,7 +21,7 @@ import (
 // toolchain works.
 func cmdNew(args []string) error {
 	fs := flag.NewFlagSet("new", flag.ContinueOnError)
-	replacePath := fs.String("gogogd-path", "", "if set, add a `replace graphics.gd => <path>` directive (for local dev against an unreleased gogogd)")
+	replacePath := fs.String("gogogd-path", "", "if set, add a `replace github.com/AveryLucas/gogogd => <path>` directive (for local dev against an unreleased gogogd)")
 	if err := fs.Parse(args); err != nil {
 		return err
 	}
@@ -87,16 +87,16 @@ func cmdNew(args []string) error {
 type templateData struct {
 	Name        string
 	ModulePath  string
-	ReplacePath string // optional `replace graphics.gd => <path>` target
+	ReplacePath string // optional `replace github.com/AveryLucas/gogogd => <path>` target
 }
 
 const goModTemplate = `module {{.ModulePath}}
 
 go 1.26
 
-require graphics.gd v0.0.0-00010101000000-000000000000
+require github.com/AveryLucas/gogogd v0.0.0-00010101000000-000000000000
 {{if .ReplacePath}}
-replace graphics.gd => {{.ReplacePath}}
+replace github.com/AveryLucas/gogogd => {{.ReplacePath}}
 {{end}}`
 
 const mainGoTemplate = `// Package main is the {{.Name}} project entry point.
@@ -110,10 +110,10 @@ import (
 	"fmt"
 	"os"
 
-	"graphics.gd/classdb/Node"
-	"graphics.gd/gd"
-	"graphics.gd/scenetree"
-	"graphics.gd/startup"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	"github.com/AveryLucas/gogogd/gd"
+	"github.com/AveryLucas/gogogd/scenetree"
+	"github.com/AveryLucas/gogogd/startup"
 )
 
 type Game struct {

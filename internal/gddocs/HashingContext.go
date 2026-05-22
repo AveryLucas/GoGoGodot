@@ -55,8 +55,8 @@ import (
 	"encoding/hex"
 	"fmt"
 
-	"graphics.gd/classdb/FileAccess"
-	"graphics.gd/classdb/HashingContext"
+	"github.com/AveryLucas/gogogd/classdb/FileAccess"
+	"github.com/AveryLucas/gogogd/classdb/HashingContext"
 )
 
 const ChunkSize = 1024

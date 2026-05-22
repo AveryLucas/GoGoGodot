@@ -20,9 +20,9 @@ public override Texture2D _GetPluginIcon()
 package main
 
 import (
-	"graphics.gd/classdb/EditorInterface"
-	"graphics.gd/classdb/Resource"
-	"graphics.gd/classdb/Texture2D"
+	"github.com/AveryLucas/gogogd/classdb/EditorInterface"
+	"github.com/AveryLucas/gogogd/classdb/Resource"
+	"github.com/AveryLucas/gogogd/classdb/Texture2D"
 )
 
 func EditorPlugin_GetPluginIcon() {

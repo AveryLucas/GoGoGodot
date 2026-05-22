@@ -4,7 +4,7 @@ package vec3
 import (
 	"reflect"
 
-	"graphics.gd/shaders/internal/gpu"
+	"github.com/AveryLucas/gogogd/shaders/internal/gpu"
 )
 
 // XYZ is a three-component vector of floating-point values on the GPU.

@@ -4,13 +4,13 @@ import (
 	"reflect"
 	"unsafe"
 
-	"graphics.gd/classdb/Node"
-	"graphics.gd/classdb/Resource"
-	gd "graphics.gd/internal"
-	"graphics.gd/internal/gdclass"
-	"graphics.gd/internal/gdextension"
-	"graphics.gd/internal/gdreference"
-	"graphics.gd/variant/Object"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	"github.com/AveryLucas/gogogd/classdb/Resource"
+	gd "github.com/AveryLucas/gogogd/internal"
+	"github.com/AveryLucas/gogogd/internal/gdclass"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/internal/gdreference"
+	"github.com/AveryLucas/gogogd/variant/Object"
 )
 
 // Instantiate an [Instance] of a PackedScene as an object of type T.

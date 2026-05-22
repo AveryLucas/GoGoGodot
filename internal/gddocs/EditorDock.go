@@ -25,11 +25,11 @@ func _exit_tree():
 package main
 
 import (
-	"graphics.gd/classdb/EditorDock"
-	"graphics.gd/classdb/EditorPlugin"
-	"graphics.gd/classdb/PackedScene"
-	"graphics.gd/classdb/Resource"
-	"graphics.gd/classdb/Texture2D"
+	"github.com/AveryLucas/gogogd/classdb/EditorDock"
+	"github.com/AveryLucas/gogogd/classdb/EditorPlugin"
+	"github.com/AveryLucas/gogogd/classdb/PackedScene"
+	"github.com/AveryLucas/gogogd/classdb/Resource"
+	"github.com/AveryLucas/gogogd/classdb/Texture2D"
 )
 
 type MyDockPlugin struct {

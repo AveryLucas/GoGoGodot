@@ -49,9 +49,9 @@ import (
 	"encoding/hex"
 	"fmt"
 
-	"graphics.gd/classdb/HMACContext"
-	"graphics.gd/classdb/HashingContext"
-	"graphics.gd/classdb/Node"
+	"github.com/AveryLucas/gogogd/classdb/HMACContext"
+	"github.com/AveryLucas/gogogd/classdb/HashingContext"
+	"github.com/AveryLucas/gogogd/classdb/Node"
 )
 
 type MyHMAC struct {

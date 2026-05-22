@@ -7,14 +7,14 @@ import (
 	"strings"
 	"unsafe"
 
-	gd "graphics.gd/internal"
-	"graphics.gd/internal/gdextension"
-	"graphics.gd/internal/gdmemory"
-	"graphics.gd/internal/gdreference"
-	"graphics.gd/internal/pointers"
-	"graphics.gd/internal/ring"
-	"graphics.gd/internal/threadcheck"
-	"graphics.gd/variant/Object"
+	gd "github.com/AveryLucas/gogogd/internal"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/internal/gdmemory"
+	"github.com/AveryLucas/gogogd/internal/gdreference"
+	"github.com/AveryLucas/gogogd/internal/pointers"
+	"github.com/AveryLucas/gogogd/internal/ring"
+	"github.com/AveryLucas/gogogd/internal/threadcheck"
+	"github.com/AveryLucas/gogogd/variant/Object"
 )
 
 type pinnedVirtualFunc struct {

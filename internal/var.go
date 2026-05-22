@@ -5,12 +5,12 @@ package gd
 import (
 	"reflect"
 
-	"graphics.gd/internal/gdextension"
-	"graphics.gd/internal/noescape"
-	"graphics.gd/internal/pointers"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/internal/noescape"
+	"github.com/AveryLucas/gogogd/internal/pointers"
 
-	float "graphics.gd/variant/Float"
-	rid "graphics.gd/variant/RID"
+	float "github.com/AveryLucas/gogogd/variant/Float"
+	rid "github.com/AveryLucas/gogogd/variant/RID"
 )
 
 type (

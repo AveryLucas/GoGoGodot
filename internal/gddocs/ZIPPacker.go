@@ -15,7 +15,7 @@ func write_zip_file():
 
 package main
 
-import "graphics.gd/classdb/ZIPPacker"
+import "github.com/AveryLucas/gogogd/classdb/ZIPPacker"
 
 func WriteZipFile() error {
 	var writer = ZIPPacker.New()

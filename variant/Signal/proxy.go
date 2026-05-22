@@ -5,10 +5,10 @@ import (
 	"slices"
 	"sync"
 
-	"graphics.gd/variant"
-	"graphics.gd/variant/Callable"
-	"graphics.gd/variant/Error"
-	"graphics.gd/variant/String"
+	"github.com/AveryLucas/gogogd/variant"
+	"github.com/AveryLucas/gogogd/variant/Callable"
+	"github.com/AveryLucas/gogogd/variant/Error"
+	"github.com/AveryLucas/gogogd/variant/String"
 )
 
 type API interface {

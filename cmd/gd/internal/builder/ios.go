@@ -16,8 +16,8 @@ import (
 
 	"github.com/mdp/qrterminal/v3"
 
-	"graphics.gd/cmd/gd/internal/project"
-	"graphics.gd/cmd/gd/internal/tooling"
+	"github.com/AveryLucas/gogogd/cmd/gd/internal/project"
+	"github.com/AveryLucas/gogogd/cmd/gd/internal/tooling"
 
 	"runtime.link/api/xray"
 )

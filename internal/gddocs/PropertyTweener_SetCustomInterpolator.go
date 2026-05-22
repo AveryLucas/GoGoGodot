@@ -32,9 +32,9 @@ private float TweenCurve(float value)
 package main
 
 import (
-	"graphics.gd/classdb/Curve"
-	"graphics.gd/classdb/PropertyTweener"
-	"graphics.gd/classdb/Tween"
+	"github.com/AveryLucas/gogogd/classdb/Curve"
+	"github.com/AveryLucas/gogogd/classdb/PropertyTweener"
+	"github.com/AveryLucas/gogogd/classdb/Tween"
 )
 
 func PropertyTweener_SetCustomInterpolator() {

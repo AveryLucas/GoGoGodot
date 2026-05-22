@@ -39,7 +39,7 @@ public void OnItemPressed(int id)
 
 package main
 
-import "graphics.gd/classdb/RichTextLabel"
+import "github.com/AveryLucas/gogogd/classdb/RichTextLabel"
 
 var richTextLabel RichTextLabel.Instance
 

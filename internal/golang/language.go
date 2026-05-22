@@ -1,12 +1,12 @@
 package golang
 
 import (
-	"graphics.gd/classdb"
-	"graphics.gd/classdb/Script"
-	"graphics.gd/classdb/ScriptLanguage"
-	"graphics.gd/classdb/ScriptLanguageExtension"
-	"graphics.gd/internal/gdextension"
-	"graphics.gd/variant/Object"
+	"github.com/AveryLucas/gogogd/classdb"
+	"github.com/AveryLucas/gogogd/classdb/Script"
+	"github.com/AveryLucas/gogogd/classdb/ScriptLanguage"
+	"github.com/AveryLucas/gogogd/classdb/ScriptLanguageExtension"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/variant/Object"
 )
 
 type Language struct {

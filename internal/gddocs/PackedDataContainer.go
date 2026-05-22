@@ -8,9 +8,9 @@ ResourceSaver.save(packed, "packed_data.res")
 package main
 
 import (
-	"graphics.gd/classdb/PackedDataContainer"
-	"graphics.gd/classdb/ResourceSaver"
-	"graphics.gd/variant/Vector2"
+	"github.com/AveryLucas/gogogd/classdb/PackedDataContainer"
+	"github.com/AveryLucas/gogogd/classdb/ResourceSaver"
+	"github.com/AveryLucas/gogogd/variant/Vector2"
 )
 
 func ExamplePackedDataContainerSave() {

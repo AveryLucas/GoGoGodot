@@ -72,8 +72,8 @@ public partial class MyNode : Node
 package main
 
 import (
-	"graphics.gd/classdb/AESContext"
-	"graphics.gd/classdb/Node"
+	"github.com/AveryLucas/gogogd/classdb/AESContext"
+	"github.com/AveryLucas/gogogd/classdb/Node"
 )
 
 type MyEncryption struct {

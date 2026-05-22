@@ -22,8 +22,8 @@ animationTree.Set("parameters/TimeSeek/seek_request", 12.0);
 package main
 
 import (
-	"graphics.gd/classdb/AnimationTree"
-	"graphics.gd/variant/Object"
+	"github.com/AveryLucas/gogogd/classdb/AnimationTree"
+	"github.com/AveryLucas/gogogd/variant/Object"
 )
 
 func ExampleAnimationNodeTimeSeek(tree AnimationTree.Instance) {

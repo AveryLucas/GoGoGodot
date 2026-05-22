@@ -26,10 +26,10 @@ if (sourceId > -1)
 package main
 
 import (
-	"graphics.gd/classdb/TileMapLayer"
-	"graphics.gd/classdb/TileSetScenesCollectionSource"
-	"graphics.gd/variant/Object"
-	"graphics.gd/variant/Vector2i"
+	"github.com/AveryLucas/gogogd/classdb/TileMapLayer"
+	"github.com/AveryLucas/gogogd/classdb/TileSetScenesCollectionSource"
+	"github.com/AveryLucas/gogogd/variant/Object"
+	"github.com/AveryLucas/gogogd/variant/Vector2i"
 )
 
 func ExampleTileSetScenesCollectionSource(tileMapLayer TileMapLayer.Instance, x, y int) {

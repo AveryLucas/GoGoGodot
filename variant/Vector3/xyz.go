@@ -4,11 +4,11 @@ package Vector3
 import (
 	"math"
 
-	"graphics.gd/variant/Angle"
-	"graphics.gd/variant/Euler"
-	"graphics.gd/variant/Float"
-	"graphics.gd/variant/Int"
-	"graphics.gd/variant/Vector2"
+	"github.com/AveryLucas/gogogd/variant/Angle"
+	"github.com/AveryLucas/gogogd/variant/Euler"
+	"github.com/AveryLucas/gogogd/variant/Float"
+	"github.com/AveryLucas/gogogd/variant/Int"
+	"github.com/AveryLucas/gogogd/variant/Vector2"
 )
 
 // XYZ is a 3-element structure that can be used to represent 3D coordinates

@@ -15,7 +15,7 @@ Select(2, 5); // Will select "lco".
 
 package main
 
-import "graphics.gd/classdb/LineEdit"
+import "github.com/AveryLucas/gogogd/classdb/LineEdit"
 
 var line_edit LineEdit.Instance
 

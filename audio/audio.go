@@ -6,12 +6,12 @@
 //	audio.Bus("Master").SetVolumeLinear(settings.MasterVolume)
 //
 // For bus creation, routing, and effect chains, drop down to
-// `graphics.gd/classdb/AudioServer` directly.
+// `github.com/AveryLucas/gogogd/classdb/AudioServer` directly.
 package audio
 
 import (
-	"graphics.gd/classdb/AudioServer"
-	"graphics.gd/gd"
+	"github.com/AveryLucas/gogogd/classdb/AudioServer"
+	"github.com/AveryLucas/gogogd/gd"
 )
 
 // Bus returns a handle to the named audio bus. The standard Godot

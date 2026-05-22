@@ -66,13 +66,13 @@ package main
 import (
 	"fmt"
 
-	"graphics.gd/classdb/MultiplayerAPI"
-	"graphics.gd/classdb/MultiplayerAPIExtension"
-	"graphics.gd/classdb/MultiplayerPeer"
-	"graphics.gd/classdb/MultiplayerSpawner"
-	"graphics.gd/classdb/MultiplayerSynchronizer"
-	"graphics.gd/variant"
-	"graphics.gd/variant/Object"
+	"github.com/AveryLucas/gogogd/classdb/MultiplayerAPI"
+	"github.com/AveryLucas/gogogd/classdb/MultiplayerAPIExtension"
+	"github.com/AveryLucas/gogogd/classdb/MultiplayerPeer"
+	"github.com/AveryLucas/gogogd/classdb/MultiplayerSpawner"
+	"github.com/AveryLucas/gogogd/classdb/MultiplayerSynchronizer"
+	"github.com/AveryLucas/gogogd/variant"
+	"github.com/AveryLucas/gogogd/variant/Object"
 )
 
 type LogMultiplayer struct {

@@ -18,11 +18,11 @@ func _convert(itex: Resource):
 package main
 
 import (
-	"graphics.gd/classdb/EditorResourceConversionPlugin"
-	"graphics.gd/classdb/ImageTexture"
-	"graphics.gd/classdb/PortableCompressedTexture2D"
-	"graphics.gd/classdb/Resource"
-	"graphics.gd/variant/Object"
+	"github.com/AveryLucas/gogogd/classdb/EditorResourceConversionPlugin"
+	"github.com/AveryLucas/gogogd/classdb/ImageTexture"
+	"github.com/AveryLucas/gogogd/classdb/PortableCompressedTexture2D"
+	"github.com/AveryLucas/gogogd/classdb/Resource"
+	"github.com/AveryLucas/gogogd/variant/Object"
 )
 
 type ExampleEditorResourceConversionPlugin struct {

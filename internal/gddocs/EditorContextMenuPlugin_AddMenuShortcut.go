@@ -6,8 +6,8 @@ func _init():
 package main
 
 import (
-	"graphics.gd/classdb/EditorContextMenuPlugin"
-	"graphics.gd/classdb/Shortcut"
+	"github.com/AveryLucas/gogogd/classdb/EditorContextMenuPlugin"
+	"github.com/AveryLucas/gogogd/classdb/Shortcut"
 )
 
 var editorContextMenuPlugin EditorContextMenuPlugin.Instance

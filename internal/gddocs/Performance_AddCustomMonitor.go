@@ -51,8 +51,8 @@ package main
 import (
 	"math/rand/v2"
 
-	"graphics.gd/classdb/Performance"
-	"graphics.gd/variant/Callable"
+	"github.com/AveryLucas/gogogd/classdb/Performance"
+	"github.com/AveryLucas/gogogd/variant/Callable"
 )
 
 func Performance_AddCustomMonitor() {

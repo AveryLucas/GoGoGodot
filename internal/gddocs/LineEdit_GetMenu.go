@@ -40,8 +40,8 @@ public void OnItemPressed(int id)
 package main
 
 import (
-	"graphics.gd/classdb/LineEdit"
-	"graphics.gd/classdb/Time"
+	"github.com/AveryLucas/gogogd/classdb/LineEdit"
+	"github.com/AveryLucas/gogogd/classdb/Time"
 )
 
 func LineEdit_GetMenu() {

@@ -14,8 +14,8 @@ func _get_configuration_warnings():
 package main
 
 import (
-	"graphics.gd/classdb/Node"
-	"graphics.gd/variant/Float"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	"github.com/AveryLucas/gogogd/variant/Float"
 )
 
 type ConfigurableNode struct {

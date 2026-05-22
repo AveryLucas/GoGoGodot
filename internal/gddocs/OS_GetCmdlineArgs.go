@@ -7,7 +7,7 @@ OS.get_cmdline_args() # Returns ["--scene", "my_scene.tscn", "--custom"]
 package main
 
 import (
-	"graphics.gd/classdb/OS"
+	"github.com/AveryLucas/gogogd/classdb/OS"
 )
 
 func OS_GetCmdlineArgs() {

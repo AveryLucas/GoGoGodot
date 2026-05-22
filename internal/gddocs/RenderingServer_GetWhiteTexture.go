@@ -7,9 +7,9 @@ $Sprite2D.texture = texture
 package main
 
 import (
-	"graphics.gd/classdb/ImageTexture"
-	"graphics.gd/classdb/RenderingServer"
-	"graphics.gd/variant/RID"
+	"github.com/AveryLucas/gogogd/classdb/ImageTexture"
+	"github.com/AveryLucas/gogogd/classdb/RenderingServer"
+	"github.com/AveryLucas/gogogd/variant/RID"
 )
 
 func RenderingServer_GetWhiteTexture() {

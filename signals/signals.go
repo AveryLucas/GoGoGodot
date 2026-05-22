@@ -27,10 +27,10 @@
 package signals
 
 import (
-	"graphics.gd/classdb/Node"
-	"graphics.gd/variant/Callable"
-	"graphics.gd/variant/Object"
-	gdsignal "graphics.gd/variant/Signal"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	"github.com/AveryLucas/gogogd/variant/Callable"
+	"github.com/AveryLucas/gogogd/variant/Object"
+	gdsignal "github.com/AveryLucas/gogogd/variant/Signal"
 )
 
 // Signal0 is a zero-argument signal. Alias for [gdsignal.Void].

@@ -75,11 +75,11 @@ package main
 import (
 	"encoding/json"
 
-	"graphics.gd/classdb/Engine"
-	"graphics.gd/classdb/HTTPClient"
-	"graphics.gd/classdb/HTTPRequest"
-	"graphics.gd/classdb/Node"
-	"graphics.gd/variant/Signal"
+	"github.com/AveryLucas/gogogd/classdb/Engine"
+	"github.com/AveryLucas/gogogd/classdb/HTTPClient"
+	"github.com/AveryLucas/gogogd/classdb/HTTPRequest"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	"github.com/AveryLucas/gogogd/variant/Signal"
 )
 
 type ExampleHTTP struct {

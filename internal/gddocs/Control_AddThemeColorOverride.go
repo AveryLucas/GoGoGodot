@@ -20,8 +20,8 @@ GetNode<Label>("MyLabel").AddThemeColorOverride("font_color", GetThemeColor("fon
 package main
 
 import (
-	"graphics.gd/classdb/Label"
-	"graphics.gd/variant/Color"
+	"github.com/AveryLucas/gogogd/classdb/Label"
+	"github.com/AveryLucas/gogogd/variant/Color"
 )
 
 var MyLabel Label.Instance

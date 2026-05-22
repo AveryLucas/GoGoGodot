@@ -16,8 +16,8 @@ Input.ParseInputEvent(cancelEvent);
 package main
 
 import (
-	"graphics.gd/classdb/Input"
-	"graphics.gd/classdb/InputEventAction"
+	"github.com/AveryLucas/gogogd/classdb/Input"
+	"github.com/AveryLucas/gogogd/classdb/InputEventAction"
 )
 
 func Input_ParseInputEvent() {

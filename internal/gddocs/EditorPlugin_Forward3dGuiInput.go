@@ -16,9 +16,9 @@ public override EditorPlugin.AfterGuiInput _Forward3DGuiInput(Camera3D camera, I
 package main
 
 import (
-	"graphics.gd/classdb/Camera3D"
-	"graphics.gd/classdb/EditorPlugin"
-	"graphics.gd/classdb/InputEvent"
+	"github.com/AveryLucas/gogogd/classdb/Camera3D"
+	"github.com/AveryLucas/gogogd/classdb/EditorPlugin"
+	"github.com/AveryLucas/gogogd/classdb/InputEvent"
 )
 
 func EditorPlugin_Forward3dGuiInput() {

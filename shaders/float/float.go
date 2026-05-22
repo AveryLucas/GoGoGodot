@@ -2,8 +2,8 @@
 package float
 
 import (
-	"graphics.gd/shaders/internal/gpu"
-	"graphics.gd/variant/Int"
+	"github.com/AveryLucas/gogogd/shaders/internal/gpu"
+	"github.com/AveryLucas/gogogd/variant/Int"
 )
 
 // X is a floating-point value on the GPU (represented by an unspecified number of bits).

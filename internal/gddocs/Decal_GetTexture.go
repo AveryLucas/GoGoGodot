@@ -13,7 +13,7 @@ for (int i = 0; i < (int)Decal.DecalTexture.Max; i++)
 
 package main
 
-import "graphics.gd/classdb/Decal"
+import "github.com/AveryLucas/gogogd/classdb/Decal"
 
 func Decal_GetTexture() {
 	for i := range Decal.TextureMax {

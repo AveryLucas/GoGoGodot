@@ -15,10 +15,10 @@ func make_thumbnail_async(path, image_texture):
 package main
 
 import (
-	"graphics.gd/classdb/FileDialog"
-	"graphics.gd/classdb/ImageTexture"
-	"graphics.gd/classdb/Texture2D"
-	"graphics.gd/variant/Object"
+	"github.com/AveryLucas/gogogd/classdb/FileDialog"
+	"github.com/AveryLucas/gogogd/classdb/ImageTexture"
+	"github.com/AveryLucas/gogogd/classdb/Texture2D"
+	"github.com/AveryLucas/gogogd/variant/Object"
 )
 
 type Thumbnails struct {

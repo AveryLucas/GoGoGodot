@@ -10,10 +10,10 @@
 package timing
 
 import (
-	"graphics.gd/classdb/Node"
-	"graphics.gd/classdb/Timer"
-	"graphics.gd/gd"
-	"graphics.gd/variant/Callable"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	"github.com/AveryLucas/gogogd/classdb/Timer"
+	"github.com/AveryLucas/gogogd/gd"
+	"github.com/AveryLucas/gogogd/variant/Callable"
 )
 
 // After schedules fn to run once, dt seconds from now, with its lifetime

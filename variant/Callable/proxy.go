@@ -1,8 +1,8 @@
 package Callable
 
 import (
-	"graphics.gd/variant"
-	"graphics.gd/variant/Array"
+	"github.com/AveryLucas/gogogd/variant"
+	"github.com/AveryLucas/gogogd/variant/Array"
 )
 
 // Proxy can be implemented to provide a foreign-managed array representation. This can be useful

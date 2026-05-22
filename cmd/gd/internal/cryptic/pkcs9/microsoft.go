@@ -22,7 +22,7 @@ import (
 	"encoding/base64"
 	"net/http"
 
-	"graphics.gd/cmd/gd/internal/cryptic/pkcs7"
+	"github.com/AveryLucas/gogogd/cmd/gd/internal/cryptic/pkcs7"
 )
 
 // Microsoft non-RFC-3161 timestamping

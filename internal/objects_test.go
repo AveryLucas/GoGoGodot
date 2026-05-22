@@ -3,14 +3,14 @@ package gd_test
 import (
 	"testing"
 
-	"graphics.gd/classdb"
-	"graphics.gd/classdb/GDScript"
-	"graphics.gd/classdb/Node"
-	gd "graphics.gd/internal"
-	"graphics.gd/internal/gdclass"
-	"graphics.gd/internal/gdreference"
-	"graphics.gd/variant/Callable"
-	"graphics.gd/variant/Object"
+	"github.com/AveryLucas/gogogd/classdb"
+	"github.com/AveryLucas/gogogd/classdb/GDScript"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	gd "github.com/AveryLucas/gogogd/internal"
+	"github.com/AveryLucas/gogogd/internal/gdclass"
+	"github.com/AveryLucas/gogogd/internal/gdreference"
+	"github.com/AveryLucas/gogogd/variant/Callable"
+	"github.com/AveryLucas/gogogd/variant/Object"
 )
 
 func TestObjectIDs(t *testing.T) {
@@ -268,7 +268,7 @@ func TestAutomaticKeepAlive(t *testing.T) {
 }
 
 func TestNoInheritance(t *testing.T) {
-	t.Skip("TBD: https://github.com/quaadgras/graphics.gd/issues/280")
+	t.Skip("TBD: https://github.com/quaadgras/github.com/AveryLucas/gogogd/issues/280")
 	type Common struct {
 		Node.Extension[Common]
 	}

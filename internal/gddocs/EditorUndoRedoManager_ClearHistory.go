@@ -7,7 +7,7 @@ undo_redo.clear_history(undo_redo.get_object_history_id(scene_root))
 package main
 
 import (
-	"graphics.gd/classdb/EditorInterface"
+	"github.com/AveryLucas/gogogd/classdb/EditorInterface"
 )
 
 func EditorUndoRedoManager_ClearHistory() {

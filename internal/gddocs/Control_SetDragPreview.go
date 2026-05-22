@@ -29,9 +29,9 @@ public override Variant _GetDragData(Vector2 atPosition)
 package main
 
 import (
-	"graphics.gd/classdb/ColorPickerButton"
-	"graphics.gd/variant/Color"
-	"graphics.gd/variant/Vector2"
+	"github.com/AveryLucas/gogogd/classdb/ColorPickerButton"
+	"github.com/AveryLucas/gogogd/variant/Color"
+	"github.com/AveryLucas/gogogd/variant/Vector2"
 )
 
 func Control_SetDragPreview() {

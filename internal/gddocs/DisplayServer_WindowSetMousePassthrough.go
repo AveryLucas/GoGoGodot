@@ -24,9 +24,9 @@ DisplayServer.WindowSetMousePassthrough([]);
 package main
 
 import (
-	"graphics.gd/classdb/DisplayServer"
-	"graphics.gd/classdb/Path2D"
-	"graphics.gd/classdb/Polygon2D"
+	"github.com/AveryLucas/gogogd/classdb/DisplayServer"
+	"github.com/AveryLucas/gogogd/classdb/Path2D"
+	"github.com/AveryLucas/gogogd/classdb/Polygon2D"
 )
 
 var path2d Path2D.Instance

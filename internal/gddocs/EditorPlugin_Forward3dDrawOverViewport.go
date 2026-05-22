@@ -34,13 +34,13 @@ public override EditorPlugin.AfterGuiInput _Forward3DGuiInput(Camera3D viewportC
 package main
 
 import (
-	"graphics.gd/classdb/Camera3D"
-	"graphics.gd/classdb/Control"
-	"graphics.gd/classdb/EditorPlugin"
-	"graphics.gd/classdb/InputEvent"
-	"graphics.gd/classdb/InputEventMouseMotion"
-	"graphics.gd/variant/Color"
-	"graphics.gd/variant/Object"
+	"github.com/AveryLucas/gogogd/classdb/Camera3D"
+	"github.com/AveryLucas/gogogd/classdb/Control"
+	"github.com/AveryLucas/gogogd/classdb/EditorPlugin"
+	"github.com/AveryLucas/gogogd/classdb/InputEvent"
+	"github.com/AveryLucas/gogogd/classdb/InputEventMouseMotion"
+	"github.com/AveryLucas/gogogd/variant/Color"
+	"github.com/AveryLucas/gogogd/variant/Object"
 )
 
 func EditorPlugin_Forward3dDrawOverViewport() {

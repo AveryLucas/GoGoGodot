@@ -41,9 +41,9 @@ package main
 import (
 	"fmt"
 
-	"graphics.gd/classdb/EditorDebuggerPlugin"
-	"graphics.gd/classdb/EditorPlugin"
-	"graphics.gd/classdb/Label"
+	"github.com/AveryLucas/gogogd/classdb/EditorDebuggerPlugin"
+	"github.com/AveryLucas/gogogd/classdb/EditorPlugin"
+	"github.com/AveryLucas/gogogd/classdb/Label"
 )
 
 type ExampleEditorDebuggerPlugin struct {

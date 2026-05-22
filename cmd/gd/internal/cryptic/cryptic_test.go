@@ -8,7 +8,7 @@ import (
 	"strings"
 	"testing"
 
-	"graphics.gd/cmd/gd/internal/cryptic"
+	"github.com/AveryLucas/gogogd/cmd/gd/internal/cryptic"
 )
 
 func TestDeterminisim(t *testing.T) {

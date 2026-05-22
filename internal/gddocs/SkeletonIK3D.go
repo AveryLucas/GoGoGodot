@@ -20,7 +20,7 @@ skeleton_ik_node.set_influence(0.0)
 
 package main
 
-import "graphics.gd/classdb/SkeletonIK3D"
+import "github.com/AveryLucas/gogogd/classdb/SkeletonIK3D"
 
 func ExampleSkeletonIK3D(skeleton_ik_node SkeletonIK3D.Instance) {
 	// Apply IK effect automatically on every new frame (not the current)

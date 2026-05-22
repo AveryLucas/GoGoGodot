@@ -6,7 +6,7 @@ import (
 	"iter"
 	"reflect"
 
-	"graphics.gd/variant"
+	"github.com/AveryLucas/gogogd/variant"
 )
 
 // Map is an associative container that contain values referenced by unique keys.

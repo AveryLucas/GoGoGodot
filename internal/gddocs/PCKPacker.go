@@ -15,7 +15,7 @@ packer.Flush();
 
 package main
 
-import "graphics.gd/classdb/PCKPacker"
+import "github.com/AveryLucas/gogogd/classdb/PCKPacker"
 
 func ExamplePCKPacker() {
 	var packer = PCKPacker.New()

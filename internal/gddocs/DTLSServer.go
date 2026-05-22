@@ -83,15 +83,15 @@ package main
 import (
 	"fmt"
 
-	"graphics.gd/classdb/CryptoKey"
-	"graphics.gd/classdb/DTLSServer"
-	"graphics.gd/classdb/Node"
-	"graphics.gd/classdb/PacketPeerDTLS"
-	"graphics.gd/classdb/Resource"
-	"graphics.gd/classdb/TLSOptions"
-	"graphics.gd/classdb/UDPServer"
-	"graphics.gd/classdb/X509Certificate"
-	"graphics.gd/variant/Float"
+	"github.com/AveryLucas/gogogd/classdb/CryptoKey"
+	"github.com/AveryLucas/gogogd/classdb/DTLSServer"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	"github.com/AveryLucas/gogogd/classdb/PacketPeerDTLS"
+	"github.com/AveryLucas/gogogd/classdb/Resource"
+	"github.com/AveryLucas/gogogd/classdb/TLSOptions"
+	"github.com/AveryLucas/gogogd/classdb/UDPServer"
+	"github.com/AveryLucas/gogogd/classdb/X509Certificate"
+	"github.com/AveryLucas/gogogd/variant/Float"
 )
 
 type ServerDTLS struct {

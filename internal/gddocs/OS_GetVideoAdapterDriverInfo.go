@@ -22,7 +22,7 @@ package main
 import (
 	"fmt"
 
-	"graphics.gd/classdb/OS"
+	"github.com/AveryLucas/gogogd/classdb/OS"
 )
 
 func OS_GetVideoAdapterDriverInfo() {

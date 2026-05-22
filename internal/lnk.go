@@ -9,8 +9,8 @@ import (
 	"strings"
 	"unsafe"
 
-	"graphics.gd/internal/gdextension"
-	"graphics.gd/internal/pointers"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/internal/pointers"
 )
 
 var Linked bool = false

@@ -18,11 +18,11 @@ st.AddVertex(new Vector3(0, 0, 0));
 package main
 
 import (
-	"graphics.gd/classdb/Mesh"
-	"graphics.gd/classdb/SurfaceTool"
-	"graphics.gd/variant/Color"
-	"graphics.gd/variant/Vector2"
-	"graphics.gd/variant/Vector3"
+	"github.com/AveryLucas/gogogd/classdb/Mesh"
+	"github.com/AveryLucas/gogogd/classdb/SurfaceTool"
+	"github.com/AveryLucas/gogogd/variant/Color"
+	"github.com/AveryLucas/gogogd/variant/Vector2"
+	"github.com/AveryLucas/gogogd/variant/Vector3"
 )
 
 func ExampleSurfaceTool() {

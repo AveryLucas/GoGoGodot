@@ -22,8 +22,8 @@ package bus
 import (
 	"sync"
 
-	"graphics.gd/classdb/Node"
-	"graphics.gd/signals"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	"github.com/AveryLucas/gogogd/signals"
 )
 
 // On returns a chainable handle for the named channel. Call .Connect

@@ -4,8 +4,8 @@ import (
 	"reflect"
 	"unsafe"
 
-	"graphics.gd/internal/gdclass"
-	"graphics.gd/internal/gdreference"
+	"github.com/AveryLucas/gogogd/internal/gdclass"
+	"github.com/AveryLucas/gogogd/internal/gdreference"
 )
 
 type Advanced [1]gdclass.RefCounted

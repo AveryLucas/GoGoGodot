@@ -14,13 +14,13 @@ package spawn
 import (
 	"fmt"
 
-	"graphics.gd/classdb/Node"
-	"graphics.gd/classdb/Node2D"
-	"graphics.gd/classdb/Node3D"
-	"graphics.gd/classdb/PackedScene"
-	"graphics.gd/classdb/Resource"
-	"graphics.gd/gd"
-	"graphics.gd/variant/Object"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	"github.com/AveryLucas/gogogd/classdb/Node2D"
+	"github.com/AveryLucas/gogogd/classdb/Node3D"
+	"github.com/AveryLucas/gogogd/classdb/PackedScene"
+	"github.com/AveryLucas/gogogd/classdb/Resource"
+	"github.com/AveryLucas/gogogd/gd"
+	"github.com/AveryLucas/gogogd/variant/Object"
 )
 
 // Add parents `thing` under parent, setting its 2D global position to

@@ -28,9 +28,9 @@ public partial class TestLabel : RichTextLabel
 package main
 
 import (
-	"graphics.gd/classdb/Panel"
-	"graphics.gd/classdb/RichTextLabel"
-	"graphics.gd/variant/Vector2"
+	"github.com/AveryLucas/gogogd/classdb/Panel"
+	"github.com/AveryLucas/gogogd/classdb/RichTextLabel"
+	"github.com/AveryLucas/gogogd/variant/Vector2"
 )
 
 type MyRichTextLabel struct {

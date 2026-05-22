@@ -5,13 +5,13 @@ import (
 	"reflect"
 	"strings"
 
-	gd "graphics.gd/internal"
-	"graphics.gd/internal/gdextension"
-	"graphics.gd/internal/gdreference"
-	"graphics.gd/internal/pointers"
-	"graphics.gd/variant/Object"
-	"graphics.gd/variant/Signal"
-	"graphics.gd/variant/String"
+	gd "github.com/AveryLucas/gogogd/internal"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/internal/gdreference"
+	"github.com/AveryLucas/gogogd/internal/pointers"
+	"github.com/AveryLucas/gogogd/variant/Object"
+	"github.com/AveryLucas/gogogd/variant/Signal"
+	"github.com/AveryLucas/gogogd/variant/String"
 )
 
 // registerSignals registers [Signal.Any], [Signal.Pair], [Signal.Trio] and [Signal.Quad] fields as signals

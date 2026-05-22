@@ -54,14 +54,14 @@ public void FillBuffer()
 package main
 
 import (
-	"graphics.gd/classdb/AudioStreamGenerator"
-	"graphics.gd/classdb/AudioStreamGeneratorPlayback"
-	"graphics.gd/classdb/AudioStreamPlayer"
-	"graphics.gd/classdb/Node"
-	"graphics.gd/variant/Angle"
-	"graphics.gd/variant/Float"
-	"graphics.gd/variant/Object"
-	"graphics.gd/variant/Vector2"
+	"github.com/AveryLucas/gogogd/classdb/AudioStreamGenerator"
+	"github.com/AveryLucas/gogogd/classdb/AudioStreamGeneratorPlayback"
+	"github.com/AveryLucas/gogogd/classdb/AudioStreamPlayer"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	"github.com/AveryLucas/gogogd/variant/Angle"
+	"github.com/AveryLucas/gogogd/variant/Float"
+	"github.com/AveryLucas/gogogd/variant/Object"
+	"github.com/AveryLucas/gogogd/variant/Vector2"
 )
 
 type ExampleAudioStreamGenerator struct {

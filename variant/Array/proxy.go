@@ -1,7 +1,7 @@
 package Array
 
 import (
-	"graphics.gd/variant"
+	"github.com/AveryLucas/gogogd/variant"
 )
 
 // Proxy can be implemented to provide a foreign-managed array representation. This can be useful

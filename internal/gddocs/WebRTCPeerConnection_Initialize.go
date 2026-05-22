@@ -15,7 +15,7 @@
 
 package main
 
-import "graphics.gd/classdb/WebRTCPeerConnection"
+import "github.com/AveryLucas/gogogd/classdb/WebRTCPeerConnection"
 
 func WebRTCPeerConnection_Initialize() {
 	var example = WebRTCPeerConnection.Configuration{

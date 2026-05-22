@@ -18,7 +18,7 @@ package main
 import (
 	"fmt"
 
-	"graphics.gd/classdb/HTTPClient"
+	"github.com/AveryLucas/gogogd/classdb/HTTPClient"
 )
 
 var http_client HTTPClient.Instance

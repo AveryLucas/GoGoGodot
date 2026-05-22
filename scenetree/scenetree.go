@@ -11,8 +11,8 @@
 package scenetree
 
 import (
-	"graphics.gd/classdb/Node"
-	"graphics.gd/classdb/SceneTree"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	"github.com/AveryLucas/gogogd/classdb/SceneTree"
 )
 
 // Quit ends the running scene tree, shutting down the engine cleanly.

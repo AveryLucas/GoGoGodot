@@ -23,7 +23,7 @@ animation.Length = 2.0f;
 
 package main
 
-import "graphics.gd/classdb/Animation"
+import "github.com/AveryLucas/gogogd/classdb/Animation"
 
 func ExampleAnimation() {
 	// This creates an animation that makes the node "Enemy" move to the right by

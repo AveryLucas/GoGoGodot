@@ -1,9 +1,9 @@
 package gd
 
 import (
-	"graphics.gd/internal/gdextension"
-	"graphics.gd/internal/gdreference"
-	"graphics.gd/internal/pointers"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/internal/gdreference"
+	"github.com/AveryLucas/gogogd/internal/pointers"
 )
 
 // All pointer types from the engine need to be defined here.

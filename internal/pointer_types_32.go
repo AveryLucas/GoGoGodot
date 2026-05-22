@@ -5,7 +5,7 @@ package gd
 import (
 	"unsafe"
 
-	"graphics.gd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
 )
 
 type gdptr uint32

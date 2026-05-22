@@ -73,13 +73,13 @@ package main
 import (
 	"errors"
 
-	"graphics.gd/classdb/Engine"
-	"graphics.gd/classdb/HTTPRequest"
-	"graphics.gd/classdb/Image"
-	"graphics.gd/classdb/ImageTexture"
-	"graphics.gd/classdb/Node"
-	"graphics.gd/classdb/TextureRect"
-	"graphics.gd/variant/Signal"
+	"github.com/AveryLucas/gogogd/classdb/Engine"
+	"github.com/AveryLucas/gogogd/classdb/HTTPRequest"
+	"github.com/AveryLucas/gogogd/classdb/Image"
+	"github.com/AveryLucas/gogogd/classdb/ImageTexture"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	"github.com/AveryLucas/gogogd/classdb/TextureRect"
+	"github.com/AveryLucas/gogogd/variant/Signal"
 )
 
 type ExampleDownloadImage struct {

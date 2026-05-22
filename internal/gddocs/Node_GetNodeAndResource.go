@@ -38,7 +38,7 @@ package main
 import (
 	"fmt"
 
-	"graphics.gd/variant/Object"
+	"github.com/AveryLucas/gogogd/variant/Object"
 )
 
 func Node_GetNodeAndResource() {

@@ -5,15 +5,15 @@ import (
 	"iter"
 	"time"
 
-	"graphics.gd/classdb"
-	EngineClass "graphics.gd/classdb/Engine"
-	MainLoopClass "graphics.gd/classdb/MainLoop"
-	"graphics.gd/classdb/SceneTree"
-	"graphics.gd/classdb/Startup"
-	"graphics.gd/internal/pointers"
-	"graphics.gd/variant/Callable"
-	"graphics.gd/variant/Dictionary"
-	"graphics.gd/variant/Float"
+	"github.com/AveryLucas/gogogd/classdb"
+	EngineClass "github.com/AveryLucas/gogogd/classdb/Engine"
+	MainLoopClass "github.com/AveryLucas/gogogd/classdb/MainLoop"
+	"github.com/AveryLucas/gogogd/classdb/SceneTree"
+	"github.com/AveryLucas/gogogd/classdb/Startup"
+	"github.com/AveryLucas/gogogd/internal/pointers"
+	"github.com/AveryLucas/gogogd/variant/Callable"
+	"github.com/AveryLucas/gogogd/variant/Dictionary"
+	"github.com/AveryLucas/gogogd/variant/Float"
 )
 
 var mainloop MainLoopClass.Interface
@@ -36,7 +36,7 @@ func Scene() {
 }
 
 // LoadingScene starts up loading the main scene after this function is called, all
-// graphics.gd functionality will be available to use.
+// gogogd functionality will be available to use.
 //
 // A subsequent call to [Scene] is required to startup the scene.
 //
@@ -109,7 +109,7 @@ func Rendering() iter.Seq[Float.X] {
 	return startup.Rendering()
 }
 
-// AsExtension requests graphics.gd to startup the library as a GDExtension suitable for
+// AsExtension requests gogogd to startup the library as a GDExtension suitable for
 // inclusion in Godot engine projects. Please note that only a single Go runtime can be
 // active within an OS process, so all Go extensions within a project should be built
 // together into a single library.

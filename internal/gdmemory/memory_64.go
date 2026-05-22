@@ -5,7 +5,7 @@ package gdmemory
 import (
 	"unsafe"
 
-	"graphics.gd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
 )
 
 func Get[T gdextension.AnyVariant](frame gdextension.Pointer) T {

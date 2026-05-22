@@ -22,7 +22,7 @@ import (
 	"reflect"
 	"sync"
 
-	"graphics.gd/classdb/FileAccess"
+	"github.com/AveryLucas/gogogd/classdb/FileAccess"
 )
 
 // For returns the typed singleton handle for T. First call constructs

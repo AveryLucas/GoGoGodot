@@ -1,8 +1,8 @@
 package gdclass
 
 import (
-	gd "graphics.gd/internal"
-	"graphics.gd/internal/gdreference"
+	gd "github.com/AveryLucas/gogogd/internal"
+	"github.com/AveryLucas/gogogd/internal/gdreference"
 )
 
 type object gdreference.Object

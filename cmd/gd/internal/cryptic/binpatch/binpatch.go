@@ -28,7 +28,7 @@ import (
 	"os"
 	"sort"
 
-	"graphics.gd/cmd/gd/internal/cryptic/atomicfile"
+	"github.com/AveryLucas/gogogd/cmd/gd/internal/cryptic/atomicfile"
 )
 
 const (

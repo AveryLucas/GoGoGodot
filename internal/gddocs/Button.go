@@ -28,8 +28,8 @@ private void ButtonPressed()
 package main
 
 import (
-	"graphics.gd/classdb/Button"
-	"graphics.gd/classdb/Node"
+	"github.com/AveryLucas/gogogd/classdb/Button"
+	"github.com/AveryLucas/gogogd/classdb/Node"
 )
 
 type ExampleForButton struct {

@@ -1,8 +1,8 @@
 package Script
 
 import (
-	gd "graphics.gd/internal"
-	"graphics.gd/variant/Object"
+	gd "github.com/AveryLucas/gogogd/internal"
+	"github.com/AveryLucas/gogogd/variant/Object"
 )
 
 // Get returns the object's Script instance, or false if no script is attached.

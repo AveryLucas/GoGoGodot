@@ -14,7 +14,7 @@ package main
 import (
 	"fmt"
 
-	"graphics.gd/classdb/ProjectSettings"
+	"github.com/AveryLucas/gogogd/classdb/ProjectSettings"
 )
 
 func ProjectSettings_GetSetting() {

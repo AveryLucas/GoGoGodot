@@ -29,9 +29,9 @@ func _exit_tree():
 package main
 
 import (
-	"graphics.gd/classdb/DisplayServer"
-	"graphics.gd/classdb/NativeMenu"
-	"graphics.gd/variant/RID"
+	"github.com/AveryLucas/gogogd/classdb/DisplayServer"
+	"github.com/AveryLucas/gogogd/classdb/NativeMenu"
+	"github.com/AveryLucas/gogogd/variant/RID"
 )
 
 var menu RID.NativeMenu

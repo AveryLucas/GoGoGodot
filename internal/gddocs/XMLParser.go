@@ -31,7 +31,7 @@ while (parser.Read() != Error.FileEof)
 
 package main
 
-import "graphics.gd/classdb/XMLParser"
+import "github.com/AveryLucas/gogogd/classdb/XMLParser"
 
 func ExampleXMLParser() {
 	var parser = XMLParser.New()

@@ -40,10 +40,10 @@ m.Mesh = arrMesh;
 package main
 
 import (
-	"graphics.gd/classdb/ArrayMesh"
-	"graphics.gd/classdb/Mesh"
-	"graphics.gd/classdb/MeshInstance3D"
-	"graphics.gd/variant/Vector3"
+	"github.com/AveryLucas/gogogd/classdb/ArrayMesh"
+	"github.com/AveryLucas/gogogd/classdb/Mesh"
+	"github.com/AveryLucas/gogogd/classdb/MeshInstance3D"
+	"github.com/AveryLucas/gogogd/variant/Vector3"
 )
 
 func ExampleArrayMesh() {

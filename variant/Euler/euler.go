@@ -2,8 +2,8 @@
 package Euler
 
 import (
-	"graphics.gd/variant/Angle"
-	"graphics.gd/variant/Float"
+	"github.com/AveryLucas/gogogd/variant/Angle"
+	"github.com/AveryLucas/gogogd/variant/Float"
 )
 
 type Radians struct {

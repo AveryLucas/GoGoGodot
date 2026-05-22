@@ -12,9 +12,9 @@ tween.TweenProperty(this, "position", Vector2.Right * 100.0f, 1.0f).AsRelative()
 package main
 
 import (
-	"graphics.gd/classdb/PropertyTweener"
-	"graphics.gd/classdb/SceneTree"
-	"graphics.gd/variant/Vector2"
+	"github.com/AveryLucas/gogogd/classdb/PropertyTweener"
+	"github.com/AveryLucas/gogogd/classdb/SceneTree"
+	"github.com/AveryLucas/gogogd/variant/Vector2"
 )
 
 func PropertyTweener_AsRelative() {

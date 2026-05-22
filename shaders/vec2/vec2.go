@@ -4,7 +4,7 @@ package vec2
 import (
 	"reflect"
 
-	"graphics.gd/shaders/internal/gpu"
+	"github.com/AveryLucas/gogogd/shaders/internal/gpu"
 )
 
 // XY is a two-component vector of floating-point values on the GPU.

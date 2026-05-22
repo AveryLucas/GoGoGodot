@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"io"
 
-	"graphics.gd/internal/gdjson"
-	"graphics.gd/internal/tool/generate/gdtype"
+	"github.com/AveryLucas/gogogd/internal/gdjson"
+	"github.com/AveryLucas/gogogd/internal/tool/generate/gdtype"
 )
 
 func (classDB ClassDB) new(file io.Writer, class gdjson.Class) {

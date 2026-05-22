@@ -3,11 +3,11 @@ package gd_test
 import (
 	"testing"
 
-	gd "graphics.gd/internal"
-	"graphics.gd/internal/gdextension"
-	"graphics.gd/variant"
-	"graphics.gd/variant/Float"
-	"graphics.gd/variant/Vector3"
+	gd "github.com/AveryLucas/gogogd/internal"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/variant"
+	"github.com/AveryLucas/gogogd/variant/Float"
+	"github.com/AveryLucas/gogogd/variant/Vector3"
 )
 
 func TestZero(t *testing.T) {

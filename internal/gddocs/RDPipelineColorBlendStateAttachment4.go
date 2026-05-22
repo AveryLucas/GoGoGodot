@@ -12,8 +12,8 @@ attachment.dst_alpha_blend_factor = RenderingDevice.BLEND_FACTOR_ZERO
 package main
 
 import (
-	"graphics.gd/classdb/RDPipelineColorBlendStateAttachment"
-	"graphics.gd/classdb/Rendering"
+	"github.com/AveryLucas/gogogd/classdb/RDPipelineColorBlendStateAttachment"
+	"github.com/AveryLucas/gogogd/classdb/Rendering"
 )
 
 func ExampleBlendMultiply() {

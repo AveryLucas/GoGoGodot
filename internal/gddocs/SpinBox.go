@@ -18,9 +18,9 @@ spinBox.AlignHorizontal = LineEdit.HorizontalAlignEnum.Right;
 package main
 
 import (
-	"graphics.gd/classdb/GUI"
-	"graphics.gd/classdb/Node"
-	"graphics.gd/classdb/SpinBox"
+	"github.com/AveryLucas/gogogd/classdb/GUI"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	"github.com/AveryLucas/gogogd/classdb/SpinBox"
 )
 
 func ExampleSpinBox(parent Node.Instance) {

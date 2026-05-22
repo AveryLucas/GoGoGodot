@@ -10,8 +10,8 @@ func _setup_local_to_scene():
 package main
 
 import (
-	"graphics.gd/classdb/Resource"
-	"graphics.gd/variant/Int"
+	"github.com/AveryLucas/gogogd/classdb/Resource"
+	"github.com/AveryLucas/gogogd/variant/Int"
 )
 
 type MyResource struct {

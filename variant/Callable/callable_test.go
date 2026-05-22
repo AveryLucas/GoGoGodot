@@ -3,7 +3,7 @@ package Callable_test
 import (
 	"testing"
 
-	"graphics.gd/variant/Callable"
+	"github.com/AveryLucas/gogogd/variant/Callable"
 )
 
 func TestCallable(t *testing.T) {

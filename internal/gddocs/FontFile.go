@@ -14,9 +14,9 @@ GetNode("Label").AddThemeFontSizeOverride("font_size", 64);
 package main
 
 import (
-	"graphics.gd/classdb/FontFile"
-	"graphics.gd/classdb/Label"
-	"graphics.gd/classdb/Resource"
+	"github.com/AveryLucas/gogogd/classdb/FontFile"
+	"github.com/AveryLucas/gogogd/classdb/Label"
+	"github.com/AveryLucas/gogogd/classdb/Resource"
 )
 
 func ExampleFontFile(label Label.Instance) {

@@ -2,7 +2,7 @@
 
 package threadcheck
 
-import "graphics.gd/internal/gdextension"
+import "github.com/AveryLucas/gogogd/internal/gdextension"
 
 func Init() {}
 

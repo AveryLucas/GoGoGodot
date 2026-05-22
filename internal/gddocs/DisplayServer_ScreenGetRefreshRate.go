@@ -6,7 +6,7 @@ if refresh_rate < 0:
 
 package main
 
-import "graphics.gd/classdb/DisplayServer"
+import "github.com/AveryLucas/gogogd/classdb/DisplayServer"
 
 func DisplayServer_ScreenGetRefreshRate() {
 	var refresh_rate = DisplayServer.ScreenGetRefreshRate()

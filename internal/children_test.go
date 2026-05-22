@@ -5,9 +5,9 @@ package gd_test
 import (
 	"testing"
 
-	"graphics.gd/classdb"
-	"graphics.gd/classdb/Node"
-	"graphics.gd/classdb/SceneTree"
+	"github.com/AveryLucas/gogogd/classdb"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	"github.com/AveryLucas/gogogd/classdb/SceneTree"
 )
 
 // Types for declarative children tests.

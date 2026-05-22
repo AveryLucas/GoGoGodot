@@ -9,9 +9,9 @@ func _make_tooltip_for_path(path, metadata, base):
 package main
 
 import (
-	"graphics.gd/classdb/Control"
-	"graphics.gd/classdb/EditorResourceTooltipPlugin"
-	"graphics.gd/classdb/TextureRect"
+	"github.com/AveryLucas/gogogd/classdb/Control"
+	"github.com/AveryLucas/gogogd/classdb/EditorResourceTooltipPlugin"
+	"github.com/AveryLucas/gogogd/classdb/TextureRect"
 )
 
 var editorResourceTooltipPlugin = EditorResourceTooltipPlugin.New()

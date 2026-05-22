@@ -25,7 +25,7 @@ public override void _Ready()
 
 package main
 
-import "graphics.gd/classdb/Tree"
+import "github.com/AveryLucas/gogogd/classdb/Tree"
 
 func ExampleTree() {
 	var tree = Tree.New()

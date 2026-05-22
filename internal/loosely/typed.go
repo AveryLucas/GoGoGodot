@@ -6,11 +6,11 @@ import (
 	"reflect"
 	"unsafe"
 
-	"graphics.gd/variant"
-	"graphics.gd/variant/Array"
-	"graphics.gd/variant/Callable"
-	"graphics.gd/variant/Dictionary"
-	"graphics.gd/variant/RID"
+	"github.com/AveryLucas/gogogd/variant"
+	"github.com/AveryLucas/gogogd/variant/Array"
+	"github.com/AveryLucas/gogogd/variant/Callable"
+	"github.com/AveryLucas/gogogd/variant/Dictionary"
+	"github.com/AveryLucas/gogogd/variant/RID"
 )
 
 func To[T any](value any) T {

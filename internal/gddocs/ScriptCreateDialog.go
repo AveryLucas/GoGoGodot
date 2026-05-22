@@ -19,7 +19,7 @@ public override void _Ready()
 
 package main
 
-import "graphics.gd/classdb/ScriptCreateDialog"
+import "github.com/AveryLucas/gogogd/classdb/ScriptCreateDialog"
 
 func ExampleScriptCreateDialog() {
 	var dialog = ScriptCreateDialog.New()

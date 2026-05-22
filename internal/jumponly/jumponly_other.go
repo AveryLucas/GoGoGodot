@@ -3,8 +3,8 @@
 package jumponly
 
 import (
-	"graphics.gd/internal/gdextension"
-	"graphics.gd/internal/noescape"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/internal/noescape"
 )
 
 // PtrcallFn is unused on unsupported platforms.

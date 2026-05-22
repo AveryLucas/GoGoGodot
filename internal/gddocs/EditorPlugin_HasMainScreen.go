@@ -22,12 +22,12 @@ func _get_plugin_icon():
 package main
 
 import (
-	"graphics.gd/classdb/Control"
-	"graphics.gd/classdb/EditorInterface"
-	"graphics.gd/classdb/EditorPlugin"
-	"graphics.gd/classdb/PackedScene"
-	"graphics.gd/classdb/Resource"
-	"graphics.gd/classdb/Texture2D"
+	"github.com/AveryLucas/gogogd/classdb/Control"
+	"github.com/AveryLucas/gogogd/classdb/EditorInterface"
+	"github.com/AveryLucas/gogogd/classdb/EditorPlugin"
+	"github.com/AveryLucas/gogogd/classdb/PackedScene"
+	"github.com/AveryLucas/gogogd/classdb/Resource"
+	"github.com/AveryLucas/gogogd/classdb/Texture2D"
 )
 
 type EditorPluginWithMainScreen struct {

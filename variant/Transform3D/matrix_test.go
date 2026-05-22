@@ -4,11 +4,11 @@ import (
 	"math"
 	"testing"
 
-	"graphics.gd/variant/AABB"
-	"graphics.gd/variant/Basis"
-	"graphics.gd/variant/Float"
-	"graphics.gd/variant/Transform3D"
-	"graphics.gd/variant/Vector3"
+	"github.com/AveryLucas/gogogd/variant/AABB"
+	"github.com/AveryLucas/gogogd/variant/Basis"
+	"github.com/AveryLucas/gogogd/variant/Float"
+	"github.com/AveryLucas/gogogd/variant/Transform3D"
+	"github.com/AveryLucas/gogogd/variant/Vector3"
 )
 
 // Helper function to check if two float values are approximately equal

@@ -8,7 +8,7 @@ import (
 	"sync"
 	"unsafe"
 
-	"graphics.gd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
 )
 
 var arguments gdextension.Pointer

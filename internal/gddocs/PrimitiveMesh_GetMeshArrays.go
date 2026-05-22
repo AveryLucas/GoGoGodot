@@ -14,9 +14,9 @@ arrMesh.AddSurfaceFromArrays(Mesh.PrimitiveType.Triangles, c.GetMeshArrays());
 package main
 
 import (
-	"graphics.gd/classdb/ArrayMesh"
-	"graphics.gd/classdb/CylinderMesh"
-	"graphics.gd/classdb/Mesh"
+	"github.com/AveryLucas/gogogd/classdb/ArrayMesh"
+	"github.com/AveryLucas/gogogd/classdb/CylinderMesh"
+	"github.com/AveryLucas/gogogd/classdb/Mesh"
 )
 
 func PrimitiveMesh_GetMeshArrays() {

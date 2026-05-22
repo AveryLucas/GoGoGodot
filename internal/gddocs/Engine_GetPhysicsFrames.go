@@ -19,7 +19,7 @@ public override void _PhysicsProcess(double delta)
 
 package main
 
-import "graphics.gd/classdb/Engine"
+import "github.com/AveryLucas/gogogd/classdb/Engine"
 
 func Engine_GetPhysicsFrames() {
 	if Engine.GetPhysicsFrames()%2 == 0 {

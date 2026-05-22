@@ -12,8 +12,8 @@ if dummy_text_server != null:
 package main
 
 import (
-	"graphics.gd/classdb/TextServer"
-	"graphics.gd/classdb/TextServerManager"
+	"github.com/AveryLucas/gogogd/classdb/TextServer"
+	"github.com/AveryLucas/gogogd/classdb/TextServerManager"
 )
 
 func ExampleTextServerDummy() {

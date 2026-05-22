@@ -7,10 +7,10 @@ $Sprite2D.texture = texture
 package main
 
 import (
-	"graphics.gd/classdb/ImageTexture"
-	"graphics.gd/classdb/RenderingServer"
-	"graphics.gd/classdb/Sprite2D"
-	"graphics.gd/variant/RID"
+	"github.com/AveryLucas/gogogd/classdb/ImageTexture"
+	"github.com/AveryLucas/gogogd/classdb/RenderingServer"
+	"github.com/AveryLucas/gogogd/classdb/Sprite2D"
+	"github.com/AveryLucas/gogogd/variant/RID"
 )
 
 var sprite Sprite2D.Instance

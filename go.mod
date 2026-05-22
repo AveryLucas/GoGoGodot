@@ -1,4 +1,4 @@
-module graphics.gd
+module github.com/AveryLucas/gogogd
 
 go 1.26.1
 

@@ -2,7 +2,7 @@
 // the WASD-vector convenience.
 //
 // Named `actions` (not `input`) to avoid shadowing the existing
-// `graphics.gd/classdb/Input` singleton package.
+// `github.com/AveryLucas/gogogd/classdb/Input` singleton package.
 //
 //	if actions.Pressed("jump") {
 //	    p.velocity.Y = -p.JumpSpeed
@@ -15,10 +15,10 @@ package actions
 import (
 	"math"
 
-	"graphics.gd/classdb/CanvasItem"
-	"graphics.gd/classdb/Input"
-	"graphics.gd/gd"
-	"graphics.gd/variant/Object"
+	"github.com/AveryLucas/gogogd/classdb/CanvasItem"
+	"github.com/AveryLucas/gogogd/classdb/Input"
+	"github.com/AveryLucas/gogogd/gd"
+	"github.com/AveryLucas/gogogd/variant/Object"
 )
 
 // Pressed reports whether the named input action is currently held.

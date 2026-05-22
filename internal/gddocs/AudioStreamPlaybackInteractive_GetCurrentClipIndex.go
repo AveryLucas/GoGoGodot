@@ -7,10 +7,10 @@ var playing_clip_name = stream.get_clip_name(get_stream_playback().get_current_c
 package main
 
 import (
-	"graphics.gd/classdb/AudioStreamInteractive"
-	"graphics.gd/classdb/AudioStreamPlaybackInteractive"
-	"graphics.gd/classdb/AudioStreamPlayer"
-	"graphics.gd/variant/Object"
+	"github.com/AveryLucas/gogogd/classdb/AudioStreamInteractive"
+	"github.com/AveryLucas/gogogd/classdb/AudioStreamPlaybackInteractive"
+	"github.com/AveryLucas/gogogd/classdb/AudioStreamPlayer"
+	"github.com/AveryLucas/gogogd/variant/Object"
 )
 
 var streamInteractive AudioStreamInteractive.Instance

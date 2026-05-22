@@ -27,7 +27,7 @@ public string LoadFromFile()
 
 package main
 
-import "graphics.gd/classdb/FileAccess"
+import "github.com/AveryLucas/gogogd/classdb/FileAccess"
 
 func SaveToFile(content string) {
 	var file = FileAccess.Open("user://save_game.dat", FileAccess.Write)

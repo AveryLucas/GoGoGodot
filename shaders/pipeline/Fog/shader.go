@@ -4,11 +4,11 @@ package Fog
 import (
 	"reflect"
 
-	"graphics.gd/classdb/ShaderMaterial"
-	"graphics.gd/internal/gdclass"
-	"graphics.gd/shaders"
-	"graphics.gd/shaders/float"
-	"graphics.gd/shaders/vec3"
+	"github.com/AveryLucas/gogogd/classdb/ShaderMaterial"
+	"github.com/AveryLucas/gogogd/internal/gdclass"
+	"github.com/AveryLucas/gogogd/shaders"
+	"github.com/AveryLucas/gogogd/shaders/float"
+	"github.com/AveryLucas/gogogd/shaders/vec3"
 )
 
 type Shader[T gdclass.Interface] struct {

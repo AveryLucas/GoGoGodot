@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"os"
 
-	"graphics.gd/internal/gdjson"
+	"github.com/AveryLucas/gogogd/internal/gdjson"
 )
 
 // LoadSpecification, either from a local file or by downloading

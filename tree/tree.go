@@ -16,10 +16,10 @@
 package tree
 
 import (
-	"graphics.gd/classdb/Node"
-	"graphics.gd/classdb/Node2D"
-	"graphics.gd/classdb/SceneTree"
-	"graphics.gd/variant/Object"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	"github.com/AveryLucas/gogogd/classdb/Node2D"
+	"github.com/AveryLucas/gogogd/classdb/SceneTree"
+	"github.com/AveryLucas/gogogd/variant/Object"
 )
 
 // As attempts to cast value to the type T. Returns (zero, false) if the

@@ -19,7 +19,7 @@ import (
 	"fmt"
 	"reflect"
 
-	"graphics.gd/classdb/Node"
+	"github.com/AveryLucas/gogogd/classdb/Node"
 )
 
 // Assert walks the fields of self and panics if any field tagged

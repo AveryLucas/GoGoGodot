@@ -17,8 +17,8 @@ package main
 import (
 	"path/filepath"
 
-	"graphics.gd/classdb/OS"
-	"graphics.gd/classdb/ProjectSettings"
+	"github.com/AveryLucas/gogogd/classdb/OS"
+	"github.com/AveryLucas/gogogd/classdb/ProjectSettings"
 )
 
 func ProjectSettings_GlobalizePath() {

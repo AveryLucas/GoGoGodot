@@ -3,7 +3,7 @@ package pointers_test
 import (
 	"testing"
 
-	"graphics.gd/internal/pointers"
+	"github.com/AveryLucas/gogogd/internal/pointers"
 )
 
 var simulated_pointers = make(map[[1]uint64]bool)

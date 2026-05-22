@@ -7,9 +7,9 @@ $Sprite2D.texture = texture
 package main
 
 import (
-	"graphics.gd/classdb/Image"
-	"graphics.gd/classdb/ImageTexture"
-	"graphics.gd/classdb/Sprite2D"
+	"github.com/AveryLucas/gogogd/classdb/Image"
+	"github.com/AveryLucas/gogogd/classdb/ImageTexture"
+	"github.com/AveryLucas/gogogd/classdb/Sprite2D"
 )
 
 func ExampleImageTexture(sprite Sprite2D.Instance) {

@@ -16,8 +16,8 @@ func _process(delta):
 package main
 
 import (
-	"graphics.gd/classdb/Input"
-	"graphics.gd/variant/Vector3"
+	"github.com/AveryLucas/gogogd/classdb/Input"
+	"github.com/AveryLucas/gogogd/variant/Vector3"
 )
 
 func AnimationMixer_GetRootMotionScale() {

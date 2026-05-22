@@ -12,8 +12,8 @@ import (
 	"strings"
 
 	"golang.org/x/tools/go/packages"
-	"graphics.gd/cmd/gd/internal/refactor/eg"
-	"graphics.gd/variant/String"
+	"github.com/AveryLucas/gogogd/cmd/gd/internal/refactor/eg"
+	"github.com/AveryLucas/gogogd/variant/String"
 	"runtime.link/api/xray"
 
 	_ "embed"

@@ -34,8 +34,8 @@ public override void _Process(double delta)
 package main
 
 import (
-	"graphics.gd/classdb/Node"
-	"graphics.gd/classdb/WorkerThreadPool"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	"github.com/AveryLucas/gogogd/classdb/WorkerThreadPool"
 )
 
 var enemies []Node.Instance

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"graphics.gd/internal/gdjson"
+	"github.com/AveryLucas/gogogd/internal/gdjson"
 )
 
 var ClassDB map[string]gdjson.Class

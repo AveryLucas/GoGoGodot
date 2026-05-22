@@ -4,17 +4,17 @@ import (
 	"reflect"
 	"unsafe"
 
-	"graphics.gd/internal/gdextension"
-	"graphics.gd/internal/gdreference"
-	VariantPkg "graphics.gd/variant"
-	ArrayType "graphics.gd/variant/Array"
-	CallableType "graphics.gd/variant/Callable"
-	DictionaryType "graphics.gd/variant/Dictionary"
-	FloatType "graphics.gd/variant/Float"
-	PackedType "graphics.gd/variant/Packed"
-	"graphics.gd/variant/Path"
-	SignalType "graphics.gd/variant/Signal"
-	StringType "graphics.gd/variant/String"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/internal/gdreference"
+	VariantPkg "github.com/AveryLucas/gogogd/variant"
+	ArrayType "github.com/AveryLucas/gogogd/variant/Array"
+	CallableType "github.com/AveryLucas/gogogd/variant/Callable"
+	DictionaryType "github.com/AveryLucas/gogogd/variant/Dictionary"
+	FloatType "github.com/AveryLucas/gogogd/variant/Float"
+	PackedType "github.com/AveryLucas/gogogd/variant/Packed"
+	"github.com/AveryLucas/gogogd/variant/Path"
+	SignalType "github.com/AveryLucas/gogogd/variant/Signal"
+	StringType "github.com/AveryLucas/gogogd/variant/String"
 )
 
 func ConvieniantGoTypeOf(vtype gdextension.VariantType) reflect.Type {

@@ -7,7 +7,7 @@ for result in regex.search_all("d01, d03, d0c, x3f and x42"):
 package main
 
 import (
-	"graphics.gd/classdb/RegEx"
+	"github.com/AveryLucas/gogogd/classdb/RegEx"
 )
 
 func ExampleRegExSearchAll() {

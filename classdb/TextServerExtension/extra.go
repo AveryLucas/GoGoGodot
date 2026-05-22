@@ -10,8 +10,8 @@ package TextServerExtension
 // references them unqualified inside nested struct fields.
 
 import (
-	"graphics.gd/classdb/TextServer"
-	gd "graphics.gd/internal"
+	"github.com/AveryLucas/gogogd/classdb/TextServer"
+	gd "github.com/AveryLucas/gogogd/internal"
 )
 
 type CaretInfo = gd.CaretInfo

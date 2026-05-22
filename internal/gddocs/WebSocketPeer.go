@@ -27,8 +27,8 @@ func _process(delta):
 package main
 
 import (
-	"graphics.gd/classdb/Node"
-	"graphics.gd/classdb/WebSocketPeer"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	"github.com/AveryLucas/gogogd/classdb/WebSocketPeer"
 )
 
 type WebSocketNode struct {

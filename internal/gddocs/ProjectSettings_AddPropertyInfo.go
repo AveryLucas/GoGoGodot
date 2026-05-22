@@ -31,9 +31,9 @@ package main
 import (
 	"reflect"
 
-	"graphics.gd/classdb"
-	"graphics.gd/classdb/ProjectSettings"
-	"graphics.gd/variant/Object"
+	"github.com/AveryLucas/gogogd/classdb"
+	"github.com/AveryLucas/gogogd/classdb/ProjectSettings"
+	"github.com/AveryLucas/gogogd/variant/Object"
 )
 
 func ProjectSettings_AddPropertyInfo() {

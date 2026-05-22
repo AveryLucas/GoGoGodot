@@ -16,8 +16,8 @@ package main
 import (
 	"fmt"
 
-	"graphics.gd/classdb/Input"
-	"graphics.gd/classdb/OS"
+	"github.com/AveryLucas/gogogd/classdb/Input"
+	"github.com/AveryLucas/gogogd/classdb/OS"
 )
 
 func OS_GetKeycodeString() {

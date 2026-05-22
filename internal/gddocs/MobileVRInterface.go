@@ -7,10 +7,10 @@ if interface and interface.initialize():
 package main
 
 import (
-	"graphics.gd/classdb/Node"
-	"graphics.gd/classdb/Viewport"
-	"graphics.gd/classdb/XRInterface"
-	"graphics.gd/classdb/XRServer"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	"github.com/AveryLucas/gogogd/classdb/Viewport"
+	"github.com/AveryLucas/gogogd/classdb/XRInterface"
+	"github.com/AveryLucas/gogogd/classdb/XRServer"
 )
 
 func ExampleMobileVR(node Node.Instance) {

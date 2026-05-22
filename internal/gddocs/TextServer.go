@@ -9,7 +9,7 @@ var ts = TextServerManager.GetPrimaryInterface();
 
 package main
 
-import "graphics.gd/classdb/TextServerManager"
+import "github.com/AveryLucas/gogogd/classdb/TextServerManager"
 
 func ExampleTextServer() {
 	var ts = TextServerManager.GetPrimaryInterface()

@@ -6,7 +6,7 @@ package startup
 // extern uintptr_t gd_ptrcall_fn_addr();
 import "C"
 
-import "graphics.gd/internal/jumponly"
+import "github.com/AveryLucas/gogogd/internal/jumponly"
 
 // initJumponly sets the ptrcall function pointer for the jumponly package.
 // Must be called after cgo_extension_init has loaded proc addresses

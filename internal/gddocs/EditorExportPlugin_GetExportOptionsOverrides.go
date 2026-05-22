@@ -19,10 +19,10 @@ class MyExportPlugin extends EditorExportPlugin:
 package main
 
 import (
-	"graphics.gd/classdb/EditorExportPlatform"
-	"graphics.gd/classdb/EditorExportPlatformPC"
-	"graphics.gd/classdb/EditorExportPlugin"
-	"graphics.gd/variant/Object"
+	"github.com/AveryLucas/gogogd/classdb/EditorExportPlatform"
+	"github.com/AveryLucas/gogogd/classdb/EditorExportPlatformPC"
+	"github.com/AveryLucas/gogogd/classdb/EditorExportPlugin"
+	"github.com/AveryLucas/gogogd/variant/Object"
 )
 
 type MyExportPlugin struct {

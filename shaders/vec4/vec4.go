@@ -4,7 +4,7 @@ package vec4
 import (
 	"reflect"
 
-	"graphics.gd/shaders/internal/gpu"
+	"github.com/AveryLucas/gogogd/shaders/internal/gpu"
 )
 
 // XYZW is a four-component vector of floating-point values on the GPU.

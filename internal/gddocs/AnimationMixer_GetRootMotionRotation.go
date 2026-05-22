@@ -10,8 +10,8 @@ func _process(delta):
 package main
 
 import (
-	"graphics.gd/classdb/Input"
-	"graphics.gd/variant/Quaternion"
+	"github.com/AveryLucas/gogogd/classdb/Input"
+	"github.com/AveryLucas/gogogd/variant/Quaternion"
 )
 
 func AnimationMixer_GetRootMotionRotation() {

@@ -1,7 +1,7 @@
 package texture
 
 import (
-	"graphics.gd/shaders/internal/gpu"
+	"github.com/AveryLucas/gogogd/shaders/internal/gpu"
 )
 
 type expression = gpu.Expression

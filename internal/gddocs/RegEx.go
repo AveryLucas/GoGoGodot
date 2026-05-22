@@ -7,7 +7,7 @@ var regex2 = RegEx.create_from_string("\\w-(\\d+)")
 
 package main
 
-import "graphics.gd/classdb/RegEx"
+import "github.com/AveryLucas/gogogd/classdb/RegEx"
 
 func ExampleRegEx() {
 	var regex = RegEx.New()

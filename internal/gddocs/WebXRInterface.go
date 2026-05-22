@@ -81,13 +81,13 @@ func _webxr_session_failed(message):
 package main
 
 import (
-	"graphics.gd/classdb/Button"
-	"graphics.gd/classdb/Node3D"
-	"graphics.gd/classdb/OS"
-	"graphics.gd/classdb/Viewport"
-	"graphics.gd/classdb/WebXRInterface"
-	"graphics.gd/classdb/XRServer"
-	"graphics.gd/variant/Object"
+	"github.com/AveryLucas/gogogd/classdb/Button"
+	"github.com/AveryLucas/gogogd/classdb/Node3D"
+	"github.com/AveryLucas/gogogd/classdb/OS"
+	"github.com/AveryLucas/gogogd/classdb/Viewport"
+	"github.com/AveryLucas/gogogd/classdb/WebXRInterface"
+	"github.com/AveryLucas/gogogd/classdb/XRServer"
+	"github.com/AveryLucas/gogogd/variant/Object"
 )
 
 type NodeWebXR struct {

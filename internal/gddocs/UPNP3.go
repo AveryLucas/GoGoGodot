@@ -35,13 +35,13 @@ package main
 import (
 	"errors"
 
-	"graphics.gd/classdb/Engine"
-	"graphics.gd/classdb/Node"
-	"graphics.gd/classdb/Thread"
-	"graphics.gd/classdb/UPNP"
-	"graphics.gd/classdb/UPNPDevice"
-	"graphics.gd/variant/Error"
-	"graphics.gd/variant/Signal"
+	"github.com/AveryLucas/gogogd/classdb/Engine"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	"github.com/AveryLucas/gogogd/classdb/Thread"
+	"github.com/AveryLucas/gogogd/classdb/UPNP"
+	"github.com/AveryLucas/gogogd/classdb/UPNPDevice"
+	"github.com/AveryLucas/gogogd/variant/Error"
+	"github.com/AveryLucas/gogogd/variant/Signal"
 )
 
 const ServerPort = 3928 // Replace this with your own server port number between 1024 and 65535.

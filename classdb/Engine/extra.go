@@ -4,10 +4,10 @@ import (
 	"runtime"
 	"sync"
 
-	gd "graphics.gd/internal"
-	"graphics.gd/internal/gdextension"
-	"graphics.gd/internal/gdmemory"
-	"graphics.gd/internal/pointers"
+	gd "github.com/AveryLucas/gogogd/internal"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/internal/gdmemory"
+	"github.com/AveryLucas/gogogd/internal/pointers"
 )
 
 // Pointer is a typed pointer to a value of type T in engine memory.

@@ -3,8 +3,8 @@ package gdmemory
 import (
 	"unsafe"
 
-	"graphics.gd/internal/gdextension"
-	"graphics.gd/variant/Array"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/variant/Array"
 )
 
 // ArrayContains wraps a raw engine pointer and element count into an [Array.Contains]

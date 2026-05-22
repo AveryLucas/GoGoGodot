@@ -6,7 +6,7 @@ import (
 	"reflect"
 	"unsafe"
 
-	"graphics.gd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
 )
 
 // Pointer is a typed pointer to a value of type T in engine memory.

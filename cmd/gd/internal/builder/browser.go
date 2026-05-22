@@ -12,8 +12,8 @@ import (
 	"strings"
 	"time"
 
-	"graphics.gd/cmd/gd/internal/project"
-	"graphics.gd/cmd/gd/internal/tooling"
+	"github.com/AveryLucas/gogogd/cmd/gd/internal/project"
+	"github.com/AveryLucas/gogogd/cmd/gd/internal/tooling"
 
 	"runtime.link/api/xray"
 )
@@ -151,7 +151,7 @@ func (Browser) AssertExportTemplate() error {
 	}
 	template_path := filepath.Join(project.GraphicsDirectory, ".godot", "godot.web.template_release.wasm32.zip")
 	stat, statErr := os.Stat(template_path)
-	resp, err := http.Get("https://release.graphics.gd/godot.web.template_release.wasm32.zip")
+	resp, err := http.Get("https://release.github.com/AveryLucas/gogogd/godot.web.template_release.wasm32.zip")
 	if err != nil && !os.IsNotExist(err) {
 		return xray.New(err)
 	} else {
@@ -162,7 +162,7 @@ func (Browser) AssertExportTemplate() error {
 		return xray.New(err)
 	}
 	if (os.IsNotExist(statErr) || (statErr == nil && last_modified.After(stat.ModTime()))) && resp.Body != nil {
-		fmt.Println("gd: downloading latest https://release.graphics.gd/godot.web.template_release.wasm32.zip")
+		fmt.Println("gd: downloading latest https://release.github.com/AveryLucas/gogogd/godot.web.template_release.wasm32.zip")
 		data, err := io.ReadAll(resp.Body)
 		if err != nil {
 			return xray.New(err)

@@ -1,7 +1,7 @@
 package Packed
 
 import (
-	GenericArray "graphics.gd/variant/Array"
+	GenericArray "github.com/AveryLucas/gogogd/variant/Array"
 )
 
 // Sort sorts the array in ascending order. The final order is dependent on the

@@ -1,6 +1,6 @@
 package gd
 
-import ErrorType "graphics.gd/variant/Error"
+import ErrorType "github.com/AveryLucas/gogogd/variant/Error"
 
 type Error = ErrorType.Code
 

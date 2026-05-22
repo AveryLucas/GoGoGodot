@@ -27,10 +27,10 @@ package main
 import (
 	"fmt"
 
-	"graphics.gd/classdb/InputEvent"
-	"graphics.gd/classdb/InputEventMouseButton"
-	"graphics.gd/variant/Object"
-	"graphics.gd/variant/Rect2"
+	"github.com/AveryLucas/gogogd/classdb/InputEvent"
+	"github.com/AveryLucas/gogogd/classdb/InputEventMouseButton"
+	"github.com/AveryLucas/gogogd/variant/Object"
+	"github.com/AveryLucas/gogogd/variant/Rect2"
 )
 
 func Sprite2D_GetRect() {

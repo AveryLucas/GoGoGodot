@@ -45,7 +45,7 @@ import (
 	"errors"
 	"fmt"
 
-	"graphics.gd/classdb/FileAccess"
+	"github.com/AveryLucas/gogogd/classdb/FileAccess"
 )
 
 // ErrNotFound is returned by [Slot.Read] when the slot's file doesn't exist.

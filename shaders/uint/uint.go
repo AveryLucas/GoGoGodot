@@ -2,7 +2,7 @@
 package uint
 
 import (
-	"graphics.gd/shaders/internal/gpu"
+	"github.com/AveryLucas/gogogd/shaders/internal/gpu"
 )
 
 // X is a unsigned integer on the GPU (represented by an unspecified number of bits).

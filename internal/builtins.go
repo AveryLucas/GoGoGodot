@@ -3,12 +3,12 @@ package gd
 import (
 	"unsafe"
 
-	"graphics.gd/internal/gdextension"
-	"graphics.gd/internal/gdreference"
-	"graphics.gd/internal/jumponly"
-	"graphics.gd/internal/noescape"
-	"graphics.gd/internal/pointers"
-	"graphics.gd/internal/ring"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/internal/gdreference"
+	"github.com/AveryLucas/gogogd/internal/jumponly"
+	"github.com/AveryLucas/gogogd/internal/noescape"
+	"github.com/AveryLucas/gogogd/internal/pointers"
+	"github.com/AveryLucas/gogogd/internal/ring"
 )
 
 func callBuiltinMethod[T any](self unsafe.Pointer, method gdextension.MethodForBuiltinType, shape gdextension.Shape, args unsafe.Pointer) T {
@@ -21,12 +21,12 @@ func callBuiltinMethod[T any](self unsafe.Pointer, method gdextension.MethodForB
 //go:noescape
 func call_builtin_noescape(self unsafe.Pointer, method gdextension.MethodForBuiltinType, result unsafe.Pointer, shape gdextension.Shape, args unsafe.Pointer)
 
-//go:linkname call_builtin graphics.gd/internal.call_builtin_noescape
+//go:linkname call_builtin github.com/AveryLucas/gogogd/internal.call_builtin_noescape
 func call_builtin(self unsafe.Pointer, method gdextension.MethodForBuiltinType, result unsafe.Pointer, shape gdextension.Shape, args unsafe.Pointer) {
 	gdextension.Host.Builtin.Types.Unsafe.Call(gdextension.CallMutates[any](self), method, gdextension.CallReturns[any](result), shape, gdextension.CallAccepts[any](args))
 }
 
-// builtin methods that are strictly required for graphics.gd to function.
+// builtin methods that are strictly required for gogogd to function.
 var builtin struct {
 	typeset
 

@@ -9,10 +9,10 @@ package main
 import (
 	"fmt"
 
-	"graphics.gd/classdb/GDScript"
-	"graphics.gd/classdb/Resource"
-	"graphics.gd/classdb/Script"
-	"graphics.gd/variant/Object"
+	"github.com/AveryLucas/gogogd/classdb/GDScript"
+	"github.com/AveryLucas/gogogd/classdb/Resource"
+	"github.com/AveryLucas/gogogd/classdb/Script"
+	"github.com/AveryLucas/gogogd/variant/Object"
 )
 
 func GDScript_New() {

@@ -14,16 +14,16 @@
 package ui
 
 import (
-	"graphics.gd/classdb/CanvasLayer"
-	"graphics.gd/classdb/Control"
-	"graphics.gd/classdb/Label"
-	"graphics.gd/classdb/Node"
-	"graphics.gd/classdb/PackedScene"
-	"graphics.gd/classdb/Resource"
-	"graphics.gd/classdb/SceneTree"
-	"graphics.gd/gd"
-	"graphics.gd/timing"
-	"graphics.gd/variant/Object"
+	"github.com/AveryLucas/gogogd/classdb/CanvasLayer"
+	"github.com/AveryLucas/gogogd/classdb/Control"
+	"github.com/AveryLucas/gogogd/classdb/Label"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	"github.com/AveryLucas/gogogd/classdb/PackedScene"
+	"github.com/AveryLucas/gogogd/classdb/Resource"
+	"github.com/AveryLucas/gogogd/classdb/SceneTree"
+	"github.com/AveryLucas/gogogd/gd"
+	"github.com/AveryLucas/gogogd/timing"
+	"github.com/AveryLucas/gogogd/variant/Object"
 )
 
 // Push instantiates the scene at path and adds it to the modal stack as

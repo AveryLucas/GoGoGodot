@@ -3,11 +3,11 @@ package gd_test
 import (
 	"testing"
 
-	"graphics.gd/classdb/GDScript"
-	"graphics.gd/classdb/Node"
-	"graphics.gd/internal/pointers"
-	"graphics.gd/variant/Callable"
-	"graphics.gd/variant/Object"
+	"github.com/AveryLucas/gogogd/classdb/GDScript"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	"github.com/AveryLucas/gogogd/internal/pointers"
+	"github.com/AveryLucas/gogogd/variant/Callable"
+	"github.com/AveryLucas/gogogd/variant/Object"
 )
 
 var callable_test string = `extends Object

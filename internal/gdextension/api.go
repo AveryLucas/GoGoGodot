@@ -1,26 +1,26 @@
-// Package gdextension is the graphics.gd authorative Go representation of the Godot C GDExtension API.
+// Package gdextension is gogogd's authoritative Go representation of the Godot C GDExtension API.
 package gdextension
 
 import (
 	"structs"
 	"unsafe"
 
-	"graphics.gd/variant/AABB"
-	"graphics.gd/variant/Basis"
-	"graphics.gd/variant/Color"
-	"graphics.gd/variant/Plane"
-	"graphics.gd/variant/Projection"
-	"graphics.gd/variant/Quaternion"
-	"graphics.gd/variant/Rect2"
-	"graphics.gd/variant/Rect2i"
-	"graphics.gd/variant/Transform2D"
-	"graphics.gd/variant/Transform3D"
-	"graphics.gd/variant/Vector2"
-	"graphics.gd/variant/Vector2i"
-	"graphics.gd/variant/Vector3"
-	"graphics.gd/variant/Vector3i"
-	"graphics.gd/variant/Vector4"
-	"graphics.gd/variant/Vector4i"
+	"github.com/AveryLucas/gogogd/variant/AABB"
+	"github.com/AveryLucas/gogogd/variant/Basis"
+	"github.com/AveryLucas/gogogd/variant/Color"
+	"github.com/AveryLucas/gogogd/variant/Plane"
+	"github.com/AveryLucas/gogogd/variant/Projection"
+	"github.com/AveryLucas/gogogd/variant/Quaternion"
+	"github.com/AveryLucas/gogogd/variant/Rect2"
+	"github.com/AveryLucas/gogogd/variant/Rect2i"
+	"github.com/AveryLucas/gogogd/variant/Transform2D"
+	"github.com/AveryLucas/gogogd/variant/Transform3D"
+	"github.com/AveryLucas/gogogd/variant/Vector2"
+	"github.com/AveryLucas/gogogd/variant/Vector2i"
+	"github.com/AveryLucas/gogogd/variant/Vector3"
+	"github.com/AveryLucas/gogogd/variant/Vector3i"
+	"github.com/AveryLucas/gogogd/variant/Vector4"
+	"github.com/AveryLucas/gogogd/variant/Vector4i"
 )
 
 var Host API

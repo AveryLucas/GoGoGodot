@@ -20,8 +20,8 @@ package main
 import (
 	"fmt"
 
-	"graphics.gd/classdb/Node"
-	"graphics.gd/classdb/SceneTree"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	"github.com/AveryLucas/gogogd/classdb/SceneTree"
 )
 
 func ExampleSceneTreeTimer(node Node.Instance) {

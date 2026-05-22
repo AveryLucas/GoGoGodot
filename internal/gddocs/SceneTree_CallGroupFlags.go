@@ -7,7 +7,7 @@ get_tree().call_group_flags(
 
 package main
 
-import "graphics.gd/classdb/SceneTree"
+import "github.com/AveryLucas/gogogd/classdb/SceneTree"
 
 func SceneTree_CallGroupFlags() {
 	// Calls "hide" to all nodes of the "enemies" group, at the end of the frame and in reverse tree order.

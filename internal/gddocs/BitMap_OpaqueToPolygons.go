@@ -5,9 +5,9 @@ Rect2(Vector2(), get_size())
 package main
 
 import (
-	"graphics.gd/classdb/BitMap"
-	"graphics.gd/variant/Rect2"
-	"graphics.gd/variant/Vector2"
+	"github.com/AveryLucas/gogogd/classdb/BitMap"
+	"github.com/AveryLucas/gogogd/variant/Rect2"
+	"github.com/AveryLucas/gogogd/variant/Vector2"
 )
 
 var bitmap BitMap.Instance

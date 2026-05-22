@@ -15,15 +15,15 @@
 package visual
 
 import (
-	"graphics.gd/classdb/CircleShape2D"
-	"graphics.gd/classdb/CollisionShape2D"
-	"graphics.gd/classdb/ColorRect"
-	"graphics.gd/classdb/Node"
-	"graphics.gd/classdb/Polygon2D"
-	"graphics.gd/classdb/RectangleShape2D"
-	"graphics.gd/gd"
-	"graphics.gd/variant/Color"
-	"graphics.gd/variant/Vector2"
+	"github.com/AveryLucas/gogogd/classdb/CircleShape2D"
+	"github.com/AveryLucas/gogogd/classdb/CollisionShape2D"
+	"github.com/AveryLucas/gogogd/classdb/ColorRect"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	"github.com/AveryLucas/gogogd/classdb/Polygon2D"
+	"github.com/AveryLucas/gogogd/classdb/RectangleShape2D"
+	"github.com/AveryLucas/gogogd/gd"
+	"github.com/AveryLucas/gogogd/variant/Color"
+	"github.com/AveryLucas/gogogd/variant/Vector2"
 )
 
 // AttachCircle gives n a circular collision shape with a matching

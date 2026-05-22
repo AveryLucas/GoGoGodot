@@ -5,7 +5,7 @@ func get_exposure_normalization(ev100: float):
 
 package main
 
-import "graphics.gd/variant/Float"
+import "github.com/AveryLucas/gogogd/variant/Float"
 
 func RenderingServer_CameraAttributesSetExposure() {
 	GetExposureNormalization := func(ev100 float32) float32 {

@@ -4,15 +4,15 @@ package Projection
 import (
 	"unsafe"
 
-	"graphics.gd/variant/AABB"
-	"graphics.gd/variant/Angle"
-	"graphics.gd/variant/Float"
-	"graphics.gd/variant/Int"
-	"graphics.gd/variant/Plane"
-	"graphics.gd/variant/Rect2"
-	"graphics.gd/variant/Vector2"
-	"graphics.gd/variant/Vector3"
-	"graphics.gd/variant/Vector4"
+	"github.com/AveryLucas/gogogd/variant/AABB"
+	"github.com/AveryLucas/gogogd/variant/Angle"
+	"github.com/AveryLucas/gogogd/variant/Float"
+	"github.com/AveryLucas/gogogd/variant/Int"
+	"github.com/AveryLucas/gogogd/variant/Plane"
+	"github.com/AveryLucas/gogogd/variant/Rect2"
+	"github.com/AveryLucas/gogogd/variant/Vector2"
+	"github.com/AveryLucas/gogogd/variant/Vector3"
+	"github.com/AveryLucas/gogogd/variant/Vector4"
 )
 
 // ʕ is a little ternary operator for porting C code.

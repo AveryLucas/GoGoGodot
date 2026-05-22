@@ -40,13 +40,13 @@ AddChild(mi);
 package main
 
 import (
-	"graphics.gd/classdb/ArrayMesh"
-	"graphics.gd/classdb/BoxMesh"
-	"graphics.gd/classdb/Mesh"
-	"graphics.gd/classdb/MeshDataTool"
-	"graphics.gd/classdb/MeshInstance3D"
-	"graphics.gd/classdb/Node"
-	"graphics.gd/variant/Vector3"
+	"github.com/AveryLucas/gogogd/classdb/ArrayMesh"
+	"github.com/AveryLucas/gogogd/classdb/BoxMesh"
+	"github.com/AveryLucas/gogogd/classdb/Mesh"
+	"github.com/AveryLucas/gogogd/classdb/MeshDataTool"
+	"github.com/AveryLucas/gogogd/classdb/MeshInstance3D"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	"github.com/AveryLucas/gogogd/variant/Vector3"
 )
 
 func ExampleMeshDataTool(parent Node.Instance) {

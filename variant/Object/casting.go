@@ -1,8 +1,8 @@
 package Object
 
 import (
-	gd "graphics.gd/internal"
-	"graphics.gd/internal/gdreference"
+	gd "github.com/AveryLucas/gogogd/internal"
+	"github.com/AveryLucas/gogogd/internal/gdreference"
 )
 
 // To attempts to cast the given class to T, returning the

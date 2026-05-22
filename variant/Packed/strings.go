@@ -4,8 +4,8 @@ import (
 	"iter"
 	"sort"
 
-	GenericArray "graphics.gd/variant/Array"
-	"graphics.gd/variant/String"
+	GenericArray "github.com/AveryLucas/gogogd/variant/Array"
+	"github.com/AveryLucas/gogogd/variant/String"
 )
 
 // Strings is a packed array of readable strings.

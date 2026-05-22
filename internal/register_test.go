@@ -6,17 +6,17 @@ import (
 	"fmt"
 	"testing"
 
-	"graphics.gd/classdb"
-	"graphics.gd/classdb/Engine"
-	"graphics.gd/classdb/Node"
-	"graphics.gd/classdb/Node2D"
-	"graphics.gd/classdb/Node3D"
-	"graphics.gd/classdb/Resource"
-	gd "graphics.gd/internal"
-	"graphics.gd/internal/gdextension"
-	"graphics.gd/internal/pointers"
-	"graphics.gd/variant/Float"
-	"graphics.gd/variant/Object"
+	"github.com/AveryLucas/gogogd/classdb"
+	"github.com/AveryLucas/gogogd/classdb/Engine"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	"github.com/AveryLucas/gogogd/classdb/Node2D"
+	"github.com/AveryLucas/gogogd/classdb/Node3D"
+	"github.com/AveryLucas/gogogd/classdb/Resource"
+	gd "github.com/AveryLucas/gogogd/internal"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/internal/pointers"
+	"github.com/AveryLucas/gogogd/variant/Float"
+	"github.com/AveryLucas/gogogd/variant/Object"
 )
 
 func TestRegister(t *testing.T) {

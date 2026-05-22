@@ -2,12 +2,12 @@
 package Transform3D
 
 import (
-	"graphics.gd/variant/AABB"
-	"graphics.gd/variant/Angle"
-	"graphics.gd/variant/Basis"
-	"graphics.gd/variant/Float"
-	"graphics.gd/variant/Quaternion"
-	"graphics.gd/variant/Vector3"
+	"github.com/AveryLucas/gogogd/variant/AABB"
+	"github.com/AveryLucas/gogogd/variant/Angle"
+	"github.com/AveryLucas/gogogd/variant/Basis"
+	"github.com/AveryLucas/gogogd/variant/Float"
+	"github.com/AveryLucas/gogogd/variant/Quaternion"
+	"github.com/AveryLucas/gogogd/variant/Vector3"
 )
 
 // The BasisOrigin built-in Variant type is a 3×4 matrix representing a

@@ -6,10 +6,10 @@ import (
 	"reflect"
 	"unsafe"
 
-	"graphics.gd/internal/gdextension"
-	"graphics.gd/internal/noescape"
-	"graphics.gd/internal/ring"
-	"graphics.gd/internal/threadcheck"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/internal/noescape"
+	"github.com/AveryLucas/gogogd/internal/ring"
+	"github.com/AveryLucas/gogogd/internal/threadcheck"
 )
 
 // PtrcallFn holds the address of gdextension_object_method_bind_ptrcall,

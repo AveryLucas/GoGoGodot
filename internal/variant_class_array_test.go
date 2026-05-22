@@ -3,13 +3,13 @@ package gd_test
 import (
 	"testing"
 
-	gd "graphics.gd/internal"
-	"graphics.gd/internal/gdclass"
-	"graphics.gd/variant"
-	"graphics.gd/variant/Array"
+	gd "github.com/AveryLucas/gogogd/internal"
+	"github.com/AveryLucas/gogogd/internal/gdclass"
+	"github.com/AveryLucas/gogogd/variant"
+	"github.com/AveryLucas/gogogd/variant/Array"
 
-	"graphics.gd/classdb/Image"
-	"graphics.gd/classdb/Texture2DArray"
+	"github.com/AveryLucas/gogogd/classdb/Image"
+	"github.com/AveryLucas/gogogd/classdb/Texture2DArray"
 )
 
 // TestClassInstanceVariantType verifies that a class instance (e.g. Image.Instance)

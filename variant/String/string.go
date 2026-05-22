@@ -25,8 +25,8 @@ import (
 	"unsafe"
 
 	"golang.org/x/text/encoding/unicode/utf32"
-	"graphics.gd/variant/Float"
-	"graphics.gd/variant/Int"
+	"github.com/AveryLucas/gogogd/variant/Float"
+	"github.com/AveryLucas/gogogd/variant/Int"
 )
 
 // Unicode string containing human-readable characters in an implementation-specific encoding.

@@ -1,7 +1,7 @@
 // Pacakge bvec2 provides GPU operations on two-component boolean vectors.
 package bvec2
 
-import "graphics.gd/shaders/internal/gpu"
+import "github.com/AveryLucas/gogogd/shaders/internal/gpu"
 
 // XY is a two-component vector of booleans on the GPU.
 type XY gpu.Vec2b

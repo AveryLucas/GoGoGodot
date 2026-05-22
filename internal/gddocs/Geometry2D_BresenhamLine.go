@@ -7,13 +7,13 @@ func _draw():
 package main
 
 import (
-	"graphics.gd/classdb/CanvasItem"
-	"graphics.gd/classdb/Geometry2D"
-	"graphics.gd/classdb/Marker2D"
-	"graphics.gd/variant/Color"
-	"graphics.gd/variant/Rect2"
-	"graphics.gd/variant/Vector2"
-	"graphics.gd/variant/Vector2i"
+	"github.com/AveryLucas/gogogd/classdb/CanvasItem"
+	"github.com/AveryLucas/gogogd/classdb/Geometry2D"
+	"github.com/AveryLucas/gogogd/classdb/Marker2D"
+	"github.com/AveryLucas/gogogd/variant/Color"
+	"github.com/AveryLucas/gogogd/variant/Rect2"
+	"github.com/AveryLucas/gogogd/variant/Vector2"
+	"github.com/AveryLucas/gogogd/variant/Vector2i"
 )
 
 var markerA Marker2D.Instance

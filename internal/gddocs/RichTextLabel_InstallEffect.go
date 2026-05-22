@@ -10,7 +10,7 @@ var bbcode = "my_custom_effect"
 
 package main
 
-import "graphics.gd/classdb/RichTextEffect"
+import "github.com/AveryLucas/gogogd/classdb/RichTextEffect"
 
 type MyCustomEffect struct {
 	RichTextEffect.Extension[MyCustomEffect]

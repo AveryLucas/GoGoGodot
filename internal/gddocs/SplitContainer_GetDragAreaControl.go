@@ -5,8 +5,8 @@ $BarnacleButton.reparent($SplitContainer.get_drag_area_control())
 package main
 
 import (
-	"graphics.gd/classdb/Button"
-	"graphics.gd/classdb/SplitContainer"
+	"github.com/AveryLucas/gogogd/classdb/Button"
+	"github.com/AveryLucas/gogogd/classdb/SplitContainer"
 )
 
 var barnacleButton Button.Instance

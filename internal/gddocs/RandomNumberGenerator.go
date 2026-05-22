@@ -6,7 +6,7 @@ func _ready():
 
 package main
 
-import "graphics.gd/classdb/RandomNumberGenerator"
+import "github.com/AveryLucas/gogogd/classdb/RandomNumberGenerator"
 
 func ExampleRandomNumberGenerator() {
 	var rng = RandomNumberGenerator.New()

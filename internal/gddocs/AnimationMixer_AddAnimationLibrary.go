@@ -8,8 +8,8 @@ global_library.add_animation("animation_name", animation_resource)
 package main
 
 import (
-	"graphics.gd/classdb/Animation"
-	"graphics.gd/classdb/AnimationMixer"
+	"github.com/AveryLucas/gogogd/classdb/Animation"
+	"github.com/AveryLucas/gogogd/classdb/AnimationMixer"
 )
 
 var mixer AnimationMixer.Instance

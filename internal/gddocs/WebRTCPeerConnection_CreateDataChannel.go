@@ -14,7 +14,7 @@
 
 package main
 
-import "graphics.gd/classdb/WebRTCPeerConnection"
+import "github.com/AveryLucas/gogogd/classdb/WebRTCPeerConnection"
 
 func WebRTCPeerConnection_CreateDataChannel() {
 	var example = WebRTCPeerConnection.Options{

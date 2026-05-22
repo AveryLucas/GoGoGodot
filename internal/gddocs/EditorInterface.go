@@ -10,7 +10,7 @@ EditorSettings settings = EditorInterface.Singleton.GetEditorSettings();
 
 package main
 
-import "graphics.gd/classdb/EditorInterface"
+import "github.com/AveryLucas/gogogd/classdb/EditorInterface"
 
 func ExampleEditorInterface() {
 	var editor_settings = EditorInterface.GetEditorSettings()

@@ -69,8 +69,8 @@ package main
 import (
 	"crypto/sha256"
 
-	"graphics.gd/classdb/Crypto"
-	"graphics.gd/classdb/HashingContext"
+	"github.com/AveryLucas/gogogd/classdb/Crypto"
+	"github.com/AveryLucas/gogogd/classdb/HashingContext"
 )
 
 func ExampleCrypto() {

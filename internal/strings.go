@@ -6,13 +6,13 @@ import (
 	"runtime"
 	"unsafe"
 
-	"graphics.gd/internal/gdextension"
-	"graphics.gd/internal/noescape"
-	"graphics.gd/internal/pointers"
-	"graphics.gd/internal/rodatacheck"
-	"graphics.gd/internal/threadcheck"
-	"graphics.gd/variant/Path"
-	StringType "graphics.gd/variant/String"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/internal/noescape"
+	"github.com/AveryLucas/gogogd/internal/pointers"
+	"github.com/AveryLucas/gogogd/internal/rodatacheck"
+	"github.com/AveryLucas/gogogd/internal/threadcheck"
+	"github.com/AveryLucas/gogogd/variant/Path"
+	StringType "github.com/AveryLucas/gogogd/variant/String"
 )
 
 var (

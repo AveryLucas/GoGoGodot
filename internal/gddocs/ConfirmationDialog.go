@@ -9,7 +9,7 @@ GetCancelButton().Pressed += OnCanceled;
 
 package main
 
-import "graphics.gd/classdb/ConfirmationDialog"
+import "github.com/AveryLucas/gogogd/classdb/ConfirmationDialog"
 
 func ExampleConfirmationDialog(dialog ConfirmationDialog.Instance) {
 	dialog.GetCancelButton().AsBaseButton().OnPressed(func() {})

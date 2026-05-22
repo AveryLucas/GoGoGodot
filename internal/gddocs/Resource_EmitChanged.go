@@ -8,7 +8,7 @@ var damage:
 
 package main
 
-import "graphics.gd/classdb/Resource"
+import "github.com/AveryLucas/gogogd/classdb/Resource"
 
 type SomeResource struct {
 	Resource.Extension[SomeResource]

@@ -9,7 +9,7 @@ ProjectSettings.SetSetting("application/config/name", "Example");
 
 package main
 
-import "graphics.gd/classdb/ProjectSettings"
+import "github.com/AveryLucas/gogogd/classdb/ProjectSettings"
 
 func ProjectSettings_SetSetting() {
 	ProjectSettings.SetSetting("application/config/name", "Example")

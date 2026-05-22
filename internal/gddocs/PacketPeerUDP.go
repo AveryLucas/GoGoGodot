@@ -10,7 +10,7 @@ peer.put_packet("hello".to_utf8_buffer())
 
 package main
 
-import "graphics.gd/classdb/PacketPeerUDP"
+import "github.com/AveryLucas/gogogd/classdb/PacketPeerUDP"
 
 func ExamplePacketPeerUDP() {
 	var peer = PacketPeerUDP.New()

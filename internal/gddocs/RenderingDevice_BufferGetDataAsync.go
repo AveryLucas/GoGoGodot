@@ -9,7 +9,7 @@ rd.buffer_get_data_async(buffer, _buffer_get_data_callback)
 
 package main
 
-import "graphics.gd/variant/RID"
+import "github.com/AveryLucas/gogogd/variant/RID"
 
 var buf_rid RID.Buffer
 

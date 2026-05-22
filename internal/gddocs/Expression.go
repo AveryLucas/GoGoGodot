@@ -44,8 +44,8 @@ package main
 import (
 	"fmt"
 
-	"graphics.gd/classdb/Expression"
-	"graphics.gd/classdb/LineEdit"
+	"github.com/AveryLucas/gogogd/classdb/Expression"
+	"github.com/AveryLucas/gogogd/classdb/LineEdit"
 )
 
 type ExampleExpression struct {

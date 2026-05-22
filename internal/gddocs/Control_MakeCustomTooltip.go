@@ -18,8 +18,8 @@ public override Control _MakeCustomTooltip(string forText)
 package main
 
 import (
-	"graphics.gd/classdb/Control"
-	"graphics.gd/classdb/Label"
+	"github.com/AveryLucas/gogogd/classdb/Control"
+	"github.com/AveryLucas/gogogd/classdb/Label"
 )
 
 func Control_MakeCustomTooltip() {

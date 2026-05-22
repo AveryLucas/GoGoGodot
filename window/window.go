@@ -5,11 +5,11 @@
 //	window.SetVSync(false)
 //
 // For finer window control (resize, position, multi-monitor) drop
-// down to `graphics.gd/classdb/DisplayServer` directly.
+// down to `github.com/AveryLucas/gogogd/classdb/DisplayServer` directly.
 package window
 
 import (
-	"graphics.gd/classdb/DisplayServer"
+	"github.com/AveryLucas/gogogd/classdb/DisplayServer"
 )
 
 // SetFullscreen toggles the main window's mode between windowed and

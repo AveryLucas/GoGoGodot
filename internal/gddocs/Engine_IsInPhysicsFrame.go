@@ -16,8 +16,8 @@ package main
 import (
 	"fmt"
 
-	"graphics.gd/classdb/Engine"
-	"graphics.gd/classdb/Node"
+	"github.com/AveryLucas/gogogd/classdb/Engine"
+	"github.com/AveryLucas/gogogd/classdb/Node"
 )
 
 type ExampleInPhysicsFrame struct {

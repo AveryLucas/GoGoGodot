@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"strings"
 
-	"graphics.gd/classdb/ShaderMaterial"
+	"github.com/AveryLucas/gogogd/classdb/ShaderMaterial"
 )
 
 type Expression struct {

@@ -16,9 +16,9 @@ var shape = target.ShapeOwnerGetOwner(ownerId);
 package main
 
 import (
-	"graphics.gd/classdb/CollisionObject2D"
-	"graphics.gd/classdb/RayCast2D"
-	"graphics.gd/variant/Object"
+	"github.com/AveryLucas/gogogd/classdb/CollisionObject2D"
+	"github.com/AveryLucas/gogogd/classdb/RayCast2D"
+	"github.com/AveryLucas/gogogd/variant/Object"
 )
 
 var rayCast2D RayCast2D.Instance

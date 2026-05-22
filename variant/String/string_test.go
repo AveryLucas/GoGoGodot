@@ -4,9 +4,9 @@ import (
 	"slices"
 	"testing"
 
-	"graphics.gd/internal/gdtests"
-	"graphics.gd/variant/Float"
-	"graphics.gd/variant/String"
+	"github.com/AveryLucas/gogogd/internal/gdtests"
+	"github.com/AveryLucas/gogogd/variant/Float"
+	"github.com/AveryLucas/gogogd/variant/String"
 )
 
 func TestBigrams(t *testing.T) {

@@ -3,7 +3,7 @@ package noescape
 import (
 	"unsafe"
 
-	"graphics.gd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
 )
 
 type MethodForClass gdextension.MethodForClass
@@ -17,7 +17,7 @@ func (v *Variant) LoadNative(vtype gdextension.VariantType, size gdextension.Sha
 //go:noescape
 func variant_from_native_noescape(vtype gdextension.VariantType, result *gdextension.Variant, size gdextension.Shape, ptr unsafe.Pointer)
 
-//go:linkname variant_from_native graphics.gd/internal/noescape.variant_from_native_noescape
+//go:linkname variant_from_native github.com/AveryLucas/gogogd/internal/noescape.variant_from_native_noescape
 func variant_from_native(vtype gdextension.VariantType, result *gdextension.Variant, size gdextension.Shape, ptr unsafe.Pointer) {
 	gdextension.Host.Variants.Unsafe.FromNative(vtype, gdextension.CallReturns[gdextension.Variant](result), gdextension.SizeVariant|size<<4, gdextension.CallAccepts[any](ptr))
 }
@@ -31,7 +31,7 @@ func LoadNative[T gdextension.AnyVariant](vtype gdextension.VariantType, variant
 //go:noescape
 func variant_into_native_noescape(vtype gdextension.VariantType, variant gdextension.Variant, ptr unsafe.Pointer, size gdextension.Shape)
 
-//go:linkname variant_into_native graphics.gd/internal/noescape.variant_into_native_noescape
+//go:linkname variant_into_native github.com/AveryLucas/gogogd/internal/noescape.variant_into_native_noescape
 func variant_into_native(vtype gdextension.VariantType, variant gdextension.Variant, ptr unsafe.Pointer, size gdextension.Shape) {
 	gdextension.Host.Variants.Unsafe.MakeNative(vtype, variant, size|gdextension.SizeVariant<<4, gdextension.CallReturns[any](ptr))
 }
@@ -43,7 +43,7 @@ func Free[T gdextension.AnyVariant](vtype gdextension.VariantType, val *T) {
 //go:noescape
 func free_noescape(vtype gdextension.VariantType, size gdextension.Shape, ptr unsafe.Pointer)
 
-//go:linkname free graphics.gd/internal/noescape.free_noescape
+//go:linkname free github.com/AveryLucas/gogogd/internal/noescape.free_noescape
 func free(vtype gdextension.VariantType, size gdextension.Shape, ptr unsafe.Pointer) {
 	gdextension.Host.Builtin.Types.Unsafe.Free(vtype, size<<4, gdextension.CallAccepts[any](ptr))
 }
@@ -57,7 +57,7 @@ func Make[T gdextension.AnyVariant](constructor gdextension.FunctionID, size gde
 //go:noescape
 func make_native_noescape(constructor gdextension.FunctionID, result unsafe.Pointer, shape gdextension.Shape, ptr unsafe.Pointer)
 
-//go:linkname make_native graphics.gd/internal/noescape.make_native_noescape
+//go:linkname make_native github.com/AveryLucas/gogogd/internal/noescape.make_native_noescape
 func make_native(constructor gdextension.FunctionID, result unsafe.Pointer, shape gdextension.Shape, ptr unsafe.Pointer) {
 	gdextension.Host.Builtin.Types.Unsafe.Make(constructor, gdextension.CallReturns[any](unsafe.Pointer(result)), shape, gdextension.CallAccepts[any](ptr))
 }
@@ -72,7 +72,7 @@ func IndexPacked[T gdextension.Packable](access func(p gdextension.PackedArray[T
 //go:noescape
 func index_packed_noescape(access func(p gdextension.PackedArray[byte], idx int, result unsafe.Pointer), p gdextension.PackedArray[byte], index int, result unsafe.Pointer)
 
-//go:linkname index_packed graphics.gd/internal/noescape.index_packed_noescape
+//go:linkname index_packed github.com/AveryLucas/gogogd/internal/noescape.index_packed_noescape
 func index_packed(access func(p gdextension.PackedArray[byte], idx int, result unsafe.Pointer), p gdextension.PackedArray[byte], index int, result unsafe.Pointer) {
 	access(p, index, result)
 }

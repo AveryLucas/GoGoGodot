@@ -4,7 +4,7 @@ import (
 	"structs"
 	"unsafe"
 
-	"graphics.gd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
 )
 
 type Entry struct {

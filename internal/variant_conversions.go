@@ -8,22 +8,22 @@ import (
 	"time"
 	"unsafe"
 
-	"graphics.gd/internal/gdextension"
-	"graphics.gd/internal/gdreference"
-	"graphics.gd/internal/noescape"
-	"graphics.gd/internal/pointers"
-	VariantPkg "graphics.gd/variant"
-	ArrayType "graphics.gd/variant/Array"
-	BasisType "graphics.gd/variant/Basis"
-	CallableType "graphics.gd/variant/Callable"
-	DictionaryType "graphics.gd/variant/Dictionary"
-	"graphics.gd/variant/Enum"
-	"graphics.gd/variant/Euler"
-	FloatType "graphics.gd/variant/Float"
-	PackedType "graphics.gd/variant/Packed"
-	"graphics.gd/variant/Path"
-	SignalType "graphics.gd/variant/Signal"
-	StringType "graphics.gd/variant/String"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/internal/gdreference"
+	"github.com/AveryLucas/gogogd/internal/noescape"
+	"github.com/AveryLucas/gogogd/internal/pointers"
+	VariantPkg "github.com/AveryLucas/gogogd/variant"
+	ArrayType "github.com/AveryLucas/gogogd/variant/Array"
+	BasisType "github.com/AveryLucas/gogogd/variant/Basis"
+	CallableType "github.com/AveryLucas/gogogd/variant/Callable"
+	DictionaryType "github.com/AveryLucas/gogogd/variant/Dictionary"
+	"github.com/AveryLucas/gogogd/variant/Enum"
+	"github.com/AveryLucas/gogogd/variant/Euler"
+	FloatType "github.com/AveryLucas/gogogd/variant/Float"
+	PackedType "github.com/AveryLucas/gogogd/variant/Packed"
+	"github.com/AveryLucas/gogogd/variant/Path"
+	SignalType "github.com/AveryLucas/gogogd/variant/Signal"
+	StringType "github.com/AveryLucas/gogogd/variant/String"
 )
 
 // Variant returns a variant from the given value, which must be one of the
@@ -35,7 +35,7 @@ func NewVariant(v any) Variant {
 // CutVariant is like NewVariant but when cut is true, releases the ownership
 // of the given value. Use it on return values passed back to the engine.
 //
-// used to fix cases of https://github.com/quaadgras/graphics.gd/issues/147
+// used to fix cases of https://github.com/quaadgras/github.com/AveryLucas/gogogd/issues/147
 func CutVariant(v any, cut bool) Variant {
 	if v == nil {
 		return Variant{}

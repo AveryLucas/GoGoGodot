@@ -20,9 +20,9 @@ mesh.SurfaceEnd();
 package main
 
 import (
-	"graphics.gd/classdb/ImmediateMesh"
-	"graphics.gd/classdb/Mesh"
-	"graphics.gd/variant/Vector3"
+	"github.com/AveryLucas/gogogd/classdb/ImmediateMesh"
+	"github.com/AveryLucas/gogogd/classdb/Mesh"
+	"github.com/AveryLucas/gogogd/variant/Vector3"
 )
 
 func ExampleImmediateMesh() {

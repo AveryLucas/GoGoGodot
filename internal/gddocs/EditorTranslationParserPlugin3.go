@@ -26,10 +26,10 @@ public override string[] _GetRecognizedExtensions()
 package main
 
 import (
-	"graphics.gd/classdb/EditorTranslationParserPlugin"
-	"graphics.gd/classdb/ResourceLoader"
-	"graphics.gd/classdb/Script"
-	"graphics.gd/variant/Object"
+	"github.com/AveryLucas/gogogd/classdb/EditorTranslationParserPlugin"
+	"github.com/AveryLucas/gogogd/classdb/ResourceLoader"
+	"github.com/AveryLucas/gogogd/classdb/Script"
+	"github.com/AveryLucas/gogogd/variant/Object"
 )
 
 type MyEditorTranslationParserPlugin struct {

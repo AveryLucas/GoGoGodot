@@ -14,9 +14,9 @@ var server_tls_options = TLSOptions.server(server_key, server_certs)
 package main
 
 import (
-	"graphics.gd/classdb/Resource"
-	"graphics.gd/classdb/TLSOptions"
-	"graphics.gd/classdb/X509Certificate"
+	"github.com/AveryLucas/gogogd/classdb/Resource"
+	"github.com/AveryLucas/gogogd/classdb/TLSOptions"
+	"github.com/AveryLucas/gogogd/classdb/X509Certificate"
 )
 
 func ExampleTLSOptions() {

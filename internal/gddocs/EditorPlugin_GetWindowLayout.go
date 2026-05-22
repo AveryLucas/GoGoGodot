@@ -6,7 +6,7 @@ func _get_window_layout(configuration):
 
 package main
 
-import "graphics.gd/classdb/ConfigFile"
+import "github.com/AveryLucas/gogogd/classdb/ConfigFile"
 
 func EditorPlugin_GetWindowLayout() {
 	GetWindowLayout := func(configuration ConfigFile.Instance) {

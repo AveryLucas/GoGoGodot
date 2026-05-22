@@ -17,7 +17,7 @@ import (
 	"context"
 	"crypto"
 
-	"graphics.gd/cmd/gd/internal/cryptic/pkcs7"
+	"github.com/AveryLucas/gogogd/cmd/gd/internal/cryptic/pkcs7"
 )
 
 // Timestamper is the common interface for the timestamp client and middleware

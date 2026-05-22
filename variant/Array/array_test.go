@@ -3,8 +3,8 @@ package Array_test
 import (
 	"testing"
 
-	"graphics.gd/internal/gdtests"
-	"graphics.gd/variant/Array"
+	"github.com/AveryLucas/gogogd/internal/gdtests"
+	"github.com/AveryLucas/gogogd/variant/Array"
 )
 
 func TestAll(t *testing.T) {

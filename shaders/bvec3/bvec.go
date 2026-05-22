@@ -1,7 +1,7 @@
 // Pacakge bvec3 provides GPU operations on three-component boolean vectors.
 package bvec3
 
-import "graphics.gd/shaders/internal/gpu"
+import "github.com/AveryLucas/gogogd/shaders/internal/gpu"
 
 // XYZ is a three-component vector of booleans on the GPU.
 type XYZ gpu.Vec3b

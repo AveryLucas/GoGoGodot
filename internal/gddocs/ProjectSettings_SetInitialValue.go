@@ -13,7 +13,7 @@ func _enter_tree():
 
 package main
 
-import "graphics.gd/classdb/ProjectSettings"
+import "github.com/AveryLucas/gogogd/classdb/ProjectSettings"
 
 func ProjectSettings_SetInitialValue() {
 	const SETTING_NAME = "addons/my_setting"

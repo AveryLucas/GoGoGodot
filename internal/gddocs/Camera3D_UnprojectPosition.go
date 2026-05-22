@@ -8,9 +8,9 @@ control.position = get_viewport().get_camera_3d().unproject_position(global_tran
 package main
 
 import (
-	"graphics.gd/classdb/Control"
-	"graphics.gd/classdb/Node3D"
-	"graphics.gd/classdb/Viewport"
+	"github.com/AveryLucas/gogogd/classdb/Control"
+	"github.com/AveryLucas/gogogd/classdb/Node3D"
+	"github.com/AveryLucas/gogogd/classdb/Viewport"
 )
 
 var node3d Node3D.Instance

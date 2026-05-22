@@ -6,18 +6,18 @@ import (
 	"testing"
 	"unsafe"
 
-	"graphics.gd/classdb"
-	"graphics.gd/classdb/AudioEffectInstance"
-	"graphics.gd/classdb/Resource"
-	gd "graphics.gd/internal"
-	"graphics.gd/internal/gdextension"
-	"graphics.gd/internal/pointers"
-	"graphics.gd/internal/threadcheck"
+	"github.com/AveryLucas/gogogd/classdb"
+	"github.com/AveryLucas/gogogd/classdb/AudioEffectInstance"
+	"github.com/AveryLucas/gogogd/classdb/Resource"
+	gd "github.com/AveryLucas/gogogd/internal"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/internal/pointers"
+	"github.com/AveryLucas/gogogd/internal/threadcheck"
 
-	_ "graphics.gd/startup"
+	_ "github.com/AveryLucas/gogogd/startup"
 )
 
-//go:linkname keep_reachable_instances_alive graphics.gd/classdb.keep_reachable_instances_alive
+//go:linkname keep_reachable_instances_alive github.com/AveryLucas/gogogd/classdb.keep_reachable_instances_alive
 func keep_reachable_instances_alive()
 
 func init() {

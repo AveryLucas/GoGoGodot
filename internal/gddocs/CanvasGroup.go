@@ -18,12 +18,12 @@ void fragment() {
 package main
 
 import (
-	"graphics.gd/shaders/bool"
-	"graphics.gd/shaders/float"
-	"graphics.gd/shaders/pipeline/CanvasItem"
-	"graphics.gd/shaders/rgba"
-	"graphics.gd/shaders/texture"
-	"graphics.gd/shaders/vec4"
+	"github.com/AveryLucas/gogogd/shaders/bool"
+	"github.com/AveryLucas/gogogd/shaders/float"
+	"github.com/AveryLucas/gogogd/shaders/pipeline/CanvasItem"
+	"github.com/AveryLucas/gogogd/shaders/rgba"
+	"github.com/AveryLucas/gogogd/shaders/texture"
+	"github.com/AveryLucas/gogogd/shaders/vec4"
 )
 
 type CanvasGroupShader struct {

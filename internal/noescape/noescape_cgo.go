@@ -24,10 +24,10 @@ import (
 	"reflect"
 	"unsafe"
 
-	"graphics.gd/internal/callerpc"
-	"graphics.gd/internal/gdextension"
-	"graphics.gd/internal/ring"
-	"graphics.gd/internal/threadcheck"
+	"github.com/AveryLucas/gogogd/internal/callerpc"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/internal/ring"
+	"github.com/AveryLucas/gogogd/internal/threadcheck"
 )
 
 func Call[T any](object gdextension.Object, method gdextension.MethodForClass, shape gdextension.Shape, args any) T {
@@ -69,7 +69,7 @@ func Call[T any](object gdextension.Object, method gdextension.MethodForClass, s
 //go:noescape
 func call_noescape(object gdextension.Object, method gdextension.MethodForClass, result unsafe.Pointer, shape gdextension.Shape, args unsafe.Pointer)
 
-//go:linkname call graphics.gd/internal/noescape.call_noescape
+//go:linkname call github.com/AveryLucas/gogogd/internal/noescape.call_noescape
 //go:nosplit
 func call(object gdextension.Object, method gdextension.MethodForClass, result unsafe.Pointer, shape gdextension.Shape, args unsafe.Pointer) {
 	C.gd_object_unsafe_call(C.uintptr_t(object), C.uintptr_t(method), result, C.uint64_t(shape), args)
@@ -78,7 +78,7 @@ func call(object gdextension.Object, method gdextension.MethodForClass, result u
 //go:noescape
 func call_8_noescape(object gdextension.Object, method gdextension.MethodForClass, shape gdextension.Shape, args unsafe.Pointer) uint64
 
-//go:linkname call_8 graphics.gd/internal/noescape.call_8_noescape
+//go:linkname call_8 github.com/AveryLucas/gogogd/internal/noescape.call_8_noescape
 //go:nosplit
 func call_8(object gdextension.Object, method gdextension.MethodForClass, shape gdextension.Shape, args unsafe.Pointer) uint64 {
 	return uint64(C.gd_object_unsafe_call_8(C.uintptr_t(object), C.uintptr_t(method), C.uint64_t(shape), args))
@@ -87,7 +87,7 @@ func call_8(object gdextension.Object, method gdextension.MethodForClass, shape 
 //go:noescape
 func call_16_noescape(object gdextension.Object, method gdextension.MethodForClass, shape gdextension.Shape, args unsafe.Pointer) (result C.result_16)
 
-//go:linkname call_16 graphics.gd/internal/noescape.call_16_noescape
+//go:linkname call_16 github.com/AveryLucas/gogogd/internal/noescape.call_16_noescape
 //go:nosplit
 func call_16(object gdextension.Object, method gdextension.MethodForClass, shape gdextension.Shape, args unsafe.Pointer) C.result_16 {
 	return C.gd_object_unsafe_call_16(C.uintptr_t(object), C.uintptr_t(method), C.uint64_t(shape), args)
@@ -96,7 +96,7 @@ func call_16(object gdextension.Object, method gdextension.MethodForClass, shape
 //go:noescape
 func call_32_noescape(object gdextension.Object, method gdextension.MethodForClass, shape gdextension.Shape, args unsafe.Pointer) (result C.result_32)
 
-//go:linkname call_32 graphics.gd/internal/noescape.call_32_noescape
+//go:linkname call_32 github.com/AveryLucas/gogogd/internal/noescape.call_32_noescape
 //go:nosplit
 func call_32(object gdextension.Object, method gdextension.MethodForClass, shape gdextension.Shape, args unsafe.Pointer) C.result_32 {
 	return C.gd_object_unsafe_call_32(C.uintptr_t(object), C.uintptr_t(method), C.uint64_t(shape), args)
@@ -105,7 +105,7 @@ func call_32(object gdextension.Object, method gdextension.MethodForClass, shape
 //go:noescape
 func call_64_noescape(object gdextension.Object, method gdextension.MethodForClass, shape gdextension.Shape, args unsafe.Pointer) (result C.result_64)
 
-//go:linkname call_64 graphics.gd/internal/noescape.call_64_noescape
+//go:linkname call_64 github.com/AveryLucas/gogogd/internal/noescape.call_64_noescape
 //go:nosplit
 func call_64(object gdextension.Object, method gdextension.MethodForClass, shape gdextension.Shape, args unsafe.Pointer) C.result_64 {
 	return C.gd_object_unsafe_call_64(C.uintptr_t(object), C.uintptr_t(method), C.uint64_t(shape), args)
@@ -121,7 +121,7 @@ func (method MethodForClass) Call(self gdextension.Object, args ...gdextension.V
 //go:noescape
 func object_method_call_noescape(object gdextension.Object, method gdextension.MethodForClass, result *gdextension.Variant, args []gdextension.Variant, err *gdextension.CallError)
 
-//go:linkname object_method_call graphics.gd/internal/noescape.object_method_call_noescape
+//go:linkname object_method_call github.com/AveryLucas/gogogd/internal/noescape.object_method_call_noescape
 //go:nosplit
 func object_method_call(object gdextension.Object, method gdextension.MethodForClass, result *gdextension.Variant, args []gdextension.Variant, err *gdextension.CallError) {
 	raw := C.gd_object_call_24(C.uintptr_t(object), C.uintptr_t(method), C.int64_t(len(args)), unsafe.Pointer(unsafe.SliceData(args)), unsafe.Pointer(err))

@@ -9,9 +9,9 @@ func _ready():
 package main
 
 import (
-	"graphics.gd/classdb/RenderingServer"
-	"graphics.gd/classdb/Viewport"
-	"graphics.gd/variant/Rect2"
+	"github.com/AveryLucas/gogogd/classdb/RenderingServer"
+	"github.com/AveryLucas/gogogd/classdb/Viewport"
+	"github.com/AveryLucas/gogogd/variant/Rect2"
 )
 
 var viewport Viewport.Instance

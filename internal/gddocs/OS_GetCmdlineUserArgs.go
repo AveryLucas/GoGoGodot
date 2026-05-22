@@ -8,7 +8,7 @@ OS.get_cmdline_user_args() # Returns ["--level=2", "--hardcore"]
 
 package main
 
-import "graphics.gd/classdb/OS"
+import "github.com/AveryLucas/gogogd/classdb/OS"
 
 func OS_GetCmdlineUserArgs() {
 	// The application has been executed with the following command:

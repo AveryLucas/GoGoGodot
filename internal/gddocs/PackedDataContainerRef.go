@@ -15,9 +15,9 @@ package main
 import (
 	"fmt"
 
-	"graphics.gd/classdb/PackedDataContainer"
-	"graphics.gd/classdb/PackedDataContainerRef"
-	"graphics.gd/variant/Object"
+	"github.com/AveryLucas/gogogd/classdb/PackedDataContainer"
+	"github.com/AveryLucas/gogogd/classdb/PackedDataContainerRef"
+	"github.com/AveryLucas/gogogd/variant/Object"
 )
 
 func ExamplePackedDataContainerRef() {

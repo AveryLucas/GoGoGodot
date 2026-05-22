@@ -8,8 +8,8 @@ var data = texture.get_data()
 package main
 
 import (
-	"graphics.gd/classdb/FastNoiseLite"
-	"graphics.gd/classdb/NoiseTexture3D"
+	"github.com/AveryLucas/gogogd/classdb/FastNoiseLite"
+	"github.com/AveryLucas/gogogd/classdb/NoiseTexture3D"
 )
 
 func ExampleNoiseTexture3D() {

@@ -4,9 +4,9 @@ import (
 	"reflect"
 	"testing"
 
-	"graphics.gd/classdb/MeshInstance3D"
-	"graphics.gd/classdb/Node"
-	"graphics.gd/classdb/Node3D"
+	"github.com/AveryLucas/gogogd/classdb/MeshInstance3D"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	"github.com/AveryLucas/gogogd/classdb/Node3D"
 )
 
 // TestKeepAlive — existing baseline: unexported Instance inside a nested

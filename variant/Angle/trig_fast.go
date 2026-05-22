@@ -2,7 +2,7 @@
 
 package Angle
 
-import "graphics.gd/variant/Float"
+import "github.com/AveryLucas/gogogd/variant/Float"
 
 // Cos returns the cosine of angle x in radians.
 func Cos(x Radians) Float.X { return cos32(float32(x)) }

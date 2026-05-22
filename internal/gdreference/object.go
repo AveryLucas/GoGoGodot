@@ -4,9 +4,9 @@ import (
 	"runtime"
 	"unsafe"
 
-	"graphics.gd/internal/gdextension"
-	"graphics.gd/internal/threadcheck"
-	"graphics.gd/variant/Callable"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/internal/threadcheck"
+	"github.com/AveryLucas/gogogd/variant/Callable"
 )
 
 var now uint64 = 2

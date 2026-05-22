@@ -20,31 +20,31 @@ import (
 	"golang.org/x/text/cases"
 	"golang.org/x/text/language"
 
-	"graphics.gd/classdb/EditorInterface"
-	"graphics.gd/classdb/EditorPlugin"
-	"graphics.gd/classdb/Engine"
-	"graphics.gd/classdb/MainLoop"
-	"graphics.gd/classdb/Node"
-	"graphics.gd/classdb/SceneTree"
-	"graphics.gd/classdb/Script"
-	"graphics.gd/classdb/ScriptLanguage"
-	"graphics.gd/classdb/ShaderMaterial"
+	"github.com/AveryLucas/gogogd/classdb/EditorInterface"
+	"github.com/AveryLucas/gogogd/classdb/EditorPlugin"
+	"github.com/AveryLucas/gogogd/classdb/Engine"
+	"github.com/AveryLucas/gogogd/classdb/MainLoop"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	"github.com/AveryLucas/gogogd/classdb/SceneTree"
+	"github.com/AveryLucas/gogogd/classdb/Script"
+	"github.com/AveryLucas/gogogd/classdb/ScriptLanguage"
+	"github.com/AveryLucas/gogogd/classdb/ShaderMaterial"
 
-	"graphics.gd/variant/Callable"
-	"graphics.gd/variant/Object"
-	"graphics.gd/variant/Path"
-	"graphics.gd/variant/RefCounted"
-	"graphics.gd/variant/Signal"
-	"graphics.gd/variant/String"
+	"github.com/AveryLucas/gogogd/variant/Callable"
+	"github.com/AveryLucas/gogogd/variant/Object"
+	"github.com/AveryLucas/gogogd/variant/Path"
+	"github.com/AveryLucas/gogogd/variant/RefCounted"
+	"github.com/AveryLucas/gogogd/variant/Signal"
+	"github.com/AveryLucas/gogogd/variant/String"
 
-	gd "graphics.gd/internal"
-	"graphics.gd/internal/docgen"
-	"graphics.gd/internal/gdclass"
-	"graphics.gd/internal/gdextension"
-	"graphics.gd/internal/gdreference"
-	"graphics.gd/internal/pointers"
-	"graphics.gd/internal/ring"
-	"graphics.gd/internal/threadsafe"
+	gd "github.com/AveryLucas/gogogd/internal"
+	"github.com/AveryLucas/gogogd/internal/docgen"
+	"github.com/AveryLucas/gogogd/internal/gdclass"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/internal/gdreference"
+	"github.com/AveryLucas/gogogd/internal/pointers"
+	"github.com/AveryLucas/gogogd/internal/ring"
+	"github.com/AveryLucas/gogogd/internal/threadsafe"
 )
 
 var classes threadsafe.Handles[*classImplementation, gdextension.ExtensionClassID]
@@ -1127,7 +1127,7 @@ func (instance *instanceImplementation) assertChild(value any, field reflect.Str
 		}
 	}
 	// Node exists but has the wrong type, replace it with the correct type.
-	Engine.RaiseWarning("graphics.gd DeclarativeChildren[" + nameOf(instance.Type) + "]: converting " + string(Node.Advanced(parent).GetPath().String()) + "/" + field.Name +
+	Engine.RaiseWarning("gogogd DeclarativeChildren[" + nameOf(instance.Type) + "]: converting " + string(Node.Advanced(parent).GetPath().String()) + "/" + field.Name +
 		" into " + nameOf(field.Type) + " (previously " + Object.Instance(node.AsObject()).ClassName() + ")")
 	if not_initialised {
 		child := [1]gdreference.Object{gdreference.OwnObject(gdextension.Host.Objects.Make(pointers.Get(gd.NewStringName(nameOf(field.Type)))), gd.Free)}

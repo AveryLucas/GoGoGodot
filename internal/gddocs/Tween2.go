@@ -16,13 +16,13 @@ tween.TweenCallback(Callable.From(GetNode("Sprite").QueueFree));
 package main
 
 import (
-	"graphics.gd/classdb/Node"
-	"graphics.gd/classdb/PropertyTweener"
-	"graphics.gd/classdb/SceneTree"
-	"graphics.gd/classdb/Sprite2D"
-	"graphics.gd/classdb/Tween"
-	"graphics.gd/variant/Color"
-	"graphics.gd/variant/Vector2"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	"github.com/AveryLucas/gogogd/classdb/PropertyTweener"
+	"github.com/AveryLucas/gogogd/classdb/SceneTree"
+	"github.com/AveryLucas/gogogd/classdb/Sprite2D"
+	"github.com/AveryLucas/gogogd/classdb/Tween"
+	"github.com/AveryLucas/gogogd/variant/Color"
+	"github.com/AveryLucas/gogogd/variant/Vector2"
 )
 
 func ExampleTweenSetTrans(node Node.Instance, sprite Sprite2D.Instance) {

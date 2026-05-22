@@ -3,8 +3,8 @@ package Object
 import (
 	"iter"
 
-	gd "graphics.gd/internal"
-	"graphics.gd/internal/gdreference"
+	gd "github.com/AveryLucas/gogogd/internal"
+	"github.com/AveryLucas/gogogd/internal/gdreference"
 )
 
 // Any object.

@@ -5,7 +5,7 @@ import (
 	"path"
 	"path/filepath"
 
-	"graphics.gd/variant/String"
+	"github.com/AveryLucas/gogogd/variant/String"
 )
 
 // ToFile represents a path to a file within a filesystem.

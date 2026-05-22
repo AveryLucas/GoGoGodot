@@ -10,8 +10,8 @@ android_runtime.updatePersistableUriPermission(uri, persist)
 package main
 
 import (
-	"graphics.gd/classdb/Engine"
-	"graphics.gd/variant/Object"
+	"github.com/AveryLucas/gogogd/classdb/Engine"
+	"github.com/AveryLucas/gogogd/variant/Object"
 )
 
 func DisplayServer_FileDialogShow() {

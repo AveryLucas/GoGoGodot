@@ -7,8 +7,8 @@ ensure_control_visible(child_node)
 package main
 
 import (
-	"graphics.gd/classdb/SceneTree"
-	"graphics.gd/classdb/ScrollContainer"
+	"github.com/AveryLucas/gogogd/classdb/SceneTree"
+	"github.com/AveryLucas/gogogd/classdb/ScrollContainer"
 )
 
 var scrollContainer ScrollContainer.Instance

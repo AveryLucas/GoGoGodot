@@ -8,7 +8,7 @@ package main
 import (
 	"fmt"
 
-	"graphics.gd/classdb/ResourceLoader"
+	"github.com/AveryLucas/gogogd/classdb/ResourceLoader"
 )
 
 func ResourceLoader_ListDirectory() {

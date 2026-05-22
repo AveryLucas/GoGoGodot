@@ -6,15 +6,15 @@ import (
 	"sync"
 	"testing"
 
-	"graphics.gd/classdb"
-	"graphics.gd/classdb/Control"
-	"graphics.gd/classdb/Engine"
-	"graphics.gd/classdb/GDScript"
-	"graphics.gd/classdb/Input"
-	gd "graphics.gd/internal"
-	"graphics.gd/internal/threadcheck"
-	"graphics.gd/variant/Object"
-	"graphics.gd/variant/Vector2"
+	"github.com/AveryLucas/gogogd/classdb"
+	"github.com/AveryLucas/gogogd/classdb/Control"
+	"github.com/AveryLucas/gogogd/classdb/Engine"
+	"github.com/AveryLucas/gogogd/classdb/GDScript"
+	"github.com/AveryLucas/gogogd/classdb/Input"
+	gd "github.com/AveryLucas/gogogd/internal"
+	"github.com/AveryLucas/gogogd/internal/threadcheck"
+	"github.com/AveryLucas/gogogd/variant/Object"
+	"github.com/AveryLucas/gogogd/variant/Vector2"
 )
 
 func BenchmarkBuiltinPointerCall(B *testing.B) {

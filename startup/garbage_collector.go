@@ -1,17 +1,17 @@
 package startup
 
 import (
-	gd "graphics.gd/internal"
-	"graphics.gd/internal/gdextension"
-	"graphics.gd/internal/gdreference"
-	"graphics.gd/internal/pointers"
-	"graphics.gd/internal/ring"
-	"graphics.gd/variant/Callable"
+	gd "github.com/AveryLucas/gogogd/internal"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/internal/gdreference"
+	"github.com/AveryLucas/gogogd/internal/pointers"
+	"github.com/AveryLucas/gogogd/internal/ring"
+	"github.com/AveryLucas/gogogd/variant/Callable"
 
 	_ "unsafe"
 )
 
-//go:linkname keep_reachable_instances_alive graphics.gd/classdb.keep_reachable_instances_alive
+//go:linkname keep_reachable_instances_alive github.com/AveryLucas/gogogd/classdb.keep_reachable_instances_alive
 func keep_reachable_instances_alive()
 
 func init() {

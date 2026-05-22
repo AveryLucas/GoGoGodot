@@ -6,7 +6,7 @@ class_name VisualShaderNodeNoise
 
 package main
 
-import "graphics.gd/classdb/VisualShaderNodeCustom"
+import "github.com/AveryLucas/gogogd/classdb/VisualShaderNodeCustom"
 
 type MyVisualShaderNodeCustom struct {
 	VisualShaderNodeCustom.Extension[MyVisualShaderNodeCustom]

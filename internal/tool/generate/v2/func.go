@@ -6,8 +6,8 @@ import (
 	"reflect"
 	"strings"
 
-	"graphics.gd/internal/gdjson"
-	"graphics.gd/internal/tool/generate/gdtype"
+	"github.com/AveryLucas/gogogd/internal/gdjson"
+	"github.com/AveryLucas/gogogd/internal/tool/generate/gdtype"
 )
 
 // promotedMethodCall emits a forwarder method on the leaf class. Used to

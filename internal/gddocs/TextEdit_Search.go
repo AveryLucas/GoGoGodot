@@ -19,7 +19,7 @@ if (result.X != -1)
 
 package main
 
-import "graphics.gd/classdb/TextEdit"
+import "github.com/AveryLucas/gogogd/classdb/TextEdit"
 
 var textEdit TextEdit.Instance
 

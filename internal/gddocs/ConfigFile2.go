@@ -43,7 +43,7 @@ foreach (String player in config.GetSections())
 
 package main
 
-import "graphics.gd/classdb/ConfigFile"
+import "github.com/AveryLucas/gogogd/classdb/ConfigFile"
 
 func ExampleConfigFileLoad() error {
 	var score_data = make(map[string]any)

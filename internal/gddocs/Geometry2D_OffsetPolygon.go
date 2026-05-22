@@ -18,8 +18,8 @@ package main
 import (
 	"fmt"
 
-	"graphics.gd/variant/Transform2D"
-	"graphics.gd/variant/Vector2"
+	"github.com/AveryLucas/gogogd/variant/Transform2D"
+	"github.com/AveryLucas/gogogd/variant/Vector2"
 )
 
 func Geometry2D_OffsetPolygon() {

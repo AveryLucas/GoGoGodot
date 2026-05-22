@@ -1,8 +1,8 @@
 package swizzle
 
 import (
-	"graphics.gd/shaders/vec3"
-	"graphics.gd/shaders/vec4"
+	"github.com/AveryLucas/gogogd/shaders/vec3"
+	"github.com/AveryLucas/gogogd/shaders/vec4"
 )
 
 func RGB[T vec3.XYZ | vec4.XYZW | vec3.RGB | vec4.RGBA](v T) vec3.RGB {

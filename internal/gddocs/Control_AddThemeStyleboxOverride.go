@@ -26,10 +26,10 @@ GetNode<Button>("MyButton").RemoveThemeStyleboxOverride("normal");
 package main
 
 import (
-	"graphics.gd/classdb/Button"
-	"graphics.gd/classdb/Resource"
-	"graphics.gd/variant/Color"
-	"graphics.gd/variant/Object"
+	"github.com/AveryLucas/gogogd/classdb/Button"
+	"github.com/AveryLucas/gogogd/classdb/Resource"
+	"github.com/AveryLucas/gogogd/variant/Color"
+	"github.com/AveryLucas/gogogd/variant/Object"
 )
 
 var MyButton Button.Instance

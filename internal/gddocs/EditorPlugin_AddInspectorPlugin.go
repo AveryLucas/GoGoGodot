@@ -14,8 +14,8 @@ func _exit_tree():
 package main
 
 import (
-	"graphics.gd/classdb/EditorInspectorPlugin"
-	"graphics.gd/classdb/EditorPlugin"
+	"github.com/AveryLucas/gogogd/classdb/EditorInspectorPlugin"
+	"github.com/AveryLucas/gogogd/classdb/EditorPlugin"
 )
 
 type MyInspectorPlugin struct {

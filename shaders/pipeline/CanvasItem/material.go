@@ -1,13 +1,13 @@
 package CanvasItem
 
 import (
-	"graphics.gd/shaders/bool"
-	"graphics.gd/shaders/float"
-	"graphics.gd/shaders/internal/gpu"
-	"graphics.gd/shaders/texture"
-	"graphics.gd/shaders/vec2"
-	"graphics.gd/shaders/vec3"
-	"graphics.gd/shaders/vec4"
+	"github.com/AveryLucas/gogogd/shaders/bool"
+	"github.com/AveryLucas/gogogd/shaders/float"
+	"github.com/AveryLucas/gogogd/shaders/internal/gpu"
+	"github.com/AveryLucas/gogogd/shaders/texture"
+	"github.com/AveryLucas/gogogd/shaders/vec2"
+	"github.com/AveryLucas/gogogd/shaders/vec3"
+	"github.com/AveryLucas/gogogd/shaders/vec4"
 )
 
 type Material struct {

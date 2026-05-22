@@ -109,10 +109,10 @@ public partial class MySpecialPlugin : EditorImportPlugin
 package main
 
 import (
-	"graphics.gd/classdb/ArrayMesh"
-	"graphics.gd/classdb/EditorImportPlugin"
-	"graphics.gd/classdb/FileAccess"
-	"graphics.gd/classdb/ResourceSaver"
+	"github.com/AveryLucas/gogogd/classdb/ArrayMesh"
+	"github.com/AveryLucas/gogogd/classdb/EditorImportPlugin"
+	"github.com/AveryLucas/gogogd/classdb/FileAccess"
+	"github.com/AveryLucas/gogogd/classdb/ResourceSaver"
 )
 
 type MySpecialPlugin struct {

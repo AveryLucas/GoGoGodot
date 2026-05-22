@@ -21,8 +21,8 @@ public void Animate()
 package main
 
 import (
-	"graphics.gd/classdb/Node"
-	"graphics.gd/classdb/Tween"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	"github.com/AveryLucas/gogogd/classdb/Tween"
 )
 
 var tween Tween.Instance

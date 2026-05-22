@@ -12,7 +12,7 @@ import (
 	"errors"
 	"reflect"
 
-	"graphics.gd/variant/String"
+	"github.com/AveryLucas/gogogd/variant/String"
 )
 
 // Int is an enum backed by an increasing integer. T should be a struct

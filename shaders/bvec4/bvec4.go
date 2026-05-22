@@ -1,7 +1,7 @@
 // Pacakge bvec4 provides GPU operations on four-component boolean vectors.
 package bvec4
 
-import "graphics.gd/shaders/internal/gpu"
+import "github.com/AveryLucas/gogogd/shaders/internal/gpu"
 
 // XYZW is a four-component vector of booleans on the GPU.
 type XYZW gpu.Vec4b

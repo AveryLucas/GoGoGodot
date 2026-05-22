@@ -279,7 +279,7 @@ func (exe *toolchain) LookupPlatform(GOOS, GOARCH string) (string, error) {
 		if stat.Size() > 0 {
 			req.Header.Set("Range", fmt.Sprintf("bytes=%d-", stat.Size()))
 		}
-		req.Header.Set("User-Agent", "graphics.gd/cmd/gd")
+		req.Header.Set("User-Agent", "github.com/AveryLucas/gogogd/cmd/gd")
 		resp, err := http.DefaultClient.Do(req)
 		if err != nil {
 			return xray.New(err)

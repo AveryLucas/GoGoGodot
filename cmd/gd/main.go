@@ -20,11 +20,11 @@ import (
 	"slices"
 	"strings"
 
-	"graphics.gd/cmd/gd/internal/builder"
-	"graphics.gd/cmd/gd/internal/project"
-	"graphics.gd/cmd/gd/internal/tooling"
+	"github.com/AveryLucas/gogogd/cmd/gd/internal/builder"
+	"github.com/AveryLucas/gogogd/cmd/gd/internal/project"
+	"github.com/AveryLucas/gogogd/cmd/gd/internal/tooling"
 
-	"graphics.gd/internal/docgen"
+	"github.com/AveryLucas/gogogd/internal/docgen"
 
 	"runtime.link/api/xray"
 )
@@ -50,7 +50,7 @@ func main() {
 	}*/
 	if err := gd(os.Args[1:]...); err != nil {
 		fmt.Fprintln(os.Stderr, err)
-		fmt.Fprintln(os.Stderr, "\nis this error unexpected? open an issue! https://github.com/quaadgras/graphics.gd/issues/new/choose")
+		fmt.Fprintln(os.Stderr, "\nis this error unexpected? open an issue! https://github.com/quaadgras/github.com/AveryLucas/gogogd/issues/new/choose")
 		os.Exit(1)
 	}
 }
@@ -119,7 +119,7 @@ func testArgs(args ...string) []string {
 		}
 	}
 	if !benchmark {
-		converted = append([]string{"-gcflags=graphics.gd/classdb/...=-N -l"}, converted...)
+		converted = append([]string{"-gcflags=github.com/AveryLucas/gogogd/classdb/...=-N -l"}, converted...)
 	}
 	return converted
 }
@@ -166,7 +166,7 @@ func gd(args ...string) error {
 					}
 					os.Chdir(project.Directory)
 					defer os.Chdir(current)
-					var faster_compile = []string{"-gcflags=graphics.gd/classdb/...=-N -l"}
+					var faster_compile = []string{"-gcflags=github.com/AveryLucas/gogogd/classdb/...=-N -l"}
 					if slices.Contains(musl_args, "-bench") {
 						faster_compile = nil
 					}
@@ -186,7 +186,7 @@ func gd(args ...string) error {
 					}
 					os.Chdir(project.Directory)
 					defer os.Chdir(current)
-					return builder.Musl{}.Build("-gcflags=graphics.gd/classdb/...=-N -l")
+					return builder.Musl{}.Build("-gcflags=github.com/AveryLucas/gogogd/classdb/...=-N -l")
 				}
 			}
 			if os.Getenv("GOOS") == "" {
@@ -247,7 +247,7 @@ func gd(args ...string) error {
 		if err := os.Chdir(project.Directory); err != nil {
 			return xray.New(err)
 		}
-		if err := platform.Build("-gcflags=graphics.gd/classdb/...=-N -l"); err != nil {
+		if err := platform.Build("-gcflags=github.com/AveryLucas/gogogd/classdb/...=-N -l"); err != nil {
 			return xray.New(err)
 		}
 		if err := os.Chdir(project.GraphicsDirectory); err != nil {
@@ -275,7 +275,7 @@ func gd(args ...string) error {
 			if err := os.Chdir(project.Directory); err != nil {
 				return xray.New(err)
 			}
-			return platform.Run(append([]string{"-gcflags=graphics.gd/classdb/...=-N -l"}, args[1:]...)...)
+			return platform.Run(append([]string{"-gcflags=github.com/AveryLucas/gogogd/classdb/...=-N -l"}, args[1:]...)...)
 		case "test":
 			if !project.IncludesGo {
 				return errors.New("cannot run 'gd test' on a project that does not include Go code")
@@ -302,8 +302,8 @@ func findProjectGoMod() (dir string, goModPath string, ok bool) {
 	return "", "", false
 }
 
-// readGoModGraphicsVersion reads a go.mod file and returns the required version of graphics.gd,
-// or an empty string if graphics.gd is not a dependency.
+// readGoModGraphicsVersion reads a go.mod file and returns the required version of github.com/AveryLucas/gogogd,
+// or an empty string if it is not a dependency.
 func readGoModGraphicsVersion(goModPath string) string {
 	data, err := os.ReadFile(goModPath)
 	if err != nil {
@@ -311,24 +311,24 @@ func readGoModGraphicsVersion(goModPath string) string {
 	}
 	for _, line := range strings.Split(string(data), "\n") {
 		line = strings.TrimSpace(line)
-		if strings.HasPrefix(line, "graphics.gd ") {
-			return strings.TrimSpace(strings.TrimPrefix(line, "graphics.gd "))
+		if strings.HasPrefix(line, "github.com/AveryLucas/gogogd ") {
+			return strings.TrimSpace(strings.TrimPrefix(line, "github.com/AveryLucas/gogogd "))
 		}
 	}
 	return ""
 }
 
-// ensureGoToolGd checks if graphics.gd/cmd/gd is registered as a tool in go.mod,
-// and if not, runs "go get -tool graphics.gd/cmd/gd" to add it.
+// ensureGoToolGd checks if github.com/AveryLucas/gogogd/cmd/gd is registered as a tool in go.mod,
+// and if not, runs "go get -tool github.com/AveryLucas/gogogd/cmd/gd" to add it.
 func ensureGoToolGd(goPath, dir, goModPath string) {
 	data, err := os.ReadFile(goModPath)
 	if err != nil {
 		return
 	}
-	if strings.Contains(string(data), "graphics.gd/cmd/gd") {
+	if strings.Contains(string(data), "github.com/AveryLucas/gogogd/cmd/gd") {
 		return
 	}
-	cmd := exec.Command(goPath, "get", "-tool", "graphics.gd/cmd/gd")
+	cmd := exec.Command(goPath, "get", "-tool", "github.com/AveryLucas/gogogd/cmd/gd")
 	cmd.Dir = dir
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr

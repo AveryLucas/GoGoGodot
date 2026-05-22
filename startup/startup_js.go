@@ -5,15 +5,15 @@ import (
 	"slices"
 	"testing"
 
-	"graphics.gd/classdb"
-	EngineClass "graphics.gd/classdb/Engine"
-	"graphics.gd/classdb/SceneTree"
-	gd "graphics.gd/internal"
-	internal "graphics.gd/internal"
-	"graphics.gd/internal/gdextension"
-	"graphics.gd/internal/pointers"
-	"graphics.gd/variant/Callable"
-	"graphics.gd/variant/Float"
+	"github.com/AveryLucas/gogogd/classdb"
+	EngineClass "github.com/AveryLucas/gogogd/classdb/Engine"
+	"github.com/AveryLucas/gogogd/classdb/SceneTree"
+	gd "github.com/AveryLucas/gogogd/internal"
+	internal "github.com/AveryLucas/gogogd/internal"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/internal/pointers"
+	"github.com/AveryLucas/gogogd/variant/Callable"
+	"github.com/AveryLucas/gogogd/variant/Float"
 )
 
 var loaded = make(chan struct{})

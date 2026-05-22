@@ -20,8 +20,8 @@ Godot.Collections.Array<Godot.Collections.Dictionary> listOfSettings = settings.
 package main
 
 import (
-	"graphics.gd/classdb/EditorInterface"
-	"graphics.gd/variant/Object"
+	"github.com/AveryLucas/gogogd/classdb/EditorInterface"
+	"github.com/AveryLucas/gogogd/variant/Object"
 )
 
 func ExampleEditorSettings() {

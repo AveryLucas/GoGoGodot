@@ -15,7 +15,7 @@ else
 
 package main
 
-import "graphics.gd/classdb/Engine"
+import "github.com/AveryLucas/gogogd/classdb/Engine"
 
 func DrawGizmos()      {}
 func SimulatePhysics() {}

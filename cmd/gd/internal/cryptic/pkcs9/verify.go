@@ -24,8 +24,8 @@ import (
 	"fmt"
 	"time"
 
-	"graphics.gd/cmd/gd/internal/cryptic/pkcs7"
-	"graphics.gd/cmd/gd/internal/cryptic/x509tools"
+	"github.com/AveryLucas/gogogd/cmd/gd/internal/cryptic/pkcs7"
+	"github.com/AveryLucas/gogogd/cmd/gd/internal/cryptic/x509tools"
 )
 
 // Verify that the digest (imprint) in a timestamp token matches the given data

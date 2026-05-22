@@ -7,7 +7,7 @@
 // types directly (`Vector2.XY`, `Float.X`, `classdb.Class`) whenever it
 // reads better at the call site.
 //
-//	import "graphics.gd/gd"
+//	import "github.com/AveryLucas/gogogd/gd"
 //
 //	func (p *Player) Process(dt gd.Delta) {
 //	    p.SetVelocity(gd.Vec2{X: dt * p.Speed, Y: 0})
@@ -18,14 +18,14 @@
 package gd
 
 import (
-	"graphics.gd/classdb"
-	"graphics.gd/variant/Angle"
-	"graphics.gd/variant/Color"
-	"graphics.gd/variant/Euler"
-	"graphics.gd/variant/Float"
-	"graphics.gd/variant/Vector2"
-	"graphics.gd/variant/Vector3"
-	"graphics.gd/variant/Vector4"
+	"github.com/AveryLucas/gogogd/classdb"
+	"github.com/AveryLucas/gogogd/variant/Angle"
+	"github.com/AveryLucas/gogogd/variant/Color"
+	"github.com/AveryLucas/gogogd/variant/Euler"
+	"github.com/AveryLucas/gogogd/variant/Float"
+	"github.com/AveryLucas/gogogd/variant/Vector2"
+	"github.com/AveryLucas/gogogd/variant/Vector3"
+	"github.com/AveryLucas/gogogd/variant/Vector4"
 )
 
 // --- Numeric / vector aliases -----------------------------------------------

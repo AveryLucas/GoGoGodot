@@ -7,10 +7,10 @@ import (
 	"strings"
 	"unsafe"
 
-	"graphics.gd/classdb/Node"
-	"graphics.gd/internal/gdclass"
-	"graphics.gd/internal/threadsafe"
-	"graphics.gd/variant/Object"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	"github.com/AveryLucas/gogogd/internal/gdclass"
+	"github.com/AveryLucas/gogogd/internal/threadsafe"
+	"github.com/AveryLucas/gogogd/variant/Object"
 )
 
 // debugKeepalive enables verbose tracing of compile_keepalive's recursion.

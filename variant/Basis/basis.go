@@ -4,10 +4,10 @@ package Basis
 import (
 	"unsafe"
 
-	"graphics.gd/variant/Angle"
-	"graphics.gd/variant/Euler"
-	"graphics.gd/variant/Float"
-	"graphics.gd/variant/Vector3"
+	"github.com/AveryLucas/gogogd/variant/Angle"
+	"github.com/AveryLucas/gogogd/variant/Euler"
+	"github.com/AveryLucas/gogogd/variant/Float"
+	"github.com/AveryLucas/gogogd/variant/Vector3"
 )
 
 // The XYZ type is a 3×3 matrix used to represent 3D rotation, scale, and

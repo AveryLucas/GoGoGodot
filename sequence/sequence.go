@@ -15,9 +15,9 @@
 package sequence
 
 import (
-	"graphics.gd/classdb/Node"
-	"graphics.gd/gd"
-	"graphics.gd/timing"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	"github.com/AveryLucas/gogogd/gd"
+	"github.com/AveryLucas/gogogd/timing"
 )
 
 // Step is one entry in a sequence. Construct with [Wait], [Do],
@@ -50,7 +50,7 @@ func Do(fn func()) Step {
 
 // WaitUntil polls cond every frame and continues to the next step when
 // it returns true. Cheap polling; for state-driven branching prefer
-// [graphics.gd/fsm].
+// [github.com/AveryLucas/gogogd/fsm].
 func WaitUntil(cond func() bool) Step {
 	return func(owner Node.Instance, next func()) {
 		afterEveryFrame(owner, func() bool {

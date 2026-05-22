@@ -22,7 +22,7 @@ import (
 	"crypto/tls"
 	"crypto/x509"
 
-	"graphics.gd/cmd/gd/internal/cryptic/pkcs9"
+	"github.com/AveryLucas/gogogd/cmd/gd/internal/cryptic/pkcs9"
 )
 
 const asn1Magic = 0x30 // weak but good enough?

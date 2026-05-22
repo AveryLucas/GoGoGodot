@@ -5,14 +5,14 @@ import (
 	"reflect"
 	"unsafe"
 
-	gd "graphics.gd/internal"
-	"graphics.gd/internal/gdclass"
-	"graphics.gd/internal/gdextension"
-	"graphics.gd/internal/gdreference"
-	"graphics.gd/internal/noescape"
-	"graphics.gd/internal/pointers"
-	"graphics.gd/variant/Error"
-	"graphics.gd/variant/Signal"
+	gd "github.com/AveryLucas/gogogd/internal"
+	"github.com/AveryLucas/gogogd/internal/gdclass"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/internal/gdreference"
+	"github.com/AveryLucas/gogogd/internal/noescape"
+	"github.com/AveryLucas/gogogd/internal/pointers"
+	"github.com/AveryLucas/gogogd/variant/Error"
+	"github.com/AveryLucas/gogogd/variant/Signal"
 )
 
 // ID uniquely and opaquely identifies an Object instance.

@@ -25,8 +25,8 @@ import (
 	"net/http"
 	"strings"
 
-	"graphics.gd/cmd/gd/internal/cryptic/x509tools"
-	"graphics.gd/cmd/gd/internal/cryptic/zipslicer"
+	"github.com/AveryLucas/gogogd/cmd/gd/internal/cryptic/x509tools"
+	"github.com/AveryLucas/gogogd/cmd/gd/internal/cryptic/zipslicer"
 )
 
 // found in the "extra" field of JAR files, not strictly required but it makes

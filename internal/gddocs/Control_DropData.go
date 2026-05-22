@@ -24,8 +24,8 @@ package main
 import (
 	"reflect"
 
-	"graphics.gd/variant/Color"
-	"graphics.gd/variant/Vector2"
+	"github.com/AveryLucas/gogogd/variant/Color"
+	"github.com/AveryLucas/gogogd/variant/Vector2"
 )
 
 var color Color.RGBA

@@ -14,9 +14,9 @@ foreach (Node sprite in GetChildren())
 package main
 
 import (
-	"graphics.gd/classdb/Node"
-	"graphics.gd/classdb/PropertyTweener"
-	"graphics.gd/variant/Vector2"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	"github.com/AveryLucas/gogogd/classdb/PropertyTweener"
+	"github.com/AveryLucas/gogogd/variant/Vector2"
 )
 
 func ExampleTweenObjects(node Node.Instance) {

@@ -2,9 +2,9 @@
 package Rect2i
 
 import (
-	"graphics.gd/variant/Float"
-	"graphics.gd/variant/Int"
-	"graphics.gd/variant/Vector2i"
+	"github.com/AveryLucas/gogogd/variant/Float"
+	"github.com/AveryLucas/gogogd/variant/Int"
+	"github.com/AveryLucas/gogogd/variant/Vector2i"
 )
 
 type Side int

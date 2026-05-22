@@ -2,7 +2,7 @@
 
 package noescape
 
-import "graphics.gd/internal/gdextension"
+import "github.com/AveryLucas/gogogd/internal/gdextension"
 
 func Call[T any](object gdextension.Object, method gdextension.MethodForClass, shape gdextension.Shape, args any) T {
 	panic("not implemented")

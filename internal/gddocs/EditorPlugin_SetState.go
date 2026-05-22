@@ -6,7 +6,7 @@ func _set_state(data):
 
 package main
 
-import "graphics.gd/variant/Color"
+import "github.com/AveryLucas/gogogd/variant/Color"
 
 func EditorPlugin_SetState() {
 	var zoom float64

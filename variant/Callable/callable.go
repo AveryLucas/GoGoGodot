@@ -8,8 +8,8 @@ import (
 	"runtime"
 	"sync"
 
-	"graphics.gd/variant"
-	"graphics.gd/variant/Array"
+	"github.com/AveryLucas/gogogd/variant"
+	"github.com/AveryLucas/gogogd/variant/Array"
 )
 
 // Function represents a function. It can either be a method on a named type, or a custom callable used

@@ -18,9 +18,9 @@ package main
 import (
 	"fmt"
 
-	"graphics.gd/classdb/CharacterBody2D"
-	"graphics.gd/classdb/Node"
-	"graphics.gd/variant/Object"
+	"github.com/AveryLucas/gogogd/classdb/CharacterBody2D"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	"github.com/AveryLucas/gogogd/variant/Object"
 )
 
 var characterBody2D CharacterBody2D.Instance

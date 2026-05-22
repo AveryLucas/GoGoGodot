@@ -14,17 +14,17 @@ import (
 	"slices"
 	"testing"
 
-	_ "graphics.gd"
+	_ "github.com/AveryLucas/gogogd"
 
-	"graphics.gd/classdb"
-	EngineClass "graphics.gd/classdb/Engine"
-	"graphics.gd/classdb/SceneTree"
-	internal "graphics.gd/internal"
-	"graphics.gd/internal/gdextension"
-	"graphics.gd/internal/pointers"
-	"graphics.gd/internal/threadcheck"
-	"graphics.gd/variant/Callable"
-	"graphics.gd/variant/Float"
+	"github.com/AveryLucas/gogogd/classdb"
+	EngineClass "github.com/AveryLucas/gogogd/classdb/Engine"
+	"github.com/AveryLucas/gogogd/classdb/SceneTree"
+	internal "github.com/AveryLucas/gogogd/internal"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/internal/pointers"
+	"github.com/AveryLucas/gogogd/internal/threadcheck"
+	"github.com/AveryLucas/gogogd/variant/Callable"
+	"github.com/AveryLucas/gogogd/variant/Float"
 )
 
 var initDone = false

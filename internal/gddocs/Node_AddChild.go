@@ -17,7 +17,7 @@ AddChild(childNode);
 
 package main
 
-import "graphics.gd/classdb/Node"
+import "github.com/AveryLucas/gogogd/classdb/Node"
 
 func Node_AddChild() {
 	var childNode = node.GetChild(0)

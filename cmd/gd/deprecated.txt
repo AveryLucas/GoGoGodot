@@ -1,9 +1,9 @@
 package P
-import "graphics.gd/startup"
+import "github.com/AveryLucas/gogogd/startup"
 func before() { startup.Loader() }
 func after()  { startup.LoadingScene() }
 
 package P
-import "graphics.gd/startup"
+import "github.com/AveryLucas/gogogd/startup"
 func before() { startup.Engine() }
 func after()  { startup.Scene() }

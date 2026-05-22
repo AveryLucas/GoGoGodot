@@ -1,8 +1,8 @@
 package gd
 
 import (
-	"graphics.gd/internal/gdextension"
-	"graphics.gd/internal/gdmemory"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/internal/gdmemory"
 )
 
 func init() {

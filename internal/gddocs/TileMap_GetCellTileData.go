@@ -11,8 +11,8 @@ func get_clicked_tile_power():
 package main
 
 import (
-	"graphics.gd/classdb/TileData"
-	"graphics.gd/classdb/TileMap"
+	"github.com/AveryLucas/gogogd/classdb/TileData"
+	"github.com/AveryLucas/gogogd/classdb/TileMap"
 )
 
 var tileMap TileMap.Instance

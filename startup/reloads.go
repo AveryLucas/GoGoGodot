@@ -12,9 +12,9 @@ import (
 	"github.com/tetratelabs/wazero"
 	"github.com/tetratelabs/wazero/api"
 	"github.com/tetratelabs/wazero/imports/wasi_snapshot_preview1"
-	gd "graphics.gd/internal"
-	"graphics.gd/internal/callframe"
-	"graphics.gd/internal/pointers"
+	gd "github.com/AveryLucas/gogogd/internal"
+	"github.com/AveryLucas/gogogd/internal/callframe"
+	"github.com/AveryLucas/gogogd/internal/pointers"
 )
 
 func init() {

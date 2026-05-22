@@ -4,10 +4,10 @@ import (
 	"reflect"
 	"strings"
 
-	gd "graphics.gd/internal"
-	"graphics.gd/internal/gdclass"
-	"graphics.gd/internal/gdextension"
-	"graphics.gd/internal/threadsafe"
+	gd "github.com/AveryLucas/gogogd/internal"
+	"github.com/AveryLucas/gogogd/internal/gdclass"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/internal/threadsafe"
 )
 
 var instances threadsafe.Handles[*instanceImplementation, gdextension.ExtensionInstanceID]

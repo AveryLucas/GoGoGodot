@@ -10,12 +10,12 @@ import (
 	"math"
 	"unsafe"
 
-	"graphics.gd/variant"
-	GenericArray "graphics.gd/variant/Array"
-	"graphics.gd/variant/Color"
-	"graphics.gd/variant/Vector2"
-	"graphics.gd/variant/Vector3"
-	"graphics.gd/variant/Vector4"
+	"github.com/AveryLucas/gogogd/variant"
+	GenericArray "github.com/AveryLucas/gogogd/variant/Array"
+	"github.com/AveryLucas/gogogd/variant/Color"
+	"github.com/AveryLucas/gogogd/variant/Vector2"
+	"github.com/AveryLucas/gogogd/variant/Vector3"
+	"github.com/AveryLucas/gogogd/variant/Vector4"
 )
 
 type CompressionMode int

@@ -19,7 +19,7 @@ public override void _Process(double delta)
 
 package main
 
-import "graphics.gd/classdb/Engine"
+import "github.com/AveryLucas/gogogd/classdb/Engine"
 
 func Engine_GetProcessFrames() {
 	if Engine.GetProcessFrames()%5 == 0 {

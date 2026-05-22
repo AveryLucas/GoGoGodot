@@ -16,8 +16,8 @@ func _process(_delta):
 package main
 
 import (
-	"graphics.gd/classdb/Node"
-	"graphics.gd/classdb/PacketPeerUDP"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	"github.com/AveryLucas/gogogd/classdb/PacketPeerUDP"
 )
 
 type MyPacketPeerUDP struct {

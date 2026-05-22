@@ -3,7 +3,7 @@
 
 package startup
 
-import "graphics.gd/internal/gdextension"
+import "github.com/AveryLucas/gogogd/internal/gdextension"
 
 //go:wasmexport gd_on_callable_call
 func gd_on_callable_call(p0 uint32, p1 uint32, p2 int32, p3 uint32, p4 uint32) {

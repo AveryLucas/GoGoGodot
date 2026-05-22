@@ -9,8 +9,8 @@ import (
 	"runtime/debug"
 	"strings"
 
-	"graphics.gd/internal/gdextension"
-	"graphics.gd/internal/pointers"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/internal/pointers"
 )
 
 // String returns a [String] from a standard UTF8 Go string.
@@ -48,7 +48,7 @@ func recovery(err any) {
 			}
 			fn := runtime.FuncForPC(pc)
 			name = fn.Name()
-			if strings.HasPrefix(name, "runtime.") || strings.HasPrefix(name, "graphics.gd") {
+			if strings.HasPrefix(name, "runtime.") || strings.HasPrefix(name, "github.com/AveryLucas/gogogd") {
 				continue
 			}
 			file, line = fn.FileLine(pc)

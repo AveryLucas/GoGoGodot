@@ -10,7 +10,7 @@ import (
 	"reflect"
 	"strings"
 
-	"graphics.gd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
 	"runtime.link/api"
 )
 
@@ -59,7 +59,7 @@ func generate_startup_cgo() error {
 	fmt.Fprint(f, "//go:build cgo\n\n")
 	fmt.Fprint(f, "package startup\n\n")
 	fmt.Fprint(f, "import \"unsafe\"\n")
-	fmt.Fprint(f, "import \"graphics.gd/internal/gdextension\"\n\n")
+	fmt.Fprint(f, "import \"github.com/AveryLucas/gogogd/internal/gdextension\"\n\n")
 	fmt.Fprint(f, "// #include \"../gdextension_interface.h\"\n")
 	fmt.Fprint(f, "// #include \"../gd.h\"\n")
 	fmt.Fprint(f, "// #include <stdlib.h>\n")
@@ -257,7 +257,7 @@ func writeGoFunctionResults(f io.Writer, fn api.Function, flat bool, typeOf func
 
 func goTypeOf(rtype reflect.Type) string {
 	if rtype.PkgPath() != "" {
-		return fmt.Sprintf("gdextension.%s", strings.ReplaceAll(rtype.Name(), "graphics.gd/internal/", ""))
+		return fmt.Sprintf("gdextension.%s", strings.ReplaceAll(rtype.Name(), "github.com/AveryLucas/gogogd/internal/", ""))
 	}
 	if rtype.Kind() == reflect.Uintptr {
 		return "gdextension.Pointer"
@@ -273,7 +273,7 @@ func goTypeOf(rtype reflect.Type) string {
 
 func toGoValue(rtype reflect.Type) string {
 	if rtype.PkgPath() != "" {
-		return fmt.Sprintf("gdextension.%s", strings.ReplaceAll(rtype.Name(), "graphics.gd/internal/", ""))
+		return fmt.Sprintf("gdextension.%s", strings.ReplaceAll(rtype.Name(), "github.com/AveryLucas/gogogd/internal/", ""))
 	}
 	switch rtype.Kind() {
 	case reflect.Uintptr:
@@ -391,7 +391,7 @@ func cgoTypeOf(rtype reflect.Type) string {
 		if internal == "uint64]" {
 			return "*C.uint64_t"
 		}
-		if internal == "graphics.gd/internal/gdextension.PackedArray[graphics.gd/internal/gdextension.String]]" {
+		if internal == "github.com/AveryLucas/gogogd/internal/gdextension.PackedArray[github.com/AveryLucas/gogogd/internal/gdextension.String]]" {
 			return "*C.PackedStringArray"
 		}
 		if ok && internal != "interface {}]" {

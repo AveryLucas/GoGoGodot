@@ -54,11 +54,11 @@ package main
 import (
 	"fmt"
 
-	"graphics.gd/classdb/InputEvent"
-	"graphics.gd/classdb/InputEventMIDI"
-	"graphics.gd/classdb/Node"
-	"graphics.gd/classdb/OS"
-	"graphics.gd/variant/Object"
+	"github.com/AveryLucas/gogogd/classdb/InputEvent"
+	"github.com/AveryLucas/gogogd/classdb/InputEventMIDI"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	"github.com/AveryLucas/gogogd/classdb/OS"
+	"github.com/AveryLucas/gogogd/variant/Object"
 )
 
 type MyMIDI struct {

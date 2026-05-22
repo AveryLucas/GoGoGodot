@@ -7,47 +7,47 @@ import (
 	"slices"
 	"strings"
 
-	"graphics.gd/internal/gdjson"
+	"github.com/AveryLucas/gogogd/internal/gdjson"
 )
 
 func ImportsForClass(class gdjson.Class) iter.Seq[string] {
 	return func(yield func(string) bool) {
 		var imports = map[string]bool{
-			"graphics.gd/variant/Object":     true,
-			"graphics.gd/variant/Float":      true,
-			"graphics.gd/variant/RefCounted": true,
-			"graphics.gd/variant/Array":      true,
-			"graphics.gd/variant/Callable":   true,
-			"graphics.gd/variant/Dictionary": true,
-			"graphics.gd/variant/RID":        true,
-			"graphics.gd/variant/String":     true,
-			"graphics.gd/variant/Path":       true,
-			"graphics.gd/variant/Packed":     true,
-			"graphics.gd/variant/Error":      true,
+			"github.com/AveryLucas/gogogd/variant/Object":     true,
+			"github.com/AveryLucas/gogogd/variant/Float":      true,
+			"github.com/AveryLucas/gogogd/variant/RefCounted": true,
+			"github.com/AveryLucas/gogogd/variant/Array":      true,
+			"github.com/AveryLucas/gogogd/variant/Callable":   true,
+			"github.com/AveryLucas/gogogd/variant/Dictionary": true,
+			"github.com/AveryLucas/gogogd/variant/RID":        true,
+			"github.com/AveryLucas/gogogd/variant/String":     true,
+			"github.com/AveryLucas/gogogd/variant/Path":       true,
+			"github.com/AveryLucas/gogogd/variant/Packed":     true,
+			"github.com/AveryLucas/gogogd/variant/Error":      true,
 		}
 		if class.Name == "CSGShape3D" {
-			imports["graphics.gd/classdb/Mesh"] = true
-			imports["graphics.gd/variant/Transform3D"] = true
+			imports["github.com/AveryLucas/gogogd/classdb/Mesh"] = true
+			imports["github.com/AveryLucas/gogogd/variant/Transform3D"] = true
 		}
 		if class.Name == "OpenXRInterface" {
-			imports["graphics.gd/classdb/OpenXRActionSet"] = true
+			imports["github.com/AveryLucas/gogogd/classdb/OpenXRActionSet"] = true
 		}
 		if class.Name == "MeshLibrary" {
-			imports["graphics.gd/classdb/Shape3D"] = true
+			imports["github.com/AveryLucas/gogogd/classdb/Shape3D"] = true
 		}
 		if class.Name == "TextEdit" {
-			imports["graphics.gd/variant/Rect2"] = true
+			imports["github.com/AveryLucas/gogogd/variant/Rect2"] = true
 		}
 		if class.Name == "ResourceUID" {
-			imports["graphics.gd/classdb/Resource"] = true
+			imports["github.com/AveryLucas/gogogd/classdb/Resource"] = true
 		}
 		if class.Name == "AudioStreamPlaybackInteractive" {
-			imports["graphics.gd/classdb/AudioStreamInteractive"] = true
+			imports["github.com/AveryLucas/gogogd/classdb/AudioStreamInteractive"] = true
 		}
 		if class.Inherits != "" {
 			super := ClassDB[class.Inherits]
 			for super.Name != "" && super.Name != "Object" && super.Name != "RefCounted" && !ClassDB[super.Name].IsSingleton {
-				path := fmt.Sprintf("graphics.gd/classdb/%s", super.Name)
+				path := fmt.Sprintf("github.com/AveryLucas/gogogd/classdb/%s", super.Name)
 				imports[path] = true
 				super = ClassDB[super.Inherits]
 			}
@@ -72,7 +72,7 @@ func ImportsForClass(class gdjson.Class) iter.Seq[string] {
 		}
 		for _, peer_method := range gdjson.RelocationsReverse[class.Name] {
 			peer, method_name, _ := strings.Cut(peer_method, ".")
-			imports["graphics.gd/classdb/"+peer] = true
+			imports["github.com/AveryLucas/gogogd/classdb/"+peer] = true
 			peerClass := ClassDB[peer]
 			method := gdjson.Method{}
 			for _, peerMethod := range peerClass.Methods {
@@ -236,7 +236,7 @@ func importsForEngineType(class gdjson.Class, identifier, s string) iter.Seq[str
 			return
 		}
 		if _, ok := ClassDB[s]; ok && s != "Object" && s != class.Name {
-			if !yield("graphics.gd/classdb/" + s) {
+			if !yield("github.com/AveryLucas/gogogd/classdb/" + s) {
 				return
 			}
 		}
@@ -253,7 +253,7 @@ func importsForEngineType(class gdjson.Class, identifier, s string) iter.Seq[str
 				}
 				if class.Name != host {
 					if dependency, ok := ClassDB[host]; ok && !dependency.IsEnum {
-						if !yield("graphics.gd/classdb/" + host) {
+						if !yield("github.com/AveryLucas/gogogd/classdb/" + host) {
 							return
 						}
 					}
@@ -264,15 +264,15 @@ func importsForEngineType(class gdjson.Class, identifier, s string) iter.Seq[str
 		switch s {
 		case "Vector2", "Vector2i", "Rect2", "Rect2i", "Vector3", "Vector3i", "Transform2D", "Vector4", "Vector4i",
 			"Plane", "Quaternion", "AABB", "Basis", "Transform3D", "Projection", "Color":
-			yield("graphics.gd/variant/" + s)
+			yield("github.com/AveryLucas/gogogd/variant/" + s)
 		case "PackedVector2Array":
-			yield("graphics.gd/variant/Vector2")
+			yield("github.com/AveryLucas/gogogd/variant/Vector2")
 		case "PackedVector3Array":
-			yield("graphics.gd/variant/Vector3")
+			yield("github.com/AveryLucas/gogogd/variant/Vector3")
 		case "PackedVector4Array":
-			yield("graphics.gd/variant/Vector4")
+			yield("github.com/AveryLucas/gogogd/variant/Vector4")
 		case "PackedColorArray":
-			yield("graphics.gd/variant/Color")
+			yield("github.com/AveryLucas/gogogd/variant/Color")
 		case "Callable":
 			details := gdjson.Callables[identifier]
 			if len(details) == 0 {
@@ -293,23 +293,23 @@ func importsForEngineType(class gdjson.Class, identifier, s string) iter.Seq[str
 		// Check Addressables/Sliceables for any pointer-typed param (AudioFrame*, void*, float*, etc.)
 		if identifier != "" {
 			if s, ok := gdjson.Sliceables[identifier]; ok {
-				if !yield("graphics.gd/internal/gdmemory") {
+				if !yield("github.com/AveryLucas/gogogd/internal/gdmemory") {
 					return
 				}
 				switch s.Elem {
 				case "byte", "int32", "int64", "float32", "float64",
 					"Vector2.XY", "Vector3.XYZ", "Vector4.XYZW", "Color.RGBA":
-					if !yield("graphics.gd/variant/Packed") {
+					if !yield("github.com/AveryLucas/gogogd/variant/Packed") {
 						return
 					}
 				}
 			}
 			if mapped, ok := gdjson.Addressables[identifier]; ok {
 				if strings.HasPrefix(mapped, "Engine.Pointer[") {
-					if !yield("graphics.gd/classdb/Engine") {
+					if !yield("github.com/AveryLucas/gogogd/classdb/Engine") {
 						return
 					}
-					if !yield("graphics.gd/internal/gdmemory") {
+					if !yield("github.com/AveryLucas/gogogd/internal/gdmemory") {
 						return
 					}
 					// Extract the inner type and check if it needs a classdb import.
@@ -317,7 +317,7 @@ func importsForEngineType(class gdjson.Class, identifier, s string) iter.Seq[str
 					inner = strings.TrimSuffix(inner, "]")
 					if pkg, _, ok := strings.Cut(inner, "."); ok && pkg != class.Name {
 						if _, exists := ClassDB[pkg]; exists || pkg == "OpenXR" {
-							if !yield("graphics.gd/classdb/" + pkg) {
+							if !yield("github.com/AveryLucas/gogogd/classdb/" + pkg) {
 								return
 							}
 						}

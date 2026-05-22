@@ -16,7 +16,7 @@ import (
 	"fmt"
 	"strings"
 
-	"graphics.gd/classdb/Translation"
+	"github.com/AveryLucas/gogogd/classdb/Translation"
 )
 
 var translation Translation.Instance

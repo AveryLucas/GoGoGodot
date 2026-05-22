@@ -5,12 +5,12 @@ package gd_test
 import (
 	"testing"
 
-	"graphics.gd/classdb/Node2D"
-	gd "graphics.gd/internal"
-	"graphics.gd/internal/pointers"
-	"graphics.gd/variant"
-	"graphics.gd/variant/Callable"
-	"graphics.gd/variant/Signal"
+	"github.com/AveryLucas/gogogd/classdb/Node2D"
+	gd "github.com/AveryLucas/gogogd/internal"
+	"github.com/AveryLucas/gogogd/internal/pointers"
+	"github.com/AveryLucas/gogogd/variant"
+	"github.com/AveryLucas/gogogd/variant/Callable"
+	"github.com/AveryLucas/gogogd/variant/Signal"
 )
 
 type CustomSignal struct {
@@ -52,7 +52,7 @@ type CustomStringSignals struct {
 // TestSignalDisconnect tests that a callable created with Callable.New can be
 // disconnected from a Godot signal after being connected, using the same
 // Callable.Function value for both operations. This is the bug reported in
-// https://github.com/quaadgras/graphics.gd/discussions/263
+// https://github.com/quaadgras/github.com/AveryLucas/gogogd/discussions/263
 func TestSignalDisconnect(t *testing.T) {
 	runOnMain(t, func(t testing.TB) {
 		custom := new(CustomStringSignals)

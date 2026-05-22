@@ -10,9 +10,9 @@ func _enter_tree():
 package main
 
 import (
-	"graphics.gd/classdb/Engine"
-	"graphics.gd/classdb/SceneTree"
-	"graphics.gd/variant/Object"
+	"github.com/AveryLucas/gogogd/classdb/Engine"
+	"github.com/AveryLucas/gogogd/classdb/SceneTree"
+	"github.com/AveryLucas/gogogd/variant/Object"
 )
 
 func ExampleSetCustomMultiplayer() {

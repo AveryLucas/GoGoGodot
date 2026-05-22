@@ -30,8 +30,8 @@ animationTree.Get("parameters/Transition/current_index");
 package main
 
 import (
-	"graphics.gd/classdb/AnimationTree"
-	"graphics.gd/variant/Object"
+	"github.com/AveryLucas/gogogd/classdb/AnimationTree"
+	"github.com/AveryLucas/gogogd/variant/Object"
 )
 
 func ExampleAnimationNodeTransition(tree AnimationTree.Instance) {

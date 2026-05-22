@@ -3,7 +3,7 @@ package gdjson
 import (
 	"reflect"
 
-	"graphics.gd/variant/RID"
+	"github.com/AveryLucas/gogogd/variant/RID"
 )
 
 var Resources = map[string]reflect.Type{

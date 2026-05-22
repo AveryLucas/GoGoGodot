@@ -4,7 +4,7 @@ package ivec3
 import (
 	"reflect"
 
-	"graphics.gd/shaders/internal/gpu"
+	"github.com/AveryLucas/gogogd/shaders/internal/gpu"
 )
 
 // XYZ is a three-component vector of signed integers on the GPU.

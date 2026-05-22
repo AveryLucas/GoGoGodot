@@ -9,9 +9,9 @@ if future_result.get_status() == OpenXRFutureResult.RESULT_FINISHED:
 package main
 
 import (
-	"graphics.gd/classdb/OpenXRFutureExtension"
-	"graphics.gd/classdb/OpenXRFutureResult"
-	"graphics.gd/variant/Signal"
+	"github.com/AveryLucas/gogogd/classdb/OpenXRFutureExtension"
+	"github.com/AveryLucas/gogogd/classdb/OpenXRFutureResult"
+	"github.com/AveryLucas/gogogd/variant/Signal"
 )
 
 var openXRFutureExtension OpenXRFutureExtension.Instance

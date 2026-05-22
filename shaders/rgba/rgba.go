@@ -4,8 +4,8 @@ package rgba
 import (
 	"reflect"
 
-	"graphics.gd/shaders/internal/gpu"
-	"graphics.gd/shaders/vec4"
+	"github.com/AveryLucas/gogogd/shaders/internal/gpu"
+	"github.com/AveryLucas/gogogd/shaders/vec4"
 )
 
 func New[R, G, B, A gpu.AnyFloat](r R, g G, b B, a A) vec4.RGBA {

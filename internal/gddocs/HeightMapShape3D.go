@@ -14,11 +14,11 @@ update_map_data_from_image(heightmap_image, height_min, height_max)
 package main
 
 import (
-	"graphics.gd/classdb/HeightMapShape3D"
-	"graphics.gd/classdb/Image"
-	"graphics.gd/classdb/Resource"
-	"graphics.gd/classdb/Texture2D"
-	"graphics.gd/variant/Float"
+	"github.com/AveryLucas/gogogd/classdb/HeightMapShape3D"
+	"github.com/AveryLucas/gogogd/classdb/Image"
+	"github.com/AveryLucas/gogogd/classdb/Resource"
+	"github.com/AveryLucas/gogogd/classdb/Texture2D"
+	"github.com/AveryLucas/gogogd/variant/Float"
 )
 
 func ExampleHeightMapShape3D(shape HeightMapShape3D.Instance) {

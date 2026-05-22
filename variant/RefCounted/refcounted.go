@@ -4,9 +4,9 @@ import (
 	"reflect"
 	"unsafe"
 
-	gd "graphics.gd/internal"
-	"graphics.gd/internal/gdclass"
-	"graphics.gd/internal/gdreference"
+	gd "github.com/AveryLucas/gogogd/internal"
+	"github.com/AveryLucas/gogogd/internal/gdclass"
+	"github.com/AveryLucas/gogogd/internal/gdreference"
 )
 
 type Any interface {

@@ -10,7 +10,7 @@ func _popup_menu(paths):
 
 package main
 
-import "graphics.gd/classdb/PopupMenu"
+import "github.com/AveryLucas/gogogd/classdb/PopupMenu"
 
 func EditorContextMenuPlugin_AddContextSubmenuItem() {
 	var popup_menu = PopupMenu.New()

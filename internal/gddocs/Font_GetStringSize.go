@@ -11,9 +11,9 @@ Vector2 stringSize = label.GetThemeFont("font").GetStringSize(label.Text, Horizo
 package main
 
 import (
-	"graphics.gd/classdb/GUI"
-	"graphics.gd/classdb/Label"
-	"graphics.gd/classdb/TextServer"
+	"github.com/AveryLucas/gogogd/classdb/GUI"
+	"github.com/AveryLucas/gogogd/classdb/Label"
+	"github.com/AveryLucas/gogogd/classdb/TextServer"
 )
 
 var label Label.Instance

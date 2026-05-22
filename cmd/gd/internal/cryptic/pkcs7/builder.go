@@ -25,7 +25,7 @@ import (
 	"errors"
 	"fmt"
 
-	"graphics.gd/cmd/gd/internal/cryptic/x509tools"
+	"github.com/AveryLucas/gogogd/cmd/gd/internal/cryptic/x509tools"
 )
 
 type SignatureBuilder struct {

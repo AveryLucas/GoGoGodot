@@ -10,12 +10,12 @@ DrawString(ThemeDB.FallbackFont, new Vector2(64, 64), "Hello world", HorizontalA
 package main
 
 import (
-	"graphics.gd/classdb/CanvasItem"
-	"graphics.gd/classdb/GUI"
-	"graphics.gd/classdb/TextServer"
-	"graphics.gd/classdb/ThemeDB"
-	"graphics.gd/variant/Color"
-	"graphics.gd/variant/Vector2"
+	"github.com/AveryLucas/gogogd/classdb/CanvasItem"
+	"github.com/AveryLucas/gogogd/classdb/GUI"
+	"github.com/AveryLucas/gogogd/classdb/TextServer"
+	"github.com/AveryLucas/gogogd/classdb/ThemeDB"
+	"github.com/AveryLucas/gogogd/variant/Color"
+	"github.com/AveryLucas/gogogd/variant/Vector2"
 )
 
 var canvas_item CanvasItem.Instance

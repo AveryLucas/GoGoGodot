@@ -5,10 +5,10 @@ package gd_test
 import (
 	"testing"
 
-	gd "graphics.gd/internal"
-	"graphics.gd/internal/gdextension"
-	"graphics.gd/internal/pointers"
-	"graphics.gd/variant/String"
+	gd "github.com/AveryLucas/gogogd/internal"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/internal/pointers"
+	"github.com/AveryLucas/gogogd/variant/String"
 )
 
 func TestStrings(t *testing.T) {

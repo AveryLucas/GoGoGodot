@@ -11,10 +11,10 @@ popup_menu.popup()
 package main
 
 import (
-	"graphics.gd/classdb/PopupMenu"
-	"graphics.gd/variant/Transform2D"
-	"graphics.gd/variant/Vector2"
-	"graphics.gd/variant/Vector2i"
+	"github.com/AveryLucas/gogogd/classdb/PopupMenu"
+	"github.com/AveryLucas/gogogd/variant/Transform2D"
+	"github.com/AveryLucas/gogogd/variant/Vector2"
+	"github.com/AveryLucas/gogogd/variant/Vector2i"
 )
 
 var popup_menu PopupMenu.Instance

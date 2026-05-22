@@ -9,8 +9,8 @@ package main
 import (
 	"fmt"
 
-	"graphics.gd/classdb/AnimationTree"
-	"graphics.gd/variant/Object"
+	"github.com/AveryLucas/gogogd/classdb/AnimationTree"
+	"github.com/AveryLucas/gogogd/variant/Object"
 )
 
 func ExampleAnimationNode(tree AnimationTree.Instance) {

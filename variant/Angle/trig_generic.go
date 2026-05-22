@@ -5,7 +5,7 @@ package Angle
 import (
 	"math"
 
-	"graphics.gd/variant/Float"
+	"github.com/AveryLucas/gogogd/variant/Float"
 )
 
 // Cos returns the cosine of angle x in radians.

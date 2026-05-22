@@ -21,7 +21,7 @@ class_theme_item:GraphNode:panel_selected
 
 package main
 
-import "graphics.gd/classdb/ScriptEditor"
+import "github.com/AveryLucas/gogogd/classdb/ScriptEditor"
 
 var scriptEditor ScriptEditor.Instance
 

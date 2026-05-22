@@ -29,7 +29,7 @@ config.Save("user://scores.cfg");
 
 package main
 
-import "graphics.gd/classdb/ConfigFile"
+import "github.com/AveryLucas/gogogd/classdb/ConfigFile"
 
 func ExampleConfigFileSave() {
 	// Create new ConfigFile object.

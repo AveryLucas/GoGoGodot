@@ -45,7 +45,7 @@ public void DirContents(string path)
 
 package main
 
-import "graphics.gd/classdb/DirAccess"
+import "github.com/AveryLucas/gogogd/classdb/DirAccess"
 
 func ExampleDirectoryList(path string) {
 	var dir = DirAccess.Open(path)

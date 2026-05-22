@@ -19,7 +19,7 @@ else:
 package main
 
 import (
-	"graphics.gd/classdb/JSON"
+	"github.com/AveryLucas/gogogd/classdb/JSON"
 )
 
 func ExampleJSON() {

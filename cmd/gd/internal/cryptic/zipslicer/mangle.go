@@ -20,7 +20,7 @@ import (
 	"bytes"
 	"time"
 
-	"graphics.gd/cmd/gd/internal/cryptic/binpatch"
+	"github.com/AveryLucas/gogogd/cmd/gd/internal/cryptic/binpatch"
 )
 
 type Mangler struct {

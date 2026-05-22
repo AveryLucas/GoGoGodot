@@ -10,8 +10,8 @@ rd.texture_get_data_async(texture, 0, _texture_get_data_callback)
 package main
 
 import (
-	"graphics.gd/classdb/RenderingDevice"
-	"graphics.gd/variant/RID"
+	"github.com/AveryLucas/gogogd/classdb/RenderingDevice"
+	"github.com/AveryLucas/gogogd/variant/RID"
 )
 
 var rd RenderingDevice.Instance

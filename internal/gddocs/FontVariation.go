@@ -8,12 +8,12 @@ fv.variation_opentype = { ts.name_to_tag("wght"): 900, ts.name_to_tag("custom_hg
 package main
 
 import (
-	"graphics.gd/classdb/Font"
-	"graphics.gd/classdb/FontVariation"
-	"graphics.gd/classdb/Resource"
-	"graphics.gd/classdb/TextServer"
-	"graphics.gd/classdb/TextServerManager"
-	"graphics.gd/variant/String"
+	"github.com/AveryLucas/gogogd/classdb/Font"
+	"github.com/AveryLucas/gogogd/classdb/FontVariation"
+	"github.com/AveryLucas/gogogd/classdb/Resource"
+	"github.com/AveryLucas/gogogd/classdb/TextServer"
+	"github.com/AveryLucas/gogogd/classdb/TextServerManager"
+	"github.com/AveryLucas/gogogd/variant/String"
 )
 
 func ExampleFontVariation() {

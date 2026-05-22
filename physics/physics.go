@@ -12,16 +12,16 @@
 package physics
 
 import (
-	"graphics.gd/classdb/Node"
-	"graphics.gd/classdb/PhysicsDirectSpaceState2D"
-	"graphics.gd/classdb/PhysicsRayQueryParameters2D"
-	"graphics.gd/classdb/PhysicsShapeQueryParameters2D"
-	"graphics.gd/classdb/RectangleShape2D"
-	"graphics.gd/classdb/SceneTree"
-	"graphics.gd/gd"
-	"graphics.gd/variant/Object"
-	"graphics.gd/variant/Transform2D"
-	"graphics.gd/variant/Vector2"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	"github.com/AveryLucas/gogogd/classdb/PhysicsDirectSpaceState2D"
+	"github.com/AveryLucas/gogogd/classdb/PhysicsRayQueryParameters2D"
+	"github.com/AveryLucas/gogogd/classdb/PhysicsShapeQueryParameters2D"
+	"github.com/AveryLucas/gogogd/classdb/RectangleShape2D"
+	"github.com/AveryLucas/gogogd/classdb/SceneTree"
+	"github.com/AveryLucas/gogogd/gd"
+	"github.com/AveryLucas/gogogd/variant/Object"
+	"github.com/AveryLucas/gogogd/variant/Transform2D"
+	"github.com/AveryLucas/gogogd/variant/Vector2"
 )
 
 // Hit2D is the typed result of a 2D physics query — a single

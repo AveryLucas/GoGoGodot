@@ -31,7 +31,7 @@ import (
 	"math/big"
 	"time"
 
-	"graphics.gd/cmd/gd/internal/cryptic/pkcs7"
+	"github.com/AveryLucas/gogogd/cmd/gd/internal/cryptic/pkcs7"
 )
 
 const (

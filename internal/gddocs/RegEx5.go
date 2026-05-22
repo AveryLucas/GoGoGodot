@@ -12,7 +12,7 @@ package main
 import (
 	"fmt"
 
-	"graphics.gd/classdb/RegEx"
+	"github.com/AveryLucas/gogogd/classdb/RegEx"
 )
 
 func ExampleRegExSplit() {

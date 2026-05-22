@@ -1,6 +1,6 @@
 package PhysicsServer3DExtension
 
-import gd "graphics.gd/internal"
+import gd "github.com/AveryLucas/gogogd/internal"
 
 type RayResult = gd.PhysicsServer3DExtensionRayResult
 type ShapeResult = gd.PhysicsServer3DExtensionShapeResult

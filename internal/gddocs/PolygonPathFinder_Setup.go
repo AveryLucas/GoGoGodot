@@ -21,8 +21,8 @@ polygonPathFinder.Setup(points, connections);
 package main
 
 import (
-	"graphics.gd/classdb/PolygonPathFinder"
-	"graphics.gd/variant/Vector2"
+	"github.com/AveryLucas/gogogd/classdb/PolygonPathFinder"
+	"github.com/AveryLucas/gogogd/variant/Vector2"
 )
 
 func PolygonPathFinder_Setup() {

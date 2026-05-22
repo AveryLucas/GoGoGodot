@@ -1,5 +1,5 @@
 package AudioStreamPlaybackResampled
 
-import gd "graphics.gd/internal"
+import gd "github.com/AveryLucas/gogogd/internal"
 
 type AudioFrame = gd.AudioFrame

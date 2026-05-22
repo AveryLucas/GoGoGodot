@@ -3,7 +3,7 @@ package gdjson
 import (
 	"reflect"
 
-	"graphics.gd/variant/Float"
+	"github.com/AveryLucas/gogogd/variant/Float"
 )
 
 var Returnables = map[string]map[string]reflect.Type{

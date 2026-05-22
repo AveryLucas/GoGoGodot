@@ -12,7 +12,7 @@ package main
 import (
 	"fmt"
 
-	"graphics.gd/classdb/Performance"
+	"github.com/AveryLucas/gogogd/classdb/Performance"
 )
 
 func Performance_GetMonitor() {

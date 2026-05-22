@@ -4,7 +4,7 @@
 package startup
 
 import "unsafe"
-import "graphics.gd/internal/gdextension"
+import "github.com/AveryLucas/gogogd/internal/gdextension"
 
 // #include "../gdextension_interface.h"
 // #include "../gd.h"

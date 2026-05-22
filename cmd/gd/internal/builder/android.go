@@ -25,12 +25,12 @@ import (
 
 	"github.com/pavlo-v-chernykh/keystore-go/v4"
 	"golang.org/x/term"
-	"graphics.gd/cmd/gd/internal/cryptic"
-	"graphics.gd/cmd/gd/internal/cryptic/certloader"
-	"graphics.gd/cmd/gd/internal/cryptic/signjar"
-	"graphics.gd/cmd/gd/internal/cryptic/zipslicer"
-	"graphics.gd/cmd/gd/internal/project"
-	"graphics.gd/cmd/gd/internal/tooling"
+	"github.com/AveryLucas/gogogd/cmd/gd/internal/cryptic"
+	"github.com/AveryLucas/gogogd/cmd/gd/internal/cryptic/certloader"
+	"github.com/AveryLucas/gogogd/cmd/gd/internal/cryptic/signjar"
+	"github.com/AveryLucas/gogogd/cmd/gd/internal/cryptic/zipslicer"
+	"github.com/AveryLucas/gogogd/cmd/gd/internal/project"
+	"github.com/AveryLucas/gogogd/cmd/gd/internal/tooling"
 
 	"runtime.link/api/xray"
 )

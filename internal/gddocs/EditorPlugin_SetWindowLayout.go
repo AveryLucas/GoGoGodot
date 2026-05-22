@@ -7,11 +7,11 @@ func _set_window_layout(configuration):
 package main
 
 import (
-	"graphics.gd/classdb/ConfigFile"
-	"graphics.gd/classdb/TextureRect"
-	"graphics.gd/classdb/Window"
-	"graphics.gd/variant/Color"
-	"graphics.gd/variant/Vector2i"
+	"github.com/AveryLucas/gogogd/classdb/ConfigFile"
+	"github.com/AveryLucas/gogogd/classdb/TextureRect"
+	"github.com/AveryLucas/gogogd/classdb/Window"
+	"github.com/AveryLucas/gogogd/variant/Color"
+	"github.com/AveryLucas/gogogd/variant/Vector2i"
 )
 
 var window Window.Instance

@@ -13,8 +13,8 @@ package main
 import (
 	"fmt"
 
-	"graphics.gd/classdb/JavaClassWrapper"
-	"graphics.gd/variant/Object"
+	"github.com/AveryLucas/gogogd/classdb/JavaClassWrapper"
+	"github.com/AveryLucas/gogogd/variant/Object"
 )
 
 func ExampleJavaClassWrapper() {

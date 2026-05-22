@@ -5,10 +5,10 @@ package gdextension
 import (
 	"unsafe"
 
-	"graphics.gd/variant/Color"
-	"graphics.gd/variant/Vector2"
-	"graphics.gd/variant/Vector3"
-	"graphics.gd/variant/Vector4"
+	"github.com/AveryLucas/gogogd/variant/Color"
+	"github.com/AveryLucas/gogogd/variant/Vector2"
+	"github.com/AveryLucas/gogogd/variant/Vector3"
+	"github.com/AveryLucas/gogogd/variant/Vector4"
 )
 
 type Pointer = uintptr

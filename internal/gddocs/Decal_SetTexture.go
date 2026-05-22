@@ -13,7 +13,7 @@ for (int i = 0; i < (int)Decal.DecalTexture.Max; i++)
 
 package main
 
-import "graphics.gd/classdb/Decal"
+import "github.com/AveryLucas/gogogd/classdb/Decal"
 
 var NewDecal Decal.Instance
 var OldDecal Decal.Instance

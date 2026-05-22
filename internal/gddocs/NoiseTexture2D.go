@@ -9,8 +9,8 @@ var data = image.get_data()
 package main
 
 import (
-	"graphics.gd/classdb/FastNoiseLite"
-	"graphics.gd/classdb/NoiseTexture2D"
+	"github.com/AveryLucas/gogogd/classdb/FastNoiseLite"
+	"github.com/AveryLucas/gogogd/classdb/NoiseTexture2D"
 )
 
 func ExampleNoiseTexture2D() {

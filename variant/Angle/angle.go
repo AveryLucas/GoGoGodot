@@ -3,7 +3,7 @@ package Angle
 import (
 	"math"
 
-	"graphics.gd/variant/Float"
+	"github.com/AveryLucas/gogogd/variant/Float"
 )
 
 const Pi Radians = math.Pi

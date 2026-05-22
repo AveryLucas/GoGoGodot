@@ -42,9 +42,9 @@ import (
 	"path/filepath"
 	"strings"
 
-	"graphics.gd/classdb/DirAccess"
-	"graphics.gd/classdb/FileAccess"
-	"graphics.gd/classdb/ZIPReader"
+	"github.com/AveryLucas/gogogd/classdb/DirAccess"
+	"github.com/AveryLucas/gogogd/classdb/FileAccess"
+	"github.com/AveryLucas/gogogd/classdb/ZIPReader"
 )
 
 func ReadZipFile() []byte {

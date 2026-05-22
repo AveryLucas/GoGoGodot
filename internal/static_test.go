@@ -3,10 +3,10 @@ package gd_test
 import (
 	"testing"
 
-	"graphics.gd/classdb"
-	"graphics.gd/classdb/GDScript"
-	"graphics.gd/classdb/Image"
-	"graphics.gd/variant/Object"
+	"github.com/AveryLucas/gogogd/classdb"
+	"github.com/AveryLucas/gogogd/classdb/GDScript"
+	"github.com/AveryLucas/gogogd/classdb/Image"
+	"github.com/AveryLucas/gogogd/variant/Object"
 )
 
 func TestStatic(t *testing.T) {

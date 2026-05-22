@@ -18,9 +18,9 @@ img.SetPixel(1, 2, Colors.Red); // Sets the color at (1, 2) to red.
 package main
 
 import (
-	"graphics.gd/classdb/Image"
-	"graphics.gd/variant/Color"
-	"graphics.gd/variant/Vector2i"
+	"github.com/AveryLucas/gogogd/classdb/Image"
+	"github.com/AveryLucas/gogogd/variant/Color"
+	"github.com/AveryLucas/gogogd/variant/Vector2i"
 )
 
 func Image_SetPixel() {

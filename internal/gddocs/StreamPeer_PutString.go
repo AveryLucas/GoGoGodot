@@ -9,7 +9,7 @@ PutData("Hello World".ToAsciiBuffer());
 
 package main
 
-import "graphics.gd/classdb/StreamPeer"
+import "github.com/AveryLucas/gogogd/classdb/StreamPeer"
 
 var streamPeer StreamPeer.Instance
 

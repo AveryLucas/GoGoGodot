@@ -3,9 +3,9 @@ package Path_test
 import (
 	"testing"
 
-	"graphics.gd/internal/gdtests"
-	"graphics.gd/variant/Path"
-	"graphics.gd/variant/String"
+	"github.com/AveryLucas/gogogd/internal/gdtests"
+	"github.com/AveryLucas/gogogd/variant/Path"
+	"github.com/AveryLucas/gogogd/variant/String"
 )
 
 func TestBaseDir(t *testing.T) {

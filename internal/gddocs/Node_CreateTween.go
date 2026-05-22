@@ -9,7 +9,7 @@ GetTree().CreateTween().BindNode(this);
 
 package main
 
-import "graphics.gd/classdb/SceneTree"
+import "github.com/AveryLucas/gogogd/classdb/SceneTree"
 
 func Node_CreateTween() {
 	node.BindToTween(SceneTree.Get(node).CreateTween())

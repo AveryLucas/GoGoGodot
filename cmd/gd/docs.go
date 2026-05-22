@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"graphics.gd/cmd/gd/internal/tooling"
+	"github.com/AveryLucas/gogogd/cmd/gd/internal/tooling"
 )
 
 func doc(args ...string) error {
@@ -48,20 +48,20 @@ func doc(args ...string) error {
 
 type gdDocMatch struct {
 	gdTag     string // e.g., "Viewport.set_input_as_handled"
-	goDocPath string // e.g., "graphics.gd/classdb/Viewport.SetInputAsHandled"
+	goDocPath string // e.g., "github.com/AveryLucas/gogogd/classdb/Viewport.SetInputAsHandled"
 }
 
 func findGdDocMatches(query string) ([]gdDocMatch, error) {
-	// Get the module root for graphics.gd
+	// Get the module root for github.com/AveryLucas/gogogd
 	goPath, err := tooling.Go.Lookup()
 	if err != nil {
 		return nil, err
 	}
 
 	// Find the classdb directory
-	modRoot, err := exec.Command(goPath, "list", "-m", "-f", "{{.Dir}}", "graphics.gd").Output()
+	modRoot, err := exec.Command(goPath, "list", "-m", "-f", "{{.Dir}}", "github.com/AveryLucas/gogogd").Output()
 	if err != nil {
-		return nil, fmt.Errorf("could not find graphics.gd module: %w", err)
+		return nil, fmt.Errorf("could not find github.com/AveryLucas/gogogd module: %w", err)
 	}
 	classdbDir := filepath.Join(strings.TrimSpace(string(modRoot)), "classdb")
 
@@ -116,7 +116,7 @@ func findGdDocMatches(query string) ([]gdDocMatch, error) {
 			goMethodName := snakeToPascal(methodName)
 
 			// Build the go doc path
-			goDocPath := fmt.Sprintf("graphics.gd/classdb/%s.%s", className, goMethodName)
+			goDocPath := fmt.Sprintf("github.com/AveryLucas/gogogd/classdb/%s.%s", className, goMethodName)
 
 			matches = append(matches, gdDocMatch{
 				gdTag:     gdTag,

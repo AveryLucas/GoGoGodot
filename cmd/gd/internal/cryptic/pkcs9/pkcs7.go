@@ -25,8 +25,8 @@ import (
 	"fmt"
 	"time"
 
-	"graphics.gd/cmd/gd/internal/cryptic/pkcs7"
-	"graphics.gd/cmd/gd/internal/cryptic/x509tools"
+	"github.com/AveryLucas/gogogd/cmd/gd/internal/cryptic/pkcs7"
+	"github.com/AveryLucas/gogogd/cmd/gd/internal/cryptic/x509tools"
 )
 
 func TimestampAndMarshal(ctx context.Context, psd *pkcs7.ContentInfoSignedData, timestamper Timestamper, authenticode bool) (*TimestampedSignature, error) {

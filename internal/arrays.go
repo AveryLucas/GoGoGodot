@@ -5,11 +5,11 @@ import (
 	"iter"
 	"reflect"
 
-	"graphics.gd/internal/gdextension"
-	"graphics.gd/internal/noescape"
-	"graphics.gd/internal/pointers"
-	VariantPkg "graphics.gd/variant"
-	ArrayVariant "graphics.gd/variant/Array"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/internal/noescape"
+	"github.com/AveryLucas/gogogd/internal/pointers"
+	VariantPkg "github.com/AveryLucas/gogogd/variant"
+	ArrayVariant "github.com/AveryLucas/gogogd/variant/Array"
 )
 
 func IntsCollectAs[T, S ~int | ~int64 | ~int32](seq iter.Seq[S]) []T {

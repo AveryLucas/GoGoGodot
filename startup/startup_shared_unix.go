@@ -53,10 +53,10 @@ import (
 	"runtime"
 	"unsafe"
 
-	"graphics.gd/classdb/Startup"
-	"graphics.gd/internal/gdclass"
-	"graphics.gd/internal/gdextension"
-	"graphics.gd/internal/gdreference"
+	"github.com/AveryLucas/gogogd/classdb/Startup"
+	"github.com/AveryLucas/gogogd/internal/gdclass"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/internal/gdreference"
 )
 
 func (engine *engineAsSharedLibrary) Start() {

@@ -3,8 +3,8 @@
 package startup
 
 import (
-	"graphics.gd/internal/gdextension"
-	"graphics.gd/internal/gdmemory"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/internal/gdmemory"
 )
 
 //go:wasmimport gd memory_malloc

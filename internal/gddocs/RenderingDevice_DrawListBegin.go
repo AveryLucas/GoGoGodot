@@ -20,10 +20,10 @@ rd.draw_list_end()
 package main
 
 import (
-	"graphics.gd/classdb/Rendering"
-	"graphics.gd/variant/Color"
-	"graphics.gd/variant/RID"
-	"graphics.gd/variant/Rect2"
+	"github.com/AveryLucas/gogogd/classdb/Rendering"
+	"github.com/AveryLucas/gogogd/variant/Color"
+	"github.com/AveryLucas/gogogd/variant/RID"
+	"github.com/AveryLucas/gogogd/variant/Rect2"
 )
 
 var framebuffers []RID.Framebuffer

@@ -9,8 +9,8 @@ if result:
 package main
 
 import (
-	"graphics.gd/classdb/RegEx"
-	"graphics.gd/classdb/RegExMatch"
+	"github.com/AveryLucas/gogogd/classdb/RegEx"
+	"github.com/AveryLucas/gogogd/classdb/RegExMatch"
 )
 
 func ExampleRegExCapture() {

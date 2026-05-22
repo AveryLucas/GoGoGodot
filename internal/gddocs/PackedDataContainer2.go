@@ -9,9 +9,9 @@ package main
 import (
 	"fmt"
 
-	"graphics.gd/classdb/PackedDataContainer"
-	"graphics.gd/classdb/Resource"
-	"graphics.gd/variant/Object"
+	"github.com/AveryLucas/gogogd/classdb/PackedDataContainer"
+	"github.com/AveryLucas/gogogd/classdb/Resource"
+	"github.com/AveryLucas/gogogd/variant/Object"
 )
 
 func ExamplePackedDataContainerLoad() {

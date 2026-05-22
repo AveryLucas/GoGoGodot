@@ -22,10 +22,10 @@ package main
 import (
 	"fmt"
 
-	"graphics.gd/classdb/AStarGrid2D"
-	"graphics.gd/variant/Rect2i"
-	"graphics.gd/variant/Vector2"
-	"graphics.gd/variant/Vector2i"
+	"github.com/AveryLucas/gogogd/classdb/AStarGrid2D"
+	"github.com/AveryLucas/gogogd/variant/Rect2i"
+	"github.com/AveryLucas/gogogd/variant/Vector2"
+	"github.com/AveryLucas/gogogd/variant/Vector2i"
 )
 
 func SetupGrid() {

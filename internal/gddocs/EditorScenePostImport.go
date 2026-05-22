@@ -49,8 +49,8 @@ public partial class NodeRenamer : EditorScenePostImport
 package main
 
 import (
-	"graphics.gd/classdb/EditorScenePostImport"
-	"graphics.gd/classdb/Node"
+	"github.com/AveryLucas/gogogd/classdb/EditorScenePostImport"
+	"github.com/AveryLucas/gogogd/classdb/Node"
 )
 
 type NodeRenamer struct {

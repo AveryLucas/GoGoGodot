@@ -3,9 +3,9 @@
 
 package startup
 
-import "graphics.gd/internal/gdextension"
+import "github.com/AveryLucas/gogogd/internal/gdextension"
 
-import "graphics.gd/internal/gdmemory"
+import "github.com/AveryLucas/gogogd/internal/gdmemory"
 import "syscall/js"
 
 import "unsafe"

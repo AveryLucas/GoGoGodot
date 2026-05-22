@@ -13,10 +13,10 @@ package main
 import (
 	"fmt"
 
-	"graphics.gd/classdb/Font"
-	"graphics.gd/classdb/FontVariation"
-	"graphics.gd/classdb/Resource"
-	"graphics.gd/classdb/TextServerManager"
+	"github.com/AveryLucas/gogogd/classdb/Font"
+	"github.com/AveryLucas/gogogd/classdb/FontVariation"
+	"github.com/AveryLucas/gogogd/classdb/Resource"
+	"github.com/AveryLucas/gogogd/classdb/TextServerManager"
 )
 
 func Font_GetSupportedVariationList() {

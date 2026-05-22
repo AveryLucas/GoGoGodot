@@ -4,8 +4,8 @@ package rgb
 import (
 	"reflect"
 
-	"graphics.gd/shaders/internal/gpu"
-	"graphics.gd/shaders/vec3"
+	"github.com/AveryLucas/gogogd/shaders/internal/gpu"
+	"github.com/AveryLucas/gogogd/shaders/vec3"
 )
 
 func New[X, Y, Z gpu.AnyFloat](x X, y Y, z Z) vec3.RGB { return gpu.NewRGB(x, y, z) }

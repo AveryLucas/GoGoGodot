@@ -4,16 +4,16 @@ package Particle
 import (
 	"reflect"
 
-	"graphics.gd/classdb/ShaderMaterial"
-	"graphics.gd/internal/gdclass"
-	"graphics.gd/shaders"
-	"graphics.gd/shaders/bool"
-	"graphics.gd/shaders/float"
-	"graphics.gd/shaders/internal/gpu"
-	"graphics.gd/shaders/mat4"
-	"graphics.gd/shaders/uint"
-	"graphics.gd/shaders/vec3"
-	"graphics.gd/shaders/vec4"
+	"github.com/AveryLucas/gogogd/classdb/ShaderMaterial"
+	"github.com/AveryLucas/gogogd/internal/gdclass"
+	"github.com/AveryLucas/gogogd/shaders"
+	"github.com/AveryLucas/gogogd/shaders/bool"
+	"github.com/AveryLucas/gogogd/shaders/float"
+	"github.com/AveryLucas/gogogd/shaders/internal/gpu"
+	"github.com/AveryLucas/gogogd/shaders/mat4"
+	"github.com/AveryLucas/gogogd/shaders/uint"
+	"github.com/AveryLucas/gogogd/shaders/vec3"
+	"github.com/AveryLucas/gogogd/shaders/vec4"
 )
 
 /*

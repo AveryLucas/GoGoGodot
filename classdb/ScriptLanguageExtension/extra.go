@@ -1,6 +1,6 @@
 package ScriptLanguageExtension
 
-import gd "graphics.gd/internal"
+import gd "github.com/AveryLucas/gogogd/internal"
 
 type ProfilingInfo = gd.ScriptLanguageExtensionProfilingInfo
 

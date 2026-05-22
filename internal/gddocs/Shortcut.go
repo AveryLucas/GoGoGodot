@@ -53,12 +53,12 @@ package main
 import (
 	"fmt"
 
-	"graphics.gd/classdb/Input"
-	"graphics.gd/classdb/InputEvent"
-	"graphics.gd/classdb/InputEventKey"
-	"graphics.gd/classdb/Node"
-	"graphics.gd/classdb/Shortcut"
-	"graphics.gd/classdb/Viewport"
+	"github.com/AveryLucas/gogogd/classdb/Input"
+	"github.com/AveryLucas/gogogd/classdb/InputEvent"
+	"github.com/AveryLucas/gogogd/classdb/InputEventKey"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	"github.com/AveryLucas/gogogd/classdb/Shortcut"
+	"github.com/AveryLucas/gogogd/classdb/Viewport"
 )
 
 type NodeWithShortcut struct {

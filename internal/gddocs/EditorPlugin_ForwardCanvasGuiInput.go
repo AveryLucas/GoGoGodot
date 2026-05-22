@@ -15,7 +15,7 @@ public override bool ForwardCanvasGuiInput(InputEvent @event)
 
 package main
 
-import "graphics.gd/classdb/InputEvent"
+import "github.com/AveryLucas/gogogd/classdb/InputEvent"
 
 func EditorPlugin_ForwardCanvasGuiInput() {
 	ForwardCanvasGuiInput := func(event InputEvent.Instance) bool {

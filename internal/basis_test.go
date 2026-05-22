@@ -3,11 +3,11 @@ package gd_test
 import (
 	"testing"
 
-	"graphics.gd/classdb/GDScript"
-	"graphics.gd/variant/Angle"
-	"graphics.gd/variant/Basis"
-	"graphics.gd/variant/Euler"
-	"graphics.gd/variant/Object"
+	"github.com/AveryLucas/gogogd/classdb/GDScript"
+	"github.com/AveryLucas/gogogd/variant/Angle"
+	"github.com/AveryLucas/gogogd/variant/Basis"
+	"github.com/AveryLucas/gogogd/variant/Euler"
+	"github.com/AveryLucas/gogogd/variant/Object"
 
 	_ "embed"
 )

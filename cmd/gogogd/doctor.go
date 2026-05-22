@@ -84,7 +84,7 @@ func checkGd() doctorCheck {
 		return doctorCheck{
 			Name:   "gd",
 			OK:     false,
-			Detail: "not on PATH (install with `go install graphics.gd/cmd/gd@latest`)",
+			Detail: "not on PATH (install with `go install github.com/AveryLucas/gogogd/cmd/gd@latest`)",
 		}
 	}
 	return doctorCheck{Name: "gd", OK: true, Detail: path}
@@ -141,36 +141,37 @@ func checkZig() doctorCheck {
 
 func checkGraphicsGd() doctorCheck {
 	// Look upward for go.mod from CWD; if we find one, check for the
-	// graphics.gd require. If we don't, this isn't a fatal failure — the
+	// gogogd module require. If we don't, this isn't a fatal failure — the
 	// command runs outside any project (e.g. `gogogd doctor` after a fresh
 	// install).
+	const modPath = "github.com/AveryLucas/gogogd"
 	wd, err := os.Getwd()
 	if err != nil {
-		return doctorCheck{Name: "graphics.gd", OK: true, Detail: "(no project — skip)"}
+		return doctorCheck{Name: modPath, OK: true, Detail: "(no project — skip)"}
 	}
 	mod := findGoMod(wd)
 	if mod == "" {
-		return doctorCheck{Name: "graphics.gd", OK: true, Detail: "(no go.mod found — skip)"}
+		return doctorCheck{Name: modPath, OK: true, Detail: "(no go.mod found — skip)"}
 	}
 	data, err := os.ReadFile(mod)
 	if err != nil {
-		return doctorCheck{Name: "graphics.gd", OK: false, Detail: fmt.Sprintf("could not read %s: %v", mod, err)}
+		return doctorCheck{Name: modPath, OK: false, Detail: fmt.Sprintf("could not read %s: %v", mod, err)}
 	}
 	text := string(data)
-	if !strings.Contains(text, "graphics.gd") {
+	if !strings.Contains(text, modPath) {
 		return doctorCheck{
-			Name:   "graphics.gd",
+			Name:   modPath,
 			OK:     false,
-			Detail: fmt.Sprintf("%s does not require graphics.gd (run `go get graphics.gd`)", mod),
+			Detail: fmt.Sprintf("%s does not require %s (run `go get %s`)", mod, modPath, modPath),
 		}
 	}
 	for _, line := range strings.Split(text, "\n") {
 		line = strings.TrimSpace(line)
-		if strings.HasPrefix(line, "graphics.gd ") || strings.HasPrefix(line, "require graphics.gd ") {
-			return doctorCheck{Name: "graphics.gd", OK: true, Detail: line}
+		if strings.HasPrefix(line, modPath+" ") || strings.HasPrefix(line, "require "+modPath+" ") {
+			return doctorCheck{Name: modPath, OK: true, Detail: line}
 		}
 	}
-	return doctorCheck{Name: "graphics.gd", OK: true, Detail: "required (version in indirect)"}
+	return doctorCheck{Name: modPath, OK: true, Detail: "required (version in indirect)"}
 }
 
 func findGoMod(start string) string {

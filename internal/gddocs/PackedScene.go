@@ -16,9 +16,9 @@ AddChild(scene);
 package main
 
 import (
-	"graphics.gd/classdb/Node"
-	"graphics.gd/classdb/PackedScene"
-	"graphics.gd/classdb/Resource"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	"github.com/AveryLucas/gogogd/classdb/PackedScene"
+	"github.com/AveryLucas/gogogd/classdb/Resource"
 )
 
 func ExamplePackedSceneLoad(parent Node.Instance) {

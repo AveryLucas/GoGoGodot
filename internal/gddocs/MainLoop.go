@@ -51,9 +51,9 @@ public partial class CustomMainLoop : MainLoop
 package main
 
 import (
-	"graphics.gd/classdb/Input"
-	"graphics.gd/classdb/MainLoop"
-	"graphics.gd/variant/Float"
+	"github.com/AveryLucas/gogogd/classdb/Input"
+	"github.com/AveryLucas/gogogd/classdb/MainLoop"
+	"github.com/AveryLucas/gogogd/variant/Float"
 )
 
 type MyMainLoop struct {

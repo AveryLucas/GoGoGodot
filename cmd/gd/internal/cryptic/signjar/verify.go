@@ -29,9 +29,9 @@ import (
 	"path"
 	"strings"
 
-	"graphics.gd/cmd/gd/internal/cryptic/pkcs7"
-	"graphics.gd/cmd/gd/internal/cryptic/pkcs9"
-	"graphics.gd/cmd/gd/internal/cryptic/x509tools"
+	"github.com/AveryLucas/gogogd/cmd/gd/internal/cryptic/pkcs7"
+	"github.com/AveryLucas/gogogd/cmd/gd/internal/cryptic/pkcs9"
+	"github.com/AveryLucas/gogogd/cmd/gd/internal/cryptic/x509tools"
 )
 
 var errNoDigests = errors.New("no recognized digests found")

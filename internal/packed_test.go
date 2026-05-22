@@ -3,7 +3,7 @@ package gd_test
 import (
 	"testing"
 
-	gd "graphics.gd/internal"
+	gd "github.com/AveryLucas/gogogd/internal"
 )
 
 func TestPacked(t *testing.T) {

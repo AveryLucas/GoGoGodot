@@ -15,13 +15,13 @@ func _process(delta):
 package main
 
 import (
-	"graphics.gd/classdb/AnimationNodeStateMachinePlayback"
-	"graphics.gd/classdb/AnimationTree"
-	"graphics.gd/classdb/CharacterBody3D"
-	"graphics.gd/classdb/Input"
-	"graphics.gd/variant/Float"
-	"graphics.gd/variant/Quaternion"
-	"graphics.gd/variant/Vector3"
+	"github.com/AveryLucas/gogogd/classdb/AnimationNodeStateMachinePlayback"
+	"github.com/AveryLucas/gogogd/classdb/AnimationTree"
+	"github.com/AveryLucas/gogogd/classdb/CharacterBody3D"
+	"github.com/AveryLucas/gogogd/classdb/Input"
+	"github.com/AveryLucas/gogogd/variant/Float"
+	"github.com/AveryLucas/gogogd/variant/Quaternion"
+	"github.com/AveryLucas/gogogd/variant/Vector3"
 )
 
 var delta Float.X

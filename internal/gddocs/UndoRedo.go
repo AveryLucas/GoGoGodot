@@ -51,9 +51,9 @@ private void OnMyButtonPressed()
 package main
 
 import (
-	"graphics.gd/classdb/Node2D"
-	"graphics.gd/classdb/UndoRedo"
-	"graphics.gd/variant/Vector2"
+	"github.com/AveryLucas/gogogd/classdb/Node2D"
+	"github.com/AveryLucas/gogogd/classdb/UndoRedo"
+	"github.com/AveryLucas/gogogd/variant/Vector2"
 )
 
 var undoRedo = UndoRedo.New()

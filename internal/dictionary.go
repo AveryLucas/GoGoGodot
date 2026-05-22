@@ -5,11 +5,11 @@ import (
 	"iter"
 	"reflect"
 
-	"graphics.gd/internal/gdextension"
-	"graphics.gd/internal/noescape"
-	"graphics.gd/internal/pointers"
-	VariantPkg "graphics.gd/variant"
-	DictionaryType "graphics.gd/variant/Dictionary"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/internal/noescape"
+	"github.com/AveryLucas/gogogd/internal/pointers"
+	VariantPkg "github.com/AveryLucas/gogogd/variant"
+	DictionaryType "github.com/AveryLucas/gogogd/variant/Dictionary"
 )
 
 func (d Dictionary) Index(key Variant) Variant {

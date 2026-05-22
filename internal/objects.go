@@ -10,10 +10,10 @@ import (
 	"strings"
 	"unsafe"
 
-	"graphics.gd/internal/gdextension"
-	"graphics.gd/internal/gdreference"
-	"graphics.gd/internal/pointers"
-	"graphics.gd/internal/ring"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/internal/gdreference"
+	"github.com/AveryLucas/gogogd/internal/pointers"
+	"github.com/AveryLucas/gogogd/internal/ring"
 )
 
 type ExtensionClassCallVirtualFunc func(any, gdextension.Pointer, gdextension.Pointer)

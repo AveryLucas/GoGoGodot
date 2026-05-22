@@ -4,12 +4,12 @@ package Quaternion
 import (
 	"math"
 
-	"graphics.gd/variant/Angle"
-	"graphics.gd/variant/Basis"
-	"graphics.gd/variant/Euler"
-	"graphics.gd/variant/Float"
-	"graphics.gd/variant/Int"
-	"graphics.gd/variant/Vector3"
+	"github.com/AveryLucas/gogogd/variant/Angle"
+	"github.com/AveryLucas/gogogd/variant/Basis"
+	"github.com/AveryLucas/gogogd/variant/Euler"
+	"github.com/AveryLucas/gogogd/variant/Float"
+	"github.com/AveryLucas/gogogd/variant/Int"
+	"github.com/AveryLucas/gogogd/variant/Vector3"
 )
 
 // The Quaternion built-in Variant type is a 4D data structure that represents rotation

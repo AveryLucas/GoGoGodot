@@ -3,7 +3,7 @@ package gd
 import (
 	"sync"
 
-	"graphics.gd/internal/ring"
+	"github.com/AveryLucas/gogogd/internal/ring"
 )
 
 var cleanups []func()

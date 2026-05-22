@@ -4,17 +4,17 @@ import (
 	"net/netip"
 	"reflect"
 
-	"graphics.gd/variant/Callable"
-	"graphics.gd/variant/Color"
-	"graphics.gd/variant/Error"
-	"graphics.gd/variant/Float"
-	"graphics.gd/variant/RID"
-	"graphics.gd/variant/Rect2"
-	"graphics.gd/variant/Transform3D"
-	"graphics.gd/variant/Vector2"
-	"graphics.gd/variant/Vector2i"
-	"graphics.gd/variant/Vector3"
-	"graphics.gd/variant/Vector3i"
+	"github.com/AveryLucas/gogogd/variant/Callable"
+	"github.com/AveryLucas/gogogd/variant/Color"
+	"github.com/AveryLucas/gogogd/variant/Error"
+	"github.com/AveryLucas/gogogd/variant/Float"
+	"github.com/AveryLucas/gogogd/variant/RID"
+	"github.com/AveryLucas/gogogd/variant/Rect2"
+	"github.com/AveryLucas/gogogd/variant/Transform3D"
+	"github.com/AveryLucas/gogogd/variant/Vector2"
+	"github.com/AveryLucas/gogogd/variant/Vector2i"
+	"github.com/AveryLucas/gogogd/variant/Vector3"
+	"github.com/AveryLucas/gogogd/variant/Vector3i"
 )
 
 type SignalInfo struct {
@@ -327,7 +327,7 @@ type namedType struct {
 }
 
 func (nt namedType) PkgPath() string {
-	return "graphics.gd/internal/gdjson"
+	return "github.com/AveryLucas/gogogd/internal/gdjson"
 }
 
 func (nt namedType) Name() string { return nt.name }
@@ -820,7 +820,7 @@ var Structables = map[string]reflect.Type{
 	"XRServer.get_trackers.":                                            reflect.TypeFor[map[any]any](),
 	"XRServer.get_interfaces.":                                          reflect.TypeFor[map[int]string](),
 
-	"AnimationNode._get_child_nodes.":                        reflect.MapOf(reflect.TypeFor[string](), TypeFromString("graphics.gd/classdb/Node", "Instance")),
+	"AnimationNode._get_child_nodes.":                        reflect.MapOf(reflect.TypeFor[string](), TypeFromString("github.com/AveryLucas/gogogd/classdb/Node", "Instance")),
 	"AudioStream._get_parameter_list.":                       reflect.SliceOf(TypeFromString("Object", "PropertyInfo")),
 	"CodeEdit._filter_code_completion_candidates.candidates": reflect.TypeFor[[]CompletionInfo](),
 	"CodeEdit._filter_code_completion_candidates.":           reflect.TypeFor[[]CompletionInfo](),

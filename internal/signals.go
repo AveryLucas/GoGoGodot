@@ -6,17 +6,17 @@ import (
 	"iter"
 	"unsafe"
 
-	"graphics.gd/internal/gdextension"
-	"graphics.gd/internal/gdreference"
-	"graphics.gd/internal/noescape"
-	"graphics.gd/internal/pointers"
-	"graphics.gd/internal/threadcheck"
-	VariantPkg "graphics.gd/variant"
-	CallableType "graphics.gd/variant/Callable"
-	DictionaryType "graphics.gd/variant/Dictionary"
-	ErrorType "graphics.gd/variant/Error"
-	SignalType "graphics.gd/variant/Signal"
-	StringType "graphics.gd/variant/String"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/internal/gdreference"
+	"github.com/AveryLucas/gogogd/internal/noescape"
+	"github.com/AveryLucas/gogogd/internal/pointers"
+	"github.com/AveryLucas/gogogd/internal/threadcheck"
+	VariantPkg "github.com/AveryLucas/gogogd/variant"
+	CallableType "github.com/AveryLucas/gogogd/variant/Callable"
+	DictionaryType "github.com/AveryLucas/gogogd/variant/Dictionary"
+	ErrorType "github.com/AveryLucas/gogogd/variant/Error"
+	SignalType "github.com/AveryLucas/gogogd/variant/Signal"
+	StringType "github.com/AveryLucas/gogogd/variant/String"
 )
 
 func (s Signal) Free() {

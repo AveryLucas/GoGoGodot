@@ -3,9 +3,9 @@ package Rect2_test
 import (
 	"testing"
 
-	"graphics.gd/internal/gdtests"
-	"graphics.gd/variant/Rect2"
-	"graphics.gd/variant/Vector2"
+	"github.com/AveryLucas/gogogd/internal/gdtests"
+	"github.com/AveryLucas/gogogd/variant/Rect2"
+	"github.com/AveryLucas/gogogd/variant/Vector2"
 )
 
 func TestAbs(t *testing.T) {

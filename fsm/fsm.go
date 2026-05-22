@@ -42,9 +42,9 @@
 package fsm
 
 import (
-	"graphics.gd/classdb/Node"
-	"graphics.gd/variant/Callable"
-	"graphics.gd/variant/Object"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	"github.com/AveryLucas/gogogd/variant/Callable"
+	"github.com/AveryLucas/gogogd/variant/Object"
 )
 
 // Delta mirrors gogogd.Delta — the time-step type Godot passes to Process.

@@ -64,10 +64,10 @@ package main
 import (
 	"fmt"
 
-	"graphics.gd/classdb/Node"
-	"graphics.gd/classdb/PacketPeerDTLS"
-	"graphics.gd/classdb/PacketPeerUDP"
-	"graphics.gd/variant/Float"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	"github.com/AveryLucas/gogogd/classdb/PacketPeerDTLS"
+	"github.com/AveryLucas/gogogd/classdb/PacketPeerUDP"
+	"github.com/AveryLucas/gogogd/variant/Float"
 )
 
 type ClientDTLS struct {

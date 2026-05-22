@@ -3,10 +3,10 @@ package gd_test
 import (
 	"testing"
 
-	"graphics.gd/classdb"
-	"graphics.gd/classdb/GDScript"
-	"graphics.gd/variant/Object"
-	"graphics.gd/variant/String"
+	"github.com/AveryLucas/gogogd/classdb"
+	"github.com/AveryLucas/gogogd/classdb/GDScript"
+	"github.com/AveryLucas/gogogd/variant/Object"
+	"github.com/AveryLucas/gogogd/variant/String"
 )
 
 type StringEater struct {

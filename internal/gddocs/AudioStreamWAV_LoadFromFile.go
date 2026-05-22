@@ -18,10 +18,10 @@ package main
 import (
 	"path/filepath"
 
-	"graphics.gd/classdb/AudioStreamPlayer"
-	"graphics.gd/classdb/AudioStreamWAV"
-	"graphics.gd/classdb/Node"
-	"graphics.gd/classdb/Window"
+	"github.com/AveryLucas/gogogd/classdb/AudioStreamPlayer"
+	"github.com/AveryLucas/gogogd/classdb/AudioStreamWAV"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	"github.com/AveryLucas/gogogd/classdb/Window"
 )
 
 type MyAudioLoader struct {

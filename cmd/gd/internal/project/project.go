@@ -11,7 +11,7 @@ import (
 	"runtime"
 	"strings"
 
-	"graphics.gd/cmd/gd/internal/tooling"
+	"github.com/AveryLucas/gogogd/cmd/gd/internal/tooling"
 
 	"runtime.link/api/xray"
 )
@@ -117,7 +117,7 @@ func Setup(build_godot func() error) error {
 			if err := tooling.Go.Exec("mod", "tidy"); err != nil {
 				return xray.New(err)
 			}
-			if err := tooling.Go.Exec("get", "graphics.gd@release"); err != nil {
+			if err := tooling.Go.Exec("get", "github.com/AveryLucas/gogogd@release"); err != nil {
 				return xray.New(err)
 			}
 			hasGoMod = true

@@ -4,10 +4,10 @@ import (
 	"iter"
 	"reflect"
 
-	gd "graphics.gd/internal"
-	"graphics.gd/internal/gdextension"
-	"graphics.gd/internal/pointers"
-	"graphics.gd/variant/Enum"
+	gd "github.com/AveryLucas/gogogd/internal"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/internal/pointers"
+	"github.com/AveryLucas/gogogd/variant/Enum"
 )
 
 var registered_enums = make(map[reflect.Type]iter.Seq2[string, int])

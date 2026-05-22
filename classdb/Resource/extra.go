@@ -5,16 +5,16 @@ import (
 	"sync"
 	"unsafe"
 
-	gd "graphics.gd/internal"
-	"graphics.gd/internal/gdclass"
-	"graphics.gd/internal/gdextension"
-	"graphics.gd/internal/gdreference"
-	"graphics.gd/internal/noescape"
-	"graphics.gd/internal/pointers"
-	"graphics.gd/variant/Callable"
-	"graphics.gd/variant/Object"
-	"graphics.gd/variant/Path"
-	"graphics.gd/variant/String"
+	gd "github.com/AveryLucas/gogogd/internal"
+	"github.com/AveryLucas/gogogd/internal/gdclass"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/internal/gdreference"
+	"github.com/AveryLucas/gogogd/internal/noescape"
+	"github.com/AveryLucas/gogogd/internal/pointers"
+	"github.com/AveryLucas/gogogd/variant/Callable"
+	"github.com/AveryLucas/gogogd/variant/Object"
+	"github.com/AveryLucas/gogogd/variant/Path"
+	"github.com/AveryLucas/gogogd/variant/String"
 )
 
 // ID that uniquely identifies a resource.

@@ -4,9 +4,9 @@ package Signal
 import (
 	"iter"
 
-	"graphics.gd/variant"
-	"graphics.gd/variant/Callable"
-	"graphics.gd/variant/String"
+	"github.com/AveryLucas/gogogd/variant"
+	"github.com/AveryLucas/gogogd/variant/Callable"
+	"github.com/AveryLucas/gogogd/variant/String"
 )
 
 // Any is a multi-producer, multi-consumer channel. Unlike with standard channels, consumers

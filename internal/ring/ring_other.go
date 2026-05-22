@@ -5,7 +5,7 @@ package ring
 import (
 	"unsafe"
 
-	"graphics.gd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
 )
 
 func flush(entries unsafe.Pointer, tail, head uint32) {

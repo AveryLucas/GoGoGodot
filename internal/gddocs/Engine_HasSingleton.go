@@ -18,7 +18,7 @@ package main
 import (
 	"fmt"
 
-	"graphics.gd/classdb/Engine"
+	"github.com/AveryLucas/gogogd/classdb/Engine"
 )
 
 func Engine_HasSingleton() {

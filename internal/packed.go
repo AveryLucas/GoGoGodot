@@ -4,11 +4,11 @@ import (
 	"strings"
 	"unsafe"
 
-	"graphics.gd/internal/gdextension"
-	"graphics.gd/internal/gdmemory"
-	"graphics.gd/internal/noescape"
-	"graphics.gd/internal/pointers"
-	StringType "graphics.gd/variant/String"
+	"github.com/AveryLucas/gogogd/internal/gdextension"
+	"github.com/AveryLucas/gogogd/internal/gdmemory"
+	"github.com/AveryLucas/gogogd/internal/noescape"
+	"github.com/AveryLucas/gogogd/internal/pointers"
+	StringType "github.com/AveryLucas/gogogd/variant/String"
 )
 
 func (p *PackedFloat32Array) Pointer() *PackedFloat32Array { return p }

@@ -66,9 +66,9 @@ public partial class ServerNode : Node
 package main
 
 import (
-	"graphics.gd/classdb/Node"
-	"graphics.gd/classdb/PacketPeerUDP"
-	"graphics.gd/classdb/UDPServer"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	"github.com/AveryLucas/gogogd/classdb/PacketPeerUDP"
+	"github.com/AveryLucas/gogogd/classdb/UDPServer"
 )
 
 type ServerNode struct {

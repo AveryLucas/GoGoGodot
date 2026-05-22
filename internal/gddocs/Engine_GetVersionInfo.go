@@ -19,7 +19,7 @@ else
 
 package main
 
-import "graphics.gd/classdb/Engine"
+import "github.com/AveryLucas/gogogd/classdb/Engine"
 
 func Engine_GetVersionInfo() {
 	if Engine.GetVersionInfo().Hex >= 0x040100 {

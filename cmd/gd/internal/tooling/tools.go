@@ -25,7 +25,7 @@ var LLVM = toolchain{
 	Version:       "21.1.8",
 	VersionFlags:  []string{"clang", "--version"},
 	VersionPrefix: "clang version 21.",
-	DownloadURL:   "https://release.graphics.gd/llvm.$(GOOS).$(GOARCH)$(EXT)",
+	DownloadURL:   "https://release.github.com/AveryLucas/gogogd/llvm.$(GOOS).$(GOARCH)$(EXT)",
 	DownloadEXT:   map[string]string{"linux": "", "windows": ".exe", "darwin": ""},
 	RequiredFor:   "linking iOS builds",
 }
@@ -67,7 +67,7 @@ var AndroidPackageSigner = toolchain{
 	Name:         "apksigner",
 	Version:      "0.9",
 	VersionFlags: []string{"--version"},
-	DownloadURL:  "https://release.graphics.gd/apksigner.$(GOOS).$(GOARCH)$(EXT)",
+	DownloadURL:  "https://release.github.com/AveryLucas/gogogd/apksigner.$(GOOS).$(GOARCH)$(EXT)",
 	DownloadEXT:  map[string]string{"linux": "", "windows": ".exe", "darwin": ""},
 	RequiredFor:  "building the .apk",
 }
@@ -77,7 +77,7 @@ var AndroidDebugBridge = toolchain{
 	Version:         "1.0.41",
 	VersionFlags:    []string{"--version"},
 	VersionPrefix:   "Android Debug Bridge version 1.0.41",
-	DownloadURL:     "https://release.graphics.gd/adb.$(GOOS).$(GOARCH)$(EXT)",
+	DownloadURL:     "https://release.github.com/AveryLucas/gogogd/adb.$(GOOS).$(GOARCH)$(EXT)",
 	DownloadEXT:     map[string]string{"linux": "", "windows": ".zip", "darwin": ""},
 	RequiredFor:     "launching the project on a connected android device",
 	DarwinUniversal: true,
@@ -105,7 +105,7 @@ var AndroidPackageKitTool = toolchain{
 	Version:       "2.12.1",
 	VersionPrefix: "2.12.1-",
 	VersionFlags:  []string{"v"},
-	DownloadURL:   "https://release.graphics.gd/apktool.$(GOOS).$(GOARCH)$(EXT)",
+	DownloadURL:   "https://release.github.com/AveryLucas/gogogd/apktool.$(GOOS).$(GOARCH)$(EXT)",
 	DownloadEXT:   map[string]string{"linux": "", "windows": ".exe", "darwin": ""},
 	RequiredFor:   "converting the exported .apk into an .aab",
 }
@@ -115,7 +115,7 @@ var AndroidAssetPackagingTool = toolchain{
 	Version:         "2.19-android-13.0.0_r6",
 	VersionPrefix:   "Android Asset Packaging Tool (aapt) 2.",
 	VersionFlags:    []string{"version"},
-	DownloadURL:     "https://release.graphics.gd/aapt2.$(GOOS).$(GOARCH)$(EXT)",
+	DownloadURL:     "https://release.github.com/AveryLucas/gogogd/aapt2.$(GOOS).$(GOARCH)$(EXT)",
 	DownloadEXT:     map[string]string{"linux": "", "windows": ".exe", "darwin": ""},
 	RequiredFor:     "converting the exported .apk into an .aab",
 	DarwinUniversal: true,
@@ -125,21 +125,21 @@ var BundleTool = toolchain{
 	Name:         "bundletool",
 	Version:      "1.18.3",
 	VersionFlags: []string{"version"},
-	DownloadURL:  "https://release.graphics.gd/bundletool.$(GOOS).$(GOARCH)$(EXT)",
+	DownloadURL:  "https://release.github.com/AveryLucas/gogogd/bundletool.$(GOOS).$(GOARCH)$(EXT)",
 	DownloadEXT:  map[string]string{"linux": "", "windows": ".exe", "darwin": ""},
 	RequiredFor:  "converting the exported .apk into an .aab",
 }
 
 var Android = toolchain{
 	Name:        "android.jar",
-	DownloadURL: "https://release.graphics.gd/android.jar",
+	DownloadURL: "https://release.github.com/AveryLucas/gogogd/android.jar",
 	RequiredFor: "converting the exported .apk into an .aab",
 	IsLibrary:   true,
 }
 
 var LibGodotEditor = toolchain{
 	Name:        "libgodot.$(GOOS).editor.$(GOARCH).$(EXT)",
-	DownloadURL: "https://release.graphics.gd/libgodot.$(GOOS).editor.$(GOARCH).$(EXT)",
+	DownloadURL: "https://release.github.com/AveryLucas/gogogd/libgodot.$(GOOS).editor.$(GOARCH).$(EXT)",
 	DownloadEXT: map[string]string{"musl": "a", "linux": "a", "windows": "lib", "darwin": "a"},
 	RequiredFor: "launching the editor on musl systems",
 	IsLibrary:   true,
@@ -147,7 +147,7 @@ var LibGodotEditor = toolchain{
 
 var LibGodot = toolchain{
 	Name:        "libgodot.$(GOOS).$(GOARCH).$(EXT)",
-	DownloadURL: "https://release.graphics.gd/libgodot.$(GOOS).$(GOARCH).$(EXT)",
+	DownloadURL: "https://release.github.com/AveryLucas/gogogd/libgodot.$(GOOS).$(GOARCH).$(EXT)",
 	DownloadEXT: map[string]string{"musl": "a", "linux": "a", "windows": "lib", "darwin": "a"},
 	RequiredFor: "musl systems & single binaries",
 	IsLibrary:   true,

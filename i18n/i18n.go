@@ -12,9 +12,9 @@ package i18n
 import (
 	"sync"
 
-	"graphics.gd/classdb/Node"
-	"graphics.gd/classdb/TranslationServer"
-	"graphics.gd/signals"
+	"github.com/AveryLucas/gogogd/classdb/Node"
+	"github.com/AveryLucas/gogogd/classdb/TranslationServer"
+	"github.com/AveryLucas/gogogd/signals"
 )
 
 // Tr returns the translation of key in the current locale, or key
