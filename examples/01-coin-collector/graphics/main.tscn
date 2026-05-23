@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmhmiv43fqo4c"]
+
+[sub_resource type="CircleShape2D" id="circ"]
+radius = 20.0
+
+[node name="Game" type="Game"]
+
+[node name="Player" type="Player" parent="."]
+position = Vector2(0, 0)
+
+[node name="PlayerShape" type="CollisionShape2D" parent="Player"]
+shape = SubResource("circ")
+
+[node name="Coin1" type="Coin" parent="."]
+position = Vector2(200, 0)
+
+[node name="Coin1Shape" type="CollisionShape2D" parent="Coin1"]
+shape = SubResource("circ")
+
+[node name="Coin2" type="Coin" parent="."]
+position = Vector2(0, 200)
+
+[node name="Coin2Shape" type="CollisionShape2D" parent="Coin2"]
+shape = SubResource("circ")
+
+[node name="Coin3" type="Coin" parent="."]
+position = Vector2(-200, 100)
+
+[node name="Coin3Shape" type="CollisionShape2D" parent="Coin3"]
+shape = SubResource("circ")
+
+[node name="HUD" type="HUD" parent="."]

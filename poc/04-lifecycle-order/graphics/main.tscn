@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bmhmiv43fqo4c"]
+
+[node name="Probe" type="Probe"]
+hp = 42
+
+[node name="Helper" type="Node" parent="."]

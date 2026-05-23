@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bmhmiv43fqo4c"]
+
+[node name="Probe" type="Probe"]
+
+[node name="Existing" type="Node" parent="."]
+
+[node name="Container" type="Node" parent="."]
+
+[node name="Leaf" type="Node" parent="Container"]

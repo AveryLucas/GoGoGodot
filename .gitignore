@@ -25,8 +25,20 @@ internal/extension_api.json
 package-lock.json
 releases/
 testing
-graphics
 /startup/internal/dlopen_old
 /internal/tool/trivial-methods/trivial_methods
 /results.jsonl
 /trivial_methods.json
+
+# Build artifacts inside examples/ and poc/ — the source files (.tscn,
+# .gdextension, project.godot) are committed; built shared libraries
+# and Godot cache are not.
+**/graphics/.godot/
+**/graphics/*.dll
+**/graphics/*.so
+**/graphics/*.dylib
+**/graphics/~*
+examples/*/*.exe
+poc/*/*.exe
+gogogd.exe
+gogogd-fork.exe

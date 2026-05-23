@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://b03game00000000"]
+
+[sub_resource type="CircleShape2D" id="circ"]
+radius = 16.0
+
+[node name="Game" type="Game"]
+
+[node name="Player" type="Player" parent="."]
+position = Vector2(360, 240)
+
+[node name="PlayerShape" type="CollisionShape2D" parent="Player"]
+shape = SubResource("circ")

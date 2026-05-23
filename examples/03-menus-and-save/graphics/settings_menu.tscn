@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://b03settings0000"]
+
+[node name="SettingsMenu" type="SettingsMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Grid" type="GridContainer" parent="Panel"]
+columns = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -130.0
+offset_right = 200.0
+offset_bottom = 80.0
+
+[node name="MasterLabel" type="Label" parent="Panel/Grid"]
+text = "Master"
+
+[node name="Master" type="HSlider" parent="Panel/Grid"]
+custom_minimum_size = Vector2(200, 24)
+min_value = 0.0
+max_value = 1.0
+step = 0.05
+
+[node name="MusicLabel" type="Label" parent="Panel/Grid"]
+text = "Music"
+
+[node name="Music" type="HSlider" parent="Panel/Grid"]
+custom_minimum_size = Vector2(200, 24)
+min_value = 0.0
+max_value = 1.0
+step = 0.05
+
+[node name="SFXLabel" type="Label" parent="Panel/Grid"]
+text = "SFX"
+
+[node name="SFX" type="HSlider" parent="Panel/Grid"]
+custom_minimum_size = Vector2(200, 24)
+min_value = 0.0
+max_value = 1.0
+step = 0.05
+
+[node name="FullscreenLabel" type="Label" parent="Panel/Grid"]
+text = "Fullscreen"
+
+[node name="Fullscreen" type="CheckBox" parent="Panel/Grid"]
+
+[node name="VSyncLabel" type="Label" parent="Panel/Grid"]
+text = "VSync"
+
+[node name="VSync" type="CheckBox" parent="Panel/Grid"]
+
+[node name="LocaleLabel" type="Label" parent="Panel/Grid"]
+text = "Locale"
+
+[node name="Locale" type="OptionButton" parent="Panel/Grid"]
+custom_minimum_size = Vector2(200, 24)
+
+[node name="Back" type="Button" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -60.0
+offset_top = -60.0
+offset_right = 60.0
+offset_bottom = -20.0
+text = "Back"

@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://b03gameover00000"]
+
+[node name="GameOver" type="GameOver"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Score" type="Label" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -80.0
+offset_right = 100.0
+offset_bottom = -40.0
+text = "Final Score: 0"
+horizontal_alignment = 1
+
+[node name="Retry" type="Button" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = 0.0
+offset_right = 80.0
+offset_bottom = 40.0
+text = "Retry"
+
+[node name="ToMenu" type="Button" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = 60.0
+offset_right = 80.0
+offset_bottom = 100.0
+text = "Main Menu"
