@@ -79,6 +79,9 @@ func cmdNew(args []string) error {
 	fmt.Printf("Created project %q.\n\n", name)
 	fmt.Println("Next steps:")
 	fmt.Printf("  cd %s\n", name)
+	if *replacePath == "" {
+		fmt.Println("  go get github.com/AveryLucas/gogogd@latest")
+	}
 	fmt.Println("  go mod tidy")
 	fmt.Println("  gogogd run")
 	return nil
@@ -93,9 +96,9 @@ type templateData struct {
 const goModTemplate = `module {{.ModulePath}}
 
 go 1.26
-
-require github.com/AveryLucas/gogogd v0.0.0-00010101000000-000000000000
 {{if .ReplacePath}}
+require github.com/AveryLucas/gogogd v0.0.0-00010101000000-000000000000
+
 replace github.com/AveryLucas/gogogd => {{.ReplacePath}}
 {{end}}`
 
