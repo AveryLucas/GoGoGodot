@@ -464,6 +464,29 @@ point of preserving the workspace.
    `Settings` → `UserSettings`), the on-disk JSON file orphan. Worth
    documenting in `settings/` doc comments.
 
+5. **GitHub repo name and Go module path differ in case.** The GitHub
+   repo is `AveryLucas/GoGoGodot` (mixed-case, as typed during the
+   rename in the GitHub web UI). The Go module declared in `go.mod`
+   is `github.com/AveryLucas/gogogd` (lowercase). Go's module proxy
+   normalises case for HTTP lookups, so `go get github.com/AveryLucas/gogogd`
+   does resolve to the `GoGoGodot` repo in practice — but a user
+   cloning by URL sees one name, and `pkg.go.dev` sees the other.
+   Resolution options, smallest-to-largest:
+
+   - Leave it. Go proxy handles the case-folded lookup; nothing's
+     functionally broken.
+   - Rename the GitHub repo `GoGoGodot` → `gogogd` (Settings →
+     General → Repository name; auto-redirects). Cheap.
+   - Change the module path in `go.mod` to
+     `github.com/AveryLucas/GoGoGodot` and rewrite every internal
+     import to match. Touches ~1500 files; same scale as the
+     original module rename in Step 8.
+
+   Worth verifying from a clean machine (no module cache) that
+   `go get github.com/AveryLucas/gogogd@<commit>` works before
+   committing to "leave it". The first tagged release is a natural
+   moment to settle this.
+
 ---
 
 ## Commit cadence
