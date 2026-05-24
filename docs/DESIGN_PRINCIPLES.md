@@ -67,7 +67,7 @@ The editor is the safe default fallback, not the design target.
 ### When stuck
 
 21. **There is no escape hatch — there is no layer to escape from.** Post-merge, gogogd *is* the binding. If a method, property, or signal exists on the underlying Godot class, codegen has emitted it directly onto `<Class>.Extension[T]` and on `<Class>.Instance`. If something is genuinely missing, the binding's `classdb/<Class>` package exposes the raw upstream surface (`gd.ObjectConnect`, low-level handle ops). There is no `gogogd` wrapper to fight your way out of.
-22. **Bare-package imports name behaviour, not infrastructure.** A file that uses timers imports `graphics.gd/timing`; a file that uses tree walks imports `graphics.gd/tree`; a file that uses inputs imports `graphics.gd/actions`. The import list is a readable inventory of what a component does. There is no umbrella `gogogd` package to learn — each helper lives in the package named for the verb.
+22. **Two import shapes are supported; pick what reads better.** Each authoring helper lives in a verb-named package (`github.com/AveryLucas/gogogd/timing`, `…/signals`, `…/tree`, `…/spawn`, `…/scenetree`, `…/actions`, `…/strict`). A file that uses timers can import `…/timing`; the import list then reads as the inventory of what the component does. **Or** import the umbrella `github.com/AveryLucas/gogogd` once and call `gogogd.After`, `gogogd.Connect0`, `gogogd.Quit`, etc. directly. Both shapes compile to the same code (the umbrella is wrapper functions and type aliases over the bare packages). The umbrella does NOT re-export per-class packages (`classdb/Control`, …) — those stay user-imported — and does NOT re-export `startup` (cgo cycle), so `main()` keeps `import "…/startup"` and calls `startup.Scene()`.
 
 ---
 
@@ -107,7 +107,7 @@ Each item in the second list should periodically be re-asked: *can gogogd do thi
 - Not a full API reference. That'll be `pkg.go.dev` once code exists.
 - Not a contract. Rules change as the library learns. When a rule changes, this doc gets a date stamp and the architecture doc gets a revision history entry.
 
-Last updated: 2026-05-22, Phase 4 (Graphics.GD merge — see [MERGE_PLAN.md](MERGE_PLAN.md)).
+Last updated: 2026-05-23, Phase 5 umbrella restoration. Previous: 2026-05-22, Phase 4 (Graphics.GD merge — see [MERGE_PLAN.md](MERGE_PLAN.md)).
 
 **Phase 0 changes to this doc:**
 - Rule 1: added empirical justification ([POC #7](../docs/poc/07.md)).
@@ -130,3 +130,6 @@ Last updated: 2026-05-22, Phase 4 (Graphics.GD merge — see [MERGE_PLAN.md](MER
 - Rule 10: `spawn.Add` / `spawn.AddNew[T]` (was `parent.Add` / `gogogd.AddNew`).
 - Rule 15: one-shots now live under the bare-package families (`visual.AttachCircle`, `audio.OneShotAt`, `ui.Toast`).
 - Rules 21/22: replaced. The previous "escape to Graphics.GD" rules no longer apply because there is no layer to escape from. New rule 21 records that codegen now exposes the full surface directly on `Extension[T]`. New rule 22 records that bare-package imports name behaviour, replacing the prior `gogogd` umbrella.
+
+**Phase 5 changes (umbrella restored):**
+- Rule 22 updated: the umbrella `github.com/AveryLucas/gogogd` package is back as wrapper functions and type aliases over the bare packages. Both shapes — `import "…/timing"; timing.After(...)` and `import "…/gogogd"; gogogd.After(...)` — are supported. The pre-merge "one import" pitch from Phases 1–3 is partly restored. Caveats documented in the rule: per-class packages (`classdb/Control`, …) stay user-imported, and `main()` still imports `…/startup` directly because re-exporting it would create a cgo import cycle.

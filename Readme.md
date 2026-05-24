@@ -90,34 +90,71 @@ onto the leaf class, so `p.SetPosition(v)`, `p.MoveAndSlide()`,
 `p.OnPressed(cb)`, `p.QueueFree()` all work directly with no
 `.AsParent()` chain.
 
-**Bare-package helpers.** Import what your component does.
+**Helpers — pick your import shape.** Two equivalent ways to reach
+the authoring API:
 
-| Package | What it owns |
-|---|---|
-| `gd` | Type aliases (`Vec2`, `Vec3`, `Col`, `Delta`, `Radians`), `Must`, `MustOk` |
-| `signals` | `Signal0`, `Signal[T]`, owner-bound `Connect` / `Connect0` |
-| `timing` | `After`, `Every`, `Cooldown`, `OnMainThread` |
-| `actions` | `Pressed`, `JustPressed`, `Vector` and mouse helpers |
-| `scenetree` | `Quit`, `ChangeScene`, `ReloadScene`, `SetPaused` |
-| `tree` | `Find`, `Children`, `Descendants`, `OnlyIf` |
-| `spawn` | `Add`, `AddChild`, `AddNew` (polymorphic) |
-| `visual` | `AttachCircle`, `AttachRect`, `ColorOf`, X11 colours |
-| `stat` | Reactive `Stat[T]` |
-| `pool` | Typed object pool |
-| `sequence` | Timeline DSL (`Wait`, `Do`, `Parallel`, `Loop`) |
-| `bus` | Global pub/sub |
-| `i18n` | `Tr`, `SetLocale`, `Bind` |
-| `audio` | Bus volume, ducking |
-| `window` | Fullscreen, VSync |
-| `settings` | Typed reactive singleton |
-| `physics` | `Raycast2D`, `OverlapRect` |
-| `ui` | Modal screen stack, toast, focus |
-| `fsm` | Flat finite state machine |
-| `fx` | Flash, Hitstop |
-| `save` | Typed save slots with versioned migration |
+```go
+// (1) Umbrella — one import for the high-frequency surface.
+import "github.com/AveryLucas/gogogd"
 
-The principle: a file's import list reads as the inventory of what
-the component does.
+gogogd.After(p.AsNode(), 0.5, p.QueueFree)
+gogogd.Connect0(p.AsNode(), &p.Died, onDied)
+gogogd.Quit(p.AsNode())
+```
+
+```go
+// (2) Bare packages — one import per verb. The import list reads as
+//     the inventory of what the component does.
+import (
+    "github.com/AveryLucas/gogogd/timing"
+    "github.com/AveryLucas/gogogd/signals"
+    "github.com/AveryLucas/gogogd/scenetree"
+)
+
+timing.After(p.AsNode(), 0.5, p.QueueFree)
+signals.Connect0(p.AsNode(), &p.Died, onDied)
+scenetree.Quit(p.AsNode())
+```
+
+Both compile to the same code (the umbrella is wrapper functions and
+type aliases over the bare packages). Mix freely — `import` what
+reads well in each file.
+
+| Package | What it owns | Available on umbrella? |
+|---|---|---|
+| `gd` | Type aliases (`Vec2`, `Vec3`, `Col`, `Delta`, `Radians`), `Must`, `MustOk` | yes |
+| `signals` | `Signal0`, `Signal[T]`, owner-bound `Connect` / `Connect0` | yes |
+| `timing` | `After`, `Every`, `Cooldown`, `OnMainThread` | yes |
+| `actions` | `Pressed`, `JustPressed`, `Vector` and mouse helpers | yes |
+| `scenetree` | `Quit`, `ChangeScene`, `ReloadScene`, `SetPaused` | yes |
+| `tree` | `Find`, `Children`, `Descendants`, `OnlyIf` | yes |
+| `spawn` | `Add`, `AddChild`, `AddNew` (polymorphic) | yes |
+| `strict` | `Assert` for `ggd:"strict"` field validation | yes |
+| `visual` | `AttachCircle`, `AttachRect`, `ColorOf`, X11 colours | bare only |
+| `stat` | Reactive `Stat[T]` | bare only |
+| `pool` | Typed object pool | bare only |
+| `sequence` | Timeline DSL (`Wait`, `Do`, `Parallel`, `Loop`) | bare only |
+| `bus` | Global pub/sub | bare only |
+| `i18n` | `Tr`, `SetLocale`, `Bind` | bare only |
+| `audio` | Bus volume, ducking | bare only |
+| `window` | Fullscreen, VSync | bare only |
+| `settings` | Typed reactive singleton | bare only |
+| `physics` | `Raycast2D`, `OverlapRect` | bare only |
+| `ui` | Modal screen stack, toast, focus | bare only |
+| `fsm` | Flat finite state machine | bare only |
+| `fx` | Flash, Hitstop | bare only |
+| `save` | Typed save slots with versioned migration | bare only |
+
+The umbrella covers the core authoring surface — the helpers a typical
+component file reaches for. Domain-specific packages (`save`,
+`i18n`, `ui`, `fsm`, …) stay as bare imports because a file that
+touches them is *about* that domain and the explicit import is
+informative.
+
+**main() still imports `startup` directly.** `startup.Scene()` is
+the engine entry point. We can't re-export it through the umbrella
+without an import cycle (the cgo glue at the umbrella root is
+blank-imported by `startup`). One-line cost per project.
 
 **The full Godot class surface.** Every Godot class (`Node`,
 `Sprite2D`, `CharacterBody2D`, `Control`, `Button`, ~500 in total) is

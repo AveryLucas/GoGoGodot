@@ -367,10 +367,23 @@ domain:
 | `shaders` | Uniform setters. |
 
 The principle: **import what the file does**. A file that uses timers
-imports `graphics.gd/timing`; a file that walks the tree imports
-`graphics.gd/tree`; a file that connects signals imports
-`graphics.gd/signals`. The import list is a readable inventory of the
-component's behaviour. There is no umbrella `gogogd` package to learn.
+imports `github.com/AveryLucas/gogogd/timing`; a file that walks the
+tree imports `…/tree`; a file that connects signals imports
+`…/signals`. The import list reads as the inventory of the
+component's behaviour.
+
+**Or, equivalently, import the umbrella.** The module root
+`github.com/AveryLucas/gogogd` is also a package: it re-exports the
+high-frequency helpers (`gogogd.After`, `gogogd.Connect0`,
+`gogogd.Quit`, `gogogd.Vector`, `gogogd.Vec2`, `gogogd.Delta`,
+`gogogd.Signal0`, `gogogd.Signal[T]`, `gogogd.Children[T]`,
+`gogogd.Find[T]`, `gogogd.Add`, `gogogd.Assert`, …) as wrapper
+functions and type aliases over the bare packages. Same code at
+runtime. The umbrella does NOT re-export per-class packages
+(`classdb/Control`, …) — those stay user-imported — and does NOT
+re-export `startup` (would create an import cycle through the cgo
+glue), so `main()` keeps `import "…/startup"` and calls
+`startup.Scene()`.
 
 ### Layer 6 — CLI tooling
 
@@ -780,9 +793,12 @@ The principles, in summary:
 4. **One-shots take `(owner, asset, pos)`.** `visual.AttachCircle`,
    `audio.OneShotAt`, `ui.Toast`. Uniform shape across the family.
 
-5. **Bare-package imports name behaviour.** A file that uses timers
-   imports `graphics.gd/timing`. The import list reads as the
-   inventory of what the component does. No umbrella package.
+5. **Two import shapes work; pick what reads better.** Either import
+   the verb-named bare package (`graphics.gd/timing` →
+   `timing.After`) so the import list reads as the inventory of what
+   the component does, or import the umbrella
+   (`github.com/AveryLucas/gogogd` → `gogogd.After`) to keep the
+   import block short. Both compile to the same code.
 
 6. **Every gogogd-added node is greppable.** Predictable names
    (`_gogogd_every_<n>`, `_particles_<n>`, `_pool_<Type>`). When a
@@ -802,7 +818,18 @@ The module is `graphics.gd` (eventual rename to
 `github.com/AveryLucas/gogogd`, see [MERGE_PLAN.md Step 8](MERGE_PLAN.md#step-8-repo--module-rename)).
 
 ```
-graphics.gd/
+github.com/AveryLucas/gogogd/
+├── api.go                      # Module root: package gogogd, cgo anchor
+├── types.go                    # Umbrella re-exports: type aliases (Vec2, Delta, …)
+├── signals.go                  # Umbrella re-exports: Signal0/Signal[T] + Connect*
+├── timing.go                   # Umbrella re-exports: After, Every, Cooldown, OnMainThread
+├── actions.go                  # Umbrella re-exports: Pressed, Vector, MousePos
+├── scenetree.go                # Umbrella re-exports: Quit, ChangeScene
+├── tree.go                     # Umbrella re-exports: Children[T], Find[T], OnlyIf
+├── spawn.go                    # Umbrella re-exports: Add, AddChild, AddNew
+├── strict.go                   # Umbrella re-exports: Assert
+├── gd.c, gd.h                  # Layer 1: cgo entry (gd_extension_init)
+├── gdextension_interface.h
 ├── cmd/
 │   ├── gogogd/                 # CLI (new, dev, build, run, register, …)
 │   └── gd/                     # upstream-style CLI (binding-only users)
@@ -843,21 +870,41 @@ graphics.gd/
 │   ├── gdextension/            # Layer 1: gdextension API host
 │   └── tool/generate/          # codegen for Layer 4
 ├── extension_api.json          # Godot's class spec, input to codegen
-├── gd.c, gd.h                  # Layer 1: cgo entry
-├── gdextension_interface.h
 └── go.mod
 ```
 
-### What lives in the root (`gd/`) vs the rest
+### What lives in the module root (`github.com/AveryLucas/gogogd`) vs the rest
 
-`gd/` is the umbrella for type aliases people use in component
-signatures: `Vec2`, `Vec3`, `Col`, `Delta`, `Radians`. Plus `Class`
-(alias for `classdb.Class`), `Must`, `MustOk`. Anything that would
-otherwise need to be re-imported in every component file lives here.
+The module root is **two things glued together by Go's "import paths
+are directories" convention**:
 
-Everything else is in its own bare package. No re-exports across
-packages (those drift). If a name should be reachable from `gd`, it
-gets imported there explicitly.
+1. **The cgo entry point.** `gd.c`, `gd.h`, and a small
+   `import "C"` anchor in `api.go` compile the engine init symbol
+   (`gd_extension_init`). `startup_cgo.go` blank-imports the root
+   package to force this glue into every final binary.
+2. **The umbrella API.** A handful of files (`types.go`,
+   `signals.go`, `timing.go`, `actions.go`, `scenetree.go`,
+   `tree.go`, `spawn.go`, `strict.go`) re-export the high-frequency
+   helpers from the bare packages as `gogogd.X`. Wrapper functions
+   for the non-generic surface, type aliases for everything else.
+
+A second small umbrella at **`gd/`** mirrors the type aliases
+(`Vec2`, `Vec3`, `Col`, `Delta`, `Radians`, `Class`, `Must`,
+`MustOk`) for code that prefers `gd.Vec2` over `gogogd.Vec2`. The
+type aliases mean both spellings resolve to the same underlying
+types — they're interchangeable at the type-system level.
+
+The umbrella does NOT re-export per-class packages (`classdb/Control`,
+…) because users only need the handful their components subclass,
+and the per-class packages number in the hundreds. The umbrella also
+does NOT re-export `startup` — that would create an import cycle
+through the cgo glue. `main()` keeps `import "…/startup"` and calls
+`startup.Scene()`.
+
+Everything else is in its own bare package. The umbrella is a thin
+re-export layer maintained by hand; it can drift behind the bare
+packages if a helper is added there without an umbrella entry. Watch
+for that during code review.
 
 ---
 

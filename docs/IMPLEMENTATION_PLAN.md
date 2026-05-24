@@ -426,25 +426,46 @@ These carry into Phase 5+. See [Phase 5 candidates](#phase-5-candidates) below.
 
 ---
 
-## Phase 5 candidates
-
-After the merge, three different shapes of "what's next" are
-defensible. Each is small enough to land in a few weeks; they're not
-mutually exclusive but doing them in parallel dilutes focus.
+## Phase 5 — in progress (2026-05-23)
 
 ### Candidate A — Release-ready 0.1.0
 
-Pin the post-merge state as a tagged release that external users can
-depend on. Smallest scope, highest leverage for visibility.
+✅ **First wave shipped (2026-05-22):**
+- GitHub repo renamed `GoGoGodot` → `gogogd` (matches module path).
+- Default branch `gogogd-fork` → `main`.
+- `v0.1.0` tag cut and pushed.
+- `go install github.com/AveryLucas/gogogd/cmd/gogogd@v0.1.0` works
+  from a clean machine — verified.
+- Scaffold-from-tag bug surfaced and fixed
+  ([`52f14f3`](https://github.com/AveryLucas/gogogd/commit/52f14f3)):
+  `gogogd new` no longer emits an unresolvable placeholder require
+  when `--gogogd-path` is unset.
 
-- Cut `v0.1.0` from the current `gogogd-fork` head.
-- Rename the GitHub default branch `gogogd-fork` → `main`.
-- Decide the case-mismatch
-  ([MERGE_PLAN follow-up #5](MERGE_PLAN.md#known-issues--follow-ups))
-  — recommend renaming the GitHub repo to lowercase `gogogd` since
-  the module path is the canonical one.
-- Verify `go install github.com/AveryLucas/gogogd/cmd/gogogd@v0.1.0`
-  works from a clean machine with no module cache.
+✅ **Umbrella package restored (2026-05-23):**
+- The user pushed back on losing the pre-merge "one import gogogd"
+  pitch. Restored: `github.com/AveryLucas/gogogd` is now a
+  user-facing package again (it was previously just the cgo anchor
+  under `package gd`). Re-exports the high-frequency authoring
+  surface: type aliases (`Vec2`, `Delta`, `Signal0`, `Signal[T]`,
+  `Cooldown`) and wrapper functions
+  (`After`, `Every`, `OnMainThread`, `Connect`, `Connect0`,
+  `Connect2`, `Connect3`, `OnExit`, `Pressed`, `JustPressed`,
+  `JustReleased`, `Strength`, `Vector`, `MousePos`,
+  `MouseDirectionFrom`, `Quit`, `ChangeScene`, `ReloadScene`,
+  `SetPaused`, `IsPaused`, `As[T]`, `OnlyIf`, `OnlyIfBody2D`,
+  `Children[T]`, `Descendants[T]`, `AncestorOf[T]`, `Find[T]`,
+  `Add`, `Add3`, `AddChild`, `AddNew`, `Assert`, `Must`, `MustOk`).
+- Per-class packages (`classdb/Control`, …) NOT re-exported — too
+  many, and a class import is informative.
+- `startup` NOT re-exported — would create an import cycle through
+  the cgo glue blank-imported by `startup_cgo.go`. `main()` still
+  has `import "…/startup"; startup.Scene()`.
+- DESIGN_PRINCIPLES.md rule 22 updated to document both shapes.
+- ARCHITECTURE.md §5 (helper packages) and §13 (package layout)
+  updated. README leads with a side-by-side umbrella vs bare-package
+  example.
+
+⏳ **Remaining for Candidate A:**
 - Replace `Readme_upstream.md`'s pkg.go.dev / goreportcard badges
   with gogogd-targeted ones.
 - Rewrite `.github/ISSUE_TEMPLATE/*.md` for the gogogd shape
@@ -574,22 +595,17 @@ These don't fit cleanly in a phase — they shape every phase.
 
 ## Immediate next step
 
-Phase 4 done (2026-05-22). The merge landed; the project lives at
-[github.com/AveryLucas/gogogd](https://github.com/AveryLucas/GoGoGodot).
+Phase 4 done (2026-05-22). Phase 5 Candidate A's first wave done
+(2026-05-22): repo rename, default branch rename, `v0.1.0` tag, install
+smoke test, scaffold-fix. Umbrella package restored (2026-05-23) —
+see Candidate A section above.
 
-**Next is Candidate A (release-ready 0.1.0)** per the
-[Phase 5 candidates](#phase-5-candidates) recommendation above.
-Three concrete first PRs, in order:
+A `v0.2.0` tag is the natural next checkpoint, covering:
+- The umbrella restoration (one user-visible feature)
+- The scaffold fix (one user-visible bug fix)
+- Plus whatever Candidate A wrap-up lands (CHANGELOG, issue
+  templates, shaders/Readme.md, badges, the `--version` cleanup).
 
-1. **Resolve the case-mismatch.** Rename the GitHub repo from
-   `GoGoGodot` to `gogogd` so the URL matches the module path. One
-   click in the GitHub web UI; GitHub auto-redirects.
-2. **Default-branch rename.** `gogogd-fork` → `main`. Web UI + the
-   one-line `git branch -m gogogd-fork main` locally + repoint the
-   branch on origin.
-3. **Cut `v0.1.0`.** `git tag v0.1.0 && git push --tags`. Before
-   tagging, verify the working tree builds clean and all three
-   examples pass `gogogd test`.
-
-After the tag, the polish work in Candidate B becomes the steady-state
-pipeline. Candidate C is its own much larger effort to plan separately.
+After v0.2.0 ships, the Candidate B authoring-polish backlog becomes
+the steady-state pipeline. Candidate C (state-preserving reload) is
+its own much larger effort to plan separately.

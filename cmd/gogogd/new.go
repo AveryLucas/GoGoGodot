@@ -107,15 +107,20 @@ const mainGoTemplate = `// Package main is the {{.Name}} project entry point.
 // The minimal scaffold: one Game component and a one-line main()
 // that starts the engine. Class registrations are emitted by ` + "`gogogd register`" + `
 // into gogogd_register.go's init() — that runs automatically before main.
+//
+// Most authoring helpers live on the umbrella ` + "`github.com/AveryLucas/gogogd`" + `
+// (` + "`gogogd.Delta`" + `, ` + "`gogogd.Quit`" + `, ` + "`gogogd.After`" + `, ` + "`gogogd.Vector`" + `, etc.).
+// The engine entry point ` + "`startup.Scene()`" + ` is in its own subpackage
+// because re-exporting it through the umbrella would cycle through
+// the cgo glue.
 package main
 
 import (
 	"fmt"
 	"os"
 
+	"github.com/AveryLucas/gogogd"
 	"github.com/AveryLucas/gogogd/classdb/Node"
-	"github.com/AveryLucas/gogogd/gd"
-	"github.com/AveryLucas/gogogd/scenetree"
 	"github.com/AveryLucas/gogogd/startup"
 )
 
@@ -129,12 +134,12 @@ func (g *Game) Ready() {
 	fmt.Fprintln(os.Stderr, "[{{.Name}}] Game.Ready — gogogd works!")
 }
 
-func (g *Game) Process(dt gd.Delta) {
+func (g *Game) Process(dt gogogd.Delta) {
 	g.ticks++
 	if g.ticks >= 60 {
 		// Quit after one second so headless test runs exit cleanly.
 		// Remove this guard for an interactive game.
-		scenetree.Quit(g.AsNode())
+		gogogd.Quit(g.AsNode())
 	}
 }
 
